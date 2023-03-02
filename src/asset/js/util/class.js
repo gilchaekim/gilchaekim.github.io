@@ -11,7 +11,7 @@ export function addClass(element, ...args) {
 }
 
 /**
- * 엘리먼트에 클래스 제거
+ * 엘리먼트에 클래스 제거312312
  * @param {Object} element 
  * @param  {...any} args 삭제 할 클래스 리스트
  */
