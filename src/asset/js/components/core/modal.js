@@ -18,10 +18,10 @@ export default {
     mixins: [Modal],
 
     data: {
-        clsPage: 'mui-modal-page',
-        selPanel: '.mui-modal-dialog',
+        clsPage: 'mui_modal_page',
+        selPanel: '.mui_modal_dialog',
         selClose:
-            '.mui-modal-close, .mui-modal-close-default, .mui-modal-close-outside, .mui-modal-close-full',
+            '.mui_modal_close, .mui_modal_close_default, .mui_modal_close_outside, .mui_modal_close_full',
     },
 
     events: [
@@ -31,8 +31,9 @@ export default {
             self: true,
 
             handler() {
-                if (hasClass(this.panel, 'mui-margin-auto-vertical')) {
-                    addClass(this.$el, 'mui-flex');
+                console.log(this.panel);
+                if (hasClass(this.panel, 'mui_auto_vertical')) {
+                    addClass(this.$el, 'mui_flex');
                 } else {
                     css(this.$el, 'display', 'block');
                 }
@@ -48,7 +49,7 @@ export default {
 
             handler() {
                 css(this.$el, 'display', '');
-                removeClass(this.$el, 'mui-flex');
+                removeClass(this.$el, 'mui_flex');
             },
         },
     ],
@@ -57,8 +58,8 @@ export default {
 function install({ modal }) {
     modal.dialog = function (content, options) {
         const dialog = modal(
-            `<div class="mui-modal">
-                <div class="mui-modal-dialog">${content}</div>
+            `<div class="mui_modal">
+                <div class="mui_modal_dialog">${content}</div>
              </div>`,
             options
         );
@@ -80,13 +81,13 @@ function install({ modal }) {
 
     modal.alert = function (message, options) {
         return openDialog(
-            ({ i18n }) => `<div class="mui-modal-body">${
+            ({ i18n }) => `<div class="mui_modal_body">${
                 isString(message) ? message : html(message)
             }</div>
-            <div class="mui-modal-footer mui-text-right">
-                <button class="mui-button mui-button-primary mui-modal-close" autofocus>${
+            <div class="mui_modal_footer">
+                <button class="mui_button mui_modal_close" autofocus><span>${
                     i18n.ok
-                }</button>
+                }</span></button>
             </div>`,
             options,
             (deferred) => deferred.resolve()
@@ -96,34 +97,14 @@ function install({ modal }) {
     modal.confirm = function (message, options) {
         return openDialog(
             ({ i18n }) => `<form>
-                <div class="mui-modal-body">${isString(message) ? message : html(message)}</div>
-                <div class="mui-modal-footer mui-text-right">
-                    <button class="mui-button mui-button-primary" autofocus>${i18n.ok}</button>
-                    <button class="mui-button mui-button-default mui-modal-close" type="button">${i18n.cancel}</button>
+                <div class="mui_modal_body">${isString(message) ? message : html(message)}</div>
+                <div class="mui_modal_footer">
+                    <button class="mui_button" autofocus><span>${i18n.ok}</span></button>
+                    <button class="mui_button mui_modal_close" type="button"><span>${i18n.cancel}</span></button>
                 </div>
             </form>`,
             options,
             (deferred) => deferred.reject()
-        );
-    };
-
-    modal.prompt = function (message, value, options) {
-        return openDialog(
-            ({ i18n }) => `<form class="mui-form-stacked">
-                <div class="mui-modal-body">
-                    <label>${isString(message) ? message : html(message)}</label>
-                    <input class="mui-input" value="${value || ''}" autofocus>
-                </div>
-                <div class="mui-modal-footer mui-text-right">
-                    <button class="mui-button mui-button-default mui-modal-close" type="button">${
-                        i18n.cancel
-                    }</button>
-                    <button class="mui-button mui-button-primary">${i18n.ok}</button>
-                </div>
-            </form>`,
-            options,
-            (deferred) => deferred.resolve(null),
-            (dialog) => $('input', dialog.$el).value
         );
     };
 

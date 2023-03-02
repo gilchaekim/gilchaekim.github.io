@@ -3,7 +3,7 @@ extends ../layout/guideBase.pug
 block content
   div.main_content
     +guideTitle({
-      text:"Tabs"
+      text:"Modal"
     })
     +guideTitle({
       text:"Example",
@@ -11,30 +11,62 @@ block content
     })
     +guideExample()(code)
       :code
-        +tabsWrap({
-          active:1,
-          className:'custom_tab'
+        //- 호출 버튼
+        +button({
+          label:"모달 호출 버튼",
+          size:'large',
+          muiToggle:'target:#modal;mode:hover;'
         })
-          +tab("텝 네비1")
-            div 11111
-          +tab("텝 네비2")
-            div 22222
-          +tab("텝 네비3")
-            div 33333
-          +tab("텝 네비4")
-            +tabsWrap({
-              active:0,
-              className:'custom_tab'
-            })
-              +tab("Inner tab1")
-                div 11111
-              +tab("Inner tab2")
-                div 22222
-              +tab("Inner tab3")
-                div 33333
-              +tab("Inner tab4")
-                div 44444
-                
+
+
+        +modal({
+          title:"모달 타이틀"
+        })
+          //- 컨텐츠 영역
+          div 모달 컨텐츠
+
+          //- 푸터 영역
+          +footer()
+            div.btns_wrap
+              +button({
+                label:"확인",
+                size:'large',
+              })
+              +button({
+                label:"취소",
+                size:'large',
+                className:"mui_modal_close"
+              })
+    +guideTitle({
+      text:"Alert, confirm, dialog",
+      level:2
+    })
+    +guideExample()(code)
+      +button({
+        label:"Alert 호출",
+        size:'large',
+        id:"callAlert"
+      })
+      +button({
+        label:"Confirm 호출",
+        size:'large',
+        id:"callConfirm"
+      })
+      +button({
+        label:"Dialog 호출",
+        size:'large',
+        id:"callDialog"
+      })
+      :code
+        //- 얼럿
+        GCui.modal.alert("Alert!!")
+
+        //- 컴폼
+        GCui.modal.confirm("Confirm!!")
+
+        //- 다이얼로그
+        GCui.modal.dialog("dialog")
+      
     br
     br
     +guideTitle({
@@ -97,6 +129,31 @@ block content
         }
       ]
     ])
-
+    script. 
+      document.addEventListener("DOMContentLoaded", (event) => {
+        let elem = []
+        elem.push(document.querySelector("#callAlert"))
+        elem.push(document.querySelector("#callConfirm"))
+        elem.push(document.querySelector("#callDialog"))
+        elem.forEach((el, i) => {
+          GCui.util.on(el, 'click', (e) => {
+            const id = el.id
+            switch (id) {
+              case "callAlert":{
+                GCui.modal.alert("Alert!!")
+                break;
+              }
+              case "callConfirm":{
+                GCui.modal.confirm("Confirm!!")
+                break;
+              }
+              case "callDialog":{
+                GCui.modal.dialog("dialog")
+                break;
+              }
+            }
+          })
+        })
+      });
 
 

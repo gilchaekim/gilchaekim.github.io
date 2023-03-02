@@ -918,7 +918,7 @@
     apply$1(element, args, 'remove');
   }
 
-  //확인 필요
+  //확인 필요12231
   function removeClasses(element, cls) {
     attr(element, 'class', function (value) {
       return (value || '').replace(new RegExp("\\b".concat(cls, "\\b"), 'g'), '');
@@ -4694,7 +4694,7 @@
         });
       },
       handler: function handler(e) {
-        console.log(this.mode);
+        console.log(e);
         e.preventDefault();
         this.toggle();
         // this.toggleElement(e.current);
@@ -5875,7 +5875,7 @@
       role: String
     },
     data: {
-      cls: 'mui-open',
+      cls: 'mui_open',
       escClose: true,
       bgClose: true,
       overlay: true,
@@ -6086,16 +6086,17 @@
     install: install,
     mixins: [Modal],
     data: {
-      clsPage: 'mui-modal-page',
-      selPanel: '.mui-modal-dialog',
-      selClose: '.mui-modal-close, .mui-modal-close-default, .mui-modal-close-outside, .mui-modal-close-full'
+      clsPage: 'mui_modal_page',
+      selPanel: '.mui_modal_dialog',
+      selClose: '.mui_modal_close, .mui_modal_close_default, .mui_modal_close_outside, .mui_modal_close_full'
     },
     events: [{
       name: 'show',
       self: true,
       handler: function handler() {
-        if (hasClass(this.panel, 'mui-margin-auto-vertical')) {
-          addClass(this.$el, 'mui-flex');
+        console.log(this.panel);
+        if (hasClass(this.panel, 'mui_auto_vertical')) {
+          addClass(this.$el, 'mui_flex');
         } else {
           css(this.$el, 'display', 'block');
         }
@@ -6106,14 +6107,14 @@
       self: true,
       handler: function handler() {
         css(this.$el, 'display', '');
-        removeClass(this.$el, 'mui-flex');
+        removeClass(this.$el, 'mui_flex');
       }
     }]
   };
   function install(_ref) {
     var modal = _ref.modal;
     modal.dialog = function (content, options) {
-      var dialog = modal("<div class=\"mui-modal\">\n                <div class=\"mui-modal-dialog\">".concat(content, "</div>\n             </div>"), options);
+      var dialog = modal("<div class=\"mui_modal\">\n                <div class=\"mui_modal_dialog\">".concat(content, "</div>\n             </div>"), options);
       dialog.show();
       on(dialog.$el, 'hidden', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -6138,7 +6139,7 @@
     modal.alert = function (message, options) {
       return openDialog(function (_ref3) {
         var i18n = _ref3.i18n;
-        return "<div class=\"mui-modal-body\">".concat(isString(message) ? message : html(message), "</div>\n            <div class=\"mui-modal-footer mui-text-right\">\n                <button class=\"mui-button mui-button-primary mui-modal-close\" autofocus>").concat(i18n.ok, "</button>\n            </div>");
+        return "<div class=\"mui_modal_body\">".concat(isString(message) ? message : html(message), "</div>\n            <div class=\"mui_modal_footer\">\n                <button class=\"mui_button mui_modal_close\" autofocus><span>").concat(i18n.ok, "</span></button>\n            </div>");
       }, options, function (deferred) {
         return deferred.resolve();
       });
@@ -6146,19 +6147,9 @@
     modal.confirm = function (message, options) {
       return openDialog(function (_ref4) {
         var i18n = _ref4.i18n;
-        return "<form>\n                <div class=\"mui-modal-body\">".concat(isString(message) ? message : html(message), "</div>\n                <div class=\"mui-modal-footer mui-text-right\">\n                    <button class=\"mui-button mui-button-primary\" autofocus>").concat(i18n.ok, "</button>\n                    <button class=\"mui-button mui-button-default mui-modal-close\" type=\"button\">").concat(i18n.cancel, "</button>\n                </div>\n            </form>");
+        return "<form>\n                <div class=\"mui_modal_body\">".concat(isString(message) ? message : html(message), "</div>\n                <div class=\"mui_modal_footer\">\n                    <button class=\"mui_button\" autofocus><span>").concat(i18n.ok, "</span></button>\n                    <button class=\"mui_button mui_modal_close\" type=\"button\"><span>").concat(i18n.cancel, "</span></button>\n                </div>\n            </form>");
       }, options, function (deferred) {
         return deferred.reject();
-      });
-    };
-    modal.prompt = function (message, value, options) {
-      return openDialog(function (_ref5) {
-        var i18n = _ref5.i18n;
-        return "<form class=\"mui-form-stacked\">\n                <div class=\"mui-modal-body\">\n                    <label>".concat(isString(message) ? message : html(message), "</label>\n                    <input class=\"mui-input\" value=\"").concat(value || '', "\" autofocus>\n                </div>\n                <div class=\"mui-modal-footer mui-text-right\">\n                    <button class=\"mui-button mui-button-default mui-modal-close\" type=\"button\">").concat(i18n.cancel, "</button>\n                    <button class=\"mui-button mui-button-primary\">").concat(i18n.ok, "</button>\n                </div>\n            </form>");
-      }, options, function (deferred) {
-        return deferred.resolve(null);
-      }, function (dialog) {
-        return $$1('input', dialog.$el).value;
       });
     };
     modal.i18n = {

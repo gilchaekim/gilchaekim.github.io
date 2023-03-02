@@ -113,6 +113,54 @@ table, th, td {
   background: #f8f8f8;
 }
 
+.mui_modal, [mui-modal] {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.15s linear;
+  padding: 0 20px;
+}
+.mui_modal.mui_flex, [mui-modal].mui_flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mui_modal .mui_size_small, [mui-modal] .mui_size_small {
+  min-width: 400px;
+}
+.mui_modal .mui_size_medium, [mui-modal] .mui_size_medium {
+  min-width: 600px;
+}
+.mui_modal .mui_size_large, [mui-modal] .mui_size_large {
+  min-width: 800px;
+}
+.mui_modal .mui_modal_dialog, [mui-modal] .mui_modal_dialog {
+  margin: 0 auto;
+  position: relative;
+  top: 0;
+  transition-duration: 0.15s;
+}
+.mui_modal .mui_modal_body, [mui-modal] .mui_modal_body {
+  background: #fff;
+  border-radius: 6px;
+  padding: 24px;
+  position: relative;
+  top: -20px;
+  transition: top 0.15s;
+}
+.mui_modal.mui_open, [mui-modal].mui_open {
+  opacity: 1;
+}
+.mui_modal.mui_open .mui_modal_body, [mui-modal].mui_open .mui_modal_body {
+  top: 0px;
+}
+
 .mui_datepicker {
   border: 1px solid #00f;
 }
@@ -583,29 +631,6 @@ button {
   line-height: 800px;
   font-size: 200px;
   text-align: center;
-}
-
-.mui-modal, [mui-modal] {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100;
-  background: rgba(0, 0, 0, 0.6);
-  opacity: 0;
-  transition: opacity 0.3s linear;
-}
-.mui-modal .mui-modal-dialog, [mui-modal] .mui-modal-dialog {
-  width: 50%;
-  height: 200px;
-  background: #fff;
-  margin: 0 auto;
-  transition-duration: 0.3s;
-}
-.mui-modal.mui-open, [mui-modal].mui-open {
-  opacity: 1;
 }
 
 /* ========================================================================

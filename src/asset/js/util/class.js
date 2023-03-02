@@ -2,7 +2,7 @@ import {attr} from './attr';
 import {hasOwn, includes, isString, isUndefined, toNodes, last} from './lang.js';
 
 /**
- * 엘리먼트에 클래스 추가5345
+ * 엘리먼트에 클래스 추가
  * @param {Object} element 
  * @param  {...any} args 추가 할 클래스 리스트
  */
@@ -11,7 +11,7 @@ export function addClass(element, ...args) {
 }
 
 /**
- * 엘리먼트에 클래스 제거312312
+ * 엘리먼트에 클래스 제거
  * @param {Object} element 
  * @param  {...any} args 삭제 할 클래스 리스트
  */
@@ -19,7 +19,10 @@ export function removeClass(element, ...args) {
     apply(element, args, 'remove');
 }
 
-//확인 필요
+
+
+
+//확인 필요12231
 export function removeClasses(element, cls) {
     attr(element, 'class', value => (value || '').replace(new RegExp(`\\b${cls}\\b`, 'g'), ''));
 }

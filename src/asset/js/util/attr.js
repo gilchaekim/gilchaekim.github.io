@@ -9,6 +9,8 @@ export function attr(element, name, value) {
         return;
     }
 
+
+    
     if (isUndefined(value)) {
         element = toNode(element);
         return element && element.getAttribute(name);

@@ -39,7 +39,7 @@ export default {
     },
 
     data: {
-        cls: 'mui-open',
+        cls: 'mui_open',
         escClose: true,
         bgClose: true,
         overlay: true,

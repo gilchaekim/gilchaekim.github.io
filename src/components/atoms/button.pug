@@ -7,14 +7,16 @@ mixin button(params={})
 
   - let element = "button"
   - let buttonType = "button"
-  - const { size="medium", label, isIcon, href, muiToggle, ...rest } = Object.assign({}, params)
+  - const { size="medium", label, isIcon, href, muiToggle, className, id, ...rest } = Object.assign({}, params)
   - let test = "mui"
   if href
     - element = "a"
     - buttonType = undefined
   #{element}(
+    id=id
     class=`${prefix}-button`
     class=`${prefix}-size-${size}`
+    class=className
     class={
       'mui-icon':isIcon,
     }

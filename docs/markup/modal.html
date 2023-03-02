@@ -10,34 +10,55 @@
     <div id="guideWrap">
       <div class="main_content">
         <div class="title_sec">
-          <p class="title title_lv1">Tabs</p>
+          <p class="title title_lv1">Modal</p>
         </div>
         <div class="title_sec">
           <p class="title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_tabs custom_tab" mui-tab=""><ul class="mui_tab_nav"><li class="nav_list"><button type="button">텝 네비1</button></li><li class="nav_list mui_active"><button type="button">텝 네비2</button></li><li class="nav_list"><button type="button">텝 네비3</button></li><li class="nav_list"><button type="button">텝 네비4</button></li></ul><div class="tab_contents"><div class="tab_pane"><div>11111</div></div><div class="tab_pane mui_active"><div>22222</div></div><div class="tab_pane"><div>33333</div></div><div class="tab_pane"><div class="mui_tabs custom_tab" mui-tab=""><ul class="mui_tab_nav"><li class="nav_list mui_active"><button type="button">Inner tab1</button></li><li class="nav_list"><button type="button">Inner tab2</button></li><li class="nav_list"><button type="button">Inner tab3</button></li><li class="nav_list"><button type="button">Inner tab4</button></li></ul><div class="tab_contents"><div class="tab_pane mui_active"><div>11111</div></div><div class="tab_pane"><div>22222</div></div><div class="tab_pane"><div>33333</div></div><div class="tab_pane"><div>44444</div></div></div></div></div></div></div></section><div class="code_block"><pre><code class="language-pug">+tabsWrap({
-  active:1,
-  className:'custom_tab'
+        <div class="guide_card_box"><section class="code_view"><button class="mui-button mui-size-large" type="button" mui-toggle="target:#modal;mode:hover;"><span>모달 호출 버튼</span></button><div mui-modal="" id="modal"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical"> <div class="mui_modal_body"><div class="mui_modal_header">모달 타이틀</div><div class="mui_modal_content"><div>모달 컨텐츠</div></div><div class="mui_modal_footer"><div class="btns_wrap"><button class="mui-button mui-size-large" type="button"><span>확인</span></button><button class="mui-button mui-size-large mui_modal_close" type="button"><span>취소</span></button></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
++button({
+  label:"모달 호출 버튼",
+  size:'large',
+  muiToggle:'target:#modal;mode:hover;'
 })
-  +tab("텝 네비1")
-    div 11111
-  +tab("텝 네비2")
-    div 22222
-  +tab("텝 네비3")
-    div 33333
-  +tab("텝 네비4")
-    +tabsWrap({
-      active:0,
-      className:'custom_tab'
-    })
-      +tab("Inner tab1")
-        div 11111
-      +tab("Inner tab2")
-        div 22222
-      +tab("Inner tab3")
-        div 33333
-      +tab("Inner tab4")
-        div 44444</code></pre></div>
+ 
+ 
++modal({
+  title:"모달 타이틀"
+})
+  //- 컨텐츠 영역
+  div 모달 컨텐츠
+ 
+  //- 푸터 영역
+  +footer()
+    div.btns_wrap
+      +button({
+        label:"확인",
+        size:'large',
+      })
+      +button({
+        label:"취소",
+        size:'large',
+        className:"mui_modal_close"
+      })</code></pre></div>
+          <div class="view_code">
+            <button>code view</button>
+          </div>
+        </div>
+        <div class="title_sec">
+          <p class="title title_lv2">Alert, confirm, dialog</p>
+        </div>
+        <div class="guide_card_box">
+          <button class="mui-button mui-size-large" id="callAlert" type="button"><span>Alert 호출</span></button>
+          <button class="mui-button mui-size-large" id="callConfirm" type="button"><span>Confirm 호출</span></button>
+          <button class="mui-button mui-size-large" id="callDialog" type="button"><span>Dialog 호출</span></button><section class="code_view"><GCui class="modal alert" Alert!!="Alert!!"></GCui><GCui class="modal confirm" Confirm!!="Confirm!!"></GCui><GCui class="modal dialog" dialog="dialog"></GCui></section><div class="code_block"><pre><code class="language-pug">//- 얼럿
+GCui.modal.alert("Alert!!")
+ 
+//- 컴폼
+GCui.modal.confirm("Confirm!!")
+ 
+//- 다이얼로그
+GCui.modal.dialog("dialog")</code></pre></div>
           <div class="view_code">
             <button>code view</button>
           </div>
@@ -115,6 +136,33 @@
             </table>
           </div>
         </div>
+        <script>
+          document.addEventListener("DOMContentLoaded", (event) => {
+            let elem = []
+            elem.push(document.querySelector("#callAlert"))
+            elem.push(document.querySelector("#callConfirm"))
+            elem.push(document.querySelector("#callDialog"))
+            elem.forEach((el, i) => {
+              GCui.util.on(el, 'click', (e) => {
+                const id = el.id
+                switch (id) {
+                  case "callAlert":{
+                    GCui.modal.alert("Alert!!")
+                    break;
+                  }
+                  case "callConfirm":{
+                    GCui.modal.confirm("Confirm!!")
+                    break;
+                  }
+                  case "callDialog":{
+                    GCui.modal.dialog("dialog")
+                    break;
+                  }
+                }
+              })
+            })
+          });
+        </script>
       </div>
     </div>
     <script type="text/javascript" src="/js/index.js"></script>

@@ -71,7 +71,7 @@ export default {
                 return ['click', 'hover'].some((mode) => includes(this.mode, mode));
             },
             handler(e) {
-                console.log(this.mode)
+                console.log(e)
                 e.preventDefault();
                 this.toggle();
                 // this.toggleElement(e.current);

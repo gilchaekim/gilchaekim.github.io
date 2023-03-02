@@ -1,0 +1,54 @@
+.mui_modal, [mui-modal]{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+    background: rgba(0,0,0,.5);
+    opacity: 0;
+    transition: opacity .15s linear;
+    padding: 0 20px;
+    &.mui_flex {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mui_size{
+        &_small{
+            min-width: 400px;
+            
+        }
+        &_medium{
+            min-width: 600px;
+        }
+        &_large{
+            min-width: 800px;
+        }
+    }
+    .mui_modal{
+        &_dialog{
+            margin: 0 auto;
+            position: relative;
+            top: 0;
+            transition-duration: .15s;
+        }
+        &_body{
+            background: #fff;
+            border-radius: 6px;
+            padding: 24px;
+            position: relative;
+            top: -20px;
+            transition: top .15s;
+        }
+
+    }
+    
+    &.mui_open{
+        opacity: 1;
+        .mui_modal_body{
+            top: 0px;
+        }
+    }
+}

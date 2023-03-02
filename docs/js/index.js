@@ -427,6 +427,11 @@
       return propA > propB ? 1 : propB > propA ? -1 : 0;
     });
   }
+  function sumBy(array, iteratee) {
+    return array.reduce(function (sum, item) {
+      return sum + toFloat(isFunction(iteratee) ? iteratee(item) : item[iteratee]);
+    }, 0);
+  }
   function uniqueBy(array, prop) {
     var seen = new Set();
     return array.filter(function (_ref3) {
@@ -573,7 +578,7 @@
     apply$1(element, args, 'remove');
   }
 
-  //확인 필요
+  //확인 필요12231
   function removeClasses(element, cls) {
     attr(element, 'class', function (value) {
       return (value || '').replace(new RegExp("\\b".concat(cls, "\\b"), 'g'), '');
@@ -1333,7 +1338,7 @@
    * element를 삭제
    * @param {element} element 
    */
-  function remove$2(element) {
+  function remove$1(element) {
     toNodes(element).forEach(function (element) {
       return element.parentNode && element.parentNode.removeChild(element);
     });
@@ -1375,7 +1380,7 @@
       return self.indexOf(value) === index;
     }).forEach(function (parent) {
       before(parent, parent.childNodes);
-      remove$2(parent);
+      remove$1(parent);
     });
   }
   var fragmentRe = /^\s*<(\w+|!)[^>]*>/;
@@ -1497,7 +1502,7 @@
     var element = append(document.documentElement, document.createElement('div'));
     addClass(element, "uk-".concat(name));
     name = getStyle(element, 'content', ':before').replace(/^["'](.*)["']$/, '$1');
-    remove$2(element);
+    remove$1(element);
     return name;
   });
   function getCssVar(name) {
@@ -1899,8 +1904,8 @@
       return task;
     },
     clear: function clear(task) {
-      remove$1(this.reads, task);
-      remove$1(this.writes, task);
+      remove(this.reads, task);
+      remove(this.writes, task);
     },
     flush: flush
   };
@@ -1939,7 +1944,7 @@
       }
     }
   }
-  function remove$1(array, item) {
+  function remove(array, item) {
     var index = array.indexOf(item);
     return ~index && array.splice(index, 1);
   }
@@ -2509,6 +2514,7 @@
     last: last,
     each: each,
     sortBy: sortBy,
+    sumBy: sumBy,
     uniqueBy: uniqueBy,
     clamp: clamp,
     noop: noop,
@@ -2526,7 +2532,7 @@
     append: append,
     before: before,
     after: after,
-    remove: remove$2,
+    remove: remove$1,
     wrapAll: wrapAll,
     wrapInner: wrapInner,
     unwrap: unwrap,
@@ -3044,8 +3050,8 @@
       this._callHook('destory');
       if (!el || !el[DATA]) return;
       delete el[DATA][name];
-      if (!isEmpty(el[DATA])) delete el[DATA];
-      if (removeEl) remove(this.$el);
+      if (!isEmpty$1(el[DATA])) delete el[DATA];
+      if (removeEl) remove$1(this.$el);
     };
     UICommon.prototype.$emit = function (e) {
       this._callUpdate(e);

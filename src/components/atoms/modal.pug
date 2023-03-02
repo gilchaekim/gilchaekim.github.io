@@ -4,24 +4,55 @@ mixin modal(params={})
   - const divide = '_'
   //- 공통 요소 End
   
+  - const { title, className, size, ...rest } = Object.assign({}, params)
+  - let element = "div"
+  - let { muiModal } = Object.assign({}, params)
+  - let modalItems = {};
+  - let modalSize = size || 'medium';
+  - let alignMiddle = true;
+  mixin footer()
+    - modalItems.footer = block
+    
+  
+  if !muiModal
+    - muiModal = '';
 
-  - let element = "button"
-  - let buttonType = "button"
-  - const { size="medium", label, isIcon, href, rest } = Object.assign({}, params)
-  - let test = "mui"
-  if href
-    - element = "a"
-    - buttonType = undefined
   #{element}(
-    class=`${prefix}-button`
-    class=`${prefix}-size-${size}`
-    class=`${prefix}-size-${size}`
-    class={
-      'mui-icon':isIcon,
-    }
-    type=buttonType
-    href=href
+    mui-modal=muiModal
+    id="modal"
   )
-    span
-      | #{label}
+    div(
+      class=`${prefix}${divide}modal${divide}dialog`
+      class=`mui_size_${modalSize}`
+      class=className
+      class={"mui_auto_vertical": alignMiddle}
+    ) 
+      div(
+        class=`${prefix}${divide}modal${divide}body`
+      )
+        if title
+          div(
+            class=`${prefix}${divide}modal${divide}header`
+          ) #{title}
+        div(
+          class=`${prefix}${divide}modal${divide}content`
+        )
+          block
+        if modalItems.footer
+          div(
+            class=`${prefix}${divide}modal${divide}footer`
+          )
+            - modalItems.footer()
+        
+        button(
+          class=`${prefix}${divide}modal${divide}close`
+        ) 닫기
+
+    
+
+
+
+  
+
+
 
