@@ -2,7 +2,7 @@ import {attr} from './attr';
 import {hasOwn, includes, isString, isUndefined, toNodes, last} from './lang.js';
 
 /**
- * 엘리먼트에 클래스 추가
+ * 엘리먼트에 클래스 추가5345
  * @param {Object} element 
  * @param  {...any} args 추가 할 클래스 리스트
  */
