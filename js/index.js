@@ -6275,7 +6275,6 @@
         if (distance === 0 || this.prevPos === this.pos || !this.dragging && Math.abs(distance) < this.threshold) {
           return;
         }
-        console.log('move');
 
         // // prevent click event
         // css(this.list, 'pointerEvents', 'none');

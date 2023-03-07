@@ -22,6 +22,8 @@ export default {
         draggable: Boolean,
     },
 
+
+    
     data: {
         draggable: true,
         threshold: 10,
