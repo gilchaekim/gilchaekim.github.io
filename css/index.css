@@ -34,7 +34,11 @@
 }
 
 .mui-button {
-  background-color: #f0f;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin: 4px 0;
 }
 
 caption {

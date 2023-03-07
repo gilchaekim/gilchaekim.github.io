@@ -58,8 +58,10 @@ export default {
 function install({ modal }) {
     modal.dialog = function (content, options) {
         const dialog = modal(
-            `<div class="mui_modal">
-                <div class="mui_modal_dialog">${content}</div>
+            `<div class="mui_modal system_pop">
+                <div class="mui_modal_dialog">
+                    <div class="mui_modal_body">${content}</div>
+                </div>
              </div>`,
             options
         );

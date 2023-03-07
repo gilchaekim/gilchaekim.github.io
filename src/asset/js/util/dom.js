@@ -21,6 +21,10 @@ export function ready(fn) {
     });
 }
 
+export function isTag(element, tagName) {
+    return element?.tagName?.toLowerCase() === tagName.toLowerCase();
+}
+
 /**
  * element 자식노드의 내용을 모두 비움
  * @param {element} element 

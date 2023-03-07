@@ -1199,9 +1199,9 @@
   var hasPointerEvents = inBrowser && window.PointerEvent;
   var hasTouch = inBrowser && (hasTouchEvents || window.DocumentTouch && document instanceof DocumentTouch || navigator.maxTouchPoints); // IE >=11
 
-  var pointerDown = hasPointerEvents ? 'pointerdown' : hasTouchEvents ? 'touchstart' : 'mousedown';
-  var pointerMove = hasPointerEvents ? 'pointermove' : hasTouchEvents ? 'touchmove' : 'mousemove';
-  var pointerUp = hasPointerEvents ? 'pointerup' : hasTouchEvents ? 'touchend' : 'mouseup';
+  var pointerDown$1 = hasPointerEvents ? 'pointerdown' : hasTouchEvents ? 'touchstart' : 'mousedown';
+  var pointerMove$1 = hasPointerEvents ? 'pointermove' : hasTouchEvents ? 'touchmove' : 'mousemove';
+  var pointerUp$1 = hasPointerEvents ? 'pointerup' : hasTouchEvents ? 'touchend' : 'mouseup';
   var pointerEnter = hasPointerEvents ? 'pointerenter' : hasTouchEvents ? '' : 'mouseenter';
   var pointerLeave = hasPointerEvents ? 'pointerleave' : hasTouchEvents ? '' : 'mouseleave';
   var pointerCancel = hasPointerEvents ? 'pointercancel' : 'touchcancel';
@@ -1597,6 +1597,10 @@
       unbind();
       fn();
     });
+  }
+  function isTag(element, tagName) {
+    var _element$tagName;
+    return (element === null || element === void 0 ? void 0 : (_element$tagName = element.tagName) === null || _element$tagName === void 0 ? void 0 : _element$tagName.toLowerCase()) === tagName.toLowerCase();
   }
 
   /**
@@ -2866,6 +2870,7 @@
     mergeOptions: mergeOptions,
     parseOptions: parseOptions,
     ready: ready,
+    isTag: isTag,
     empty: empty,
     html: html,
     prepend: prepend,
@@ -2889,9 +2894,9 @@
     isRtl: isRtl,
     isAndroid: isAndroid,
     hasTouch: hasTouch,
-    pointerDown: pointerDown,
-    pointerMove: pointerMove,
-    pointerUp: pointerUp,
+    pointerDown: pointerDown$1,
+    pointerMove: pointerMove$1,
+    pointerUp: pointerUp$1,
     pointerEnter: pointerEnter,
     pointerLeave: pointerLeave,
     pointerCancel: pointerCancel,
@@ -4625,29 +4630,6 @@
     }
   };
 
-  var Media = {
-    props: {
-      media: Boolean
-    },
-    data: {
-      media: false
-    },
-    compute: {
-      mathMedia: function mathMedia() {
-        toMedia(this.media);
-      }
-    }
-  };
-  function toMedia(value) {
-    if (isString(value)) {
-      var name = "breakepoint-".concat(value.substr(1));
-      value = toFloat(getCssVar(name));
-    } else if (isNaN(value)) {
-      return value;
-    }
-    return value && !isNaN(value) ? "(min-width: ".concat(value, "px)") : false;
-  }
-
   var toggle = {
     mixins: [Lazyload, Togglable],
     props: {
@@ -4694,13 +4676,20 @@
         });
       },
       handler: function handler(e) {
-        console.log(e);
         e.preventDefault();
         this.toggle();
-        // this.toggleElement(e.current);
+      }
+    }, {
+      name: 'hide show',
+      self: true,
+      el: function el() {
+        return this.target;
+      },
+      handler: function handler(_ref2) {
+        var type = _ref2.type;
+        this.updateAria(type === 'show');
       }
     }],
-
     methods: {
       toggle: function toggle(type) {
         var _this2 = this;
@@ -4760,13 +4749,38 @@
         }))();
       },
       updateAria: function updateAria(toggled) {
-        if (includes(this.mode, 'media')) {
-          return;
-        }
-        attr(this.$el, 'aria-expanded', isBoolean(toggled) ? toggled : this.isToggled(this.target));
+        var $el = this.$el,
+          isToggled = this.isToggled,
+          activeClass = this.activeClass,
+          target = this.target;
+        attr($el, 'aria-expanded', isBoolean(toggled) ? toggled : isToggled(target));
+        toggleClass($el, activeClass, isToggled(target));
       }
     }
   };
+
+  var Media = {
+    props: {
+      media: Boolean
+    },
+    data: {
+      media: false
+    },
+    compute: {
+      mathMedia: function mathMedia() {
+        toMedia(this.media);
+      }
+    }
+  };
+  function toMedia(value) {
+    if (isString(value)) {
+      var name = "breakepoint-".concat(value.substr(1));
+      value = toFloat(getCssVar(name));
+    } else if (isNaN(value)) {
+      return value;
+    }
+    return value && !isNaN(value) ? "(min-width: ".concat(value, "px)") : false;
+  }
 
   var sticky = {
     mixins: [Media],
@@ -6059,16 +6073,16 @@
     });
   }
   function listenForBackgroundClose(modal) {
-    return on(document, pointerDown, function (_ref3) {
+    return on(document, pointerDown$1, function (_ref3) {
       var target = _ref3.target;
       if (last(active) !== modal || modal.overlay && !within(target, modal.$el) || within(target, modal.panel)) {
         return;
       }
-      once(document, "".concat(pointerUp, " ").concat(pointerCancel, " scroll"), function (_ref4) {
+      once(document, "".concat(pointerUp$1, " ").concat(pointerCancel, " scroll"), function (_ref4) {
         var defaultPrevented = _ref4.defaultPrevented,
           type = _ref4.type,
           newTarget = _ref4.target;
-        if (!defaultPrevented && type === pointerUp && target === newTarget) {
+        if (!defaultPrevented && type === pointerUp$1 && target === newTarget) {
           modal.hide();
         }
       }, true);
@@ -6114,7 +6128,7 @@
   function install(_ref) {
     var modal = _ref.modal;
     modal.dialog = function (content, options) {
-      var dialog = modal("<div class=\"mui_modal\">\n                <div class=\"mui_modal_dialog\">".concat(content, "</div>\n             </div>"), options);
+      var dialog = modal("<div class=\"mui_modal system_pop\">\n                <div class=\"mui_modal_dialog\">\n                    <div class=\"mui_modal_body\">".concat(content, "</div>\n                </div>\n             </div>"), options);
       dialog.show();
       on(dialog.$el, 'hidden', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
@@ -6179,6 +6193,202 @@
       return deferred.promise;
     }
   }
+
+  var pointerOptions = {
+    passive: false,
+    capture: true
+  };
+  var pointerDown = 'touchstart mousedown';
+  var pointerMove = 'touchmove mousemove';
+  var pointerUp = 'touchend touchcancel mouseup click input';
+  var sliderDrag = {
+    props: {
+      draggable: Boolean
+    },
+    data: {
+      draggable: true,
+      threshold: 10
+    },
+    created: function created() {
+      var _this = this;
+      var _loop = function _loop() {
+        var key = _arr[_i];
+        var fn = _this[key];
+        _this[key] = function (e) {
+          var pos = getEventPos(e).x * (isRtl ? -1 : 1);
+          _this.prevPos = pos === _this.pos ? _this.prevPos : _this.pos;
+          _this.pos = pos;
+          console.log(key);
+          fn(e);
+        };
+      };
+      for (var _i = 0, _arr = ['start', 'move', 'end']; _i < _arr.length; _i++) {
+        _loop();
+      }
+    },
+    events: [{
+      name: pointerDown,
+      delegate: function delegate() {
+        return this.selSlides;
+      },
+      handler: function handler(e) {
+        if (!this.draggable || !isTouch(e) && hasTextNodesOnly(e.target) || closest(e.target, selInput) || e.button > 0 || this.length < 2) {
+          return;
+        }
+        this.start(e);
+      }
+    }, {
+      name: 'dragstart',
+      handler: function handler(e) {
+        e.preventDefault();
+      }
+    }, _objectSpread2({
+      // iOS workaround for slider stopping if swiping fast
+      name: "".concat(pointerMove, " ").concat(pointerUp),
+      el: function el() {
+        return this.list;
+      },
+      handler: noop
+    }, pointerOptions)],
+    methods: {
+      start: function start() {
+        this.drag = this.pos;
+        if (this._transitioner) {
+          this.percent = this._transitioner.percent();
+          this.drag += this._transitioner.getDistance() * this.percent * this.dir;
+          this._transitioner.cancel();
+          this._transitioner.translate(this.percent);
+          this.dragging = true;
+          this.stack = [];
+        } else {
+          this.prevIndex = this.index;
+        }
+        on(document, pointerMove, this.move, pointerOptions);
+
+        // 'input' event is triggered by video controls
+        on(document, pointerUp, this.end, pointerOptions);
+        css(this.list, 'userSelect', 'none');
+        // console.log('start');
+      },
+      move: function move(e) {
+        var distance = this.pos - this.drag;
+        if (distance === 0 || this.prevPos === this.pos || !this.dragging && Math.abs(distance) < this.threshold) {
+          return;
+        }
+        console.log('move');
+
+        // // prevent click event
+        // css(this.list, 'pointerEvents', 'none');
+
+        // e.cancelable && e.preventDefault();
+
+        // this.dragging = true;
+        // this.dir = distance < 0 ? 1 : -1;
+
+        // const { slides } = this;
+        // let { prevIndex } = this;
+        // let dis = Math.abs(distance);
+        // let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+        // let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+
+        // while (nextIndex !== prevIndex && dis > width) {
+        //     this.drag -= width * this.dir;
+
+        //     prevIndex = nextIndex;
+        //     dis -= width;
+        //     nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+        //     width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+        // }
+
+        // this.percent = dis / width;
+
+        // const prev = slides[prevIndex];
+        // const next = slides[nextIndex];
+        // const changed = this.index !== nextIndex;
+        // const edge = prevIndex === nextIndex;
+
+        // let itemShown;
+
+        // [this.index, this.prevIndex]
+        //     .filter((i) => !includes([nextIndex, prevIndex], i))
+        //     .forEach((i) => {
+        //         trigger(slides[i], 'itemhidden', [this]);
+
+        //         if (edge) {
+        //             itemShown = true;
+        //             this.prevIndex = prevIndex;
+        //         }
+        //     });
+
+        // if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
+        //     trigger(slides[this.index], 'itemshown', [this]);
+        // }
+
+        // if (changed) {
+        //     this.prevIndex = prevIndex;
+        //     this.index = nextIndex;
+
+        //     !edge && trigger(prev, 'beforeitemhide', [this]);
+        //     trigger(next, 'beforeitemshow', [this]);
+        // }
+
+        // this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
+
+        // if (changed) {
+        //     !edge && trigger(prev, 'itemhide', [this]);
+        //     trigger(next, 'itemshow', [this]);
+        // }
+        // console.log('move');
+      },
+      end: function end() {
+        off(document, pointerMove, this.move, pointerOptions);
+        off(document, pointerUp, this.end, pointerOptions);
+        if (this.dragging) {
+          this.dragging = null;
+          if (this.index === this.prevIndex) {
+            this.percent = 1 - this.percent;
+            this.dir *= -1;
+            this._show(false, this.index, true);
+            this._transitioner = null;
+          } else {
+            var dirChange = (isRtl ? this.dir * (isRtl ? 1 : -1) : this.dir) < 0 === this.prevPos > this.pos;
+            this.index = dirChange ? this.index : this.prevIndex;
+            if (dirChange) {
+              this.percent = 1 - this.percent;
+            }
+            this.show(this.dir > 0 && !dirChange || this.dir < 0 && dirChange ? 'next' : 'previous', true);
+          }
+        }
+        console.log('end');
+        css(this.list, {
+          userSelect: '',
+          pointerEvents: ''
+        });
+        this.drag = this.percent = null;
+      }
+    }
+  };
+  function hasTextNodesOnly(el) {
+    return !el.children.length && el.childNodes.length;
+  }
+
+  var slider = {
+    mixins: [Class, sliderDrag],
+    props: {
+      clsActivated: Boolean,
+      easing: String,
+      index: Number,
+      finite: Boolean,
+      velocity: Number,
+      selSlides: String
+    },
+    computed: {
+      selSlides: function selSlides(_ref) {
+        var $el = _ref.$el;
+        return $el;
+      }
+    }
+  };
 
   var worklists = {
     mixins: [Class, Togglable],
@@ -6285,6 +6495,7 @@
     Datepicker: datepicker,
     Formatter: formatter,
     Modal: modal,
+    Slider: slider,
     Worklists: worklists
   });
 

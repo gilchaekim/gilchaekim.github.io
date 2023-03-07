@@ -204,6 +204,10 @@ a {
   padding: 14px 20px;
 }
 
+.test_active {
+  background: #690;
+}
+
 code[class*=language-],
 pre[class*=language-] {
   color: black;

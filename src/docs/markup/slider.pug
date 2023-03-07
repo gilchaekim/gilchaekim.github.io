@@ -1,0 +1,55 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Slider"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        div(
+          mui-slider=""
+          style="border:1px solid red;height:300px"
+        ) sdfsdfsdfsdf
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })  
+
+    +attributesLists([
+      [
+        {
+          text:'target'
+        },
+        {
+          text:'토글 타겟, class, id 이름'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'cls'
+        },
+        {
+          text:'토글 할 커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

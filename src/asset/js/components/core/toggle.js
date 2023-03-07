@@ -1,26 +1,15 @@
 import Lazyload from '../mixin/lazyload';
-import Media from '../mixin/media';
 import Togglable from '../mixin/togglable';
 
 import {
-    $, 
-    addClass, 
-    removeClass, 
     toggleClass, 
     hasClass, 
     isFocusable, 
-    Dimensions, 
-    height, 
-    isVisible, 
-    width, 
-    toNodes, 
-    findAll, 
     queryAll, 
     attr, 
     isBoolean, 
     includes, 
     trigger,
-    observeIntersection
 } from '../../util/index';
 import {cssPrefix} from 'GC-data'
 export default {
@@ -71,12 +60,23 @@ export default {
                 return ['click', 'hover'].some((mode) => includes(this.mode, mode));
             },
             handler(e) {
-                console.log(e)
                 e.preventDefault();
                 this.toggle();
-                // this.toggleElement(e.current);
             }
-        }
+        },
+        {
+            name: 'hide show',
+
+            self: true,
+
+            el() {
+                return this.target;
+            },
+
+            handler({ type }) {
+                this.updateAria(type === 'show');
+            },
+        },
     ],
 
     methods: {
@@ -86,12 +86,13 @@ export default {
             }
 
             if (!this.queued) {
-                return this.toggleElement(this.target);
+                return this.toggleElement(this.target)
             }
-
             const leaving = this.target.filter((el) => hasClass(el, this.clsLeave));
 
+            
             if (leaving.length) {
+                
                 for (const el of this.target) {
                     const isLeaving = includes(leaving, el);
                     this.toggleElement(el, isLeaving, isLeaving);
@@ -108,15 +109,20 @@ export default {
         },
 
         updateAria(toggled) {
-            if (includes(this.mode, 'media')) {
-                return;
-            }
+            const { $el, isToggled, activeClass, target } = this;
 
             attr(
-                this.$el,
+                $el,
                 'aria-expanded',
-                isBoolean(toggled) ? toggled : this.isToggled(this.target)
+                isBoolean(toggled) ? toggled : isToggled(target)
             );
+
+            toggleClass(
+                $el, 
+                activeClass, 
+                isToggled(target)
+            );
+
         },
     }
 };

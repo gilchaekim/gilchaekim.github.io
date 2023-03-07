@@ -9,6 +9,7 @@ export {default as Sticky} from './core/sticky';
 export {default as Datepicker} from './core/datepicker';
 export {default as Formatter} from './core/formatter';
 export {default as Modal} from './core/modal';
+export {default as Slider} from './core/slider';
 
 
 // 마크업진행표

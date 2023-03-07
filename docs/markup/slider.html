@@ -10,46 +10,19 @@
     <div id="guideWrap">
       <div class="main_content">
         <div class="title_sec">
-          <p class="title title_lv1">Toggle</p>
+          <p class="title title_lv1">Slider</p>
         </div>
         <div class="title_sec">
           <p class="title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui-button mui-size-large" type="button" mui-toggle="target:#toggle_box1;"><span>토글 - show/ hide</span></button><div id="toggle_box1">토글 컨텐츠</div></section><div class="code_block"><pre><code class="language-pug">+button({
-  label:"토글 - show/ hide",
-  size:'large',
-  muiToggle:'target:#toggle_box1;'
-})
-div#toggle_box1 토글 컨텐츠</code></pre></div>
+        <div class="guide_card_box"><section class="code_view"><div mui-slider="" style="border:1px solid red;height:300px">sdfsdfsdfsdf</div></section><div class="code_block"><pre><code class="language-pug">div(
+  mui-slider=""
+  style="border:1px solid red;height:300px"
+) sdfsdfsdfsdf</code></pre></div>
           <div class="view_code">
             <button>code view</button>
           </div>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui-button mui-size-large" type="button" mui-toggle="target:.toggles;"><span>토글 - 내용 1 / 내용 2 번갈아 노출</span></button><div class="toggles">내용 1</div><div class="toggles" hidden="">내용 2</div></section><div class="code_block"><pre><code class="language-pug">+button({
-  label:"토글 - 내용 1 / 내용 2 번갈아 노출",
-  size:'large',
-  muiToggle:'target:.toggles;'
-})
-div.toggles 내용 1
-div.toggles(
-  hidden=""
-) 내용 2</code></pre></div>
-          <div class="view_code">
-            <button>code view</button>
-          </div>
-        </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui-button mui-size-large" type="button" mui-toggle="target:#toggles;cls:test_active"><span>토글 클래스</span></button><div class="test_active" id="toggles">토글 내용</div></section><div class="code_block"><pre><code class="language-pug">+button({
-  label:"토글 클래스",
-  size:'large',
-  muiToggle:'target:#toggles;cls:test_active'
-})
-div#toggles(
-  class="test_active"
-) 토글 내용</code></pre></div>
-          <div class="view_code">
-            <button>code view</button>
-          </div>
-        </div><br><br>
         <div class="title_sec">
           <p class="title title_lv2">Attribute</p>
         </div>

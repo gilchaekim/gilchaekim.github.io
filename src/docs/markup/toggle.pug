@@ -12,79 +12,61 @@ block content
     +guideExample()(code)
       :code
         +button({
-          label:"토글 버튼1",
+          label:"토글 - show/ hide",
           size:'large',
           muiToggle:'target:#toggle_box1;'
         })
         div#toggle_box1 토글 컨텐츠
-        br
-        br
-        br
+
+    +guideExample()(code)
+      :code
         +button({
-          label:"토글 버튼2",
+          label:"토글 - 내용 1 / 내용 2 번갈아 노출",
           size:'large',
-          muiToggle:'target:#modal;mode:hover;'
+          muiToggle:'target:.toggles;'
         })
-        div#modal(
-          mui-modal=''
-          
-        ) 
-          div.mui_modal_dialog 토글 컨텐츠
-                
+        div.toggles 내용 1
+        div.toggles(
+          hidden=""
+        ) 내용 2
+    +guideExample()(code)
+      :code
+        +button({
+          label:"토글 클래스",
+          size:'large',
+          muiToggle:'target:#toggles;cls:test_active'
+        })
+        div#toggles(
+          class="test_active"
+        ) 토글 내용
     br
     br
     +guideTitle({
       text:"Attribute",
       level:2
-    })
-    +guideTitle({
-      text:"+tabsWrap()",
-      level:3
-    })
-    
+    })  
 
     +attributesLists([
       [
         {
-          text:'active'
+          text:'target'
         },
         {
-          text:'활성화 텝 index'
+          text:'토글 타겟, class, id 이름'
         },
         {
-          text:'nomber'
+          text:'string'
         },
         {
-          text:'0'
+          text:'-'
         }
       ],
       [
         {
-          text:'className'
+          text:'cls'
         },
         {
-          text:'커스텀 클래스'
-        },
-        {
-          text:'string'
-        },
-        {
-          text:'-'
-        }
-      ]
-    ])
-
-    +guideTitle({
-      text:"+tab()",
-      level:3
-    })
-    +attributesLists([
-      [
-        {
-          text:'text'
-        },
-        {
-          text:'텝 제목'
+          text:'토글 할 커스텀 클래스'
         },
         {
           text:'string'
@@ -94,23 +76,6 @@ block content
         }
       ]
     ])
-    script.
-      //- console.log(document)
-      const btn = document.querySelector('.title_lv1');
-      //- btn.addEventListener('click', function(){
-      //-   GCui.modal.alert('test').then(function(){
-      //-     console.log("확인")
-      //-   })
-      //- })
-      btn.addEventListener('click', function(){
-        //- GCui.modal.confirm('test').then(function(){
-        //-   console.log("확인")
-        //- },function(){
-        //-   console.log("취소")
-        //- })
-        GCui.modal.dialog('<p>UIkit dialog!</p>');
-      })
-      
 
 
 
