@@ -6384,8 +6384,7 @@
     },
     beforeConnect: function beforeConnect() {
       var arrows = this.arrows;
-      console.log(arrows);
-      css(this.$el, 'background', "#0f0");
+      !!arrows && css(this.$el, 'background', "#0f0"), _readOnlyError("arrows");
     },
     computed: {
       slides: function slides(_ref, $el) {

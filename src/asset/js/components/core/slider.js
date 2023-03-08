@@ -44,7 +44,7 @@ export default {
     },
     beforeConnect () {
         const {arrows} = this;
-        console.log(arrows);
+        arrows = !!arrows && 
         css(this.$el, 'background', "#0f0");
 
     },
