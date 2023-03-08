@@ -1258,6 +1258,10 @@
       fn();
     });
   }
+  function isTag(element, tagName) {
+    var _element$tagName;
+    return (element === null || element === void 0 ? void 0 : (_element$tagName = element.tagName) === null || _element$tagName === void 0 ? void 0 : _element$tagName.toLowerCase()) === tagName.toLowerCase();
+  }
 
   /**
    * element 자식노드의 내용을 모두 비움
@@ -2526,6 +2530,7 @@
     mergeOptions: mergeOptions,
     parseOptions: parseOptions,
     ready: ready,
+    isTag: isTag,
     empty: empty,
     html: html,
     prepend: prepend,

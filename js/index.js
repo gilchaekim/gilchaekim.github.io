@@ -6201,7 +6201,7 @@
   var pointerDown = 'touchstart mousedown';
   var pointerMove = 'touchmove mousemove';
   var pointerUp = 'touchend touchcancel mouseup click input';
-  var sliderDrag = {
+  ({
     props: {
       draggable: Boolean
     },
@@ -6218,7 +6218,6 @@
           var pos = getEventPos(e).x * (isRtl ? -1 : 1);
           _this.prevPos = pos === _this.pos ? _this.prevPos : _this.pos;
           _this.pos = pos;
-          console.log(key);
           fn(e);
         };
       };
@@ -6235,6 +6234,7 @@
         if (!this.draggable || !isTouch(e) && hasTextNodesOnly(e.target) || closest(e.target, selInput) || e.button > 0 || this.length < 2) {
           return;
         }
+        console.log('dsfsdf');
         this.start(e);
       }
     }, {
@@ -6254,6 +6254,7 @@
       start: function start() {
         this.drag = this.pos;
         if (this._transitioner) {
+          console.log('sdfs');
           this.percent = this._transitioner.percent();
           this.drag += this._transitioner.getDistance() * this.percent * this.dir;
           this._transitioner.cancel();
@@ -6268,76 +6269,62 @@
         // 'input' event is triggered by video controls
         on(document, pointerUp, this.end, pointerOptions);
         css(this.list, 'userSelect', 'none');
-        // console.log('start');
+        console.log('start');
       },
       move: function move(e) {
+        var _this2 = this;
         var distance = this.pos - this.drag;
         if (distance === 0 || this.prevPos === this.pos || !this.dragging && Math.abs(distance) < this.threshold) {
           return;
         }
 
-        // // prevent click event
-        // css(this.list, 'pointerEvents', 'none');
-
-        // e.cancelable && e.preventDefault();
-
-        // this.dragging = true;
-        // this.dir = distance < 0 ? 1 : -1;
-
-        // const { slides } = this;
-        // let { prevIndex } = this;
-        // let dis = Math.abs(distance);
-        // let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-        // let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
-
-        // while (nextIndex !== prevIndex && dis > width) {
-        //     this.drag -= width * this.dir;
-
-        //     prevIndex = nextIndex;
-        //     dis -= width;
-        //     nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-        //     width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
-        // }
-
-        // this.percent = dis / width;
-
-        // const prev = slides[prevIndex];
-        // const next = slides[nextIndex];
-        // const changed = this.index !== nextIndex;
-        // const edge = prevIndex === nextIndex;
-
-        // let itemShown;
-
-        // [this.index, this.prevIndex]
-        //     .filter((i) => !includes([nextIndex, prevIndex], i))
-        //     .forEach((i) => {
-        //         trigger(slides[i], 'itemhidden', [this]);
-
-        //         if (edge) {
-        //             itemShown = true;
-        //             this.prevIndex = prevIndex;
-        //         }
-        //     });
-
-        // if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
-        //     trigger(slides[this.index], 'itemshown', [this]);
-        // }
-
-        // if (changed) {
-        //     this.prevIndex = prevIndex;
-        //     this.index = nextIndex;
-
-        //     !edge && trigger(prev, 'beforeitemhide', [this]);
-        //     trigger(next, 'beforeitemshow', [this]);
-        // }
-
-        // this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
-
-        // if (changed) {
-        //     !edge && trigger(prev, 'itemhide', [this]);
-        //     trigger(next, 'itemshow', [this]);
-        // }
-        // console.log('move');
+        // prevent click event
+        css(this.list, 'pointerEvents', 'none');
+        e.cancelable && e.preventDefault();
+        this.dragging = true;
+        this.dir = distance < 0 ? 1 : -1;
+        var slides = this.slides;
+        var prevIndex = this.prevIndex;
+        var dis = Math.abs(distance);
+        var nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+        var width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+        while (nextIndex !== prevIndex && dis > width) {
+          this.drag -= width * this.dir;
+          prevIndex = nextIndex;
+          dis -= width;
+          nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+          width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+        }
+        this.percent = dis / width;
+        var prev = slides[prevIndex];
+        var next = slides[nextIndex];
+        var changed = this.index !== nextIndex;
+        var edge = prevIndex === nextIndex;
+        var itemShown;
+        [this.index, this.prevIndex].filter(function (i) {
+          return !includes([nextIndex, prevIndex], i);
+        }).forEach(function (i) {
+          trigger(slides[i], 'itemhidden', [_this2]);
+          if (edge) {
+            itemShown = true;
+            _this2.prevIndex = prevIndex;
+          }
+        });
+        if (this.index === prevIndex && this.prevIndex !== prevIndex || itemShown) {
+          trigger(slides[this.index], 'itemshown', [this]);
+        }
+        if (changed) {
+          this.prevIndex = prevIndex;
+          this.index = nextIndex;
+          !edge && trigger(prev, 'beforeitemhide', [this]);
+          trigger(next, 'beforeitemshow', [this]);
+        }
+        this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
+        if (changed) {
+          !edge && trigger(prev, 'itemhide', [this]);
+          trigger(next, 'itemshow', [this]);
+        }
+        console.log('move');
       },
       end: function end() {
         off(document, pointerMove, this.move, pointerOptions);
@@ -6366,26 +6353,61 @@
         this.drag = this.percent = null;
       }
     }
-  };
+  });
   function hasTextNodesOnly(el) {
     return !el.children.length && el.childNodes.length;
   }
 
   var slider = {
-    mixins: [Class, sliderDrag],
+    mixins: [Class],
     props: {
-      clsActivated: Boolean,
-      easing: String,
       index: Number,
-      finite: Boolean,
-      velocity: Number,
-      selSlides: String
+      autoplay: Number,
+      arrows: Boolean,
+      dots: Boolean,
+      infinite: Boolean,
+      centered: Boolean,
+      verticl: Boolean
+    },
+    data: {
+      index: 0,
+      slContainer: '.mui_slide_container',
+      slLists: '.mui_slide_list',
+      slItems: '.mui_slide_items',
+      slNav: '.mui_slider_nav',
+      clsActive: '.mui_active',
+      autoplay: 0,
+      arrows: true,
+      dots: false,
+      infinite: false,
+      centered: false
+    },
+    beforeConnect: function beforeConnect() {
+      var arrows = this.arrows;
+      console.log(arrows);
+      css(this.$el, 'background', "#0f0");
     },
     computed: {
-      selSlides: function selSlides(_ref) {
-        var $el = _ref.$el;
-        return $el;
+      slides: function slides(_ref, $el) {
+        var slLists = _ref.slLists;
+        console.log(slLists);
+        return $$(slLists, $el);
+      },
+      maxLength: function maxLength() {
+        return this.slides.length;
       }
+    },
+    events: [{
+      name: 'click',
+      // delegate() {
+      //     return this.selSlides;
+      // },
+      handler: function handler(e) {
+        console.log(this.maxLength);
+      }
+    }],
+    methods: {
+      show: function show() {}
     }
   };
 

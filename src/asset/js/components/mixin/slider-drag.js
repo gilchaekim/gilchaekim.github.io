@@ -22,8 +22,6 @@ export default {
         draggable: Boolean,
     },
 
-
-    
     data: {
         draggable: true,
         threshold: 10,
@@ -37,7 +35,7 @@ export default {
                 
                 this.prevPos = pos === this.pos ? this.prevPos : this.pos;
                 this.pos = pos;
-                console.log(key);
+
                 fn(e);
             };
         }
@@ -61,6 +59,7 @@ export default {
                 ) {
                     return;
                 }
+                console.log('dsfsdf');
                 this.start(e);
             },
         },
@@ -89,6 +88,7 @@ export default {
             this.drag = this.pos;
 
             if (this._transitioner) {
+                console.log('sdfs');
                 this.percent = this._transitioner.percent();
                 this.drag += this._transitioner.getDistance() * this.percent * this.dir;
 
@@ -108,7 +108,7 @@ export default {
             on(document, pointerUp, this.end, pointerOptions);
 
             css(this.list, 'userSelect', 'none');
-            // console.log('start');
+            console.log('start');
         },
 
         move(e) {
@@ -122,68 +122,68 @@ export default {
                 return;
             }
 
-            // // prevent click event
-            // css(this.list, 'pointerEvents', 'none');
+            // prevent click event
+            css(this.list, 'pointerEvents', 'none');
 
-            // e.cancelable && e.preventDefault();
+            e.cancelable && e.preventDefault();
 
-            // this.dragging = true;
-            // this.dir = distance < 0 ? 1 : -1;
+            this.dragging = true;
+            this.dir = distance < 0 ? 1 : -1;
 
-            // const { slides } = this;
-            // let { prevIndex } = this;
-            // let dis = Math.abs(distance);
-            // let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-            // let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+            const { slides } = this;
+            let { prevIndex } = this;
+            let dis = Math.abs(distance);
+            let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+            let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
 
-            // while (nextIndex !== prevIndex && dis > width) {
-            //     this.drag -= width * this.dir;
+            while (nextIndex !== prevIndex && dis > width) {
+                this.drag -= width * this.dir;
 
-            //     prevIndex = nextIndex;
-            //     dis -= width;
-            //     nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-            //     width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
-            // }
+                prevIndex = nextIndex;
+                dis -= width;
+                nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+                width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+            }
 
-            // this.percent = dis / width;
+            this.percent = dis / width;
 
-            // const prev = slides[prevIndex];
-            // const next = slides[nextIndex];
-            // const changed = this.index !== nextIndex;
-            // const edge = prevIndex === nextIndex;
+            const prev = slides[prevIndex];
+            const next = slides[nextIndex];
+            const changed = this.index !== nextIndex;
+            const edge = prevIndex === nextIndex;
 
-            // let itemShown;
+            let itemShown;
 
-            // [this.index, this.prevIndex]
-            //     .filter((i) => !includes([nextIndex, prevIndex], i))
-            //     .forEach((i) => {
-            //         trigger(slides[i], 'itemhidden', [this]);
+            [this.index, this.prevIndex]
+                .filter((i) => !includes([nextIndex, prevIndex], i))
+                .forEach((i) => {
+                    trigger(slides[i], 'itemhidden', [this]);
 
-            //         if (edge) {
-            //             itemShown = true;
-            //             this.prevIndex = prevIndex;
-            //         }
-            //     });
+                    if (edge) {
+                        itemShown = true;
+                        this.prevIndex = prevIndex;
+                    }
+                });
 
-            // if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
-            //     trigger(slides[this.index], 'itemshown', [this]);
-            // }
+            if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
+                trigger(slides[this.index], 'itemshown', [this]);
+            }
 
-            // if (changed) {
-            //     this.prevIndex = prevIndex;
-            //     this.index = nextIndex;
+            if (changed) {
+                this.prevIndex = prevIndex;
+                this.index = nextIndex;
 
-            //     !edge && trigger(prev, 'beforeitemhide', [this]);
-            //     trigger(next, 'beforeitemshow', [this]);
-            // }
+                !edge && trigger(prev, 'beforeitemhide', [this]);
+                trigger(next, 'beforeitemshow', [this]);
+            }
 
-            // this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
+            this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
 
-            // if (changed) {
-            //     !edge && trigger(prev, 'itemhide', [this]);
-            //     trigger(next, 'itemshow', [this]);
-            // }
-            // console.log('move');
+            if (changed) {
+                !edge && trigger(prev, 'itemhide', [this]);
+                trigger(next, 'itemshow', [this]);
+            }
+            console.log('move');
         },
 
         end() {
