@@ -218,7 +218,7 @@ a {
   display: flex;
   flex-wrap: nowrap;
 }
-.mui_slide_container .mui_slides {
+.mui_slide_container .mui_slide_list {
   flex-shrink: 0;
   border: 1px solid blue;
   width: 100%;

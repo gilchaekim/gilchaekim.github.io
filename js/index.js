@@ -1,6 +1,6 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
+  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('uikit-util')) :
+  typeof define === 'function' && define.amd ? define(['uikit-util'], factory) :
   (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.GCui = factory());
 })(this, (function () { 'use strict';
 
@@ -6358,6 +6358,140 @@
     return !el.children.length && el.childNodes.length;
   }
 
+  function _translate() {
+    var value = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 0;
+    var unit = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '%';
+    value += value ? unit : '';
+    return "translate3d(".concat(value, ", 0, 0)");
+  }
+
+  function Transitioner (prev, next, dir, _ref) {
+    var center = _ref.center,
+      easing = _ref.easing,
+      list = _ref.list;
+    var deferred = new Deferred();
+    var from = prev ? getLeft(prev, list, center) : getLeft(next, list, center) + dimensions(next).width * dir;
+    var to = next ? getLeft(next, list, center) : from + dimensions(prev).width * dir * (isRtl ? -1 : 1);
+    return {
+      dir: dir,
+      show: function show(duration) {
+        var percent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+        var linear = arguments.length > 2 ? arguments[2] : undefined;
+        var timing = linear ? 'linear' : easing;
+        duration -= Math.round(duration * clamp(percent, -1, 1));
+        this.translate(percent);
+        percent = prev ? percent : clamp(percent, 0, 1);
+        triggerUpdate(this.getItemIn(), 'itemin', {
+          percent: percent,
+          duration: duration,
+          timing: timing,
+          dir: dir
+        });
+        prev && triggerUpdate(this.getItemIn(true), 'itemout', {
+          percent: 1 - percent,
+          duration: duration,
+          timing: timing,
+          dir: dir
+        });
+        Transition.start(list, {
+          transform: _translate(-to * (isRtl ? -1 : 1), 'px')
+        }, duration, timing).then(deferred.resolve, noop);
+        return deferred.promise;
+      },
+      cancel: function cancel() {
+        Transition.cancel(list);
+      },
+      reset: function reset() {
+        css(list, 'transform', '');
+      },
+      forward: function forward(duration) {
+        var percent = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.percent();
+        Transition.cancel(list);
+        return this.show(duration, percent, true);
+      },
+      translate: function translate(percent) {
+        var distance = this.getDistance() * dir * (isRtl ? -1 : 1);
+        css(list, 'transform', _translate(clamp(-to + (distance - distance * percent), -getWidth(list), dimensions(list).width) * (isRtl ? -1 : 1), 'px'));
+        var actives = this.getActives();
+        var itemIn = this.getItemIn();
+        var itemOut = this.getItemIn(true);
+        percent = prev ? clamp(percent, -1, 1) : 0;
+        var _iterator = _createForOfIteratorHelper(children(list)),
+          _step;
+        try {
+          for (_iterator.s(); !(_step = _iterator.n()).done;) {
+            var slide = _step.value;
+            var isActive = includes(actives, slide);
+            var isIn = slide === itemIn;
+            var isOut = slide === itemOut;
+            var translateIn = isIn || !isOut && (isActive || dir * (isRtl ? -1 : 1) === -1 ^ getElLeft(slide, list) > getElLeft(prev || next));
+            triggerUpdate(slide, "itemtranslate".concat(translateIn ? 'in' : 'out'), {
+              dir: dir,
+              percent: isOut ? 1 - percent : isIn ? percent : isActive ? 1 : 0
+            });
+          }
+        } catch (err) {
+          _iterator.e(err);
+        } finally {
+          _iterator.f();
+        }
+      },
+      percent: function percent() {
+        return Math.abs((css(list, 'transform').split(',')[4] * (isRtl ? -1 : 1) + from) / (to - from));
+      },
+      getDistance: function getDistance() {
+        return Math.abs(to - from);
+      },
+      getItemIn: function getItemIn() {
+        var out = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+        var actives = this.getActives();
+        var nextActives = inView(list, getLeft(next || prev, list, center));
+        if (out) {
+          var temp = actives;
+          actives = nextActives;
+          nextActives = temp;
+        }
+        return nextActives[findIndex(nextActives, function (el) {
+          return !includes(actives, el);
+        })];
+      },
+      getActives: function getActives() {
+        return inView(list, getLeft(prev || next, list, center));
+      }
+    };
+  }
+  function getLeft(el, list, center) {
+    var left = getElLeft(el, list);
+    return center ? left - centerEl(el, list) : Math.min(left, getMax(list));
+  }
+  function getMax(list) {
+    return Math.max(0, getWidth(list) - dimensions(list).width);
+  }
+  function getWidth(list) {
+    return children(list).reduce(function (right, el) {
+      return dimensions(el).width + right;
+    }, 0);
+  }
+  function centerEl(el, list) {
+    return dimensions(list).width / 2 - dimensions(el).width / 2;
+  }
+  function getElLeft(el, list) {
+    return el && (position(el).left + (isRtl ? dimensions(el).width - dimensions(list).width : 0)) * (isRtl ? -1 : 1) || 0;
+  }
+  function inView(list, listLeft) {
+    listLeft -= 1;
+    var listWidth = dimensions(list).width;
+    var listRight = listLeft + listWidth + 2;
+    return children(list).filter(function (slide) {
+      var slideLeft = getElLeft(slide, list);
+      var slideRight = slideLeft + Math.min(dimensions(slide).width, listWidth);
+      return slideLeft >= listLeft && slideRight <= listRight;
+    });
+  }
+  function triggerUpdate(el, type, data) {
+    trigger(el, createEvent(type, false, false, data));
+  }
+
   var slider = {
     mixins: [Class],
     props: {
@@ -6378,13 +6512,17 @@
       clsActive: '.mui_active',
       autoplay: 0,
       arrows: true,
+      arrowsHTML: "<div class=\"mui_slider_controls\">\n            <button type=\"button\" class=\"mui_arrows mui_prev\" mui-action=\"prev\"><span>\uC774\uC804</span></button>\n            <button type=\"button\" class=\"mui_arrows mui_next\" mui-action=\"next\"><span>\uB2E4\uC74C</span></button>\n        </div>",
+      dotsHTML: "<div class=\"mui_slider_dots\">\n            <div class=\"mui_slider_inner\"></div>\n        </div>",
       dots: false,
       infinite: false,
-      centered: false
+      centered: false,
+      Transitioner: Transitioner
+      // <button type="button" class="mui_dot" mui-item="1"></button>
     },
     beforeConnect: function beforeConnect() {
-      var arrows = this.arrows;
-      !!arrows && css(this.$el, 'background', "#0f0"), _readOnlyError("arrows");
+      var arrowsHTML = this.arrowsHTML;
+      this.arrows = !!this.arrows && append(this.$el, arrowsHTML);
     },
     computed: {
       slides: function slides(_ref, $el) {
@@ -6394,19 +6532,27 @@
       },
       maxLength: function maxLength() {
         return this.slides.length;
+      },
+      wrapper: function wrapper(_ref2, $el) {
+        var slContainer = _ref2.slContainer;
+        return $$1(slContainer, $el);
       }
     },
     events: [{
       name: 'click',
-      // delegate() {
-      //     return this.selSlides;
-      // },
+      delegate: function delegate() {
+        return '.mui_arrows';
+      },
       handler: function handler(e) {
-        console.log(this.maxLength);
+        var action = attr(e.current, 'mui-action');
+        this.show(action);
+        console.log(this.wrapper);
       }
     }],
     methods: {
-      show: function show() {}
+      show: function show(action) {
+        console.log(action);
+      }
     }
   };
 
