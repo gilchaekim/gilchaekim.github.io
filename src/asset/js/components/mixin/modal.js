@@ -36,6 +36,7 @@ export default {
         bgClose: Boolean,
         stack: Boolean,
         role: String,
+        layerd:Boolean,
     },
 
     data: {
@@ -46,6 +47,7 @@ export default {
         stack: false,
         role: 'dialog',
         returnFocusTarget:null,
+        layerd:false,
     },
 
     computed: {
@@ -127,6 +129,11 @@ export default {
 
             handler(e) {
                 if (includes(active, this)) {
+                    return false;
+                }
+
+                if(this.layerd && active.length){
+                    attr(active[active.length -1].$el, 'tabindex', '0')
                     return false;
                 }
 

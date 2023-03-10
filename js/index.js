@@ -5886,7 +5886,8 @@
       escClose: Boolean,
       bgClose: Boolean,
       stack: Boolean,
-      role: String
+      role: String,
+      layerd: Boolean
     },
     data: {
       cls: 'mui_open',
@@ -5895,7 +5896,8 @@
       overlay: true,
       stack: false,
       role: 'dialog',
-      returnFocusTarget: null
+      returnFocusTarget: null,
+      layerd: false
     },
     computed: {
       panel: function panel(_ref, $el) {
@@ -5955,6 +5957,10 @@
       self: true,
       handler: function handler(e) {
         if (includes(active, this)) {
+          return false;
+        }
+        if (this.layerd && active.length) {
+          attr(active[active.length - 1].$el, 'tabindex', '0');
           return false;
         }
         if (!this.stack && active.length) {
@@ -6108,7 +6114,6 @@
       name: 'show',
       self: true,
       handler: function handler() {
-        console.log(this.panel);
         if (hasClass(this.panel, 'mui_auto_vertical')) {
           addClass(this.$el, 'mui_flex');
         } else {
@@ -6175,7 +6180,8 @@
         bgClose: true,
         escClose: true,
         role: 'alertdialog',
-        i18n: modal.i18n
+        i18n: modal.i18n,
+        layerd: true
       }, options);
       var dialog = modal.dialog(tmpl(options), options);
       var deferred = new Deferred();

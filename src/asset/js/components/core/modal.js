@@ -31,7 +31,7 @@ export default {
             self: true,
 
             handler() {
-                console.log(this.panel);
+
                 if (hasClass(this.panel, 'mui_auto_vertical')) {
                     addClass(this.$el, 'mui_flex');
                 } else {
@@ -121,6 +121,7 @@ function install({ modal }) {
             escClose: true,
             role: 'alertdialog',
             i18n: modal.i18n,
+            layerd:true,
             ...options,
         };
 
