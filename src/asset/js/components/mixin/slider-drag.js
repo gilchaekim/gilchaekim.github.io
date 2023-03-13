@@ -59,7 +59,6 @@ export default {
                 ) {
                     return;
                 }
-                console.log('dsfsdf');
                 this.start(e);
             },
         },
@@ -76,7 +75,7 @@ export default {
             // iOS workaround for slider stopping if swiping fast
             name: `${pointerMove} ${pointerUp}`,
             el() {
-                return this.list;
+                return this.slides;
             },
             handler: noop,
             ...pointerOptions,
@@ -107,7 +106,7 @@ export default {
             // 'input' event is triggered by video controls
             on(document, pointerUp, this.end, pointerOptions);
 
-            css(this.list, 'userSelect', 'none');
+            css(this.slides, 'userSelect', 'none');
             console.log('start');
         },
 
@@ -123,7 +122,7 @@ export default {
             }
 
             // prevent click event
-            css(this.list, 'pointerEvents', 'none');
+            css(this.slides, 'pointerEvents', 'none');
 
             e.cancelable && e.preventDefault();
 
@@ -133,92 +132,93 @@ export default {
             const { slides } = this;
             let { prevIndex } = this;
             let dis = Math.abs(distance);
-            let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-            let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+            console.log(distance);
+            // let nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+            // let width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
 
-            while (nextIndex !== prevIndex && dis > width) {
-                this.drag -= width * this.dir;
+            // while (nextIndex !== prevIndex && dis > width) {
+            //     this.drag -= width * this.dir;
 
-                prevIndex = nextIndex;
-                dis -= width;
-                nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
-                width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
-            }
+            //     prevIndex = nextIndex;
+            //     dis -= width;
+            //     nextIndex = this.getIndex(prevIndex + this.dir, prevIndex);
+            //     width = this._getDistance(prevIndex, nextIndex) || slides[prevIndex].offsetWidth;
+            // }
 
-            this.percent = dis / width;
+            // this.percent = dis / width;
 
-            const prev = slides[prevIndex];
-            const next = slides[nextIndex];
-            const changed = this.index !== nextIndex;
-            const edge = prevIndex === nextIndex;
+            // const prev = slides[prevIndex];
+            // const next = slides[nextIndex];
+            // const changed = this.index !== nextIndex;
+            // const edge = prevIndex === nextIndex;
 
-            let itemShown;
+            // let itemShown;
 
-            [this.index, this.prevIndex]
-                .filter((i) => !includes([nextIndex, prevIndex], i))
-                .forEach((i) => {
-                    trigger(slides[i], 'itemhidden', [this]);
+            // [this.index, this.prevIndex]
+            //     .filter((i) => !includes([nextIndex, prevIndex], i))
+            //     .forEach((i) => {
+            //         trigger(slides[i], 'itemhidden', [this]);
 
-                    if (edge) {
-                        itemShown = true;
-                        this.prevIndex = prevIndex;
-                    }
-                });
+            //         if (edge) {
+            //             itemShown = true;
+            //             this.prevIndex = prevIndex;
+            //         }
+            //     });
 
-            if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
-                trigger(slides[this.index], 'itemshown', [this]);
-            }
+            // if ((this.index === prevIndex && this.prevIndex !== prevIndex) || itemShown) {
+            //     trigger(slides[this.index], 'itemshown', [this]);
+            // }
 
-            if (changed) {
-                this.prevIndex = prevIndex;
-                this.index = nextIndex;
+            // if (changed) {
+            //     this.prevIndex = prevIndex;
+            //     this.index = nextIndex;
 
-                !edge && trigger(prev, 'beforeitemhide', [this]);
-                trigger(next, 'beforeitemshow', [this]);
-            }
+            //     !edge && trigger(prev, 'beforeitemhide', [this]);
+            //     trigger(next, 'beforeitemshow', [this]);
+            // }
 
-            this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
+            // this._transitioner = this._translate(Math.abs(this.percent), prev, !edge && next);
 
-            if (changed) {
-                !edge && trigger(prev, 'itemhide', [this]);
-                trigger(next, 'itemshow', [this]);
-            }
-            console.log('move');
+            // if (changed) {
+            //     !edge && trigger(prev, 'itemhide', [this]);
+            //     trigger(next, 'itemshow', [this]);
+            // }
+            // console.log('move');
         },
 
         end() {
             off(document, pointerMove, this.move, pointerOptions);
             off(document, pointerUp, this.end, pointerOptions);
 
-            if (this.dragging) {
-                this.dragging = null;
+            // if (this.dragging) {
+            //     this.dragging = null;
 
-                if (this.index === this.prevIndex) {
-                    this.percent = 1 - this.percent;
-                    this.dir *= -1;
-                    this._show(false, this.index, true);
-                    this._transitioner = null;
-                } else {
-                    const dirChange =
-                        (isRtl ? this.dir * (isRtl ? 1 : -1) : this.dir) < 0 ===
-                        this.prevPos > this.pos;
-                    this.index = dirChange ? this.index : this.prevIndex;
+            //     if (this.index === this.prevIndex) {
+            //         this.percent = 1 - this.percent;
+            //         this.dir *= -1;
+            //         this._show(false, this.index, true);
+            //         this._transitioner = null;
+            //     } else {
+            //         const dirChange =
+            //             (isRtl ? this.dir * (isRtl ? 1 : -1) : this.dir) < 0 ===
+            //             this.prevPos > this.pos;
+            //         this.index = dirChange ? this.index : this.prevIndex;
 
-                    if (dirChange) {
-                        this.percent = 1 - this.percent;
-                    }
+            //         if (dirChange) {
+            //             this.percent = 1 - this.percent;
+            //         }
 
-                    this.show(
-                        (this.dir > 0 && !dirChange) || (this.dir < 0 && dirChange)
-                            ? 'next'
-                            : 'previous',
-                        true
-                    );
-                }
-            }
+            //         this.show(
+            //             (this.dir > 0 && !dirChange) || (this.dir < 0 && dirChange)
+            //                 ? 'next'
+            //                 : 'previous',
+            //             true
+            //         );
+            //     }
+            // }
 
             console.log('end');
-            css(this.list, { userSelect: '', pointerEvents: '' });
+            css(this.slides, { userSelect: '', pointerEvents: '' });
 
             this.drag = this.percent = null;
         },

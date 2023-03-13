@@ -132,12 +132,11 @@ export default {
                     return false;
                 }
 
-                if(this.layerd && active.length){
-                    attr(active[active.length -1].$el, 'tabindex', '0')
-                    return false;
-                }
-
-                if (!this.stack && active.length) {
+                if (!this.stack && active.length ) {
+                    if (this.layerd) {
+                        active.push(this);
+                        return false;    
+                    }
                     Promise.all(active.map((modal) => modal.hide())).then(this.show);
                     e.preventDefault();
                 } else {
@@ -183,8 +182,8 @@ export default {
                 if (!isFocusable(this.$el)) {
                     attr(this.$el, 'tabindex', '-1');
                 }
-
-                if (!matches(this.$el, ':focus-within')) {
+                active.forEach((arr, i) => (arr.$el !== this.$el) ? attr(arr.$el, 'tabindex', '') : '' )
+                if (!matches(this.$el, ':focus-within') || this.layerd) {
                     this.$el.focus();
                 }
             },
@@ -205,6 +204,12 @@ export default {
                 if (!active.some((modal) => modal.clsPage === this.clsPage)) {
                     removeClass(document.documentElement, this.clsPage);
                 }
+                active.forEach((arr, i) => {
+                    if (arr.$el !== this.$el) {
+                        arr.$el.focus()
+                        attr(arr.$el, 'tabindex', '-1');
+                    }
+                })
             },
         },
     ],

@@ -1,7 +1,7 @@
 import Class from '../mixin/class';
 import SliderDrag from '../mixin/slider-drag';
 // import SliderNav from '../mixin/slider-nav';
-import Transitioner from '../internal/slider-transitioner'
+import Transitioner, { getMax, getWidth } from '../internal/slider-transitioner'
 import {
     $,
     $$,
@@ -10,6 +10,7 @@ import {
     css,    
     append,
     attr,
+    clamp,
     data,
     dimensions,
     findIndex,
@@ -23,7 +24,7 @@ import {
 import {cssPrefix} from 'GC-data'
 
 export default {
-    mixins: [Class],
+    mixins: [Class, SliderDrag],
     props: {
         index: Number,
         autoplay: Number,
@@ -35,6 +36,8 @@ export default {
     },
     data: {
         index:0,
+        prevIndex: -1,
+        velocity:1,
         slContainer:'.mui_slide_container',
         slLists:'.mui_slide_list',
         slItems:'.mui_slide_items',
@@ -61,7 +64,6 @@ export default {
     },
     computed: {
         slides({slLists}, $el) {
-            console.log(slLists);
             return $$(slLists, $el);
         },
         maxLength() {
@@ -82,13 +84,19 @@ export default {
             handler(e) {
                 const action = attr(e.current, 'mui-action');
                 this.show(action);
-                console.log(this.wrapper);
             },
         },
     ],
     methods: {
         show(action) {
+            if (this.dragging || !this.length) {
+                return;
+            }
+            console.log('show');
             console.log(action);
-        }
+        },
+        getIndex(index = this.index, prev = this.index) {
+            return clamp(getIndex(index, this.slides, prev, this.finite), 0, this.maxIndex);
+        },
     }
 };
