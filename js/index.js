@@ -728,6 +728,15 @@
       return val === other[key];
     });
   }
+
+  /**
+   * 
+   * @param {*} value 
+   * @param {*} a 
+   * @param {*} b 
+   * @returns 
+   */
+
   function swap(value, a, b) {
     return value.replace(new RegExp("".concat(a, "|").concat(b), 'g'), function (match) {
       return match === a ? b : a;
@@ -6611,6 +6620,93 @@
     }
   };
 
+  var tree = {
+    props: {
+      data: Object
+    },
+    data: {
+      data: null,
+      buildData: [],
+      idName: "treeId",
+      str: "",
+      index: 0
+    },
+    connected: function connected() {
+      this.build();
+    },
+    computed: {
+      // data({data}) {
+      //     return this.build(data);
+      // }
+    },
+    events: [{
+      name: 'click',
+      handler: function handler(e) {
+        e.preventDefault();
+      }
+    }, {
+      name: 'scroll',
+      el: window,
+      handler: function handler() {
+
+        // this.$emit('resize');
+      }
+    }],
+    methods: {
+      build: function build() {
+        var data = this.$props.data;
+        console.log(this.sortData(data, 0));
+        console.log(this.buildData);
+      },
+      indent: function indent(n) {
+        var str = '\t';
+        var indent = '';
+        for (var i = 1; i < n; i++) {
+          indent += str;
+        }
+        return indent;
+      },
+      sortData: function sortData(data, index) {
+        var _this = this;
+        var deps = ++index;
+        var str = '';
+        each(data, function (data, key) {
+          var idIndex = _this.index++;
+          if (!isArray(data)) {
+            str += "".concat(_this.indent(deps), "<div class=\"tree_wrap\" id=\"").concat(_this.idName + deps + idIndex, "\">\n");
+            str += "".concat(_this.indent(deps + 1), "<p>").concat(key, "</p>\n");
+            str += "".concat(_this.indent(deps + 1), "<div>\n");
+            str += "".concat(_this.indent(deps + 2)).concat(_this.sortData(data, deps));
+            str += "".concat(_this.indent(deps + 1), "</div>\n>");
+            str += "".concat(_this.indent(deps), "</div>\n");
+          } else {
+            str += "".concat(_this.indent(deps), "<div class=\"tree_lists\">\n");
+            str += "".concat(_this.indent(deps + 1), "<a href=\"").concat(data[0], "\">").concat(key, "</a>\n");
+            str += "".concat(_this.indent(deps), "</div>\n");
+          }
+        });
+        return str;
+
+        // this.$el.innerHTML = 'sdfsdf'
+      }
+    },
+
+    update: {
+      read: function read(_ref) {
+        _ref.test;
+          _ref.aaaa;
+        return {
+          test: 'dddd',
+          aaaa: 'dffadfsf'
+        };
+      },
+      write: function write(_ref2) {
+        _ref2.test;
+      },
+      events: ['resize']
+    }
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -6717,6 +6813,7 @@
     Formatter: formatter,
     Modal: modal,
     Slider: slider,
+    Tree: tree,
     Worklists: worklists
   });
 

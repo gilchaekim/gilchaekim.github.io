@@ -10,6 +10,7 @@ export {default as Datepicker} from './core/datepicker';
 export {default as Formatter} from './core/formatter';
 export {default as Modal} from './core/modal';
 export {default as Slider} from './core/slider';
+export {default as Tree} from './core/tree';
 
 
 // 마크업진행표

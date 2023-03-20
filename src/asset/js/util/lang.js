@@ -262,12 +262,22 @@ export function isEqual(value, other) {
         && each(value, (val, key) => val === other[key]);
 }
 
+
+/**
+ * 
+ * @param {*} value 
+ * @param {*} a 
+ * @param {*} b 
+ * @returns 
+ */
+
 export function swap(value, a, b) {
     return value.replace(
         new RegExp(`${a}|${b}`, 'g'),
         match => match === a ? b : a
     );
 }
+
 
 export const assign = Object.assign || function (target, ...args) {
     target = Object(target);
