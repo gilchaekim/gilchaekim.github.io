@@ -6632,7 +6632,10 @@
       index: 0
     },
     connected: function connected() {
-      this.build();
+      var $el = this.$el,
+        build = this.build;
+      console.log(build());
+      append($el, build());
     },
     computed: {
       // data({data}) {
@@ -6655,8 +6658,7 @@
     methods: {
       build: function build() {
         var data = this.$props.data;
-        console.log(this.sortData(data, 0));
-        console.log(this.buildData);
+        return this.sortData(data, 0);
       },
       indent: function indent(n) {
         var str = '\t';
@@ -6673,16 +6675,18 @@
         each(data, function (data, key) {
           var idIndex = _this.index++;
           if (!isArray(data)) {
-            str += "".concat(_this.indent(deps), "<div class=\"tree_wrap\" id=\"").concat(_this.idName + deps + idIndex, "\">\n");
-            str += "".concat(_this.indent(deps + 1), "<p>").concat(key, "</p>\n");
-            str += "".concat(_this.indent(deps + 1), "<div>\n");
-            str += "".concat(_this.indent(deps + 2)).concat(_this.sortData(data, deps));
-            str += "".concat(_this.indent(deps + 1), "</div>\n>");
-            str += "".concat(_this.indent(deps), "</div>\n");
+            // str+=`${this.indent(deps)}<div class="tree_wrap" id="${this.idName+deps+idIndex}">\n`
+            // str+=`${this.indent(deps+1)}<p>${key}</p>\n`
+            // str+=`${this.indent(deps+1)}<div>\n`
+            // str+=`${this.indent(deps+2)}${this.sortData(data, deps)}`
+            // str+=`${this.indent(deps+1)}</div>\n`
+            // str+=`${this.indent(deps)}</div>\n`
+            str += "<div class=\"tree_wrap\" id=\"".concat(_this.idName + deps + idIndex, "\"><button type=\"button\" class=\"tree_nav\">").concat(key, "</button><div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div></div>\n                    ");
           } else {
-            str += "".concat(_this.indent(deps), "<div class=\"tree_lists\">\n");
-            str += "".concat(_this.indent(deps + 1), "<a href=\"").concat(data[0], "\">").concat(key, "</a>\n");
-            str += "".concat(_this.indent(deps), "</div>\n");
+            // str+=`${this.indent(deps)}<div class="tree_lists">\n`
+            // str+=`${this.indent(deps+1)}<a href="${data[0]}">${key}</a>\n`
+            // str+=`${this.indent(deps)}</div>\n`
+            str += "<div class=\"tree_lists\">\n                        <span>\n                            <a href=\"".concat(data[0], "\" class=\"name\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\">").concat(key, "</a>\n                        </span>\n                    </div>");
           }
         });
         return str;

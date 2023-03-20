@@ -21,26 +21,28 @@
         <script>
           const { $ } = GCui.util;
           const data = {
-            '뎁스1-1': ['./guide/html/guide.html', '', 'mainFrame'],
-            '뎁스1-2': {
-              '뎁스2-1': ['./guide/html/guide.html', '', 'mainFrame'],
-              '뎁스2-2': {
-                '뎁스3 1': {
-                  '뎁스4 1': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4 2': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4 3': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4 4': ['./guide/html/guide.html', '', 'mainFrame'],
+            '가이드':{
+              '뎁스1-1': ['./guide/html/guide.html', '', 'mainFrame'],
+              '뎁스1-2': {
+                '뎁스2-1': ['./guide/html/guide.html', '', 'mainFrame'],
+                '뎁스2-2': {
+                  '뎁스3 1': {
+                    '뎁스4 1': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4 2': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4 3': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4 4': ['./guide/html/guide.html', '', 'mainFrame'],
+                  },
+                  '뎁스3 3': {
+                    '뎁스4-1': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4-2': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4-3': ['./guide/html/guide.html', '', 'mainFrame'],
+                    '뎁스4-4': ['./guide/html/guide.html', '', 'mainFrame'],
+                  },
+                  '뎁스3-2': ['./guide/html/guide.html', '', 'mainFrame'],
                 },
-                '뎁스3 3': {
-                  '뎁스4-1': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4-2': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4-3': ['./guide/html/guide.html', '', 'mainFrame'],
-                  '뎁스4-4': ['./guide/html/guide.html', '', 'mainFrame'],
-                },
-                '뎁스3-2': ['./guide/html/guide.html', '', 'mainFrame'],
               },
-            },
-            '뎁스1-3': ['./guide/html/guide.html', '', 'mainFrame'],
+              '뎁스1-3': ['./guide/html/guide.html', '', 'mainFrame'],
+            }
           };
           GCui.tree($('#treemenu'), {
             data: data

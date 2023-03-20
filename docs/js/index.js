@@ -402,23 +402,6 @@
       return match === a ? b : a;
     });
   }
-
-  // 
-  function Bread() {
-    this.bagel = 'Bagel';
-  }
-  Bread.prototype.doughnut = 'Doughnut!';
-  var dunkin = new Bread();
-  var krispykreme = Object.create(Bread.prototype);
-
-  // new 키워드를 사용
-  console.log(dunkin.doughnut); // Doughnut
-  console.log(dunkin.bagel); // Bagel
-
-  // Object.create()를 사용
-  console.log(krispykreme.doughnut); // Doughnut
-  console.log(krispykreme.bagel); // undefined
-
   var assign = Object.assign || function (target) {
     target = Object(target);
     for (var i = 0; i < (arguments.length <= 1 ? 0 : arguments.length - 1); i++) {
