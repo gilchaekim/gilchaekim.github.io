@@ -2,6 +2,7 @@ import {
     each,
     isArray,
     append,
+    prepend,
     empty,
     attr,
     toggleClass,
@@ -31,25 +32,24 @@ export default {
         activeItem:'activeItem',
         mainFrame:null,
         index:0,
-        template:`<div class="tree_collapse">
+        template:`<div class="tree_control">
             <span class="collapse">
-            <a href="" class="open_all">open all</a>
-            <a href="" class="close_all">close all</a>
+                <button type="button" class="open_all">open all</button>
+                <button type="button" class="close_all">close all</button>
             </span>
             <span class="search">
-            <input type="text"> 
-            <button type="button">검색</button>
+                <input type="text"> 
+                <button type="button">검색</button>
             </span>
         </div>`
     },
-    created(){
-        console.log(this.data);
-    },
     beforeConnect(){
+        this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
         this.appendTree(this.data);
         if(!!this.highlightItem) {
             attr(this.mainFrame, 'src', $(`#${this.highlightItem}`).pathname)
         }
+        prepend(this.$el, this.template)
     },
 
 
@@ -82,7 +82,17 @@ export default {
                 this.highlight(e.current.id)
                 attr(this.mainFrame, 'src', e.current.pathname)
             }
-        },        
+        },
+        {
+            name: 'click',
+            delegate() {
+                return '.collapse button';
+            },
+            handler(e) {
+                e.preventDefault();
+                this.collapseAll(e.current.className === 'open_all')
+            }
+        },
         {
             name: 'click',
             delegate() {
@@ -108,14 +118,14 @@ export default {
             return this.sortData(data, 0);
         },
         appendTree(data){
-            const {$el, build} = this;
-            append($el, build(data));
+            const {$wrap, build} = this;
+            append($wrap, build(data));
         },
         sortData(data, index){
             const deps = ++index;
             const hilight = this.highlightItem;
             const {
-                $el,
+                $wrap,
                 treeNavCls,
                 highlightCls,
                 activeCls,
@@ -123,7 +133,7 @@ export default {
                 activeItem,
             } = this;
             let str = ''
-            empty($el);
+            empty($wrap);
             each(data, (data, key) => {
                 let idIndex = this.index++;
                 let id = `${idName}${deps}${idIndex}`;
@@ -180,6 +190,16 @@ export default {
         },
         refresh(){
             this.clearStorage();
+        },
+        collapseAll(bool) {
+            const { $wrap, activeCls } = this;
+            $$(`.${this.treeNavCls}`, $wrap).forEach((el, i)=>{
+                ( bool ? addClass : removeClass )(parent(el), activeCls);
+                this.setSelected(el.id, bool)
+            });
+        },
+        closeAll() {
+
         },
         clearStorage(){
             localStorage.removeItem(this.keyHighlightItem);

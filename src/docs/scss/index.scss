@@ -220,7 +220,29 @@ a{text-decoration: none;}
   }
 }
 
-
+.tree_control{
+  position: relative;
+  padding-bottom: 20px;
+  .collapse{
+    position: absolute;
+    right: 8px;
+    bottom: -20px;
+    button{
+      color: #333;
+      display: inline-block;
+      border:2px solid #000;
+      height: 20px;
+      box-sizing: border-box;
+      line-height: 16px;
+      border-radius: 4px;
+      font-size: 12px;
+      padding: 0 6px;
+      background: #666;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}
 .tree_wrap{
   //border: 1px solid red;
   & > .tree_sub_wrap{

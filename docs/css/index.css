@@ -225,6 +225,30 @@ a {
   height: 200px;
 }
 
+.tree_control {
+  position: relative;
+  padding-bottom: 20px;
+}
+.tree_control .collapse {
+  position: absolute;
+  right: 8px;
+  bottom: -20px;
+}
+.tree_control .collapse button {
+  color: #333;
+  display: inline-block;
+  border: 2px solid #000;
+  height: 20px;
+  box-sizing: border-box;
+  line-height: 16px;
+  border-radius: 4px;
+  font-size: 12px;
+  padding: 0 6px;
+  background: #666;
+  color: #fff;
+  cursor: pointer;
+}
+
 .tree_wrap > .tree_sub_wrap {
   display: none;
 }

@@ -6638,16 +6638,15 @@
       activeItem: 'activeItem',
       mainFrame: null,
       index: 0,
-      template: "<div class=\"tree_collapse\">\n            <span class=\"collapse\">\n            <a href=\"\" class=\"open_all\">open all</a>\n            <a href=\"\" class=\"close_all\">close all</a>\n            </span>\n            <span class=\"search\">\n            <input type=\"text\"> \n            <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
-    },
-    created: function created() {
-      console.log(this.data);
+      template: "<div class=\"tree_control\">\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
     },
     beforeConnect: function beforeConnect() {
+      this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
       this.appendTree(this.data);
       if (!!this.highlightItem) {
         attr(this.mainFrame, 'src', $("#".concat(this.highlightItem)).pathname);
       }
+      prepend(this.$el, this.template);
     },
     computed: {
       mainFrame: function mainFrame(_ref) {
@@ -6685,6 +6684,15 @@
     }, {
       name: 'click',
       delegate: function delegate() {
+        return '.collapse button';
+      },
+      handler: function handler(e) {
+        e.preventDefault();
+        this.collapseAll(e.current.className === 'open_all');
+      }
+    }, {
+      name: 'click',
+      delegate: function delegate() {
         return ".".concat(this.treeNavCls);
       },
       handler: function handler(e) {
@@ -6706,22 +6714,22 @@
         return this.sortData(data, 0);
       },
       appendTree: function appendTree(data) {
-        var $el = this.$el,
+        var $wrap = this.$wrap,
           build = this.build;
-        append($el, build(data));
+        append($wrap, build(data));
       },
       sortData: function sortData(data, index) {
         var _this = this;
         var deps = ++index;
         var hilight = this.highlightItem;
-        var $el = this.$el,
+        var $wrap = this.$wrap,
           treeNavCls = this.treeNavCls,
           highlightCls = this.highlightCls,
           activeCls = this.activeCls,
           idName = this.idName,
           activeItem = this.activeItem;
         var str = '';
-        empty($el);
+        empty($wrap);
         each(data, function (data, key) {
           var idIndex = _this.index++;
           var id = "".concat(idName).concat(deps).concat(idIndex);
@@ -6771,6 +6779,16 @@
       refresh: function refresh() {
         this.clearStorage();
       },
+      collapseAll: function collapseAll(bool) {
+        var _this3 = this;
+        var $wrap = this.$wrap,
+          activeCls = this.activeCls;
+        $$(".".concat(this.treeNavCls), $wrap).forEach(function (el, i) {
+          (bool ? addClass : removeClass)(parent$1(el), activeCls);
+          _this3.setSelected(el.id, bool);
+        });
+      },
+      closeAll: function closeAll() {},
       clearStorage: function clearStorage() {
         localStorage.removeItem(this.keyHighlightItem);
         localStorage.removeItem(this.keyActiveItem);
