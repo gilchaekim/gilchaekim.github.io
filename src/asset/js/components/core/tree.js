@@ -31,6 +31,16 @@ export default {
         activeItem:'activeItem',
         mainFrame:null,
         index:0,
+        template:`<div class="tree_collapse">
+            <span class="collapse">
+            <a href="" class="open_all">open all</a>
+            <a href="" class="close_all">close all</a>
+            </span>
+            <span class="search">
+            <input type="text"> 
+            <button type="button">검색</button>
+            </span>
+        </div>`
     },
     created(){
         console.log(this.data);

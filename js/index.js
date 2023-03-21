@@ -6637,7 +6637,8 @@
       highlightItem: 'highlightItem',
       activeItem: 'activeItem',
       mainFrame: null,
-      index: 0
+      index: 0,
+      template: "<div class=\"tree_collapse\">\n            <span class=\"collapse\">\n            <a href=\"\" class=\"open_all\">open all</a>\n            <a href=\"\" class=\"close_all\">close all</a>\n            </span>\n            <span class=\"search\">\n            <input type=\"text\"> \n            <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
     },
     created: function created() {
       console.log(this.data);
