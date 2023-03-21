@@ -225,6 +225,16 @@ a {
   height: 200px;
 }
 
+.tree_wrap > .tree_sub_wrap {
+  display: none;
+}
+.tree_wrap.mui-active > .tree_nav::before {
+  top: 3px;
+  transform: rotate(45deg);
+}
+.tree_wrap.mui-active > .tree_sub_wrap {
+  display: block;
+}
 .tree_wrap .tree_wrap {
   padding-left: 16px;
 }
@@ -234,33 +244,38 @@ a {
   height: 20px;
   display: block;
   line-height: 20px;
+  background: none;
+  cursor: pointer;
+  border: 0 none;
+}
+.tree_wrap a.mui-highlight, .tree_wrap button.mui-highlight {
+  background: #1e87f0;
+  color: #fff;
+}
+.tree_wrap a.name, .tree_wrap button.name {
+  padding: 0 6px;
 }
 .tree_wrap a.blank, .tree_wrap button.blank {
-  width: 20px;
-  height: 20px;
-  border: 1px solid #f00;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #999;
+  background: url("/src/docs/images/icon_popup.gif") no-repeat center;
   font-size: 0;
   position: absolute;
-  top: 0;
+  top: 3px;
   right: 0;
 }
 .tree_wrap .tree_lists {
-  padding-left: 10px;
+  padding-left: 12px;
   position: relative;
-}
-.tree_wrap .tree_lists::before {
-  content: "";
-  display: block;
-  width: 6px;
-  border-top: 1px solid #333;
-  position: absolute;
-  top: 11px;
-  left: 1px;
 }
 .tree_wrap .tree_lists > span {
   position: relative;
   display: inline-block;
-  padding-right: 24px;
+  padding-right: 22px;
+}
+.tree_wrap .tree_lists + .tree_wrap {
+  margin-top: 10px;
 }
 .tree_wrap .tree_nav {
   padding-left: 16px;
@@ -275,13 +290,9 @@ a {
   border-bottom: 1px solid #333;
   transform-origin: center;
   position: absolute;
-  top: 4px;
-  transform: rotate(45deg);
+  top: 6px;
+  transform: rotate(-45deg);
   left: 2px;
-}
-.tree_wrap .tree_nav.on::before {
-  transform: rotate(45deg);
-  top: 4px;
 }
 .tree_wrap .tree_sub_wrap {
   position: relative;

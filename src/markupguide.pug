@@ -1,13 +1,16 @@
 extends ./docs/layout/base.pug
+
 append global 
-  - var title = "페이지 리스트"
+  - var title = "마크업 가이드"
+
 block content
+  
   //- div 컨텐츠
   iframe.content_frame#content_frame
   script.
     const { $ } = GCui.util;
     const data = {
-      "마크업 가이드":{
+      "마크업 가이드111":{
         "Button":["/docs/markup/button.html"],
         "Radio & checkbox":["/docs/markup/radio_check.html"],
         "Step":["/docs/markup/step.html"],
@@ -82,7 +85,6 @@ block content
     };
     GCui.tree($('#treemenu'), {
       data: data,
-      idName:'tree1',
+      idName:'tree2',
       mainFrame:'#content_frame',
     })
-

@@ -6622,92 +6622,158 @@
 
   var tree = {
     props: {
-      data: Object
+      data: Object,
+      mainFrame: String,
+      idName: String
     },
     data: {
       data: null,
       buildData: [],
       idName: "treeId",
-      str: "",
+      treeNavCls: "tree_nav",
+      treeLink: ".tree_lists a.name",
+      activeCls: 'mui-active',
+      highlightCls: 'mui-highlight',
+      highlightItem: 'highlightItem',
+      activeItem: 'activeItem',
+      mainFrame: null,
       index: 0
     },
-    connected: function connected() {
-      var $el = this.$el,
-        build = this.build;
-      console.log(build());
-      append($el, build());
+    created: function created() {
+      console.log(this.data);
+    },
+    beforeConnect: function beforeConnect() {
+      this.appendTree(this.data);
+      if (!!this.highlightItem) {
+        attr(this.mainFrame, 'src', $("#".concat(this.highlightItem)).pathname);
+      }
     },
     computed: {
-      // data({data}) {
-      //     return this.build(data);
-      // }
+      mainFrame: function mainFrame(_ref) {
+        var mainFrame = _ref.mainFrame;
+        return $(mainFrame);
+      },
+      highlightItem: function highlightItem() {
+        return localStorage.getItem(this.keyHighlightItem);
+      },
+      activeItem: function activeItem(_ref2) {
+        _ref2.keyActiveItem;
+        return JSON.parse(localStorage.getItem(this.keyActiveItem)) || [];
+      },
+      keyHighlightItem: function keyHighlightItem(_ref3) {
+        var idName = _ref3.idName,
+          highlightItem = _ref3.highlightItem;
+        return "".concat(idName).concat(highlightItem);
+      },
+      keyActiveItem: function keyActiveItem(_ref4) {
+        var idName = _ref4.idName,
+          activeItem = _ref4.activeItem;
+        return "".concat(idName).concat(activeItem);
+      }
     },
     events: [{
       name: 'click',
+      delegate: function delegate() {
+        return this.treeLink;
+      },
       handler: function handler(e) {
         e.preventDefault();
+        this.highlight(e.current.id);
+        attr(this.mainFrame, 'src', e.current.pathname);
       }
     }, {
-      name: 'scroll',
-      el: window,
-      handler: function handler() {
-
-        // this.$emit('resize');
+      name: 'click',
+      delegate: function delegate() {
+        return ".".concat(this.treeNavCls);
+      },
+      handler: function handler(e) {
+        var item = parent$1(e.current);
+        var id = e.current.id;
+        var activeCls = this.activeCls,
+          setSelected = this.setSelected;
+        if (hasClass(item, activeCls)) {
+          removeClass(item, activeCls);
+          setSelected(id, false);
+        } else {
+          addClass(item, activeCls);
+          setSelected(id, true);
+        }
       }
     }],
     methods: {
-      build: function build() {
-        var data = this.$props.data;
+      build: function build(data) {
         return this.sortData(data, 0);
       },
-      indent: function indent(n) {
-        var str = '\t';
-        var indent = '';
-        for (var i = 1; i < n; i++) {
-          indent += str;
-        }
-        return indent;
+      appendTree: function appendTree(data) {
+        var $el = this.$el,
+          build = this.build;
+        append($el, build(data));
       },
       sortData: function sortData(data, index) {
         var _this = this;
         var deps = ++index;
+        var hilight = this.highlightItem;
+        var $el = this.$el,
+          treeNavCls = this.treeNavCls,
+          highlightCls = this.highlightCls,
+          activeCls = this.activeCls,
+          idName = this.idName,
+          activeItem = this.activeItem;
         var str = '';
+        empty($el);
         each(data, function (data, key) {
           var idIndex = _this.index++;
+          var id = "".concat(idName).concat(deps).concat(idIndex);
           if (!isArray(data)) {
-            // str+=`${this.indent(deps)}<div class="tree_wrap" id="${this.idName+deps+idIndex}">\n`
-            // str+=`${this.indent(deps+1)}<p>${key}</p>\n`
-            // str+=`${this.indent(deps+1)}<div>\n`
-            // str+=`${this.indent(deps+2)}${this.sortData(data, deps)}`
-            // str+=`${this.indent(deps+1)}</div>\n`
-            // str+=`${this.indent(deps)}</div>\n`
-            str += "<div class=\"tree_wrap\" id=\"".concat(_this.idName + deps + idIndex, "\"><button type=\"button\" class=\"tree_nav\">").concat(key, "</button><div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div></div>\n                    ");
+            str += "\n                    <div class=\"tree_wrap ".concat(activeItem.length && activeItem.find(function (arr) {
+              return arr === id;
+            }) ? activeCls : "", "\">\n                        <button type=\"button\" id=\"").concat(id, "\" class=\"").concat(treeNavCls, "\">").concat(key, "</button>\n                        <div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div>\n                    </div>\n                    ");
           } else {
-            // str+=`${this.indent(deps)}<div class="tree_lists">\n`
-            // str+=`${this.indent(deps+1)}<a href="${data[0]}">${key}</a>\n`
-            // str+=`${this.indent(deps)}</div>\n`
-            str += "<div class=\"tree_lists\">\n                        <span>\n                            <a href=\"".concat(data[0], "\" class=\"name\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\">").concat(key, "</a>\n                        </span>\n                    </div>");
+            str += "\n                    <div class=\"tree_lists\">\n                        <span>\n                            <a href=\"".concat(data[0], "\" class=\"name ").concat(hilight === id ? highlightCls : "", "\" id=\"").concat(id, "\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\" title=\"\uC0C8 \uCC3D\" tabindex=\"-1\">").concat(key, "</a>\n                        </span>\n                    </div>\n                    ");
           }
         });
         return str;
-
-        // this.$el.innerHTML = 'sdfsdf'
-      }
-    },
-
-    update: {
-      read: function read(_ref) {
-        _ref.test;
-          _ref.aaaa;
-        return {
-          test: 'dddd',
-          aaaa: 'dffadfsf'
+      },
+      highlight: function highlight(id) {
+        var highlightCls = this.highlightCls,
+          setHighlight = this.setHighlight,
+          $el = this.$el;
+        var highlightItem = this.highlightItem;
+        console.log(highlightItem);
+        var newItem = $("#".concat(id), $el);
+        var item = $("#".concat(highlightItem), $el);
+        item && removeClass(item, highlightCls);
+        this.highlightItem = id;
+        addClass(newItem, highlightCls);
+        setHighlight(id);
+      },
+      setSelected: function setSelected(id, action) {
+        var _this2 = this;
+        var items = this.activeItem;
+        var add = function add(id) {
+          items.push(id);
         };
+        var remove = function remove(id) {
+          for (var i = 0; i < _this2.activeItem.length; i++) {
+            if (_this2.activeItem[i] === id) {
+              _this2.activeItem.splice(i, 1);
+            }
+          }
+        };
+        (action ? add : remove)(id);
+        this.activeItem = items;
+        localStorage.setItem(this.keyActiveItem, JSON.stringify(this.activeItem));
       },
-      write: function write(_ref2) {
-        _ref2.test;
+      setHighlight: function setHighlight(id) {
+        localStorage.setItem(this.keyHighlightItem, id);
       },
-      events: ['resize']
+      refresh: function refresh() {
+        this.clearStorage();
+      },
+      clearStorage: function clearStorage() {
+        localStorage.removeItem(this.keyHighlightItem);
+        localStorage.removeItem(this.keyActiveItem);
+      }
     }
   };
 

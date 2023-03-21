@@ -2,121 +2,179 @@ import {
     each,
     isArray,
     append,
+    empty,
+    attr,
+    toggleClass,
+    parent,
+    removeClass,
+    addClass,
+    $$,
+    hasClass,
 } from '../../util';
 export default {
 
     props: {
-        data: Object
+        data: Object,
+        mainFrame:String,
+        idName:String,
     },
 
     data: {
         data: null,
         buildData: [],
         idName:"treeId",
-        str:"",
+        treeNavCls:"tree_nav",
+        treeLink:".tree_lists a.name",
+        activeCls:'mui-active',
+        highlightCls:'mui-highlight',
+        highlightItem:'highlightItem',
+        activeItem:'activeItem',
+        mainFrame:null,
         index:0,
     },
-
-    connected(){
-        const {$el, build} = this;
-        console.log(build());
-        append($el, build())
-        
+    created(){
+        console.log(this.data);
+    },
+    beforeConnect(){
+        this.appendTree(this.data);
+        if(!!this.highlightItem) {
+            attr(this.mainFrame, 'src', $(`#${this.highlightItem}`).pathname)
+        }
     },
 
 
     computed: {
-        // data({data}) {
-        //     return this.build(data);
-        // }
+        mainFrame({mainFrame}) {
+            return $(mainFrame);
+        },
+        highlightItem(){
+            return localStorage.getItem(this.keyHighlightItem);
+        },
+        activeItem({keyActiveItem}){
+            return JSON.parse(localStorage.getItem(this.keyActiveItem)) || [];
+        },
+        keyHighlightItem({idName, highlightItem}){
+            return `${idName}${highlightItem}`
+        },
+        keyActiveItem({idName, activeItem}){
+            return `${idName}${activeItem}`
+        }
     },
 
     events: [
         {
-
             name: 'click',
-
+            delegate() {
+                return this.treeLink;
+            },
             handler(e) {
-                e.preventDefault();                
+                e.preventDefault();
+                this.highlight(e.current.id)
+                attr(this.mainFrame, 'src', e.current.pathname)
             }
-        },
+        },        
         {
-
-            name: 'scroll',
-
-            el: window,
-
-            handler() {
-
-                // this.$emit('resize');
-
+            name: 'click',
+            delegate() {
+                return `.${this.treeNavCls}`;
+            },
+            handler(e) {
+                const item = parent(e.current);
+                const id = e.current.id;
+                const {activeCls, setSelected} = this;
+                if(hasClass(item, activeCls)){
+                    removeClass(item, activeCls);
+                    setSelected(id, false);
+                }else{
+                    addClass(item, activeCls)
+                    setSelected(id, true);
+                }
             }
-
         }
     ],
 
     methods: {
-        build(){
-            const { data } = this.$props;
+        build(data){
             return this.sortData(data, 0);
         },
-        indent(n) {
-            const str = '\t';
-            let indent = '';
-            for (let i = 1; i < n; i++) {
-                indent+=str
-            }
-            return indent;
+        appendTree(data){
+            const {$el, build} = this;
+            append($el, build(data));
         },
         sortData(data, index){
             const deps = ++index;
+            const hilight = this.highlightItem;
+            const {
+                $el,
+                treeNavCls,
+                highlightCls,
+                activeCls,
+                idName,
+                activeItem,
+            } = this;
             let str = ''
-            
+            empty($el);
             each(data, (data, key) => {
                 let idIndex = this.index++;
+                let id = `${idName}${deps}${idIndex}`;
                 if (!isArray(data)) {
-                    // str+=`${this.indent(deps)}<div class="tree_wrap" id="${this.idName+deps+idIndex}">\n`
-                    // str+=`${this.indent(deps+1)}<p>${key}</p>\n`
-                    // str+=`${this.indent(deps+1)}<div>\n`
-                    // str+=`${this.indent(deps+2)}${this.sortData(data, deps)}`
-                    // str+=`${this.indent(deps+1)}</div>\n`
-                    // str+=`${this.indent(deps)}</div>\n`
-                    str+=`<div class="tree_wrap" id="${this.idName+deps+idIndex}"><button type="button" class="tree_nav">${key}</button><div class="tree_sub_wrap">${this.sortData(data, deps)}</div></div>
-                    `
+                    str+=`
+                    <div class="tree_wrap ${activeItem.length && activeItem.find((arr)=>arr === id)?activeCls:""}">
+                        <button type="button" id="${id}" class="${treeNavCls}">${key}</button>
+                        <div class="tree_sub_wrap">${this.sortData(data, deps)}</div>
+                    </div>
+                    `;
                 }else{
-                    // str+=`${this.indent(deps)}<div class="tree_lists">\n`
-                    // str+=`${this.indent(deps+1)}<a href="${data[0]}">${key}</a>\n`
-                    // str+=`${this.indent(deps)}</div>\n`
-                    str+=`<div class="tree_lists">
+                    str+=`
+                    <div class="tree_lists">
                         <span>
-                            <a href="${data[0]}" class="name">${key}</a>
-                            <a href="${data[0]}" class="blank" target="_blank">${key}</a>
+                            <a href="${data[0]}" class="name ${hilight === id ? highlightCls:""}" id="${id}">${key}</a>
+                            <a href="${data[0]}" class="blank" target="_blank" title="새 창" tabindex="-1">${key}</a>
                         </span>
-                    </div>`
+                    </div>
+                    `;
                 }
             })
-            return str;
             
-            // this.$el.innerHTML = 'sdfsdf'
-        }
-    },
-    update: {
-
-        read({test, aaaa}) {
-            return {
-                test: 'dddd',
-                aaaa: 'dffadfsf'
+            return str;
+        },
+        highlight(id){
+            const { highlightCls, setHighlight, $el } = this;
+            let { highlightItem } = this;
+            console.log(highlightItem);
+            const newItem = $(`#${id}`, $el);
+            const item = $(`#${highlightItem}`, $el);
+            item && removeClass(item, highlightCls)
+            this.highlightItem = id;
+            addClass( newItem, highlightCls );
+            setHighlight(id);
+        },
+        setSelected(id, action){
+            let items = this.activeItem;
+            const add = (id) =>{
+                items.push(id);
             }
-
+            const remove = (id) =>{
+                for (let i = 0; i < this.activeItem.length; i++) {
+                    if(this.activeItem[i] === id){
+                        this.activeItem.splice(i, 1);
+                    }
+                }
+            }
+            (action?add:remove)(id);
+            this.activeItem = items ;
+            localStorage.setItem(this.keyActiveItem, JSON.stringify(this.activeItem));
         },
-        write({test}) {
-
-
+        setHighlight(id){
+            localStorage.setItem(this.keyHighlightItem, id);
         },
-
-        events: ['resize']
-
+        refresh(){
+            this.clearStorage();
+        },
+        clearStorage(){
+            localStorage.removeItem(this.keyHighlightItem);
+            localStorage.removeItem(this.keyActiveItem);
+        }
     }
-
 };
 

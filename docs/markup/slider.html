@@ -17,38 +17,9 @@
         <div class="title_sec">
           <p class="title title_lv2">Example</p>
         </div>
-        <div id="treemenu">dsfasdfasfdasfsadf</div>
-        <script>
-          const { $ } = GCui.util;
-          const data = {
-            '가이드':{
-              '뎁스1-1': ['./guide/html/guide.html', '', 'mainFrame'],
-              '뎁스1-2': {
-                '뎁스2-1': ['./guide/html/guide.html', '', 'mainFrame'],
-                '뎁스2-2': {
-                  '뎁스3 1': {
-                    '뎁스4 1': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4 2': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4 3': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4 4': ['./guide/html/guide.html', '', 'mainFrame'],
-                  },
-                  '뎁스3 3': {
-                    '뎁스4-1': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4-2': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4-3': ['./guide/html/guide.html', '', 'mainFrame'],
-                    '뎁스4-4': ['./guide/html/guide.html', '', 'mainFrame'],
-                  },
-                  '뎁스3-2': ['./guide/html/guide.html', '', 'mainFrame'],
-                },
-              },
-              '뎁스1-3': ['./guide/html/guide.html', '', 'mainFrame'],
-            }
-          };
-          GCui.tree($('#treemenu'), {
-            data: data
-          })
-          
-        </script>
+        <div>
+          <iframe id="mainFrame"></iframe>
+        </div>
         <div class="guide_card_box"><section class="code_view"><div mui-slider=""> <div class="mui_slider_wrapper"><div class="mui_slide_container"><div class="mui_slide_list"><div class="mui_slide_items">slides1</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides2</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides3</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides4</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides5</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides6</div></div><div class="mui_slide_list"><div class="mui_slide_items">slides7</div></div></div></div></div></section><div class="code_block"><pre><code class="language-pug">div(
   mui-slider=""
 ) 
