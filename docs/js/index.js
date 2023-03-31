@@ -3155,6 +3155,11 @@
         return components[name];
       }
       GCui[name] = function (element, data) {
+        // 토스트 팝업을 위한..
+        if (!isElement(element) && isPlainObject(element)) {
+          data = element;
+          element = null;
+        }
         var component = GCui.component(name);
         return component.options.functional ? new component({
           data: isPlainObject(element) ? element : Array.prototype.slice.call(arguments)

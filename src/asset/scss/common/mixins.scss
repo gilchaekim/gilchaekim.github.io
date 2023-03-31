@@ -380,3 +380,72 @@ $sqrt_2: 1.41421356237;
         
     }
 }
+
+@function str-replace($string, $search, $replace: '') {
+    $index: str-index($string, $search);
+    
+    @if $index {
+      @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    }
+    
+    @return $string;
+}
+
+@mixin icon_svg($icon, $color:'#999', $size:20px) {
+
+    $esColor: str-replace($color, "#");
+    $svgIcon:'';
+    @if $icon == arrow-left-right {
+        $svgIcon: "%3Csvg id='icon_20' xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg id='icon_change' transform='translate(15578 14989)'%3E%3Crect width='20' height='20' transform='translate(-15578 -14989)' fill='none'/%3E%3Cg transform='translate(-15768.109 -15597.109)'%3E%3Cpath d='M3.564,1.5,1.5,3.564H13.884' transform='translate(192.608 611.609)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Cpath d='M11.82,3.563,13.884,1.5H1.5' transform='translate(192.608 619.033)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == refresh {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Cpath d='M7.5,15A7.5,7.5,0,0,1,2.194,2.194,7.5,7.5,0,0,1,14.3,4.337l.327.7.3-1.409a.626.626,0,0,1,.758-.5.665.665,0,0,1,.466.78l-.718,3.665a.691.691,0,0,1-.679.565.683.683,0,0,1-.376-.114L11.266,6.065A.662.662,0,0,1,11,5.248a.627.627,0,0,1,.913-.259l1.435.858-.335-.763a6.015,6.015,0,1,0-1.253,6.675.741.741,0,0,1,1.048,1.048A7.453,7.453,0,0,1,7.5,15' transform='translate(2 2.5)' fill='%23"+$esColor+"'/%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == doubleRect {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg transform='translate(15675 14974)'%3E%3Crect width='20' height='20' transform='translate(-15675 -14974)' fill='none'/%3E%3Cg transform='translate(-15672 -14970)'%3E%3Cpath d='M12.457,0h-6.5A1.963,1.963,0,0,0,4,1.961v.554H5.248V1.961a.713.713,0,0,1,.712-.712h6.5a.713.713,0,0,1,.712.712v6.5a.714.714,0,0,1-.712.713H11.9v1.248h.555a1.963,1.963,0,0,0,1.961-1.961v-6.5A1.963,1.963,0,0,0,12.457,0' transform='translate(-0.484 -1)' fill='%23"+$esColor+"'/%3E%3Cpath d='M1.961,14.418A1.963,1.963,0,0,1,0,12.457v-6.5A1.963,1.963,0,0,1,1.961,4h6.5a1.963,1.963,0,0,1,1.961,1.961v6.5a1.963,1.963,0,0,1-1.961,1.961Zm0-9.17a.713.713,0,0,0-.712.712v6.5a.714.714,0,0,0,.712.713h6.5a.714.714,0,0,0,.712-.713v-6.5a.713.713,0,0,0-.712-.712Z' transform='translate(0 -1.484)' fill='%23"+$esColor+"'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+    @else if $icon == search-circle {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg transform='translate(-10 -3)'%3E%3Ccircle cx='12' cy='12' r='12' transform='translate(10 3)' fill='%23574bcd' opacity='0.15'/%3E%3Cpath d='M19.214,34a3.939,3.939,0,1,1,3.94,3.939A3.939,3.939,0,0,1,19.214,34Z' transform='translate(-1.643 -19.332)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3Cline x2='1.641' y2='1.641' transform='translate(24.788 17.635)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E%0A";
+    }
+
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+@mixin icon_svg_search($size:20px) {
+    $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cg transform='translate(-10 -3)'%3E%3Ccircle cx='12' cy='12' r='12' transform='translate(10 3)' fill='%23574bcd' opacity='0.15'/%3E%3Cpath d='M19.214,34a3.939,3.939,0,1,1,3.94,3.939A3.939,3.939,0,0,1,19.214,34Z' transform='translate(-1.643 -19.332)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3Cline x2='1.641' y2='1.641' transform='translate(24.788 17.635)' fill='none' stroke='%23574bcd' stroke-linecap='round' stroke-miterlimit='10' stroke-width='1.5'/%3E%3C/g%3E%3C/svg%3E%0A";
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+
+@mixin icon_svg_tooltip($color:black, $size:20px) {
+    // $color  - white, black
+    $outer:'555';
+    $inner:'fff';
+    @if $color == white {
+        $outer:'fff';
+        $inner:'555';
+    }
+    $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Cg transform='translate(2 2)' fill='%23"+$outer+"'%3E%3Cpath d='M 8 15.5 C 3.864490032196045 15.5 0.5 12.13551044464111 0.5 8 C 0.5 5.994550228118896 1.277860045433044 4.111030101776123 2.690299987792969 2.696429967880249 C 4.104509830474854 1.28004002571106 5.990200042724609 0.5 8 0.5 C 10.00979995727539 0.5 11.89548969268799 1.28004002571106 13.30970001220703 2.696429967880249 C 14.72214031219482 4.111030101776123 15.5 5.994550228118896 15.5 8 C 15.5 12.13551044464111 12.13551044464111 15.5 8 15.5 Z' stroke='none'/%3E%3Cpath d='M 8 1 C 6.123900413513184 1 4.363860130310059 1.727930068969727 3.044119834899902 3.049710273742676 C 1.725950241088867 4.36991024017334 1 6.127960205078125 1 8 C 1 11.85980987548828 4.140190124511719 15 8 15 C 11.85980987548828 15 15 11.85980987548828 15 8 C 15 6.127960205078125 14.27404975891113 4.36991024017334 12.9558801651001 3.049710273742676 C 11.63613986968994 1.727930068969727 9.876100540161133 1 8 1 M 8 0 C 12.43607997894287 0 16 3.581720352172852 16 8 C 16 12.41827964782715 12.41827964782715 16 8 16 C 3.581720352172852 16 0 12.41827964782715 0 8 C 0 3.581720352172852 3.563920021057129 0 8 0 Z' stroke='none' fill='%23"+$inner+"'/%3E%3C/g%3E%3Cg transform='translate(2.25 3.5)'%3E%3Cg transform='translate(7 3)' fill='%23"+$outer+"' stroke-linecap='round'%3E%3Cpath d='M.75,0A.716.716,0,0,1,1.5.75.75.75,0,0,1,0,.75.716.716,0,0,1,.75,0Z' stroke='none'/%3E%3Cpath d='M 0.75 0 C 1.221089959144592 0 1.5 0.3357900381088257 1.5 0.75 C 1.5 1.164209961891174 1.164209961891174 1.5 0.75 1.5 C 0.3357900381088257 1.5 0 1.164209961891174 0 0.75 C 0 0.3357900381088257 0.2789100408554077 0 0.75 0 Z' stroke='none' fill='%23"+$inner+"'/%3E%3C/g%3E%3Cg transform='translate(7 5)' fill='%23"+$outer+"' stroke-linecap='round'%3E%3Cpath d='M 0.75 4.25 C 0.7493500113487244 4.25 0.7490599751472473 4.249959945678711 0.7490500211715698 4.249959945678711 L 0.7499991655349731 0.7530506253242493 C 0.7504310011863708 0.7535600662231445 0.7507822513580322 0.7540494799613953 0.7509999871253967 0.7544699907302856 L 0.75 4.25 Z' stroke='none'/%3E%3Cpath d='M 0.75 0 C 1.15625 0 1.5 0.3357901573181152 1.5 0.75 L 1.5 4.25 C 1.5 4.664209842681885 1.164209961891174 5 0.75 5 C 0.3357900381088257 5 0 4.664209842681885 0 4.25 L 0 0.75 C 0 0.3357901573181152 0.34375 0 0.75 0 Z' stroke='none' fill='%23"+$inner+"'/%3E%3C/g%3E%3C/g%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E";
+
+    background-image: url("data:image/svg+xml,"+$svgIcon);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: $size;
+    height: $size;
+}
+
+
+
+// svg icon
+
+
+
+

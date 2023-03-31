@@ -33,6 +33,10 @@ export default {
         mainFrame:null,
         index:0,
         template:`<div class="tree_control">
+            <span class="status">
+                <span class="complete">퍼블 작업 완료</span>
+                <span class="confirm">기획 검수 완료</span>
+            </span>
             <span class="collapse">
                 <button type="button" class="open_all">open all</button>
                 <button type="button" class="close_all">close all</button>
@@ -47,7 +51,7 @@ export default {
         this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
         this.appendTree(this.data);
         if(!!this.highlightItem) {
-            attr(this.mainFrame, 'src', $(`#${this.highlightItem}`).pathname)
+            attr(this.mainFrame, 'src', $(`#${this.highlightItem}`)?.pathname)
         }
         prepend(this.$el, this.template)
     },
@@ -146,7 +150,7 @@ export default {
                     `;
                 }else{
                     str+=`
-                    <div class="tree_lists">
+                    <div class="tree_lists ${data[1]?data[1]:""}">
                         <span>
                             <a href="${data[0]}" class="name ${hilight === id ? highlightCls:""}" id="${id}">${key}</a>
                             <a href="${data[0]}" class="blank" target="_blank" title="새 창" tabindex="-1">${key}</a>
@@ -160,10 +164,10 @@ export default {
         },
         highlight(id){
             const { highlightCls, setHighlight, $el } = this;
-            let { highlightItem } = this;
-            console.log(highlightItem);
             const newItem = $(`#${id}`, $el);
+            let { highlightItem } = this;
             const item = $(`#${highlightItem}`, $el);
+            
             item && removeClass(item, highlightCls)
             this.highlightItem = id;
             addClass( newItem, highlightCls );
@@ -171,9 +175,7 @@ export default {
         },
         setSelected(id, action){
             let items = this.activeItem;
-            const add = (id) =>{
-                items.push(id);
-            }
+            const add = (id) => !items.find((arr)=>arr=== id) && items.push(id);
             const remove = (id) =>{
                 for (let i = 0; i < this.activeItem.length; i++) {
                     if(this.activeItem[i] === id){
@@ -202,7 +204,6 @@ export default {
 
         },
         clearStorage(){
-            localStorage.removeItem(this.keyHighlightItem);
             localStorage.removeItem(this.keyActiveItem);
         }
     }

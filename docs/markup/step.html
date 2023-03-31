@@ -17,15 +17,15 @@
         <div class="title_sec">
           <p class="title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><ul class="step"><li>step1<div>나오냐?????????????????</div></li><li>step2<div>나오냐?????????????????</div></li><li>step3<div>나오냐?????????????????</div></li></ul></section><div class="code_block"><pre><code class="language-pug">+stepWrap()
+        <div class="guide_card_box"><section class="code_view"><ul class="step"><li>step1<div>나오냐11111</div></li><li>step2<div>나오냐?????????????????</div></li><li>step3<div>나오냐?????????????????</div></li></ul></section><div class="code_block"><pre><code class="language-pug">+stepWrap()
   +step("step")
-    div 나오냐?????????????????
+    div 나오냐11111
   +step("step")
     div 나오냐?????????????????
   +step("step")
     div 나오냐?????????????????</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div><br><br>
         <div class="title_sec">
@@ -74,5 +74,17 @@
         </div>
       </div>
     </div>
+    <script>
+      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
+      const btn = $$('.view_code button')
+      on(btn, 'click', (e)=>{
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')){
+          removeAttr(target, 'hidden')
+        }else{
+          attr(target, 'hidden', '')
+        }
+      })
+    </script>
   </body>
 </html>

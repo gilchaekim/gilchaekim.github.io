@@ -799,3 +799,12 @@ $animation-slide-medium-translate:               50px !default;
 @if(mixin-exists(hook-animation-misc)) {@include hook-animation-misc();}
 
 // @mixin hook-animation-misc(){}
+
+
+
+
+
+.test_icon{
+    @include icon_svg_search(120px);
+}
+

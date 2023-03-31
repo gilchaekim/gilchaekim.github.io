@@ -4,7 +4,7 @@ mixin modal(params={})
   - const divide = '_'
   //- 공통 요소 End
   
-  - const { title, className, size, ...rest } = Object.assign({}, params)
+  - const { title, className, size, id, alignBottom, ...rest } = Object.assign({}, params)
   - let element = "div"
   - let { muiModal } = Object.assign({}, params)
   - let modalItems = {};
@@ -19,13 +19,15 @@ mixin modal(params={})
 
   #{element}(
     mui-modal=muiModal
-    id="modal"
+    id=`${id?id:"modal"}`
+    class={"mui_bottom_tray_wrap": alignBottom}
   )
     div(
       class=`${prefix}${divide}modal${divide}dialog`
       class=`mui_size_${modalSize}`
       class=className
       class={"mui_auto_vertical": alignMiddle}
+      class={"mui_bottom_tray": alignBottom}
     ) 
       div(
         class=`${prefix}${divide}modal${divide}body`

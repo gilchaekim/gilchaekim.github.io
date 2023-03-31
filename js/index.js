@@ -4592,6 +4592,40 @@
     }
   };
 
+  var toast = {
+    props: {
+      text: String
+    },
+    data: {
+      template: "\n        <div class=\"toast_pop_wrap\">\n            <p class=\"toast\"></p>\n        </div>\n        ",
+      text: null,
+      $text: null,
+      isClose: false
+    },
+    created: function created() {
+      var $el = $$1(this.template);
+      this.$mount(append(document.body, $el));
+    },
+    computed: {
+      $text: function $text(_ref, $el) {
+        var text = _ref.text;
+        return find('.toast', $el).innerHTML = text;
+      }
+    },
+    connected: function connected() {
+      this.show();
+    },
+    methods: {
+      show: function show() {
+        css(this.$text);
+      },
+      hide: function hide() {
+        setTimeout(this.$destroy(true), 5000);
+      },
+      build: function build() {}
+    }
+  };
+
   var Lazyload = {
     data: {
       preload: 5
@@ -6638,13 +6672,14 @@
       activeItem: 'activeItem',
       mainFrame: null,
       index: 0,
-      template: "<div class=\"tree_control\">\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
+      template: "<div class=\"tree_control\">\n            <span class=\"status\">\n                <span class=\"complete\">\uD37C\uBE14 \uC791\uC5C5 \uC644\uB8CC</span>\n                <span class=\"confirm\">\uAE30\uD68D \uAC80\uC218 \uC644\uB8CC</span>\n            </span>\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
     },
     beforeConnect: function beforeConnect() {
       this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
       this.appendTree(this.data);
       if (!!this.highlightItem) {
-        attr(this.mainFrame, 'src', $("#".concat(this.highlightItem)).pathname);
+        var _$;
+        attr(this.mainFrame, 'src', (_$ = $("#".concat(this.highlightItem))) === null || _$ === void 0 ? void 0 : _$.pathname);
       }
       prepend(this.$el, this.template);
     },
@@ -6738,7 +6773,7 @@
               return arr === id;
             }) ? activeCls : "", "\">\n                        <button type=\"button\" id=\"").concat(id, "\" class=\"").concat(treeNavCls, "\">").concat(key, "</button>\n                        <div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div>\n                    </div>\n                    ");
           } else {
-            str += "\n                    <div class=\"tree_lists\">\n                        <span>\n                            <a href=\"".concat(data[0], "\" class=\"name ").concat(hilight === id ? highlightCls : "", "\" id=\"").concat(id, "\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\" title=\"\uC0C8 \uCC3D\" tabindex=\"-1\">").concat(key, "</a>\n                        </span>\n                    </div>\n                    ");
+            str += "\n                    <div class=\"tree_lists ".concat(data[1] ? data[1] : "", "\">\n                        <span>\n                            <a href=\"").concat(data[0], "\" class=\"name ").concat(hilight === id ? highlightCls : "", "\" id=\"").concat(id, "\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\" title=\"\uC0C8 \uCC3D\" tabindex=\"-1\">").concat(key, "</a>\n                        </span>\n                    </div>\n                    ");
           }
         });
         return str;
@@ -6747,9 +6782,8 @@
         var highlightCls = this.highlightCls,
           setHighlight = this.setHighlight,
           $el = this.$el;
-        var highlightItem = this.highlightItem;
-        console.log(highlightItem);
         var newItem = $("#".concat(id), $el);
+        var highlightItem = this.highlightItem;
         var item = $("#".concat(highlightItem), $el);
         item && removeClass(item, highlightCls);
         this.highlightItem = id;
@@ -6760,7 +6794,9 @@
         var _this2 = this;
         var items = this.activeItem;
         var add = function add(id) {
-          items.push(id);
+          return !items.find(function (arr) {
+            return arr === id;
+          }) && items.push(id);
         };
         var remove = function remove(id) {
           for (var i = 0; i < _this2.activeItem.length; i++) {
@@ -6790,7 +6826,6 @@
       },
       closeAll: function closeAll() {},
       clearStorage: function clearStorage() {
-        localStorage.removeItem(this.keyHighlightItem);
         localStorage.removeItem(this.keyActiveItem);
       }
     }
@@ -6896,6 +6931,7 @@
     Button: Button,
     Calendar: calendar,
     Tab: tab,
+    Toast: toast,
     Toggle: toggle,
     Sticky: sticky,
     Datepicker: datepicker,
@@ -6918,6 +6954,11 @@
         return components[name];
       }
       GCui[name] = function (element, data) {
+        // 토스트 팝업을 위한..
+        if (!isElement(element) && isPlainObject(element)) {
+          data = element;
+          element = null;
+        }
         var component = GCui.component(name);
         return component.options.functional ? new component({
           data: isPlainObject(element) ? element : Array.prototype.slice.call(arguments)

@@ -168,6 +168,9 @@ a {
 }
 .guide_card_box .code_block {
   margin-top: 20px;
+  background-color: #eee;
+  padding: 20px;
+  border-radius: 10px;
 }
 .guide_card_box ~ .guide_card_box {
   margin-top: 20px;
@@ -249,6 +252,26 @@ a {
   cursor: pointer;
 }
 
+.tree_control .search {
+  display: none;
+}
+.tree_control .status {
+  text-align: center;
+  font-size: 13px;
+  display: flex;
+  padding-right: 20px;
+  justify-content: space-between;
+}
+.tree_control .status .complete {
+  color: #000;
+  text-decoration: underline;
+}
+.tree_control .status .confirm {
+  color: #00f;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .tree_wrap > .tree_sub_wrap {
   display: none;
 }
@@ -264,7 +287,7 @@ a {
 }
 .tree_wrap a, .tree_wrap button {
   font-size: 13px;
-  color: #333;
+  color: #666;
   height: 20px;
   display: block;
   line-height: 20px;
@@ -274,7 +297,7 @@ a {
 }
 .tree_wrap a.mui-highlight, .tree_wrap button.mui-highlight {
   background: #1e87f0;
-  color: #fff;
+  color: #fff !important;
 }
 .tree_wrap a.name, .tree_wrap button.name {
   padding: 0 6px;
@@ -300,6 +323,19 @@ a {
 }
 .tree_wrap .tree_lists + .tree_wrap {
   margin-top: 10px;
+}
+.tree_wrap .tree_lists.delete a {
+  text-decoration: line-through;
+  opacity: 0.4;
+}
+.tree_wrap .tree_lists.complete a {
+  color: #000;
+  text-decoration: underline;
+}
+.tree_wrap .tree_lists.confirm a {
+  color: #00f;
+  font-weight: bold;
+  text-decoration: underline;
 }
 .tree_wrap .tree_nav {
   padding-left: 16px;

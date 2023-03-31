@@ -15,6 +15,24 @@
         align-items: center;
         justify-content: center;
     }
+    &.mui_bottom_tray_wrap {
+        align-items: end;
+        padding: 0;
+        .mui_modal{
+            &_dialog{
+                width: 100%;
+            }
+            &_body{
+                border-radius: 6px 6px 0 0;
+                top:100px;
+            }
+            &_content{
+                max-height: 70vh;
+                overflow: auto;
+            }
+    
+        }
+    }
     .mui_size{
         &_small{
             min-width: 400px;

@@ -22,7 +22,7 @@
 })
 +datepicker()</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div><br><br>
         <div class="title_sec">
@@ -65,5 +65,17 @@
         </div>
       </div>
     </div>
+    <script>
+      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
+      const btn = $$('.view_code button')
+      on(btn, 'click', (e)=>{
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')){
+          removeAttr(target, 'hidden')
+        }else{
+          attr(target, 'hidden', '')
+        }
+      })
+    </script>
   </body>
 </html>

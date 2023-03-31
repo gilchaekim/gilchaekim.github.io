@@ -4,6 +4,7 @@ export {default as Alert} from './core/alert';
 export {default as Button} from './core/button';
 export {default as Calendar} from './core/calendar';
 export {default as Tab} from './core/tab';
+export {default as Toast} from './core/toast';
 export {default as Toggle} from './core/toggle';
 export {default as Sticky} from './core/sticky';
 export {default as Datepicker} from './core/datepicker';

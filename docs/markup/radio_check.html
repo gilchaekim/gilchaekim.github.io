@@ -25,7 +25,7 @@
   name:'chk2'
 })</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div>
         <div class="guide_card_box"><section class="code_view"><div class="mui_radio_group"><span class="mui_radio"><input type="radio" id="radiolistId1" name="radiolistId1" disabled="disabled"/><label for="radiolistId1">라디오버튼1</label></span><span class="mui_radio"><input type="radio" id="radiolistId2" name="radiolistId1"/><label for="radiolistId2">라디오버튼2</label></span><span class="mui_radio"><input type="radio" id="radiolistId3" name="radiolistId1"/><label for="radiolistId3">라디오버튼3</label></span></div></section><div class="code_block"><pre><code class="language-pug">+radioCheck({
@@ -45,7 +45,7 @@
   ]
 })</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div>
         <div class="guide_card_box"><section class="code_view"><div class="mui_checkbox_group"><span class="mui_checkbox"><input type="checkbox" id="checklistId1" checked="checked"/><label for="checklistId1">체크1</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId2"/><label for="checklistId2">체크2</label></span><span class="mui_checkbox"><input type="checkbox" id="checklistId3"/><label for="checklistId3">체크3</label></span></div></section><div class="code_block"><pre><code class="language-pug">+radioCheck({
@@ -64,7 +64,7 @@
   ]
 })</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div>
         <div class="guide_card_box"><section class="code_view"><div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1"/><label for="btnTypeId1">체크1</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1"/><label for="btnTypeId2">체크2</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1"/><label for="btnTypeId3">체크3</label></span></div></section><div class="code_block"><pre><code class="language-pug">+radioCheck({
@@ -84,7 +84,7 @@
   ]
 })</code></pre></div>
           <div class="view_code">
-            <button>code view</button>
+            <button>code view Toggle</button>
           </div>
         </div><br><br>
         <div class="title_sec">
@@ -151,5 +151,17 @@
         </div>
       </div>
     </div>
+    <script>
+      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
+      const btn = $$('.view_code button')
+      on(btn, 'click', (e)=>{
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')){
+          removeAttr(target, 'hidden')
+        }else{
+          attr(target, 'hidden', '')
+        }
+      })
+    </script>
   </body>
 </html>

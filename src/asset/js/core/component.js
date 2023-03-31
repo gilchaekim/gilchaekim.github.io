@@ -1,4 +1,4 @@
-import {$$, assign, camelize, fastdom, hyphenate, isPlainObject, startsWith} from '../util/index';
+import {$$, assign, camelize, fastdom, hyphenate, isPlainObject, startsWith, isElement} from '../util/index';
 
 export default function (GCui) {
 
@@ -15,6 +15,11 @@ export default function (GCui) {
             return components[name];
         }
         GCui[name] = function (element, data) {
+            // 토스트 팝업을 위한..
+            if(!isElement(element) && isPlainObject(element)){
+                data = element;
+                element = null;
+            }
             const component = GCui.component(name);
             return component.options.functional
                 ? new component({data: isPlainObject(element) ? element : [...arguments]})

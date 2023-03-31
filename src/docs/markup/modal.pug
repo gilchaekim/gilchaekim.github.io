@@ -13,7 +13,7 @@ block content
       :code
         //- 호출 버튼
         +button({
-          label:"모달 호출 버튼",
+          label:"기본 모달 호출",
           size:'large',
           muiToggle:'target:#modal;mode:hover;'
         })
@@ -38,6 +38,28 @@ block content
                 className:"mui_modal_close"
               })
               <button type="button" onclick="GCui.modal.alert('Alert!!')">컴폼창 호출</button>
+
+    +guideTitle({
+      text:"버텀 트레이",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        //- 호출 버튼
+        +button({
+          label:"기본 모달 호출",
+          size:'large',
+          muiToggle:'target:#modal_bottom;mode:hover;'
+        })
+
+
+        +modal({
+          title:"모달 타이틀",
+          id:"modal_bottom",
+          alignBottom:true
+        })
+          div 모달 컨텐츠111111111111111111111111111111111111
+            div dsfsdf
     +guideTitle({
       text:"Alert, confirm, dialog",
       level:2
@@ -67,7 +89,6 @@ block content
 
         //- 다이얼로그
         GCui.modal.dialog("dialog")
-      
     br
     br
     +guideTitle({
