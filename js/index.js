@@ -3332,7 +3332,6 @@
   function initChildListObserver(component) {
     var el = component.$options.el;
     var observer = new MutationObserver(function () {
-      console.log('el');
       return component.$emit();
     });
     observer.observe(el, {
@@ -4592,11 +4591,19 @@
     }
   };
 
+  var active$1 = [];
   var toast = {
     props: {
-      text: String
+      text: String,
+      duration: Number,
+      aniSpped: Number
     },
     data: {
+      duration: 5000,
+      aniSpped: 300,
+      margin: 10,
+      gravity: 'bottom',
+      position: 40,
       template: "\n        <div class=\"toast_pop_wrap\">\n            <p class=\"toast\"></p>\n        </div>\n        ",
       text: null,
       $text: null,
@@ -4605,24 +4612,56 @@
     created: function created() {
       var $el = $$1(this.template);
       this.$mount(append(document.body, $el));
-    },
-    computed: {
-      $text: function $text(_ref, $el) {
-        var text = _ref.text;
-        return find('.toast', $el).innerHTML = text;
-      }
+      find('.toast', $el).innerHTML = this.text;
     },
     connected: function connected() {
       this.show();
     },
     methods: {
       show: function show() {
-        css(this.$text);
+        var _this = this;
+        var gravity = this.gravity,
+          position = this.position;
+          this.margin;
+        Transition.start(css(this.$el, _defineProperty({
+          "opacity": '.5'
+        }, gravity, position - 40)), _defineProperty({
+          opacity: 1
+        }, gravity, position), this.aniSpped).then(function () {
+          _this.hide();
+        });
+        if (active$1.length) {
+          for (var i = active$1.length - 1; i >= 0; i--) {
+            this.pushing(active$1[i], i);
+          }
+        }
+        active$1.push(this);
       },
       hide: function hide() {
-        setTimeout(this.$destroy(true), 5000);
+        var _this2 = this;
+        setTimeout(function () {
+          Transition.start(css(_this2.$el, {
+            "opacity": '1'
+          }), {
+            opacity: 0
+          }, _this2.aniSpped).then(function () {
+            if (includes(active$1, _this2)) {
+              active$1.splice(active$1.indexOf(_this2), 1);
+            }
+            _this2.$destroy(true);
+          });
+        }, this.duration);
       },
-      build: function build() {}
+      pushing: function pushing(el, n) {
+        var gravity = this.gravity;
+        var $el = el.$el,
+          margin = el.margin,
+          position = el.position;
+        var oldHeight = height($el) + margin;
+        var newPostion = oldHeight + position;
+        Transition.start(css($el, _defineProperty({}, gravity, position)), _defineProperty({}, gravity, oldHeight + position), this.aniSpped);
+        el.position = newPostion;
+      }
     }
   };
 

@@ -411,7 +411,6 @@ function initChildListObserver(component) {
     const {el} = component.$options;
     
     const observer = new MutationObserver(() => {
-        console.log('el')
         return component.$emit()
     });
     observer.observe(el, {

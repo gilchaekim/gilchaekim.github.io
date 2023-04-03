@@ -378,6 +378,23 @@ a{text-decoration: none;}
   }
 }
 
+.toast_pop_wrap{
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 0);
+  overflow: hidden;
+  height: auto;
+  opacity: 0;
+  transition: all .3s;
+  .toast{
+    padding: 20px;
+    border-radius: 6px;
+    background: #aaa;
+    color: #fff;
+    position: relative;
+  }
+}
 
 
 
