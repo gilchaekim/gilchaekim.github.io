@@ -25,6 +25,35 @@ block content
         })
     br
     br
+
+    +guideTitle({
+      text:"Button Group",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        // 최근, 자주, 내계좌 선택 버튼
+        +button_group({
+          btns:[
+            '최근',
+            '자주',
+            '내계좌',
+          ]
+        })
+    +guideExample()(code)
+      :code
+        
+        // 금액 입력 버튼 그룹
+        +button_group({
+          btns:[
+            '+1만',
+            '+5만',
+            '+10만',
+            '전액',
+          ]
+        })
+    br
+    br
     +guideTitle({
       text:"Attribute",
       level:2

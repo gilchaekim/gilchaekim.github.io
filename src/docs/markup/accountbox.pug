@@ -1,0 +1,39 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Accordion"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"평생 010-12345678",
+          accVal:"203030313333",
+          endDate:"2025.12.31",
+          btns: [
+            {
+              label:"이체",
+              size:"large"
+            },
+            {
+              label:"거래내역조회",
+              size:"large"
+            }
+          ],
+          tags:[{
+            text:"거래중지", type:"test111222"
+          }]
+
+        })         
+
+                
+    br
+    br
+
+

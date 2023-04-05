@@ -2988,7 +2988,6 @@
   function initChildListObserver(component) {
     var el = component.$options.el;
     var observer = new MutationObserver(function () {
-      console.log('el');
       return component.$emit();
     });
     observer.observe(el, {

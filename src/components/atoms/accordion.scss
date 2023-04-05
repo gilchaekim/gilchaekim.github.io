@@ -1,15 +1,29 @@
 .mui-accordion{
   .acc_lists{
-    padding-left: 50px;
-    border: 1px solid #e8e8e8;
     position: relative;
+    border: 1px solid #666;
+    & ~ .acc_lists{
+      border-top: 0 none;
+    }
+    .acc_header{
+      position: relative;
+      padding: 10px 50px 10px 20px;
+
+      
+    }
+    .mui_acc_content{
+      border-top: 1px solid #666;
+      padding: 16px;
+    }
     .mui_acc_button{
       position: absolute;
       top: 0;
-      left: 0;
+      right: 0;
       bottom: 0;
       width: 50px;
-      background: #f8f8f8;
+      height: 30px;
+      background: #000;
+      color: #fff;
     }
   }
 }

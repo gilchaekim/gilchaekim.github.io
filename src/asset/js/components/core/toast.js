@@ -4,7 +4,6 @@ import {
     find,
     css,
     includes,
-    dimensions,
     height,
     Transition
 } from '../../util/index';
@@ -35,15 +34,15 @@ export default {
     created(){
         const $el = $(this.template);
         this.$mount(append(document.body, $el));
-        find('.toast', $el).innerHTML = this.text;
     },
     connected(){
+        find('.toast', this.$el).innerHTML = this.text;
         this.show();
     },
     methods: {
         show() {
             const { gravity, position, margin } = this;
-            Transition.start(css(this.$el, {"opacity":'.5', [gravity] : position - 40}), {
+            Transition.start(css(this.$el, {"opacity":'.5', [gravity] : position - 71}), {
                 opacity:1,
                 [gravity]: position
             }, this.aniSpped).then(()=>{
@@ -58,15 +57,18 @@ export default {
         },
         hide() {
             setTimeout(()=> {
-                Transition.start(css(this.$el, {"opacity":'1'}), {
-                    opacity:0
-                }, this.aniSpped).then(()=>{
-                    if (includes(active, this)) {
-                        active.splice(active.indexOf(this), 1);
-                    }
-                    this.$destroy(true);
-                })
+                this.delete();        
             }, this.duration);
+        },
+        delete() {
+            Transition.start(css(this.$el, {"opacity":'1'}), {
+                opacity:0
+            }, this.aniSpped).then(()=>{
+                if (includes(active, this)) {
+                    active.splice(active.indexOf(this), 1);
+                }
+                this.$destroy(true);
+            })
         },
         pushing(el, n) {
             const {gravity} = this;

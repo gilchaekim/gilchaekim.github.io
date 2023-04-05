@@ -4612,9 +4612,9 @@
     created: function created() {
       var $el = $$1(this.template);
       this.$mount(append(document.body, $el));
-      find('.toast', $el).innerHTML = this.text;
     },
     connected: function connected() {
+      find('.toast', this.$el).innerHTML = this.text;
       this.show();
     },
     methods: {
@@ -4625,7 +4625,7 @@
           this.margin;
         Transition.start(css(this.$el, _defineProperty({
           "opacity": '.5'
-        }, gravity, position - 40)), _defineProperty({
+        }, gravity, position - 71)), _defineProperty({
           opacity: 1
         }, gravity, position), this.aniSpped).then(function () {
           _this.hide();
@@ -4640,17 +4640,21 @@
       hide: function hide() {
         var _this2 = this;
         setTimeout(function () {
-          Transition.start(css(_this2.$el, {
-            "opacity": '1'
-          }), {
-            opacity: 0
-          }, _this2.aniSpped).then(function () {
-            if (includes(active$1, _this2)) {
-              active$1.splice(active$1.indexOf(_this2), 1);
-            }
-            _this2.$destroy(true);
-          });
+          _this2["delete"]();
         }, this.duration);
+      },
+      "delete": function _delete() {
+        var _this3 = this;
+        Transition.start(css(this.$el, {
+          "opacity": '1'
+        }), {
+          opacity: 0
+        }, this.aniSpped).then(function () {
+          if (includes(active$1, _this3)) {
+            active$1.splice(active$1.indexOf(_this3), 1);
+          }
+          _this3.$destroy(true);
+        });
       },
       pushing: function pushing(el, n) {
         var gravity = this.gravity;

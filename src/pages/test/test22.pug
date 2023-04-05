@@ -1,4 +1,5 @@
 include ../../components/atoms/index
+include ../../components/molecules/index
 
 - var friends = rtetreterteter
 - var class111 = "retedfdsfsrt"
@@ -39,7 +40,26 @@ html(lang="ko")
         li item
 
     p(style="background: #f0f")= 'A message with a ' + 'blue' + ' background'
+    +accountbox({
+      accName:"비대면 파킹통장 보통예금",
+      accNum:"평생 010-12345678",
+      accVal:"203030313333",
+      endDate:"2025.12.31",
+      btns: [
+        {
+          label:"이체",
+          size:"large"
+        },
+        {
+          label:"거래내역조회",
+          size:"large"
+        }
+      ],
+      tags:[{
+        text:"거래중지", type:"test111222"
+      }]
 
+    })
     div
       a(class='button ' + class111 href='//google.com') Google
 

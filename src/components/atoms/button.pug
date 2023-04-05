@@ -1,3 +1,21 @@
+mixin button_group(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const { element="div", size="medium", className, btns, ...rest } = Object.assign({}, params)
+  #{element}(
+    id=id
+    class=`${prefix}${divide}button${divide}group`
+    class=className
+  )
+    each val in btns
+      span.group
+        +button({
+          label:val
+        })
+
+
 mixin button(params={})
   //- 공통 요소 Start
   - const prefix = "mui"
@@ -14,8 +32,8 @@ mixin button(params={})
     - buttonType = undefined
   #{element}(
     id=id
-    class=`${prefix}-button`
-    class=`${prefix}-size-${size}`
+    class=`${prefix}${divide}button`
+    class=`${prefix}${divide}size${divide}${size}`
     class=className
     class={
       'mui-icon':isIcon,

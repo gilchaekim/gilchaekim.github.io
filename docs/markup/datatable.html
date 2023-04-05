@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>METAUI</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <link rel="stylesheet" href="/docs/css/index.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="/index.js"></script>
+  </head>
+  <body>
+    <div id="guideWrap">
+      <div class="main_content">
+        <div class="title_sec">
+          <p class="title title_lv1">Data Table</p>
+        </div>
+        <div class="title_sec">
+          <p class="title title_lv2">Example</p>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><div class="mui-datatable"><table><colgroup><col width="25"/><col width="25"/><col width="25"/><col width="25"/></colgroup><caption>테이블 제목</caption><thead><tr><th class="th custom-class" scope="cols"><em>dsddddd</em></th><th class="th" scope="cols">dsddddd</th><th class="th" scope="cols">dsddddd</th><th class="th" scope="cols">dsddddd</th></tr><tr><th class="th" scope="cols">dsddddd2</th><th class="th" scope="cols">dsddddd2</th><th class="th" scope="cols">dsddddd2</th><th class="th" scope="cols">dsddddd2</th></tr></thead><tbody><tr><th class="th custom-class" scope="rows" colspan="2"><em>dsddddd</em></th><td>dsddddd</td><td>dsddddd</td></tr><tr><th class="th" scope="rows">dsddddd2</th><td>dsddddd2</td><td>dsddddd2</td><td>dsddddd2</td></tr></tbody><tfoot><tr><th class="th custom-class" scope="rows" colspan="2"><em>dsddddd</em></th><td>dsddddd</td><td>dsddddd</td></tr><tr><td>dsddddd2</td><td>dsddddd2</td><td>dsddddd2</td><td>dsddddd2</td></tr></tfoot></table></div></section><div class="code_block"><pre><code class="language-pug">+dataTable({
+  caption:"테이블 제목",
+  colgroup:[25, 25, 25, 25],
+  headData:[
+    [
+      {
+        text: "<em>dsddddd</em>",
+        className:"custom-class"
+      },
+      {
+        text: "dsddddd"
+      },
+      {
+        text: "dsddddd"
+      },
+      {
+        text: "dsddddd"
+      }
+    ],
+    [
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      }
+    ],
+  ],
+  bodyData:[
+    [
+      {
+        text: "<em>dsddddd</em>",
+        className:"custom-class",
+        colspan:2,
+        title:true
+      },
+      {
+        text: "dsddddd"
+      },
+      {
+        text: "dsddddd"
+      }
+    ],
+    [
+      {
+        text: "dsddddd2",
+        title:true
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      }
+    ],
+  ],
+  footerData:[
+    [
+      {
+        text: "<em>dsddddd</em>",
+        className:"custom-class",
+        colspan:2,
+        title:true
+      },
+      {
+        text: "dsddddd"
+      },
+      {
+        text: "dsddddd"
+      }
+    ],
+    [
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      },
+      {
+        text: "dsddddd2"
+      }
+    ],
+  ]
+})</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br>
+        <div class="title_sec">
+          <p class="title title_lv2">Attribute</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui-datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="15%"/>
+                <col width="55%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+              </colgroup>
+              <caption>Attributes</caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Property</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Type</th>
+                  <th class="th" scope="cols">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>active</td>
+                  <td>활성화 텝 index</td>
+                  <td>nomber</td>
+                  <td>0</td>
+                </tr>
+                <tr>
+                  <td>className</td>
+                  <td>커스텀 클래스</td>
+                  <td>string</td>
+                  <td>-</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      const {$, $$, on, attr, hasAttr, removeAttr, closest} = GCui.util;
+      const btn = $$('.view_code button')
+      on(btn, 'click', (e)=>{
+        const target = $('.code_block', closest(e.target, '.guide_card_box'))
+        if (hasAttr(target, 'hidden')){
+          removeAttr(target, 'hidden')
+        }else{
+          attr(target, 'hidden', '')
+        }
+      })
+    </script>
+  </body>
+</html>
