@@ -1,0 +1,27 @@
+mixin input_money(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, ...rest} = Object.assign({}, params);
+
+  #{element}(
+    class=`${prefix}${divide}inputmoney`
+    class=className
+  )
+    div.result
+      span 원
+
+    +input({
+      value:"",
+      subfix:"원"
+    })
+    +button_group({
+      btns:[
+        '+1만',
+        '+5만',
+        '+10만',
+        '전액',
+      ]
+    })
+      

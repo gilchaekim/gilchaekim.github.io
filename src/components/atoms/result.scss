@@ -1,0 +1,11 @@
+.mui_result{
+  border: 1px solid #000;
+  dl{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    ~ dl{
+      border-top: 1px solid #000;
+    }
+  }
+}

@@ -147,15 +147,15 @@ a {
   margin: 0 auto;
   padding: 60px 20px 100px;
 }
-.main_content .title {
+.main_content .guide_title {
   font-size: 32px;
   margin-bottom: 20px;
   font-weight: bold;
 }
-.main_content .title.title_lv2 {
+.main_content .guide_title.title_lv2 {
   font-size: 24px;
 }
-.main_content .title.title_lv3 {
+.main_content .guide_title.title_lv3 {
   font-size: 18px;
   font-weight: normal;
 }

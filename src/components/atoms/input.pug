@@ -4,10 +4,13 @@ mixin input(params={})
   - const divide = '_'
   //- 공통 요소 End
 
-  - const { element="span", className, title, placeholder, value, readOnly, disabled, id, type="text", muiFormatter, maxlength, ...rest } = Object.assign({}, params)
+  - const { element="span", className, title, placeholder, value, readOnly, disabled, id, type="text", muiFormatter, maxlength, subfix, ...rest } = Object.assign({}, params)
+  - let subfixLength = !!subfix ? `sublength_${subfix.length}` : null
   #{element}(
     class=`${prefix}${divide}input`
     class=className
+    class={"inner_subfix":!!subfix}
+    class=subfixLength
   )
     input(
       type=type
@@ -20,4 +23,10 @@ mixin input(params={})
       maxlength=maxlength
       mui-formatter=muiFormatter
     )
+    
+    if !!subfix
+      span(
+        class=subfix
+      )
+        !=subfix
 

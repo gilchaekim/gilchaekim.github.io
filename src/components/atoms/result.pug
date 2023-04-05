@@ -1,0 +1,17 @@
+mixin result(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, data} = Object.assign({}, params);
+
+  #{element}(
+    class=`${prefix}${divide}result`
+    class=className
+  )
+    each obj in data
+      dl 
+        dt
+          !=obj.title
+        dd 
+          !=obj.text

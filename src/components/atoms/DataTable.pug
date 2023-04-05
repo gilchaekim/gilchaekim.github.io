@@ -6,7 +6,7 @@ mixin dataTable(params={})
 
   - const { element = 'div', caption, headData, bodyData, footerData, className, colgroup, ...rest } = Object.assign({}, params)
 
-  #{element}.mui-datatable(
+  #{element}.mui_datatable(
     class=className
   )
     table
@@ -23,17 +23,19 @@ mixin dataTable(params={})
           data:headData
         })
 
+      if footerData
+        +table-body({
+          tag:"tfoot",
+          data:footerData
+        })
+
       if bodyData
         +table-body({
           tag:"tbody",
           data:bodyData
         })
 
-      if footerData
-        +table-body({
-          tag:"tfoot",
-          data:footerData
-        })
+      
 
 mixin table-body(params={})
   //- 공통 요소 Start
@@ -48,7 +50,7 @@ mixin table-body(params={})
     - for (let i = 0; i < data.length; i++)
       tr
         - for (let j = 0; j < data[i].length; j++)
-          if data[i][j].title || element === "thead"
+          if data[i][j].isTitle || element === "thead"
             th(
               scope=(element === "thead" ? "cols":"rows")
               class="th"+(data[i][j].className?" "+data[i][j].className : "")
@@ -76,5 +78,5 @@ mixin colgroup(data)
   colgroup
     - for (let i = 0; i < data.length; i++)
       col(
-        width=data[i]
+        width=`${data[i]}%`
       )

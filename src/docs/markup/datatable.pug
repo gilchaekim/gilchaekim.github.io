@@ -13,96 +13,71 @@ block content
       :code
         +dataTable({
           caption:"테이블 제목",
-          colgroup:[25, 25, 25, 25],
+          colgroup:[10, 40, 10],
           headData:[
             [
               {
-                text: "<em>dsddddd</em>",
+                text: "<em>제목1</em>",
                 className:"custom-class"
               },
               {
-                text: "dsddddd"
+                text: "제목2"
               },
               {
-                text: "dsddddd"
+                text: "제목3"
               },
-              {
-                text: "dsddddd"
-              }
             ],
             [
               {
-                text: "dsddddd2"
+                text: "제목1-1"
               },
               {
-                text: "dsddddd2"
+                text: "제목1-2"
               },
               {
-                text: "dsddddd2"
+                text: "제목1-3"
               },
-              {
-                text: "dsddddd2"
-              }
             ],
           ],
           bodyData:[
             [
               {
-                text: "<em>dsddddd</em>",
+                text: "<em>제목2-1</em>",
                 className:"custom-class",
-                colspan:2,
-                title:true
+                isTitle:true
               },
               {
-                text: "dsddddd"
+                text: "내용"
               },
               {
-                text: "dsddddd"
+                text: "내용"
               }
             ],
             [
               {
-                text: "dsddddd2",
-                title:true
+                text: "제목2-2",
+                isTitle:true
               },
               {
-                text: "dsddddd2"
+                text: "내용"
               },
               {
-                text: "dsddddd2"
-              },
-              {
-                text: "dsddddd2"
+                text: "내용"
               }
             ],
           ],
           footerData:[
             [
               {
-                text: "<em>dsddddd</em>",
+                text: "<em>tfoot 제목</em>",
                 className:"custom-class",
-                colspan:2,
-                title:true
+                isTitle:true
               },
               {
-                text: "dsddddd"
+                text: "내용"
               },
               {
-                text: "dsddddd"
-              }
-            ],
-            [
-              {
-                text: "dsddddd2"
-              },
-              {
-                text: "dsddddd2"
-              },
-              {
-                text: "dsddddd2"
-              },
-              {
-                text: "dsddddd2"
+                text: "내용"
               }
             ],
           ]
@@ -111,30 +86,16 @@ block content
     br
     br
     +guideTitle({
-      text:"Attribute",
+      text:"Attribute - global",
       level:2
     })
     +attributesLists([
       [
         {
-          text:'active'
+          text:'caption'
         },
         {
-          text:'활성화 텝 index'
-        },
-        {
-          text:'nomber'
-        },
-        {
-          text:'0'
-        }
-      ],
-      [
-        {
-          text:'className'
-        },
-        {
-          text:'커스텀 클래스'
+          text:'테이블 제목'
         },
         {
           text:'string'
@@ -142,7 +103,127 @@ block content
         {
           text:'-'
         }
+      ],
+      [
+        {
+          text:'colgroup'
+        },
+        {
+          text:'테이블 cols 지정'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'headData'
+        },
+        {
+          text:'thead 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'bodyData'
+        },
+        {
+          text:'tbody 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'footerData'
+        },
+        {
+          text:'tfoot 영역'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
       ]
+    ])
+
+    +guideTitle({
+      text:"Attribute - rows",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'cell 내용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'isTitle'
+        },
+        {
+          text:'제목(th)로 할 것인가'
+        },
+        {
+          text:'Boolean'
+        },
+        {
+          text:'false'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'cell에 커스텀 클래스 적용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'colspan'
+        },
+        {
+          text:'colspan 적용 값'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'-'
+        }
+      ],
     ])
 
 

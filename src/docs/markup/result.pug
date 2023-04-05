@@ -1,0 +1,87 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Result"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +result({
+          data:[
+            {
+              title:"계좌상태",
+              text:"활동계좌",
+            },
+            {
+              title:"대출금액",
+              text:"200,000,000,000원",
+            },
+            {
+              title:"대출일자",
+              text:"YYYY.MM.DD",
+            },
+            {
+              title:"대출만기일자",
+              text:"YYYY.MM.DD",
+            },
+          ]
+        })
+        
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'타이틀 내용'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'clsLv'
+        },
+        {
+          text:'클래스 레벨 (1 ~ 6)'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'text'
+        },
+        {
+          text:'Tag 레벨 (1 ~ 6)'
+        },
+        {
+          text:'number'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+
+

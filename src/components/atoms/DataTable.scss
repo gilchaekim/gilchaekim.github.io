@@ -5,13 +5,16 @@ caption {
 }
 table, th, td{
   border-collapse: collapse;
-  // border: 1px solid #000;
 }
-// thead th{
-//   background: #f00;
-//   color: #fff;
-// }
-// tbody th{
-//   background: #000;
-//   color: #fff;
-// }
+.mui_datatable{
+  table{
+    width: 100%;
+  }
+  th{
+    background-color: #ccc;
+    color: #333;
+  }
+  th, td{
+    border: 1px solid #000;
+  }
+}

@@ -1,0 +1,21 @@
+mixin title(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element = 'div', clsLv=1, tagLv=1, text, ...rest } = Object.assign({}, params)
+  - let titleTag = 'h';
+  - titleTag += tagLv;
+  
+  #{element}(
+    class=`${prefix}${divide}title`
+    class={
+      'mui-icon':isIcon,
+    }
+  )
+    #{titleTag}(
+        class=`title lv${clsLv}`
+    )
+        != text
+    

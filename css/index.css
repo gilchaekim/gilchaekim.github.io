@@ -33,12 +33,34 @@
   margin-left: 0;
 }
 
-.mui-button {
+.mui_button {
   background-color: #000;
   color: #fff;
   padding: 4px 10px;
   border-radius: 4px;
   margin: 4px 0;
+  position: relative;
+}
+.mui_button.select_type {
+  display: block;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  width: 100%;
+  text-align: left;
+  background: none;
+  color: #000;
+}
+.mui_button.select_type::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-bottom: 1px solid #000;
+  border-right: 1px solid #000;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  transform: rotate(45deg);
 }
 
 caption {
@@ -49,6 +71,17 @@ caption {
 
 table, th, td {
   border-collapse: collapse;
+}
+
+.mui_datatable table {
+  width: 100%;
+}
+.mui_datatable th {
+  background-color: #ccc;
+  color: #333;
+}
+.mui_datatable th, .mui_datatable td {
+  border: 1px solid #000;
 }
 
 .mui_maxlength {
@@ -225,6 +258,18 @@ table, th, td {
   color: #fff;
 }
 
+.mui_result {
+  border: 1px solid #000;
+}
+.mui_result dl {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+.mui_result dl ~ dl {
+  border-top: 1px solid #000;
+}
+
 .mui_datepicker {
   border: 1px solid #00f;
 }
@@ -276,6 +321,13 @@ table, th, td {
   background: #000;
   color: #fff;
   padding: 4px 20px;
+}
+
+.mui_inputmoney {
+  border: 1px solid red;
+}
+.mui_inputmoney .result {
+  text-align: right;
 }
 
 button {

@@ -12,10 +12,10 @@
     <div id="guideWrap">
       <div class="main_content">
         <div class="title_sec">
-          <p class="title title_lv1">Button</p>
+          <p class="guide_title title_lv1">Button</p>
         </div>
         <div class="title_sec">
-          <p class="title title_lv2">Example</p>
+          <p class="guide_title title_lv2">Example</p>
         </div>
         <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_large" type="button"><span>버튼</span></button><button class="mui_button mui_size_medium" type="button"><span>버튼</span></button><button class="mui_button mui_size_small" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
   label:"버튼",
@@ -34,7 +34,18 @@
           </div>
         </div><br><br>
         <div class="title_sec">
-          <p class="title title_lv2">Button Group</p>
+          <p class="guide_title title_lv2">Select Button</p>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_medium select_type" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
+  label:"버튼",
+  className:'select_type'
+})</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br>
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Button Group</p>
         </div>
         <div class="guide_card_box"><section class="code_view"><!-- 최근, 자주, 내계좌 선택 버튼--><div class="mui_button_group"><span class="group"><button class="mui_button mui_size_medium" type="button"><span>최근</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>자주</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>내계좌</span></button></span></div></section><div class="code_block"><pre><code class="language-pug">// 최근, 자주, 내계좌 선택 버튼
 +button_group({
@@ -62,10 +73,10 @@
           </div>
         </div><br><br>
         <div class="title_sec">
-          <p class="title title_lv2">Attribute</p>
+          <p class="guide_title title_lv2">Attribute - Button</p>
         </div>
         <div class="attribute_table">
-          <div class="mui-datatable attr_table">
+          <div class="mui_datatable attr_table">
             <table>
               <colgroup>
                 <col width="15%"/>
@@ -100,6 +111,44 @@
                   <td>아이콘 포함 여부</td>
                   <td>Boolean</td>
                   <td>false</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Attribute - Button Group</p>
+        </div>
+        <div class="attribute_table">
+          <div class="mui_datatable attr_table">
+            <table>
+              <colgroup>
+                <col width="15%"/>
+                <col width="55%"/>
+                <col width="15%"/>
+                <col width="15%"/>
+              </colgroup>
+              <caption>Attributes</caption>
+              <thead>
+                <tr>
+                  <th class="th" scope="cols">Property</th>
+                  <th class="th" scope="cols">Description</th>
+                  <th class="th" scope="cols">Type</th>
+                  <th class="th" scope="cols">Default</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>btns</td>
+                  <td>버튼 그룹 텍스트 리스트</td>
+                  <td>array</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td>className</td>
+                  <td>커스텀 클래스</td>
+                  <td>string</td>
+                  <td>-</td>
                 </tr>
               </tbody>
             </table>

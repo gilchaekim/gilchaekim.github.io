@@ -27,6 +27,19 @@ block content
     br
 
     +guideTitle({
+      text:"Select Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button({
+          label:"버튼",
+          className:'select_type'
+        })
+    br
+    br
+
+    +guideTitle({
       text:"Button Group",
       level:2
     })
@@ -55,7 +68,7 @@ block content
     br
     br
     +guideTitle({
-      text:"Attribute",
+      text:"Attribute - Button",
       level:2
     })
 
@@ -100,6 +113,42 @@ block content
         },
         {
           text:'false'
+        }
+      ]
+    ])
+
+    +guideTitle({
+      text:"Attribute - Button Group",
+      level:2
+    })
+
+    +attributesLists([
+      [
+        {
+          text:'btns'
+        },
+        {
+          text:'버튼 그룹 텍스트 리스트'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'className'
+        },
+        {
+          text:'커스텀 클래스'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
         }
       ]
     ])
