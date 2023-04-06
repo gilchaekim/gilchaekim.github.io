@@ -6760,6 +6760,14 @@
         attr(this.mainFrame, 'src', e.current.pathname);
       }
     }, {
+      name: 'load',
+      el: function el() {
+        return this.mainFrame;
+      },
+      handler: function handler(e) {
+        addClass(this.mainFrame.contentDocument.documentElement, 'guide_scroll');
+      }
+    }, {
       name: 'click',
       delegate: function delegate() {
         return '.collapse button';

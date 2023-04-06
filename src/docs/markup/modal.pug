@@ -37,8 +37,40 @@ block content
                 size:'large',
                 className:"mui_modal_close"
               })
-              <button type="button" onclick="GCui.modal.alert('Alert!!')">컴폼창 호출</button>
 
+    +guideExample()(code)
+      :code
+        //- 호출 버튼
+        +button({
+          label:"풀팝업 호출",
+          size:'large',
+          muiToggle:'target:#fullLayer;'
+        })
+
+
+        +modal({
+          title:"풀팝업 타이틀",
+          id:"fullLayer",
+          type:"full"
+        })
+          div dasfasdlkjfasdklfjasldkjf
+          div dasfasdlkjfasdklfjasldkjf
+
+          //- 푸터 영역
+          +footer()
+            div.btns_wrap
+              +button({
+                label:"확인",
+                size:'large',
+              })
+              +button({
+                label:"취소",
+                size:'large',
+                className:"mui_modal_close"
+              })
+    br
+    br
+    br
     +guideTitle({
       text:"버텀 트레이",
       level:2
@@ -47,7 +79,7 @@ block content
       :code
         //- 호출 버튼
         +button({
-          label:"기본 모달 호출",
+          label:"버텀 트레이",
           size:'large',
           muiToggle:'target:#modal_bottom;mode:hover;'
         })
@@ -56,10 +88,12 @@ block content
         +modal({
           title:"모달 타이틀",
           id:"modal_bottom",
-          alignBottom:true
+          type:"bottom"
         })
           div 모달 컨텐츠111111111111111111111111111111111111
             div dsfsdf
+    br
+    br
     +guideTitle({
       text:"Alert, confirm, dialog",
       level:2
@@ -80,6 +114,11 @@ block content
         size:'large',
         id:"callDialog"
       })
+      +button({
+        label:"toast 팝업 호출",
+        size:'large',
+        id:"callToast"
+      })
       :code
         //- 얼럿
         GCui.modal.alert("Alert!!")
@@ -89,38 +128,52 @@ block content
 
         //- 다이얼로그
         GCui.modal.dialog("dialog")
+
+        //- toast popup
+        //- GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
     br
     br
     +guideTitle({
       text:"Attribute",
       level:2
     })
-    +guideTitle({
-      text:"+tabsWrap()",
-      level:3
-    })
 
     +attributesLists([
       [
         {
-          text:'active'
+          text:'title'
         },
         {
-          text:'활성화 텝 index'
+          text:'모달 제목'
         },
         {
-          text:'nomber'
+          text:'string'
         },
         {
-          text:'0'
+          text:'-'
         }
       ],
       [
         {
-          text:'className'
+          text:'id'
         },
         {
-          text:'커스텀 클래스'
+          text:'id 속성'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+      ,
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'모달 타입 지정 - default, bottom, full'
         },
         {
           text:'string'
@@ -131,32 +184,14 @@ block content
       ]
     ])
 
-    +guideTitle({
-      text:"+tab()",
-      level:3
-    })
-    +attributesLists([
-      [
-        {
-          text:'text'
-        },
-        {
-          text:'텝 제목'
-        },
-        {
-          text:'string'
-        },
-        {
-          text:'-'
-        }
-      ]
-    ])
     script. 
       document.addEventListener("DOMContentLoaded", (event) => {
         let elem = []
         elem.push(document.querySelector("#callAlert"))
         elem.push(document.querySelector("#callConfirm"))
         elem.push(document.querySelector("#callDialog"))
+        const toast = document.querySelector("#callToast")
+        
         elem.forEach((el, i) => {
           GCui.util.on(el, 'click', (e) => {
             const id = el.id
@@ -175,6 +210,10 @@ block content
               }
             }
           })
+        })
+        
+        GCui.util.on(toast, 'click', (e) => {
+          GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
         })
       });
 

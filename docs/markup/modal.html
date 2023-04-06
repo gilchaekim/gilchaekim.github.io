@@ -4,7 +4,7 @@
     <title>METAUI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/docs/css/index.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/common.css">
     <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/index.js"></script>
   </head>
@@ -17,7 +17,7 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_large" type="button" mui-toggle="target:#modal;mode:hover;"><span>기본 모달 호출</span></button><div mui-modal="" id="modal"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical"> <div class="mui_modal_body"><div class="mui_modal_header">모달 타이틀</div><div class="mui_modal_content"><div>모달 컨텐츠</div></div><div class="mui_modal_footer"><div class="btns_wrap"><button class="mui_button mui_size_large" type="button"><span>확인</span></button><button class="mui_button mui_size_large mui_modal_close" type="button"><span>취소</span></button><button type="button" onclick="GCui.modal.alert('Alert!!')">컴폼창 호출</button></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_large" type="button" mui-toggle="target:#modal;mode:hover;"><span>기본 모달 호출</span></button><div mui-modal="" id="modal"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical"> <div class="mui_modal_body"><div class="mui_modal_header">모달 타이틀</div><div class="mui_modal_content"><div>모달 컨텐츠</div></div><div class="mui_modal_footer"><div class="btns_wrap"><button class="mui_button mui_large" type="button"><span>확인</span></button><button class="mui_button mui_large mui_modal_close" type="button"><span>취소</span></button></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
 +button({
   label:"기본 모달 호출",
   size:'large',
@@ -42,18 +42,49 @@
         label:"취소",
         size:'large',
         className:"mui_modal_close"
-      })
-      <button type="button" onclick="GCui.modal.alert('Alert!!')">컴폼창 호출</button></code></pre></div>
+      })</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
         </div>
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_large" type="button" mui-toggle="target:#fullLayer;"><span>풀팝업 호출</span></button><div class="mui_fullpop_wrap" mui-modal="" id="fullLayer"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop"> <div class="mui_modal_body"><div class="mui_modal_header">풀팝업 타이틀</div><div class="mui_modal_content"><div>dasfasdlkjfasdklfjasldkjf</div><div>dasfasdlkjfasdklfjasldkjf</div></div><div class="mui_modal_footer"><div class="btns_wrap"><button class="mui_button mui_large" type="button"><span>확인</span></button><button class="mui_button mui_large mui_modal_close" type="button"><span>취소</span></button></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
++button({
+  label:"풀팝업 호출",
+  size:'large',
+  muiToggle:'target:#fullLayer;'
+})
+ 
+ 
++modal({
+  title:"풀팝업 타이틀",
+  id:"fullLayer",
+  type:"full"
+})
+  div dasfasdlkjfasdklfjasldkjf
+  div dasfasdlkjfasdklfjasldkjf
+ 
+  //- 푸터 영역
+  +footer()
+    div.btns_wrap
+      +button({
+        label:"확인",
+        size:'large',
+      })
+      +button({
+        label:"취소",
+        size:'large',
+        className:"mui_modal_close"
+      })</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br><br>
         <div class="title_sec">
           <p class="guide_title title_lv2">버텀 트레이</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_large" type="button" mui-toggle="target:#modal_bottom;mode:hover;"><span>기본 모달 호출</span></button><div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> <div class="mui_modal_body"><div class="mui_modal_header">모달 타이틀</div><div class="mui_modal_content"><div>모달 컨텐츠111111111111111111111111111111111111<div>dsfsdf</div></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_large" type="button" mui-toggle="target:#modal_bottom;mode:hover;"><span>버텀 트레이</span></button><div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom"><div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> <div class="mui_modal_body"><div class="mui_modal_header">모달 타이틀</div><div class="mui_modal_content"><div>모달 컨텐츠111111111111111111111111111111111111<div>dsfsdf</div></div></div><button class="mui_modal_close">닫기</button></div></div></div></section><div class="code_block"><pre><code class="language-pug">//- 호출 버튼
 +button({
-  label:"기본 모달 호출",
+  label:"버텀 트레이",
   size:'large',
   muiToggle:'target:#modal_bottom;mode:hover;'
 })
@@ -62,28 +93,32 @@
 +modal({
   title:"모달 타이틀",
   id:"modal_bottom",
-  alignBottom:true
+  type:"bottom"
 })
   div 모달 컨텐츠111111111111111111111111111111111111
     div dsfsdf</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
-        </div>
+        </div><br><br>
         <div class="title_sec">
           <p class="guide_title title_lv2">Alert, confirm, dialog</p>
         </div>
         <div class="guide_card_box">
-          <button class="mui_button mui_size_large" id="callAlert" type="button"><span>Alert 호출</span></button>
-          <button class="mui_button mui_size_large" id="callConfirm" type="button"><span>Confirm 호출</span></button>
-          <button class="mui_button mui_size_large" id="callDialog" type="button"><span>Dialog 호출</span></button><section class="code_view"><GCui class="modal alert" Alert!!="Alert!!"></GCui><GCui class="modal confirm" Confirm!!="Confirm!!"></GCui><GCui class="modal dialog" dialog="dialog"></GCui></section><div class="code_block"><pre><code class="language-pug">//- 얼럿
+          <button class="mui_button mui_large" id="callAlert" type="button"><span>Alert 호출</span></button>
+          <button class="mui_button mui_large" id="callConfirm" type="button"><span>Confirm 호출</span></button>
+          <button class="mui_button mui_large" id="callDialog" type="button"><span>Dialog 호출</span></button>
+          <button class="mui_button mui_large" id="callToast" type="button"><span>toast 팝업 호출</span></button><section class="code_view"><GCui class="modal alert" Alert!!="Alert!!"></GCui><GCui class="modal confirm" Confirm!!="Confirm!!"></GCui><GCui class="modal dialog" dialog="dialog"></GCui></section><div class="code_block"><pre><code class="language-pug">//- 얼럿
 GCui.modal.alert("Alert!!")
  
 //- 컴폼
 GCui.modal.confirm("Confirm!!")
  
 //- 다이얼로그
-GCui.modal.dialog("dialog")</code></pre></div>
+GCui.modal.dialog("dialog")
+ 
+//- toast popup
+//- GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
@@ -91,9 +126,6 @@ GCui.modal.dialog("dialog")</code></pre></div>
         <div class="title_sec">
           <p class="guide_title title_lv2">Attribute</p>
         </div>
-        <div class="title_sec">
-          <p class="guide_title title_lv3">+tabsWrap()</p>
-        </div>
         <div class="attribute_table">
           <div class="mui_datatable attr_table">
             <table>
@@ -114,46 +146,20 @@ GCui.modal.dialog("dialog")</code></pre></div>
               </thead>
               <tbody>
                 <tr>
-                  <td>active</td>
-                  <td>활성화 텝 index</td>
-                  <td>nomber</td>
-                  <td>0</td>
-                </tr>
-                <tr>
-                  <td>className</td>
-                  <td>커스텀 클래스</td>
+                  <td>title</td>
+                  <td>모달 제목</td>
                   <td>string</td>
                   <td>-</td>
                 </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-        <div class="title_sec">
-          <p class="guide_title title_lv3">+tab()</p>
-        </div>
-        <div class="attribute_table">
-          <div class="mui_datatable attr_table">
-            <table>
-              <colgroup>
-                <col width="15%"/>
-                <col width="55%"/>
-                <col width="15%"/>
-                <col width="15%"/>
-              </colgroup>
-              <caption>Attributes</caption>
-              <thead>
                 <tr>
-                  <th class="th" scope="cols">Property</th>
-                  <th class="th" scope="cols">Description</th>
-                  <th class="th" scope="cols">Type</th>
-                  <th class="th" scope="cols">Default</th>
+                  <td>id</td>
+                  <td>id 속성</td>
+                  <td>string</td>
+                  <td>-</td>
                 </tr>
-              </thead>
-              <tbody>
                 <tr>
-                  <td>text</td>
-                  <td>텝 제목</td>
+                  <td>type</td>
+                  <td>모달 타입 지정 - default, bottom, full</td>
                   <td>string</td>
                   <td>-</td>
                 </tr>
@@ -167,6 +173,8 @@ GCui.modal.dialog("dialog")</code></pre></div>
             elem.push(document.querySelector("#callAlert"))
             elem.push(document.querySelector("#callConfirm"))
             elem.push(document.querySelector("#callDialog"))
+            const toast = document.querySelector("#callToast")
+            
             elem.forEach((el, i) => {
               GCui.util.on(el, 'click', (e) => {
                 const id = el.id
@@ -185,6 +193,10 @@ GCui.modal.dialog("dialog")</code></pre></div>
                   }
                 }
               })
+            })
+            
+            GCui.util.on(toast, 'click', (e) => {
+              GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
             })
           });
         </script>

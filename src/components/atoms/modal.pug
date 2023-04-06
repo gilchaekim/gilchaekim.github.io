@@ -3,13 +3,25 @@ mixin modal(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  
-  - const { title, className, size, id, alignBottom, ...rest } = Object.assign({}, params)
+  - let alignBottom = false;
+  - let alignFull = false;
+  - const { title, className, size, id, type, ...rest } = Object.assign({}, params)
   - let element = "div"
   - let { muiModal } = Object.assign({}, params)
   - let modalItems = {};
   - let modalSize = size || 'medium';
   - let alignMiddle = true;
+  - 
+    switch(type){
+      case 'bottom':{
+        alignBottom = true;
+        break;
+      }
+      case 'full':{
+        alignFull = true;
+        break;
+      }
+    }
   mixin footer()
     - modalItems.footer = block
     
@@ -21,6 +33,7 @@ mixin modal(params={})
     mui-modal=muiModal
     id=`${id?id:"modal"}`
     class={"mui_bottom_tray_wrap": alignBottom}
+    class={"mui_fullpop_wrap": alignFull}
   )
     div(
       class=`${prefix}${divide}modal${divide}dialog`
@@ -28,6 +41,7 @@ mixin modal(params={})
       class=className
       class={"mui_auto_vertical": alignMiddle}
       class={"mui_bottom_tray": alignBottom}
+      class={"mui_fullpop": alignFull}
     ) 
       div(
         class=`${prefix}${divide}modal${divide}body`

@@ -1,0 +1,38 @@
+include ../index
+
+doctype html
+html(lang="ko")
+  head
+    title 저축은행중앙회
+    meta(
+      name="viewport"
+      content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
+    )
+    link(
+      rel="stylesheet"
+      href="/css/common.css"
+    )
+    script(
+      type="text/javascript"
+      src="/js/index.js"
+    )
+  body
+    #wrapper
+
+      <!-- header -->
+      #header
+        include header.pug
+      <!-- / header -->
+
+
+      <!-- contents -->
+      #contants
+        block content
+      <!-- / contents -->
+
+
+      <!-- footer -->
+      #footer
+        include footer.pug
+      <!-- / footer -->
+      

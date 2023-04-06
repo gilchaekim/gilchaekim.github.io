@@ -4,7 +4,7 @@
     <title>METAUI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/docs/css/index.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/common.css">
     <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/index.js"></script>
   </head>
@@ -17,11 +17,24 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_form"><div class="mui_form_list"><div class="mui_form_head form_required"><span class="mui_label"><label>이름</label></span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head form_required"><span class="mui_label"><label>전화번호</label></span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div></div></section><div class="code_block"><pre><code class="language-pug">+form()
-  +form_body({title:"이름", required:true})
+        <div class="guide_card_box"><section class="code_view"><div class="mui_form"><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이름</span></div><div class="mui_form_content"><div class="mui_form_value"><span>방수현</span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금은행</span></div><div class="mui_form_content"><button class="mui_button mui_medium select_type" type="button"><span>입금은행 입력</span></button></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">전화번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금계좌번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이체시작일</span></div><div class="mui_form_content"><span class="mui_datepicker" mui-datepicker=""><span class="mui_input"><input type="text"/></span></span></div></div></div></section><div class="code_block"><pre><code class="language-pug">+form()
+  +form_body({title:"이름"})
+    +form_value({
+      value:"방수현"
+    })
+  +form_body({title:"입금은행"})
+    +button({
+      label:"입금은행 입력",
+      className:'select_type'
+    })
+  +form_body({title:"전화번호"})
     +input()
-  +form_body({title:"전화번호", required:true})
-    +input()</code></pre></div>
+  +form_body({title:"입금계좌번호"})
+    +input()
+  +form_body()
+    +input()
+  +form_body({title:"이체시작일"})
+    +datepicker()</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>

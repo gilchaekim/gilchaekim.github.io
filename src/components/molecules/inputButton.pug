@@ -1,0 +1,20 @@
+mixin input_button(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', className, placeholder, value, btnText, title, ...rest} = Object.assign({}, params);
+  - let blockData = {};
+
+  #{element}(
+    class=`${prefix}${divide}inputbtn`
+    class=className
+  )
+    +input({
+      value:value,
+      title:title,
+      placeholder:placeholder,
+    })
+    +button({
+      label:btnText,
+    })

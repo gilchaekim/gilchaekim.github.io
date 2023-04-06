@@ -3,39 +3,49 @@ extends ../layout/guideBase.pug
 block content
   div.main_content
     +guideTitle({
-      text:"Input Money"
+      text:"Input + @"
     })
     +guideTitle({
-      text:"Example",
+      text:"Input Money",
       level:2
     })
     +guideExample()(code)
       :code
-        +input_money({
-          value:"default"
+        +input_money()
+    br
+    br
+    //- +guideTitle({
+    //-   text:"Attribute",
+    //-   level:2
+    //- })
+
+    //- +attributesLists([
+    //-   [
+    //-     {
+    //-       text:'className'
+    //-     },
+    //-     {
+    //-       text:'커스텀 클래스'
+    //-     },
+    //-     {
+    //-       text:'string'
+    //-     },
+    //-     {
+    //-       text:'-'
+    //-     }
+    //-   ]
+    //- ])
+
+    +guideTitle({
+      text:"Input + button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +input_button({
+          btnText:"인증요청",
+          placeholder:"'-'제외하고 숫자만 입력하세요",
+          title:"숫자만 입력하세요"
         })
     br
     br
-    +guideTitle({
-      text:"Attribute",
-      level:2
-    })
-
-    +attributesLists([
-      [
-        {
-          text:'className'
-        },
-        {
-          text:'커스텀 클래스'
-        },
-        {
-          text:'string'
-        },
-        {
-          text:'-'
-        }
-      ]
-    ])
-
-

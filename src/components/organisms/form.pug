@@ -26,16 +26,25 @@ mixin form(params={})
             class=`${prefix}${divide}form_head`
             class={"form_required":required}
           )
-            +label({
-              text:title
-            })
+            span.form_title!=title
         div(
           class=`${prefix}${divide}form_content`
         )
           - item.content && item.content()
 
 
+mixin form_value(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
 
+  - const { element="div", className, value, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}form_value`
+    class=className
+  )
+    span!=value
       
   
     

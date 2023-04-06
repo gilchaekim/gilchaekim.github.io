@@ -4,7 +4,7 @@
     <title>METAUI</title>
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" href="/docs/css/index.css">
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/common.css">
     <script type="text/javascript" src="/js/index.js"></script>
     <script type="text/javascript" src="/index.js"></script>
   </head>
@@ -17,7 +17,7 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_large" type="button"><span>버튼</span></button><button class="mui_button mui_size_medium" type="button"><span>버튼</span></button><button class="mui_button mui_size_small" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_large" type="button"><span>버튼</span></button><button class="mui_button mui_medium" type="button"><span>버튼</span></button><button class="mui_button mui_small" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
   label:"버튼",
   size:'large',
 })
@@ -36,7 +36,7 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Select Button</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_size_medium select_type" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_medium select_type" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
   label:"버튼",
   className:'select_type'
 })</code></pre></div>
@@ -47,7 +47,7 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Button Group</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><!-- 최근, 자주, 내계좌 선택 버튼--><div class="mui_button_group"><span class="group"><button class="mui_button mui_size_medium" type="button"><span>최근</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>자주</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>내계좌</span></button></span></div></section><div class="code_block"><pre><code class="language-pug">// 최근, 자주, 내계좌 선택 버튼
+        <div class="guide_card_box"><section class="code_view"><!-- 최근, 자주, 내계좌 선택 버튼--><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium" type="button"><span>최근</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>자주</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>내계좌</span></button></span></div></section><div class="code_block"><pre><code class="language-pug">// 최근, 자주, 내계좌 선택 버튼
 +button_group({
   btns:[
     '최근',
@@ -59,7 +59,7 @@
             <button>code view Toggle</button>
           </div>
         </div>
-        <div class="guide_card_box"><section class="code_view"><!-- 금액 입력 버튼 그룹--><div class="mui_button_group"><span class="group"><button class="mui_button mui_size_medium" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_size_medium" type="button"><span>전액</span></button></span></div></section><div class="code_block"><pre><code class="language-pug">// 금액 입력 버튼 그룹
+        <div class="guide_card_box"><section class="code_view"><!-- 금액 입력 버튼 그룹--><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>전액</span></button></span></div></section><div class="code_block"><pre><code class="language-pug">// 금액 입력 버튼 그룹
 +button_group({
   btns:[
     '+1만',

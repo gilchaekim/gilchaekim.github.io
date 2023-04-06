@@ -12,10 +12,23 @@ block content
     +guideExample()(code)
       :code
         +form()
-          +form_body({title:"이름", required:true})
+          +form_body({title:"이름"})
+            +form_value({
+              value:"방수현"
+            })
+          +form_body({title:"입금은행"})
+            +button({
+              label:"입금은행 입력",
+              className:'select_type'
+            })
+          +form_body({title:"전화번호"})
             +input()
-          +form_body({title:"전화번호", required:true})
+          +form_body({title:"입금계좌번호"})
             +input()
+          +form_body()
+            +input()
+          +form_body({title:"이체시작일"})
+            +datepicker()
     br
     br
     +guideTitle({

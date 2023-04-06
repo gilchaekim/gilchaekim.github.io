@@ -88,6 +88,15 @@ export default {
             }
         },
         {
+            name: 'load',
+            el() {
+                return this.mainFrame;
+            },
+            handler(e) {
+                addClass(this.mainFrame.contentDocument.documentElement, 'guide_scroll')
+            }
+        },
+        {
             name: 'click',
             delegate() {
                 return '.collapse button';

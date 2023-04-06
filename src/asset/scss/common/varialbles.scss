@@ -19,14 +19,9 @@ $bg_color03 : #fff !default;
 
 
 // images URL
-$url_common : '/static/di/images/common/';
-$url_content : '/static/di/images/content/';
-$url_social : '/static/di/images/social/';
-$url_recruit : '/static/di/images/recruit/';
+$url_common : '/src/iamges/';
 
 $breakpoints-tablet : 1024;
 $breakpoints-mobile : 767;
 
-$wrap_size : 1224px;
-$wrap_size_social : 1200px;
 
