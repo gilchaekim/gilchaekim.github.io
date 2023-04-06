@@ -28,7 +28,7 @@ mixin modal(params={})
   
   if !muiModal
     - muiModal = '';
-
+  <!-- layer -->
   #{element}(
     mui-modal=muiModal
     id=`${id?id:"modal"}`
@@ -63,6 +63,8 @@ mixin modal(params={})
         button(
           class=`${prefix}${divide}modal${divide}close`
         ) 닫기
+
+  <!-- / layer -->
 
     
 

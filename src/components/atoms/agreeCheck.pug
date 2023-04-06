@@ -1,0 +1,17 @@
+mixin agree_check(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, isActive, text, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}agree_check`
+    class=className
+  )
+    button(
+      type="button"
+    )
+      span.text!=text
+
+
