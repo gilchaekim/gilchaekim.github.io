@@ -46,6 +46,17 @@ img {
   border: 0;
 }
 
+.hidden {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  color: transparent;
+  opacity: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  display: block;
+}
+
 legend {
   color: inherit;
   white-space: normal;

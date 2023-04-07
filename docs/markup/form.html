@@ -17,24 +17,69 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_form"><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이름</span></div><div class="mui_form_content"><div class="mui_form_value"><span>방수현</span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금은행</span></div><div class="mui_form_content"><button class="mui_button mui_medium select_type" type="button"><span>입금은행 입력</span></button></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">전화번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금계좌번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이체시작일</span></div><div class="mui_form_content"><span class="mui_datepicker" mui-datepicker=""><span class="mui_input"><input type="text"/></span></span></div></div></div></section><div class="code_block"><pre><code class="language-pug">+form()
+        <div class="guide_card_box"><section class="code_view"><div class="mui_form"><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이름</span></div><div class="mui_form_content"><div class="mui_form_value"><span>방수현</span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금은행</span></div><div class="mui_form_content"><button class="mui_button mui_medium select_type" type="button"><span>입금은행 입력</span></button></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">전화번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">입금계좌번호</span></div><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_content"><span class="mui_input"><input type="text"/></span></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">이체시작일</span></div><div class="mui_form_content"><div class="mui_datepicker" mui-datepicker=""><span class="mui_input"><input type="text"/></span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">조회기간</span></div><div class="mui_form_content"><div class="mui_datepicker" mui-datepicker=""><div class="mui_button_group"><span class="group"><button class="mui_button mui_medium" type="button"><span>일주일</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>1개월</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>3개월</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>6개월</span></button></span><span class="group"><button class="mui_button mui_medium" type="button"><span>직접입력</span></button></span></div><span class="mui_input"><input type="text"/></span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">거래유형</span></div><div class="mui_form_content"><div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1" checked="checked"/><label for="btnTypeId1">전체</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1"/><label for="btnTypeId2">입금</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1"/><label for="btnTypeId3">출금</label></span></div></div></div><div class="mui_form_list"><div class="mui_form_head"><span class="form_title">정렬순서</span></div><div class="mui_form_content"><div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId4" name="btnTypeId2" checked="checked"/><label for="btnTypeId4">최신순</label></span><span class="mui_radio"><input type="radio" id="btnTypeId5" name="btnTypeId2"/><label for="btnTypeId5">과거순</label></span></div></div></div></div></section><div class="code_block"><pre><code class="language-pug">+form()
   +form_body({title:"이름"})
     +form_value({
       value:"방수현"
     })
+ 
   +form_body({title:"입금은행"})
     +button({
       label:"입금은행 입력",
       className:'select_type'
     })
+ 
   +form_body({title:"전화번호"})
     +input()
+ 
   +form_body({title:"입금계좌번호"})
     +input()
+ 
   +form_body()
     +input()
+ 
   +form_body({title:"이체시작일"})
-    +datepicker()</code></pre></div>
+    +datepicker()
+ 
+  +form_body({title:"조회기간"})
+    +datepicker({
+      quickBtn:true
+    })
+ 
+  +form_body({title:"거래유형"})
+    +radioCheck({
+      name:'btnType',
+      type:"radio",
+      className:'button_type',
+      lists:[
+        {
+          label:'전체',
+          checked:true
+        },
+        {
+          label:'입금'
+        },
+        {
+          label:'출금'
+        }
+      ]
+    })
+ 
+  +form_body({title:"정렬순서"})
+    +radioCheck({
+      name:'btnType',
+      type:"radio",
+      className:'button_type',
+      lists:[
+        {
+          label:'최신순',
+          checked:true
+        },
+        {
+          label:'과거순'
+        }
+      ]
+    })</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
@@ -62,21 +107,15 @@
               </thead>
               <tbody>
                 <tr>
-                  <td>text</td>
-                  <td>타이틀 내용</td>
+                  <td>title</td>
+                  <td>폼 제목</td>
                   <td>string</td>
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td>clsLv</td>
-                  <td>클래스 레벨 (1 ~ 6)</td>
-                  <td>number</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>text</td>
-                  <td>Tag 레벨 (1 ~ 6)</td>
-                  <td>number</td>
+                  <td>required</td>
+                  <td>필수 여부</td>
+                  <td>string</td>
                   <td>-</td>
                 </tr>
               </tbody>

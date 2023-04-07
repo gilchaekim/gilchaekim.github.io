@@ -3,12 +3,22 @@ mixin datepicker(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='span', className, placeholder, value, ...rest} = Object.assign({}, params);
+  - const {element='div', className, placeholder, value, quickBtn, ...rest} = Object.assign({}, params);
   #{element}(
     class=`${prefix}${divide}datepicker`
     class=className
     mui-datepicker=""
   )
+    if quickBtn
+      +button_group({
+        btns:[
+          '일주일',
+          '1개월',
+          '3개월',
+          '6개월',
+          '직접입력',
+        ]
+      })
     +input({
       value:value
     })

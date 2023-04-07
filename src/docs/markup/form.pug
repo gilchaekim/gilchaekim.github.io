@@ -16,19 +16,64 @@ block content
             +form_value({
               value:"방수현"
             })
+
           +form_body({title:"입금은행"})
             +button({
               label:"입금은행 입력",
               className:'select_type'
             })
+
           +form_body({title:"전화번호"})
             +input()
+
           +form_body({title:"입금계좌번호"})
             +input()
+
           +form_body()
             +input()
+
           +form_body({title:"이체시작일"})
             +datepicker()
+
+          +form_body({title:"조회기간"})
+            +datepicker({
+              quickBtn:true
+            })
+
+          +form_body({title:"거래유형"})
+            +radioCheck({
+              name:'btnType',
+              type:"radio",
+              className:'button_type',
+              lists:[
+                {
+                  label:'전체',
+                  checked:true
+                },
+                {
+                  label:'입금'
+                },
+                {
+                  label:'출금'
+                }
+              ]
+            })
+
+          +form_body({title:"정렬순서"})
+            +radioCheck({
+              name:'btnType',
+              type:"radio",
+              className:'button_type',
+              lists:[
+                {
+                  label:'최신순',
+                  checked:true
+                },
+                {
+                  label:'과거순'
+                }
+              ]
+            })
     br
     br
     +guideTitle({
@@ -38,10 +83,10 @@ block content
     +attributesLists([
       [
         {
-          text:'text'
+          text:'title'
         },
         {
-          text:'타이틀 내용'
+          text:'폼 제목'
         },
         {
           text:'string'
@@ -52,27 +97,13 @@ block content
       ],
       [
         {
-          text:'clsLv'
+          text:'required'
         },
         {
-          text:'클래스 레벨 (1 ~ 6)'
+          text:'필수 여부'
         },
         {
-          text:'number'
-        },
-        {
-          text:'-'
-        }
-      ],
-      [
-        {
-          text:'text'
-        },
-        {
-          text:'Tag 레벨 (1 ~ 6)'
-        },
-        {
-          text:'number'
+          text:'string'
         },
         {
           text:'-'
@@ -80,5 +111,8 @@ block content
       ]
     ])
 
-
-
+  +form_body({title:"입금은행"})
+    +button({
+      label:"입금은행 입력",
+      className:'select_type'
+    })

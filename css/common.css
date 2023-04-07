@@ -284,8 +284,126 @@ table, th, td {
   border-top: 1px solid #000;
 }
 
-.mui_datepicker {
-  border: 1px solid #00f;
+.mui_agree_check .chk_btn {
+  padding-left: 20px;
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 20px;
+}
+.mui_agree_check .chk_btn .status_1 {
+  display: none;
+}
+.mui_agree_check .chk_btn.mui_active::before {
+  border-color: #000;
+}
+.mui_agree_check .chk_btn.mui_active .status_1 {
+  display: inline-block;
+}
+.mui_agree_check .chk_btn.mui_active .status_2 {
+  display: none;
+}
+.mui_agree_check .chk_btn::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(45deg);
+}
+.mui_agree_check .chk_btn::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  position: absolute;
+  top: 3px;
+  right: 2px;
+  transform: rotate(-45deg);
+}
+.mui_agree_check > .mui_agree_check {
+  padding: 10px 0 0 30px;
+}
+.mui_agree_check > .mui_agree_check .chk_btn {
+  font-size: 16px;
+}
+
+.mui_selectlist .lists ~ .lists {
+  border-top: 1px solid #aaa;
+}
+.mui_selectlist .lists.mui_active button {
+  color: #000;
+}
+.mui_selectlist .lists.mui_active button::after {
+  border-color: #000;
+}
+.mui_selectlist .lists button {
+  display: block;
+  width: 100%;
+  padding: 20px 10px;
+  text-align: left;
+  font-size: 16px;
+  position: relative;
+  color: #ccc;
+}
+.mui_selectlist .lists button::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-bottom: 2px solid #ccc;
+  border-right: 2px solid #ccc;
+  position: absolute;
+  top: 50%;
+  right: 4px;
+  transform: rotate(45deg) translate(-50%);
+}
+.mui_selectlist.account .title {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.mui_selectlist.account .acc_num {
+  display: block;
+  margin-top: 8px;
+}
+.mui_selectlist.account .acc_aka {
+  display: inline-block;
+  border-left: 1px solid #ccc;
+  padding-left: 6px;
+  margin-left: 6px;
+}
+.mui_selectlist.account_img > ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+.mui_selectlist.account_img .lists {
+  width: 50%;
+  border: 0 none;
+}
+.mui_selectlist.account_img button {
+  padding-left: 40px;
+}
+.mui_selectlist.account_img button::after {
+  display: none;
+}
+.mui_selectlist.account_img .img {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid #000;
+}
+.mui_selectlist.account_img .img img {
+  width: 100%;
 }
 
 .mui_datepicker_layer {
@@ -342,6 +460,13 @@ table, th, td {
 }
 .mui_inputmoney .result {
   text-align: right;
+}
+
+.mui_form_list ~ .mui_form_list {
+  margin-top: 24px;
+}
+.mui_form_list .mui_form_content {
+  margin-top: 12px;
 }
 
 @font-face {
@@ -409,6 +534,17 @@ img {
 
 img {
   border: 0;
+}
+
+.hidden {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  color: transparent;
+  opacity: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  display: block;
 }
 
 legend {

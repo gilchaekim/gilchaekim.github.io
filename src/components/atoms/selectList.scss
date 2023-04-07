@@ -1,0 +1,84 @@
+.mui_selectlist{
+  .lists{
+    
+    & ~ .lists{
+      border-top: 1px solid #aaa;
+    }
+    &.mui_active{
+      button{
+        color: #000;
+        &::after{
+          border-color: #000;
+        }  
+      }
+    }
+    button{
+      display: block;
+      width: 100%;
+      padding: 20px 10px;
+      text-align: left;
+      font-size: 16px;
+      position: relative;
+      color: #ccc;
+      // border: 1px solid red;
+      &::after{
+        content: '';
+        width: 8px;
+        height: 8px;
+        border-bottom: 2px solid #ccc;
+        border-right: 2px solid #ccc;
+        position: absolute;
+        top:50%;
+        right: 4px;
+        transform: rotate(45deg) translate(-50%);
+      }
+    }
+  }
+  &.account{
+    .title{
+      display: block;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .acc_num{
+      display: block;
+      margin-top: 8px;
+    }
+    .acc_aka{
+      display: inline-block;
+      border-left: 1px solid #ccc;
+      padding-left: 6px;
+      margin-left: 6px;
+    }
+  }
+  &.account_img{
+    & > ul{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .lists{
+      width: 50%;
+      border: 0 none;
+    }
+    button{
+      padding-left: 40px;
+      &::after{
+        display: none;
+      }
+    }
+    .img{
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid #000;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}

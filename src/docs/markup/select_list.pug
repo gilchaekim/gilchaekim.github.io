@@ -3,55 +3,54 @@ extends ../layout/guideBase.pug
 block content
   div.main_content
     +guideTitle({
-      text:"Datepicker"
+      text:"Select list"
     })
     +guideTitle({
       text:"Example",
       level:2
     })
     +guideTitle({
-      text:"기본",
+      text:"base",
       level:2
     })
     +guideExample()(code)
       :code
-        +datepicker({
-          value:"2023-02-22"
-        })
-        +datepicker()
-        +datepicker({
-          quickBtn:true
-        })
-    br
+        +select_list()
     br
     +guideExample()(code)
       :code
-        +datepicker({
-          value:"2023-02-22"
+        +select_list({
+          type:"account"
         })
-        br
-        +datepicker()
+    br
+    +guideExample()(code)
+      :code
+        +select_list({
+          type:"account_img"
+        })
     br
     br
+
     +guideTitle({
       text:"Attribute",
       level:2
     })
+
     +attributesLists([
       [
         {
-          text:'value'
+          text:'type'
         },
         {
-          text:'날짜'
+          text:'리스트 타입 - base, account, account_img'
         },
         {
           text:'string'
         },
         {
-          text:'-'
+          text:'base'
         }
-      ],
+      ]
     ])
 
 
