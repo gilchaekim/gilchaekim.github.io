@@ -4,7 +4,7 @@ mixin form(params={})
   - const divide = '_'
   //- 공통 요소 End
   - const formBody = [];
-  - const { element="div", className, ...rest } = Object.assign({}, params)
+  - const { element="div", className, message, ...rest } = Object.assign({}, params)
 
   mixin form_body(params={})
     - const obj = Object.assign({}, params)
@@ -16,7 +16,7 @@ mixin form(params={})
   )
 
     each item, index in formBody
-      - const {title, required} = item.attribute;
+      - const {title, required, message} = item.attribute;
 
       div(
         class=`${prefix}${divide}form_list`
@@ -31,6 +31,11 @@ mixin form(params={})
           class=`${prefix}${divide}form_content`
         )
           - item.content && item.content()
+          if !!message
+            p(
+              class="msg_form"
+              class=`msg_${message.type}`
+            )!=message.text
 
 
 mixin form_value(params={})

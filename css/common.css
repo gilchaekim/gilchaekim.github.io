@@ -95,6 +95,15 @@ table, th, td {
   display: inline-block;
 }
 
+.dash {
+  display: inline-block;
+  margin: 0 5px;
+  width: 10px;
+  height: 1px;
+  vertical-align: middle;
+  background: red;
+}
+
 .step {
   display: flex;
   justify-content: space-between;
