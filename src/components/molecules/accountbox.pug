@@ -22,11 +22,11 @@ mixin accountbox(params={})
             if !!endDate
                 p.acc_num!=endDate
 
-        if !!endDate
+        if !!accVal
             p.acc_val!=accVal
 
 
-        if tags.length > 0
+        - if (!!tags && (tags.length > 0))
             .tags
                 each val in tags
                     - let type = val.type ? val.type : "";
