@@ -1,3 +1,17 @@
+mixin ipwrap(params={})
+
+  - const {className, count, ...rest } = Object.assign({}, params)
+  
+  div(
+    class=className
+  )
+    - for (let i = 0; i < count; i++)
+      +input()
+      - if ((count-1) !== i)
+        span.dash
+
+
+
 mixin input(params={})
   //- 공통 요소 Start
   - const prefix = "mui"
@@ -6,6 +20,7 @@ mixin input(params={})
 
   - const { element="span", className, title, placeholder, value, readOnly, disabled, id, type="text", muiFormatter, maxlength, subfix, ...rest } = Object.assign({}, params)
   - let subfixLength = !!subfix ? `sublength_${subfix.length}` : null
+  
   #{element}(
     class=`${prefix}${divide}input`
     class=className
@@ -29,7 +44,6 @@ mixin input(params={})
         class=subfix
       )
         !=subfix
-
-
-
     
+    
+

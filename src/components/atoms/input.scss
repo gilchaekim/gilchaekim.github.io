@@ -7,3 +7,29 @@
     display: inline-block;
   }
 }
+
+.dash {
+  display:inline-block;
+  margin:0 5px;
+  width:10px;
+  height:1px;
+  vertical-align:middle;
+  background:red;
+}
+
+// .inputWrap {
+//   .mui_input {
+//     position:relative;
+//     padding-left:8px;
+//     &:before {
+//       content:"-";
+//       position:absolute;
+//       top:50%;
+//       left:0;
+//       transform:translateY(-50%);
+//     }
+//     &:first-child::before {
+//       display:none;
+//     }
+//   }
+// }
