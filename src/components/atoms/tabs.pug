@@ -33,4 +33,26 @@ mixin tabsWrap(params={})
           class={'mui_active':item.active}
         )
           - item.body && item.body()
+mixin tabsLink(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const { element='div', className, list, ...rest } = Object.assign({}, params);
+  #{element}(
+    class=`${prefix}${divide}tabs`
+    class=className
+  )
+    ul.mui_tab_nav
+      each item, index in list
+        li(
+          class="nav_list"
+          class={'mui_active':item.active}
+        )
+          a(
+            href="#none"
+          )!=item.name
+    .tab_contents
+        .tab_pane
+          block
 

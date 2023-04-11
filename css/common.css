@@ -153,13 +153,16 @@ table, th, td {
   display: flex;
   border-bottom: 1px solid #000;
 }
-.mui_tabs .mui_tab_nav .nav_list button {
+.mui_tabs .mui_tab_nav .nav_list button, .mui_tabs .mui_tab_nav .nav_list a {
+  display: block;
   padding: 10px;
+  color: #000;
+  font-size: 14px;
 }
 .mui_tabs .mui_tab_nav .nav_list.mui_active {
   background: #000;
 }
-.mui_tabs .mui_tab_nav .nav_list.mui_active button {
+.mui_tabs .mui_tab_nav .nav_list.mui_active button, .mui_tabs .mui_tab_nav .nav_list.mui_active a {
   color: #fff;
 }
 .mui_tabs .tab_contents .tab_pane {

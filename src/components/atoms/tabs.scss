@@ -2,12 +2,15 @@
   .mui_tab_nav{
     display: flex;
     .nav_list{
-      button{
+      button, a{
+        display: block;
         padding: 10px;
+        color: #000;
+        font-size: 14px;
       }
       &.mui_active{
         background: #000;
-        button{
+        button, a{
           color: #fff;
         }
       }

@@ -21,20 +21,21 @@ block content
             div 22222
           +tab("텝 네비3")
             div 33333
-          +tab("텝 네비4")
-            +tabsWrap({
-              active:0,
-              className:'custom_tab'
-            })
-              +tab("Inner tab1")
-                div 11111
-              +tab("Inner tab2")
-                div 22222
-              +tab("Inner tab3")
-                div 33333
-              +tab("Inner tab4")
-                div 44444
-                
+          +tab("텝 네비4")                
+    br
+    br
+    +guideExample()(code)
+      :code
+        +tabsLink({
+          list:[
+            {name:'텝 네비1'},
+            {name:'텝 네비2', active:true},
+            {name:'텝 네비3'},
+            {name:'텝 네비4'},
+          ],
+          className:'custom_tab'
+        })
+          div 텝 컨텐츠
     br
     br
     +guideTitle({
