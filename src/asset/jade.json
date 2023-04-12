@@ -53,6 +53,14 @@
 		],
 		"description": "버튼 그룹"
 	},
+	"Button_wrap": {
+		"prefix": "!button_wrap",
+		"body": [
+				"+button_wrap()",
+				"\t$0"
+		],
+		"description": "기본 버튼"
+	},
 	"dataTable": {
 		"prefix": "!dataTable",
 		"body": [
