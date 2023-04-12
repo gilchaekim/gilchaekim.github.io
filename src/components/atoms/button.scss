@@ -3,14 +3,12 @@
 
 .mui{
   &_button{
-    background-color: $main_color01;
-    color: $font_color06;
     padding: 0 16px;
     border-radius: 8px;
     position: relative;
     display: flex;
     width: 100%;
-    align-items: center;
+    align-items: center; 
     justify-content: center;
     &.select_type{
       display: block;
@@ -67,6 +65,10 @@
     background-color:$bg_color03;
     color:$font_color01;
   }
-  
+  &_select{
+    display: block;
+    width: 100%;
+    text-align: left;
+  }
   
 }

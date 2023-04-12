@@ -1,0 +1,41 @@
+@import "common/mixins";
+@import "common/varialbles";
+@import "common/fonts";
+@import "common/reset";
+
+@import '../../components/atoms/index.scss';
+@import '../../components/molecules/index.scss';
+@import '../../components/organisms/index.scss';
+
+
+
+.main{
+  border: 1px solid red;
+  #footer{
+    background-color: $font_color02;
+    padding: 24px 20px 64px;
+    color: #aaa;
+    font-size: 13px;
+    line-height: 1.5;
+    .site_lists{
+      display: flex;
+      width: 100%;
+      border: 1px solid #00f;
+      & > span{
+        flex: 1;
+        & ~ span{
+          margin-left: 16px;
+        }
+      }
+    }
+    .copy{
+      margin-top: 16px;
+      font-weight: 300;
+    }
+    .address{
+      span{
+        display: block;
+      }
+    }
+  }
+}

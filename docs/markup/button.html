@@ -17,11 +17,10 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_button_wrap"><button class="mui_button mui_large mui_success" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_grey" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_default" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_white" type="button"><span>버튼</span></button></div><div class="mui_button_wrap"><button class="mui_button mui_medium mui_success" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_grey" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_default" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_white" type="button"><span>버튼</span></button></div></section><div class="code_block"><pre><code class="language-pug">+button_wrap()
+        <div class="guide_card_box"><section class="code_view"><div class="mui_button_wrap"><button class="mui_button mui_large mui_primary" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_grey" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_default" type="button"><span>버튼</span></button><button class="mui_button mui_large mui_white" type="button"><span>버튼</span></button></div><div class="mui_button_wrap"><button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_grey" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_default" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_white" type="button"><span>버튼</span></button></div></section><div class="code_block"><pre><code class="language-pug">+button_wrap()
   +button({
     label:"버튼",
-    size:'large',
-    type:"success"
+    size:'large'
   })
   +button({
     label:"버튼",
@@ -41,8 +40,7 @@
 +button_wrap()
   +button({
     label:"버튼",
-    size:'medium',
-    type:"success"
+    size:'medium'
   })
   +button({
     label:"버튼",
@@ -66,10 +64,7 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Select Button</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_medium mui_primary select_type" type="button"><span>버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button({
-  label:"버튼",
-  className:'select_type'
-})</code></pre></div>
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_select" type="button"><span>셀렉트 버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button_select('셀렉트 버튼')</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>

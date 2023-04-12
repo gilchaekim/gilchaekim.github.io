@@ -721,4 +721,33 @@ table, th, td {
 .mui_form_list .mui_form_content {
   margin-top: 12px;
 }
-/*# sourceMappingURL=common.css.map */
+
+.main {
+  border: 1px solid red;
+}
+.main #footer {
+  background-color: var(--font_color02);
+  padding: 24px 20px 64px;
+  color: #aaa;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.main #footer .site_lists {
+  display: flex;
+  width: 100%;
+  border: 1px solid #00f;
+}
+.main #footer .site_lists > span {
+  flex: 1;
+}
+.main #footer .site_lists > span ~ span {
+  margin-left: 16px;
+}
+.main #footer .copy {
+  margin-top: 16px;
+  font-weight: 300;
+}
+.main #footer .address span {
+  display: block;
+}
+/*# sourceMappingURL=main.css.map */

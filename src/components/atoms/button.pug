@@ -60,3 +60,21 @@ mixin button(params={})
     span
       | #{label}
 
+mixin button_select(label)
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  
+
+  - let element = "button"
+
+  #{element}(
+    id=id
+    class=`${prefix}${divide}button`
+    class=`${prefix}${divide}select`
+    class=className
+    type="button"
+  )
+    span
+      | #{label}
