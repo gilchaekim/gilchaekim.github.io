@@ -1,3 +1,6 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
 .mui_form_list{
   & ~ .mui_form_list{
     margin-top: 24px;

@@ -1,21 +1,39 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
 .mui_tabs{
   .mui_tab_nav{
     display: flex;
+    padding: 0 24px;
+    background: $bg_color03;
     .nav_list{
+      flex: 1;
+      text-align: center;
       button, a{
         display: block;
-        padding: 10px;
-        color: #000;
-        font-size: 14px;
+        position: relative;
+        padding: 14px 0 17px;
+        color: $font_color04;
+        font-size: 16px;
+        width: 100%;
       }
       &.mui_active{
-        background: #000;
         button, a{
-          color: #fff;
+          color: $font_color01;
+          &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $line_color01;
+            width: 100%;
+          }
         }
       }
     }
-    border-bottom: 1px solid #000;
   }
   .tab_contents{
     .tab_pane{

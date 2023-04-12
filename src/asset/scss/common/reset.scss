@@ -1,3 +1,6 @@
+@import "mixins";
+@import "varialbles";
+
 body{
   * {
     box-sizing:border-box;
@@ -16,6 +19,7 @@ a:hover {text-decoration: none;}
 body, input, textarea, select, button, table 
 {
   font-family: 'NanumBarunGothic', sans-serif;
+  font-weight: 400;
 }
 
 
@@ -69,3 +73,14 @@ textarea {
   vertical-align: top;
   resize: vertical;
 }
+@each $theme in $theme{
+  @if $theme == base{
+    html{
+      @include theme($theme);
+    }
+  } @else {
+    html.#{$theme}{
+      @include theme($theme);
+    }  
+  }
+} 

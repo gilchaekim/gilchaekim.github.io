@@ -1,18 +1,20 @@
-@forward './radioCheck' as mui_*;
-@forward './button' as mui_*;
-@forward './dataTable' as mui_*;
-@forward './input' as mui_*;
-@forward './step' as mui_*;
-@forward './textarea' as mui_*;
-@forward './textLists' as mui_*;
-@forward './select' as mui_*;
-@forward './label' as mui_*;
-@forward './tabs' as mui_*;
-@forward './accordion' as mui_*;
-@forward './modal' as mui_*;
-@forward './tag' as mui_*;
-@forward './title' as mui_*;
-@forward './result' as mui_*;
-@forward './agreeCheck' as mui_*;
-@forward './selectList' as mui_*;
-@forward './layout' as mui_*;
+
+@import './radioCheck';
+@import './button';
+@import './dataTable';
+@import './input';
+@import './step';
+@import './textarea';
+@import './textLists';
+@import './select';
+@import './label';
+@import './tabs';
+@import './accordion';
+@import './modal';
+@import './tag';
+@import './title';
+@import './result';
+@import './agreeCheck';
+@import './selectList';
+@import './layout';
+

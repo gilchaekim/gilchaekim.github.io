@@ -22,6 +22,7 @@ a:hover {
 /* 폰트 초기화 */
 body, input, textarea, select, button, table {
   font-family: "NanumBarunGothic", sans-serif;
+  font-weight: 400;
 }
 
 em, address, i {
@@ -85,5 +86,83 @@ textarea {
   overflow: auto;
   vertical-align: top;
   resize: vertical;
+}
+
+html {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank1 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank2 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
 }
 /*# sourceMappingURL=reset.css.map */

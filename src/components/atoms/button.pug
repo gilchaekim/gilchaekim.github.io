@@ -16,6 +16,20 @@ mixin button_group(params={})
         })
 
 
+mixin button_wrap(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const { element="div", className, ...rest } = Object.assign({}, params)
+
+  #{element}(
+    id=id
+    class=`${prefix}${divide}button${divide}wrap`
+    class=className
+  )
+    block
+
 mixin button(params={})
   //- 공통 요소 Start
   - const prefix = "mui"
@@ -25,8 +39,8 @@ mixin button(params={})
 
   - let element = "button"
   - let buttonType = "button"
-  - const { size="medium", label, isIcon, href, muiToggle, className, id, ...rest } = Object.assign({}, params)
-  - let test = "mui"
+  - const { size="medium", label, isIcon, href, muiToggle, className, type="primary", id, ...rest } = Object.assign({}, params)
+  //- primary , success, grey, white, info, default
   if href
     - element = "a"
     - buttonType = undefined
@@ -34,6 +48,7 @@ mixin button(params={})
     id=id
     class=`${prefix}${divide}button`
     class=`${prefix}${divide}${size}`
+    class=`${prefix}${divide}${type}`
     class=className
     class={
       'mui-icon':isIcon,

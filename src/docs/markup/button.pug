@@ -11,20 +11,51 @@ block content
     })
     +guideExample()(code)
       :code
-        +button({
-          label:"버튼",
-          size:'large',
-        })
-        +button({
-          label:"버튼",
-          size:'medium',
-        })
-        +button({
-          label:"버튼",
-          size:'small',
-        })
+        +button_wrap()
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"success"
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"grey"
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"default"
+          })
+          +button({
+            label:"버튼",
+            size:'large',
+            type:"white"
+          })
+        +button_wrap()
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"success"
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"grey"
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"default"
+          })
+          +button({
+            label:"버튼",
+            size:'medium',
+            type:"white"
+          })
     br
     br
+
 
     +guideTitle({
       text:"Select Button",
@@ -99,6 +130,20 @@ block content
         },
         {
           text:'medium'
+        }
+      ],
+      [
+        {
+          text:'size'
+        },
+        {
+          text:'버튼 타입 : primary , success, grey, white, info, default'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'primary'
         }
       ],
       [

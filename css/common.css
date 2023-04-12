@@ -1,4 +1,191 @@
 @charset "UTF-8";
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 400;
+  src: local("나눔바른고딕"), url(NanumBarunGothicSubset.woff2) format("woff2"), url(NanumBarunGothicSubset.woff) format("woff"), url(NanumBarunGothicSubset.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 700;
+  src: local("나눔바른고딕 Bold"), url(NanumBarunGothicBoldSubset.woff2) format("woff2"), url(NanumBarunGothicBoldSubset.woff) format("woff"), url(NanumBarunGothicBoldSubset.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 300;
+  src: local("나눔바른고딕 Light"), url(NanumBarunGothicLightSubset.woff2) format("woff2"), url(NanumBarunGothicLightSubset.woff) format("woff"), url(NanumBarunGothicLightSubset.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 200;
+  src: local("나눔바른고딕 UltraLight"), url(NanumBarunGothicUltraLightSubset.woff2) format("woff2"), url(NanumBarunGothicUltraLightSubset.woff) format("woff"), url(NanumBarunGothicUltraLightSubset.ttf) format("truetype");
+}
+body * {
+  box-sizing: border-box;
+}
+
+/* 여백 초기화 */
+body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select,
+table, th, td, tr, textarea, button, form, figure, figcaption {
+  margin: 0;
+  padding: 0;
+}
+
+/* a 링크 초기화 */
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* 폰트 초기화 */
+body, input, textarea, select, button, table {
+  font-family: "NanumBarunGothic", sans-serif;
+  font-weight: 400;
+}
+
+em, address, i {
+  font-style: normal;
+}
+
+ul, li, ol, dl, dt, dd {
+  list-style: none;
+}
+
+/* 제목 태그 초기화 */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+
+img {
+  width: 100%;
+  vertical-align: top;
+}
+
+img {
+  border: 0;
+}
+
+.hidden {
+  font-size: 0;
+  width: 0;
+  height: 0;
+  color: transparent;
+  opacity: 0;
+  line-height: 0;
+  text-indent: -9999em;
+  display: block;
+}
+
+legend {
+  color: inherit;
+  white-space: normal;
+  display: block;
+  border: 0;
+  max-width: 100%;
+  width: 100%;
+}
+
+fieldset {
+  min-width: 0;
+}
+
+[hidden] {
+  display: none;
+}
+
+button {
+  background: none;
+  border: 0 none;
+  display: inline-block;
+  cursor: pointer;
+}
+
+textarea {
+  overflow: auto;
+  vertical-align: top;
+  resize: vertical;
+}
+
+html {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank1 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
+html.bank2 {
+  --main_color01: #DF6311;
+  --main_color02: #477A71;
+  --main_color03: rgba(223, 99, 17, 0.08);
+  --font_color01: #111;
+  --font_color02: #333;
+  --font_color03: #666;
+  --font_color04: #919191;
+  --font_color05: #ccc;
+  --font_color06: #fff;
+  --font_color07: #3282fa;
+  --font_color08: #ff334b;
+  --button_color01: #DF6311;
+  --button_color02: #5c627c;
+  --button_color03: #ccc;
+  --line_color01: #111;
+  --line_color02: #ddd;
+  --line_color03: #eee;
+  --line_color04: #f6f6f6;
+  --bg_color01: #f1f1f1;
+  --bg_color02: #f8f8f8;
+  --bg_color03: #fff;
+  --bg_color04: rgba(255, 255, 255, 0.8);
+  --bg_color05: rgba(0, 0, 0, 0.8);
+}
+
 .mui_radio, .mui_checkbox {
   position: relative;
 }
@@ -35,12 +222,15 @@
 }
 
 .mui_button {
-  background-color: #000;
-  color: #fff;
-  padding: 4px 10px;
-  border-radius: 4px;
-  margin: 4px 0;
+  background-color: var(--main_color01);
+  color: var(--font_color06);
+  padding: 0 16px;
+  border-radius: 8px;
   position: relative;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 .mui_button.select_type {
   display: block;
@@ -62,6 +252,39 @@
   top: 5px;
   right: 10px;
   transform: rotate(45deg);
+}
+.mui_button_wrap {
+  display: flex;
+  justify-content: baseline;
+}
+.mui_button ~ .mui_button {
+  margin-left: 8px;
+}
+.mui_large {
+  height: 56px;
+  font-weight: 700;
+  font-size: 18px;
+}
+.mui_medium {
+  height: 40px;
+  font-size: 16px;
+}
+.mui_small {
+  height: 30px;
+}
+.mui_primary {
+  background-color: var(--main_color01);
+}
+.mui_grey {
+  background-color: var(--font_color05);
+  color: var(--font_color03);
+}
+.mui_default {
+  background-color: #5C627C;
+}
+.mui_white {
+  background-color: var(--bg_color03);
+  color: var(--font_color01);
 }
 
 caption {
@@ -151,19 +374,34 @@ table, th, td {
 
 .mui_tabs .mui_tab_nav {
   display: flex;
-  border-bottom: 1px solid #000;
+  padding: 0 24px;
+  background: var(--bg_color03);
+}
+.mui_tabs .mui_tab_nav .nav_list {
+  flex: 1;
+  text-align: center;
 }
 .mui_tabs .mui_tab_nav .nav_list button, .mui_tabs .mui_tab_nav .nav_list a {
   display: block;
-  padding: 10px;
-  color: #000;
-  font-size: 14px;
-}
-.mui_tabs .mui_tab_nav .nav_list.mui_active {
-  background: #000;
+  position: relative;
+  padding: 14px 0 17px;
+  color: var(--font_color04);
+  font-size: 16px;
+  width: 100%;
 }
 .mui_tabs .mui_tab_nav .nav_list.mui_active button, .mui_tabs .mui_tab_nav .nav_list.mui_active a {
-  color: #fff;
+  color: var(--font_color01);
+}
+.mui_tabs .mui_tab_nav .nav_list.mui_active button::after, .mui_tabs .mui_tab_nav .nav_list.mui_active a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--line_color01);
+  width: 100%;
 }
 .mui_tabs .tab_contents .tab_pane {
   display: none;
@@ -479,113 +717,5 @@ table, th, td {
 }
 .mui_form_list .mui_form_content {
   margin-top: 12px;
-}
-
-@font-face {
-  font-family: "NanumBarunGothic";
-  font-weight: 400;
-  src: local("나눔바른고딕"), url(NanumBarunGothicSubset.woff2) format("woff2"), url(NanumBarunGothicSubset.woff) format("woff"), url(NanumBarunGothicSubset.ttf) format("truetype");
-}
-@font-face {
-  font-family: "NanumBarunGothic";
-  font-weight: 700;
-  src: local("나눔바른고딕 Bold"), url(NanumBarunGothicBoldSubset.woff2) format("woff2"), url(NanumBarunGothicBoldSubset.woff) format("woff"), url(NanumBarunGothicBoldSubset.ttf) format("truetype");
-}
-@font-face {
-  font-family: "NanumBarunGothic";
-  font-weight: 300;
-  src: local("나눔바른고딕 Light"), url(NanumBarunGothicLightSubset.woff2) format("woff2"), url(NanumBarunGothicLightSubset.woff) format("woff"), url(NanumBarunGothicLightSubset.ttf) format("truetype");
-}
-@font-face {
-  font-family: "NanumBarunGothic";
-  font-weight: 200;
-  src: local("나눔바른고딕 UltraLight"), url(NanumBarunGothicUltraLightSubset.woff2) format("woff2"), url(NanumBarunGothicUltraLightSubset.woff) format("woff"), url(NanumBarunGothicUltraLightSubset.ttf) format("truetype");
-}
-body * {
-  box-sizing: border-box;
-}
-
-/* 여백 초기화 */
-body, div, ul, li, dl, dd, dt, ol, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select,
-table, th, td, tr, textarea, button, form, figure, figcaption {
-  margin: 0;
-  padding: 0;
-}
-
-/* a 링크 초기화 */
-a {
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: none;
-}
-
-/* 폰트 초기화 */
-body, input, textarea, select, button, table {
-  font-family: "NanumBarunGothic", sans-serif;
-}
-
-em, address, i {
-  font-style: normal;
-}
-
-ul, li, ol, dl, dt, dd {
-  list-style: none;
-}
-
-/* 제목 태그 초기화 */
-h1, h2, h3, h4, h5, h6 {
-  font-weight: normal;
-}
-
-img {
-  width: 100%;
-  vertical-align: top;
-}
-
-img {
-  border: 0;
-}
-
-.hidden {
-  font-size: 0;
-  width: 0;
-  height: 0;
-  color: transparent;
-  opacity: 0;
-  line-height: 0;
-  text-indent: -9999em;
-  display: block;
-}
-
-legend {
-  color: inherit;
-  white-space: normal;
-  display: block;
-  border: 0;
-  max-width: 100%;
-  width: 100%;
-}
-
-fieldset {
-  min-width: 0;
-}
-
-[hidden] {
-  display: none;
-}
-
-button {
-  background: none;
-  border: 0 none;
-  display: inline-block;
-  cursor: pointer;
-}
-
-textarea {
-  overflow: auto;
-  vertical-align: top;
-  resize: vertical;
 }
 /*# sourceMappingURL=common.css.map */

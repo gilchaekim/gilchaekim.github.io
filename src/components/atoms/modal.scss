@@ -1,3 +1,6 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
 .mui_modal, [mui-modal]{
     display: none;
     position: fixed;

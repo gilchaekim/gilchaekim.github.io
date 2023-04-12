@@ -1,21 +1,113 @@
-$main_color01: #f36f21 !default;
-$main_color02: #ffa051 !default;
+// 은행별 포인트 컬러
+$main_color01: var(--main_color01);
+$main_color02: var(--main_color02);
+$main_color03: var(--main_color03);
 
-$sub_color01: #008fd4 !default;
-$sub_color02: #0062a2 !default;
+$font_color01: var(--font_color01);
+$font_color02: var(--font_color02);
+$font_color03: var(--font_color03);
+$font_color04: var(--font_color04);
+$font_color05: var(--font_color05);
+$font_color06: var(--font_color06);
+$font_color07: var(--font_color07);
+$font_color08: var(--font_color08);
 
-$text_color01: #333 !default;
-$text_color02: #666 !default;
-$text_color03: #757575 !default;
-$text_color04: #bdbdbd !default;
+$button_color01: var(--button_color01);
+$button_color02: var(--button_color02);
+$button_color03: var(--button_color03);
 
-$border_color01: #bdbdbd !default;
-$border_color02: #e0e0e0 !default;
-$border_color03: #eee !default;
+$line_color01: var(--line_color01);
+$line_color02: var(--line_color02);
+$line_color03: var(--line_color03);
+$line_color04: var(--line_color04);
 
-$bg_color01 : #eee !default;
-$bg_color02 : #f5f5f5 !default;
-$bg_color03 : #fff !default;
+$bg_color01: var(--bg_color01);
+$bg_color02: var(--bg_color02);
+$bg_color03: var(--bg_color03);
+$bg_color04: var(--bg_color04);
+$bg_color05: var(--bg_color05);
+
+
+
+$theme: base, bank1, bank2;
+$colors: (
+  base: (
+    main_color01: #DF6311,
+    main_color02: #477A71,
+    main_color03: rgba(223, 99, 17, .08),
+    font_color01:#111,
+    font_color02:#333,
+    font_color03:#666,
+    font_color04:#919191,
+    font_color05:#ccc,
+    font_color06:#fff ,
+    font_color07:#3282fa,
+    font_color08:#ff334b,
+    button_color01:#DF6311,
+    button_color02:#5c627c,
+    button_color03:#ccc,
+    line_color01:#111,
+    line_color02:#ddd,
+    line_color03:#eee,
+    line_color04:#f6f6f6,
+    bg_color01:#f1f1f1,
+    bg_color02:#f8f8f8,
+    bg_color03:#fff,
+    bg_color04:rgba(255,255,255,.8),
+    bg_color05:rgba(0,0,0,.8),
+  ),
+  bank1: (
+    main_color01: #DF6311,
+    main_color02: #477A71,
+    main_color03: rgba(223, 99, 17, .08),
+    font_color01:#111,
+    font_color02:#333,
+    font_color03:#666,
+    font_color04:#919191,
+    font_color05:#ccc,
+    font_color06:#fff ,
+    font_color07:#3282fa,
+    font_color08:#ff334b,
+    button_color01:#DF6311,
+    button_color02:#5c627c,
+    button_color03:#ccc,
+    line_color01:#111,
+    line_color02:#ddd,
+    line_color03:#eee,
+    line_color04:#f6f6f6,
+    bg_color01:#f1f1f1,
+    bg_color02:#f8f8f8,
+    bg_color03:#fff,
+    bg_color04:rgba(255,255,255,.8),
+    bg_color05:rgba(0,0,0,.8),
+  ),
+  bank2: (
+    main_color01: #DF6311,
+    main_color02: #477A71,
+    main_color03: rgba(223, 99, 17, .08),
+    font_color01:#111,
+    font_color02:#333,
+    font_color03:#666,
+    font_color04:#919191,
+    font_color05:#ccc,
+    font_color06:#fff ,
+    font_color07:#3282fa,
+    font_color08:#ff334b,
+    button_color01:#DF6311,
+    button_color02:#5c627c,
+    button_color03:#ccc,
+    line_color01:#111,
+    line_color02:#ddd,
+    line_color03:#eee,
+    line_color04:#f6f6f6,
+    bg_color01:#f1f1f1,
+    bg_color02:#f8f8f8,
+    bg_color03:#fff,
+    bg_color04:rgba(255,255,255,.8),
+    bg_color05:rgba(0,0,0,.8),
+  )
+); 
+
 
 
 // images URL
@@ -23,5 +115,4 @@ $url_common : '/src/iamges/';
 
 $breakpoints-tablet : 1024;
 $breakpoints-mobile : 767;
-
 

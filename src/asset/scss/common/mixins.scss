@@ -14,6 +14,42 @@
 }
 
 
+@function setStyle($map, $object, $style) {
+    @if map-has-key($map, $object) {
+      @return map-get(map-get($map, $object), $style);
+    }
+    @warn "The key ´#{$object} is not available in the map.";
+    @return null;
+  }
+  
+  @mixin theme($key){
+    --main_color01: #{setStyle($colors, $key, main_color01)};
+    --main_color02: #{setStyle($colors, $key, main_color02)};
+    --main_color03: #{setStyle($colors, $key, main_color03)};
+    --font_color01: #{setStyle($colors, $key, font_color01)};
+    --font_color02: #{setStyle($colors, $key, font_color02)};
+    --font_color03: #{setStyle($colors, $key, font_color03)};
+    --font_color04: #{setStyle($colors, $key, font_color04)};
+    --font_color05: #{setStyle($colors, $key, font_color05)};
+    --font_color06: #{setStyle($colors, $key, font_color06)};
+    --font_color07: #{setStyle($colors, $key, font_color07)};
+    --font_color08: #{setStyle($colors, $key, font_color08)};
+    --button_color01: #{setStyle($colors, $key, button_color01)};
+    --button_color02: #{setStyle($colors, $key, button_color02)};
+    --button_color03: #{setStyle($colors, $key, button_color03)};
+    --line_color01: #{setStyle($colors, $key, line_color01)};
+    --line_color02: #{setStyle($colors, $key, line_color02)};
+    --line_color03: #{setStyle($colors, $key, line_color03)};
+    --line_color04: #{setStyle($colors, $key, line_color04)};
+    --bg_color01: #{setStyle($colors, $key, bg_color01)};
+    --bg_color02: #{setStyle($colors, $key, bg_color02)};
+    --bg_color03: #{setStyle($colors, $key, bg_color03)};
+    --bg_color04: #{setStyle($colors, $key, bg_color04)};
+    --bg_color05: #{setStyle($colors, $key, bg_color05)};
+  } 
+  
+
+
 
 @mixin respondTo($media) {
   @if $media == mobile {
@@ -23,11 +59,11 @@
     @media (min-width: ($breakpoints-mobile+1) - (0px)) and (max-width:  $breakpoints-tablet - (0px)) { @content; }
   }
   @else {
-    @media (max-width:$media - (0px)) { @content; }
+    @media (max-width:$media-(0px)) { @content; }
   }
 }
 @mixin respondToMinMax($minSize, $maxSize) {
-  @media (min-width: $minSize - (0px)) and (max-width: $maxSize  - (0px)) { @content; }
+  @media (min-width: $minSize-(0px)) and (max-width: $maxSize  - (0px)) { @content; }
 }
 
 
