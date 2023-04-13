@@ -14,7 +14,7 @@ const config = {
       `!${sourceDir}components/**/*.pug`,
       `!${sourceDir}docs/layout/*.pug`,
     ],
-    pugWather:[`${sourceDir}pages/**/*.pug`, `${sourceDir}components/**/*.pug`, `${sourceDir}docs/**/*.pug`, 'index.pug'],
+    pugWather:[`${sourceDir}html/**/*.pug`, `${sourceDir}components/**/*.pug`, `${sourceDir}docs/**/*.pug`, 'index.pug'],
     template: `${sourceDir}components/**/*.pug`,
     templateScss: `${sourceDir}components/**/*.scss`,
     components: `${sourceDir}components`,

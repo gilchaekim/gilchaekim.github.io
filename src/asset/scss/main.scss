@@ -10,7 +10,128 @@
 
 
 .main{
-  border: 1px solid red;
+  .slider{
+    overflow: hidden;
+  }
+  #contants{
+    background: url($url_common+"bg_main.png") no-repeat center top;
+    background-size: 822px;
+  }
+  .welcome_msg{
+    padding: 0 24px;
+    font-size: 18px;
+    color:$font_color01;
+    margin-bottom: 24px;
+    span{
+      display: block;
+      .bnk{
+        font-weight: 700;
+      }
+    }
+    .ico{
+      display: inline-block;
+      width: 24px;
+      height: 24px;
+      background: url($url_common+"ico_smile.svg") no-repeat center;
+      background-size: 100%;
+      vertical-align: -7px;
+      margin-left: 4px;
+    }
+  }
+  .main_slider{
+    padding: 0 24px;
+    .ico{
+      width: 112px;
+      height: 112px;
+    }
+    a{
+      display: block;
+      overflow: hidden;
+    }
+    .slider{
+      box-shadow: 0 8px 16px rgba(0,0,0,.08);
+    }
+    .lists{
+      background: none;
+      a{
+        background:$main_color01; 
+      }
+    }
+    .title{
+      font-size: 22px;
+      font-weight: 700;
+      color:$font_color01;
+    }
+    .decs{
+      font-size: 16px;
+      color:$font_color06;
+      margin-top: 16px;
+    }
+    .link_txt{
+      display: inline-block;
+      padding-right: 42px;
+      color:$font_color06;
+      font-size: 14px;
+      font-weight: 300;
+      margin-top: 18px;
+      background:  url($url_common+"ico_arrow.png") no-repeat right 2px;
+      background-size: 32px;
+    }
+    &.type1{
+      .slider{
+        border-radius: 60px;
+        overflow: hidden;
+      }
+      .ico{
+        width: 100px;
+        height: 100px;
+        margin: 12px auto 0;
+      }
+      .lists{
+        text-align: center;
+       a{
+        height: 300px;
+        
+        padding: 40px 32px 0;
+       } 
+      }
+      .title{
+        color:$font_color06;
+      }
+      .decs{
+        margin-top: 12px;
+      }
+    }
+  }
+  #header{
+    height: 56px;
+    .inner{
+      display: flex;
+      justify-content: space-between;
+    }
+    .side_right{
+      padding-top: 16px;
+      padding-right: 16px;
+      height: 100%;
+    }
+    .all_menu{
+      width: 24px;
+      height: 24px;
+      background:  url($url_common+"ico_menu.svg") no-repeat center;
+      display: block;
+    }
+    .logo{
+      padding-left: 20px;
+      a{
+        display: block;
+        padding-top: 9px;
+        
+      }
+      img{
+        height: 38px;
+      }
+    }
+  }
   #footer{
     background-color: $font_color02;
     padding: 24px 20px 64px;
@@ -20,11 +141,28 @@
     .site_lists{
       display: flex;
       width: 100%;
-      border: 1px solid #00f;
       & > span{
         flex: 1;
         & ~ span{
           margin-left: 16px;
+        }
+      }
+      .mui_select{
+        border-bottom: 1px solid #888;
+        border-radius: 0;
+        color: #f9f9f9;
+        font-size: 14px;
+        height: 40px;
+        &::after{
+          content: '';
+          display: block;
+          width: 20px;
+          height: 20px;
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translate(0, -50%);
+          @include icon_svg(arrow-down, "#fff", 20px);
         }
       }
     }
@@ -33,9 +171,326 @@
       font-weight: 300;
     }
     .address{
+      margin-top: 24px;
       span{
         display: block;
       }
+    }
+  }
+  .mui_contents_group{
+    margin-top: 32px;
+    & ~ .mui_contents_group{
+      margin-top: 40px;
+    }
+
+
+    .notice{
+      padding: 0 24px;
+      .swiper_page_nav{
+        font-size: 13px;
+        color: #888;
+        position: absolute;
+        right: 32px;
+        top: -37px;
+        .current{
+          color:$font_color01;
+        }
+        .total{
+          font-weight: 300;
+          &::before{
+            content: '/ ';
+          }
+        }
+      }
+      .control_btn{
+        position: absolute;
+        top: -41px;
+        right: 0;
+        &.stop{
+          span{
+            background:$bg_color02 url($url_common+'ico_play.svg') no-repeat center;  
+          }
+        }
+        span{
+          display: block;
+          font-size: 0;
+          color: transparent;
+          text-indent: -9999em;
+          width: 24px;
+          height: 24px;
+          border-radius: 12px;
+          background:$bg_color02 url($url_common+'ico_stop.svg') no-repeat center;
+        }
+      }
+      .title{
+        position: relative;
+        &::after{
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          @include icon_svg(arrow-left, "#111", 20px);
+          transform: rotate(180deg);
+          vertical-align: top;
+          margin-top: 4px;
+        }
+      }
+      .list_type{
+        li ~ li{
+          margin-top: 16px;
+        }
+        a{
+          font-size: 16px;
+          color: #555;
+          @include ellipsis()
+        }
+      }
+      .card{
+        li ~ li{
+          margin-top: 8px;
+        }
+        a{
+          font-size: 14px;
+          color: #000;
+          display: flex;
+          justify-content: space-between;
+          height: 40px;
+          line-height: 40px;
+          background:$bg_color02;
+          border-radius: 20px;
+          padding: 0 16px;
+          .text{
+            @include ellipsis()
+          }
+          .date{
+            padding-left: 12px;
+          }
+        }
+      }
+      .slider{
+        overflow: hidden;
+        .lists {
+          background:$bg_color02;
+          border-radius: 8px;
+          padding: 20px;
+        }
+        span{
+          display: block;
+          color:$font_color02;
+          @include ellipsis();
+        }
+        .date{
+          color:$font_color03;
+          font-weight: 300;
+          margin-top: 8px;
+        }
+      }
+      
+    }
+    .quick_service{
+      padding: 0 24px;
+      .scroll_wrap{
+        height: 120px;
+      }
+      .scroll{
+        overflow: auto;
+        white-space: nowrap;
+        margin-right: -24px;
+        padding:20px 24px 20px 0;
+        position: relative;
+        top: -20px;
+        li{
+          display: inline-block;
+          width: 132px;
+          height: 120px;
+          border-radius: 20px;
+          background:$bg_color03;
+          border: 1px solid #efefef;
+          text-align: center;
+          padding: 20px 0;
+          box-shadow: 0 4px 8px rgba(0,0,0,.04);
+          ~ li{
+            margin-left: 12px;
+          }
+        }
+        .ico{
+          width: 56px;
+          height: 56px;
+          display: inline-block;
+        }
+        .text{
+          color:$font_color02;
+          font-size: 14px;
+          margin-top: 8px;
+        }
+      }
+      .tag{
+        font-size: 0;
+        margin: -4px;
+        a{
+          display: inline-block;
+          margin: 4px;
+          border: 1px solid $line_color02;
+          height: 38px;
+          padding: 0 16px;
+          line-height: 36px;
+          font-size: 16px;
+          color:$font_color03;
+          border-radius: 18px;
+        }
+      }
+      .list{
+        font-size: 0;
+        margin: -6px;
+        li{
+          display: inline-block;
+          width: 50%;
+          padding: 6px;
+        }
+        a{
+          display: flex;
+          background:$bg_color03;
+          border: 1px solid $line_color03;
+          border-radius: 20px;
+          height: 64px;
+          padding: 16px 0 0 20px;
+        }
+        .ico{
+          width: 32px;
+          height: 32px;
+        }
+        .text{
+          color:$font_color03;
+          font-size: 14px;
+          padding-left: 12px;
+        }
+      }
+    }
+    .customer_service{
+      padding: 0 24px 40px;
+      &.full{
+        background: #f5f5f5  url($url_common+"ico_main07.svg") no-repeat 24px 74px;
+        padding: 32px 24px 32px 180px;
+        position: relative;
+        .title{
+          position: absolute;
+          left: 24px;
+          top: 32px;
+        }
+        a{
+          display: block;
+          & ~ a{
+            margin-top: 24px;
+          }
+        }
+        .text{
+          display: block;
+          font-size: 14px;
+          color:$font_color02;
+          line-height: 16px;
+        }
+        .number{
+          display: block;
+          font-size: 20px;
+          font-weight: 700;
+          color:$main_color01;
+          margin-top: 8px;
+          line-height: 23px;
+        }
+        .cont{
+          margin-top: 0;
+        }
+      }
+      .list{
+        a{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 56px;
+          border-radius: 0 20px 20px 20px;
+          background:$bg_color02;
+          & ~ a{
+            margin-top: 8px;
+          }
+        }
+        .ico{
+          width: 32px;
+          height: 32px;
+        }
+        .tel{
+          line-height: 32px; 
+        }
+        .text{
+          font-size: 14px;
+          color:$font_color02;
+          padding-left: 4px;
+        }
+        .number{
+          padding-left: 24px;
+          font-size: 18px;
+          color:$font_color01;
+          font-weight: 700;
+        }
+      }
+      .block{
+        display: flex;
+        a {
+          flex: 1;
+          border-radius: 20px;
+          padding: 24px;
+          box-sizing: border-box;
+          background:$bg_color02;
+          & ~ a{
+            margin-left: 12px;
+          }
+        }
+        .ico{
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+          background:$bg_color03;
+          display: block;
+          padding: 4px;
+        }
+        .tel{
+          display: block;
+          margin-top: 16px;
+        }
+        .text{
+          display: block;
+          font-size: 16px;
+          font-weight: 700;
+          color:$font_color02;
+        }
+        .number{
+          font-size: 14px;
+          font-weight: 700;
+          color:$main_color01;
+        }
+      }
+    }
+    .banner{
+      display: block;
+      span{
+        display: block;
+        overflow: hidden;
+      }
+      &.type01{
+
+      }
+      &.type02 span{
+        border-radius: 0 60px 0 0;
+      }
+      &.type03{
+        padding: 0 24px;
+        span{
+          border-radius: 20px;
+        }
+      }
+    }
+    .cont{
+      margin-top: 16px;
+      position: relative;
     }
   }
 }

@@ -32,7 +32,7 @@ import {config} from "./gulp/config";
 // }
 
 const startServer = series(
-  clean,
+  // clean,
   scss,
   javascript,
   pug,

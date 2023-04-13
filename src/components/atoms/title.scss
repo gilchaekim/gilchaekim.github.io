@@ -1,2 +1,22 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+.title{
+  font-weight: 700;
+  color:$font_color01;
+  &.lv1{
+    font-size: 24px;
+  }
+  &.lv2{
+    font-size: 22px;
+  }
+  &.lv3{
+    font-size: 20px;
+  }
+  &.lv4{
+    font-size: 18px;
+  }
+  &.lv5{
+    font-size: 16px;
+  }
+}
