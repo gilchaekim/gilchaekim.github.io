@@ -12,18 +12,19 @@ mixin accountbox(params={})
         class=`${prefix}${divide}accountbox`
         class=className
     )
-        div 
-            if !!accName
-                p.acc_name!=accName
-            
+        if !!accName
+            p.acc_name!=accName
+        div.acc_data
             if !!accNum
                 p.acc_num!=accNum
 
             if !!endDate
-                p.acc_num!=endDate
+                p.acc_end!=endDate
 
         if !!accVal
-            p.acc_val!=accVal
+            p.acc_val
+                !=accVal
+                span.won 원
 
 
         - if (!!tags && (tags.length > 0))

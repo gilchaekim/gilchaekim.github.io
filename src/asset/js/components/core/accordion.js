@@ -4,7 +4,7 @@ import {$, $$, attr, filter, getIndex, hasClass, includes, index, isInView, scro
 
 export default {
 
-    mixins: [Class, Togglable],
+    mixins: [Togglable],
 
     props: {
         targets: String,

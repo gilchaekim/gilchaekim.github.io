@@ -1725,6 +1725,25 @@
   }
 
   /**
+   * 랜덤문자열 생성
+   * @param {number} 길이
+   * @return {string} 랜덤문자열
+   */
+  function randomStr(len) {
+    var keystr = '',
+      x;
+    for (var i = 0; i < len; i++) {
+      x = Math.floor(Math.random() * 36);
+      if (x < 10) {
+        keystr += String(x);
+      } else {
+        keystr += String.fromCharCode(x + 87);
+      }
+    }
+    return keystr;
+  }
+
+  /**
    * element요소의 하위 요소를 제외하고 제거 
    * @param {element} element 
    */
@@ -2889,6 +2908,7 @@
     remove: remove$1,
     wrapAll: wrapAll,
     wrapInner: wrapInner,
+    randomStr: randomStr,
     unwrap: unwrap,
     fragment: fragment,
     apply: apply,
@@ -3587,7 +3607,7 @@
   }
 
   var accordion = {
-    mixins: [Class, Togglable],
+    mixins: [Togglable],
     props: {
       targets: String,
       active: null,
@@ -11089,6 +11109,7 @@
   var modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax, Zoom, Controller, A11y, History, HashNavigation, Autoplay, Thumb, freeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards];
   Swiper.use(modules);
 
+  var swiperData = {};
   var slider = {
     mixins: [Class],
     props: {
@@ -11096,39 +11117,56 @@
       pagination: Boolean,
       paginationType: String,
       paging: Boolean,
-      controller: Boolean
+      controller: Boolean,
+      scrollbar: Boolean,
+      loop: Boolean
     },
     data: {
       index: 0,
       delay: 3000,
       autoplay: false,
       slider: '.slider',
+      scrollbar: false,
       loop: true,
       paging: false,
       Swiper: null,
+      clickable: true,
       controller: false,
       pagination: false,
-      paginationType: "fraction",
+      paginationType: "bullets",
       //	'bullets' | 'fraction' | 'progressbar' | 'custom'
       pagingTemplate: "<div class=\"swiper_page_nav\">\n            <em class=\"current\"></em>\n            <em class=\"total\"></em>\n        </div>",
       controllerTemplate: "<div class=\"swiper_controller\">\n            <button type=\"button\" class=\"control_btn\"><span>\uC7AC\uC0DD/\uC815\uC9C0</span></button>\n        </div>",
-      paginationCls: '.swiper-pagination',
-      paginationTemplate: "<div class=\"swiper_pagenation\"></div>"
+      paginationTemplate: "<div class=\"swiper_pagenation\"></div>",
+      scrollbarTemplate: "<div class=\"swiper_scrollbar\"></div>"
     },
     beforeConnect: function beforeConnect() {
-      var _this$$props = this.$props;
-        _this$$props.autoplay;
-        _this$$props.delay;
-        var pagination = _this$$props.pagination,
-        paginationCls = _this$$props.paginationCls,
+      var cls = "swiper_".concat(randomStr(8));
+      var _this$$props = this.$props,
+        autoplay = _this$$props.autoplay,
+        delay = _this$$props.delay,
+        pagination = _this$$props.pagination,
         paginationType = _this$$props.paginationType,
-        paginationTemplate = _this$$props.paginationTemplate;
+        paginationTemplate = _this$$props.paginationTemplate,
+        scrollbarTemplate = _this$$props.scrollbarTemplate,
+        scrollbar = _this$$props.scrollbar;
+      swiperData = {};
+      if (autoplay) {
+        swiperData.autoplay = {
+          delay: delay
+        };
+      }
+      if (scrollbar) {
+        console.log(scrollbar);
+        addClass(append(this.$el, scrollbarTemplate), cls);
+        swiperData.scrollbar = {
+          el: ".".concat(cls)
+        };
+      }
       if (pagination) {
-        // append($(this.slider), paginationTemplate);
-        append(this.$el, paginationTemplate);
-        console.log(paginationCls);
-        pagination = {
-          el: paginationCls,
+        addClass(append(this.$el, paginationTemplate), cls);
+        swiperData.pagination = {
+          el: ".".concat(cls),
           type: paginationType
         };
       }
@@ -11142,7 +11180,8 @@
         setCurrentIndex = this.setCurrentIndex,
         controller = this.controller,
         controllerTemplate = this.controllerTemplate;
-      this.Swiper = new Swiper(slider, $props);
+      var data = Object.assign({}, $props, swiperData);
+      this.Swiper = new Swiper(slider, data);
       if (this.paging) {
         this.paging = append($el, pagingTemplate);
         setCurrentIndex();
@@ -11190,7 +11229,7 @@
         var activeEl = Swiper.slides.find(function (el) {
           return hasClass(el, 'swiper-slide-active');
         });
-        var activeIndex = Number(attr(activeEl, 'data-swiper-slide-index')) + 1;
+        var activeIndex = Number(attr(activeEl, 'aria-label').split('/')[0]);
         $$1('.current', paging).innerHTML = format(activeIndex);
       }
     }

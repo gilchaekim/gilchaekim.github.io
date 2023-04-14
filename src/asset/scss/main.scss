@@ -2,14 +2,276 @@
 @import "common/varialbles";
 @import "common/fonts";
 @import "common/reset";
+@import "common/swiper";
 
-@import '../../components/atoms/index.scss';
-@import '../../components/molecules/index.scss';
-@import '../../components/organisms/index.scss';
+// @import '../../components/atoms/index.scss';
+// @import '../../components/molecules/index.scss';
+// @import '../../components/organisms/index.scss';
+
+
+
+
+// component scss
+.title{
+  font-weight: 700;
+  color:$font_color01;
+  &.lv1{
+    font-size: 24px;
+  }
+  &.lv2{
+    font-size: 22px;
+  }
+}
+
+.mui_tabs{
+  .mui_tab_nav{
+    display: flex;
+    padding: 0 24px;
+    background: $bg_color03;
+    .nav_list{
+      flex: 1;
+      text-align: center;
+      button, a{
+        display: block;
+        position: relative;
+        padding: 14px 0 17px;
+        color: $font_color04;
+        font-size: 16px;
+        width: 100%;
+      }
+      &.mui_active{
+        button, a{
+          color: $font_color01;
+          &::after{
+            content: '';
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: $line_color01;
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  .tab_contents{
+    .tab_pane{
+      display: none;
+      padding: 20px;
+      &.mui_active{
+        display: block;
+      }
+    }
+  }
+}
+// // component scss
 
 
 
 .main{
+  .mui_accordion{
+    padding: 0 24px;
+    .mui_acc_content{
+      padding-bottom: 16px;
+    }
+    .acc_lists:last-child{
+      .mui_acc_content{
+        padding-bottom: 0;
+      }
+    }
+    .mui_open{
+      .acc_header{
+        .mui_acc_button{
+          transform: translate(0, -50%) rotate(180deg);
+        }
+      }
+    }
+    .acc_header{
+      position: relative;
+      height: 52px;
+      .acc_title{
+        font-size: 18px;
+        color: #111;
+        font-weight: 700;
+        line-height: 52px;
+      }
+      .mui_acc_button{
+        @include icon_svg(arrow-down, "#111", 20px);
+        text-indent: -9999em;
+        overflow: hidden;
+        color: transparent;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translate(0, -50%);
+      }
+    }
+  }
+  .toggle_wrap{
+    margin-top: 16px;
+    text-align: center;
+    .text{
+      color: #888;
+      font-size: 13px;
+    }
+    &.type2{
+      padding: 10px 24px;
+      text-align: right;
+      background:$bg_color02;
+      height: 40px;
+      .toggle{
+        width: 36px;
+        height: 20px;
+        padding: 0;
+        .mui_checkbox{
+          width: 36px;
+          height: 20px;
+          background: none;
+          input{
+            &:checked + label{
+              background:$main_color02;
+              &::after{
+                left: 18px;
+              }
+            }
+          }
+          label{
+            width: 36px;
+            height: 20px;
+            border-radius: 10px;
+            background:$font_color05;
+            transition: background .2s;
+            top: 0;
+            left: 0;
+            &::after{
+              content: '';
+              width: 16px;
+              height: 16px;
+              border-radius: 8px;
+              background:$bg_color03;
+    
+              position: absolute;
+              transition: left .2s;
+              top: 2px;
+              left: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .toggle{
+    overflow: hidden;
+    width: 36px;
+    height: 18px;
+    padding: 3px 0 0 3px;
+    display: inline-block;
+    vertical-align: middle;
+    .mui_checkbox{
+      input{
+        opacity: 0;
+        width: 0;
+        height: 0;
+        position: absolute;
+        left: -9999em;
+        &:checked + label{
+          &::after{
+            left: 16px;
+          }
+        }
+      }
+      background:$line_color02;
+      position: relative;
+      width: 28px;
+      height: 12px;
+      display: block;
+      border-radius: 6px;
+      label{
+        color: transparent;
+        font-size: 0;
+        position: relative;
+        top: -3px;
+        left: -3px;
+        text-indent: -9999em;
+        display: block;
+        width: 36px;
+        height: 18px;
+        &::after{
+          content: '';
+          width: 18px;
+          height: 18px;
+          border-radius: 9px;
+          background:$main_color02;
+
+          position: absolute;
+          transition: left .2s;
+          top: 0;
+          left: 0;
+        }
+      }
+    }
+  }
+  .event{
+    padding: 0 24px;
+    .label{
+      display: block;
+      width: 73px;
+      height: 32px;
+      background: $main_color01;
+      border-radius: 16px 16px 16px 0;
+      text-align: center;
+      line-height: 32px;
+      font-size: 13px;
+      font-weight: 700;
+      color:$font_color06;
+      margin-left: 8px;
+      position: relative;
+      z-index: 1;
+    }
+    .text{
+      position: relative;
+      top: -7px;
+      background:$main_color03;
+      height: 56px;
+      padding: 0 20px;
+      line-height: 56px;
+      color:$font_color02;
+      font-size: 16px;
+      border-radius: 0 16px 16px 16px;
+    }
+  }
+  .swiper_page_nav{
+    font-size: 13px;
+    color: #888;
+    .current{
+      color:$font_color01;
+    }
+    .total{
+      font-weight: 300;
+      &::before{
+        content: '/ ';
+      }
+    }
+  }
+  .swiper-pagination-bullets{
+    font-size: 0;
+    .swiper-pagination-bullet{
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      background:$font_color05;
+      border-radius: 4px;
+      margin: 0 4px;
+      transition: all .5s;
+      &-active{
+        background:$main_color01;
+        width: 24px;
+      }
+    }
+  }
   .slider{
     overflow: hidden;
   }
@@ -40,6 +302,28 @@
   }
   .main_slider{
     padding: 0 24px;
+    text-align: center;    
+    .swiper_scrollbar{
+      border-top: 1px solid #bcbcbc;
+      width: 72px;
+      display: inline-block;
+      vertical-align: top;
+    }
+    .swiper-scrollbar-drag{
+      width: 30px;
+      height: 10px;
+      background: #111;
+      border-radius: 5px;
+      position: relative;
+      top: -5px;
+    }
+    .swiper_page_nav{
+      display: inline-block;
+      vertical-align: top;
+      position: relative;
+      top: -6px;
+      margin-left: 8px;
+    }
     .ico{
       width: 112px;
       height: 112px;
@@ -50,6 +334,9 @@
     }
     .slider{
       box-shadow: 0 8px 16px rgba(0,0,0,.08);
+      background:$main_color01;
+      margin-bottom: 16px;
+      overflow: hidden;
     }
     .lists{
       background: none;
@@ -80,7 +367,6 @@
     &.type1{
       .slider{
         border-radius: 60px;
-        overflow: hidden;
       }
       .ico{
         width: 100px;
@@ -100,6 +386,386 @@
       }
       .decs{
         margin-top: 12px;
+      }
+    }
+    &.type2{
+      .slider{
+        border-radius: 32px;
+      }
+      .ico{
+        width: 112px;
+        height: 112px;
+        position: absolute;
+        top: 27px;
+        right: 8px;
+      }
+      .lists{
+        text-align: left;
+       a{
+        height: 166px;
+        padding: 32px 120px 32px 24px;
+       } 
+      }
+      .title{
+        color:$font_color06;
+      }
+      .decs{
+        margin-top: 12px;
+      }
+    }
+    &.type3{
+      margin-top: 32px;
+      .slider{
+        background: none;
+        box-shadow: none;
+      }
+      .ico{
+        width: 112px;
+        height: 112px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .lists{
+        text-align: left;
+        background: none;
+       a{
+        height: 112px;
+        padding: 0 120px 32px 0;
+        background: none;
+       } 
+      }
+      .decs{
+        margin-top: 16px;
+        color:$font_color02;
+      }
+    }
+  }
+  .acc_lists{
+    .mui_accountbox{
+      border: 1px solid$line_color03;
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+      padding: 20px;
+      background:$bg_color03;
+      border-radius: 20px;
+      & ~ .mui_accountbox{
+        margin-top: 12px;
+      }
+    }
+
+    .acc_name{
+      font-size: 16px;
+      color:$font_color02;
+      font-weight: 700;
+    }
+    .acc_val{
+      text-align: right;
+      margin-top: 16px;
+      font-size: 22px;
+      font-weight: 700;
+      color:$font_color01;
+      .won{
+        font-size: 18px;
+        margin-left: 4px;
+      }
+    }
+    .btns{
+      margin-top: 16px;
+      display: flex;
+      .mui_button{
+        flex: 1;
+        background: #f4f4f4;
+        color:$font_color02;
+        font-size: 14px;
+        height: 32px;
+        border-radius: 8px;
+        & ~ .mui_button{
+          margin-left: 8px;
+        }
+      }
+    }
+    .acc_data{
+      display: flex;
+      margin-top: 8px;
+      font-size: 13px;
+      .acc_num{
+        color: #888;
+        border-bottom: 1px solid $line_color02;
+      }
+
+      .acc_end{
+        position: relative;
+        color: $font_color07;
+        font-weight: 300;
+        padding-left: 9px;
+        margin-left: 8px;
+        &::after{
+          content: '';
+          display: block;
+          width: 1px;
+          height: 8px;
+          background:$line_color02;
+          position: absolute;
+          top: 3px;
+          left: 0;
+        }
+      }
+    }
+  }
+  .status{
+    .tab_pane{
+      padding-top: 16px;
+      padding-bottom: 0;
+    }
+    &.type1{
+      .mui_tab_nav{
+        justify-content: center;
+      }
+      .nav_list{
+        flex: initial;
+        width: 72px;
+        border-bottom: 0 none;
+        &.mui_active{
+          button{
+            color:$font_color01;
+            font-weight: 700;
+          }
+        }
+        button{
+          padding: 0 0 5px;
+          font-size: 20px;
+          color:$font_color03;
+          &::after{
+            height: 12px;
+            border-radius: 6px;
+            background:$main_color03;
+          }
+        }
+      }
+      .link_sec{
+        margin-top: 24px;
+      }
+    }
+    &.type2{
+      .mui_tab_nav{
+        height: 40px;
+        border-radius: 12px;
+        background: #f4f4f4;
+        margin: 0 24px;
+        padding: 0;
+      }
+      .nav_list{
+        &.mui_active{
+          button{
+            color:$font_color06;
+            font-weight: 700;
+            background:$main_color02;
+            border-radius: 12px;
+
+          }
+        }
+        button{
+          height: 40px;
+          line-height: 40px;
+          font-size: 16px;
+          color:$font_color03;
+          padding: 0;
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+    &.type3{
+      padding: 0 24px;
+      .mui_tabs{
+        padding-left: 80px;
+        position: relative;
+      }
+      .tab_pane {
+        padding: 0;
+      }
+      .mui_tab_nav{
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: block;
+        padding: 0;
+      }
+      .nav_list{
+        & ~ .nav_list {
+          margin-top: 12px;
+        }
+        &.mui_active{
+          button{
+            color:$font_color06;
+            font-weight: 700;
+            background:$main_color01;
+            border-color:$main_color01;
+          }
+        }
+        button{
+          height: 56px;
+          width: 68px;
+          line-height: 56px;
+          font-size: 16px;
+          color:$font_color03;
+          border:1px solid $line_color02;
+          border-radius: 8px;
+          padding: 0;
+          &::after{
+            display: none;
+          }
+        }
+      }
+      .link_sec{
+        margin-top: 24px;
+      }
+    }
+    .link_sec{
+      display: block;
+      text-align: center;
+      .link{
+        display: inline-block;
+        font-size: 13px;
+        font-weight: 300;
+        color: #888;
+        padding-right: 16px;
+        position: relative;
+        &::after{
+          content: '';
+          display: block;
+          // transform: ;
+          @include icon_svg(arrow-left, "#888", 16px);
+          position: absolute;
+          top: 50%;
+          transform: translate(0, -50%) rotate(180deg);
+          right: 0;
+        }
+      }
+    }
+    .title{
+      font-weight: 700;
+      font-size: 16px;
+      color:$font_color02;
+    }
+    .text{
+      color:$font_color03;
+      font-size: 13px;
+      margin-top: 12px;
+    }
+    .divide{
+      display: flex;
+      .percent, .money{
+        flex: 1;
+      }
+    }
+    .percent, .money{
+      line-height: 27px;
+      font-size: 14px;
+      font-weight: 300;
+      color:#888;
+      .txt1{
+        display: inline-block;
+        vertical-align: 3px;
+        padding-right: 4px;
+      }
+      .txt2{
+        font-size: 24px;
+        font-weight: 700;
+      }
+    }
+    .money{
+      .txt2{
+        color:$font_color02;
+        font-size: 22px;
+      }
+    }
+    .box_type{
+      display: flex;
+
+      .box{
+        flex: 1;
+        border: 1px solid #efefef;
+        padding: 24px 0;
+        text-align: center;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,.04);
+        & ~ .box{
+          margin-left: 12px;
+        }
+      }
+      .percent{
+        margin-top: 32px;
+        .txt2{
+          color: $main_color01;
+        }
+      }
+
+    }
+    .list_type{
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+      padding: 8px 24px 0;
+      border: 1px solid #efefef;
+      border-radius: 12px;
+      .title{
+       padding-bottom: 16px; 
+      }
+      .box{
+        display: block;
+        padding: 16px 0;
+        border-bottom: 1px solid $line_color03;
+      }
+      .percent{
+        display: inline-block;
+        .txt2{
+          color: $main_color02;
+        }
+      }
+      .link_sec{
+        padding: 16px 0;
+      }
+    }
+    .slider_type{
+      .swiper_pagenation{
+        position: absolute;
+        top: 24px;
+        right: 20px;
+        z-index: 10;
+      }
+      .slider{
+        border: 1px solid $line_color03;
+        border-bottom: 0 none;
+        border-radius: 0 32px 0 0;
+      }
+      .box{
+        display: block;
+        padding: 24px 24px 20px;
+      }
+      .divide{
+        margin-top: 24px;
+        text-align: center;
+        .percent{
+          .txt2{
+            color:$main_color01;
+          }
+        }
+        .txt1{
+          display: block;
+        }
+      }
+      .link_sec{
+        background:$main_color01;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 0 0 20px 20px;
+        margin-top: 0;
+        .link{
+          color:$font_color06;
+          &::after{
+            @include icon_svg(arrow-left, "#fff", 16px);
+          }
+        }
       }
     }
   }
@@ -187,20 +853,9 @@
     .notice{
       padding: 0 24px;
       .swiper_page_nav{
-        font-size: 13px;
-        color: #888;
         position: absolute;
         right: 32px;
         top: -37px;
-        .current{
-          color:$font_color01;
-        }
-        .total{
-          font-weight: 300;
-          &::before{
-            content: '/ ';
-          }
-        }
       }
       .control_btn{
         position: absolute;

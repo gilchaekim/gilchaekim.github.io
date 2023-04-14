@@ -19,9 +19,10 @@ import {
     toNumber,
     hasClass,
     removeClass,
+    randomStr,
 } from '../../util/index';
 import {cssPrefix} from 'GC-data'
-
+let swiperData = {}
 export default {
     mixins: [Class],
     props: {
@@ -30,18 +31,22 @@ export default {
         paginationType:String,
         paging:Boolean,
         controller:Boolean,
+        scrollbar:Boolean,
+        loop:Boolean,
     },
     data: {
         index:0,
         delay:3000,
         autoplay: false,
         slider:'.slider',
+        scrollbar:false,
         loop:true,
         paging:false,
         Swiper:null,
+        clickable:true,
         controller:false,
         pagination:false,
-        paginationType:"fraction", //	'bullets' | 'fraction' | 'progressbar' | 'custom'
+        paginationType:"bullets", //	'bullets' | 'fraction' | 'progressbar' | 'custom'
         pagingTemplate : `<div class="swiper_page_nav">
             <em class="current"></em>
             <em class="total"></em>
@@ -49,29 +54,44 @@ export default {
         controllerTemplate:`<div class="swiper_controller">
             <button type="button" class="control_btn"><span>재생/정지</span></button>
         </div>`,
-        paginationCls:'.swiper-pagination',
         paginationTemplate:`<div class="swiper_pagenation"></div>`,
+        scrollbarTemplate:`<div class="swiper_scrollbar"></div>`,
     },
     beforeConnect(){
-        let {autoplay, delay, pagination, paginationCls, paginationType, paginationTemplate} = this.$props;
+        const cls = `swiper_${randomStr(8)}`
+        let {autoplay, delay, pagination, paginationType, paginationTemplate, scrollbarTemplate, scrollbar} = this.$props;
+        swiperData = {};
+        
         if(autoplay){
-            autoplay = {
+            swiperData.autoplay = {
                 delay:delay
             };
         }
+        if(scrollbar){
+            console.log(scrollbar);
+            addClass(
+                append(this.$el, scrollbarTemplate), 
+                cls
+            );            
+            swiperData.scrollbar = {
+                el:`.${cls}`,
+            };
+        }
         if(pagination){
-            // append($(this.slider), paginationTemplate);
-            append(this.$el, paginationTemplate);
-            console.log(paginationCls);
-            pagination = {
-                el:paginationCls,
+            addClass(
+                append(this.$el, paginationTemplate), 
+                cls
+            );
+            swiperData.pagination = {
+                el:`.${cls}`,
                 type:paginationType
             }
         }
     },
     connected () {
         const { $el, pagingTemplate, $props, format, slider, setCurrentIndex, controller, controllerTemplate } = this;
-        this.Swiper = new Swiper(slider, $props);
+        const data = Object.assign({}, $props, swiperData);
+        this.Swiper = new Swiper(slider, data);
         if( this.paging ){
             this.paging = append($el, pagingTemplate);
             setCurrentIndex();
@@ -116,7 +136,8 @@ export default {
         setCurrentIndex() {
             const { format, paging, Swiper } = this;
             const activeEl = Swiper.slides.find((el)=>hasClass(el, 'swiper-slide-active'));
-            const activeIndex = Number(attr(activeEl, 'data-swiper-slide-index'))+1;
+            const activeIndex = Number(attr(activeEl, 'aria-label').split('/')[0]);
+            
             $('.current', paging).innerHTML = format(activeIndex);
         }
     },

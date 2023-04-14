@@ -147,6 +147,24 @@ export function wrapInner(element, structure) {
 }
 
 /**
+ * 랜덤문자열 생성
+ * @param {number} 길이
+ * @return {string} 랜덤문자열
+ */
+export function randomStr(len){
+    var keystr = '', x;
+    for (var i = 0; i < len; i++) {
+        x = Math.floor((Math.random() * 36));
+        if (x < 10) {
+            keystr += String(x);
+        } else {
+            keystr += String.fromCharCode(x + 87);
+        }
+    }
+    return keystr;
+}
+
+/**
  * element요소의 하위 요소를 제외하고 제거 
  * @param {element} element 
  */
