@@ -68,7 +68,6 @@ export default {
             };
         }
         if(scrollbar){
-            console.log(scrollbar);
             addClass(
                 append(this.$el, scrollbarTemplate), 
                 cls

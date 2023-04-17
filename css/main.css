@@ -188,6 +188,19 @@ html.bank2 {
   --bg_color05: rgba(0, 0, 0, 0.8);
 }
 
+.guide_scroll ::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+.guide_scroll ::-webkit-scrollbar-thumb {
+  height: 30%;
+  background: #000;
+  border-radius: 10px;
+}
+.guide_scroll ::-webkit-scrollbar-track {
+  background: #e8e8e8;
+}
+
 :root {
   --swiper-theme-color: #fff;
   /*
@@ -540,6 +553,50 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   top: 2px;
   left: 2px;
 }
+.main .toggle_wrap.type3 .toggle {
+  width: 52px;
+  height: 20px;
+  padding: 0;
+}
+.main .toggle_wrap.type3 .toggle .mui_checkbox {
+  width: 52px;
+  height: 20px;
+  background: none;
+}
+.main .toggle_wrap.type3 .toggle .mui_checkbox input:checked + label {
+  background: var(--main_color02);
+  text-align: left;
+  color: var(--font_color06);
+}
+.main .toggle_wrap.type3 .toggle .mui_checkbox input:checked + label::after {
+  left: 34px;
+}
+.main .toggle_wrap.type3 .toggle .mui_checkbox label {
+  width: 52px;
+  height: 20px;
+  border-radius: 10px;
+  background: var(--font_color05);
+  transition: background 0.2s;
+  top: 0;
+  left: 0;
+  color: var(--font_color02);
+  font-size: 13px;
+  text-indent: 0;
+  line-height: 22px;
+  text-align: right;
+  padding: 0 8px;
+}
+.main .toggle_wrap.type3 .toggle .mui_checkbox label::after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background: var(--bg_color03);
+  position: absolute;
+  transition: left 0.2s;
+  top: 2px;
+  left: 2px;
+}
 .main .toggle {
   overflow: hidden;
   width: 36px;
@@ -649,9 +706,21 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .slider {
   overflow: hidden;
 }
-.main #contants {
+.main #contants.show_bg {
   background: url("/src/images/bg_main.png") no-repeat center top;
   background-size: 822px;
+}
+.main .welcome_msg_box {
+  padding: 0 24px;
+  position: relative;
+}
+.main .welcome_msg_box .toggle_wrap {
+  position: absolute;
+  bottom: 0;
+  right: 24px;
+}
+.main .welcome_msg_box .welcome_msg {
+  padding: 0;
 }
 .main .welcome_msg {
   padding: 0 24px;
@@ -1163,6 +1232,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .main #footer .site_lists .mui_select {
   border-bottom: 1px solid #888;
+  position: relative;
+  width: 100%;
+  text-align: left;
   border-radius: 0;
   color: #f9f9f9;
   font-size: 14px;
@@ -1496,5 +1568,57 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .mui_contents_group .cont {
   margin-top: 16px;
   position: relative;
+}
+.main .quick_btn {
+  position: fixed;
+  bottom: 20px;
+  right: 24px;
+  z-index: 999;
+}
+.main .quick_btn .quick {
+  margin-bottom: 8px;
+}
+.main .quick_btn .quick a {
+  display: none;
+  width: 56px;
+  height: 56px;
+  border: 1px solid rgba(232, 232, 232, 0.7);
+  background: rgba(255, 255, 255, 0.7) url("/src/images/ico_top.svg") no-repeat center;
+  background-size: 24px;
+  border-radius: 16px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+  text-align: center;
+  padding-top: 25px;
+  position: relative;
+}
+.main .quick_btn .quick a .txt {
+  color: transparent;
+}
+.main .quick_btn .quick a.show {
+  display: block;
+}
+.main .quick_btn .quick a.type1 {
+  background-image: none;
+}
+.main .quick_btn .quick a.type1::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 5px;
+  left: 18px;
+}
+.main .quick_btn .quick a.type1 .txt {
+  font-size: 16px;
+  color: var(--font_color02);
+}
+.main .quick_btn .app button {
+  box-shadow: 0 3px 12px rgba(1, 86, 86, 0.12);
+  border-radius: 16px;
 }
 /*# sourceMappingURL=main.css.map */

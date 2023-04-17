@@ -51,7 +51,7 @@ a {
 }
 #contents .side_nav {
   height: 100%;
-  width: 300px;
+  width: 600px;
   overflow: auto;
   background-color: #f7f7f7;
   border-right: 1px solid #ddd;
@@ -287,7 +287,7 @@ a {
 }
 .tree_wrap a, .tree_wrap button {
   font-size: 13px;
-  color: #666;
+  color: #bbb;
   height: 20px;
   display: block;
   line-height: 20px;
@@ -340,6 +340,7 @@ a {
 .tree_wrap .tree_nav {
   padding-left: 16px;
   position: relative;
+  color: #333;
 }
 .tree_wrap .tree_nav::before {
   content: "";

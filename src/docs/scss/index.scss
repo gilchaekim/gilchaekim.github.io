@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-style: normal;
 }
+
 ul, ol, dl, li{list-style:none;}
 a{text-decoration: none;}
 
@@ -43,8 +44,9 @@ a{text-decoration: none;}
   display: flex;
   .side_nav{
     // background: #00f;
+    // background: #00f;
     height: 100%;
-    width: 300px;
+    width: 600px;
     overflow: auto;
     background-color: #f7f7f7;
     border-right: 1px solid #ddd;
@@ -291,7 +293,7 @@ a{text-decoration: none;}
   }
   a, button{
     font-size: 13px;
-    color: #666;
+    color: #bbb;
     height: 20px;
     display: block;
     line-height: 20px;
@@ -350,6 +352,7 @@ a{text-decoration: none;}
   .tree_nav{
     padding-left: 16px;
     position: relative;
+    color: #333;
     &::before{
       content: '';
       display: block;

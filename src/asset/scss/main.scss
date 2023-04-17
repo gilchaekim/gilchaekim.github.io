@@ -162,6 +162,55 @@
         }
       }
     }
+    &.type3{
+      .toggle{
+        width: 52px;
+        height: 20px;
+        padding: 0;
+        .mui_checkbox{
+          width: 52px;
+          height: 20px;
+          background: none;
+          input{
+            &:checked + label{
+              background:$main_color02;
+              text-align: left;
+              color:$font_color06;
+              &::after{
+                left: 34px;
+              }
+            }
+          }
+          label{
+            width: 52px;
+            height: 20px;
+            border-radius: 10px;
+            background:$font_color05;
+            transition: background .2s;
+            top: 0;
+            left: 0;
+            color: $font_color02;
+            font-size: 13px;
+            text-indent: 0;
+            line-height: 22px;
+            text-align: right;
+            padding: 0 8px;
+            &::after{
+              content: '';
+              width: 16px;
+              height: 16px;
+              border-radius: 8px;
+              background:$bg_color03;
+    
+              position: absolute;
+              transition: left .2s;
+              top: 2px;
+              left: 2px;
+            }
+          }
+        }
+      }
+    }
   }
   .toggle{
     overflow: hidden;
@@ -275,9 +324,21 @@
   .slider{
     overflow: hidden;
   }
-  #contants{
+  #contants.show_bg{
     background: url($url_common+"bg_main.png") no-repeat center top;
     background-size: 822px;
+  }
+  .welcome_msg_box{
+    padding: 0 24px;
+    position: relative;
+    .toggle_wrap {
+      position: absolute;
+      bottom: 0;
+      right: 24px;
+    }
+    .welcome_msg{
+      padding: 0;
+    }
   }
   .welcome_msg{
     padding: 0 24px;
@@ -815,6 +876,9 @@
       }
       .mui_select{
         border-bottom: 1px solid #888;
+        position: relative;
+        width: 100%;
+        text-align: left;
         border-radius: 0;
         color: #f9f9f9;
         font-size: 14px;
@@ -1146,6 +1210,56 @@
     .cont{
       margin-top: 16px;
       position: relative;
+    }
+  }
+  .quick_btn{
+    position: fixed;
+    bottom: 20px;
+    right: 24px;
+    z-index: 999;
+    .quick{
+      margin-bottom: 8px;
+      a{
+        display: none;
+        width: 56px;
+        height: 56px;
+        border: 1px solid rgba(232,232,232, .7);
+        background: rgba(255,255,255,.7)  url($url_common+"ico_top.svg") no-repeat center;
+        background-size: 24px;
+        border-radius: 16px;
+        box-shadow: 0 3px 12px rgba($color: #000000, $alpha: .06);
+        text-align: center;
+        padding-top: 25px;
+        position: relative;
+        .txt{
+          color: transparent;
+        }
+        &.show{
+          display: block;
+        }
+        &.type1{
+          background-image: none;
+          &::after{
+            content: '';
+            display: block;
+            @include icon_svg(arrow-down, "#111", 20px);
+            transform: rotate(180deg);
+            position: absolute;
+            top: 5px;
+            left: 18px;
+          }
+          .txt{
+            font-size: 16px;
+            color:$font_color02;
+          }
+        }
+      }
+    }
+    .app{
+      button{
+        box-shadow: 0 3px 12px rgba(1, 86, 86, .12);
+        border-radius: 16px;
+      }
     }
   }
 }

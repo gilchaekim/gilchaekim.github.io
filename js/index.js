@@ -11157,7 +11157,6 @@
         };
       }
       if (scrollbar) {
-        console.log(scrollbar);
         addClass(append(this.$el, scrollbarTemplate), cls);
         swiperData.scrollbar = {
           el: ".".concat(cls)
@@ -11430,6 +11429,110 @@
     }
   };
 
+  var scroll$1 = {
+    props: {
+      offset: Number,
+      showOffset: Number
+    },
+    data: {
+      offset: 0,
+      showOffset: 20
+    },
+    connected: function connected() {
+      registerClick(this);
+    },
+    disconnected: function disconnected() {
+      unregisterClick(this);
+    },
+    methods: {
+      scrollTo: function scrollTo(el) {
+        var _this = this;
+        return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+          return _regeneratorRuntime().wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  el = el && $$1(el) || document.body;
+                  if (!trigger(_this.$el, 'beforescroll', [_this, el])) {
+                    _context.next = 5;
+                    break;
+                  }
+                  _context.next = 4;
+                  return scrollIntoView(el, {
+                    offset: _this.offset
+                  });
+                case 4:
+                  trigger(_this.$el, 'scrolled', [_this, el]);
+                case 5:
+                case "end":
+                  return _context.stop();
+              }
+            }
+          }, _callee);
+        }))();
+      },
+      show: function show() {
+        addClass(this.$el, 'show');
+      },
+      hide: function hide() {
+        removeClass(this.$el, 'show');
+      }
+    },
+    update: {
+      read: function read() {
+        var scroll = window.pageYOffset;
+        return {
+          scroll: scroll
+        };
+      },
+      write: function write(_ref) {
+        var scroll = _ref.scroll;
+        if (scroll > this.showOffset) {
+          this.show();
+        } else {
+          this.hide();
+        }
+      },
+      events: ['scroll']
+    }
+  };
+  var components$1 = new Set();
+  function registerClick(cmp) {
+    if (!components$1.size) {
+      on(document, 'click', clickHandler);
+    }
+    components$1.add(cmp);
+  }
+  function unregisterClick(cmp) {
+    components$1["delete"](cmp);
+    if (!components$1.length) {
+      off(document, 'click', clickHandler);
+    }
+  }
+  function clickHandler(e) {
+    if (e.defaultPrevented) {
+      return;
+    }
+    var _iterator = _createForOfIteratorHelper(components$1),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var component = _step.value;
+        if (within(e.target, component.$el)) {
+          e.preventDefault();
+          component.scrollTo(getTargetElement(component.$el));
+        }
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+  }
+  function getTargetElement(el) {
+    return document.getElementById(decodeURIComponent(el.hash).substring(1));
+  }
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -11538,6 +11641,7 @@
     Modal: modal,
     Slider: slider,
     Tree: tree,
+    Scroll: scroll$1,
     Worklists: worklists
   });
 

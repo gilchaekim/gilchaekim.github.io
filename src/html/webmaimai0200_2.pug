@@ -1,0 +1,200 @@
+extends ../components/templates/base_main.pug
+
+block content
+  +content_group(1)
+    .main_slider.type3(
+      mui-slider="pagination:true"
+    )
+      .slider
+        .swiper-wrapper
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+        
+  .toggle_wrap.type2
+    span.text 잔액 ON
+    .toggle
+      +radioCheck({
+        name:'chk',
+        label:'잔액표시',
+      })
+
+  +content_group(1)
+    +accordion({
+      active:'all',
+      multiple:true
+    })
+      +acc_title('입출금')
+      +acc_content()
+        .acc_lists
+          +accountbox({
+            accName:"정기예금(복리)",
+            accNum:"010-12345678",
+            accVal:"17,500,000",
+            btns: [
+              {
+                label:"거래내역조회"
+              },
+              {
+                label:"이체"
+              }
+            ]            
+          })
+          +accountbox({
+            accName:"정기예금(복리)",
+            accNum:"010-12345678",
+            accVal:"17,500,000",
+            endDate:"만기 2025.12.31",
+            btns: [
+              {
+                label:"거래내역조회"
+              }
+            ]            
+          })
+      +acc_title('예적금')
+      +acc_content()
+        .acc_lists
+          +accountbox({
+            accName:"정기예금(복리)",
+            accNum:"010-12345678",
+            accVal:"17,500,000",
+            endDate:"만기 2025.12.31",
+            btns: [
+              {
+                label:"거래내역조회"
+              }
+            ]            
+          })
+      +acc_title('대출')
+      +acc_content()
+        .acc_lists
+          +accountbox({
+            accName:"정기예금(복리)",
+            accNum:"010-12345678",
+            accVal:"17,500,000",
+            endDate:"만기 2025.12.31",
+            btns: [
+              {
+                label:"거래내역조회"
+              }
+            ]            
+          })
+  +content_group(1)
+    a.banner.type01(href="")
+      span
+        img(src="/src/images/img_bn01.jpg" alt="")
+  //- 새소식
+  +content_group(1)
+    
+    .notice
+      +title({
+        text:"새소식",
+        lv:2,
+      })
+      .cont
+        ul.card
+          li 
+            a(href="")
+              span.text 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span.date 2023.02.02
+          li 
+            a(href="")
+              span.text 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span.date 2023.02.02
+          li 
+            a(href="")
+              span.text 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span.date 2023.02.02
+    
+  +content_group(1)
+    .event 
+      span.label EVENT
+      p.text 멤버쉽으로 혜택도 받고, 추천 경품까지!
+  //- 빠른 서비스
+  +content_group(1)
+    .quick_service
+      +title({
+        text:"빠른 서비스",
+        lv:2,
+      })
+      .cont
+        ul.list
+          li 
+            a(href="") 
+              .ico 
+                img(
+                  src="/src/images/ico_main04.svg"
+                )
+              .text 대출<br>이어하기
+          li 
+            a(href="") 
+              .ico 
+                img(
+                  src="/src/images/ico_main03.svg"
+                )
+              .text 전자약정
+          li 
+            a(href="") 
+              .ico 
+                img(
+                  src="/src/images/ico_main01.svg"
+                )
+              .text 신용정보<br>조회동의
+          li 
+            a(href="") 
+              .ico 
+                img(
+                  src="/src/images/ico_main02.svg"
+                )
+              .text 금리인하<br>요구권
+
+
+  +content_group(1)
+    .customer_service.full
+      +title({
+        text:"고객센터",
+        lv:2,
+      })
+      .cont 
+        .full_list
+          a(href="")
+            span.tel
+              span.text 대표전화
+              span.number 02.1234.5678
+          a(href="")
+            span.tel
+              span.text 대출상담
+              span.number 02.1234.5678
+
+
+        
+  .quick_btn 
+    .quick 
+      a(
+        href="#header"
+        mui-scroll="showOffset:100;"
+        class="type1"
+      )
+        span.txt TOP
+    .app 
+      button(type="button")
+          img(src="/src/images/logo_sb.svg", alt="스마트뱅킹 앱 다운로드")
+

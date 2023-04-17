@@ -86,4 +86,17 @@ textarea {
     }  
   }
 } 
-
+.guide_scroll{
+  ::-webkit-scrollbar{
+    width: 4px;
+    height: 4px;
+    &-thumb{
+      height: 30%;
+      background: #000;
+      border-radius: 10px;
+    }
+    &-track{
+      background: #e8e8e8;
+    }
+  }
+}
