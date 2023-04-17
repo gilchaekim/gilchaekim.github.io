@@ -456,7 +456,10 @@ $sqrt_2: 1.41421356237;
     @else if $icon == arrow-left {
         $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E";
     }
-
+    @else if $icon == check {
+        $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23"+$esColor+"' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='"+$size+"' height='"+$size+"' fill='none'/%3E%3C/svg%3E";
+    }
+    
 
     background-image: url("data:image/svg+xml,"+$svgIcon);
     background-repeat: no-repeat;
