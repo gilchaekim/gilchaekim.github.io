@@ -105,24 +105,51 @@
           <p class="guide_title title_lv2">Alert, confirm, dialog</p>
         </div>
         <div class="guide_card_box">
-          <button class="mui_button mui_large mui_primary" id="callAlert" type="button"><span>Alert 호출</span></button>
+          <button class="mui_button mui_large mui_primary" id="callAlert" type="button"><span>Alert 기본</span></button>
+          <button class="mui_button mui_large mui_primary" id="callAlert2" type="button"><span>Alert + X 버튼</span></button>
+          <button class="mui_button mui_large mui_primary" id="callAlert3" type="button"><span>Alert 버텀 트레이</span></button>
           <button class="mui_button mui_large mui_primary" id="callConfirm" type="button"><span>Confirm 호출</span></button>
+          <button class="mui_button mui_large mui_primary" id="callConfirm2" type="button"><span>Confirm 버텀 트레이</span></button>
           <button class="mui_button mui_large mui_primary" id="callDialog" type="button"><span>Dialog 호출</span></button>
-          <button class="mui_button mui_large mui_primary" id="callToast" type="button"><span>toast 팝업 호출</span></button><section class="code_view"><GCui class="modal alert" Alert!!="Alert!!"></GCui><GCui class="modal confirm" Confirm!!="Confirm!!"></GCui><GCui class="modal dialog" dialog="dialog"></GCui></section><div class="code_block"><pre><code class="language-pug">//- 얼럿
-GCui.modal.alert("Alert!!")
- 
-//- 컴폼
-GCui.modal.confirm("Confirm!!")
- 
-//- 다이얼로그
-GCui.modal.dialog("dialog")
- 
-//- toast popup
-//- GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})</code></pre></div>
+          <button class="mui_button mui_large mui_primary" id="callToast" type="button"><span>toast 팝업 호출</span></button>
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
-        </div><br><br>
+        </div>
+        <pre class="pre">// Alert + X 버튼
+GCui.modal.alert({
+  title:"로그아웃",
+  text:"로그아웃 하시겠습니까?",
+})
+
+// alert 다이얼로그 타입
+GCui.modal.alert({
+  title:"로그아웃",
+  text:"로그아웃 하시겠습니까?",
+}, {
+  className:"dialog_type",
+})
+
+
+// Alert 버텀 트레이
+GCui.modal.alert({
+  title:"타이틀",
+  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+}, {
+  className:"bottom_tray",
+})
+
+
+// Confirm
+GCui.modal.confirm({
+  title:"타이틀",
+  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+})
+
+// toast
+GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
+
+  </pre><br><br>
         <div class="title_sec">
           <p class="guide_title title_lv2">Attribute</p>
         </div>
@@ -171,7 +198,10 @@ GCui.modal.dialog("dialog")
           document.addEventListener("DOMContentLoaded", (event) => {
             let elem = []
             elem.push(document.querySelector("#callAlert"))
+            elem.push(document.querySelector("#callAlert2"))
+            elem.push(document.querySelector("#callAlert3"))
             elem.push(document.querySelector("#callConfirm"))
+            elem.push(document.querySelector("#callConfirm2"))
             elem.push(document.querySelector("#callDialog"))
             const toast = document.querySelector("#callToast")
             
@@ -180,15 +210,48 @@ GCui.modal.dialog("dialog")
                 const id = el.id
                 switch (id) {
                   case "callAlert":{
-                    GCui.modal.alert("Alert!!")
+                    GCui.modal.alert({
+                      title:"로그아웃",
+                      text:"로그아웃 하시겠습니까?",
+                    })
+                    break;
+                  }
+                  case "callAlert2":{
+                    GCui.modal.alert({
+                      title:"로그아웃",
+                      text:"로그아웃 하시겠습니까?",
+                    }, {
+                      className:"dialog_type",
+                    })
+                    break;
+                  }
+                  case "callAlert3":{
+                    GCui.modal.alert({
+                      title:"타이틀",
+                      text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+                    }, {
+                      className:"bottom_tray",
+                    })
                     break;
                   }
                   case "callConfirm":{
-                    GCui.modal.confirm("Confirm!!")
+                    GCui.modal.confirm({
+                      title:"타이틀",
+                      text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                    })
+                    break;
+                  }
+                  case "callConfirm2":{
+                    GCui.modal.confirm({
+                      title:"타이틀",
+                      text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                    })
                     break;
                   }
                   case "callDialog":{
-                    GCui.modal.dialog("dialog")
+                    GCui.modal.alert({
+                      text:"로그아웃 하시겠습니까?"
+                    })
                     break;
                   }
                 }

@@ -248,6 +248,11 @@ a{text-decoration: none;}
     }
   }
 }
+.pre{
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
 .tree_control{
   .search{
     display: none;
@@ -318,6 +323,7 @@ a{text-decoration: none;}
       right: 0;
     }
   }
+
   .tree_lists{
     padding-left: 12px;
     position: relative;

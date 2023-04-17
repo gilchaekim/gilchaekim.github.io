@@ -12,10 +12,17 @@
 	// 	],
 	// 	"description": "Log output to console"
 	// }
+	"ellipsis": {
+		"prefix": "@ellipsis",
+		"body": [
+			"@include ellipsis()$0;"
+		],
+		"description": "Log output to console"
+	},
 	"sb-icon1": {
 		"prefix": "@sb-icon",
 		"body": [
-			"@include icon_svg(${1|arrow-left-right,refresh,doubleRect,search-circle|}, \"\\${2:#999}\", ${3:20px})$0;"
+			"@include icon_svg(${1|arrow-left-right,check,arrow-left,arrow-down,refresh,doubleRect,search-circle|}, \"${2:#999}\", ${3:20px})$0;"
 		],
 		"description": "Log output to console"
 	},
@@ -37,6 +44,13 @@
 		"prefix": "!main_color01 - #DF6311 - 은행별 포인트 컬러 01 ",
 		"body": [
 			"\\$main_color01"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01 "
+	},
+	"url": {
+		"prefix": "!url - 배경 이미지 경로 ",
+		"body": [
+			" url(\\$url_common+\"$0\") no-repeat center"
 		],
 		"description": "#DF6311 - 은행별 포인트 컬러 01 "
 	},

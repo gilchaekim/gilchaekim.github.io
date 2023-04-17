@@ -13,6 +13,123 @@
     opacity: 0;
     transition: opacity .15s linear;
     padding: 0 20px;
+    &.system_pop {
+        padding: 0 40px;
+
+        .mui_modal{
+            &_dialog{
+                width: 100%;
+            }
+            &_header{
+                height: 56px;
+                font-size: 16px;
+                font-weight: 700;
+                color:$font_color01;
+                padding: 18px 0 0 20px;
+            }
+            &_content{
+                padding: 32px 24px 40px;
+                text-align: center;
+            }
+            &_footer{
+                .mui_button{
+                    background:$main_color01;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 16px;
+                    color:$font_color06;
+                    border-radius: 0;
+                }
+                &.confirm{
+                    display: flex;
+                    .mui_button{
+                        margin: 0;
+                        width: 60%;
+                        &.mui_modal_close{
+                            width: 40%;
+                            background: #5c627c;
+                        }
+                    }
+                }
+            }
+            &_body{
+                position: relative;
+                & > .mui_modal_close, form > .mui_modal_close{
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    text-indent: -9999em;
+                    overflow: hidden;
+                    width: 56px;
+                    height: 56px;
+                    background: url($url_common+"ico_close.svg") no-repeat center;
+                    background-size: 24px;
+                }
+            }
+        }
+        &.dialog_type{
+            .mui_modal{
+                &_header{
+                    height: auto;
+                    font-size: 18px;
+                    color:$font_color01;
+                    padding: 0 24px 8px;
+                    text-align: center;
+                }
+                &_content{
+                    padding: 0 24px 40px;
+                }
+                &_footer{
+                    border-top: 1px solid $line_color03;
+                    .mui_button{
+                        background:transparent;
+                        height: 48px;
+                        line-height: 48px;
+                        font-size: 14px;
+                        color:$main_color01;
+                        border-radius: 0;
+                    }
+                }
+                &_body{
+                    padding: 40px 0 0;
+                }
+            }
+        }
+        &.bottom_tray {
+            align-items: end;
+            padding: 0;
+            .mui_modal{
+                &_body{
+                    top: 40px;
+                    border-radius: 20px 20px 0 0;
+                }
+                &_header{
+                    font-size: 16px;
+                    height: 64px;
+                    padding: 20px 0 0 24px;
+                }
+                &_content{
+                    padding: 16px 24px 40px;
+                }
+                &_footer{
+                    padding: 0 16px 16px;
+                    .mui_button{
+                        border-radius: 8px;
+                        height: 52px;
+                        font-size: 18px;
+                        line-height: 52px;
+                    }
+                }
+            }
+            &.mui_open{
+                .mui_modal{
+                    &_body{
+                        top: 0px;
+                    }
+                }   
+            }
+        }
+    }
     &.mui_flex {
         display: flex;
         align-items: center;
@@ -71,8 +188,8 @@
         }
         &_body{
             background: #fff;
-            border-radius: 6px;
-            padding: 24px;
+            border-radius: 20px;
+            overflow: hidden;
             position: relative;
             top: -20px;
             transition: top .15s;

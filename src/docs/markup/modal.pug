@@ -100,14 +100,29 @@ block content
     })
     +guideExample()(code)
       +button({
-        label:"Alert 호출",
+        label:"Alert 기본",
         size:'large',
         id:"callAlert"
+      })
+      +button({
+        label:"Alert + X 버튼",
+        size:'large',
+        id:"callAlert2"
+      })
+      +button({
+        label:"Alert 버텀 트레이",
+        size:'large',
+        id:"callAlert3"
       })
       +button({
         label:"Confirm 호출",
         size:'large',
         id:"callConfirm"
+      })
+      +button({
+        label:"Confirm 버텀 트레이",
+        size:'large',
+        id:"callConfirm2"
       })
       +button({
         label:"Dialog 호출",
@@ -119,18 +134,42 @@ block content
         size:'large',
         id:"callToast"
       })
-      :code
-        //- 얼럿
-        GCui.modal.alert("Alert!!")
+    pre.pre.
+      
+      // Alert + X 버튼
+      GCui.modal.alert({
+        title:"로그아웃",
+        text:"로그아웃 하시겠습니까?",
+      })
+      
+      // alert 다이얼로그 타입
+      GCui.modal.alert({
+        title:"로그아웃",
+        text:"로그아웃 하시겠습니까?",
+      }, {
+        className:"dialog_type",
+      })
+      
 
-        //- 컴폼
-        GCui.modal.confirm("Confirm!!")
+      // Alert 버텀 트레이
+      GCui.modal.alert({
+        title:"타이틀",
+        text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+      }, {
+        className:"bottom_tray",
+      })
+      
 
-        //- 다이얼로그
-        GCui.modal.dialog("dialog")
+      // Confirm
+      GCui.modal.confirm({
+        title:"타이틀",
+        text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+      })
 
-        //- toast popup
-        //- GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
+      // toast
+      GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
+      
+        
     br
     br
     +guideTitle({
@@ -188,7 +227,10 @@ block content
       document.addEventListener("DOMContentLoaded", (event) => {
         let elem = []
         elem.push(document.querySelector("#callAlert"))
+        elem.push(document.querySelector("#callAlert2"))
+        elem.push(document.querySelector("#callAlert3"))
         elem.push(document.querySelector("#callConfirm"))
+        elem.push(document.querySelector("#callConfirm2"))
         elem.push(document.querySelector("#callDialog"))
         const toast = document.querySelector("#callToast")
         
@@ -197,15 +239,48 @@ block content
             const id = el.id
             switch (id) {
               case "callAlert":{
-                GCui.modal.alert("Alert!!")
+                GCui.modal.alert({
+                  title:"로그아웃",
+                  text:"로그아웃 하시겠습니까?",
+                })
+                break;
+              }
+              case "callAlert2":{
+                GCui.modal.alert({
+                  title:"로그아웃",
+                  text:"로그아웃 하시겠습니까?",
+                }, {
+                  className:"dialog_type",
+                })
+                break;
+              }
+              case "callAlert3":{
+                GCui.modal.alert({
+                  title:"타이틀",
+                  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.이곳은 내용이 들어가는 곳입니다.",
+                }, {
+                  className:"bottom_tray",
+                })
                 break;
               }
               case "callConfirm":{
-                GCui.modal.confirm("Confirm!!")
+                GCui.modal.confirm({
+                  title:"타이틀",
+                  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                })
+                break;
+              }
+              case "callConfirm2":{
+                GCui.modal.confirm({
+                  title:"타이틀",
+                  text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                })
                 break;
               }
               case "callDialog":{
-                GCui.modal.dialog("dialog")
+                GCui.modal.alert({
+                  text:"로그아웃 하시겠습니까?"
+                })
                 break;
               }
             }
