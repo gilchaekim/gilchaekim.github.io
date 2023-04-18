@@ -435,6 +435,29 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-left: 20px;
 }
 
+.button_type {
+  border-radius: 8px;
+  position: relative;
+  display: flex;
+  background: var(--bg_color03);
+}
+.button_type .mui_radio, .button_type .mui_checkbox {
+  flex: 1;
+  position: relative;
+  z-index: 1;
+}
+.button_type .mui_radio::after, .button_type .mui_checkbox::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 10px;
+  background: var(--line_color02);
+  position: absolute;
+  top: 50%;
+  margin-top: -5px;
+  right: 0;
+  z-index: 0;
+}
 .button_type .mui_radio input, .button_type .mui_checkbox input {
   position: absolute;
   top: 0;
@@ -443,13 +466,43 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   z-index: -1;
 }
 .button_type .mui_radio input:checked + label, .button_type .mui_checkbox input:checked + label {
-  background: #aaa;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.button_type .mui_radio input:checked + label::after, .button_type .mui_checkbox input:checked + label::after {
+  content: "";
+  display: block;
+  border: 2px solid var(--main_color01);
+  position: absolute;
+  top: 0;
+  left: -1px;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
 }
 .button_type .mui_radio label, .button_type .mui_checkbox label {
-  border: 1px solid red;
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-size: 14px;
+  color: #888;
+  padding: 16px 0;
+  position: relative;
+  z-index: 2;
 }
 .button_type .mui_radio ~ .mui_radio, .button_type .mui_radio .mui_checkbox, .button_type .mui_checkbox ~ .mui_radio, .button_type .mui_checkbox .mui_checkbox {
   margin-left: 0;
+}
+.button_type::after {
+  content: "";
+  display: block;
+  border: 1px solid var(--line_color02);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
 }
 
 .mui_button {
@@ -460,6 +513,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   width: 100%;
   align-items: center;
   justify-content: center;
+  outline: 0;
 }
 .mui_button.select_type {
   display: block;
@@ -503,6 +557,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .mui_primary {
   background-color: var(--main_color01);
+  color: var(--font_color06);
 }
 .mui_grey {
   background-color: var(--font_color05);
@@ -510,6 +565,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .mui_default {
   background-color: #5C627C;
+  color: var(--font_color06);
 }
 .mui_white {
   background-color: var(--bg_color03);
@@ -519,6 +575,66 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
   width: 100%;
   text-align: left;
+  height: 48px;
+  border-radius: 0;
+  padding: 0;
+  font-size: 16px;
+  color: var(--font_color01);
+}
+.mui_select:disabled {
+  color: var(--font_color05);
+}
+.mui_select:disabled::before {
+  background: var(--font_color05);
+}
+.mui_select::before {
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--line_color02);
+}
+.mui_select::after {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  right: 0;
+}
+.mui_select:focus::before {
+  height: 2px;
+  background: var(--line_color01);
+}
+.mui_more {
+  border-radius: 0;
+  padding: 12px 0;
+}
+.mui_more span {
+  display: inline-block;
+  position: relative;
+  height: 16px;
+  padding-right: 16px;
+  color: var(--basic_color04);
+}
+.mui_more span::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
 caption {
@@ -550,6 +666,46 @@ table, th, td {
 }
 .mui_maxlength span {
   display: inline-block;
+}
+
+.mui_input {
+  display: block;
+  width: 100%;
+  position: relative;
+}
+.mui_input input {
+  border: 0 none;
+  background: none;
+  height: 48px;
+  font-size: 16px;
+  outline: 0;
+  width: 100%;
+}
+.mui_input input::placeholder {
+  color: #888;
+}
+.mui_input.mui_readonly::after {
+  height: 0;
+}
+.mui_input.mui_disabled input {
+  color: var(--font_color05);
+}
+.mui_input.mui_disabled::after {
+  background: var(--font_color05);
+}
+.mui_input.mui_active::after {
+  height: 2px;
+  background: var(--line_color01);
+}
+.mui_input::after {
+  content: "";
+  display: block;
+  height: 1px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: var(--line_color02);
 }
 
 .dash {
@@ -904,15 +1060,21 @@ table, th, td {
 }
 
 .mui_result {
-  border: 1px solid #000;
+  padding: 24px;
 }
 .mui_result dl {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  font-size: 14px;
+}
+.mui_result dl dt {
+  color: var(--font_color03);
+}
+.mui_result dl dd {
+  color: var(--font_color02);
 }
 .mui_result dl ~ dl {
-  border-top: 1px solid #000;
+  margin-top: 24px;
 }
 
 .mui_agree_check .chk_btn {
@@ -1055,6 +1217,17 @@ table, th, td {
   width: 100%;
 }
 
+.mui_datepicker input {
+  background: url("/src/images/ico_calendar.svg") no-repeat right center;
+}
+.mui_datepicker input:disabled {
+  background-image: url("/src/images/ico_calendar_disabled.svg");
+}
+
+.inner_quick_btrn .mui_datepicker {
+  margin-top: 12px;
+}
+
 .mui_datepicker_layer {
   display: none;
   position: fixed;
@@ -1104,6 +1277,74 @@ table, th, td {
   padding: 4px 20px;
 }
 
+.mui_accountbox {
+  border: 1px solid var(--line_color03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+  padding: 20px;
+  background: var(--bg_color03);
+  border-radius: 20px;
+}
+.mui_accountbox ~ .mui_accountbox {
+  margin-top: 12px;
+}
+.mui_accountbox .acc_name {
+  font-size: 16px;
+  color: var(--font_color02);
+  font-weight: 700;
+}
+.mui_accountbox .acc_val {
+  text-align: right;
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.mui_accountbox .acc_val .won {
+  font-size: 18px;
+  margin-left: 4px;
+}
+.mui_accountbox .btns {
+  margin-top: 16px;
+  display: flex;
+}
+.mui_accountbox .btns .mui_button {
+  flex: 1;
+  background: #f4f4f4;
+  color: var(--font_color02);
+  font-size: 14px;
+  height: 32px;
+  border-radius: 8px;
+}
+.mui_accountbox .btns .mui_button ~ .mui_button {
+  margin-left: 8px;
+}
+.mui_accountbox .acc_data {
+  display: flex;
+  margin-top: 8px;
+  font-size: 13px;
+}
+.mui_accountbox .acc_data .acc_num {
+  color: #888;
+  border-bottom: 1px solid var(--line_color02);
+}
+.mui_accountbox .acc_data .acc_end {
+  position: relative;
+  color: var(--font_color07);
+  font-weight: 300;
+  padding-left: 9px;
+  margin-left: 8px;
+}
+.mui_accountbox .acc_data .acc_end::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 8px;
+  background: var(--line_color02);
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+
 .mui_inputmoney {
   border: 1px solid red;
 }
@@ -1115,6 +1356,26 @@ table, th, td {
   margin-top: 24px;
 }
 .mui_form_list .mui_form_content {
+  margin-top: 8px;
+}
+
+.mui_form_value {
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
+  color: var(--font_color01);
+}
+
+.msg_form {
+  font-size: 12px;
   margin-top: 12px;
+}
+.msg_form.msg_error {
+  color: var(--main_color01);
+}
+
+.mui_form_head {
+  font-size: 14px;
+  color: var(--font_color02);
 }
 /*# sourceMappingURL=common.css.map */

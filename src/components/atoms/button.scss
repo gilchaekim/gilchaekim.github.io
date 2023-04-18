@@ -10,6 +10,7 @@
     width: 100%;
     align-items: center; 
     justify-content: center;
+    outline: 0;
     &.select_type{
       display: block;
       border: 1px solid #aaa;
@@ -53,6 +54,7 @@
   }
   &_primary{
     background-color: $main_color01;
+    color:$font_color06;
   }
   &_grey{
     background-color:$font_color05;
@@ -60,6 +62,7 @@
   }
   &_default{
     background-color:#5C627C;
+    color:$font_color06;
   }
   &_white{
     background-color:$bg_color03;
@@ -69,6 +72,60 @@
     display: block;
     width: 100%;
     text-align: left;
+    height: 48px;
+    border-radius: 0;
+    padding: 0;
+    font-size: 16px;
+    color:$font_color01;
+    &:disabled{
+      color:$font_color05;
+      &::before{
+        background: $font_color05;
+      }
+    }
+    &::before{
+      content: '';
+      display: block;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: $line_color02;
+    }
+    &::after{
+      content: '';
+      @include icon_svg(arrow-down, "#111", 20px);
+      position: absolute;
+      top: 50%;
+      margin-top: -6px;
+      right: 0;
+    }
+    &:focus{
+      &::before{
+        height: 2px;
+        background: $line_color01;
+      }
+    }
+  }
+  &_more{
+    border-radius: 0;
+    padding: 12px 0;
+    span{
+      display: inline-block;
+      position: relative;
+      height: 16px;
+      padding-right: 16px;
+      color: $basic_color04;
+      &::after{
+        content: '';
+        display: block;
+        @include icon_svg(arrow-down, "#888", 16px);
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+    }
   }
   
 }

@@ -10,6 +10,52 @@
     display: inline-block;
   }
 }
+.mui_input{
+  display: block;
+  width: 100%;
+  position: relative;
+  input{
+    border: 0 none;
+    background: none;
+    height: 48px;
+    font-size: 16px;
+    outline: 0;
+    // background:$main_color01;
+    width: 100%;
+    &::placeholder {
+      color: #888;
+    }
+  }
+  &.mui_readonly{
+    &::after{
+      height: 0;
+    }
+  }
+  &.mui_disabled{
+    input{
+      color: $font_color05;
+    }
+    &::after{
+      background:$font_color05;
+    }
+  }
+  &.mui_active{
+    &::after{
+      height: 2px;
+      background: $line_color01;
+    }
+  }
+  &::after{
+    content: '';
+    display: block;
+    height: 1px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: $line_color02;
+  }
+}
 
 .dash {
   display:inline-block;

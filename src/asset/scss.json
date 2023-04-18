@@ -68,6 +68,62 @@
 		],
 		"description": "#DF6311 - 은행별 포인트 컬러 01/ opacity: 8%"
 	},
+	"basic01": {
+		"prefix": "!basic_color01 - #111",
+		"body": [
+			"\\$basic_color01"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic02": {
+		"prefix": "!basic_color02 - #333",
+		"body": [
+			"\\$basic_color02"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic03": {
+		"prefix": "!basic_color03 - #666",
+		"body": [
+			"\\$basic_color03"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic04": {
+		"prefix": "!basic_color04 - #888",
+		"body": [
+			"\\$basic_color04"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic05": {
+		"prefix": "!basic_color05 - #ccc",
+		"body": [
+			"\\$basic_color05"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic06": {
+		"prefix": "!basic_color06 - #fff",
+		"body": [
+			"\\$basic_color06"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic07": {
+		"prefix": "!basic_color07 - #3282fa",
+		"body": [
+			"\\$basic_color07"
+		],
+		"description": "#111 - 베이직"
+	},
+	"basic08": {
+		"prefix": "!basic_color08 - #ff334b",
+		"body": [
+			"\\$basic_color08"
+		],
+		"description": "#111 - 베이직"
+	},
 	"var04": {
 		"prefix": "!font_color01 - #111",
 		"body": [

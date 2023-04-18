@@ -18,10 +18,7 @@ block content
             })
 
           +form_body({title:"입금은행", message:{type:"successes", text:"완료 메세지"}})
-            +button({
-              label:"입금은행 입력",
-              className:'select_type'
-            })
+            +button_select('셀렉트 버튼')
 
           +form_body({title:"전화번호", message:{type:"etc", text:"기타 메세지"}})
             +input()

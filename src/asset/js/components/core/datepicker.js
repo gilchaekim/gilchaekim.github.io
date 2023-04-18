@@ -58,7 +58,7 @@ export default {
     nextBtn:'.picker_header>.next_btn',
     $year:'.picker_header>.year_month>.current_year',
     $month:'.picker_header>.year_month>.current_month',
-    format: 'yyyy-mm-dd',
+    format: 'yyyy.mm.dd',
     // The start view date
     startDate: null,
 

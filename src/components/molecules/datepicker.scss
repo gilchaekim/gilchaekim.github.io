@@ -2,7 +2,17 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_datepicker{
-  
+  input{
+    background: url($url_common+"ico_calendar.svg") no-repeat right center;
+    &:disabled{
+      background-image: url($url_common+"ico_calendar_disabled.svg");
+    }
+  }
+}
+.inner_quick_btrn{
+  .mui_datepicker{
+    margin-top: 12px;
+  }
 }
 .mui_datepicker_layer{
   display: none;

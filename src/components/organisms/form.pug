@@ -17,9 +17,13 @@ mixin form(params={})
 
     each item, index in formBody
       - const {title, required, message} = item.attribute;
-
+      - let messageType = null;
+      - 
+        if (!!message)
+          messageType = `form_${message.type}`;
       div(
         class=`${prefix}${divide}form_list`
+        class=messageType
       )
         if !!title
           div(

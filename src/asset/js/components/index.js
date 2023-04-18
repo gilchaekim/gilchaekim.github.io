@@ -13,6 +13,7 @@ export {default as Modal} from './core/modal';
 export {default as Slider} from './core/slider';
 export {default as Tree} from './core/tree';
 export {default as Scroll} from './core/scroll';
+export {default as Input} from './core/input';
 
 
 // 마크업진행표

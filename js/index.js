@@ -5097,7 +5097,7 @@
       nextBtn: '.picker_header>.next_btn',
       $year: '.picker_header>.year_month>.current_year',
       $month: '.picker_header>.year_month>.current_month',
-      format: 'yyyy-mm-dd',
+      format: 'yyyy.mm.dd',
       // The start view date
       startDate: null,
       // The end view date
@@ -11533,6 +11533,25 @@
     return document.getElementById(decodeURIComponent(el.hash).substring(1));
   }
 
+  var input = {
+    data: {
+      active: 'mui_active'
+    },
+    events: [{
+      name: 'focusin',
+      handler: function handler(e) {
+        if (hasAttr(this.$el, 'readonly') || hasAttr(this.$el, 'disabled')) return;
+        addClass(parent$1(this.$el), this.active);
+      }
+    }, {
+      name: 'focusout',
+      handler: function handler(e) {
+        if (hasAttr(this.$el, 'readonly') || hasAttr(this.$el, 'disabled')) return;
+        removeClass(parent$1(this.$el), this.active);
+      }
+    }]
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -11642,6 +11661,7 @@
     Slider: slider,
     Tree: tree,
     Scroll: scroll$1,
+    Input: input,
     Worklists: worklists
   });
 

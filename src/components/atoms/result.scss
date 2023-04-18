@@ -2,13 +2,19 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_result{
-  border: 1px solid #000;
+  padding: 24px;
   dl{
     display: flex;
     justify-content: space-between;
-    padding: 10px;
+    font-size: 14px;
+    dt{
+      color:$font_color03;
+    }
+    dd{
+      color:$font_color02;
+    }
     ~ dl{
-      border-top: 1px solid #000;
+      margin-top: 24px;
     }
   }
 }

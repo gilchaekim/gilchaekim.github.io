@@ -1,2 +1,72 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+.mui_accountbox{
+  border: 1px solid$line_color03;
+  box-shadow: 0 4px 8px rgba(0,0,0,.04);
+  padding: 20px;
+  background:$bg_color03;
+  border-radius: 20px;
+  & ~ .mui_accountbox{
+    margin-top: 12px;
+  }
+  
+  .acc_name{
+    font-size: 16px;
+    color:$font_color02;
+    font-weight: 700;
+  }
+  .acc_val{
+    text-align: right;
+    margin-top: 16px;
+    font-size: 22px;
+    font-weight: 700;
+    color:$font_color01;
+    .won{
+      font-size: 18px;
+      margin-left: 4px;
+    }
+  }
+  .btns{
+    margin-top: 16px;
+    display: flex;
+    .mui_button{
+      flex: 1;
+      background: #f4f4f4;
+      color:$font_color02;
+      font-size: 14px;
+      height: 32px;
+      border-radius: 8px;
+      & ~ .mui_button{
+        margin-left: 8px;
+      }
+    }
+  }
+  .acc_data{
+    display: flex;
+    margin-top: 8px;
+    font-size: 13px;
+    .acc_num{
+      color: #888;
+      border-bottom: 1px solid $line_color02;
+    }
+
+    .acc_end{
+      position: relative;
+      color: $font_color07;
+      font-weight: 300;
+      padding-left: 9px;
+      margin-left: 8px;
+      &::after{
+        content: '';
+        display: block;
+        width: 1px;
+        height: 8px;
+        background:$line_color02;
+        position: absolute;
+        top: 3px;
+        left: 0;
+      }
+    }
+  }
+}

@@ -78,3 +78,21 @@ mixin button_select(label)
   )
     span
       | #{label}
+
+mixin button_more()
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  
+
+  - let element = "button"
+
+  #{element}(
+    id=id
+    class=`${prefix}${divide}button`
+    class=`${prefix}${divide}more`
+    type="button"
+  )
+    span
+      | 더보기

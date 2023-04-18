@@ -25,7 +25,10 @@ mixin input(params={})
     class=`${prefix}${divide}input`
     class=className
     class={"inner_subfix":!!subfix}
+    class={"mui_disabled":!!disabled}
+    class={"mui_readonly":!!readOnly}
     class=subfixLength
+    
   )
     input(
       type=type
@@ -37,6 +40,7 @@ mixin input(params={})
       value=value
       maxlength=maxlength
       mui-formatter=muiFormatter
+      mui-input=""
     )
     
     if !!subfix

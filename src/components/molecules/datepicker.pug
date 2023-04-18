@@ -4,21 +4,44 @@ mixin datepicker(params={})
   - const divide = '_'
   //- 공통 요소 End
   - const {element='div', className, placeholder, value, quickBtn, ...rest} = Object.assign({}, params);
-  #{element}(
-    class=`${prefix}${divide}datepicker`
-    class=className
-    mui-datepicker=""
-  )
-    if quickBtn
-      +button_group({
-        btns:[
-          '일주일',
-          '1개월',
-          '3개월',
-          '6개월',
-          '직접입력',
+  if quickBtn
+    .inner_quick_btrn
+      +radioCheck({
+        name:'btnType',
+        type:"radio",
+        className:'button_type',
+        lists:[
+          {
+            label:'일주일'
+          },
+          {
+            label:'1개월'
+          },
+          {
+            label:'3개월'
+          },
+          {
+            label:'6개월'
+          },
+          {
+            label:'직접입력'
+          }
         ]
       })
-    +input({
-      value:value
-    })
+      #{element}(
+        class=`${prefix}${divide}datepicker`
+        class=className
+        mui-datepicker=""
+      )
+        +input({
+          value:value
+        })
+  else 
+    #{element}(
+        class=`${prefix}${divide}datepicker`
+        class=className
+        mui-datepicker=""
+      )
+        +input({
+          value:value
+        })
