@@ -2,8 +2,14 @@ extends ../components/templates/base.pug
 
 block content
   +button({
-    label:"버텀 트레이",
+    label:"셀렉트 리스트 아이콘 기본",
     muiToggle:'target:#modal_bottom;'
+  })
+  br
+  br
+  +button({
+    label:"셀렉트 리스트 아이콘 텝",
+    muiToggle:'target:#modal_bottom2;'
   })
 
   +modal({
@@ -14,3 +20,22 @@ block content
     +select_list({
       type:"account_img"
     })
+  +modal({
+    title:"리스트 제목",
+    id:"modal_bottom2",
+    type:"bottom"
+  })
+
+    +tabsWrap()
+      +tab("메뉴명")
+        +select_list({
+          type:"account_img"
+        })
+      +tab("메뉴명")
+        +select_list({
+          type:"account_img"
+        })
+      +tab("메뉴명")
+        +select_list({
+          type:"account_img"
+        })

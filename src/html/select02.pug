@@ -2,9 +2,17 @@ extends ../components/templates/base.pug
 
 block content
   +button({
-    label:"버텀 트레이",
+    label:"버텀 트레이 기본",
     muiToggle:'target:#modal_bottom;'
   })
+  br
+  br
+  br
+  +button({
+    label:"버텀 트레이 텝 형",
+    muiToggle:'target:#modal_bottom2;'
+  })
+
 
   +modal({
     title:"리스트 제목",
@@ -14,3 +22,22 @@ block content
     +select_list({
       type:"account"
     })
+
+  +modal({
+    title:"리스트 제목",
+    id:"modal_bottom2",
+    type:"bottom"
+  })
+    +tabsWrap()
+      +tab("메뉴명")
+        +select_list({
+          type:"account"
+        })
+      +tab("메뉴명")
+        +select_list({
+          type:"account"
+        })
+      +tab("메뉴명")
+        +select_list({
+          type:"account"
+        })

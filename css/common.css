@@ -610,6 +610,7 @@ table, th, td {
   display: flex;
   padding: 0 24px;
   background: var(--bg_color03);
+  position: relative;
 }
 .mui_tabs .mui_tab_nav .nav_list {
   flex: 1;
@@ -636,6 +637,17 @@ table, th, td {
   height: 2px;
   background: var(--line_color01);
   width: 100%;
+  z-index: 1;
+}
+.mui_tabs .mui_tab_nav::after {
+  content: "";
+  display: block;
+  height: 1px;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: var(--line_color03);
 }
 .mui_tabs .tab_contents .tab_pane {
   display: none;
@@ -720,20 +732,6 @@ table, th, td {
   width: 40%;
   background: #5c627c;
 }
-.mui_modal.system_pop .mui_modal_body, [mui-modal].system_pop .mui_modal_body {
-  position: relative;
-}
-.mui_modal.system_pop .mui_modal_body > .mui_modal_close, .mui_modal.system_pop .mui_modal_body form > .mui_modal_close, [mui-modal].system_pop .mui_modal_body > .mui_modal_close, [mui-modal].system_pop .mui_modal_body form > .mui_modal_close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  text-indent: -9999em;
-  overflow: hidden;
-  width: 56px;
-  height: 56px;
-  background: url("/src/images/ico_close.svg") no-repeat center;
-  background-size: 24px;
-}
 .mui_modal.system_pop.dialog_type .mui_modal_header, [mui-modal].system_pop.dialog_type .mui_modal_header {
   height: auto;
   font-size: 18px;
@@ -797,14 +795,29 @@ table, th, td {
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_dialog, [mui-modal].mui_bottom_tray_wrap .mui_modal_dialog {
   width: 100%;
+  min-width: 0;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_header, [mui-modal].mui_bottom_tray_wrap .mui_modal_header {
+  height: 64px;
+  padding: 20px 0 0 24px;
+  color: var(--font_color01);
+  font-size: 16px;
+  font-weight: 700;
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_body, [mui-modal].mui_bottom_tray_wrap .mui_modal_body {
-  border-radius: 6px 6px 0 0;
+  border-radius: 20px 20px 0 0;
   top: 100px;
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content, [mui-modal].mui_bottom_tray_wrap .mui_modal_content {
   max-height: 70vh;
   overflow: auto;
+  padding: 0 24px 24px;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_tabs, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_tabs {
+  margin: 0 -24px;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .tab_pane, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .tab_pane {
+  padding: 16px 24px 0;
 }
 .mui_modal.mui_fullpop_wrap, [mui-modal].mui_fullpop_wrap {
   padding: 0;
@@ -841,6 +854,18 @@ table, th, td {
   position: relative;
   top: -20px;
   transition: top 0.15s;
+  position: relative;
+}
+.mui_modal .mui_modal_body > .mui_modal_close, .mui_modal .mui_modal_body form > .mui_modal_close, [mui-modal] .mui_modal_body > .mui_modal_close, [mui-modal] .mui_modal_body form > .mui_modal_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-indent: -9999em;
+  overflow: hidden;
+  width: 56px;
+  height: 56px;
+  background: url("/src/images/ico_close.svg") no-repeat center;
+  background-size: 24px;
 }
 .mui_modal.mui_open, [mui-modal].mui_open {
   opacity: 1;
@@ -940,48 +965,64 @@ table, th, td {
 }
 
 .mui_selectlist .lists ~ .lists {
-  border-top: 1px solid #aaa;
-}
-.mui_selectlist .lists.mui_active button {
-  color: #000;
+  border-top: 1px solid var(--line_color03);
 }
 .mui_selectlist .lists.mui_active button::after {
-  border-color: #000;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23DF6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
 }
 .mui_selectlist .lists button {
   display: block;
   width: 100%;
-  padding: 20px 10px;
+  padding: 20px 0;
   text-align: left;
-  font-size: 16px;
+  font-size: 18px;
   position: relative;
-  color: #ccc;
+  font-weight: 700;
+  color: var(--font_color01);
 }
 .mui_selectlist .lists button::after {
   content: "";
-  width: 8px;
-  height: 8px;
-  border-bottom: 2px solid #ccc;
-  border-right: 2px solid #ccc;
   position: absolute;
   top: 50%;
-  right: 4px;
-  transform: rotate(45deg) translate(-50%);
+  right: 0;
+  margin-top: -12px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23ccc' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
 }
 .mui_selectlist.account .title {
   display: block;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 700;
 }
 .mui_selectlist.account .acc_num {
   display: block;
   margin-top: 8px;
+  font-size: 13px;
+  color: var(--font_color03);
+  font-weight: 300;
 }
 .mui_selectlist.account .acc_aka {
   display: inline-block;
-  border-left: 1px solid #ccc;
-  padding-left: 6px;
-  margin-left: 6px;
+  position: relative;
+  padding-left: 9px;
+  margin-left: 7px;
+}
+.mui_selectlist.account .acc_aka:after {
+  content: "";
+  display: block;
+  width: 1px;
+  background: var(--font_color05);
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 10px;
 }
 .mui_selectlist.account_img > ul {
   display: flex;
@@ -992,7 +1033,9 @@ table, th, td {
   border: 0 none;
 }
 .mui_selectlist.account_img button {
-  padding-left: 40px;
+  padding-left: 32px;
+  font-size: 16px;
+  font-weight: 400;
 }
 .mui_selectlist.account_img button::after {
   display: none;
@@ -1002,11 +1045,11 @@ table, th, td {
   left: 0;
   top: 50%;
   transform: translate(0, -50%);
-  width: 32px;
-  height: 32px;
-  border-radius: 16px;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
   overflow: hidden;
-  border: 1px solid #000;
+  border: 1px solid var(--line_color02);
 }
 .mui_selectlist.account_img .img img {
   width: 100%;

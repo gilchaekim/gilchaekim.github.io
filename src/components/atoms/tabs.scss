@@ -6,6 +6,7 @@
     display: flex;
     padding: 0 24px;
     background: $bg_color03;
+    position: relative;
     .nav_list{
       flex: 1;
       text-align: center;
@@ -30,9 +31,20 @@
             height: 2px;
             background: $line_color01;
             width: 100%;
+            z-index: 1;
           }
         }
       }
+    }
+    &::after{
+      content: '';
+      display: block;
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background:$line_color03;
     }
   }
   .tab_contents{
