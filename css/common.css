@@ -1319,6 +1319,9 @@ table, th, td {
   font-size: 22px;
   margin-left: 0;
 }
+.mui_accountbox.main_card .acc_name {
+  color: var(--font_color06);
+}
 .mui_accountbox.main_card .acc_data {
   display: block;
   margin-top: 4px;
@@ -1376,7 +1379,7 @@ table, th, td {
   right: 0;
 }
 .mui_accountbox .acc_name_wrap .acc_name {
-  color: var(--font_color06);
+  color: var(--font_color02);
   font-weight: 400;
 }
 .mui_accountbox .acc_name_wrap .acc_name a {

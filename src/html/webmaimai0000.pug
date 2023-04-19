@@ -93,9 +93,9 @@ block content
                 .ico
                   img(src="/src/images/ico_main08.svg" alt="")
         
-  .toggle_wrap.type2
-    span.text 잔액 ON
-    .toggle
+  .toggle_wrap
+    .switch.type2
+      span.label 잔액 ON
       +radioCheck({
         name:'chk',
         label:'잔액표시',
@@ -263,8 +263,8 @@ block content
               ]            
             })
             .toggle_wrap
-              span.text 잔액 ON
-              .toggle
+              .switch
+                span.label 잔액 ON
                 +radioCheck({
                   name:'chk',
                   label:'잔액표시',

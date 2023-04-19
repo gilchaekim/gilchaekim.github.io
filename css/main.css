@@ -531,143 +531,88 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-top: 16px;
   text-align: center;
 }
-.main .toggle_wrap .text {
+.main .switch {
+  display: inline-block;
+  vertical-align: top;
+  font-size: 0;
+}
+.main .switch.type2 .label {
+  height: 20px;
+  line-height: 20px;
+}
+.main .switch.type2 .mui_checkbox label {
+  top: 0;
+  left: 0;
+  height: 20px;
+}
+.main .switch.type2 .mui_checkbox label:before {
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 20px;
+  border-radius: 10px;
+}
+.main .switch.type2 .mui_checkbox label::after {
+  top: 1px;
+  left: 2px;
+  background: var(--bg_color03);
+}
+.main .switch.type2 .mui_checkbox input:checked + label::before {
+  background: var(--main_color02);
+}
+.main .switch .label {
   color: #888;
   font-size: 13px;
-}
-.main .toggle_wrap.type2 {
-  padding: 10px 24px;
-  text-align: right;
-  background: var(--bg_color02);
-  height: 40px;
-}
-.main .toggle_wrap.type2 .toggle {
-  width: 36px;
-  height: 20px;
-  padding: 0;
-}
-.main .toggle_wrap.type2 .toggle .mui_checkbox {
-  width: 36px;
-  height: 20px;
-  background: none;
-}
-.main .toggle_wrap.type2 .toggle .mui_checkbox input:checked + label {
-  background: var(--main_color02);
-}
-.main .toggle_wrap.type2 .toggle .mui_checkbox input:checked + label::after {
-  left: 18px;
-}
-.main .toggle_wrap.type2 .toggle .mui_checkbox label {
-  width: 36px;
-  height: 20px;
-  border-radius: 10px;
-  background: var(--font_color05);
-  transition: background 0.2s;
-  top: 0;
-  left: 0;
-}
-.main .toggle_wrap.type2 .toggle .mui_checkbox label::after {
-  content: "";
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: var(--bg_color03);
-  position: absolute;
-  transition: left 0.2s;
-  top: 2px;
-  left: 2px;
-}
-.main .toggle_wrap.type3 .toggle {
-  width: 52px;
-  height: 20px;
-  padding: 0;
-}
-.main .toggle_wrap.type3 .toggle .mui_checkbox {
-  width: 52px;
-  height: 20px;
-  background: none;
-}
-.main .toggle_wrap.type3 .toggle .mui_checkbox input:checked + label {
-  background: var(--main_color02);
-  text-align: left;
-  color: var(--font_color06);
-}
-.main .toggle_wrap.type3 .toggle .mui_checkbox input:checked + label::after {
-  left: 34px;
-}
-.main .toggle_wrap.type3 .toggle .mui_checkbox label {
-  width: 52px;
-  height: 20px;
-  border-radius: 10px;
-  background: var(--font_color05);
-  transition: background 0.2s;
-  top: 0;
-  left: 0;
-  color: var(--font_color02);
-  font-size: 13px;
-  text-indent: 0;
-  line-height: 22px;
-  text-align: right;
-  padding: 0 8px;
-}
-.main .toggle_wrap.type3 .toggle .mui_checkbox label::after {
-  content: "";
-  width: 16px;
-  height: 16px;
-  border-radius: 8px;
-  background: var(--bg_color03);
-  position: absolute;
-  transition: left 0.2s;
-  top: 2px;
-  left: 2px;
-}
-.main .toggle {
-  overflow: hidden;
-  width: 36px;
-  height: 18px;
-  padding: 3px 0 0 3px;
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: top;
+  margin-right: 4px;
+  height: 18px;
+  line-height: 18px;
 }
-.main .toggle .mui_checkbox {
-  background: var(--line_color02);
-  position: relative;
-  width: 28px;
-  height: 12px;
-  display: block;
-  border-radius: 6px;
+.main .switch .mui_checkbox {
+  display: inline-block;
+  vertical-align: top;
 }
-.main .toggle .mui_checkbox input {
+.main .switch .mui_checkbox input {
   opacity: 0;
   width: 0;
   height: 0;
   position: absolute;
   left: -9999em;
 }
-.main .toggle .mui_checkbox input:checked + label::after {
+.main .switch .mui_checkbox input:checked + label::after {
   left: 16px;
 }
-.main .toggle .mui_checkbox label {
+.main .switch .mui_checkbox label {
   color: transparent;
   font-size: 0;
   position: relative;
-  top: -3px;
-  left: -3px;
   text-indent: -9999em;
   display: block;
   width: 36px;
   height: 18px;
 }
-.main .toggle .mui_checkbox label::after {
+.main .switch .mui_checkbox label::before {
+  content: "";
+  width: 28px;
+  height: 12px;
+  position: absolute;
+  top: 3px;
+  left: 4px;
+  border-radius: 6px;
+  background: var(--line_color02);
+  transition: background 0.2s;
+}
+.main .switch .mui_checkbox label::after {
   content: "";
   width: 18px;
   height: 18px;
   border-radius: 9px;
   background: var(--main_color02);
-  position: absolute;
-  transition: left 0.2s;
   top: 0;
   left: 0;
+  position: absolute;
+  transition: left 0.2s;
 }
 .main .event {
   padding: 0 24px;

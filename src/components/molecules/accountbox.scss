@@ -22,6 +22,9 @@
         margin-left: 0;
       }
     }
+    .acc_name{
+      color:$font_color06;
+    }
     .acc_data{
       display: block;
       margin-top: 4px;
@@ -80,7 +83,7 @@
       right: 0;
     }
     .acc_name{
-      color:$font_color06;
+      color:$font_color02;
       font-weight: 400;
       a{
         color:$font_color06;
