@@ -1,0 +1,137 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+  - showAllMenu = true;
+
+
+block header
+  .allmenu_wrap
+    +content_group(1)
+      .login_wrap
+        <!-- 로그아웃시 logout 클래스 추가 -->
+        .login.logout 로그인
+        +button_wrap()
+          +button({
+            label:"닫기",
+            size:'small',
+            className:'btn_close',
+            isIcon:true,
+            type:'default'
+          })
+        
+      p.welcome_txt
+        strong SBI저축은행
+        | 입니다.
+      <!-- 로그인 후 -->
+      <!-- p.welcome_txt
+        strong 김중앙
+        |님 안녕하세요.
+      p.log_info 최근접속
+        span 2023.03.22 15:15:15 -->
+      <!-- //로그인 후 -->
+
+      ul.quick_wrap
+        li
+          a(href="#")
+            span 고객센터
+        li
+          a(href="#")
+            span 인증/보안
+        li
+          a(href="#")
+            span 새소식
+
+      .search_wrap
+        .input_tit
+        input(type="text" placeholder="검색어 입력")
+        button.btn_del
+      .hash_tag
+        a(href="#") #대출
+        a(href="#") #예금
+        a(href="#") #전자약정
+        a(href="#") #인증서
+
+      <!-- 검색시 숨김 -->
+      +tabsWrap({
+        className:'tab_allmenu'
+      })
+        +tab("대출")
+          +accordion({
+            multiple:true,
+            active:0
+          })
+            +acc_title('담보대출')
+            +acc_content()
+              .flex_col
+                a(href="#") 상품안내/신청
+                a(href="#") 온라인 서류제출
+            +acc_title('신용대출/햇살론')
+            +acc_content()
+              .flex_col
+                a(href="#") 상품안내/신청
+                a(href="#") 신용정보조회동의
+                a(href="#") 신용정보조회동의
+            +acc_title('대출금액조회')
+            +acc_content()
+              .flex_col
+                a(href="#") 대출이자납입금액조회
+                a(href="#") 대출상환예정금액조회
+          ul.tab_list
+            li
+              a(href="#") 적정성등록
+            li
+              a(href="#") 대출신청조회
+            li
+              a(href="#") 전자약정
+            li
+              a(href="#") 금리인하요구권
+            li
+              a(href="#") 대출철회
+
+        +tab("예적금")
+          .flex_col
+            a(href="#") 상품안내/신청
+            a(href="#") 신용정보조회동의
+            a(href="#") 신용정보조회동의
+
+        +tab("뱅킹")
+          +accordion()
+            +acc_title('담보대출')
+            +acc_content()
+              .flex_col
+                a(href="#") 상품안내/신청
+                a(href="#") 온라인 서류제출
+
+        +tab("고객센터")
+
+        +tab("인증/보안")
+          +accordion()
+            +acc_title('담보대출')
+            +acc_content()
+              .flex_col
+                a(href="#") 상품안내/신청
+                a(href="#") 온라인 서류제출
+      <!-- //검색시 숨김 -->
+    <!-- 검색시 표시 -->
+    +content_group(1)
+      .search_result
+        .inner
+          p.tit 검색결과
+            strong 7
+            | 건
+          ul.search_list
+            li
+              a(href="#") 대출 > 신용대출/햇살론 > 신용정보
+                strong 조회
+                | 동의
+            li
+              a(href="#") 대출 > 신용대출/햇살론 > 신용정보
+                strong 조회
+                | 동의
+            li
+              a(href="#") 대출 > 신용대출/햇살론 > 신용정보
+                strong 조회
+                | 동의
+          .no_search 검색결과가 없습니다.
+    <!-- //검색시 표시 -->

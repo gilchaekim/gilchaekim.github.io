@@ -1,5 +1,7 @@
 include ../index
+- let showAllMenu = false;
 
+block top
 doctype html
 html(lang="ko")
   head
@@ -23,8 +25,12 @@ html(lang="ko")
     #wrapper
 
       <!-- header -->
-      #header
+      #header(
+        class={"allmenu":showAllMenu}
+      )
         include header.pug
+        block header
+        //- include webmenmen0100.pug
       <!-- / header -->
 
 
