@@ -1,0 +1,36 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_accresult{
+  .date{
+    padding-bottom: 16px;
+    font-size: 14px;
+    font-weight: 700;
+    color: #888;
+  }
+  .lists{
+    border-bottom: 1px solid $line_color02;
+    padding: 16px 0;
+  }
+  .text, .time{
+    display: flex;
+    justify-content:space-between;
+  }
+  .text{
+    .txt1{
+      font-size: 16px;
+      color:$font_color02;
+    }
+    .txt2{
+      font-size: 18px;
+      color:$font_color01;
+      font-weight: 700;
+    }
+  }
+  .time{
+    margin-top: 4px;
+    font-size: 13px;
+    font-weight: 300;
+    color:$basic_color04;
+  }
+}

@@ -3,9 +3,9 @@ mixin accountbox(params={})
     - const prefix = "mui"
     - const divide = '_'
     //- 공통 요소 End
-    - const {element='div', className, accName, accNum, accVal, endDate, btns, tags, ...rest} = Object.assign({}, params);
+    - const {element='div', className, accName, accNum, accVal, endDate, btns, tags, accNameLink, ...rest} = Object.assign({}, params);
     - let blockData = {};
-
+    - const isTag = !!tags;
     block
 
     #{element}(
@@ -13,8 +13,28 @@ mixin accountbox(params={})
         class=className
     )
         if !!accName
-            p.acc_name!=accName
-        div.acc_data
+            .acc_name_wrap(
+                class={'inner_tag':isTag}
+            )
+                p.acc_name!=accName
+                - if (!!tags && (tags.length > 0))
+                    .tags
+                        each val in tags
+                            - let type = val.type ? val.type : "";
+                            +tag({text:val.text, type:type})
+        if !!accNameLink
+            .acc_name_wrap(
+                class={'inner_tag':isTag}
+            )
+                p.acc_name
+                    a(href="")
+                        span!=accNameLink
+                - if (!!tags && (tags.length > 0))
+                    .tags
+                        each val in tags
+                            - let type = val.type ? val.type : "";
+                            +tag({text:val.text, type:type})
+        .acc_data
             if !!accNum
                 p.acc_num!=accNum
 
@@ -27,11 +47,7 @@ mixin accountbox(params={})
                 span.won 원
 
 
-        - if (!!tags && (tags.length > 0))
-            .tags
-                each val in tags
-                    - let type = val.type ? val.type : "";
-                    +tag({text:val.text, type:type})
+
 
         if btns.length > 0
             .btns

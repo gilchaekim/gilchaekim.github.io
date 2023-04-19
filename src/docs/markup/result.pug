@@ -31,9 +31,17 @@ block content
             },
           ]
         })
-        
     br
     br
+
+    +guideTitle({
+      text:"조회 결과 리스트",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +acc_results('acc_result')
+        +acc_results('acc_result2')
     +guideTitle({
       text:"Attribute",
       level:2
