@@ -1515,6 +1515,36 @@ table, th, td {
   color: var(--font_color02);
 }
 
+.mui_accresult .date {
+  padding-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+}
+.mui_accresult .lists {
+  border-bottom: 1px solid var(--line_color02);
+  padding: 16px 0;
+}
+.mui_accresult .text, .mui_accresult .time {
+  display: flex;
+  justify-content: space-between;
+}
+.mui_accresult .text .txt1 {
+  font-size: 16px;
+  color: var(--font_color02);
+}
+.mui_accresult .text .txt2 {
+  font-size: 18px;
+  color: var(--font_color01);
+  font-weight: 700;
+}
+.mui_accresult .time {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--basic_color04);
+}
+
 a:link, a:active, a:hover, a:focus {
   color: #111;
   text-decoration: none;
