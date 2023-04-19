@@ -17,37 +17,31 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_title"><p class="title lv1">제목 Lv1</p></div><div class="mui_title"><p class="title lv1">제목 Lv2</p></div><div class="mui_title"><p class="title lv1">제목 Lv3</p></div><div class="mui_title"><p class="title lv1">제목 Lv4</p></div><div class="mui_title"><p class="title lv1">제목 Lv5</p></div><div class="mui_title"><p class="title lv1">제목 Lv6</p></div></section><div class="code_block"><pre><code class="language-pug">//- clsLv
+        <div class="guide_card_box"><section class="code_view"><div class="mui_title"><p class="title lv1">제목 Lv1</p></div><div class="mui_title"><p class="title lv2">제목 Lv2</p></div><div class="mui_title"><p class="title lv3">제목 Lv3</p></div><div class="mui_title"><p class="title lv4">제목 Lv4</p></div><div class="mui_title"><p class="title lv5">제목 Lv5</p></div><div class="mui_title"><p class="title lv6">제목 Lv6</p></div></section><div class="code_block"><pre><code class="language-pug">//- clsLv
 //- tagLv
 +title({
   text:'제목 Lv1',
-  clsLv:1,
-  tagLv:1,
+  lv:1,
 })
 +title({
   text:'제목 Lv2',
-  clsLv:2,
-  tagLv:2,
+  lv:2,
 })
 +title({
   text:'제목 Lv3',
-  clsLv:3,
-  tagLv:3,
+  lv:3,
 })
 +title({
   text:'제목 Lv4',
-  clsLv:4,
-  tagLv:4,
+  lv:4,
 })
 +title({
   text:'제목 Lv5',
-  clsLv:5,
-  tagLv:5,
+  lv:5,
 })
 +title({
   text:'제목 Lv6',
-  clsLv:6,
-  tagLv:6,
+  lv:6,
 })</code></pre></div>
           <div class="view_code">
             <button>code view Toggle</button>
@@ -82,14 +76,8 @@
                   <td>-</td>
                 </tr>
                 <tr>
-                  <td>clsLv</td>
+                  <td>lv</td>
                   <td>클래스 레벨 (1 ~ 6)</td>
-                  <td>number</td>
-                  <td>-</td>
-                </tr>
-                <tr>
-                  <td>text</td>
-                  <td>Tag 레벨 (1 ~ 6)</td>
                   <td>number</td>
                   <td>-</td>
                 </tr>

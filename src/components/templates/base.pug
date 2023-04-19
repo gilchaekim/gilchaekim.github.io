@@ -23,15 +23,16 @@ html(lang="ko")
       src="/js/index.js"
     )
   body
-    #wrapper
-
+    #wrapper(
+      class={"open_allmenu":showAllMenu}
+    )
+      <!-- 전체메뉴 -->
+      include all_menu.pug
+      <!--// 전체메뉴 -->
       <!-- header -->
-      #header(
-        class={"allmenu":showAllMenu}
-      )
+      #header
         include header.pug
         block header
-        //- include webmenmen0100.pug
       <!-- / header -->
 
 
@@ -41,8 +42,8 @@ html(lang="ko")
       <!-- / contents -->
 
 
-      <!-- footer -->
-      #footer
-        include footer.pug
-      <!-- / footer -->
+      //- <!-- footer -->
+      //- #footer
+      //-   include footer.pug
+      //- <!-- / footer -->
       
