@@ -122,6 +122,14 @@ html {
   --font_color06: #fff;
   --font_color07: #3282fa;
   --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
   --button_color01: #DF6311;
   --button_color02: #5c627c;
   --button_color03: #ccc;
@@ -148,6 +156,14 @@ html.bank1 {
   --font_color06: #fff;
   --font_color07: #3282fa;
   --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
   --button_color01: #DF6311;
   --button_color02: #5c627c;
   --button_color03: #ccc;
@@ -174,6 +190,14 @@ html.bank2 {
   --font_color06: #fff;
   --font_color07: #3282fa;
   --font_color08: #ff334b;
+  --basic_color01: #111;
+  --basic_color02: #333;
+  --basic_color03: #666;
+  --basic_color04: #888;
+  --basic_color05: #ccc;
+  --basic_color06: #fff;
+  --basic_color07: #3282fa;
+  --basic_color08: #ff334b;
   --button_color01: #DF6311;
   --button_color02: #5c627c;
   --button_color03: #ccc;
@@ -1032,11 +1056,6 @@ table, th, td {
 
 .mui_tag {
   display: inline-block;
-  border-radius: 4px;
-  padding: 4px 10px;
-  font-size: 14px;
-  background-color: chocolate;
-  color: #fff;
 }
 
 .title {
@@ -1287,10 +1306,122 @@ table, th, td {
 .mui_accountbox ~ .mui_accountbox {
   margin-top: 12px;
 }
+.mui_accountbox.main_card {
+  background-color: var(--main_color01);
+  padding: 24px 24px 0;
+  border: 0 none;
+}
+.mui_accountbox.main_card .acc_val {
+  color: var(--font_color06);
+  margin-top: 24px;
+}
+.mui_accountbox.main_card .acc_val .won {
+  font-size: 22px;
+  margin-left: 0;
+}
+.mui_accountbox.main_card .acc_data {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.mui_accountbox.main_card .acc_data .acc_num {
+  color: var(--font_color06);
+  border-bottom: 0 none;
+}
+.mui_accountbox.main_card .acc_data .acc_end {
+  position: relative;
+  color: var(--font_color06);
+  padding-left: 0;
+  margin-left: 0;
+  margin-top: 4px;
+}
+.mui_accountbox.main_card .acc_data .acc_end::after {
+  display: none;
+}
+.mui_accountbox.main_card .btns {
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 24px -24px 0;
+}
+.mui_accountbox.main_card .btns .mui_button {
+  background: transparent;
+  color: var(--font_color06);
+  font-size: 14px;
+  height: 48px;
+  border-radius: 0;
+}
+.mui_accountbox.main_card .btns .mui_button ~ .mui_button {
+  margin-left: 0;
+}
+.mui_accountbox.main_card .btns .mui_button ~ .mui_button::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.2);
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  left: 0;
+}
+.mui_accountbox .acc_name_wrap {
+  position: relative;
+}
+.mui_accountbox .acc_name_wrap.inner_tag {
+  padding-right: 72px;
+}
+.mui_accountbox .acc_name_wrap .tags {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.mui_accountbox .acc_name_wrap .acc_name {
+  color: var(--font_color06);
+  font-weight: 400;
+}
+.mui_accountbox .acc_name_wrap .acc_name a {
+  color: var(--font_color06);
+}
+.mui_accountbox .acc_name_wrap .mui_tag {
+  width: 62px;
+  height: 20px;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 10px;
+  background: var(--basic_color01);
+  color: var(--font_color06);
+  font-size: 13px;
+  vertical-align: top;
+}
 .mui_accountbox .acc_name {
   font-size: 16px;
   color: var(--font_color02);
   font-weight: 700;
+}
+.mui_accountbox .acc_name a {
+  color: var(--font_color02);
+  padding-right: 28px;
+  display: inline-block;
+  max-width: 100%;
+  position: relative;
+  vertical-align: top;
+}
+.mui_accountbox .acc_name a::after {
+  content: "";
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23fff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.mui_accountbox .acc_name a span {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .mui_accountbox .acc_val {
   text-align: right;
@@ -1377,5 +1508,35 @@ table, th, td {
 .mui_form_head {
   font-size: 14px;
   color: var(--font_color02);
+}
+
+.mui_accresult .date {
+  padding-bottom: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #888;
+}
+.mui_accresult .lists {
+  border-bottom: 1px solid var(--line_color02);
+  padding: 16px 0;
+}
+.mui_accresult .text, .mui_accresult .time {
+  display: flex;
+  justify-content: space-between;
+}
+.mui_accresult .text .txt1 {
+  font-size: 16px;
+  color: var(--font_color02);
+}
+.mui_accresult .text .txt2 {
+  font-size: 18px;
+  color: var(--font_color01);
+  font-weight: 700;
+}
+.mui_accresult .time {
+  margin-top: 4px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--basic_color04);
 }
 /*# sourceMappingURL=common.css.map */
