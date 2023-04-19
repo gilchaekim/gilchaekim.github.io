@@ -12,10 +12,12 @@ table, th, td, tr, textarea, button, form, figure, figcaption {
 
 /* a 링크 초기화 */
 a {
+  color: #111;
   text-decoration: none;
 }
 
-a:hover {
+a:hover, a:focus, a:active, a:link {
+  color: #111;
   text-decoration: none;
 }
 
