@@ -18,6 +18,50 @@ a:link, a:active, a:hover, a:focus {
 	text-decoration:none;
 }
 
+// header
+.header{
+	.title_center{
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 40px;
+	}
+	.title{
+		font-size: 16px;
+		color:$font_color01;
+		font-weight: 700;
+	}
+	.inner{
+		height: 56px;
+		padding: 8px 88px;
+		font-size: 0;
+		position: 1;
+	}
+	.side_left{
+		position: absolute;
+		left: 8px;
+		top: 8px;
+	}
+	.side_right{
+		position: absolute;
+		right: 8px;
+		top: 8px;
+	}
+	button{
+		width: 36px;
+		height: 36px;
+		&.btn_prev {
+			@include icon_svg(arrow-left, "#111", 24px);
+		}
+		&.btn_home {
+			background: url($url_common+"ico_home.svg") no-repeat center;
+		}
+		&.btn_allmenu {
+			background: url($url_common+"ico_menu.svg") no-repeat center;
+		}
+	}
+}
+
 .allmenu_wrap {
 	position:absolute;
 	top:0;

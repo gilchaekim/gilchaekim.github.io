@@ -1,5 +1,9 @@
 extends ../components/templates/base.pug
 
+
+block prepend top 
+  - pageTitle = "거래내역조회";
+
 block content
   +button({
     label:"기본 모달 호출",

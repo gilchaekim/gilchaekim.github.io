@@ -86,6 +86,29 @@
           <div class="view_code">
             <button>code view Toggle</button>
           </div>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><div class="switch"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId1"/><label for="chkId1">잔액표시</label></span></div><br/><div class="switch type2"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId2"/><label for="chkId2">잔액표시</label></span></div><br/><div class="switch type3"><span class="mui_checkbox"><input type="checkbox" id="chkId3"/><label for="chkId3">잔액</label></span></div></section><div class="code_block"><pre><code class="language-pug">.switch
+  span.label 잔액 ON
+  +radioCheck({
+    name:'chk',
+    label:'잔액표시',
+  })
+br
+.switch.type2
+  span.label 잔액 ON
+  +radioCheck({
+    name:'chk',
+    label:'잔액표시',
+  })
+br
+.switch.type3
+  +radioCheck({
+    name:'chk',
+    label:'잔액',
+  })</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
         </div><br><br>
         <div class="title_sec">
           <p class="guide_title title_lv2">Attribute</p>

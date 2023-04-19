@@ -72,6 +72,27 @@ block content
             }
           ]
         })
+    +guideExample()(code)
+      :code
+        .switch
+          span.label 잔액 ON
+          +radioCheck({
+            name:'chk',
+            label:'잔액표시',
+          })
+        br
+        .switch.type2
+          span.label 잔액 ON
+          +radioCheck({
+            name:'chk',
+            label:'잔액표시',
+          })
+        br
+        .switch.type3
+          +radioCheck({
+            name:'chk',
+            label:'잔액',
+          })
     br
     br
     +guideTitle({
