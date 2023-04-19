@@ -1576,11 +1576,11 @@ a:link, a:active, a:hover, a:focus {
   left: 0;
   width: 20px;
   height: 20px;
-  background: url("/src/images/ico_user.png") no-repeat center/100%;
+  background: url("/src/images/ico_login.svg") no-repeat center/100%;
   transform: translateY(-50%);
 }
 .allmenu_wrap .login_wrap .login.logout::before {
-  background: url("/src/images/ico_logout.png") no-repeat center/100%;
+  background: url("/src/images/ico_logout.svg") no-repeat center/100%;
 }
 .allmenu_wrap .login_wrap .btn_close {
   width: 24px;
@@ -1651,7 +1651,7 @@ a:link, a:active, a:hover, a:focus {
   flex: none;
   width: 24px;
   height: 24px;
-  background: red url("/src/images/ico_search.png") no-repeat center/100%;
+  background: url("/src/images/ico_search.svg") no-repeat center/100%;
 }
 .allmenu_wrap .search_wrap input {
   width: 100%;
@@ -1668,7 +1668,7 @@ a:link, a:active, a:hover, a:focus {
   width: 20px;
   height: 20px;
   font-size: 0;
-  background: red url("/src/images/ico_search.png") no-repeat center/100%;
+  background: url("/src/images/btn_inputdel.svg") no-repeat center/100%;
   text-indent: -9999px;
 }
 .allmenu_wrap .search_result {
@@ -1705,7 +1705,7 @@ a:link, a:active, a:hover, a:focus {
   left: 50%;
   width: 64px;
   height: 64px;
-  background: red url("/src/images/ico_search.png") no-repeat center/100%;
+  background: url("/src/images/ico_search_empty.svg") no-repeat center/100%;
   transform: translateX(-50%);
 }
 .allmenu_wrap .hash_tag {
