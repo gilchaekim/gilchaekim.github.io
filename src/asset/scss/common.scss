@@ -17,8 +17,75 @@ a:link, a:active, a:hover, a:focus {
 	color:#111;
 	text-decoration:none;
 }
+hr {
+	margin:40px -24px;
+	height:8px;
+	background:$bg_color01;
+	border:none;
+}
+.al_left {
+	text-align:left !important;
+}
+.al_right {
+	text-align:right !important;
+}
+.al_center {
+	text-align:center !important;
+}
+.main_color01 {
+	color:$main_color01;
+}
+/* 하단안내문구(아이콘 유무) */
+.info_txt {
+	position:relative;
+	padding-top:12px;
+	font-size:14px;
+	color:$basic_color04;
+	&.icon_type {
+		padding-left:24px;
+		font-size:13px;
+		&::before {
+			content:"";
+			position:absolute;
+			top:10px;
+			left:0;
+			width:20px;
+			height:20px;
+			@include icon_svg_tooltip(gray, 20px);
+		}
+	}
+}
 
+.pb24 {
+	padding-bottom:24px !important;
+}
+.acc_lists {
+	padding-top:16px;
+	&.mui_open {
+		.mui_acc_button {
+			font-size:0;
+			@include icon_svg(arrow-down, "#111", 20px);
+			transform:rotate(180deg);
+		}
+	}
+	.acc_header {
+		display:flex;
+		justify-content:space-between;
+		gap:0 8px;
+		padding:16px 0;
+	}
+	.acc_tit {
+		display:flex;
+		justify-content:space-between;
+		width:100%;
+	}
+	.mui_acc_button {
+		font-size:0;
+		@include icon_svg(arrow-down, "#111", 20px);
+	}
+}
 
+/* 전체메뉴 */
 #wrapper{
 	&.open_allmenu{
 		.allmenu_wrap{

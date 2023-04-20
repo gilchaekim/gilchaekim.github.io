@@ -1,0 +1,37 @@
+extends ../components/templates/base.pug
+
+block prepend top
+  - pageTitle = "거래내역조회"
+
+block content
+  +content_group(1)
+    .card_topwrap
+      +accountbox({
+        accNameLink:"비대면 파킹통장 보통예금",
+        accNum:"평생 010-1234-5678-12",
+        endDate:"만기일 2023.04.12",
+        accVal:"17,558,000",
+        className:"main_card",
+        btns: [
+          {
+            label:"버튼"
+          },
+          {
+            label:"버튼"
+          }
+        ],
+        tags:[{
+          text:"거래중지", type:"test111222"
+        }]
+      })
+      button.inquiry_setting
+        span 2023.01.01 ~ 2023.12.31
+        span 일주일 · 전체 · 최근
+        
+  
+  +content_group(1)
+    .inq_result
+      +acc_results('acc_result2')
+      +acc_results('acc_result2')
+      +acc_results('acc_result2')
+      +button_more()

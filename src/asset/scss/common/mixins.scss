@@ -486,7 +486,7 @@ $sqrt_2: 1.41421356237;
 }
 
 @mixin icon_svg_tooltip($color:black, $size:20px) {
-    // $color  - white, black
+    // $color  - white, black, gray
     $outer:'555';
     $inner:'fff';
     @if $color == white {
