@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="login type2"
+  - pageTitle = "로그인"
+
+block content
+  .main_title 
+    +title({
+      text:'간편비밀번호',
+      lv:1,
+    })
+    p.sub_txt 
+      | 본인인증을 위해
+      br
+      | 간편비밀번호 6자리를 입력해주세요.
+  .ico
+    img(src="/src/images/ico_example.png", alt="")
+  .support_link
+    a(href="").highlight 로그인방식 변경
+
+  .bottom_fixed
+    p.etc_txt
+      span 간편비밀번호 등록 후 로그인이 가능합니다.
+    a.btn_link 간편비밀번호 등록

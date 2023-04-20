@@ -225,22 +225,6 @@ a:link, a:active, a:hover, a:focus {
 			gap:16px 0;
 			padding-top:24px;
 		}
-		.no_search {
-			position:relative;
-			margin-top:36px;
-			padding-top:80px;
-			text-align:center;
-			&::before {
-				content:"";
-				position:absolute;
-				top:0;
-				left:50%;
-				width:64px;
-				height:64px;
-				background:url($url_common+"ico_search_empty.svg") no-repeat center / 100%;
-				transform:translateX(-50%);
-			}
-		}
 	}
 	.hash_tag {
 		display:flex;
@@ -365,4 +349,217 @@ a:link, a:active, a:hover, a:focus {
 			}
 		}
 	}
+}
+
+.login{
+	overflow: auto;
+	.mui_form{
+		&:first-child{
+			margin-top: 24px;
+		}
+	}
+	&.type1{
+		padding-bottom: 180px;
+	}
+	&.type2{
+		padding-bottom: 130px;
+	}
+	padding: 0 24px;
+	// min-height: calc(100vh - );
+	.main_title{
+		margin-top: 60px;
+		text-align: center;
+		& + .mui_form{
+			margin-top: 60px;
+		}
+		&.type2{
+			margin-top: 24px;
+			text-align: left;
+		}
+	}
+	.result_box{
+		background:$bg_color02;
+		text-align: center;
+		padding: 32px 0;
+		border-radius: 20px;
+		margin-top: 24px;
+		p{
+			color:$main_color01;
+			font-size: 16px;
+			font-weight: 700;
+		}
+	}
+	.sub_txt{
+		font-size: 14px;
+		color:$font_color03;
+		margin-top: 24px;
+	}
+	.ico{
+		margin-top: 32px;
+		text-align: center;
+		img{
+			width: 120px;
+			height: 120px;
+		}
+	}
+	.support_link{
+		margin-top: 32px;
+		text-align: center;
+		display: flex;
+		justify-content: center;
+		a{
+			font-size: 13px;
+			color:$basic_color04;
+			position: relative;
+			&.highlight{
+				color:$main_color01;
+			}
+			& ~ a{
+				margin-left: 12px;
+				padding-left: 13px;
+				&:after{
+					content: '';
+					display: block;
+					width: 1px;
+					height: 12px;
+					position: absolute;
+					top: 3px;
+					left: 0;
+					background:$line_color02;
+				}
+			}
+		}
+	}
+	.support{
+		text-align: right;
+		margin-top: 12px;
+		a{
+			display: inline-block;
+			font-size: 13px;
+			color:$main_color01;
+			padding-right: 16px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include icon_svg(arrow-left, "#DF6311", 16px);
+				transform: rotate(180deg);
+			}
+		}
+	}
+	.bottom_fixed{
+		text-align: center;
+		padding: 16px;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background:$bg_color03;
+	}
+	.etc_txt{
+		display: flex;
+		justify-content: center;
+		span{
+			padding-left: 24px;
+			color:$basic_color04;
+			font-size: 13px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				position: absolute;
+				top: -2px;
+				left: 0;
+				@include icon_svg_tooltip(grey, 20px);
+			}
+		}
+	}
+	.btn_link{
+		display: inline-block;
+		height: 40px;
+		line-height: 40px;
+		border-radius: 20px;
+		border: 1px solid $line_color01;
+		font-size: 14px;
+		padding: 0 24px;
+		margin: 16px 0 24px;
+	}
+	.btn_wrap{
+		margin: 0 -16px;
+		padding: 40px 0 16px;
+		&.fixed{
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 16px 32px;
+		}
+	}
+
+	.total{
+		margin-top: 24px;
+		font-size: 14px;
+		color:$font_color03;
+		em{
+			font-weight: 700;
+			color:$main_color01;
+		}
+	}
+	.acc_list_result{
+		margin-top: 12px;
+		.list{
+			box-shadow: 0 4px 8px rgba(0,0,0,.04);
+			border: 1px solid $line_color03;
+			border-radius: 20px;
+			padding: 20px;
+			& ~ .list{
+				margin-top: 12px;
+			}
+			dt{
+				font-size: 16px;
+				color:$main_color01;
+			}
+			dd{
+				font-size: 13px;
+				color:$basic_color04;
+				margin-top: 4px;
+				line-height: 20px;
+				span{
+					border-bottom: 1px solid $basic_color04;
+				}
+				.copy{
+					display: inline-block;
+					width: 20px;
+					height: 20px;
+					background: url($url_common+"icon_copy.svg") no-repeat center;
+					vertical-align: top;
+					margin-left: 4px;
+				}
+			}
+		}
+	}
+
+}
+
+.toast_pop_wrap{
+  position: fixed;
+	left: 24px;
+	right: 24px;
+  bottom: 0;
+  overflow: hidden;
+  height: auto;
+  opacity: 0;
+	text-align: center;
+  transition: all .3s;
+  .toast{
+    padding: 16px 24px 16px;
+		line-height: 24px;
+    border-radius: 32px;
+    background: $basic_color02;
+    color: $font_color06;
+    position: relative;
+  }
 }

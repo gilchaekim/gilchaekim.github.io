@@ -4,8 +4,6 @@
 .mui_text_lists{
     li{
         position: relative;
-        padding: 4px;
-        padding-left: 8px;
     }
     &.dot{
         & > ul > li{
@@ -29,6 +27,27 @@
                 display: block;
                 position: absolute;
                 top: 2px;
+                left: 0;
+            }
+        }
+    }
+    &.guide{
+        & > ul > li{
+            font-size: 14px;
+            color:$font_color03;
+            padding-left: 9px;
+            & ~ li{
+                margin-top: 12px;
+            }
+            &::before{
+                content: '';
+                display: block;
+                width: 3px;
+                height: 3px;
+                border-radius: 2px;
+                background:$basic_color03;
+                position: absolute;
+                top: 5px;
                 left: 0;
             }
         }

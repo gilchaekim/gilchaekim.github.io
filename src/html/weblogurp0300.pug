@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="login"
+  - pageTitle = "뱅킹비밀번호 재등록"
+
+block content
+  +result({
+    type:'success',
+    mainText:"비밀번호 재등록 완료",
+    subText:"로그인 후 인터넷뱅킹 서비스를<br>이용해주시기 바랍니다.",
+    img:"/src/images/ico_example2.png",
+  })
+  .btn_wrap.fixed
+    +button({
+      label:"로그인",
+      size:"large",
+    })
+

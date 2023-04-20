@@ -17,4 +17,37 @@
       margin-top: 24px;
     }
   }
+  &_ico{
+		padding-top: 60px;
+		text-align: center;
+    &.null{
+      padding-top: 36px;
+      .main_txt{
+        color:$font_color02;
+        font-size: 16px;
+        margin-top: 16px;
+        font-weight: 400;
+      }
+    }
+		.icon_img{
+			width: 64px;
+			height: 64px;
+			margin: 0 auto;
+			img{
+				width: 64px;
+				height: 64px;
+			}
+		}
+		.main_txt{
+			color:$font_color01;
+			margin-top: 24px;
+			font-weight: 700;
+			font-size: 24px;
+		}
+		.sub_txt{
+			color:$font_color03;
+			margin-top: 16px;
+			font-size: 14px;
+		}
+	}
 }

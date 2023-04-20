@@ -3,12 +3,22 @@
 
 .mui_form_list{
   & ~ .mui_form_list{
-    margin-top: 24px;
+    margin-top: 32px;
   }
   .mui_form_content{
     margin-top: 8px;
   }
-  
+  .mui_input{
+    & + .mui_input{
+      margin-top: 12px;
+    }
+  }
+  .mui_radio_group{
+    padding-top: 4px;
+    & + .mui_input{
+      margin-top: 12px;
+    }
+  }
 }
 .mui_form_value{
   height: 48px;

@@ -39,7 +39,7 @@ mixin button(params={})
 
   - let element = "button"
   - let buttonType = "button"
-  - const { size="medium", label, isIcon, href, muiToggle, className, type="primary", id, ...rest } = Object.assign({}, params)
+  - const { size="medium", label, isIcon, href, muiToggle, className, disabled, type="primary", id, ...rest } = Object.assign({}, params)
   //- primary , success, grey, white, info, default
   if href
     - element = "a"
@@ -56,6 +56,7 @@ mixin button(params={})
     type=buttonType
     href=href
     mui-toggle=muiToggle
+    disabled=disabled
   )
     span
       | #{label}
@@ -96,3 +97,18 @@ mixin button_more()
   )
     span
       | 더보기
+
+mixin button_link(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  
+  - const { element="div",  className, list = [], ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}link_text`
+    class=className
+  )
+    each val in list
+      a(href="")
+        span!=val

@@ -1,0 +1,21 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="login"
+  - pageTitle = "아이디찾기"
+
+block content
+  .main_title.type2
+    +title({
+      text:'ID조회 결과',
+      lv:1,
+    })
+  .result_box 
+    p SAVSAVSAV
+
+  .btn_wrap.fixed
+    +button({
+      label:"확인",
+      size:"large",
+    })
+

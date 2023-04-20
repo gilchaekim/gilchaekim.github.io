@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="login"
+  - pageTitle = "뱅킹비밀번호 재등록"
+
+block content
+  .main_title.type2
+    +title({
+      text:'보유 계좌번호 결과',
+      lv:1,
+    })
+  .total 
+    p 
+      | 총
+      em 2
+      | 건
+
+  .acc_list_result 
+    dl.list 
+      dt 참알찬IBK저축은행보통예금
+      dd 
+        span 000-00-00-00000 
+        a.copy
+          span.hidden 계좌번호 복사
+    dl.list 
+      dt 참알찬IBK저축은행보통예금
+      dd 
+        span 000-00-00-00000 
+        a.copy
+          span.hidden 계좌번호 복사
+
+  +button_link({
+    list: [
+      '사용자비밀번호 분실 재등록',
+      '아이디 찾기',
+      '장기미접속 해제',
+    ]
+  })
+  .btn_wrap
+    +button({
+      label:"확인",
+      size:"large",
+    })

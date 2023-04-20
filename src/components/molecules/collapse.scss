@@ -1,2 +1,56 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+.guide_text{
+  padding-top: 32px;
+  position: relative;
+  margin-top: 60px;
+  &:before{
+    content: '';
+    display: block;
+    height: 8px;
+    top: 0;
+    left: -24px;
+    right: -24px;
+    background: $line_color04;
+    position: absolute;
+  }
+  .acc_header{
+    padding: 12px 0;
+    position: relative;
+    border-bottom: 1px solid $line_color03;
+    .title{
+      font-size: 16px;
+      font-weight: 700;
+      color:$font_color01;
+      padding-left: 24px;
+      position: relative;
+      &::before{
+        content: '';
+        display: block;
+        @include icon_svg_tooltip(black2, 20px);
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+    .mui_acc_button{
+      @include icon_svg(arrow-down, "#111", 20px);
+      color: transparent;
+      text-indent: -9999em;
+      position: absolute;
+      right: 0;
+      top: 12px;
+      font-size: 0;
+    }
+  }
+  .mui_acc_content{
+    padding: 16px 0;
+  }
+  .mui_open{
+    .mui_acc_button{
+      transform: rotate(180deg);
+      top: 10px;
+    }
+  }
+}

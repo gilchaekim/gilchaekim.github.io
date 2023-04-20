@@ -3,15 +3,38 @@ mixin result(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, data} = Object.assign({}, params);
+  - const {element='div', className, type, mainText, subText, img, data } = Object.assign({}, params);
 
-  #{element}(
-    class=`${prefix}${divide}result`
-    class=className
-  )
-    each obj in data
-      dl 
-        dt
-          !=obj.title
-        dd 
-          !=obj.text
+  if data
+    #{element}(
+      class=`${prefix}${divide}result`
+      class=className
+    )
+      each obj in data
+        dl 
+          dt
+            !=obj.title
+          dd 
+            !=obj.text
+  //- success, fail, null
+  if type                                        
+    #{element}(
+      class=`${prefix}${divide}result${divide}ico ${type}`
+      class=className
+    )
+      if type == "null"
+        if img
+          .icon_img
+            img(src=img, alt="")
+        if mainText  
+          p.main_txt!=mainText
+        if subText
+          p.sub_txt!=subText
+      else 
+        if img
+          .icon_img
+            img(src=img, alt="")
+        if mainText  
+          p.main_txt!=mainText
+        if subText
+          p.sub_txt!=subText
