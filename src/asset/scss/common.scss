@@ -17,8 +17,75 @@ a:link, a:active, a:hover, a:focus {
 	color:#111;
 	text-decoration:none;
 }
+hr {
+	margin:40px -24px;
+	height:8px;
+	background:$bg_color01;
+	border:none;
+}
+.al_left {
+	text-align:left !important;
+}
+.al_right {
+	text-align:right !important;
+}
+.al_center {
+	text-align:center !important;
+}
+.main_color01 {
+	color:$main_color01;
+}
+/* 하단안내문구(아이콘 유무) */
+.info_txt {
+	position:relative;
+	padding-top:12px;
+	font-size:14px;
+	color:$basic_color04;
+	&.icon_type {
+		padding-left:24px;
+		font-size:13px;
+		&::before {
+			content:"";
+			position:absolute;
+			top:10px;
+			left:0;
+			width:20px;
+			height:20px;
+			@include icon_svg_tooltip(gray, 20px);
+		}
+	}
+}
 
+.pb24 {
+	padding-bottom:24px !important;
+}
+.acc_lists {
+	padding-top:16px;
+	&.mui_open {
+		.mui_acc_button {
+			font-size:0;
+			@include icon_svg(arrow-down, "#111", 20px);
+			transform:rotate(180deg);
+		}
+	}
+	.acc_header {
+		display:flex;
+		justify-content:space-between;
+		gap:0 8px;
+		padding:16px 0;
+	}
+	.acc_tit {
+		display:flex;
+		justify-content:space-between;
+		width:100%;
+	}
+	.mui_acc_button {
+		font-size:0;
+		@include icon_svg(arrow-down, "#111", 20px);
+	}
+}
 
+/* 전체메뉴 */
 #wrapper{
 	&.open_allmenu{
 		.allmenu_wrap{
@@ -363,6 +430,112 @@ a:link, a:active, a:hover, a:focus {
 				padding:8px 24px 8px 32px;
 				color:$font_color04;
 			}
+		}
+	}
+}
+
+/* 뱅킹(거래내역조회) */
+.card_topwrap {
+	padding:24px 24px 0 24px;
+	background:rgba(243, 115, 32, 0.04);
+}
+.inquiry_setting {
+	position:relative;
+	display:flex;
+	justify-content:space-between;
+	align-items:center;
+	padding:16px 24px 16px 0;
+	width:100%;
+	font-size:13px;
+	color:$font_color02;
+	&::before {
+		content:"";
+		position:absolute;
+		right:0;
+		@include icon_svg(arrow-down, "#333", 20px);
+	}
+}
+.inq_result {
+	padding:0 24px 38px 24px;
+	.mui_accresult {
+		.date {
+			padding-top:32px;
+			padding-bottom:0;
+		}
+		.in {
+			color:$main_color01;
+		}
+	}
+	.mui_more {
+		padding-top:24px;
+	}
+}
+
+/* 바텀팝업 */
+.mui-modal {
+	.txt_pop {
+		font-size:18px;
+		color:$font_color01;
+	}
+}
+
+/* 뱅킹(전체계좌조회) */
+.allmoney_card {
+	display:flex;
+	justify-content:space-between;
+	flex-direction:column;
+	padding:32px 24px;
+	background:$main_color01;
+	.dp_flex {
+		display:flex;
+		justify-content:space-between;
+	}
+	.tit {
+		font-size:14px;
+		color:$font_color06;
+	}
+	.switch {
+		.mui_checkbox {
+			label::before {
+				background:$basic_color01;
+			}
+			label::after {
+				background:$bg_color03;
+			}
+		}
+	}
+	
+	.label {
+		font-size:13px;
+		color:$font_color06;
+	}
+	.my_money {
+		padding-top:10px;
+		font-size:24px;
+		font-weight:700;
+		color:$font_color06;
+	}
+}
+.inq_list {
+	margin:0 24px;
+	padding-top:32px;
+	border-top:1px solid $line_color03;
+	.mui_text_lists {
+		font-size:13px;
+		color:$basic_color04;
+		&.dot > ul {
+			& > li::before {
+				background:$basic_color05;
+			}
+		}
+	}
+	.mui_button_wrap {
+		padding-top:24px;
+		.btn_line {
+			color:$main_color01;
+			background:$bg_color03;
+			border:1px solid $line_color02;
+			border-radius:8px;
 		}
 	}
 }

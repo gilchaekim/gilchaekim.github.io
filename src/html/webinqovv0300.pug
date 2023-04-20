@@ -1,0 +1,140 @@
+extends ../components/templates/base.pug
+
+block prepend top
+  - pageTitle = "거래내역조회"
+
+block content
+  +content_group(1)
+    .card_topwrap.pb24
+      +accountbox({
+        accNameLink:"비대면 파킹통장 보통예금",
+        accNum:"평생 010-1234-5678-12",
+        accVal:"17,558,000",
+        className:"main_card",
+        btns: [
+          {
+            label:"이체"
+          },
+          {
+            label:"거래내역조회"
+          }
+        ]
+      })
+  
+    +result({
+      data:[
+        {
+          title:"계좌상태",
+          text:"활동계좌",
+        },
+        {
+          title:"출금가능액",
+          text:"700,000원",
+        },
+        {
+          title:"신규일자",
+          text:"YYYY.MM.DD",
+        },
+        {
+          title:"만기일자",
+          text:"YYYY.MM.DD",
+        },
+        {
+          title:"약정이자 (세전)",
+          text:"13,456원",
+        },
+        {
+          title:"세금우대구분",
+          text:"개인과세",
+        },
+        {
+          title:"총 납입횟수",
+          text:"7회",
+        },
+        {
+          title:"월불입금액",
+          text:"100,000원",
+        },
+        {
+          title:"총 잔액",
+          text:"700,000원",
+        },
+        {
+          title:"기본이율 (연평균수익율)",
+          text:"5.2(5.61223)%",
+        },
+        {
+          title:"최종거래일",
+          text:"YYYY.MM.DD",
+        },
+        {
+          title:"자동납부은행",
+          text:"상상인저축은행",
+        },
+        {
+          title:"자동납부계좌",
+          text:"123-45-56-456789",
+        },
+        {
+          title:"자동납부결과",
+          text:"-",
+        },
+        {
+          title:"자동만기연장 여부",
+          text:"N",
+        },
+        {
+          title:"자동해지송금 여부",
+          text:"(저축은행) 1234567897",
+        },
+        {
+          title:"비대면전용가입계좌여부",
+          text:"Y",
+        },
+        {
+          title:"비대면전용가입<br>보통예금계좌",
+          text:"456-12-45-4567897",
+        },
+      ]
+    })
+
+    .inq_list
+      +textLists({
+        type:'dot',
+        lists:[
+          {
+            text:"계좌 해지 시에는 이자가 반영되어 잔액과 차이가 있을 수 있습니다.",
+          },
+          {
+            text:"계약금액 : 정액식의 경우 약정원리금 (월불입금+계약월수+이자)이며, 자유식의 경우 신규 시 입력한 총불입한도입니다.",
+          },
+          {
+            text:"장기주택마련저축 및 재형저축의 경우 분기별한도입니다.",
+          },
+          {
+            text:"변동금리 상품의 금리변동내역은 영업점에 문의하시기 바랍니다.",
+          },
+        ]
+      })
+    
+      +button_wrap()
+        +button({
+          label:"통장사본",
+          size:'medium',
+          className:"btn_line"
+        })
+
+      hr
+      
+      +title({
+        text:'예금자 보호 안내',
+        lv:4,
+        className:"ddssd",
+      })
+      p.info_txt 예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 5천만원까지 예금자 보호
+
+      +button_wrap()
+        +button({
+          label:"계좌목록",
+          size:'large'
+        })

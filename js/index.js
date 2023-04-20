@@ -5144,17 +5144,22 @@
         var test = _ref6.test,
           value = _ref6.value;
         return "".concat(test, "234234233444").concat(value);
+      },
+      format: function format(_ref7) {
+        var format = _ref7.format;
+        return parseFormat(format);
       }
     },
     connected: function connected() {
-      var pickerButton = this.pickerButton,
-        startDate = this.startDate,
-        endDate = this.endDate,
-        $el = this.$el;
+      this.pickerButton;
+        var startDate = this.startDate,
+        endDate = this.endDate;
+        this.$el;
       var initialValue = this.initialValue,
         date = this.date;
-      this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>');
-      this.format = parseFormat(this.format);
+      // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
+      // this.format = parseFormat(this.format);
+
       initialValue = this.getValue();
       date = this.parseDate(date || initialValue);
       this.date = date;
@@ -5302,9 +5307,10 @@
         $year.innerHTML = yearText;
         $month.innerHTML = montText;
         addClass(calendar, 'mui_active');
-        css(calendar, 'top', "".concat(dimensions(this.$el).top + dimensions(this.$el).height, "px"));
+        this.renderDays();
+        css(calendar, 'top', "30%");
+        // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
         css(calendar, 'left', "".concat(dimensions(this.$el).left, "px"));
-        return this.renderDays();
       },
       closePickerDate: function closePickerDate() {
         var weeks = this.weeks,

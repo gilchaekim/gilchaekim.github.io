@@ -35,6 +35,8 @@
     &_wrap{
       display: flex;
       justify-content: baseline;
+      margin:0 -24px;
+      padding:40px 16px 16px 16px;
     }
     & ~ .mui_button{
       margin-left: 8px;

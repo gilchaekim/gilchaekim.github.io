@@ -1678,6 +1678,7 @@ a:link, a:active, a:hover, a:focus {
   text-decoration: none;
 }
 
+/* 전체메뉴 */
 #wrapper.open_allmenu .allmenu_wrap {
   display: block;
 }
@@ -2004,5 +2005,45 @@ a:link, a:active, a:hover, a:focus {
   display: inline-block;
   padding: 8px 24px 8px 32px;
   color: var(--font_color04);
+}
+
+/* 뱅킹(거래내역조회) */
+.card_topwrap {
+  padding: 24px 24px 0 24px;
+  background: rgba(243, 115, 32, 0.04);
+}
+.card_topwrap .inquiry_setting {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 16px 0;
+  width: 100%;
+  font-size: 13px;
+  color: var(--font_color02);
+}
+.card_topwrap .inquiry_setting::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+}
+
+.inq_result {
+  padding: 0 24px 38px 24px;
+}
+.inq_result .mui_accresult .date {
+  padding-top: 32px;
+  padding-bottom: 0;
+}
+.inq_result .mui_accresult .in {
+  color: var(--main_color01);
+}
+.inq_result .mui_more {
+  padding-top: 24px;
 }
 /*# sourceMappingURL=common.css.map */

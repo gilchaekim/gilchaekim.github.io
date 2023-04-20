@@ -76,8 +76,9 @@ export default function (UICommon) {
     }
     
     function applyChildList({addedNodes, removedNodes}) {
-    
+        
         for (let i = 0; i < addedNodes.length; i++) {
+            
             apply(addedNodes[i], connect);
         }
     

@@ -119,12 +119,15 @@ export default {
     targetValue({test, value}) {
       return `${test}234234233444${value}`;
     },
+    format({format}) {
+      return parseFormat(format);
+    }
   },
   connected() {
     const {pickerButton, startDate, endDate, $el} = this;
     let {initialValue, date} = this;
-    this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
-    this.format = parseFormat(this.format);
+    // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
+    // this.format = parseFormat(this.format);
     
     initialValue = this.getValue();
 
@@ -156,8 +159,6 @@ export default {
 
       this.endDate = endDate;
     }
-    
-
   },
   destory() {
     console.log('destory');
@@ -294,9 +295,11 @@ export default {
       $year.innerHTML = yearText;
       $month.innerHTML = montText;
       addClass(calendar, 'mui_active');
-      css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+      this.renderDays()
+      css(calendar, 'top', `30%`)
+      // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
       css(calendar, 'left', `${dimensions(this.$el).left}px`)
-      return this.renderDays()
+      
     },
     closePickerDate() {
       const {weeks, bodys, calendar} = this;
