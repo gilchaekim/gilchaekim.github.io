@@ -18,6 +18,21 @@ block content
         +datepicker({
           quickBtn:true
         })
+      
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'최신순',
+              checked:true
+            },
+            {
+              label:'과거순'
+            }
+          ]
+        })
     
     +button_wrap({
       className:'btn_bottom_wrap'

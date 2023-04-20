@@ -2,30 +2,27 @@ extends ../components/templates/base.pug
 
 block prepend top
   - pageTitle = "거래내역조회"
-  - mainClassName="webinq"
+
 block content
-  +content_group(1)
-    .card_topwrap.pb24
-      +accountbox({
-        accNameLink:"비대면 파킹통장 보통예금",
-        accNum:"평생 010-1234-5678-12",
-        accVal:"17,558,000",
-        className:"main_card",
-        btns: [
-          {
-            label:"이체"
-          },
-          {
-            label:"거래내역조회"
-          }
-        ],
-        tags:[{
-          text:"거래중지"
-        }]
+  +button({
+    label:"바텀팝업 호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+  +modal({
+    title:"조회설정",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +form()
+      +form_body({title:"조회기간"})
+        +datepicker({
+          quickBtn:true
+        })
+      
+    +button_wrap({
+      className:'btn_bottom_wrap'
+    })
+      +button({
+        label:"적용",
+        size:'large'
       })
-  +content_group(1)
-    .inq_result
-      +acc_results('acc_result3')
-      +acc_results('acc_result3')
-      +acc_results('acc_result3')
-      +button_more()
