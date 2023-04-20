@@ -231,103 +231,56 @@
       </div><!-- / header -->
 <!-- contents -->
       <div class="webinq" id="contants">
-        <div class="mui_contents_group lv_1">
-          <div class="card_topwrap">
-            <div class="mui_accountbox main_card">
-              <div class="acc_name_wrap inner_tag">
-                <p class="acc_name"><a href=""><span>비대면 파킹통장 보통예금</span></a></p>
-                <div class="tags">
-                  <span class="mui_tag test111222">거래중지</span>
+        <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>바텀팝업 호출</span></button><!-- layer -->
+        <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
+          <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> 
+            <div class="mui_modal_body">
+              <div class="mui_modal_header">조회설정</div>
+              <div class="mui_modal_content">
+                <div class="mui_form">
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">조회기간</span></div>
+                    <div class="mui_form_content">
+                <div class="inner_quick_btrn">
+                  <div class="mui_radio_group button_type">
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId1" name="btnTypeId1"/>
+                      <label for="btnTypeId1">일주일</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId2" name="btnTypeId1"/>
+                      <label for="btnTypeId2">1개월</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId3" name="btnTypeId1"/>
+                      <label for="btnTypeId3">3개월</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId4" name="btnTypeId1"/>
+                      <label for="btnTypeId4">6개월</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId5" name="btnTypeId1"/>
+                      <label for="btnTypeId5">직접입력</label>
+                    </span>
+                  </div>
+                  <div class="mui_datepicker" mui-datepicker="">
+                    <span class="mui_input">
+                      <input type="text" mui-input=""/>
+                    </span>
+                  </div>
+                </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mui_button_wrap btn_bottom_wrap">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>적용</span></button>
                 </div>
               </div>
-              <div class="acc_data">
-                <p class="acc_num">평생 010-1234-5678-12</p>
-              </div>
-              <p class="acc_val">17,558,000<span class="won">원</span>
-              </p>
-              <div class="btns">
-                <button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button>
-                <button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button>
-              </div>
+              <button class="mui_modal_close">닫기</button>
             </div>
-            <button class="inquiry_setting"><span>2023.01.01 ~ 2023.12.31</span><span>일주일 · 전체 · 최근</span></button>
           </div>
-        </div>
-        <div class="mui_contents_group lv_1">
-          <div class="inq_result">
-            <div class="mui_accresult">
-              <div class="acc_result">
-                <p class="date">02.15</p>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">GS 편의점</p>
-                    <p class="txt2 out">-5,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">급여</p>
-                    <p class="txt2 in">30,000,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">ABC 카페</p>
-                    <p class="txt2 out">-30,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="mui_accresult">
-              <div class="acc_result">
-                <p class="date">02.15</p>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">GS 편의점</p>
-                    <p class="txt2 out">-5,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">급여</p>
-                    <p class="txt2 in">30,000,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-                <div class="lists"> 
-                  <div class="text"> 
-                    <p class="txt1">ABC 카페</p>
-                    <p class="txt2 out">-30,000원</p>
-                  </div>
-                  <div class="time"> 
-                    <p class="txt1">11:08</p>
-                    <p class="txt2">3,064,000원</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button class="mui_button mui_more" type="button"><span>더보기</span></button>
-          </div>
-        </div>
+        </div><!-- / layer -->
       </div><!-- / contents -->
     </div>
   </body>

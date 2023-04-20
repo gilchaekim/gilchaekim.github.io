@@ -2,6 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top
   - pageTitle = "거래내역조회"
+  - mainClassName="webinq"
 
 block content
   +content_group(1)
@@ -26,7 +27,7 @@ block content
           +acc_title()
             .acc_tit
               strong 입출금
-                span.main_color01 &nbsp;1
+                span.main_color01 &nbsp;
               strong 1,500,000
                 span 원
           +acc_content()

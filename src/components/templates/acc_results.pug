@@ -46,3 +46,33 @@ mixin acc_results(type)
           .time 
             p.txt1 11:08
             p.txt2 3,064,000원
+
+  if type == "acc_result3"
+    #{element}(
+      class=`${prefix}${divide}accresult`
+    )
+      .acc_result
+        p.date 02.15
+        .lists 
+          .text 
+            p.txt1 대출상환
+            p.txt2 10,000,000원
+          .time 
+            p.txt1 11:08
+          +collapse({
+            isOpen:false
+          })
+            +header()
+              span.hidden 상세정보
+            +content()
+              .box
+                .text 
+                  p.txt1 이자
+                  p.txt2 50,000원
+                .text 
+                  p.txt1 연체료
+                  p.txt2 500원
+                .text 
+                  p.txt1 연체이자
+                  p.txt2 500,000원
+              

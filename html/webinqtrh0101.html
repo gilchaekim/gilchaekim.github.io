@@ -205,7 +205,11 @@
                 <li><a href="#">대출 > 신용대출/햇살론 > 신용정보<strong>조회</strong>동의</a></li>
                 <li><a href="#">대출 > 신용대출/햇살론 > 신용정보<strong>조회</strong>동의</a></li>
               </ul><!-- 검색결과없는경우 -->
-              <div class="no_search">검색결과가 없습니다.</div><!-- //검색결과없는경우 -->
+              <div class="no_search">검색결과가 없습니다.</div>
+              <div class="mui_result_ico null">
+                <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt=""/></div>
+                <p class="main_txt">검색결과가 없습니다.</p>
+              </div><!-- //검색결과없는경우 -->
             </div>
           </div>
         </div><!-- //검색시 표시 -->
@@ -217,7 +221,7 @@
             <div class="side_left">
               <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
             </div>
-            <div class="title_center"><span class="title">페이지 제목</span></div>
+            <div class="title_center"><span class="title">거래내역조회</span></div>
             <div class="side_right">
               <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
               <button class="btn_allmenu" type="button" mui-toggle="target:#wrapper;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -226,17 +230,17 @@
         </header>
       </div><!-- / header -->
 <!-- contents -->
-      <div id="contants">
+      <div class="webinq" id="contants">
         <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>바텀팝업 호출</span></button><!-- layer -->
         <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
           <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> 
             <div class="mui_modal_body">
               <div class="mui_modal_header">조회설정</div>
               <div class="mui_modal_content">
-                <div class="mui_title">
-                  <p class="title lv1">조회설정
-                  </p>
-                </div>
+                <div class="mui_form">
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">조회기간</span></div>
+                    <div class="mui_form_content">
                 <div class="inner_quick_btrn">
                   <div class="mui_radio_group button_type">
                     <span class="mui_radio">
@@ -265,6 +269,46 @@
                       <input type="text" mui-input=""/>
                     </span>
                   </div>
+                </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">거래유형</span></div>
+                    <div class="mui_form_content">
+                <div class="mui_radio_group button_type">
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId6" name="btnTypeId2" checked="checked"/>
+                    <label for="btnTypeId6">전체</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId7" name="btnTypeId2"/>
+                    <label for="btnTypeId7">입금</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId8" name="btnTypeId2"/>
+                    <label for="btnTypeId8">출금</label>
+                  </span>
+                </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">정렬순서</span></div>
+                    <div class="mui_form_content">
+                <div class="mui_radio_group button_type">
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId9" name="btnTypeId3" checked="checked"/>
+                    <label for="btnTypeId9">최신순</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId10" name="btnTypeId3"/>
+                    <label for="btnTypeId10">과거순</label>
+                  </span>
+                </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mui_button_wrap btn_bottom_wrap">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>적용</span></button>
                 </div>
               </div>
               <button class="mui_modal_close">닫기</button>

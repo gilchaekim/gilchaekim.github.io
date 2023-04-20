@@ -1840,6 +1840,9 @@ table, th, td {
 .mui_form_list .mui_radio_group + .mui_input {
   margin-top: 12px;
 }
+.mui_form_list .mui_radio_group.button_type {
+  padding-top: 0;
+}
 
 .mui_form_value {
   height: 48px;
@@ -1889,6 +1892,47 @@ table, th, td {
   font-size: 13px;
   font-weight: 300;
   color: var(--basic_color04);
+}
+.mui_accresult .mui_collapse .mui_open .mui_acc_button {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+}
+.mui_accresult .mui_collapse .acc_header {
+  position: relative;
+}
+.mui_accresult .mui_collapse .acc_header .mui_acc_button {
+  position: absolute;
+  top: -16px;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  font-size: 0;
+  text-indent: -9999em;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+}
+.mui_accresult .mui_collapse .mui_acc_content {
+  padding-top: 16px;
+}
+.mui_accresult .mui_collapse .mui_acc_content .box {
+  background: var(--bg_color02);
+  padding: 16px;
+  border-radius: 4px;
+}
+.mui_accresult .mui_collapse .mui_acc_content .text ~ .text {
+  margin-top: 12px;
+}
+.mui_accresult .mui_collapse .mui_acc_content .text .txt1, .mui_accresult .mui_collapse .mui_acc_content .text .txt2 {
+  font-size: 13px;
+  color: var(--font_color03);
+  font-weight: 300;
 }
 
 a:link, a:active, a:hover, a:focus {
@@ -1946,38 +1990,6 @@ hr {
 
 .pb24 {
   padding-bottom: 24px !important;
-}
-
-.acc_lists {
-  padding-top: 16px;
-}
-.acc_lists.mui_open .mui_acc_button {
-  font-size: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  transform: rotate(180deg);
-}
-.acc_lists .acc_header {
-  display: flex;
-  justify-content: space-between;
-  gap: 0 8px;
-  padding: 16px 0;
-}
-.acc_lists .acc_tit {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-.acc_lists .mui_acc_button {
-  font-size: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
 }
 
 /* 전체메뉴 */
@@ -2507,5 +2519,135 @@ hr {
   background: var(--basic_color02);
   color: var(--font_color06);
   position: relative;
+}
+
+.webinq {
+  /* 뱅킹(거래내역조회) */
+  /* 바텀팝업 */
+  /* 뱅킹(전체계좌조회) */
+}
+.webinq .card_topwrap {
+  padding: 24px 24px 0 24px;
+  background: rgba(243, 115, 32, 0.04);
+}
+.webinq .inquiry_setting {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 24px 16px 0;
+  width: 100%;
+  font-size: 13px;
+  color: var(--font_color02);
+}
+.webinq .inquiry_setting::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23333' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+}
+.webinq .inq_result {
+  padding: 0 24px 38px 24px;
+}
+.webinq .inq_result .mui_accresult .date {
+  padding-top: 32px;
+  padding-bottom: 0;
+}
+.webinq .inq_result .mui_accresult .in {
+  color: var(--main_color01);
+}
+.webinq .inq_result .mui_more {
+  padding-top: 24px;
+}
+.webinq .mui-modal .txt_pop {
+  font-size: 18px;
+  color: var(--font_color01);
+}
+.webinq .allmoney_card {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  padding: 32px 24px;
+  background: var(--main_color01);
+}
+.webinq .allmoney_card .dp_flex {
+  display: flex;
+  justify-content: space-between;
+}
+.webinq .allmoney_card .tit {
+  font-size: 14px;
+  color: var(--font_color06);
+}
+.webinq .allmoney_card .switch .mui_checkbox label::before {
+  background: var(--basic_color01);
+}
+.webinq .allmoney_card .switch .mui_checkbox label::after {
+  background: var(--bg_color03);
+}
+.webinq .allmoney_card .label {
+  font-size: 13px;
+  color: var(--font_color06);
+}
+.webinq .allmoney_card .my_money {
+  padding-top: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--font_color06);
+}
+.webinq .inq_list {
+  margin: 0 24px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line_color03);
+}
+.webinq .inq_list .mui_text_lists {
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webinq .inq_list .mui_text_lists.dot > ul > li::before {
+  background: var(--basic_color05);
+}
+.webinq .inq_list .mui_button_wrap {
+  padding-top: 24px;
+}
+.webinq .inq_list .mui_button_wrap .btn_line {
+  color: var(--main_color01);
+  background: var(--bg_color03);
+  border: 1px solid var(--line_color02);
+  border-radius: 8px;
+}
+.webinq .inq_list .acc_lists {
+  padding-top: 16px;
+}
+.webinq .inq_list .acc_lists.mui_open .mui_acc_button {
+  font-size: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+}
+.webinq .inq_list .acc_lists .acc_header {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 8px;
+  padding: 16px 0;
+}
+.webinq .inq_list .acc_lists .acc_tit {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+.webinq .inq_list .acc_lists .mui_acc_button {
+  font-size: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
 }
 /*# sourceMappingURL=common.css.map */

@@ -33,4 +33,43 @@
     font-weight: 300;
     color:$basic_color04;
   }
+  .mui_collapse{
+    .mui_open {
+      .mui_acc_button {
+        @include icon_svg(arrow-down, "#888", 16px);
+        transform:rotate(180deg);
+      }
+    }
+    .acc_header{
+      position: relative;
+      .mui_acc_button{
+        position: absolute;
+        top: -16px;
+        right: 0;
+        width: 16px;
+        height: 16px;
+        font-size: 0;
+        text-indent: -9999em;
+        @include icon_svg(arrow-down, "#888", 16px);
+      }
+    }
+    .mui_acc_content{
+      padding-top: 16px;
+      .box{
+        background:$bg_color02;
+        padding: 16px;
+        border-radius: 4px;
+      }
+      .text{
+        & ~ .text{
+          margin-top: 12px;
+        }
+        .txt1, .txt2{
+          font-size: 13px;
+          color:$font_color03;
+          font-weight: 300;
+        }
+      }
+    }
+  }
 }
