@@ -1004,15 +1004,18 @@ table, th, td {
 .mui_text_lists li {
   position: relative;
 }
+.mui_text_lists.dot > ul > li {
+  padding-left: 9px;
+}
 .mui_text_lists.dot > ul > li::before {
   content: "";
   display: block;
-  width: 2px;
-  height: 2px;
+  width: 3px;
+  height: 3px;
   border-radius: 1px;
-  background: #333;
+  background: #ccc;
   position: absolute;
-  top: 12px;
+  top: 7px;
   left: 0;
 }
 .mui_text_lists.hyphhen > ul > li::before {
@@ -2544,6 +2547,9 @@ hr {
   padding: 24px 24px 0 24px;
   background: rgba(243, 115, 32, 0.04);
 }
+.webinq .card_topwrap .acc_name {
+  color: var(--font_color06);
+}
 .webinq .inquiry_setting {
   position: relative;
   display: flex;
@@ -2563,6 +2569,9 @@ hr {
   background-size: 100%;
   width: 20px;
   height: 20px;
+}
+.webinq .inq_wrap {
+  padding: 24px;
 }
 .webinq .inq_result {
   padding: 0 24px 38px 24px;
@@ -2624,19 +2633,16 @@ hr {
 .webinq .inq_list .mui_text_lists.dot > ul > li::before {
   background: var(--basic_color05);
 }
-.webinq .inq_list .mui_button_wrap {
-  padding-top: 24px;
-}
 .webinq .inq_list .mui_button_wrap .btn_line {
   color: var(--main_color01);
   background: var(--bg_color03);
   border: 1px solid var(--line_color02);
   border-radius: 8px;
 }
-.webinq .inq_list .acc_lists {
+.webinq .acc_lists {
   padding-top: 16px;
 }
-.webinq .inq_list .acc_lists.mui_open .mui_acc_button {
+.webinq .acc_lists.mui_open .mui_acc_button {
   font-size: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
@@ -2645,18 +2651,18 @@ hr {
   height: 20px;
   transform: rotate(180deg);
 }
-.webinq .inq_list .acc_lists .acc_header {
+.webinq .acc_lists .acc_header {
   display: flex;
   justify-content: space-between;
   gap: 0 8px;
   padding: 16px 0;
 }
-.webinq .inq_list .acc_lists .acc_tit {
+.webinq .acc_lists .acc_tit {
   display: flex;
   justify-content: space-between;
   width: 100%;
 }
-.webinq .inq_list .acc_lists .mui_acc_button {
+.webinq .acc_lists .mui_acc_button {
   font-size: 0;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
