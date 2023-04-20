@@ -193,8 +193,8 @@
             background: $main_color02;
           }
           &::after{
-            
-            // left: 16px;
+            background:$bg_color03;
+            top: 1px;
           }
         }
       }
@@ -242,7 +242,8 @@
             background: $main_color02;
           }
           &::after{
-            
+            top: 1px;
+            background:$bg_color03;
             left: 32px;
           }
         }
@@ -271,6 +272,13 @@
       &:checked + label{
         &::after{
           left: 16px;
+          top: 0;
+          width: 18px;
+          height: 18px;
+          background:$main_color02;
+        }
+        &::before{
+          background: $line_color02;
         }
       }
     }
@@ -293,6 +301,7 @@
         border-radius: 6px;
         background: $line_color02;
         transition: background .2s;
+        border: 0 none;
       }
       &::after{
         content: '';

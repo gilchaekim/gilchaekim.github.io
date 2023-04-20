@@ -625,6 +625,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .switch.type2 .mui_checkbox input:checked + label::before {
   background: var(--main_color02);
 }
+.switch.type2 .mui_checkbox input:checked + label::after {
+  background: var(--bg_color03);
+  top: 1px;
+}
 .switch.type3 .label {
   height: 20px;
   line-height: 20px;
@@ -663,6 +667,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   background: var(--main_color02);
 }
 .switch.type3 .mui_checkbox input:checked + label::after {
+  top: 1px;
+  background: var(--bg_color03);
   left: 32px;
 }
 .switch .label {
@@ -687,6 +693,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .switch .mui_checkbox input:checked + label::after {
   left: 16px;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--main_color02);
+}
+.switch .mui_checkbox input:checked + label::before {
+  background: var(--line_color02);
 }
 .switch .mui_checkbox label {
   color: transparent;
@@ -707,6 +720,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   border-radius: 6px;
   background: var(--line_color02);
   transition: background 0.2s;
+  border: 0 none;
 }
 .switch .mui_checkbox label::after {
   content: "";

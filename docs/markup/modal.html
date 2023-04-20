@@ -222,6 +222,7 @@ GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
                       text:"로그아웃 하시겠습니까?",
                     }, {
                       className:"dialog_type",
+                      closeBtn:true,
                     })
                     break;
                   }
@@ -244,7 +245,9 @@ GCui.toast({text:"냐냐냐냐냐냐냐냐냐냥!!!!!123123123"})
                   case "callConfirm2":{
                     GCui.modal.confirm({
                       title:"타이틀",
-                      text:"내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다. 이곳은 내용이 들어가는 곳입니다.<br><br>이곳은 내용이 들어가는 곳입니다.",
+                      text:"이건 하단에서 뜹니다.",
+                    }, {
+                      className:"bottom_tray",
                     })
                     break;
                   }
