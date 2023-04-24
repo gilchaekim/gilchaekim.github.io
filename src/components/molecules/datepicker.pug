@@ -3,7 +3,7 @@ mixin datepicker(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, placeholder, value, quickBtn, ...rest} = Object.assign({}, params);
+  - const {element='div', className, placeholder, value, quickBtn, disabled, title, ...rest} = Object.assign({}, params);
   if quickBtn
     .inner_quick_btrn
       +radioCheck({
@@ -34,7 +34,10 @@ mixin datepicker(params={})
         mui-datepicker=""
       )
         +input({
-          value:value
+          value:value,
+          disabled:disabled,
+          placeholder:placeholder,
+          title:title
         })
   else 
     #{element}(
@@ -43,5 +46,27 @@ mixin datepicker(params={})
         mui-datepicker=""
       )
         +input({
-          value:value
+          value:value,
+          disabled:disabled,
+          placeholder:placeholder,
+          title:title
         })
+
+
+mixin multiPicker(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  - const {element='div', disabled, data, ...rest} = Object.assign({}, params);
+
+  #{element}(
+      class=`${prefix}${divide}multipicker`
+      class=className
+      class={"mui_disabled":disabled}
+    )
+      each arr, n in data
+        - if (!!disabled) arr.disabled = true;
+        +datepicker(arr)
+        - if (n < data.length -1)
+          span.divide ~

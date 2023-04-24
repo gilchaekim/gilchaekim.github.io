@@ -171,6 +171,27 @@
                 }
             }
         }
+        .mui_modal_header{
+            height: 56px;
+            padding-left: 24px;
+            p{
+                line-height: 56px;
+                color:$font_color01;
+                font-size: 16px;
+                font-weight: 700;
+            }
+        }
+        .mui_modal_content{
+            padding: 24px;
+            .mui_tabs{
+                &:first-child{
+                    margin: -24px -24px;
+                }
+                .tab_pane{
+                    padding: 24px;
+                }
+            }
+        }
     }
     .mui_size{
         &_small{

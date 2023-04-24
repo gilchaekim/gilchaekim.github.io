@@ -1,6 +1,8 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
+
+
 .mui_maxlength{
   height: 20px;
   display: inline-block;
@@ -20,10 +22,19 @@
     height: 48px;
     font-size: 16px;
     outline: 0;
-    // background:$main_color01;
     width: 100%;
+    caret-color:$main_color01;
+    
+    &[type="password"]{
+      font-family: 'password';
+      font-size: 29px;
+      letter-spacing: 1px;
+    }
     &::placeholder {
       color: #888;
+      font-family: 'NanumBarunGothic', sans-serif;
+      font-size: 16px;
+      
     }
   }
   &.mui_readonly{
@@ -33,13 +44,16 @@
   }
   &.mui_disabled{
     input{
-      color: $font_color05;
+      color: $font_color05 !important;
     }
     &::after{
-      background:$font_color05;
+      background:$basic_color05 !important;
     }
   }
   &.mui_active{
+    & ~ .mui_input::after, & ~ .letters .mui_input::after{
+      height: 0;
+    } 
     &::after{
       height: 2px;
       background: $line_color01;
@@ -53,7 +67,127 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background: $line_color02;
+    background-color:$line_color02;
+  }
+  &multiple{
+    display: flex;
+    position: relative;
+    .mui_input{
+      flex: 1;
+      position: static;
+    }
+    .mask_box{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .mask{
+        width: 10px;
+        height: 10px;
+        border-radius: 5px;
+        background-color:$basic_color01;
+      }
+    }
+    &.birthday{
+      .letters{
+        .mask_box{
+          width: 100%;
+        }
+      }
+    }
+    .letters{
+      flex: 1;
+      display: flex;
+      .mui_input{
+        width: 32px;
+        input{
+          text-align: center;
+        }
+      }
+      .mask_box{
+        width: calc(100% - 32px);
+      }
+    }
+    &.letter{
+      .divide{
+        padding: 0 4px;
+      }
+      
+    }
+    .divide{
+      height: 48px;
+      line-height: 48px;
+      font-size: 16px;
+      color: $font_color01;
+      padding: 0 20px;
+      text-align: center;
+    }
+  }
+}
+.mui_phone{
+  position: relative;
+  display: flex;
+  .mui_select{
+    position: static;
+    width: 80px;
+  }
+  .mui_input{
+    margin-left: 16px;
+    position: static;
+  }
+}
+.mui_drivingnumber {
+  .divide{
+    padding: 0 4px;
+  }
+  .mui_input{
+    input{
+      text-align: center;
+    }
+    &:first-child input{
+      text-align: left;
+    }
+    &:last-child input{
+      text-align: right;
+    }
+    &:nth-child(5){
+      input{
+        min-width: 114px;
+      }
+    }
+  }
+}
+.mui_certificate{
+  position: relative;
+  display: flex;
+  .mui_input{
+    padding-right: 120px;
+  }
+  .time{
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 74px;
+    font-size: 13px;
+    line-height: 28px;
+    color:$main_color01;
+    margin-top: -14px;
+  }
+  button{
+    color: $font_color06;
+    span{
+      display: block;
+      width: 62px;
+      height: 28px;
+      background: #5c627c;
+      line-height: 28px;
+      text-align: center;
+      font-size: 13px;
+      border-radius: 4px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      margin-top: -14px;
+    }
   }
 }
 

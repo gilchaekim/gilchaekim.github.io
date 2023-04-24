@@ -72,7 +72,8 @@
   }
   &_white{
     background-color:$bg_color03;
-    color:$font_color01;
+    color:$main_color01;
+    border: 1px solid $line_color02;
   }
   &_select{
     display: block;
@@ -82,11 +83,39 @@
     border-radius: 0;
     padding: 0;
     font-size: 16px;
-    color:$font_color01;
+    .inset{
+      display: block;
+      position: relative;
+      height: 48px;
+      &::after{
+        content: '';
+        @include icon_svg(arrow-down, "#111", 20px);
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        right: 0;
+      }
+    }
+    .label{
+      font-weight: 700;
+      color:$font_color01;
+      line-height: 48px;
+    }
+    .placeholder{
+      display: none;
+      color:$basic_color04;
+      line-height: 48px;
+      &:first-child{
+        display: block;
+      }
+    }
     &:disabled{
+      .placeholder, .label{
+        color:$font_color05;
+      }
       color:$font_color05;
       &::before{
-        background: $font_color05;
+        background: $font_color05 !important;
       }
     }
     &::before{
@@ -98,19 +127,14 @@
       left: 0;
       right: 0;
       background: $line_color02;
+      
     }
-    &::after{
-      content: '';
-      @include icon_svg(arrow-down, "#111", 20px);
-      position: absolute;
-      top: 50%;
-      margin-top: -6px;
-      right: 0;
-    }
+
     &:focus{
       &::before{
         height: 2px;
         background: $line_color01;
+        z-index: 2;
       }
     }
   }

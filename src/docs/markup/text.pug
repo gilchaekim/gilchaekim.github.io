@@ -1,0 +1,86 @@
+extends ../layout/guideBase.pug
+
+block content
+  div.main_content
+    +guideTitle({
+      text:"Text"
+    })
+    +guideTitle({
+      text:"Example",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +text({
+          text:"가나다라마바사"
+        })
+        +text({
+          type:'warning',
+          text:"가나다라마바사"
+        })
+    br
+    br
+    +guideTitle({
+      text:"Attribute",
+      level:2
+    })
+    +attributesLists([
+      [
+        {
+          text:'type'
+        },
+        {
+          text:'타입 - dot, warning'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'dot'
+        }
+      ],
+      [
+        {
+          text:'lists'
+        },
+        {
+          text:'리스트 텍스트'
+        },
+        {
+          text:'array'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'subLists'
+        },
+        {
+          text:'하위 리스트'
+        },
+        {
+          text:'object'
+        },
+        {
+          text:'-'
+        }
+      ],
+      [
+        {
+          text:'lists > className'
+        },
+        {
+          text:'하위 리스트 각 커스텀 클래스 네임'
+        },
+        {
+          text:'string'
+        },
+        {
+          text:'-'
+        }
+      ]
+    ])
+
+

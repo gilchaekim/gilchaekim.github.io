@@ -14,7 +14,6 @@ mixin form(params={})
     class=`${prefix}${divide}form`
     class=className
   )
-
     each item, index in formBody
       - const {title, required, message} = item.attribute;
       - let messageType = null;
@@ -54,6 +53,5 @@ mixin form_value(params={})
     class=className
   )
     span!=value
-      
-  
-    
+
+

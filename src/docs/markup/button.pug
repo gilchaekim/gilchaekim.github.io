@@ -61,7 +61,13 @@ block content
     })
     +guideExample()(code)
       :code
-        +button_select('셀렉트 버튼')
+        +button_select({
+          placeholder:"placeholder"
+        })
+        +button_select({
+          placeholder:"placeholder",
+          label:"label"
+        })
     br
     br
 
