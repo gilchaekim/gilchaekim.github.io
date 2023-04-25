@@ -40,9 +40,7 @@
         transform:rotate(180deg);
       }
     }
-    .acc_lists{
-
-    
+    .acc_lists{ 
       .acc_header{
         position: relative;
         padding: 0;
@@ -62,7 +60,7 @@
         .box{
           background:$bg_color02;
           padding: 16px;
-          border-radius: 4px;
+          border-radius: 8px;
         }
         .text{
           & ~ .text{

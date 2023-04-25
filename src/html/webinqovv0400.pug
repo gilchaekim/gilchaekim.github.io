@@ -1,79 +1,78 @@
 extends ../components/templates/base.pug
 
 block prepend top
-  - pageTitle = "거래내역조회"
+  - pageTitle = "계좌정보"
   - mainClassName="webinq"
 block content
-  +content_group(1)
-    .card_topwrap.pb24
-      <!-- 연체인경우 <div class="tags"> 노출 -->
-      +accountbox({
-        accName:"비대면 파킹통장 보통예금",
-        accNum:"평생 010-1234-5678-12",
-        endDate:"만기일 2023.04.12",
-        accVal:"17,558,000",
-        className:"main_card",
-        btns: [
-          {
-            label:"이자납입"
-          },
-          {
-            label:"거래내역조회"
-          },
-        ],
-        tags:[{
-          text:"연체", type:"test111222"
-        }]
-      })
-  
-    +result({
-      data:[
+  .card_topwrap.topwrap
+    <!-- 연체인경우 <div class="tags"> 노출 -->
+    +accountbox({
+      accName:"비대면 파킹통장 보통예금",
+      accNum:"평생 010-1234-5678-12",
+      endDate:"만기일 2023.04.12",
+      accVal:"17,558,000",
+      className:"main_card",
+      btns: [
         {
-          title:"계좌상태",
-          text:"활동계좌",
+          label:"이자납입"
         },
         {
-          title:"대출금액",
-          text:"250,000,000원",
+          label:"거래내역조회"
         },
-        {
-          title:"대출일자",
-          text:"YYYY.MM.DD",
-        },
-        {
-          title:"대출만기일자",
-          text:"YYYY.MM.DD",
-        },
-        {
-          title:"최종이수일",
-          text:"YYYY.MM.DD",
-        },
-        {
-          title:"자기이자납입일",
-          text:"YYYY.MM.DD",
-        },
-        {
-          title:"정상이율",
-          text:"5.0%",
-        },
-        {
-          title:"연체이율",
-          text:"8.0 ~ 8.0%",
-        },
-        {
-          title:"납입응당일",
-          text:"2일",
-        },
-        {
-          title:"최종거래일",
-          text:"YYYY.MM.DD",
-        }
-      ]
+      ],
+      tags:[{
+        text:"연체", type:"test111222"
+      }]
     })
 
-    .inq_list
-      +button_wrap()
-        +button({
-          label:"계좌목록",
-          size:'large'
-        })
+  +result({
+    data:[
+      {
+        title:"계좌상태",
+        text:"활동계좌",
+      },
+      {
+        title:"대출금액",
+        text:"250,000,000원",
+      },
+      {
+        title:"대출일자",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"대출만기일자",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"최종이수일",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"자기이자납입일",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"정상이율",
+        text:"5.0%",
+      },
+      {
+        title:"연체이율",
+        text:"8.0 ~ 8.0%",
+      },
+      {
+        title:"납입응당일",
+        text:"2일",
+      },
+      {
+        title:"최종거래일",
+        text:"YYYY.MM.DD",
+      }
+    ]
+  })
+
+  .inq_list
+    +button_wrap()
+      +button({
+        label:"계좌목록",
+        size:'large'
+      })

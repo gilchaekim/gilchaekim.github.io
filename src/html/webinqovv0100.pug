@@ -1,111 +1,111 @@
 extends ../components/templates/base.pug
 
 block prepend top
-  - pageTitle = "거래내역조회"
+  - pageTitle = "전체계좌조회"
   - mainClassName="webinq"
 
 block content
-  +content_group(1)
-    .inq_wrap
-      .mui_accountbox.allmoney_card
-        div.dp_flex
-          p.tit 총자산
-          .switch
-            span.label 잔액
-            +radioCheck({
-              name:'chk',
-              label:'잔액',
-            })
-        p.my_money
-          strong 17,558,000
-          | 원
-    
-      +accordion({
-        active:2
+  .inq_wrap
+    .mui_accountbox.allmoney_card
+      div.dp_flex
+        p.tit 총자산
+        .switch
+          span.label 잔액
+          +radioCheck({
+            name:'chk',
+            label:'잔액',
+          })
+      p.my_money
+        strong 17,558,000
+        | 원
+  
+    +accordion({
+      active:2,
+      multiple:true
+      })
+      +acc_title()
+        .acc_tit
+          strong 입출금
+            span.main_color01 &nbsp;
+          strong 1,500,000
+            span 원
+      +acc_content()
+        +accountbox({
+          accName:"비대면 파킹통장 보통예금",
+          accNum:"000-00-00-00000",
+          accVal:"17500000",
+          btns: [
+            {
+              label:"이체"
+            },
+            {
+              label:"거래내역조회"
+            }
+          ]
         })
-        +acc_title()
-          .acc_tit
-            strong 입출금
-              span.main_color01 &nbsp;
-            strong 1,500,000
-              span 원
-        +acc_content()
-          +accountbox({
-            accName:"비대면 파킹통장 보통예금",
-            accNum:"000-00-00-00000",
-            accVal:"17500000",
-            btns: [
-              {
-                label:"이체"
-              },
-              {
-                label:"거래내역조회"
-              }
-            ]
-          })
 
-        +acc_title()
-          .acc_tit
-            strong 예적금
-              span.main_color01 &nbsp;1
-            strong 7,000,000
-              span 원
-        +acc_content()
-          +accountbox({
-            accName:"정기예금(복리)",
-            accNum:"000-00-00-00000",
-            accVal:"17500000",
-            endDate:"만기 2025.12.31",
-            btns: [
-              {
-                label:"거래내역조회"
-              }
-            ]
-          })
-          +accountbox({
-            accName:"정기예금(단리)",
-            accNum:"000-00-00-00000",
-            accVal:"17500000",
-            endDate:"만기 2025.12.31",
-            btns: [
-              {
-                label:"거래내역조회"
-              }
-            ]
-          })
-          +accountbox({
-            accName:"자유적금",
-            accNum:"000-00-00-00000",
-            accVal:"17500000",
-            endDate:"만기 2025.12.31",
-            btns: [
-              {
-                label:"입금"
-              },
-              {
-                label:"거래내역조회"
-              }
-            ]
-          })
+      +acc_title()
+        .acc_tit
+          strong 예적금
+            span.main_color01 &nbsp;1
+          strong 7,000,000
+            span 원
+      +acc_content()
+        +accountbox({
+          accName:"정기예금(복리)",
+          accNum:"000-00-00-00000",
+          accVal:"17500000",
+          endDate:"만기 2025.12.31",
+          btns: [
+            {
+              label:"거래내역조회"
+            }
+          ]
+        })
+        +accountbox({
+          accName:"정기예금(단리)",
+          accNum:"000-00-00-00000",
+          accVal:"17500000",
+          endDate:"만기 2025.12.31",
+          btns: [
+            {
+              label:"거래내역조회"
+            }
+          ]
+        })
+        +accountbox({
+          accName:"자유적금",
+          accNum:"000-00-00-00000",
+          accVal:"17500000",
+          endDate:"만기 2025.12.31",
+          btns: [
+            {
+              label:"입금"
+            },
+            {
+              label:"거래내역조회"
+            }
+          ]
+        })
 
-        +acc_title()
-          .acc_tit
-            strong 대출
-              span.main_color01 &nbsp;1
-            strong 250,000,000
-              span 원
-        +acc_content()
-          +accountbox({
-            accName:"주택담보대출",
-            accNum:"000-00-00-00000",
-            accVal:"17500000",
-            endDate:"만기 2025.12.31",
-            btns: [
-              {
-                label:"이자납입"
-              },
-              {
-                label:"거래내역조회"
-              }
-            ]
-          })
+      +acc_title()
+        .acc_tit
+          strong 대출
+            span.main_color01 &nbsp;1
+          strong 250,000,000
+            span 원
+      +acc_content()
+        +accountbox({
+          accName:"주택담보대출",
+          accNum:"000-00-00-00000",
+          accVal:"17500000",
+          endDate:"만기 2025.12.31",
+          btns: [
+            {
+              label:"이자납입"
+            },
+            {
+              label:"거래내역조회"
+            }
+          ]
+        })
