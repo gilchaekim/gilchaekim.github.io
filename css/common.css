@@ -2345,7 +2345,7 @@ table, th, td {
 .mui_accresult .mui_collapse .acc_lists .mui_acc_content .box {
   background: var(--bg_color02);
   padding: 16px;
-  border-radius: 4px;
+  border-radius: 8px;
 }
 .mui_accresult .mui_collapse .acc_lists .mui_acc_content .text ~ .text {
   margin-top: 12px;
@@ -2359,6 +2359,10 @@ table, th, td {
 a:link, a:active, a:hover, a:focus {
   color: #111;
   text-decoration: none;
+}
+
+#contants {
+  padding: 24px;
 }
 
 hr {
@@ -2384,6 +2388,13 @@ hr {
   color: var(--main_color01);
 }
 
+.mui_button_wrap .btn_line {
+  color: var(--main_color01);
+  background: var(--bg_color03);
+  border: 1px solid var(--line_color02);
+  border-radius: 8px;
+}
+
 /* 하단안내문구(아이콘 유무) */
 .info_txt {
   position: relative;
@@ -2407,10 +2418,6 @@ hr {
   background-size: 100%;
   width: 20px;
   height: 20px;
-}
-
-.pb24 {
-  padding-bottom: 24px !important;
 }
 
 /* 전체메뉴 */
@@ -2951,6 +2958,9 @@ hr {
   padding: 24px 24px 0 24px;
   background: rgba(243, 115, 32, 0.04);
 }
+.webinq .card_topwrap.topwrap {
+  padding: 24px;
+}
 .webinq .card_topwrap .acc_name {
   color: var(--font_color06);
 }
@@ -3036,12 +3046,6 @@ hr {
 }
 .webinq .inq_list .mui_text_lists.dot > ul > li::before {
   background: var(--basic_color05);
-}
-.webinq .inq_list .mui_button_wrap .btn_line {
-  color: var(--main_color01);
-  background: var(--bg_color03);
-  border: 1px solid var(--line_color02);
-  border-radius: 8px;
 }
 .webinq .acc_lists {
   padding-top: 16px;
@@ -3155,5 +3159,44 @@ hr {
 }
 .acc_confirm .code .mask ~ .mask {
   margin-left: 8px;
+}
+
+.webcom .top_img {
+  margin: 0 auto 24px;
+}
+.webcom .mui_button_wrap {
+  padding: 16px 24px 40px 24px;
+}
+.webcom .mui_text_lists.dot > ul > li::before {
+  background: var(--basic_color03);
+}
+.webcom .mui_text_lists.dot + .mui_title {
+  padding-top: 32px;
+}
+
+/* 타이틀아래 서브텍스트 */
+.sub_txt {
+  padding-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+
+/* list타입 텍스트 */
+.list_txt {
+  display: flex;
+  flex-direction: column;
+  gap: 4px 0;
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.list_txt:first-child {
+  margin-top: 16px;
+}
+.list_txt strong {
+  color: var(--font_color02);
+}
+.list_txt .hyphhen li {
+  padding-left: 11px;
 }
 /*# sourceMappingURL=common.css.map */
