@@ -221,7 +221,7 @@
             <div class="side_left">
               <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
             </div>
-            <div class="title_center"><span class="title">거래내역조회</span></div>
+            <div class="title_center"><span class="title">페이지 제목</span></div>
             <div class="side_right">
               <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
               <button class="btn_allmenu" type="button" mui-toggle="target:#wrapper;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -230,76 +230,85 @@
         </header>
       </div><!-- / header -->
 <!-- contents -->
-      <div class="webinq" id="contants">
-        <div class="card_topwrap">
-          <div class="mui_accountbox main_card">
-            <div class="acc_name_wrap inner_tag">
-              <p class="acc_name"><a href=""><span>비대면 파킹통장 보통예금</span></a></p>
-              <div class="tags">
-                <span class="mui_tag test111222">거래중지</span>
+      <div id="contants">
+        <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>신분증 촬영</span></button><!-- layer -->
+        <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+          <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop"> 
+            <div class="mui_modal_body">
+              <div class="mui_modal_header"> 
+                <p>신분증 촬영</p>
               </div>
-            </div>
-            <div class="acc_data">
-              <p class="acc_num">평생 010-1234-5678-12</p>
-              <p class="acc_end">만기일 2023.04.12</p>
-            </div>
-            <p class="acc_val">17,558,000<span class="won">원</span>
-            </p>
-            <div class="btns">
-              <button class="mui_button mui_medium mui_primary" type="button"><span>입금</span></button>
-              <button class="mui_button mui_medium mui_primary" type="button"><span>계좌정보</span></button>
+              <div class="mui_modal_content">
+                <div class="photo_capture">
+                  <div class="mui_contents_group lv_1">
+                    <div class="photo_img_result"><img src="/src/images/img_idcard.png" alt="신분증 이미지"></div>
+                  </div>
+                  <div class="mui_contents_group lv_1">
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">이름</span></div>
+                        <div class="mui_form_content">
+                    <span class="mui_input">
+                      <input type="text" value="김저축" mui-input=""/>
+                    </span>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">주민등록번호</span></div>
+                        <div class="mui_form_content">
+                    <span class="mui_input">
+                      <input type="text" value="123456-7890123" mui-input=""/>
+                    </span>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">발급일자</span></div>
+                        <div class="mui_form_content">
+                    <span class="mui_input">
+                      <input type="text" value="2010.10.31" mui-input=""/>
+                    </span>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">면허번호</span></div>
+                        <div class="mui_form_content">
+                    <div class="mui_drivingnumber mui_inputmultiple">
+                      <span class="mui_input">
+                        <input type="text" title="면허번호 첫 번째 두자리 입력" placeholder="00" value="12" mui-input=""/>
+                      </span><span class="divide">-</span>
+                      <span class="mui_input">
+                        <input type="text" title="면허번호 두 번째 두자리 입력" placeholder="00" value="34" mui-input=""/>
+                      </span><span class="divide">-</span>
+                      <span class="mui_input">
+                        <input type="text" title="면허번호 세 번째 여섯자리 입력" placeholder="000000" value="123456" mui-input=""/>
+                      </span><span class="divide">-</span>
+                      <span class="mui_input">
+                        <input type="text" title="면허번호 네 번째 두자리 입력" placeholder="00" value="78" mui-input=""/>
+                      </span>
+                    </div>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">일련번호</span></div>
+                        <div class="mui_form_content">
+                    <span class="mui_input">
+                      <input type="text" value="20A1234" mui-input=""/>
+                    </span>
+                    <p class="mui_text warning">인식된 신분증 정보를 확인해주세요.<br>실제와 다른경우 이용이 제한될 수 있습니다.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mui_button_wrap">
+                  <button class="mui_button mui_large mui_default" type="button"><span>다시촬영</span></button>
+                  <button class="mui_button mui_large mui_primary" type="button"><span>전송</span></button>
+                </div>
+              </div>
+              <button class="mui_modal_close">닫기</button>
             </div>
           </div>
-          <button class="inquiry_setting"><span>2023.01.01 ~ 2023.12.31</span><span>일주일 · 전체 · 최근</span></button>
-        </div>
-        <div class="inq_result">
-          <div class="mui_accresult">
-            <div class="acc_result">
-              <p class="date">02.15</p>
-              <div class="lists"> 
-                <div class="text"> 
-                  <p class="txt1">7회차</p>
-                  <p class="txt2 out">-5,000원</p>
-                </div>
-                <div class="time"> 
-                  <p class="txt1">11:08</p>
-                  <p class="txt2">3,064,000원</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mui_accresult">
-            <div class="acc_result">
-              <p class="date">02.15</p>
-              <div class="lists"> 
-                <div class="text"> 
-                  <p class="txt1">7회차</p>
-                  <p class="txt2 out">-5,000원</p>
-                </div>
-                <div class="time"> 
-                  <p class="txt1">11:08</p>
-                  <p class="txt2">3,064,000원</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mui_accresult">
-            <div class="acc_result">
-              <p class="date">02.15</p>
-              <div class="lists"> 
-                <div class="text"> 
-                  <p class="txt1">7회차</p>
-                  <p class="txt2 out">-5,000원</p>
-                </div>
-                <div class="time"> 
-                  <p class="txt1">11:08</p>
-                  <p class="txt2">3,064,000원</p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <button class="mui_button mui_more" type="button"><span>더보기</span></button>
-        </div>
+        </div><!-- / layer -->
       </div><!-- / contents -->
     </div>
   </body>

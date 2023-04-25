@@ -1,0 +1,13 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"간편비밀번호 호출",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"간편비밀번호",
+    id:"fullLayer",
+    type:"full"
+  })
+    div 솔루션 호출 

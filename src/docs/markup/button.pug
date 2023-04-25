@@ -80,7 +80,21 @@ block content
         +button_more()
     br
     br
-    
+
+    +guideTitle({
+      text:"button wrap - 하단 고정 버튼",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_bottom_fixed()
+          +button({
+            label:"버튼 하단 고정",
+            size:"large",
+            type:"primary",
+          })
+    br
+    br
     +guideTitle({
       text:"link button",
       level:2

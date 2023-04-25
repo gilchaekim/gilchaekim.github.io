@@ -744,8 +744,92 @@ hr {
 		}
 	}
 }
-
-/* 공통 */
+.photo_capture{
+	.title{
+		padding-top: 38px;
+		font-size: 24px;
+		font-weight: 700;
+		color:$font_color01;
+		text-align: center;
+	}
+	.sub_title{
+		margin-top: 24px;
+		font-size: 14px;
+		color:$font_color03;
+		text-align: center;
+		em{
+			color:$main_color01;
+		}
+	}
+	.photo_img{
+		text-align: center;
+		img{
+			width: 240px;
+		}
+	}
+	.photo_img_result{
+		text-align: center;
+		padding-bottom: 8px;
+		img{
+			width: 240px;
+		}
+	}
+}
+.acc_confirm{
+	.title{
+		font-size: 18px;
+		font-weight: 700;
+		color:$font_color01;
+	}
+	.mui_form{
+		margin-top: 24px;
+	}
+	.sub_title{
+		margin-top: 8px;
+		font-size: 14px;
+		color:$font_color03;
+	}
+	.code{
+		margin-top: 60px;
+		display: flex;
+		justify-content: center;
+		.tt{
+			font-size: 32px;
+			font-weight: 700;
+			color:$font_color01;
+			padding-right: 16px;
+			line-height: 52px;
+		}
+		.write{
+			margin-left: 8px;
+			input{
+				width: 52px;
+				height: 52px;
+				border-radius: 8px;
+				border: 2px solid $main_color01;
+				text-align: center;
+				font-family: "password";
+				font-size: 32px;
+				&:focus{
+					outline: 0;
+				}
+			}
+		}
+		.mask{
+			span{
+				display: block;	
+				width: 52px;
+				height: 52px;
+				border-radius: 8px;
+				border: 2px solid $main_color01;
+				background: url($url_common+"ico_mask.svg") no-repeat center;
+			}
+			& ~ .mask{
+				margin-left: 8px;
+			}
+		}
+	}
+}
 .webcom {
 	.top_img {
 		margin:0 auto 24px;

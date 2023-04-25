@@ -120,3 +120,13 @@ mixin button_link(params={})
     each val in list
       a(href="")
         span!=val
+mixin button_bottom_fixed(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+  div(
+    class=`${prefix}${divide}button_fixed`
+  )
+    span.inset
+      block

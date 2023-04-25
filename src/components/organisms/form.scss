@@ -7,8 +7,16 @@
   }
   .mui_form_content{
     margin-top: 8px;
+    .mui_text {
+      margin-top: 24px;
+    }
   }
   .mui_input{
+    & + .mui_input{
+      margin-top: 12px;
+    }
+  }
+  .mui_button{
     & + .mui_input{
       margin-top: 12px;
     }

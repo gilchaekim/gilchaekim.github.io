@@ -2,21 +2,14 @@ extends ../components/templates/base.pug
 
 block content
   +button({
-    label:"본인인증 선택",
+    label:"휴대폰 본인인증",
     muiToggle:'target:#fullLayer;'
   })
   +modal({
-    title:"본인인증 선택",
+    title:"휴대폰 본인인증",
     id:"fullLayer",
     type:"full"
   })
-    +tabsLink({
-      list:[		
-        {name:"토스인증"},
-        {name:"휴대폰 본인인증", active:true},
-      ],
-      className:"custom_tab"
-    })
       +content_group(1)
         +form()
           +form_body({title:"이름"})
