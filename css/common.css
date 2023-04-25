@@ -780,6 +780,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin: 0 -24px;
   padding: 40px 16px 16px 16px;
 }
+.mui_button_wrap.fixed {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .mui_button ~ .mui_button {
   margin-left: 8px;
 }
@@ -929,6 +936,17 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
   font-size: 14px;
   color: var(--font_color02);
+}
+.mui_button_fixed {
+  padding: 40px 16px 16px;
+  background: var(--font_color06);
+  height: 108px;
+}
+.mui_button_fixed .inset {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
 }
 
 caption {
@@ -1197,6 +1215,9 @@ table, th, td {
   left: 0;
 }
 
+.mui_tabs.link_tab .tab_contents .tab_pane {
+  display: block;
+}
 .mui_tabs .mui_tab_nav {
   display: flex;
   padding: 0 24px;
@@ -1443,6 +1464,13 @@ table, th, td {
 .mui_modal.mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane {
   padding: 24px 24px 0;
 }
+.mui_modal.mui_fullpop_wrap .mui_modal_content .mui_button_wrap, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_button_wrap {
+  margin: 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
 .mui_modal .mui_size_small, [mui-modal] .mui_size_small {
   min-width: 400px;
 }
@@ -1607,6 +1635,9 @@ table, th, td {
   left: 0;
 }
 .mui_agree_check .chk_btn .status_1 {
+  display: none;
+}
+.mui_agree_check .chk_btn.mui_active + .inset {
   display: none;
 }
 .mui_agree_check .chk_btn.mui_active .text::before {
@@ -2209,7 +2240,13 @@ table, th, td {
 .mui_form_list .mui_form_content {
   margin-top: 8px;
 }
+.mui_form_list .mui_form_content .mui_text {
+  margin-top: 24px;
+}
 .mui_form_list .mui_input + .mui_input {
+  margin-top: 12px;
+}
+.mui_form_list .mui_button + .mui_input {
   margin-top: 12px;
 }
 .mui_form_list .mui_radio_group {
@@ -3036,5 +3073,87 @@ hr {
   background-size: 100%;
   width: 20px;
   height: 20px;
+}
+
+.photo_capture .title {
+  padding-top: 38px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--font_color01);
+  text-align: center;
+}
+.photo_capture .sub_title {
+  margin-top: 24px;
+  font-size: 14px;
+  color: var(--font_color03);
+  text-align: center;
+}
+.photo_capture .sub_title em {
+  color: var(--main_color01);
+}
+.photo_capture .photo_img {
+  text-align: center;
+}
+.photo_capture .photo_img img {
+  width: 240px;
+}
+.photo_capture .photo_img_result {
+  text-align: center;
+  padding-bottom: 8px;
+}
+.photo_capture .photo_img_result img {
+  width: 240px;
+}
+
+.acc_confirm .title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.acc_confirm .mui_form {
+  margin-top: 24px;
+}
+.acc_confirm .sub_title {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.acc_confirm .code {
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+}
+.acc_confirm .code .tt {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--font_color01);
+  padding-right: 16px;
+  line-height: 52px;
+}
+.acc_confirm .code .write {
+  margin-left: 8px;
+}
+.acc_confirm .code .write input {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid var(--main_color01);
+  text-align: center;
+  font-family: "password";
+  font-size: 32px;
+}
+.acc_confirm .code .write input:focus {
+  outline: 0;
+}
+.acc_confirm .code .mask span {
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid var(--main_color01);
+  background: url("/src/images/ico_mask.svg") no-repeat center;
+}
+.acc_confirm .code .mask ~ .mask {
+  margin-left: 8px;
 }
 /*# sourceMappingURL=common.css.map */

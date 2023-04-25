@@ -45,6 +45,9 @@
       }
     }
     &.mui_active{
+      & + .inset{
+        display: none;
+      }
       .text{
         &::before{
           content: '';

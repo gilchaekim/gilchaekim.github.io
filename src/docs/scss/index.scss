@@ -385,8 +385,13 @@ a{text-decoration: none;}
       border-left: 1px solid #333;
     }
   }
+  }
 }
-
+.code_view{
+  .mui_button_fixed .inset{
+    position: static !important;
+  }
+}
 // .toast_pop_wrap{
 //   position: fixed;
 //   left: 50%;

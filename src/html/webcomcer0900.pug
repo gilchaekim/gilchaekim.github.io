@@ -1,0 +1,65 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"본인인증 선택",
+    id:"fullLayer",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"토스인증", active:true},
+        {name:"휴대폰 본인인증"},
+      ],
+      className:"custom_tab"
+    })
+      +content_group(1)
+        +text({
+          text:"토스 본인인증은 필수값 입력 후 진행이 가능합니다.<br>아래 정보를 입력 후 인증요청 버튼을 눌러주세요."
+        })
+      +content_group(1)
+        
+        +form()
+          +form_body({title:"이름"})
+            +input({
+              placeholder:"이름 입력"
+            })
+          +form_body({title:"생년월일"})
+            +input({
+              placeholder:"생년월일 8자리"
+            })
+          +form_body({title:"휴대폰번호"})
+            +input({
+              placeholder:"휴대폰번호(숫자만)"
+            })
+
+        +collapse({
+          className:"guide_text",
+          isOpen:true,
+        })
+          +header()
+            p.title 유의사항
+          +content()
+            +textLists({
+              type:'dot',
+              lists:[
+                {
+                  text:"본인명의 휴대폰으로만 이용이 가능합니다.",
+                },
+              ]
+            })
+        .mui_button_wrap
+          +button({
+            label:"인증요청",
+            size:"large",
+          })
+        .mui_button_wrap
+          +button({
+            disabled:true,
+            label:"인증요청",
+            size:"large",
+          })

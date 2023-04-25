@@ -37,6 +37,13 @@
       justify-content: baseline;
       margin:0 -24px;
       padding:40px 16px 16px 16px;
+      &.fixed{
+        margin:0;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+      }
     }
     & ~ .mui_button{
       margin-left: 8px;
@@ -181,4 +188,15 @@
 			}
 		}
 	}
+  &_button_fixed{
+    padding: 40px 16px 16px;
+    background:$font_color06;
+    height: 108px;
+    .inset{
+      position: fixed;
+      bottom: 16px;
+      left: 16px;
+      right: 16px;
+    }
+  }
 }
