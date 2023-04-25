@@ -17,6 +17,9 @@ a:link, a:active, a:hover, a:focus {
 	color:#111;
 	text-decoration:none;
 }
+#contants {
+	padding:24px;
+}
 hr {
 	margin:40px -24px;
 	height:8px;
@@ -34,6 +37,14 @@ hr {
 }
 .main_color01 {
 	color:$main_color01;
+}
+.mui_button_wrap {
+	.btn_line {
+		color:$main_color01;
+		background:$bg_color03;
+		border:1px solid $line_color02;
+		border-radius:8px;
+	}
 }
 /* 하단안내문구(아이콘 유무) */
 .info_txt {
@@ -54,10 +65,6 @@ hr {
 			@include icon_svg_tooltip(gray, 20px);
 		}
 	}
-}
-
-.pb24 {
-	padding-bottom:24px !important;
 }
 
 /* 전체메뉴 */
@@ -613,6 +620,9 @@ hr {
 	.card_topwrap {
 		padding:24px 24px 0 24px;
 		background:rgba(243, 115, 32, 0.04);
+		&.topwrap {
+			padding:24px;
+		}
 		.acc_name {
 			color:$font_color06;
 		}
@@ -710,14 +720,6 @@ hr {
 				}
 			}
 		}
-		.mui_button_wrap {
-			.btn_line {
-				color:$main_color01;
-				background:$bg_color03;
-				border:1px solid $line_color02;
-				border-radius:8px;
-			}
-		}
 	}
 	.acc_lists {
 		padding-top:16px;
@@ -742,6 +744,49 @@ hr {
 		.mui_acc_button {
 			font-size:0;
 			@include icon_svg(arrow-down, "#111", 20px);
+		}
+	}
+}
+
+.webcom {
+	.top_img {
+		margin:0 auto 24px;
+	}
+	.mui_button_wrap {
+		padding:16px 24px 40px 24px;
+	}
+	.mui_text_lists.dot {
+		& > ul > li::before {
+			background:$basic_color03;
+		}
+		&+.mui_title {
+			padding-top:32px;
+		}
+	}
+}
+/* 타이틀아래 서브텍스트 */
+.sub_txt {
+	padding-top:8px;
+	font-size:14px;
+	color:$font_color03;
+}
+/* list타입 텍스트 */
+.list_txt {
+	display:flex;
+	flex-direction:column;
+	gap:4px 0;
+	margin-top:12px;
+	font-size:14px;
+	color:$font_color03;
+	&:first-child {
+		margin-top:16px;
+	}
+	strong {
+		color:$font_color02;
+	}
+	.hyphhen {
+		li {
+			padding-left:11px;
 		}
 	}
 }
