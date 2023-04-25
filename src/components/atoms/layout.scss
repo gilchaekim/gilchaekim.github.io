@@ -1,2 +1,11 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+.mui_contents_group{
+  &.lv_1{
+    margin-top: 32px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
+}

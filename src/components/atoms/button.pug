@@ -61,14 +61,14 @@ mixin button(params={})
     span
       | #{label}
 
-mixin button_select(label)
+mixin button_select(params={})
   //- 공통 요소 Start
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
   
+  - const { element = "button", label, placeholder, disabled, ...rest } = Object.assign({}, params)
 
-  - let element = "button"
 
   #{element}(
     id=id
@@ -76,9 +76,17 @@ mixin button_select(label)
     class=`${prefix}${divide}select`
     class=className
     type="button"
+    title="통신사 선택"
+    disabled=disabled
   )
-    span
-      | #{label}
+    span.inset
+      if label
+        span.label!=label
+          span.hidden 선택 됨
+      span.placeholder(
+        aria-hidden="true"
+      )
+        | #{placeholder}
 
 mixin button_more()
   //- 공통 요소 Start

@@ -18,7 +18,9 @@ mixin input(params={})
   - const divide = '_'
   //- 공통 요소 End
 
-  - const { element="span", className, title, placeholder, value, readOnly, disabled, id, type="text", muiFormatter, maxlength, subfix, ...rest } = Object.assign({}, params)
+  - const { element="span", className, title, placeholder, value, readonly, disabled, id, type="text", muiFormatter, maxlength, subfix, ...rest } = Object.assign({}, params)
+  - let titleText;
+  - if(!title && !!placeholder) titleText = placeholder;
   - let subfixLength = !!subfix ? `sublength_${subfix.length}` : null
   
   #{element}(
@@ -26,7 +28,7 @@ mixin input(params={})
     class=className
     class={"inner_subfix":!!subfix}
     class={"mui_disabled":!!disabled}
-    class={"mui_readonly":!!readOnly}
+    class={"mui_readonly":!!readonly}
     class=subfixLength
     
   )
@@ -35,7 +37,7 @@ mixin input(params={})
       id=id
       title=title
       placeholder=placeholder
-      readonly=readOnly
+      readonly=readonly
       disabled=disabled
       value=value
       maxlength=maxlength
@@ -50,4 +52,144 @@ mixin input(params={})
         !=subfix
     
     
+
+mixin input_phone(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, disabled, value, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}phone`
+    class=className
+  )
+    +button_select({
+      placeholder:'통신사',
+      label:"SKT",
+      disabled:disabled
+    })
+    +input({
+      placeholder:"휴대폰번호(숫자만)",
+      disabled:disabled,
+      type:"tel"
+    })
+  
+mixin input_certificate(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element="div", className, disabled, value, placeholder, title, ...rest } = Object.assign({}, params)
+  #{element}(
+    class=`${prefix}${divide}certificate`
+    class={"mui_disabled":disabled}
+    class=className
+  )
+    +input({
+      placeholder:placeholder,
+      disabled:disabled,
+      value:value,
+      title:title,
+      type:"tel"
+    })
+    span.time 03:00
+    button(
+      type="button"
+      disabled=disabled
+    ) 
+      span 시간연장
+
+mixin input_idnumber(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui";
+  - const divide = '_';
+  //- 공통 요소 End
+
+  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data=[{}, {}], ...rest } = Object.assign({}, params);
+  - const guide = ['앞6자리', '뒤7자리', '0'];
+  - const guideTitle = ['주민번호 앞6자리 입력', '주민번호 뒤7자리 입력', '주민번호 뒤 첫번째 1자리 입력'];
+
+  #{element}(
+    class=`${prefix}${divide}idNumber`
+    class=`${prefix}${divide}inputmultiple ${type}`
+    class={"mui_disabled":disabled}
+    class={"mui_readonly":readonly}
+    class=className
+  )
+    if type == 'default'
+      each item, n in data
+        - if (!!disabled) item.disabled = true;
+        - if (n === data.length -1) item.type = 'password'
+        - item.placeholder=guide[n];
+        - item.title=guideTitle[n];
+        +input(item)
+        - if (n < data.length -1)
+          span.divide -
+
+    if type == 'letter'
+      +input(Object.assign({}, data[0], {
+          disabled:disabled,
+          readonly:readonly,
+          placeholder:guide[0],
+          title:guideTitle[0]
+        }))
+      span.divide -
+      .letters
+        +input(Object.assign({}, data[1], {
+          disabled:disabled,
+          readonly:readonly,
+          placeholder:guide[2],
+          title:guideTitle[2]
+        }))
+        .mask_box
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+
+    if type == 'birthday'
+      +input(Object.assign({}, data[0], {
+          disabled:disabled,
+          readonly:readonly,
+          placeholder:guide[0],
+          title:guideTitle[0]
+        }))
+      span.divide -
+      .letters
+        .mask_box
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+          span.mask
+
+mixin input_drivingnumber(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui";
+  - const divide = '_';
+  //- 공통 요소 End
+
+  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data=[{},{},{},{}], ...rest } = Object.assign({}, params);
+  - const guide = ['00', '00', '000000', '00'];
+  - const guideTitle = ['면허번호 첫 번째 두자리 입력', '면허번호 두 번째 두자리 입력', '면허번호 세 번째 여섯자리 입력', '면허번호 네 번째 두자리 입력'];
+  #{element}(
+    class=`${prefix}${divide}drivingnumber`
+    class=`${prefix}${divide}inputmultiple`
+    class={"mui_disabled":disabled}
+    class={"mui_readonly":readonly}
+    class=className
+  )
+    each item, n in data
+      - if (!!disabled) arr.disabled = true;
+      - item.placeholder = guide[n];
+      - item.title = guideTitle[n];
+      +input(item)
+      - if (n < data.length -1)
+        span.divide -
 

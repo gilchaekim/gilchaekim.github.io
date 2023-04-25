@@ -9,6 +9,20 @@
     }
   }
 }
+.mui_multipicker{
+  display: flex;
+  .mui_datepicker{
+    flex: 1;
+  }
+  .divide{
+    height: 48px;
+    line-height: 48px;
+    font-size: 16px;
+    color: $font_color01;
+    width: 32px;
+    text-align: center;
+  }
+}
 .inner_quick_btrn{
   .mui_datepicker{
     margin-top: 12px;

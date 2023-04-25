@@ -40,3 +40,9 @@
   font-size: 14px;
   color:$font_color02;
 }
+.form_error{
+  .mui_input::after, .mui_select::before{
+    height: 2px;
+    background:$font_color08;
+  }
+}
