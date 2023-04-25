@@ -38,6 +38,18 @@
 				"+button({",
 				"\tlabel:\"$0\",",
 				"\tsize:\"${1|small,medium,large|}\",",
+				"\ttype:\"${2|primary,success,grey,white,info,default|}\",",
+				"})"
+		],
+		"description": "기본 버튼"
+	},
+	"Button_link": {
+		"prefix": "!button_link",
+		"body": [
+				"+button_link({",
+				"\tlist:[,",
+				"\t\t\"$0\"",
+				"\t],",
 				"})"
 		],
 		"description": "기본 버튼"
@@ -59,7 +71,14 @@
 				"+button_wrap()",
 				"\t$0"
 		],
-		"description": "기본 버튼"
+		"description": "버튼 렙핑"
+	},
+	"Button_select": {
+		"prefix": "!button_select",
+		"body": [
+				"+button_select('$0')",
+		],
+		"description": "셀렉트 박스형 버튼"
 	},
 	"dataTable": {
 		"prefix": "!dataTable",
@@ -224,8 +243,7 @@
 		"body": [
 				"+title({",
 				"\ttext:\"$0\",",
-				"\tclsLv:${1|1,2,3,4,5,6|},",
-				"\ttagLv:${2|1,2,3,4,5,6|},",
+				"\tlv:${1|1,2,3,4,5|},",
 				"})"
 		],
 		"description": "타이틀"
@@ -271,20 +289,25 @@
 		],
 		"description": "form"
 	},
-	"form_body_value": {
-		"prefix": "!form_body_value",
+	"form_body": {
+		"prefix": "!form_body",
 		"body": [
-				"+form_body({title:\"$1\"})",
-				"\t+form_value({",
-				"\t\tvalue:\"$0\"",
-				"\t})"
+			"+form_body({title:\"$0\"})"
+		],
+		"description": "폼 바디"
+	},
+	"form_value": {
+		"prefix": "!form_value",
+		"body": [
+				"+form_value({",
+				"\tvalue:\"$0\"",
+				"})"
 		],
 		"description": "텍스트"
 	},
-	"form_body_select": {
-		"prefix": "!form_body_select",
+	"form_select": {
+		"prefix": "!form_select",
 		"body": [
-				"+form_body({title:\"$1\"})",
 				"+button({",
 				"\tlabel:\"$0\",",
 				"\tclassName:'select_type'",
@@ -292,45 +315,95 @@
 		],
 		"description": "셀렉트"
 	},
-	"form_body_datepicker": {
-		"prefix": "!form_body_datepicker",
+	"form_datepicker": {
+		"prefix": "!form_datepicker",
 		"body": [
-				"+form_body({title:\"$1\"})",
-				"\t+datepicker()"
+				"+datepicker()"
 		],
 		"description": "데이트피커"
 	},
-	"form_body_datepicker_quick": {
-		"prefix": "!form_body_datepicker_quick",
+	"form_datepicker_multi": {
+		"prefix": "!form_datepicker_multi",
 		"body": [
-				"+form_body({title:\"$1\"})",
+			"+multiPicker({",
+			"\tdata:[",
+			"\t\t{",
+			"\t\t\tplaceholder:\"시작일\"",
+			"\t\t},",
+			"\t\t{",
+			"\t\t\tplaceholder:\"종료일\"",
+			"\t\t}",
+			"\t]",
+			"})"
+		],
+		"description": "날짜입력폼 시작일 ~ 종료일"
+	},
+
+
+	"form_datepicker_quick": {
+		"prefix": "!form_datepicker_quick",
+		"body": [
 				"+datepicker({",
 				"\tquickBtn:true",
 				"})"
 		],
 		"description": "데이트피커 조회기간 버튼"
 	},
-	"form_body_button_check": {
-			"prefix": "!form_body_button_check",
-			"body": [
-					"\t+form_body({title:\"$1\"})",
-					"\t\t+radioCheck({",
-					"\t\t\tname:'btnType',",
-					"\t\t\t${2:type:\"radio\",}",
-					"\t\t\tclassName:'button_type',",
-					"\t\t\tlists:[",
-					"\t\t\t\t{",
-					"\t\t\t\t\tlabel:'$3',",
-					"\t\t\t\t\tchecked:true",
-					"\t\t\t\t},",
-					"\t\t\t\t{",
-					"\t\t\t\t\tlabel:''",
-					"\t\t\t\t}",
-					"\t\t\t]",
-					"\t\t})"
-			],
-			"description": "버튼형 체크 박스"
+	"form_phon": {
+		"prefix": "!form_phon",
+		"body": [
+				"+input_phone()"
+		],
+		"description": "휴대폰번호입력 폼"
+	},
+	
+	"form_button_check": {
+		"prefix": "!form_button_check",
+		"body": [
+				"+radioCheck({",
+				"\tname:'btnType',",
+				"\t${2:type:\"radio\",}",
+				"\tclassName:'button_type',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\tlabel:'$3',",
+				"\t\t\tchecked:true",
+				"\t\t},",
+				"\t\t{",
+				"\t\t\tlabel:''",
+				"\t\t}",
+				"\t]",
+				"})"
+		],
+		"description": "버튼형 체크 박스"
+	},
+	"form_jumin": {
+		"prefix": "!form_jumin",
+		"body": [
+				"+input_idnumber({",
+				"${1:\ttype:'letter',}",
+				"${2:\tdata:[{value:\"\"}, {value:\"\"}]}",
+				"})"
+		],
+		"description": "주민등록번호 입력"
+	},
+	"form_jumin_birthday": {
+		"prefix": "!form_jumin_birthday",
+		"body": [
+				"+input_idnumber({",
+				"\ttype:'birthday',",
+				"\t${1:data:[{value:\"\"\\}]}",
+				"})"
+		],
+		"description": "주민번호 생년월일만 입력"
+	},
+	"form_drivingnumber": {
+		"prefix": "!form_drivingnumber",
+		"body": [
+				"+input_drivingnumber(${1:{data:[{value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}]\\}})"
+		],
+		"description": "면허번호"
 	}
 }
 
-    
+

@@ -107,8 +107,8 @@ mixin input_idnumber(params={})
   - const divide = '_';
   //- 공통 요소 End
 
-  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data=null, ...rest } = Object.assign({}, params);
-  - const guide = ['앞6자리', '뒤7자리', ''];
+  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data=[{}, {}], ...rest } = Object.assign({}, params);
+  - const guide = ['앞6자리', '뒤7자리', '0'];
   - const guideTitle = ['주민번호 앞6자리 입력', '주민번호 뒤7자리 입력', '주민번호 뒤 첫번째 1자리 입력'];
 
   #{element}(
@@ -129,7 +129,6 @@ mixin input_idnumber(params={})
           span.divide -
 
     if type == 'letter'
-      - if(data === null) data = [{}, {}];
       +input(Object.assign({}, data[0], {
           disabled:disabled,
           readonly:readonly,
@@ -176,7 +175,7 @@ mixin input_drivingnumber(params={})
   - const divide = '_';
   //- 공통 요소 End
 
-  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data, ...rest } = Object.assign({}, params);
+  - const { element="div", type="default", className, disabled, readonly, value, placeholder, data=[{},{},{},{}], ...rest } = Object.assign({}, params);
   - const guide = ['00', '00', '000000', '00'];
   - const guideTitle = ['면허번호 첫 번째 두자리 입력', '면허번호 두 번째 두자리 입력', '면허번호 세 번째 여섯자리 입력', '면허번호 네 번째 두자리 입력'];
   #{element}(

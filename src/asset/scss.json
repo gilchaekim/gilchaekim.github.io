@@ -36,7 +36,7 @@
 	"sb-icon3": {
 		"prefix": "@sb-icon__tooltip",
 		"body": [
-			"@include icon_svg_tooltip(${1|white,black|}, ${0:20px});"
+			"@include icon_svg_tooltip(${1|white,black,black2,grey|}, ${0:20px});"
 		],
 		"description": "Log output to console"
 	},
