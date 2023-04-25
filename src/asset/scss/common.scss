@@ -18,7 +18,7 @@ a:link, a:active, a:hover, a:focus {
 	text-decoration:none;
 }
 #contants {
-	padding:24px 24px 108px 24px;
+	padding:24px;
 }
 hr {
 	margin:40px -24px;
@@ -708,6 +708,9 @@ hr {
 	.inq_list {
 		padding-top:32px;
 		border-top:1px solid $line_color03;
+		.mui_button_wrap{
+			margin-top: 24px;
+		}
 		.mui_text_lists {
 			font-size:13px;
 			color:$basic_color04;

@@ -774,19 +774,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   right: 10px;
   transform: rotate(45deg);
 }
-.mui_button_wrap {
-  display: flex;
-  justify-content: baseline;
-  margin: 0 -24px;
-  padding: 40px 16px 16px 16px;
-}
-.mui_button_wrap.fixed {
-  margin: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
 .mui_button ~ .mui_button {
   margin-left: 8px;
 }
@@ -938,15 +925,16 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--font_color02);
 }
 .mui_button_fixed {
-  padding: 40px 16px 16px;
-  background: var(--font_color06);
-  height: 108px;
+  height: 100px;
 }
 .mui_button_fixed .inset {
   position: fixed;
-  bottom: 16px;
-  left: 16px;
-  right: 16px;
+  background: var(--font_color06);
+  padding: 40px 16px 16px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
 }
 
 caption {
@@ -1176,6 +1164,8 @@ table, th, td {
 }
 .mui_text_lists.dot > ul > li {
   padding-left: 9px;
+  font-size: 13px;
+  color: var(--basic_color04);
 }
 .mui_text_lists.dot > ul > li::before {
   content: "";
@@ -1431,6 +1421,10 @@ table, th, td {
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content .tab_pane, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .tab_pane {
   padding: 16px 24px 0;
 }
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_button_wrap, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_button_wrap {
+  padding: 40px 0 16px;
+  margin: 0 -8px;
+}
 .mui_modal.mui_fullpop_wrap, [mui-modal].mui_fullpop_wrap {
   padding: 0;
 }
@@ -1456,20 +1450,13 @@ table, th, td {
   font-weight: 700;
 }
 .mui_modal.mui_fullpop_wrap .mui_modal_content, [mui-modal].mui_fullpop_wrap .mui_modal_content {
-  padding: 24px 24px 0;
+  padding: 24px;
 }
 .mui_modal.mui_fullpop_wrap .mui_modal_content .mui_tabs:first-child, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_tabs:first-child {
   margin: -24px -24px;
 }
 .mui_modal.mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_tabs .tab_pane {
   padding: 24px 24px 0;
-}
-.mui_modal.mui_fullpop_wrap .mui_modal_content .mui_button_wrap, [mui-modal].mui_fullpop_wrap .mui_modal_content .mui_button_wrap {
-  margin: 0;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
 }
 .mui_modal .mui_size_small, [mui-modal] .mui_size_small {
   min-width: 400px;
@@ -1542,7 +1529,7 @@ table, th, td {
 }
 
 .mui_result {
-  padding: 24px;
+  padding: 24px 0;
 }
 .mui_result dl {
   display: flex;
@@ -2955,6 +2942,7 @@ hr {
   /* 뱅킹(전체계좌조회) */
 }
 .webinq .card_topwrap {
+  margin: -24px -24px 0 -24px;
   padding: 24px 24px 0 24px;
   background: rgba(243, 115, 32, 0.04);
 }
@@ -2984,11 +2972,8 @@ hr {
   width: 20px;
   height: 20px;
 }
-.webinq .inq_wrap {
-  padding: 24px;
-}
 .webinq .inq_result {
-  padding: 0 24px 38px 24px;
+  padding: 0;
 }
 .webinq .inq_result .mui_accresult .date {
   padding-top: 32px;
@@ -3036,9 +3021,11 @@ hr {
   color: var(--font_color06);
 }
 .webinq .inq_list {
-  margin: 0 24px;
   padding-top: 32px;
   border-top: 1px solid var(--line_color03);
+}
+.webinq .inq_list .mui_button_wrap {
+  margin-top: 24px;
 }
 .webinq .inq_list .mui_text_lists {
   font-size: 13px;
@@ -3172,6 +3159,66 @@ hr {
 }
 .webcom .mui_text_lists.dot + .mui_title {
   padding-top: 32px;
+}
+
+/* 통장사본 */
+.passbook {
+  margin-bottom: 24px;
+  padding: 24px;
+  background: var(--bg_color02);
+  border-radius: 20px;
+}
+.passbook .img_wrap {
+  text-align: right;
+}
+.passbook .img_wrap img {
+  width: 100%;
+}
+.passbook .custom_name {
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--basic_color01);
+}
+.passbook .custom_name strong {
+  padding-right: 8px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.passbook .pass_info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px 0;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--line_color02);
+}
+.passbook .pass_info dl {
+  display: flex;
+  gap: 0 16px;
+}
+.passbook .pass_info dl dt {
+  width: 56px;
+  font-size: 14px;
+  color: var(--basic_color03);
+}
+.passbook p {
+  padding-top: 24px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.passbook p + p {
+  padding-top: 8px;
+}
+.passbook .bank_stamp {
+  padding-top: 32px;
+  text-align: center;
+}
+.passbook .bank_stamp img {
+  width: 40px;
+  height: 40px;
+  background: var(--line_color02);
+}
+
+.pbank_tel {
+  padding-top: 12px;
 }
 
 /* 타이틀아래 서브텍스트 */
