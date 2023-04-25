@@ -204,6 +204,19 @@
 		],
 		"description": "텝"
 	},
+	"tab_link": {
+		"prefix": ["!tab_link"],
+		"body": [
+				"+tabsLink({",
+				"\tlists:[",
+				"\t\t{name:\"\", active:true},",
+				"\t\t{name:\"\"},",
+				"\t],",
+				"})",
+				"\t$0"
+		],
+		"description": "텝"
+	},
 	"tag": {
 		"prefix": ["!tag", "!ㅅㅁㅎ"],
 		"body": [

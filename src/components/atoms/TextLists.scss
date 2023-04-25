@@ -8,6 +8,8 @@
     &.dot{
         & > ul > li{
             padding-left:9px;
+            font-size:13px;
+            color:$basic_color04;
             &::before{
                 content: '';
                 display: block;
