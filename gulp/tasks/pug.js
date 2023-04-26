@@ -2,6 +2,7 @@ import { src, dest } from 'gulp';
 import {config, buildDir} from "./../config";
 import plugins from "./plugins";
 import browserSync from 'browser-sync';
+import beautify from "gulp-beautify";
 import {
   printError,
   logError
@@ -32,6 +33,7 @@ const pugBuild = (path) => {
     this.emit('end');
     logError(error.name, error.message);
   })
+  .pipe(beautify.html({ indent_size: 2 }))
   .pipe(dest(buildDir))
   .on('end', () => {
     reload && browserSync.reload();
