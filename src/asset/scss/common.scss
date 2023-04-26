@@ -38,12 +38,22 @@ hr {
 .main_color01 {
 	color:$main_color01;
 }
-.mui_button_wrap {
+/* 버튼 - 라인, 흰색배경, 글자색상 */
+.btn_wrap {
+	
 	.btn_line {
 		color:$main_color01;
 		background:$bg_color03;
 		border:1px solid $line_color02;
 		border-radius:8px;
+	}
+	.btn_round {
+		padding:12px 24px;
+		width:initial;
+		font-size:14px;
+		color:$basic_color01;
+		border-color:$basic_color01;
+		border-radius:60px;
 	}
 }
 /* 하단안내문구(아이콘 유무) */
@@ -720,6 +730,9 @@ hr {
 				}
 			}
 		}
+		.btn_wrap {
+			padding-top:24px;
+		}
 	}
 	.acc_lists {
 		padding-top:16px;
@@ -835,7 +848,12 @@ hr {
 }
 .webcom {
 	.top_img {
-		margin:0 auto 24px;
+		margin-bottom:24px;
+		text-align:center;
+		img {
+			width:160px;
+			height:160px;
+		}
 	}
 	.mui_button_wrap {
 		padding:16px 24px 40px 24px;
@@ -856,8 +874,8 @@ hr {
 	background:$bg_color02;
 	border-radius:20px;
 	.img_wrap {
-		text-align:right;
-		img {width:100%;}
+		margin-left:auto;
+		width:100px;
 	}
 	.custom_name {
 		padding-bottom:8px;
@@ -893,8 +911,11 @@ hr {
 		}
 	}
 	.bank_stamp {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		gap:0 8px;
 		padding-top:32px;
-		text-align:center;
 		img {
 			width:40px;
 			height:40px;
@@ -904,6 +925,54 @@ hr {
 }
 .pbank_tel {
 	padding-top:12px;
+}
+/* 보이스피싱 */
+.voice {
+	.mui_text_lists.dot {
+		ul {
+			display:flex;
+			flex-direction:column;
+			gap:8px 0;
+		}
+	}
+	p {
+		&.txt {
+			font-size:16px;
+			color:$font_color01;
+			text-align:center;
+		}
+	}
+}
+
+/* 토스,금융 인증서 */
+.cert_wrap {
+	.mui_text {
+		text-align:center;
+		.default {
+			color:$font_color03;
+		}
+	}
+	.btn_round {
+		margin:32px auto 0;
+	}
+	.mui_title {
+		padding:36px 0 24px 0;
+		text-align:center;
+	}
+	.img_wrap {
+		margin:36px auto 24px;
+		width:100px;
+		height:100px;
+	}
+	.btn_wrap {
+		a {
+			display:block;
+			margin:36px auto 0;
+			width:100px;
+			height:100px;
+			background:red;
+		}
+	}
 }
 
 /* 타이틀아래 서브텍스트 */

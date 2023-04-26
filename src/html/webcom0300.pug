@@ -1,0 +1,29 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"입금계좌선택",
+    muiToggle:'target:#modal_bottom;'
+  })
+  +modal({
+    title:"입금계좌선택",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +content_group(1)
+      +tabsWrap({
+        active:0
+      })
+        +tab("최근")
+          +select_list({
+            type:"account"
+          })
+        +tab("자주")
+          +select_list({
+            type:"account"
+          })
+        +tab("내계좌")
+          +select_list({
+            type:"account"
+          })
+      
