@@ -23,8 +23,8 @@
     text-align: center;
   }
 }
-.inner_quick_btrn{
-  .mui_datepicker{
+.inner_quick_btn{
+  .mui_datepicker, & ~ .mui_multipicker{
     margin-top: 12px;
   }
 }

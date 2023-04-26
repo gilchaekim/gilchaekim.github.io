@@ -16,14 +16,19 @@ block content
       })
         +tab("최근")
           +select_list({
-            type:"account"
+            type:"accountlist_img"
+          })
+          +result({
+            type:'null',
+            mainText:"계좌없음",
+            img:"/src/images/ico_search_empty.svg",
           })
         +tab("자주")
           +select_list({
-            type:"account"
+            type:"accountlist_img"
           })
         +tab("내계좌")
           +select_list({
-            type:"account"
+            type:"accountlist_img"
           })
       

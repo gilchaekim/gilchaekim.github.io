@@ -231,47 +231,100 @@
       </div><!-- / header -->
 <!-- contents -->
       <div id="contants">
-        <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>통장사본</span></button><!-- layer -->
-        <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
-          <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop"> 
+        <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>입금계좌선택</span></button><!-- layer -->
+        <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
+          <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray"> 
             <div class="mui_modal_body">
               <div class="mui_modal_header"> 
-                <p>통장사본</p>
+                <p>입금계좌선택</p>
               </div>
               <div class="mui_modal_content">
                 <div class="mui_contents_group lv_1">
-                  <div class="passbook">
-                    <div class="img_wrap"><img src="/src/images/logo_sample.png" alt="은행명"></div>
-                    <div class="custom_name"><span><strong>김중앙</strong>님</span></div>
-                    <div class="pass_info">
-                      <dl>
-                        <dt>예금종류</dt>
-                        <dd class="main_color01">보통예금(예스뱅킹)</dd>
-                      </dl>
-                      <dl>
-                        <dt>계좌번호</dt>
-                        <dd>123-45-67-8901234</dd>
-                      </dl>
-                      <dl>
-                        <dt>신규일</dt>
-                        <dd>2023.01.01</dd>
-                      </dl>
-                    </div>
-                    <p>위와 같이 계좌가 개설되어 있음을 확인합니다.</p>
-                    <p>2023년 03월 28일</p>
-                    <div class="bank_stamp">한화저축은행<img src="/src/images/img_stamp.png" alt="은행직인"></div>
-                  </div>
-                  <div class="mui_text_lists dot">
-                    <ul>
-                      <li>계좌 해지 시에는 이자가 반영되어 잔액과 차이가 있을 수 있습니다.
+                  <div class="mui_tabs" mui-tab="">
+                    <ul class="mui_tab_nav">
+                      <li class="nav_list mui_active">
+                        <button type="button">최근</button>
                       </li>
-                      <li>이 통장 사본은 실제 거래를 위한 통장이 아니라, 예금주 및 당행에 존재하는 계좌임을 확인하는 이미지 출력물임을 알려드립니다.<p class='pbank_tel'>폰뱅킹 1544-3636 <span>저축은행지점 00-0-0000-0000</span><p>
+                      <li class="nav_list">
+                        <button type="button">자주</button>
+                      </li>
+                      <li class="nav_list">
+                        <button type="button">내계좌</button>
+                      </li>
+                    </ul>
+                    <div class="tab_contents">
+                      <div class="tab_pane mui_active">
+                  <div class="mui_selectlist accountlist_img"><!-- 체크 시 mui_active 클래스 추가 -->
+                    <ul>
+                      <li class="lists mui_active">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span><span class="hidden">선택 됨</span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
                       </li>
                     </ul>
                   </div>
-                  <div class="mui_button_fixed"><span class="inset">
-                      <button class="mui_button mui_large mui_grey" type="button"><span>닫기</span></button>
-                      <button class="mui_button mui_large mui_primary" type="button"><span>저장</span></button></span></div>
+                  <div class="mui_result_ico null">
+                    <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt=""/></div>
+                    <p class="main_txt">계좌없음</p>
+                  </div>
+                      </div>
+                      <div class="tab_pane">
+                  <div class="mui_selectlist accountlist_img"><!-- 체크 시 mui_active 클래스 추가 -->
+                    <ul>
+                      <li class="lists mui_active">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span><span class="hidden">선택 됨</span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                      </div>
+                      <div class="tab_pane">
+                  <div class="mui_selectlist accountlist_img"><!-- 체크 시 mui_active 클래스 추가 -->
+                    <ul>
+                      <li class="lists mui_active">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span><span class="hidden">선택 됨</span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                      <li class="lists">
+                        <button type="button"> <span class="img"><img src="/src/images/icon_bank.png" alt="상품 명"/></span><span class="title">상품 명</span><span class="acc_num">123-1212-1234-56<span class="acc_aka">별칭</span></span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <button class="mui_modal_close">닫기</button>

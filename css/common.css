@@ -925,7 +925,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--font_color02);
 }
 .mui_button_fixed {
-  height: 100px;
+  height: 108px;
 }
 .mui_button_fixed .inset {
   position: fixed;
@@ -1842,6 +1842,50 @@ table, th, td {
   left: 0;
   height: 10px;
 }
+.mui_selectlist.accountlist_img .lists button {
+  padding-left: 38px;
+}
+.mui_selectlist.accountlist_img .img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  border-radius: 12px;
+  border: 1px solid var(--line_color02);
+  position: absolute;
+  top: 20px;
+  left: 0;
+}
+.mui_selectlist.accountlist_img .img img {
+  width: 100%;
+}
+.mui_selectlist.accountlist_img .title {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
+}
+.mui_selectlist.accountlist_img .acc_num {
+  display: block;
+  margin-top: 8px;
+  font-size: 13px;
+  color: var(--font_color03);
+  font-weight: 300;
+}
+.mui_selectlist.accountlist_img .acc_aka {
+  display: inline-block;
+  position: relative;
+  padding-left: 9px;
+  margin-left: 7px;
+}
+.mui_selectlist.accountlist_img .acc_aka:after {
+  content: "";
+  display: block;
+  width: 1px;
+  background: var(--font_color05);
+  position: absolute;
+  top: 3px;
+  left: 0;
+  height: 10px;
+}
 .mui_selectlist.account_img > ul {
   display: flex;
   flex-wrap: wrap;
@@ -1932,7 +1976,7 @@ table, th, td {
   text-align: center;
 }
 
-.inner_quick_btrn .mui_datepicker {
+.inner_quick_btn .mui_datepicker, .inner_quick_btn ~ .mui_multipicker {
   margin-top: 12px;
 }
 
@@ -2389,11 +2433,20 @@ hr {
   color: var(--main_color01);
 }
 
-.mui_button_wrap .btn_line {
+/* 버튼 - 라인, 흰색배경, 글자색상 */
+.btn_wrap .btn_line {
   color: var(--main_color01);
   background: var(--bg_color03);
   border: 1px solid var(--line_color02);
   border-radius: 8px;
+}
+.btn_wrap .btn_round {
+  padding: 12px 24px;
+  width: initial;
+  font-size: 14px;
+  color: var(--basic_color01);
+  border-color: var(--basic_color01);
+  border-radius: 60px;
 }
 
 /* 하단안내문구(아이콘 유무) */
@@ -3048,6 +3101,9 @@ hr {
 .webinq .inq_list .mui_text_lists.dot > ul > li::before {
   background: var(--basic_color05);
 }
+.webinq .inq_list .btn_wrap {
+  padding-top: 24px;
+}
 .webinq .acc_lists {
   padding-top: 16px;
 }
@@ -3163,7 +3219,12 @@ hr {
 }
 
 .webcom .top_img {
-  margin: 0 auto 24px;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.webcom .top_img img {
+  width: 160px;
+  height: 160px;
 }
 .webcom .mui_button_wrap {
   padding: 16px 24px 40px 24px;
@@ -3183,10 +3244,8 @@ hr {
   border-radius: 20px;
 }
 .passbook .img_wrap {
-  text-align: right;
-}
-.passbook .img_wrap img {
-  width: 100%;
+  margin-left: auto;
+  width: 100px;
 }
 .passbook .custom_name {
   padding-bottom: 8px;
@@ -3222,8 +3281,11 @@ hr {
   padding-top: 8px;
 }
 .passbook .bank_stamp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0 8px;
   padding-top: 32px;
-  text-align: center;
 }
 .passbook .bank_stamp img {
   width: 40px;
@@ -3233,6 +3295,45 @@ hr {
 
 .pbank_tel {
   padding-top: 12px;
+}
+
+/* 보이스피싱 */
+.voice .mui_text_lists.dot ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+}
+.voice p.txt {
+  font-size: 16px;
+  color: var(--font_color01);
+  text-align: center;
+}
+
+/* 토스,금융 인증서 */
+.cert_wrap .mui_text {
+  text-align: center;
+}
+.cert_wrap .mui_text .default {
+  color: var(--font_color03);
+}
+.cert_wrap .btn_round {
+  margin: 32px auto 0;
+}
+.cert_wrap .mui_title {
+  padding: 36px 0 24px 0;
+  text-align: center;
+}
+.cert_wrap .img_wrap {
+  margin: 36px auto 24px;
+  width: 100px;
+  height: 100px;
+}
+.cert_wrap .btn_wrap a {
+  display: block;
+  margin: 36px auto 0;
+  width: 100px;
+  height: 100px;
+  background: red;
 }
 
 /* 타이틀아래 서브텍스트 */

@@ -21,6 +21,12 @@ mixin select_list(params={})
         title:"상품 명",
         src:'/src/images/icon_bank.png',
       },
+      accountlist_img:{
+        title:"상품 명",
+        acc:"123-1212-1234-56",
+        aka:"별칭",
+        src:'/src/images/icon_bank.png',
+      },
               
     }
     const getProps = function(type){
@@ -61,6 +67,25 @@ mixin select_list(params={})
             button(
               type="button"
             ) 
+              span.title!=item.title
+              span.acc_num!=item.acc
+                span.acc_aka!=item.aka
+              if activeIndex===index
+                span.hidden 선택 됨
+      else if selectType === "accountlist_img"
+        each item, index in data
+          li(
+            class="lists"
+            class={"mui_active":(activeIndex===index)}
+          )
+            button(
+              type="button"
+            ) 
+              span.img
+                img(
+                  src=item.src
+                  alt=item.title
+                )
               span.title!=item.title
               span.acc_num!=item.acc
                 span.acc_aka!=item.aka
