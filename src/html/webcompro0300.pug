@@ -1,0 +1,53 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"보안카드",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"보안카드",
+    id:"fullLayer",
+    type:"full"
+  })
+    .ars_mobile
+      .num_write 
+        .box 
+          p!="<em>35</em>번째 앞 2자리"
+          span.input_box 
+            span.input
+              input(type="text")
+            span.input
+              input(type="text")
+            span.mask 
+            span.mask
+        .box 
+          p!="<em>25</em>번째 뒤 2자리"
+          span.input_box 
+            span.mask 
+            span.mask
+            span.input
+              input(type="text")
+            span.input
+              input(type="text")
+      .sec_guide 
+        +title({
+          text:"보안카드",
+          lv:4,
+        })
+        +textLists({
+          type:'dot',
+          lists:[
+            {
+              text:"보안카드 암호 5회 오류시 서비스 이용이 중단되며, 영업점에 방문하셔야 합니다.",
+            },
+            {
+              text:"보안카드 등 금융정보는 PC, 이메일, 웹하드 등에 보관해서는 안됩니다.",
+            },
+            {
+              text:"보다 안전한 금융거래를 위해 보안카드를 영업점에서 OTP(일회용 비밀번호 발생기)로 교체바랍니다.",
+            },
+          ]
+        })
+    
+

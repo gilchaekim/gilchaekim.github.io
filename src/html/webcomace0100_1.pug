@@ -1,0 +1,82 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName=""
+  - pageTitle = "고객정보조회/변경"
+
+block content
+  .user_datalist 
+    +content_group(0)
+      +title({
+        text:"기본정보",
+        lv:4,
+      })
+      .data_list 
+        dl 
+          dt 이름
+          dd 김중앙
+        dl 
+          dt 주민등록번호
+          dd 123456-1******
+        dl 
+          dt 생년월일
+          dd 1975년 03월 02일(음력)
+        dl 
+          dt 휴대폰번호
+          dd 010-1234-****
+        dl 
+          dt 이메일주소
+          dd sb1234@sb.com
+          
+    +content_group(0)
+      +title({
+        text:"기본정보",
+        lv:4,
+      })
+      .data_list 
+        dl 
+          dt 자택주소
+          dd 
+            | 12345
+            br
+            | 서울특별시  마포구
+            br
+            | 마포대로 136 14F
+        dl 
+          dt 주민등록지주소
+          dd 
+            | 12345
+            br
+            | 서울특별시  마포구
+            br
+            | 마포대로 136 14F
+        dl 
+          dt 자택전화번호
+          dd 02-1234-****
+
+    +content_group(0)
+      +title({
+        text:"기본정보",
+        lv:4,
+      })
+      .data_list 
+        dl 
+          dt 연락구분
+          dd 우편
+        dl 
+          dt DM발송구분
+          dd 거주지주소
+        dl 
+          dt 이메일수신여부
+          dd 수신안함
+        dl 
+          dt SMS수신여부
+          dd 수신
+        dl 
+          dt 카카오톡알림신청
+          dd 신청
+      
+  +button_bottom_fixed()
+    +button({
+      label:"수정",
+      size:"large",
+    })

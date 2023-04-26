@@ -1,0 +1,22 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"약관 상세 팝업",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"약관 타이틀",
+    id:"fullLayer",
+    type:"full"
+  })
+    .agreefull_pop 
+      .btn_pdf 
+        a(href="").pdf_download PDF
+      .pdf_content
+    +button_bottom_fixed()
+      +button({
+        label:"전체동의",
+        size:"large",
+      })
+

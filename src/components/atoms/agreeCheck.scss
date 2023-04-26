@@ -2,6 +2,9 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_agree_check{
+  & ~ .mui_agree_check{
+    margin-top: 12px;
+  }
   .chk_btn{
     border: 1px solid $line_color02;
     border-radius: 8px;
@@ -15,14 +18,12 @@
       @include icon_svg(arrow-left, "#111", 20px);
       transform: rotate(180deg);
       position: absolute;
-      top: 50%;
+      top: 18px;
       right: 20px;
-      margin-top: -10px;
     }
     .text{
       display: block;
       position: relative;
-      height: 24px;
       line-height: 24px;
       font-size: 16px;
       font-weight: 700;
@@ -126,6 +127,7 @@
 
         &::after{
           right: 0;
+          top: 2px;
         }
         .text{
           font-size: 14px;
