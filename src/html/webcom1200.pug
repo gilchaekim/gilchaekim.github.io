@@ -1,0 +1,66 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName=""
+  - pageTitle = "약관동의"
+
+block content
+  .common_agreement
+    +content_group(1)
+      +agree_check({
+        text:"전체 동의",
+      })
+        +agree_check({
+          text:"[필수] 상세 약관 타이틀",
+        })
+        +agree_check({
+          text:"[필수] 상세 약관 타이틀",
+        })
+        +agree_check({
+          text:"[필수] 상세 약관 타이틀",
+        })
+        +agree_check({
+          text:"[필수] 상세 약관 타이틀",
+        })
+    +content_group(1)
+      +agree_check({
+        text:"개인(신용)정보 수집,이용 동의서 (상품서비스 안내 등)",
+        className:"chk_lists"
+      })
+        +radioCheck({
+          name:'checklist',
+          lists:[
+            {
+              label:'전체',
+              checked:true
+            },
+            {
+              label:'SMS'
+            },
+            {
+              label:'이메일'
+            },
+            {
+              label:'알림톡'
+            },
+            {
+              label:'전화'
+            },
+            {
+              label:'우편'
+            }
+          ]
+        })
+    +content_group(1)
+      +agree_box({
+        text:"약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트"
+      })
+      +text({
+        type:'warning',
+        text:"상품가입 진행을 위해서 동의가 필요해요"
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
+

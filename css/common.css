@@ -1558,6 +1558,12 @@ table, th, td {
   margin-top: 16px;
   font-weight: 400;
 }
+.mui_result_ico.null .sub_txt {
+  color: var(--font_color03);
+  font-size: 14px;
+  margin-top: 0;
+  font-weight: 400;
+}
 .mui_result_ico .icon_img {
   width: 64px;
   height: 64px;
@@ -1579,6 +1585,9 @@ table, th, td {
   font-size: 14px;
 }
 
+.mui_agree_check ~ .mui_agree_check {
+  margin-top: 12px;
+}
 .mui_agree_check .chk_btn {
   border: 1px solid var(--line_color02);
   border-radius: 8px;
@@ -1597,14 +1606,12 @@ table, th, td {
   height: 20px;
   transform: rotate(180deg);
   position: absolute;
-  top: 50%;
+  top: 18px;
   right: 20px;
-  margin-top: -10px;
 }
 .mui_agree_check .chk_btn .text {
   display: block;
   position: relative;
-  height: 24px;
   line-height: 24px;
   font-size: 16px;
   font-weight: 700;
@@ -1708,6 +1715,7 @@ table, th, td {
 }
 .mui_agree_check .inset .mui_agree_check .chk_btn::after {
   right: 0;
+  top: 2px;
 }
 .mui_agree_check .inset .mui_agree_check .chk_btn .text {
   font-size: 14px;
@@ -1869,6 +1877,12 @@ table, th, td {
   margin-top: 32px;
 }
 .mui_contents_group.lv_1:first-child {
+  margin-top: 0;
+}
+.mui_contents_group.lv_0 {
+  margin-top: 40px;
+}
+.mui_contents_group.lv_0:first-child {
   margin-top: 0;
 }
 
@@ -3245,5 +3259,337 @@ hr {
 }
 .list_txt .hyphhen li {
   padding-left: 11px;
+}
+
+.user_datalist .data_list {
+  margin-top: 16px;
+  border-top: 1px solid var(--line_color03);
+  border-bottom: 1px solid var(--line_color03);
+  padding: 16px 0;
+}
+.user_datalist .data_list dl {
+  display: flex;
+}
+.user_datalist .data_list dl dt, .user_datalist .data_list dl dd {
+  flex: 1;
+  font-size: 14px;
+}
+.user_datalist .data_list dl dt {
+  color: var(--basic_color04);
+}
+.user_datalist .data_list dl dd {
+  color: var(--font_color02);
+  text-align: right;
+}
+.user_datalist .data_list dl ~ dl {
+  margin-top: 16px;
+}
+
+.ars_mobile .top {
+  text-align: center;
+  padding: 36px 0 0;
+}
+.ars_mobile .top img {
+  width: 100px;
+}
+.ars_mobile .top .text {
+  font-size: 24px;
+  color: var(--font_color01);
+  font-weight: 700;
+  margin-top: 24px;
+}
+.ars_mobile .text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.ars_mobile .support {
+  margin-top: 16px;
+}
+.ars_mobile .support a {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--font_color03);
+  padding-right: 16px;
+  position: relative;
+}
+.ars_mobile .support a::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.ars_mobile .mui_select {
+  border: 1px solid var(--line_color02);
+  padding: 0 16px;
+  border-radius: 8px;
+  margin-top: 12px;
+  height: 64px;
+}
+.ars_mobile .mui_select.arrow_hidden {
+  margin: 0;
+}
+.ars_mobile .mui_select.arrow_hidden .inset::after {
+  display: none;
+}
+.ars_mobile .mui_select::before {
+  display: none;
+}
+.ars_mobile .mui_select .inset {
+  height: 64px;
+}
+.ars_mobile .mui_select .label {
+  line-height: 64px;
+}
+.ars_mobile .main_title {
+  text-align: center;
+  padding: 36px 0 40px;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.ars_mobile .ars_number {
+  font-size: 0;
+  text-align: center;
+}
+.ars_mobile .ars_number span {
+  display: inline-block;
+  width: 48px;
+  height: 65px;
+  line-height: 48px;
+  font-size: 48px;
+  font-weight: 700;
+  border-bottom: 2px solid var(--line_color02);
+  margin: 0 8px;
+}
+.ars_mobile .guide_inline {
+  margin-top: 60px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.ars_mobile .guide_inline em {
+  color: var(--main_color01);
+}
+.ars_mobile .guide_inline li ~ li {
+  margin-top: 16px;
+}
+.ars_mobile .guide_inline ~ .mui_text {
+  margin-top: 24px;
+}
+.ars_mobile .btn_link {
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 20px;
+  border: 1px solid var(--line_color01);
+  font-size: 14px;
+  padding: 0 24px;
+  margin-top: 32px;
+}
+.ars_mobile .smart_conf {
+  text-align: center;
+  margin-top: 16px;
+}
+.ars_mobile .smart_conf p {
+  font-size: 13px;
+  color: var(--font_color03);
+}
+.ars_mobile .num_write {
+  display: flex;
+  border: 1px solid var(--line_color03);
+  border-radius: 8px;
+  text-align: center;
+}
+.ars_mobile .num_write p {
+  border-bottom: 1px solid var(--line_color03);
+  background: var(--bg_color02);
+  padding: 12px 0;
+  font-size: 14px;
+  color: var(--font_color01);
+}
+.ars_mobile .num_write p em {
+  color: var(--main_color01);
+}
+.ars_mobile .num_write .box {
+  flex: 1;
+}
+.ars_mobile .num_write .box ~ .box {
+  border-left: 1px solid var(--line_color03);
+}
+.ars_mobile .num_write .input_box {
+  display: block;
+  padding: 12px 0 20px;
+  font-size: 0;
+}
+.ars_mobile .num_write .input_box span {
+  display: inline-block;
+  width: 20px;
+  height: 32px;
+  vertical-align: top;
+}
+.ars_mobile .num_write .input_box span ~ span {
+  margin-left: 8px;
+}
+.ars_mobile .num_write .input_box span.mask {
+  width: 12px;
+  position: relative;
+}
+.ars_mobile .num_write .input_box span.mask::after {
+  content: "";
+  display: block;
+  width: 12px;
+  height: 12px;
+  background: var(--basic_color01);
+  border-radius: 6px;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -6px;
+}
+.ars_mobile .num_write .input_box input {
+  width: 20px;
+  height: 32px;
+  border: 0 none;
+  border-bottom: 2px solid var(--line_color01);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.ars_mobile .sec_guide {
+  margin-top: 60px;
+}
+.ars_mobile .sec_guide .mui_text_lists {
+  margin-top: 16px;
+}
+.ars_mobile .sec_guide .mui_text_lists.dot > ul > li {
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.ars_mobile .sec_guide .mui_text_lists.dot > ul > li ~ li {
+  margin-top: 12px;
+}
+
+.common_agreement .mui_agree_check + .mui_text, .common_agreement .mui_agree_box + .mui_text {
+  margin-top: 24px;
+}
+
+.agreefull_pop .pdf_download {
+  position: relative;
+  display: inline-block;
+  height: 28px;
+  background-color: #5c627c;
+  color: var(--font_color06);
+  line-height: 28px;
+  padding: 0 12px 0 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+.agreefull_pop .pdf_download::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: url("/src/images/ico_download.svg") no-repeat center;
+  margin-top: 4px;
+  vertical-align: top;
+  margin-right: 6px;
+}
+.agreefull_pop .btn_pdf {
+  position: absolute;
+  top: 14px;
+  right: 58px;
+}
+
+.search_address .mui_form_content {
+  margin-top: 0;
+}
+.search_address .mui_form {
+  height: 77px;
+}
+.search_address .input_sec {
+  position: relative;
+}
+.search_address .input_sec .mui_input input {
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.search_address .input_sec .search_btn {
+  width: 48px;
+  height: 48px;
+  background: url("/src/images/ico_search.svg") no-repeat center;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search_address .guide_sec {
+  margin: 60px 0;
+}
+.search_address .guide_sec .main_title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--font_color01);
+  padding-left: 24px;
+  position: relative;
+}
+.search_address .guide_sec .main_title::before {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='9' cy='9' r='9' transform='translate(1 1)' fill='%23111'/%3E%3Cpath d='M11.111,13.861a1,1,0,0,1-1,1H9.889a1,1,0,0,1-1-1V9.334a1,1,0,0,1,1-1h.222a1,1,0,0,1,1,1Z' fill='%23fff'/%3E%3Ccircle cx='1.111' cy='1.111' r='1.111' transform='translate(11.111 7.223) rotate(180)' fill='%23fff'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.search_address .guide_sec .box {
+  margin-top: 16px;
+  color: var(--font_color03);
+  font-size: 14px;
+}
+.search_address .guide_sec .box .example {
+  display: block;
+  color: var(--main_color01);
+}
+.search_address .addr_lists {
+  margin-top: 24px;
+}
+.search_address .addr_lists .box {
+  padding: 16px 0;
+  display: block;
+}
+.search_address .addr_lists .box ~ .box {
+  border-top: 1px solid var(--line_color03);
+}
+.search_address .addr_lists .box .post {
+  display: block;
+  font-size: 16px;
+  color: var(--main_color01);
+  padding-bottom: 12px;
+}
+.search_address .addr_lists .box p {
+  font-size: 14px;
+  color: var(--font_color02);
+}
+.search_address .last_addr_write dt {
+  font-size: 14px;
+  color: var(--font_color02);
+}
+.search_address .last_addr_write dd {
+  font-size: 16px;
+  color: var(--font_color01);
+  font-weight: 700;
+  margin-top: 8px;
+}
+.search_address .last_addr_write .mui_input {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=common.css.map */

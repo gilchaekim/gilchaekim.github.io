@@ -1,0 +1,28 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"추가인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"추가인증 선택",
+    id:"fullLayer",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"ARS 인증"},
+        {name:"스마트앱 인증", active:true},
+      ],
+      className:"custom_tab"
+    })
+      .ars_mobile
+        .top
+          .img 
+            img(src="/src/images/ico_smart.png", alt="")
+          .text 스마트앱 인증
+        .smart_conf 
+          p!="스마트앱 인증을 SB톡톡 앱에서 진행합니다."
+          p!="스마트앱 인증 버튼을 누르시고, SB톡톡 <br> 앱을 확인해 주세요."
+          a(href="").btn_link  스마트앱 인증
