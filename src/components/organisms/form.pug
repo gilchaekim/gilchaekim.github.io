@@ -15,7 +15,7 @@ mixin form(params={})
     class=className
   )
     each item, index in formBody
-      - const {title, required, message} = item.attribute;
+      - const {title, tooltip, required, message} = item.attribute;
       - let messageType = null;
       - 
         if (!!message)
@@ -30,6 +30,8 @@ mixin form(params={})
             class={"form_required":required}
           )
             span.form_title!=title
+              if !!tooltip
+                +button_tooltip(tooltip)
         div(
           class=`${prefix}${divide}form_content`
         )

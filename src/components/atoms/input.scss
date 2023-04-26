@@ -59,6 +59,16 @@
       background: $line_color01;
     }
   }
+  &.inner_subfix {
+    display: flex;
+    input{
+      width: 100%;
+      text-align: right;
+    }
+    .subfix{
+      line-height: 48px;
+    }
+  }
   &::after{
     content: '';
     display: block;

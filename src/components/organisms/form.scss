@@ -7,8 +7,19 @@
   }
   .mui_form_content{
     margin-top: 8px;
+    .mui_phone{
+      .mui_button{
+        & + .mui_input{
+          margin-top: 0;
+        }
+      }
+    }
     .mui_text {
       margin-top: 24px;
+    }
+    & > .mui_button_custom,
+    & > .mui_checkbox {
+      margin-top: 12px;
     }
   }
   .mui_input{
@@ -17,7 +28,7 @@
     }
   }
   .mui_button{
-    & + .mui_input{
+    & + .mui_input, & + .mui_inputbtn{
       margin-top: 12px;
     }
   }
@@ -47,6 +58,10 @@
 .mui_form_head{
   font-size: 14px;
   color:$font_color02;
+  .mui_tooltip_wrap{
+    position: relative;
+    top: -1px;
+  }
 }
 .form_error{
   .mui_input::after, .mui_select::before{

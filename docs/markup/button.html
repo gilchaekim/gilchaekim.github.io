@@ -62,9 +62,64 @@
           </div>
         </div><br><br>
         <div class="title_sec">
+          <p class="guide_title title_lv2">Custom Button</p>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button_custom round-40" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom darkgray-28" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom gray-32" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom download-32" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom timeselect-24" type="button"><span class="inset">버튼ㆍ버튼</span></button><button class="mui_button_custom white-round-24" type="button"><span class="inset">버버튼</span></button></section><div class="code_block"><pre><code class="language-pug">+button_custom({
+  type:"round-40",
+  label:"버튼"
+})
++button_custom({
+  type:"darkgray-28",
+  label:"버튼"
+})
++button_custom({
+  type:"gray-32",
+  label:"버튼"
+})
++button_custom({
+  type:"download-32",
+  label:"버튼"
+})
++button_custom({
+  type:"timeselect-24",
+  label:"버튼ㆍ버튼"
+})
++button_custom({
+  type:"white-round-24",
+  label:"버버튼"
+})</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br>
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Tooltip Button</p>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><div class="mui_tooltip_wrap" mui-tooltip="text:튤팁 텍스트를 입력 해주세요;"><button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button></div></section><div class="code_block"><pre><code class="language-pug">+button_tooltip('튤팁 텍스트를 입력 해주세요')</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br>
+        <div class="title_sec">
+          <p class="guide_title title_lv2">Button keypad</p>
+        </div>
+        <div class="guide_card_box"><section class="code_view"><div class="mui_keypad"> <div class="quick_btn"> <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span></div></div><div class="key_number"> <button class="key" type="button">1</button><button class="key" type="button">2</button><button class="key" type="button">3</button><button class="key" type="button">4</button><button class="key" type="button">5</button><button class="key" type="button">6</button><button class="key" type="button">7</button><button class="key" type="button">8</button><button class="key" type="button">9</button><button class="key" type="button">00</button><button class="key" type="button">0      </button><button class="key del" type="button"> <span class="hidden">삭제</span></button></div></div></section><div class="code_block"><pre><code class="language-pug">+button_keypad()
+  +button_group({
+    btns:[
+      '+1만',
+      '+5만',
+      '+10만',
+      '+100만',
+    ]
+  })</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br><br>
+        <div class="title_sec">
           <p class="guide_title title_lv2">Select Button</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_select" type="button" title="통신사 선택"><span class="inset"><span class="placeholder" aria-hidden="true">placeholder</span></span></button><button class="mui_button mui_select" type="button" title="통신사 선택"><span class="inset"><span class="label">label<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">placeholder</span></span></button></section><div class="code_block"><pre><code class="language-pug">+button_select({
+        <div class="guide_card_box"><section class="code_view"><button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">placeholder</span></span></button><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">label<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">placeholder</span></span></button></section><div class="code_block"><pre><code class="language-pug">+button_select({
   placeholder:"placeholder"
 })
 +button_select({

@@ -472,6 +472,7 @@ hr {
 			position: relative;
 			&.highlight{
 				color:$main_color01;
+				border-bottom: 1px solid $main_color01;
 			}
 			& ~ a{
 				margin-left: 12px;
@@ -536,14 +537,7 @@ hr {
 			}
 		}
 	}
-	.btn_link{
-		display: inline-block;
-		height: 40px;
-		line-height: 40px;
-		border-radius: 20px;
-		border: 1px solid $line_color01;
-		font-size: 14px;
-		padding: 0 24px;
+	.mui_button_custom.round-40{
 		margin: 16px 0 24px;
 	}
 	.btn_wrap{
@@ -1124,14 +1118,7 @@ hr {
 			margin-top: 24px;
 		}
 	}
-	.btn_link{
-		display: inline-block;
-		height: 40px;
-		line-height: 40px;
-		border-radius: 20px;
-		border: 1px solid $line_color01;
-		font-size: 14px;
-		padding: 0 24px;
+	.mui_button_custom.round-40{
 		margin-top: 32px;
 	}
 	.smart_conf{
@@ -1225,27 +1212,6 @@ hr {
 	}
 }
 .agreefull_pop{
-	.pdf_download{
-		position: relative;
-		display: inline-block;
-		height: 28px;
-		background-color:#5c627c;
-		color:$font_color06;
-		line-height: 28px;
-		padding: 0 12px 0 10px;
-		font-size: 13px;
-		border-radius: 8px;
-		&::before{
-			content: '';
-			display: inline-block;
-			width: 16px;
-			height: 16px;
-			background: url($url_common+"ico_download.svg") no-repeat center;
-			margin-top: 4px;
-			vertical-align: top;
-			margin-right: 6px;
-		}
-	}
 	.btn_pdf{
 		position: absolute;
 		top: 14px;
@@ -1339,3 +1305,48 @@ hr {
 		}
 	}
 }
+
+.webauc{
+	.main_list{
+		.list{
+			display: block;
+			position: relative;
+			border-radius: 20px;
+			padding: 20px 20px 20px 76px;
+			border: 1px solid $line_color03;
+			height: 80px;
+			& ~ .list{
+				margin-top: 12px;
+			}
+			.img{
+				display: block;
+				width: 40px;
+				height: 40px;
+				position: absolute;
+				left: 20px;
+				top: 20px;
+				background:$line_color03;
+			}
+			.text{
+				line-height: 40px;
+				color:$font_color02;
+				font-size: 14px;
+			}
+		}
+	}
+	.inner_subfix {
+		input, .subfix{
+			font-weight: 700;
+		}
+	}
+	.money_support{
+		text-align: right;
+		margin-top: 12px;
+		font-size: 13px;
+		color:$main_color01;
+	}
+	.mui_title{
+		margin-bottom: 24px;
+	}
+}
+

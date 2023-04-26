@@ -54,6 +54,65 @@ block content
     br
     br
 
+    +guideTitle({
+      text:"Custom Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_custom({
+          type:"round-40",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"darkgray-28",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"gray-32",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"download-32",
+          label:"버튼"
+        })
+        +button_custom({
+          type:"timeselect-24",
+          label:"버튼ㆍ버튼"
+        })
+        +button_custom({
+          type:"white-round-24",
+          label:"버버튼"
+        })
+        
+    br
+    br
+    +guideTitle({
+      text:"Tooltip Button",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_tooltip('튤팁 텍스트를 입력 해주세요')
+    br
+    br
+    +guideTitle({
+      text:"Button keypad",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +button_keypad()
+          +button_group({
+            btns:[
+              '+1만',
+              '+5만',
+              '+10만',
+              '+100만',
+            ]
+          })
+    br
+    br
 
     +guideTitle({
       text:"Select Button",

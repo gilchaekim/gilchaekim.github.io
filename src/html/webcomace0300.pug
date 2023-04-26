@@ -25,4 +25,7 @@ block content
         .smart_conf 
           p!="스마트앱 인증을 SB톡톡 앱에서 진행합니다."
           p!="스마트앱 인증 버튼을 누르시고, SB톡톡 <br> 앱을 확인해 주세요."
-          a(href="").btn_link  스마트앱 인증
+          +button_custom({
+            type:"round-40",
+            label:"스마트앱 인증"
+          })

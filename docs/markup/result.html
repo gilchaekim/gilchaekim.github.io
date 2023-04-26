@@ -17,7 +17,32 @@
         <div class="title_sec">
           <p class="guide_title title_lv2">Example</p>
         </div>
-        <div class="guide_card_box"><section class="code_view"><div class="mui_result"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></section><div class="code_block"><pre><code class="language-pug">+result({
+        <div class="guide_card_box"><section class="code_view"><div class="mui_result default"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></section><div class="code_block"><pre><code class="language-pug">+result({
+  data:[
+    {
+      title:"계좌상태",
+      text:"활동계좌",
+    },
+    {
+      title:"대출금액",
+      text:"200,000,000,000원",
+    },
+    {
+      title:"대출일자",
+      text:"YYYY.MM.DD",
+    },
+    {
+      title:"대출만기일자",
+      text:"YYYY.MM.DD",
+    },
+  ]
+})</code></pre></div>
+          <div class="view_code">
+            <button>code view Toggle</button>
+          </div>
+        </div><br>
+        <div class="guide_card_box"><section class="code_view"><div class="mui_result line"><dl> <dt>계좌상태</dt><dd> 활동계좌</dd></dl><dl> <dt>대출금액</dt><dd> 200,000,000,000원</dd></dl><dl> <dt>대출일자</dt><dd> YYYY.MM.DD</dd></dl><dl> <dt>대출만기일자</dt><dd> YYYY.MM.DD</dd></dl></div></section><div class="code_block"><pre><code class="language-pug">+result({
+  dataType:"line",
   data:[
     {
       title:"계좌상태",

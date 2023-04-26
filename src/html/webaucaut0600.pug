@@ -1,0 +1,45 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS)"
+
+block content
+  +title({
+    text:"자동이체 약관에 <br>동의해주세요",
+    lv:2,
+  })
+  +agree_check({
+    text:"모두 동의합니다",
+  })
+    +agree_check({
+      text:"[필수] 개인정보 수집 및 이용 동의",
+    })
+    +agree_check({
+      text:"[필수] 개인정보 제3자 제공 동의",
+    })
+    +agree_check({
+      text:"[필수] 출금이체 동의여부 및 해지사실 통지 안내",
+    })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'dot',
+        lists:[
+          {text:"고객님의 본인 소유 당/타행 출금계좌에서 자동이체(CMS)를 신청하는 서비스입니다.",},
+          {text:"고객님의 당/타행 출금계좌의 예금주가 본인이 아닐 경우 계좌등록 할 수 없습니다.",},
+          {text:"매월  이체 설정된 일자에 출금 또는 입금이 이루어집니다.",},
+          {text:"자동이체업무상의 본인 소유 당행 출금계조하에서 타행 계좌로 입금하는 서비스와는 별개의 업무이오며, 궁금하신 사항은 당행에 문의하시길 바랍니다.",},
+          {text:"은행별 평생계좌는 이용기관 CMS [타은행->저축은행 입금] 신규등록 할 수 없습니다.",},
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
