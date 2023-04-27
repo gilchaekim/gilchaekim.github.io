@@ -233,89 +233,101 @@
     </div><!-- / header -->
     <!-- contents -->
     <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>주소찾기 팝업</span></button><!-- layer -->
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>휴대폰 본인인증</span></button><!-- layer -->
       <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
         <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
           <div class="mui_modal_body">
             <div class="mui_modal_header">
-              <p>주소찾기</p>
+              <p>휴대폰 본인인증</p>
             </div>
             <div class="mui_modal_content">
-              <div class="search_address">
+              <div class="mui_contents_group lv_1">
                 <div class="mui_form">
                   <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">이름</span></div>
                     <div class="mui_form_content">
-                      <div class="input_sec">
+                      <span class="mui_input">
+                        <input type="text" placeholder="이름 입력" mui-input="" />
+                      </span>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">주민등록번호</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_idNumber mui_inputmultiple default">
                         <span class="mui_input">
-                          <input type="text" placeholder="도로명, 지번, 건물명 검색" mui-input="" />
+                          <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" mui-input="" />
+                        </span><span class="divide">-</span>
+                        <span class="mui_input">
+                          <input type="password" title="주민번호 뒤7자리 입력" placeholder="뒤7자리" mui-input="" />
                         </span>
-                        <button class="search_btn" type="button"> <span class="hidden">검색</span></button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">휴대폰번호</span></div>
+                    <div class="mui_form_content">
+                      <div class="mui_phone">
+                        <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button>
+                        <span class="mui_input">
+                          <input type="tel" placeholder="휴대폰번호(숫자만)" mui-input="" />
+                        </span>
                       </div>
                     </div>
                   </div>
                 </div>
+              </div>
+              <div class="mui_contents_group lv_1">
+                <div class="mui_agree_check inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
+                  <button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                  <div class="inset">
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 개인정보 수집/이용동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 통신사 이용약관 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 고유식별번호 처리 관련 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 본인확인이용 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 개인정보 제3자 제공동의(고객사)</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 개인정보 제3자 제공 동의(KCB)</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 개인정보 제3자 제공 동의(이동통신사)</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                    <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+                      <button class="chk_btn" type="button"><span class="text">[필수] 서비스 약관동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mui_contents_group lv_1">
+                <button class="mui_button mui_medium mui_white" type="button"><span>인증번호 전송</span></button>
+              </div>
+              <div class="mui_contents_group lv_1">
                 <div class="mui_form">
-                  <div class="mui_form_list form_error">
+                  <div class="mui_form_list">
+                    <div class="mui_form_head"><span class="form_title">인증번호</span></div>
                     <div class="mui_form_content">
-                      <div class="input_sec">
+                      <div class="mui_certificate">
                         <span class="mui_input">
-                          <input type="text" placeholder="도로명, 지번, 건물명 검색" mui-input="" />
-                        </span>
-                        <button class="search_btn" type="button"> <span class="hidden">검색</span></button>
+                          <input type="tel" placeholder="인증번호 입력" mui-input="" />
+                        </span><span class="time">03:00</span>
+                        <button type="button"> <span>시간연장</span></button>
                       </div>
-                      <p class="msg_form msg_error">에러 메세지</p>
                     </div>
-                  </div>
-                </div>
-                <div class="addr_lists" style="display:none;"><a class="box" href=""><span class="post">04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단</p>
-                  </a><a class="box" href=""> <span class="post"> 04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단</p>
-                  </a><a class="box" href=""> <span class="post"> 04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단</p>
-                  </a><a class="box" href=""> <span class="post"> 04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단</p>
-                  </a><a class="box" href=""> <span class="post"> 04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단프로제</p>
-                  </a><a class="box" href=""> <span class="post"> 04130</span>
-                    <p class="type1">[도로명] 서울 마포구 마포대로 163 서울신용보증재단 서울신용보증재단</p>
-                    <p class="type2">[지번] 서울 마포구 공덕동 168 서울신용보증재단 서울신용보증재단</p>
-                  </a></div>
-                <div class="last_addr_write" style="display:;">
-                  <dl>
-                    <dt>주소</dt>
-                    <dd>04130 서울 마포구 마포대로 163 서울신용보증재단</dd>
-                  </dl>
-                  <span class="mui_input">
-                    <input type="text" placeholder="상세주소 입력" mui-input="" />
-                  </span>
-                </div>
-                <div style="display:none;">
-                  <div class="mui_result_ico null">
-                    <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt="" /></div>
-                    <p class="main_txt">검색결과가 없습니다.</p>
-                    <p class="sub_txt">검색어에 잘못된 철자가 없는지, 정확한<br>주소인지 다시 힌 번 확인해주세요.</p>
-                  </div>
-                </div>
-                <div class="guide_sec" style="display:;">
-                  <p class="main_title">알아두세요</p>
-                  <div class="box">
-                    <p>도로명 또는 도로명과 건물번호를 입력해주세요.</p><span class="example">
-                      예) 서울시 마포구 마포대로 163 검색 시<br>"마포대로 163" 입력</span>
-                  </div>
-                  <div class="box">
-                    <p>주소의 읍/면/동을 입력해주세요.</p><span class="example">
-                      예) 서울시 마포구 마포대로 163 검색 시<br>"마포대로 163" 입력</span>
                   </div>
                 </div>
               </div>
               <div class="mui_button_fixed"><span class="inset">
-                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+                  <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
             </div>
             <button class="mui_modal_close">닫기</button>
           </div>

@@ -3873,6 +3873,9 @@ hr {
   font-size: 14px;
   color: var(--font_color02);
 }
+.search_address .last_addr_write {
+  margin-top: 60px;
+}
 .search_address .last_addr_write dt {
   font-size: 14px;
   color: var(--font_color02);
