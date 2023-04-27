@@ -504,6 +504,22 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
 }
 
+.bg {
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 0;
+}
+
+.main {
+  position: relative;
+  overflow: hidden;
+}
+.main #contants {
+  position: relative;
+  z-index: 2;
+}
 .main .mui_accordion {
   padding: 0 24px;
 }
@@ -790,6 +806,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .main .status.type1 .mui_tab_nav {
   justify-content: center;
+}
+.main .status.type1 .mui_tab_nav::after {
+  display: none;
 }
 .main .status.type1 .nav_list {
   flex: initial;

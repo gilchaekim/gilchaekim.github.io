@@ -70,8 +70,20 @@
 // // component scss
 
 
-
+.bg{
+  position: absolute;
+  top: 56px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 0;
+}
 .main{
+  position: relative;
+  overflow: hidden;
+  #contants{
+    position: relative;
+    z-index: 2;
+  }
   .mui_accordion{
     padding: 0 24px;
     .mui_acc_content{
@@ -371,6 +383,9 @@
     &.type1{
       .mui_tab_nav{
         justify-content: center;
+        &::after{
+          display: none;
+        }
       }
       .nav_list{
         flex: initial;
