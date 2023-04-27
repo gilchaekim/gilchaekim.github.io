@@ -1,0 +1,57 @@
+@import "../../asset/scss/common/mixins";
+@import "../../asset/scss/common/varialbles";
+
+.mui_card{
+  border-radius: 20px;
+  border: 1px solid $line_color03;
+  box-shadow: 0 4px 8px rgba(0,0,0,.04);
+  & ~ .mui_card{
+    margin-top: 12px;
+  }
+  &.is_linked{
+    .inset{
+      display: block;
+      &:after{
+        content: '';
+        display: block;
+        @include icon_svg(arrow-left, "#111", 20px);
+        transform: rotate(180deg);
+        position: absolute;
+        top: 24px;
+        right: 24px;
+      }
+    }  
+  }
+  .inset{
+    padding: 24px;
+    position: relative;
+  }
+  .mui_result {
+    padding: 0;
+    dl{
+      & ~ dl{
+        margin-top: 16px;
+      }
+    }
+  }
+  .tags{
+
+    margin-bottom: 16px;
+    .tag{
+      border-radius: 10px;
+      height: 20px;
+      line-height: 20px;
+      background: #3282FA;
+      color:$bg_color03;
+      display: inline-block;
+      padding: 0 8px;
+      font-size: 13px;
+      &.disabled{
+        background:$basic_color04;
+      }
+      &.error{
+        background:$font_color08;
+      }
+    }
+  }
+}

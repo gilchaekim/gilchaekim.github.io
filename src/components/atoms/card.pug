@@ -1,0 +1,32 @@
+mixin card(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { element = 'div', type="default", data, tag = {label:null, status:"default"}, className, isLinked,  ...rest } = Object.assign({}, params)
+
+  #{element}(
+    class=`${prefix}${divide}card`
+    class=className
+    class={"is_linked":isLinked}
+  )
+
+    mixin cardData()
+      if tag && tag.label
+        div.tags
+          span.tag(
+            class=`${tag.status}`
+          )!=tag.label
+      +result({
+        data:data
+      })
+    if isLinked 
+      a(href="").inset
+        +cardData()
+    else 
+      .inset
+        +cardData()
+
+
+

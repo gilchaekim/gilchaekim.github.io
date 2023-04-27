@@ -1,0 +1,46 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS)"
+
+block content
+  +title({
+    text:"자동이체를 <br>신청하시겠어요?",
+    lv:2,
+  })
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"출금계좌",
+        text:"중앙저축은행<br>000-000-0000000",
+      },
+      {
+        title:"입금계좌",
+        text:"중앙저축은행<br>000-000-0000000",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+    ]
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"다음",
+      size:"large",
+    })

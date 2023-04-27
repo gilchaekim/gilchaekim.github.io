@@ -1728,6 +1728,9 @@ table, th, td {
 .mui_result {
   padding: 24px 0;
 }
+.mui_result em {
+  color: var(--main_color01);
+}
 .mui_result + .mui_text {
   margin-top: 12px;
 }
@@ -1746,7 +1749,7 @@ table, th, td {
   font-size: 14px;
 }
 .mui_result dl dt {
-  color: var(--font_color03);
+  color: var(--basic_color04);
 }
 .mui_result dl dd {
   color: var(--font_color02);
@@ -2164,6 +2167,60 @@ table, th, td {
   height: 20px;
 }
 
+.mui_card {
+  border-radius: 20px;
+  border: 1px solid var(--line_color03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.mui_card ~ .mui_card {
+  margin-top: 12px;
+}
+.mui_card.is_linked .inset {
+  display: block;
+}
+.mui_card.is_linked .inset:after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.mui_card .inset {
+  padding: 24px;
+  position: relative;
+}
+.mui_card .mui_result {
+  padding: 0;
+}
+.mui_card .mui_result dl ~ dl {
+  margin-top: 16px;
+}
+.mui_card .tags {
+  margin-bottom: 16px;
+}
+.mui_card .tags .tag {
+  border-radius: 10px;
+  height: 20px;
+  line-height: 20px;
+  background: #3282FA;
+  color: var(--bg_color03);
+  display: inline-block;
+  padding: 0 8px;
+  font-size: 13px;
+}
+.mui_card .tags .tag.disabled {
+  background: var(--basic_color04);
+}
+.mui_card .tags .tag.error {
+  background: var(--font_color08);
+}
+
 .mui_datepicker input {
   background: url("/src/images/ico_calendar.svg") no-repeat right center;
 }
@@ -2494,6 +2551,60 @@ table, th, td {
 .guide_text .mui_open .mui_acc_button {
   transform: rotate(180deg);
   top: 10px;
+}
+
+.mui_datasort {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.mui_datasort .sort_data {
+  font-size: 14px;
+  line-height: 20px;
+}
+.mui_datasort .total {
+  color: var(--font_color03);
+}
+.mui_datasort .total em {
+  color: var(--main_color01);
+  font-weight: 700;
+}
+.mui_datasort .total + .date {
+  position: relative;
+  padding-left: 9px;
+  margin-left: 8px;
+}
+.mui_datasort .total + .date::after {
+  content: "";
+  background: var(--line_color02);
+  width: 1px;
+  height: 12px;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -6px;
+}
+.mui_datasort .mui_select {
+  display: inline-block;
+  width: auto;
+  height: 20px;
+}
+.mui_datasort .mui_select::before {
+  display: none;
+}
+.mui_datasort .inset {
+  height: 20px;
+  padding-right: 24px;
+  line-height: 20px;
+}
+.mui_datasort .label {
+  line-height: 20px;
+  font-size: 13px;
+  font-weight: 300;
+}
+.mui_datasort + .mui_result_ico.null {
+  padding-top: 24px;
 }
 
 .mui_form_list ~ .mui_form_list {
@@ -3890,6 +4001,12 @@ hr {
   margin-top: 12px;
 }
 
+.webauc .mui_more {
+  margin-top: 20px;
+}
+.webauc .form_val {
+  line-height: 28px;
+}
 .webauc .main_list .list {
   display: block;
   position: relative;
@@ -3924,7 +4041,10 @@ hr {
   font-size: 13px;
   color: var(--main_color01);
 }
-.webauc .mui_title {
+.webauc .mui_title .title.lv2 {
   margin-bottom: 24px;
+}
+.webauc .mui_title .title.lv4 {
+  margin-bottom: 16px;
 }
 /*# sourceMappingURL=common.css.map */

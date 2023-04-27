@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <title>METAUI</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <link rel="stylesheet" href="/docs/css/index.css">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/index.js"></script>
+</head>
+
+<body>
+  <div id="guideWrap">
+    <div class="main_content">
+      <div class="title_sec">
+        <p class="guide_title title_lv1">카드형 목록</p>
+      </div>
+      <div class="title_sec">
+        <p class="guide_title title_lv2">Example</p>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_card is_linked"><a class="inset" href="">
+              <div class="tags"><span class="tag default">정상</span></div>
+              <div class="mui_result default">
+                <dl>
+                  <dt>계좌상태</dt>
+                  <dd> 활동계좌</dd>
+                </dl>
+                <dl>
+                  <dt>대출금액</dt>
+                  <dd> 200,000,000,000원</dd>
+                </dl>
+                <dl>
+                  <dt>대출일자</dt>
+                  <dd> YYYY.MM.DD</dd>
+                </dl>
+                <dl>
+                  <dt>대출만기일자</dt>
+                  <dd> YYYY.MM.DD</dd>
+                </dl>
+              </div>
+            </a></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+card({
+  isLinked:true,
+  tag : {
+    label:"정상",
+    status:"default"
+  },
+  data: [
+      {
+        title:"계좌상태",
+        text:"활동계좌",
+      },
+      {
+        title:"대출금액",
+        text:"200,000,000,000원",
+      },
+      {
+        title:"대출일자",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"대출만기일자",
+        text:"YYYY.MM.DD",
+      },
+    ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const {
+      $,
+      $$,
+      on,
+      attr,
+      hasAttr,
+      removeAttr,
+      closest
+    } = GCui.util;
+    const btn = $$('.view_code button')
+    on(btn, 'click', (e) => {
+      const target = $('.code_block', closest(e.target, '.guide_card_box'))
+      if (hasAttr(target, 'hidden')) {
+        removeAttr(target, 'hidden')
+      } else {
+        attr(target, 'hidden', '')
+      }
+    })
+  </script>
+</body>
+
+</html>
