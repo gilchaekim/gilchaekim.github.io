@@ -27,21 +27,7 @@ block content
             })
             button(type="button").search_btn 
               span.hidden 검색
-      .guide_sec
-        p.main_title 알아두세요
 
-        .box 
-          p 도로명 또는 도로명과 건물번호를 입력해주세요.
-          span.example 
-            | 예) 서울시 마포구 마포대로 163 검색 시
-            br
-            | "마포대로 163" 입력
-        .box 
-          p 주소의 읍/면/동을 입력해주세요.
-          span.example 
-            | 예) 서울시 마포구 마포대로 163 검색 시
-            br
-            | "마포대로 163" 입력
       .addr_lists(
         style="display:none;"
       )
@@ -88,9 +74,23 @@ block content
           mainText:"검색결과가 없습니다.",
           subText:"검색어에 잘못된 철자가 없는지, 정확한<br>주소인지 다시 힌 번 확인해주세요.",
           img:"/src/images/ico_search_empty.svg",
-      })
+        })
 
-    
+      .guide_sec
+        p.main_title 알아두세요
+
+        .box 
+          p 도로명 또는 도로명과 건물번호를 입력해주세요.
+          span.example 
+            | 예) 서울시 마포구 마포대로 163 검색 시
+            br
+            | "마포대로 163" 입력
+        .box 
+          p 주소의 읍/면/동을 입력해주세요.
+          span.example 
+            | 예) 서울시 마포구 마포대로 163 검색 시
+            br
+            | "마포대로 163" 입력
     
     //- +button_bottom_fixed()
     //-   +button({
@@ -98,3 +98,5 @@ block content
     //-     size:"large",
     //-   })
 
+  script.
+    GCui.modal('#fullLayer').show()

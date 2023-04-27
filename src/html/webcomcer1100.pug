@@ -17,7 +17,9 @@ block content
               placeholder:"이름 입력"
             })
           +form_body({title:"주민등록번호"})
-            +input_idnumber()
+            +input_idnumber({
+            	type:'letter',
+            })
           +form_body({title:"휴대폰번호"})
             +input_phone()
       +content_group(1)
@@ -68,3 +70,5 @@ block content
           label:"다음",
           size:"large",
         })
+  script.
+    GCui.modal('#fullLayer').show()

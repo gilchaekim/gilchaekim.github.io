@@ -5,6 +5,13 @@
   padding-top: 32px;
   position: relative;
   margin-top: 60px;
+  .mui_text_lists.dot > ul > li{
+    font-size: 14px;
+    color:$font_color03;
+    & ~ li{
+      margin-top: 12px;
+    }
+  }
   &:before{
     content: '';
     display: block;
@@ -18,7 +25,7 @@
   .acc_header{
     padding: 12px 0;
     position: relative;
-    border-bottom: 1px solid $line_color03;
+    
     .title{
       font-size: 16px;
       font-weight: 700;
@@ -45,6 +52,7 @@
     }
   }
   .mui_acc_content{
+    border-top: 1px solid $line_color03;
     padding: 16px 0;
   }
   .mui_open{

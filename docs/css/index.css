@@ -377,6 +377,9 @@ a {
 .code_view .mui_button_fixed .inset {
   position: static !important;
 }
+.code_view .mui_keypad {
+  position: static;
+}
 
 code[class*=language-],
 pre[class*=language-] {

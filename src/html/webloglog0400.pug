@@ -25,7 +25,10 @@ block content
   .bottom_fixed
     p.etc_txt
       span 뱅킹가입 후 로그인이 가능합니다.
-    a.btn_link 뱅킹 가입하기
+    +button_custom({
+      type:"round-40",
+      label:"뱅킹 가입하기"
+    })
 
     +button({
       label:"로그인",

@@ -131,6 +131,44 @@
         z-index: 2;
       }
     }
+    &.account{
+      border-radius: 20px;
+      border: 1px solid $line_color03;
+      padding: 24px;
+      height: auto;
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+      &::before{
+        display: none;
+      }
+      .inset{
+        height: auto;
+        padding-left: 44px;
+      }
+      .img{
+        width: 32px;
+        height: 32px;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid $line_color03;
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .label, .accnum{
+        display: block;
+        height: auto;
+        line-height: 1.4;
+      }
+      .label{
+        font-size: 14px;
+        color:$font_color01;
+      }
+      .accnum{
+        font-size: 13px;
+        color:$basic_color04;
+      }
+    }
   }
   &_more{
     border-radius: 0;
@@ -185,6 +223,144 @@
       left: 0;
       right: 0;
       display: flex;
+    }
+  }
+  &_inputbtn{
+    position: relative;
+    .mui_button {
+      width: auto;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translate(0, -50%);
+      height: 28px;
+      padding: 0 8px;
+      font-size: 13px;
+      background: #5C627C;
+    }
+  }
+  &_button_custom{
+    display: inline-block;
+    vertical-align: top;
+    &.round-40{
+      height: 40px;
+      line-height: 40px;
+      border-radius: 20px;
+      border: 1px solid $line_color01;
+      font-size: 14px;
+      padding: 0 24px;
+    }
+    &.darkgray-28{
+      background: #5C627C;
+      font-size: 13px;
+      padding: 0 8px;
+      color:$font_color06;
+      height: 28px;
+      border-radius: 4px;
+    }
+    &.gray-32{
+      height: 32px;
+      background:$bg_color02;
+      border-radius: 8px;
+      padding: 0 8px;
+    }
+    &.download-32{
+      height: 28px;
+      background-color:#5c627c;
+      color:$font_color06;
+      line-height: 28px;
+      padding: 0 12px 0 10px;
+      font-size: 13px;
+      border-radius: 8px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        background: url($url_common+"ico_download.svg") no-repeat center;
+        margin-top: 4px;
+        vertical-align: top;
+        margin-right: 6px;
+      }
+    }
+    &.timeselect-24{  
+      background:$bg_color02;
+      border-radius: 8px;
+      padding: 0 4px 0 4px;
+      font-size: 13px;
+      color:$font_color02;
+      line-height: 24px;
+      height: 24px;
+      &::before{
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url($url_common+"icon_time.svg") no-repeat center;
+        vertical-align: top;
+        margin-right: 2px;
+        margin-top: 2px;
+      }
+    }
+    &.white-round-24{
+      height: 24px;
+      border-radius: 4px;
+      background:$font_color06;
+      border: 1px solid $line_color02;
+      font-size: 13px;
+      color:$basic_color04;
+      line-height: 22px;
+      padding: 0 8px;
+    }
+  }
+  &_tooltip{
+    width: 20px;
+    height: 20px;
+    background: url($url_common+"ico_tooltip.svg") no-repeat center;
+    &_wrap{
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+    }
+  }
+}
+.mui_keypad{
+  position: fixed;
+  bottom: 94px;
+  left: 0;
+  right: 0;
+  .mui_button_group{
+    display: flex;
+    margin: 0 24px;
+    .group{
+      flex: 1;
+      & ~ .group{
+        margin-left: 4px;
+      }
+      .mui_button {
+        height: 32px;
+        text-align: center;
+        font-size: 14px;
+        color:$font_color02;
+        background:$bg_color01;
+        border-radius: 8px;
+      }
+    }
+  }
+  .key_number{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap; 
+    margin-top: 8px;
+    .key{
+      width: 33.3333%;
+      height: 64px;
+      text-align: center;
+      font-size: 22px;
+      color:$font_color01;
+      &.del{
+        background: url($url_common+"ico_del.svg") no-repeat center;
+      }
     }
   }
 }

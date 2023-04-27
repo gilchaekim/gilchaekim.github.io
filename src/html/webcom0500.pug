@@ -11,8 +11,11 @@ block content
     type:"full"
   })
     .agreefull_pop 
-      .btn_pdf 
-        a(href="").pdf_download PDF
+      .btn_pdf
+        +button_custom({
+          type:"download-32",
+          label:"PDF"
+        })
       .pdf_content
     +button_bottom_fixed()
       +button({
@@ -20,3 +23,5 @@ block content
         size:"large",
       })
 
+  script.
+    GCui.modal('#fullLayer').show()

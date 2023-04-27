@@ -32,6 +32,30 @@ block content
           ]
         })
     br
+    +guideExample()(code)
+      :code
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"계좌상태",
+              text:"활동계좌",
+            },
+            {
+              title:"대출금액",
+              text:"200,000,000,000원",
+            },
+            {
+              title:"대출일자",
+              text:"YYYY.MM.DD",
+            },
+            {
+              title:"대출만기일자",
+              text:"YYYY.MM.DD",
+            },
+          ]
+        })
+    br
     br
     +guideTitle({
       text:"진행 성공",

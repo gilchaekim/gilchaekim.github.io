@@ -40,7 +40,7 @@ block content
           
         +content_group(0)
           +title({
-            text:"전화번호 선택",
+            text:"ARS(전화승인)",
             lv:4,
           })
           p.text 고객님의 전화번호로 ARS를 연결하여 인증받는 방법입니다.
@@ -64,3 +64,5 @@ block content
           label:"ARS 요청",
           size:"large",
         })
+  script.
+    GCui.modal('#fullLayer').show()

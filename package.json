@@ -64,6 +64,7 @@
     "eslint": "^8.27.0",
     "foldero": "^0.1.1",
     "gulp-babel": "^8.0.0",
+    "gulp-beautify": "^3.0.0",
     "gulp-cached": "^1.1.1",
     "gulp-changed": "^4.0.3",
     "gulp-changed-in-place": "^2.3.0",
