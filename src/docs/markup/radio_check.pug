@@ -74,6 +74,24 @@ block content
         })
     +guideExample()(code)
       :code
+        +radioCheck({
+          name:'btnType1',
+          type:"radio",
+          className:'button_type type1',
+          lists:[
+            {
+              label:'체크1'
+            },
+            {
+              label:'체크2'
+            },
+            {
+              label:'체크3'
+            }
+          ]
+        })
+    +guideExample()(code)
+      :code
         .switch
           span.label 잔액 ON
           +radioCheck({

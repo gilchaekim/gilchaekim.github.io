@@ -604,6 +604,28 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   bottom: 0;
   border-radius: 8px;
 }
+.button_type.type1 {
+  background-color: var(--bg_color02);
+}
+.button_type.type1 .mui_radio::after, .button_type.type1 .mui_checkbox::after {
+  display: none;
+}
+.button_type.type1 .mui_radio label, .button_type.type1 .mui_checkbox label {
+  height: 40px;
+  line-height: 40px;
+  padding: 0;
+  font-weight: 400;
+  color: var(--font_color03);
+}
+.button_type.type1 .mui_radio input:checked + label, .button_type.type1 .mui_checkbox input:checked + label {
+  font-weight: 400;
+  border-radius: 8px;
+  color: var(--font_color06);
+  background: var(--main_color02);
+}
+.button_type.type1 .mui_radio input:checked + label::after, .button_type.type1 .mui_checkbox input:checked + label::after {
+  display: none;
+}
 
 .switch {
   display: inline-block;
@@ -887,6 +909,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   height: auto;
   padding-left: 44px;
 }
+.mui_select.account .inset::after {
+  top: 8px;
+  margin-top: 0;
+}
 .mui_select.account .img {
   width: 32px;
   height: 32px;
@@ -907,9 +933,17 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   font-size: 14px;
   color: var(--font_color01);
 }
-.mui_select.account .accnum {
+.mui_select.account .accnum, .mui_select.account .money {
   font-size: 13px;
   color: var(--basic_color04);
+}
+.mui_select.account .money {
+  display: block;
+  margin-top: 8px;
+}
+.mui_select.account .money .num {
+  margin-left: 8px;
+  color: var(--font_color01);
 }
 .mui_more {
   border-radius: 0;
@@ -1071,6 +1105,21 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   width: 20px;
   height: 20px;
   display: inline-block;
+}
+.mui_button_group {
+  display: flex;
+}
+.mui_button_group .group {
+  flex: 1;
+}
+.mui_button_group .group ~ .group {
+  margin-left: 4px;
+}
+.mui_button_group .mui_button {
+  background-color: var(--bg_color01);
+  height: 32px;
+  color: var(--font_color02);
+  font-size: 14px;
 }
 
 .mui_keypad {
@@ -1387,6 +1436,12 @@ table, th, td {
   color: var(--font_color03);
   padding-left: 9px;
 }
+.mui_text_lists.guide > ul > li li {
+  margin-top: 8px;
+}
+.mui_text_lists.guide > ul > li li ~ li {
+  margin-top: 8px;
+}
 .mui_text_lists.guide > ul > li ~ li {
   margin-top: 12px;
 }
@@ -1400,6 +1455,96 @@ table, th, td {
   position: absolute;
   top: 5px;
   left: 0;
+}
+.mui_text_lists.circle_num > ul > li {
+  font-size: 14px;
+  color: var(--font_color03);
+  padding-left: 28px;
+}
+.mui_text_lists.circle_num > ul > li ~ li {
+  margin-top: 16px;
+}
+.mui_text_lists.circle_num > ul > li::before {
+  content: "1";
+  display: block;
+  text-align: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  font-size: 13px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  border: 1px solid var(--basic_color04);
+}
+.mui_text_lists.circle_num > ul > li:nth-child(1)::before {
+  content: "1";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(2)::before {
+  content: "2";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(3)::before {
+  content: "3";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(4)::before {
+  content: "4";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(5)::before {
+  content: "5";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(6)::before {
+  content: "6";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(7)::before {
+  content: "7";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(8)::before {
+  content: "8";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(9)::before {
+  content: "9";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(10)::before {
+  content: "10";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(11)::before {
+  content: "11";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(12)::before {
+  content: "12";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(13)::before {
+  content: "13";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(14)::before {
+  content: "14";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(15)::before {
+  content: "15";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(16)::before {
+  content: "16";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(17)::before {
+  content: "17";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(18)::before {
+  content: "18";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(19)::before {
+  content: "19";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(20)::before {
+  content: "20";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(21)::before {
+  content: "21";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(22)::before {
+  content: "22";
+}
+.mui_text_lists.circle_num > ul > li:nth-child(23)::before {
+  content: "23";
 }
 
 .mui_tabs.link_tab .tab_contents .tab_pane {
@@ -2175,6 +2320,9 @@ table, th, td {
 .mui_card ~ .mui_card {
   margin-top: 12px;
 }
+.mui_card.no_tag .inset {
+  padding-top: 62px;
+}
 .mui_card.is_linked .inset {
   display: block;
 }
@@ -2486,6 +2634,33 @@ table, th, td {
   text-align: right;
 }
 
+.mui_collapse .acc_title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.mui_collapse .mui_acc_button {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  color: transparent;
+  text-indent: -9999em;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  font-size: 0;
+  margin-top: -10px;
+}
+.mui_collapse .mui_open .mui_acc_button {
+  transform: rotate(180deg);
+  top: 10px;
+}
+.mui_collapse .acc_header {
+  position: relative;
+}
+
 .guide_text {
   padding-top: 32px;
   position: relative;
@@ -2531,26 +2706,9 @@ table, th, td {
   top: 0;
   left: 0;
 }
-.guide_text .acc_header .mui_acc_button {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  color: transparent;
-  text-indent: -9999em;
-  position: absolute;
-  right: 0;
-  top: 12px;
-  font-size: 0;
-}
 .guide_text .mui_acc_content {
   border-top: 1px solid var(--line_color03);
   padding: 16px 0;
-}
-.guide_text .mui_open .mui_acc_button {
-  transform: rotate(180deg);
-  top: 10px;
 }
 
 .mui_datasort {
@@ -2619,7 +2777,7 @@ table, th, td {
 .mui_form_list .mui_form_content .mui_text {
   margin-top: 24px;
 }
-.mui_form_list .mui_form_content > .mui_button_custom, .mui_form_list .mui_form_content > .mui_checkbox {
+.mui_form_list .mui_form_content > .mui_button_custom, .mui_form_list .mui_form_content > .mui_checkbox, .mui_form_list .mui_form_content > .mui_button_group {
   margin-top: 12px;
 }
 .mui_form_list .mui_input + .mui_input {
@@ -4001,8 +4159,45 @@ hr {
   margin-top: 12px;
 }
 
+.webauc {
+  position: relative;
+}
 .webauc .mui_more {
   margin-top: 20px;
+}
+.webauc .bookmark_wrap {
+  margin-top: 24px;
+  text-align: right;
+}
+.webauc .bookmark_wrap .bookmark {
+  padding-right: 22px;
+  line-height: 22px;
+  color: var(--font_color03);
+  background: url("/src/images/ico_star.svg") no-repeat right top;
+}
+.webauc .table_list {
+  margin-top: 16px;
+}
+.webauc .table_list .mui_datatable ~ .mui_datatable {
+  margin-top: 24px;
+}
+.webauc .top_fixed {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+.webauc .mui_radio_group.button_type + .mui_datasort {
+  margin-top: 24px;
+}
+.webauc .acc_data {
+  margin-top: 16px;
+  border: 1px solid #e8e8e8;
+  border-radius: 8px;
+  padding: 24px;
+}
+.webauc .acc_data input {
+  font-weight: 700;
+  color: var(--font_color01);
 }
 .webauc .form_val {
   line-height: 28px;

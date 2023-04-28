@@ -159,6 +159,32 @@
     bottom: 0;
     border-radius: 8px;
   }
+  &.type1{
+    background-color:$bg_color02;
+    .mui_radio, .mui_checkbox{
+      &::after{
+        display: none;
+      }
+      label{
+        height: 40px;
+        line-height: 40px;
+        padding: 0;
+        font-weight: 400;
+        color:$font_color03;
+      }
+      input{
+        &:checked + label{  
+          font-weight: 400;
+          border-radius: 8px;
+          color:$font_color06;
+          background:$main_color02;
+          &::after{
+            display: none;
+          }
+        }
+      }
+    }
+  }
 }
 .switch{
   display: inline-block;

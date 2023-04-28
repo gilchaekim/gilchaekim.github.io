@@ -10,6 +10,7 @@ mixin card(params={})
     class=`${prefix}${divide}card`
     class=className
     class={"is_linked":isLinked}
+    class={"no_tag":!tag.label}
   )
 
     mixin cardData()

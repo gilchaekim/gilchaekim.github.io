@@ -113,6 +113,32 @@
       </div>
       <div class="guide_card_box">
         <section class="code_view">
+          <div class="mui_radio_group button_type type1"><span class="mui_radio"><input type="radio" id="btnType1Id1" name="btnType1Id1" /><label for="btnType1Id1">체크1</label></span><span class="mui_radio"><input type="radio" id="btnType1Id2" name="btnType1Id1" /><label for="btnType1Id2">체크2</label></span><span class="mui_radio"><input type="radio" id="btnType1Id3" name="btnType1Id1" /><label for="btnType1Id3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'btnType1',
+  type:"radio",
+  className:'button_type type1',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
           <div class="switch"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId1" /><label for="chkId1">잔액표시</label></span></div><br />
           <div class="switch type2"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId2" /><label for="chkId2">잔액표시</label></span></div><br />
           <div class="switch type3"><span class="mui_checkbox"><input type="checkbox" id="chkId3" /><label for="chkId3">잔액</label></span></div>

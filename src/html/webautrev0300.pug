@@ -1,0 +1,93 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체등록변경"
+
+block content
+  +content_group(0)
+    +title({
+      text:"자동이체 변경정보를<br>입력해주세요.",
+      lv:2,
+    })
+    +form()
+      +form_body({title:"출금정보"})
+        .form_val
+          +title({
+            text:"저축은행",
+            lv:5,
+          })
+          +title({
+            text:"000-00000-00000",
+            lv:5,
+          })
+      +form_body({title:"입금정보"})
+        .form_val
+          +title({
+            text:"저축은행",
+            lv:5,
+          })
+          +title({
+            text:"000-00000-00000",
+            lv:5,
+          })
+      +form_body({title:"이체금액", tooltip:"정기예금 및 대출계좌의 실제 이체금액은 입력 금액과 다를 수 있습니다."})
+        +input({
+          value:"10,000,000",
+          subfix:"원",
+        })
+        .money_support
+          span 1,000만 원
+        +button_group({
+          btns:[
+            '+1만',
+            '+5만',
+            '+10만',
+            '+100만',
+          ]
+        })
+
+      +form_body({title:"매월 자동이체일자"})
+        +button_select({
+          label:"26일"
+        })
+        +radioCheck({
+          name:'chk184193',
+          label:"매월 말일이체"
+        })
+      +form_body({title:"이체시작일", tooltip:"이체시작일자는 2영업일부터 가능합니다."})
+        +datepicker({
+          placeholder:"날짜선택"
+        })
+      +form_body({title:"이체종료일"})
+        +datepicker({
+          placeholder:"날짜선택",
+          value:"2022.11.16"
+        })
+      +form_body({title:"이체종료일", message:{type:"error", text:"자동이체 시작일과 종료일은 같을 수 없습니다."}})
+        +datepicker({
+          placeholder:"날짜선택",
+          value:"2022.11.16"
+        })
+  +content_group(0)
+    +collapse({
+      isOpen:true
+    })
+      +header()
+        p.acc_title [선택] 추가정보
+      +content()
+        .acc_data
+          +form()
+            +form_body({title:"받는 계좌에 표시"})
+              +input({
+                value:"김중앙(저축은행)",
+              })
+            +form_body({title:"내 계좌에 표시 "})
+              +input({
+                placeholder:"10자 이내 입력"
+              })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -93,7 +93,7 @@ mixin button_select_account(params={})
   - const divide = '_'
   //- 공통 요소 End
   
-  - const { element = "button", disabled, className, ...rest } = Object.assign({}, params)
+  - const { element = "button", disabled, className, isMoney, ...rest } = Object.assign({}, params)
 
 
   #{element}(
@@ -109,6 +109,10 @@ mixin button_select_account(params={})
         img(src="/src/images/icon_bank.png", alt="은행 이미지")
       span.label 저축보통예금
       span.accnum 123-1212-1234-56
+      if isMoney
+        span.money 
+          span.text 출금가능
+          span.num 10,000,000원
       span.hidden 선택 됨
 
 mixin button_more()

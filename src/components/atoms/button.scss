@@ -143,6 +143,10 @@
       .inset{
         height: auto;
         padding-left: 44px;
+        &::after{
+          top: 8px;
+          margin-top: 0;
+        }
       }
       .img{
         width: 32px;
@@ -164,10 +168,19 @@
         font-size: 14px;
         color:$font_color01;
       }
-      .accnum{
+      .accnum, .money{
         font-size: 13px;
         color:$basic_color04;
       }
+      .money{
+        display: block;
+        margin-top: 8px;
+        .num{
+          margin-left: 8px;
+          color:$font_color01;
+        }
+      }
+      
     }
   }
   &_more{
@@ -321,6 +334,21 @@
       width: 20px;
       height: 20px;
       display: inline-block;
+    }
+  }
+  &_button_group{
+    display: flex;
+    .group{
+      flex: 1;
+      & ~ .group{
+        margin-left: 4px;
+      }
+    }
+    .mui_button {
+      background-color:$bg_color01;
+      height: 32px;
+      color:$font_color02;
+      font-size: 14px;
     }
   }
 }

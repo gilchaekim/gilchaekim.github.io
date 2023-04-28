@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(CMS)"
+  - pageTitle = "자동이체(당/타행)"
 
 block content
   +title({
@@ -19,7 +19,7 @@ block content
       p.title 알아두세요
     +content()
       +textLists({
-        type:'dot',
+        type:'guide',
         
         lists:[
           {

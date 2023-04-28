@@ -8,6 +8,12 @@
   & ~ .mui_card{
     margin-top: 12px;
   }
+  &.no_tag{
+    .inset{
+      padding-top: 62px;
+    }
+    
+  }
   &.is_linked{
     .inset{
       display: block;

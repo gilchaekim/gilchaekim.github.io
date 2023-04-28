@@ -1,0 +1,53 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체등록해지"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"예약이체해지가<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"이체예정일",
+        text:"2022.02.02",
+      },
+      {
+        title:"입금계좌",
+        text:"중앙저축은행<br>000-000-0000000",
+      },
+      {
+        title:"이체금액",
+        text:"<em>10,000원</em>",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+    ]
+  })
+  +text({
+    type:'warning',
+    text:"처리완료 후 결과조회 및 신청등록 여부를 확인하여 주시기 바랍니다."
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })
+  

@@ -1,0 +1,54 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체등록"
+
+block content
+  +title({
+    text:"예약이체를 <br>신청하시겠어요?",
+    lv:2,
+  })
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"결과",
+        text:"정상",
+      },
+      {
+        title:"이체예정일",
+        text:"2022.02.02",
+      },
+      {
+        title:"입금계좌",
+        text:"중앙저축은행<br>000-000-0000000",
+      },
+      {
+        title:"이체금액",
+        text:"<em>10,000원</em>",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+      {
+        title:"내용입력",
+        text:"내용입력",
+      },
+    ]
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"다음",
+      size:"large",
+    })

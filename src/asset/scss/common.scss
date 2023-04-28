@@ -1309,8 +1309,45 @@ hr {
 
 
 .webauc{
+	position: relative;
 	.mui_more{
 		margin-top: 20px;
+	}
+	.bookmark_wrap{
+		margin-top: 24px;
+		text-align: right;
+		.bookmark{
+			padding-right: 22px;
+			line-height: 22px;
+			color:$font_color03;
+			background: url($url_common+"ico_star.svg") no-repeat right top;
+		}
+	}
+	.table_list{
+		margin-top: 16px;
+		.mui_datatable{
+			& ~ .mui_datatable{
+				margin-top: 24px;
+			}
+		}
+	}
+	.top_fixed{
+		position: absolute;
+		top: 24px;
+		right: 24px;
+	}
+	.mui_radio_group.button_type + .mui_datasort{
+		margin-top: 24px;
+	}
+	.acc_data{
+		margin-top: 16px;
+		border: 1px solid #e8e8e8;
+		border-radius: 8px;
+		padding: 24px;
+		input{
+			font-weight: 700;
+			color:$font_color01;
+		}
 	}
 	.form_val{
 		line-height: 28px;

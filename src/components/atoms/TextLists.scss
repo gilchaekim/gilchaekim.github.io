@@ -4,6 +4,7 @@
 .mui_text_lists{
     li{
         position: relative;
+
     }
     &.dot{
         & > ul > li{
@@ -39,6 +40,12 @@
             font-size: 14px;
             color:$font_color03;
             padding-left: 9px;
+            li{
+                margin-top: 8px;
+                & ~ li{
+                    margin-top: 8px;
+                }
+            }
             & ~ li{
                 margin-top: 12px;
             }
@@ -54,5 +61,37 @@
                 left: 0;
             }
         }
+    }
+    &.circle_num{
+        
+        & > ul > li{
+            font-size: 14px;
+            color:$font_color03;
+            padding-left: 28px;
+            & ~ li{
+                margin-top: 16px;
+            } 
+            &::before{
+                content: '1';
+                display: block;
+                text-align: center;
+                width: 16px;
+                height: 16px;
+                border-radius: 8px;
+                font-size: 13px;
+                position: absolute;
+                top: 2px;
+                left: 2px;
+                border: 1px solid $basic_color04;
+            }
+        }
+        @for $i from 1 to 24{
+            & > ul > li:nth-child(#{$i}){
+                &::before{
+                    content: '#{$i}';
+                }
+            }
+        }
+          
     }
 }
