@@ -504,7 +504,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
 }
 
-.bg {
+.main_bg {
   position: absolute;
   top: 56px;
   left: 50%;
@@ -1048,11 +1048,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main #header .inner {
   display: flex;
   justify-content: space-between;
+  padding: 0;
 }
 .main #header .side_right {
   padding-top: 16px;
   padding-right: 16px;
   height: 100%;
+  position: static;
 }
 .main #header .all_menu {
   width: 24px;
