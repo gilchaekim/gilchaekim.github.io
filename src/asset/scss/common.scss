@@ -1222,6 +1222,9 @@ hr {
 	.mui_form_content{
 		margin-top: 0;
 	}
+	.mui_result_ico.null{
+		padding-top: 60px;
+	}
 	.mui_form{
 		height: 77px;
 	}
@@ -1269,6 +1272,23 @@ hr {
 			}
 		}
 	}
+	.member_lists{
+		margin-top: 24px;
+		.box{
+			display: block;
+			padding: 16px 0;
+			border-bottom: 1px solid $line_color03;
+			.type1{
+				font-size: 16px;
+				color:$font_color01;
+			}
+			.type2{
+				font-size: 14px;
+				color:$font_color03;
+				margin-top: 12px;
+			}
+		}
+	}
 	.addr_lists{
 		margin-top: 24px;
 		.box{
@@ -1303,6 +1323,82 @@ hr {
 		}
 		.mui_input{
 			margin-top: 12px;
+		}
+	}
+}
+
+.suitability{
+	.img{
+		text-align: center;
+		padding-bottom: 40px;
+		img{
+			width: 160px;
+			height: 160px;
+		}
+	}
+	.txt1, .txt2{
+		font-size: 14px;
+		color:$font_color03;
+		margin-top: 16px;
+		em{
+			color:$main_color01;
+		}
+	}
+	&_step{
+		.step_nav{
+			padding-bottom: 40px;
+			ul{
+				display: flex;
+				.step{
+					& ~ .step{
+						margin-left: 4px;
+					}
+					&.mui_active{
+						span{
+							border-color:$line_color01;
+							background:$basic_color01;
+							color:$font_color06;
+						}
+					}
+				} 
+				span{
+					display: inline-flex;
+					width: 24px;
+					height: 24px;
+					border: 1px solid $line_color02;
+					color:$font_color03;
+					font-size: 12px;
+					border-radius: 12px;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+		p.type1{
+			font-size: 14px;
+			margin-top: 8px;
+			color:$font_color03;
+			em{
+				color:$main_color01;
+			}
+		}
+		.box{
+			margin-top: 40px;
+			border: 1px solid $line_color03;
+			border-radius: 20px;
+			padding: 24px;
+			box-shadow: 0 4px 8px rgba(0,0,0,.04);
+			.img{
+				text-align: center;
+				padding-bottom: 16px;
+				img{
+					width: 120px;
+					height: 120px;
+				}
+			}
+		}
+		.mui_text_lists {
+			margin-top: 24px;
 		}
 	}
 }

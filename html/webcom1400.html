@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">자동이체(CMS)</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#wrapper;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,87 +232,34 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webauc" id="contants">
-      <div class="mui_title">
-        <p class="title lv2">언제부터<br>언제까지 보낼까요?
-        </p>
-      </div>
-      <div class="mui_form">
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">매월자동이체일자</span></div>
-          <div class="mui_form_content">
-            <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">26일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
-            <span class="mui_checkbox">
-              <input type="checkbox" id="chk073306Id1" />
-              <label for="chk073306Id1">매월 말일이체</label>
-            </span>
-          </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">이체시작일
-              <div class="mui_tooltip_wrap" mui-tooltip="text:이체가 시작되는 일자는 오늘 이후 영업일 기준 5일 이후부터 가능합니다.;">
-                <button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>적합성/적정성 안내</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>적합성/적정성 안내</p>
+            </div>
+            <div class="mui_modal_content">
+              <div class="suitability">
+                <div class="img"> <img src="/src/images/ico_suitability.png" alt=""></div>
+                <div class="mui_title">
+                  <p class="title lv4">대출 계약자 적합성/적정성 확인서
+                  </p>
+                </div>
+                <p class="txt1">본 확인서는 「금융소비자보호에 대한 법률」 <em>제 17조(적합성원칙) 및 제 18조(적정성원칙)</em>에 따라 귀하의 연령, 재산상황, 대출계약의 목적 등을 파악하여 대출계약자에게 가장 적합한 대출계약 체결을 권유하기 위한 기초자료로 활용됩니다.</p>
+                <p class="txt2">허위 또는 불성실한 답변을 하시는 경우 부적합한 대출계약을 권유하게 될 수 있으며, 이로 인해 발생하는 모든 손해는 계약자 본인에게 귀속되오니 유념하여 주시기 바랍니다.</p>
               </div>
-            </span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker" mui-datepicker="">
-              <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
             </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">이체종료일</span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker" mui-datepicker="">
-              <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
-            </div>
-          </div>
-        </div>
-        <div class="mui_form_list form_error">
-          <div class="mui_form_head"><span class="form_title">이체종료일</span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker" mui-datepicker="">
-              <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
-            </div>
-            <p class="msg_form msg_error">자동이체 시작일과 종료일은 같을 수 없습니다.</p>
-          </div>
-        </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 열기
-              </button>
-            </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>고객님의 본인 소유 당/타행 출금계좌에서 자동이체(CMS)를 신청하는 서비스입니다.
-                  </li>
-                  <li>고객님의 당/타행 출금계좌의 예금주가 본인이 아닐 경우 계좌등록 할 수 없습니다.
-                  </li>
-                  <li>매월 이체 설정된 일자에 출금 또는 입금이 이루어집니다.
-                  </li>
-                  <li>자동이체업무상의 본인 소유 당행 출금계조하에서 타행 계좌로 입금하는 서비스와는 별개의 업무이오며, 궁금하신 사항은 당행에 문의하시길 바랍니다.
-                  </li>
-                  <li>은행별 평생계좌는 이용기관 CMS [타은행->저축은행 입금] 신규등록 할 수 없습니다.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

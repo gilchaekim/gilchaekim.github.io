@@ -1869,6 +1869,9 @@ table, th, td {
   font-size: 14px;
   font-weight: 400;
 }
+.title em {
+  color: var(--main_color01);
+}
 
 .mui_result {
   padding: 24px 0;
@@ -4073,6 +4076,9 @@ hr {
 .search_address .mui_form_content {
   margin-top: 0;
 }
+.search_address .mui_result_ico.null {
+  padding-top: 60px;
+}
 .search_address .mui_form {
   height: 77px;
 }
@@ -4122,6 +4128,23 @@ hr {
   display: block;
   color: var(--main_color01);
 }
+.search_address .member_lists {
+  margin-top: 24px;
+}
+.search_address .member_lists .box {
+  display: block;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line_color03);
+}
+.search_address .member_lists .box .type1 {
+  font-size: 16px;
+  color: var(--font_color01);
+}
+.search_address .member_lists .box .type2 {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 12px;
+}
 .search_address .addr_lists {
   margin-top: 24px;
 }
@@ -4157,6 +4180,74 @@ hr {
 }
 .search_address .last_addr_write .mui_input {
   margin-top: 12px;
+}
+
+.suitability .img {
+  text-align: center;
+  padding-bottom: 40px;
+}
+.suitability .img img {
+  width: 160px;
+  height: 160px;
+}
+.suitability .txt1, .suitability .txt2 {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 16px;
+}
+.suitability .txt1 em, .suitability .txt2 em {
+  color: var(--main_color01);
+}
+.suitability_step .step_nav {
+  padding-bottom: 40px;
+}
+.suitability_step .step_nav ul {
+  display: flex;
+}
+.suitability_step .step_nav ul .step ~ .step {
+  margin-left: 4px;
+}
+.suitability_step .step_nav ul .step.mui_active span {
+  border-color: var(--line_color01);
+  background: var(--basic_color01);
+  color: var(--font_color06);
+}
+.suitability_step .step_nav ul span {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line_color02);
+  color: var(--font_color03);
+  font-size: 12px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+}
+.suitability_step p.type1 {
+  font-size: 14px;
+  margin-top: 8px;
+  color: var(--font_color03);
+}
+.suitability_step p.type1 em {
+  color: var(--main_color01);
+}
+.suitability_step .box {
+  margin-top: 40px;
+  border: 1px solid var(--line_color03);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.suitability_step .box .img {
+  text-align: center;
+  padding-bottom: 16px;
+}
+.suitability_step .box .img img {
+  width: 120px;
+  height: 120px;
+}
+.suitability_step .mui_text_lists {
+  margin-top: 24px;
 }
 
 .webauc {

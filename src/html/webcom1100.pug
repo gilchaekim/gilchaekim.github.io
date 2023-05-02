@@ -1,0 +1,60 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"권유직원 찾기 팝업",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"권유직원 찾기",
+    id:"fullLayer",
+    type:"full"
+  })
+    .search_address
+      +form()
+        +form_body()
+          .input_sec
+            +input({
+              placeholder:"직원 성명 또는 직원 사번 입력"
+            })
+            button(type="button").search_btn 
+              span.hidden 검색
+      +form()
+        +form_body({message:{type:"error", text:"잘못된 검색어"}})
+          .input_sec
+            +input({
+              placeholder:"직원 성명 또는 직원 사번 입력",
+              value:"잘못된 검색어"
+            })
+            button(type="button").search_btn 
+              span.hidden 검색
+
+      .member_lists 
+        a(href="").box
+          p.type1  홍*동(***456)
+          p.type2 본부영업점
+        a(href="").box
+          p.type1  홍*동(***456)
+          p.type2 본부영업점
+        a(href="").box
+          p.type1  홍*동(***456)
+          p.type2 본부영업점
+      div(
+        style="display:;"
+      )
+        +result({
+          type:'null',
+          mainText:"직원이 조회되지 않습니다.",
+          img:"/src/images/ico_search_empty.svg",
+        })
+
+      
+    
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#fullLayer').show()
