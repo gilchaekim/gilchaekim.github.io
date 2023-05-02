@@ -1,0 +1,65 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +title({
+    text:'금융거래확인서 발급',
+    lv:4,
+  })
+  +content_group(2)
+    +form()
+      +form_body({title:"발급기준일"})
+        +form_value({
+          value:"2023.04.04"
+        })
+      +form_body({title:"발급목적"})
+        +button_select({
+          placeholder:"선택"
+        })
+      +form_body({title:"발급수수료"})
+        +form_value({
+          value:"1,000원"
+        })
+      +form_body({title:"수수료 출금계좌번호"})
+        +button_select({
+          placeholder:"계좌번호 선택"
+        })
+      +form_body({title:"출금계좌비밀번호"})
+        +input({
+          type:'password',
+          placeholder:"숫자 4자리"
+        })
+      +form_body({title:"이메일주소"})
+        +input({
+          placeholder:"숫자 4자리"
+        })
+    +collapse({
+      className:"guide_text",
+      isOpen:false,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"거래가능시간 : 은행영업일(평일) 08:00 ~ 22:00"
+            },
+            {
+              text:"본 서비스는 저축은행 거래고객을 대상으로 제공하고 있습니다."
+            },
+            {
+              text:"재발급 및 취소가 불가하오니 참고하여 주시기 바랍니다."
+            },
+          ]
+        })
+    
+    +button_bottom_fixed()
+      +button({
+        label:"신청하기",
+        size:"large",
+      })

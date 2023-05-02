@@ -2,6 +2,12 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_contents_group{
+  &.lv_2{
+    margin-top: 24px;
+    &:first-child{
+      margin-top: 0;
+    }
+  }
   &.lv_1{
     margin-top: 32px;
     &:first-child{
