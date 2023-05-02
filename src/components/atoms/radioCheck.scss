@@ -69,9 +69,6 @@
 .mui_radio_group{
   .mui_radio{
     display: inline-block;
-    & ~ .mui_radio{
-      margin-left: 20px;
-    }
   }
 }
 .mui_checkbox_group{

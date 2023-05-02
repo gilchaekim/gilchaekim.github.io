@@ -1,6 +1,12 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
+#contants{
+  & > .mui_tabs{
+    margin-left: -24px;
+    margin-right: -24px;
+  }  
+}
 .mui_tabs{
   &.link_tab{
     .tab_contents{

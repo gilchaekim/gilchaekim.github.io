@@ -517,9 +517,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_radio_group .mui_radio {
   display: inline-block;
 }
-.mui_radio_group .mui_radio ~ .mui_radio {
-  margin-left: 20px;
-}
 
 .mui_checkbox_group .mui_checkbox {
   display: inline-block;
@@ -1340,6 +1337,23 @@ table, th, td {
   min-width: 114px;
 }
 
+.mui_proofapp .divide {
+  padding: 0 4px;
+}
+.mui_proofapp .mui_input {
+  flex: auto;
+}
+.mui_proofapp .mui_input:nth-child(1) {
+  width: 40%;
+}
+.mui_proofapp .mui_input:nth-child(5) {
+  width: 20%;
+}
+
+.mui_business .divide {
+  padding: 0 4px;
+}
+
 .mui_certificate {
   position: relative;
   display: flex;
@@ -1394,11 +1408,11 @@ table, th, td {
   justify-content: center;
   align-items: center;
   padding: 5px;
-  width: 60px;
-  height: 60px;
+  width: 48px;
+  height: 48px;
   background: #eee;
   border-radius: 50%;
-  color: red;
+  color: #333;
 }
 
 .mui_textarea textarea {
@@ -1545,6 +1559,11 @@ table, th, td {
 }
 .mui_text_lists.circle_num > ul > li:nth-child(23)::before {
   content: "23";
+}
+
+#contants > .mui_tabs {
+  margin-left: -24px;
+  margin-right: -24px;
 }
 
 .mui_tabs.link_tab .tab_contents .tab_pane {
@@ -1889,6 +1908,10 @@ table, th, td {
 }
 .mui_result.line dl ~ dl {
   margin-top: 16px;
+}
+.mui_result.line strong {
+  color: var(--font_color01);
+  font-weight: 700;
 }
 .mui_result dl {
   display: flex;
@@ -2371,7 +2394,7 @@ table, th, td {
 .mui_card .tags .tag.error {
   background: var(--font_color08);
 }
-.mui_card_list {
+.mui_card_list a {
   display: block;
   position: relative;
   border-radius: 20px;
@@ -2819,6 +2842,9 @@ table, th, td {
   padding-top: 4px;
 }
 .mui_form_list .mui_radio_group + .mui_input {
+  margin-top: 12px;
+}
+.mui_form_list .mui_radio_group + .mui_inputmultiple {
   margin-top: 12px;
 }
 .mui_form_list .mui_radio_group.button_type {
@@ -3686,6 +3712,16 @@ hr {
   width: 240px;
 }
 
+.acc_confirm.otp .code {
+  margin-top: 36px;
+}
+.acc_confirm.otp .code .write input {
+  width: 40px;
+  height: 40px;
+}
+.acc_confirm.otp .mui_title {
+  padding: 40px 0 16px;
+}
 .acc_confirm .title {
   font-size: 18px;
   font-weight: 700;
@@ -4370,5 +4406,37 @@ hr {
 }
 .webauc .mui_title .title.lv4 {
   margin-bottom: 16px;
+}
+.webauc .qrcode {
+  margin-top: 32px;
+  text-align: center;
+}
+.webauc .qrcode img {
+  width: 200px;
+  height: 200px;
+}
+
+/* 제증명 */
+.webcer .bg_box {
+  margin-top: 16px;
+  padding: 20px;
+  background: var(--bg_color02);
+  border-radius: 12px;
+}
+.webcer .mui_text_lists.dot > ul > li {
+  color: var(--font_color03);
+}
+.webcer .mui_text_lists.dot > ul > li::before {
+  background: var(--basic_color03);
+}
+.webcer .mui_text_lists .txt {
+  font-size: 14px;
+}
+.webcer .step_wrap {
+  padding-top: 40px;
+}
+.webcer .step_wrap .step {
+  flex-direction: column;
+  padding-top: 16px;
 }
 /*# sourceMappingURL=common.css.map */

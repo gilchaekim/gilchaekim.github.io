@@ -96,15 +96,15 @@
             <div class="mui_form_list">
               <div class="mui_form_content">
                 <div class="mui_multipicker mui_disabled">
-                  <div class="mui_datepicker" mui-datepicker=""><span class="mui_input mui_disabled"><input type="text" placeholder="시작일" disabled="disabled" mui-input="" /></span></div><span class="divide">~</span>
-                  <div class="mui_datepicker" mui-datepicker=""><span class="mui_input mui_disabled"><input type="text" placeholder="종료일" disabled="disabled" mui-input="" /></span></div>
+                  <div class="mui_datepicker"><span class="mui_input mui_disabled"><input type="text" placeholder="시작일" disabled="disabled" mui-input="" /></span></div><span class="divide">~</span>
+                  <div class="mui_datepicker"><span class="mui_input mui_disabled"><input type="text" placeholder="종료일" disabled="disabled" mui-input="" /></span></div>
                 </div>
               </div>
             </div>
             <div class="mui_form_list">
               <div class="mui_form_head"><span class="form_title">이체시작일</span></div>
               <div class="mui_form_content">
-                <div class="mui_datepicker" mui-datepicker=""><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
+                <div class="mui_datepicker"><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
               </div>
             </div>
             <div class="mui_form_list">
@@ -112,7 +112,7 @@
               <div class="mui_form_content">
                 <div class="inner_quick_btn">
                   <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1" /><label for="btnTypeId1">일주일</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1" /><label for="btnTypeId2">1개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1" /><label for="btnTypeId3">3개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId4" name="btnTypeId1" /><label for="btnTypeId4">6개월</label></span><span class="mui_radio"><input type="radio" id="btnTypeId5" name="btnTypeId1" /><label for="btnTypeId5">직접입력</label></span></div>
-                  <div class="mui_datepicker" mui-datepicker=""><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
+                  <div class="mui_datepicker"><span class="mui_input"><input type="text" placeholder="날짜선택" mui-input="" /></span></div>
                 </div>
               </div>
             </div>
@@ -126,6 +126,18 @@
               <div class="mui_form_head"><span class="form_title">정렬순서</span></div>
               <div class="mui_form_content">
                 <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId9" name="btnTypeId3" checked="checked" /><label for="btnTypeId9">최신순</label></span><span class="mui_radio"><input type="radio" id="btnTypeId10" name="btnTypeId3" /><label for="btnTypeId10">과거순</label></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">제증명발행번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_proofapp mui_inputmultiple"><span class="mui_input"><input type="text" title="제증명발행번호 첫 번째 네 자리 입력" placeholder="4자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="제증명발행번호 두 번째 열한 자리 입력" placeholder="11자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input mui_disabled"><input type="text" title="제증명발행번호 세 번째 자리" placeholder="12" disabled="disabled" value="12" mui-input="" /></span></div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">사업자번호</span></div>
+              <div class="mui_form_content">
+                <div class="mui_business mui_inputmultiple"><span class="mui_input"><input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" /></span><span class="divide">-</span><span class="mui_input"><input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" /></span></div>
               </div>
             </div>
           </div>
@@ -259,7 +271,11 @@
           label:'과거순'
         }
       ]
-    })</code></pre>
+    })
+  +form_body({title:"제증명발행번호"})
+    +input_proofapp()
+  +form_body({title:"사업자번호"})
+    +input_business()</code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
