@@ -14,6 +14,7 @@ mixin stepWrap(params={})
   block
   ul.step
     each item, index in stepItems
-      li= item.name + (index+1)
+      li
+        .num!='0' + (index+1)
         - item.body && item.body()
-        
+      

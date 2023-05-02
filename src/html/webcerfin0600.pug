@@ -1,0 +1,41 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"금융거래확인서 신청이<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"신청증명서",
+        text:"금융거래확인서",
+      },
+      {
+        title:"발급기준일",
+        text:"2023.04.04",
+      },
+      {
+        title:"발급목적(사유)",
+        text:"금융기관제출용",
+      },
+    ]
+  })
+  +text({
+    type:'warning',
+    text:"해당은행 담당자가 확인 후 고객님께 직접 연락드릴 예정입니다."
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })
+  
