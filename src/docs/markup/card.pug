@@ -6,7 +6,23 @@ block content
       text:"카드형 목록"
     })
     +guideTitle({
-      text:"Example",
+      text:"카드 리스트",
+      level:2
+    })
+    +guideExample()(code)
+      :code
+        +card_ico_list({
+          src:"/src/images/ico_example2.png",
+          text:"카드 리스트"
+        })
+        +card_ico_list({
+          src:"/src/images/ico_example2.png",
+          text:"카드 리스트"
+        })
+    br
+    br
+    +guideTitle({
+      text:"카드 데이터",
       level:2
     })
     +guideExample()(code)
