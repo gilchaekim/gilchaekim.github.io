@@ -166,6 +166,25 @@
     }
   }
 }
+.mui_proofapp {
+  .divide{
+    padding: 0 4px;
+  }
+  .mui_input{
+    flex: auto;
+    &:nth-child(1){
+      width: 40%;
+    }
+    &:nth-child(5){
+      width: 20%;
+    }
+  }
+}
+.mui_business {
+  .divide{
+    padding: 0 4px;
+  }
+}
 .mui_certificate{
   position: relative;
   display: flex;

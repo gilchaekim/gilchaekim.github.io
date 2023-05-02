@@ -786,6 +786,20 @@ hr {
 	}
 }
 .acc_confirm{
+	&.otp{
+		.code{
+			margin-top: 36px;
+			.write{
+				input{
+					width: 40px;
+					height: 40px;
+				}
+			}
+		}
+		.mui_title{
+			padding: 40px 0 16px;		
+		}
+	}
 	.title{
 		font-size: 18px;
 		font-weight: 700;
@@ -1506,7 +1520,14 @@ hr {
 				margin-bottom: 16px;
 			}
 		}
-		
+	}
+	.qrcode{
+		margin-top: 32px;
+		text-align: center;
+		img{
+			width: 200px;
+			height: 200px;
+		}
 	}
 }
 

@@ -61,13 +61,17 @@
     }
   }
   &_list{
-    display: block;
-    position: relative;
-    border-radius: 20px;
-    padding: 20px 20px 20px 76px;
-    border: 1px solid $line_color03;
-    height: 80px;
-    box-shadow: 0 4px 8px rgba(0,0,0,.04);
+    a{
+      display: block;
+      position: relative;
+      border-radius: 20px;
+      padding: 20px 20px 20px 76px;
+      border: 1px solid $line_color03;
+      height: 80px;
+      box-shadow: 0 4px 8px rgba(0,0,0,.04);
+    }
+    
+    
     & ~ .mui_card_list{
       margin-top: 12px;
     }
