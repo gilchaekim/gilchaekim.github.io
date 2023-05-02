@@ -2371,6 +2371,32 @@ table, th, td {
 .mui_card .tags .tag.error {
   background: var(--font_color08);
 }
+.mui_card_list {
+  display: block;
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px 20px 76px;
+  border: 1px solid var(--line_color03);
+  height: 80px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.mui_card_list ~ .mui_card_list {
+  margin-top: 12px;
+}
+.mui_card_list .img {
+  display: block;
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+  background: var(--line_color03);
+}
+.mui_card_list .text {
+  line-height: 40px;
+  color: var(--font_color02);
+  font-size: 14px;
+}
 
 .mui_datepicker input {
   background: url("/src/images/ico_calendar.svg") no-repeat right center;
@@ -2800,10 +2826,11 @@ table, th, td {
 }
 
 .mui_form_value {
-  height: 48px;
-  line-height: 48px;
+  height: 28px;
+  line-height: 28px;
   font-size: 16px;
   color: var(--font_color01);
+  font-weight: 700;
 }
 
 .msg_form {
@@ -4198,6 +4225,19 @@ hr {
 .suitability .txt1 em, .suitability .txt2 em {
   color: var(--main_color01);
 }
+.suitability_step .mui_radio_group {
+  margin-top: 24px;
+}
+.suitability_step .mui_radio_group .mui_radio {
+  display: block;
+  margin: 0;
+}
+.suitability_step .mui_radio_group .mui_radio ~ .mui_radio {
+  margin-top: 12px;
+}
+.suitability_step .mui_form + .mui_text.warning {
+  margin-top: 24px;
+}
 .suitability_step .step_nav {
   padding-bottom: 40px;
 }
@@ -4230,6 +4270,29 @@ hr {
 }
 .suitability_step p.type1 em {
   color: var(--main_color01);
+}
+.suitability_step p.type2 {
+  font-size: 14px;
+  margin-top: 16px;
+  color: var(--font_color01);
+  text-align: center;
+}
+.suitability_step .mui_radio_group + .mui_input {
+  margin-top: 8px;
+}
+.suitability_step .confirm {
+  text-align: right;
+  margin-top: 24px;
+}
+.suitability_step .confirm .txt1 {
+  font-size: 16px;
+  color: var(--font_color02);
+  font-weight: 700;
+}
+.suitability_step .confirm .txt2 {
+  color: var(--font_color03);
+  font-size: 14px;
+  margin-top: 8px;
 }
 .suitability_step .box {
   margin-top: 40px;
@@ -4292,31 +4355,6 @@ hr {
 }
 .webauc .form_val {
   line-height: 28px;
-}
-.webauc .main_list .list {
-  display: block;
-  position: relative;
-  border-radius: 20px;
-  padding: 20px 20px 20px 76px;
-  border: 1px solid var(--line_color03);
-  height: 80px;
-}
-.webauc .main_list .list ~ .list {
-  margin-top: 12px;
-}
-.webauc .main_list .list .img {
-  display: block;
-  width: 40px;
-  height: 40px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
-  background: var(--line_color03);
-}
-.webauc .main_list .list .text {
-  line-height: 40px;
-  color: var(--font_color02);
-  font-size: 14px;
 }
 .webauc .inner_subfix input, .webauc .inner_subfix .subfix {
   font-weight: 700;

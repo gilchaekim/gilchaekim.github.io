@@ -60,4 +60,31 @@
       }
     }
   }
+  &_list{
+    display: block;
+    position: relative;
+    border-radius: 20px;
+    padding: 20px 20px 20px 76px;
+    border: 1px solid $line_color03;
+    height: 80px;
+    box-shadow: 0 4px 8px rgba(0,0,0,.04);
+    & ~ .mui_card_list{
+      margin-top: 12px;
+    }
+    .img{
+      display: block;
+      width: 40px;
+      height: 40px;
+      position: absolute;
+      left: 20px;
+      top: 20px;
+      background:$line_color03;
+    }
+    .text{
+      line-height: 40px;
+      color:$font_color02;
+      font-size: 14px;
+    }
+  }
 }
+

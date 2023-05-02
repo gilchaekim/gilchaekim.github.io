@@ -13,17 +13,17 @@ block content
     .suitability_step
       .step_nav
         ul 
-          li.step.mui_active
+          li.step
             span 1
           li.step
             span 2
-          li.step
+          li.step.mui_active
             span 3
           li.step
             span 4
       .step_layer 
         .step_cont(
-          style="display:;"
+          style="display:none;"
         )
           +title({
             text:"안녕하세요 <em>홍길동</em>님",
@@ -320,7 +320,7 @@ block content
               size:"large",
             })
         .step_cont(
-          style="display:none;"
+          style="display:;"
         )
           +title({
             text:"Q8.<br>귀하의 연간소득 대비 고정 지출비용은 어느 정도입니까?",
