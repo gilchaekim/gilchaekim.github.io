@@ -1,0 +1,18 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS)"
+
+block content
+  .main_list 
+    a.list(href="") 
+      span.img 
+      span.text 타은행에서 당행으로 자동이체
+    a.list(href="") 
+      span.img 
+      span.text 당행에서 타은행으로 자동이체
+    a.list(href="") 
+      span.img 
+      span.text 등록조회/변경/해지
+    
