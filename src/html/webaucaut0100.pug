@@ -6,13 +6,16 @@ block prepend top
 
 block content
   .main_list 
-    a.list(href="") 
-      span.img 
-      span.text 타은행에서 당행으로 자동이체
-    a.list(href="") 
-      span.img 
-      span.text 당행에서 타은행으로 자동이체
-    a.list(href="") 
-      span.img 
-      span.text 등록조회/변경/해지
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"타은행에서 당행으로 자동이체"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"당행에서 타은행으로 자동이체"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"등록조회/변경/해지"
+    })
     

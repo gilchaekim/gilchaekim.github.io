@@ -1345,6 +1345,21 @@ hr {
 		}
 	}
 	&_step{
+		.mui_radio_group{
+			margin-top: 24px;
+			.mui_radio{
+				display: block;
+				margin: 0;
+				& ~ .mui_radio{
+					margin-top: 12px;
+				}
+			}
+		}
+		.mui_form{
+			& + .mui_text.warning{
+				margin-top: 24px;
+			}
+		}
 		.step_nav{
 			padding-bottom: 40px;
 			ul{
@@ -1380,6 +1395,29 @@ hr {
 			color:$font_color03;
 			em{
 				color:$main_color01;
+			}
+		}
+		p.type2{
+			font-size: 14px;
+			margin-top: 16px;
+			color:$font_color01;
+			text-align: center;
+		}
+		.mui_radio_group + .mui_input{
+			margin-top: 8px;
+		}
+		.confirm{
+			text-align: right;
+			margin-top: 24px;
+			.txt1{
+				font-size: 16px;
+				color:$font_color02;
+				font-weight: 700;
+			}
+			.txt2{
+				color:$font_color03;
+				font-size: 14px;
+				margin-top: 8px;
 			}
 		}
 		.box{
@@ -1447,33 +1485,6 @@ hr {
 	}
 	.form_val{
 		line-height: 28px;
-	}
-	.main_list{
-		.list{
-			display: block;
-			position: relative;
-			border-radius: 20px;
-			padding: 20px 20px 20px 76px;
-			border: 1px solid $line_color03;
-			height: 80px;
-			& ~ .list{
-				margin-top: 12px;
-			}
-			.img{
-				display: block;
-				width: 40px;
-				height: 40px;
-				position: absolute;
-				left: 20px;
-				top: 20px;
-				background:$line_color03;
-			}
-			.text{
-				line-height: 40px;
-				color:$font_color02;
-				font-size: 14px;
-			}
-		}
 	}
 	.inner_subfix {
 		input, .subfix{

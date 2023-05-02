@@ -13,9 +13,9 @@ block content
     .suitability_step
       .step_nav
         ul 
-          li.step.mui_active
-            span 1
           li.step
+            span 1
+          li.step.mui_active
             span 2
           li.step
             span 3
@@ -23,7 +23,7 @@ block content
             span 4
       .step_layer 
         .step_cont(
-          style="display:;"
+          style="display:none;"
         )
           +title({
             text:"안녕하세요 <em>홍길동</em>님",
@@ -52,7 +52,7 @@ block content
               size:"large",
             })
         .step_cont(
-          style="display:none;"
+          style="display:;"
         )
           +title({
             text:"정보를 입력하세요.",
