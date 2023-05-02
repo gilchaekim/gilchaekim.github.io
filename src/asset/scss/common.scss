@@ -1499,3 +1499,32 @@ hr {
 	}
 }
 
+/* 제증명 */
+.webcer {
+	.bg_box {
+		margin-top:16px;
+		padding:20px;
+		background:$bg_color02;
+		border-radius:12px;
+	}
+	.mui_text_lists {
+		&.dot > ul > li {
+			color:$font_color03;
+			&::before {
+				background:$basic_color03;
+			}
+		}
+		.txt {
+			font-size:14px;
+		}
+	}
+	.step_wrap {
+		padding-top:40px;
+		.step {
+			flex-direction:column;
+			padding-top:16px;
+			li {
+			}
+		}
+	}
+}
