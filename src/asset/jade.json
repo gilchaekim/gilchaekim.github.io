@@ -228,6 +228,9 @@
 				"\t${1:type:\"radio\",}",
 				"\tname:'chk$RANDOM',",
 				"\tlabel:'$0'",
+				"\tlists:[",
+				"\t\t{label:'라디오버튼1',},",
+				"\t]"
 				"})"
 		],
 		"description": "라디오 & 체크"
@@ -481,6 +484,20 @@
 				"+input_phone()"
 		],
 		"description": "휴대폰번호입력 폼"
+	},
+	"form_business": {
+		"prefix": "!form_business",
+		"body": [
+				"+input_business()"
+		],
+		"description": "사업자번호 입력 폼"
+	},
+	"form_proofapp": {
+		"prefix": "!form_proofapp",
+		"body": [
+				"+input_proofapp()"
+		],
+		"description": "제증명발행번호 입력 폼"
 	},
 	
 	"form_button_check": {
