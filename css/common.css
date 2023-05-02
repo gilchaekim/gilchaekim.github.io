@@ -1408,10 +1408,6 @@ table, th, td {
   justify-content: center;
   align-items: center;
   padding: 5px;
-  width: 48px;
-  height: 48px;
-  background: #eee;
-  border-radius: 50%;
   color: #333;
 }
 
@@ -2301,6 +2297,12 @@ table, th, td {
   width: 100%;
 }
 
+.mui_contents_group.lv_2 {
+  margin-top: 24px;
+}
+.mui_contents_group.lv_2:first-child {
+  margin-top: 0;
+}
 .mui_contents_group.lv_1 {
   margin-top: 32px;
 }
@@ -4436,7 +4438,42 @@ hr {
   padding-top: 40px;
 }
 .webcer .step_wrap .step {
+  align-items: flex-start;
   flex-direction: column;
-  padding-top: 16px;
+}
+.webcer .step_wrap .step li {
+  padding: 16px 0 0 0;
+}
+.webcer .step_wrap .step li:last-child .num::before {
+  display: none;
+}
+.webcer .step_wrap .step .num {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  font-size: 18px;
+  font-weight: 700;
+  background: var(--bg_color01);
+  border-radius: 50%;
+}
+.webcer .step_wrap .step .num::before {
+  content: "";
+  position: absolute;
+  top: 48px;
+  left: 50%;
+  height: 16px;
+  transform: translateX(-50%);
+  border: 1px dashed var(--basic_color05);
+}
+.webcer .step_wrap .step .txt {
+  padding-left: 12px;
+  font-size: 14;
+  color: var(--basic_color03);
+}
+.webcer .info_wrap {
+  padding-top: 12px;
 }
 /*# sourceMappingURL=common.css.map */
