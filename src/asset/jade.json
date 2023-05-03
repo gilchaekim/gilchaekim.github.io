@@ -199,12 +199,12 @@
 		"description": "금액 입력 폼"
 	},
 	"input_btn": {
-			"prefix": "!input_btn",
+			"prefix": "!input_button",
 			"body": [
 				"+input_button({",
 				"\tbtnText:\"\",",
 				"\tplaceholder:\"\",",
-				"\ttitle:\"\"",
+				"\ttype:\"${1|input,select|}\"",
 				"})"
 			],
 			"description": "input + button"
