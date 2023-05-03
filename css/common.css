@@ -3773,6 +3773,10 @@ hr {
   border: 2px solid var(--main_color01);
   background: url("/src/images/ico_mask.svg") no-repeat center;
 }
+.acc_confirm .code .mask.dim span {
+  background: var(--bg_color02);
+  border-color: var(--bg_color02);
+}
 .acc_confirm .code .mask ~ .mask {
   margin-left: 8px;
 }
