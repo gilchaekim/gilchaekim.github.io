@@ -1,0 +1,125 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +content_group(0)
+    +title({
+      text:"소득자 인적사항",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"고객명",
+          text:"김저축",
+        },
+        {
+          title:"주민등록번호",
+          text:"900000-1******",
+        },
+
+        {
+          title:"주소",
+          text:"서울 마포구",
+        },
+      ]
+    })
+  +content_group(0)
+    +title({
+      text:"이용안내",
+      lv:4,
+    })
+    p.sub_txt_date 소득귀속기간 : 2018.01.01 ~ 2018.06.01
+    .inset_date
+      .set_date
+        span 지급일자 2019.01.01
+      +result({
+        dataType:"line",
+        data:[
+          {
+            title:"귀속연월",
+            text:"2019.01",
+          },
+          {
+            title:"과세구분",
+            text:"T",
+          },
+          {
+            title:"지급대상기간",
+            text:"2018.01.01 ~ 2018.03.01",
+          },
+          {
+            title:"원천징수액",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"<strong>계</strong>",
+            text:"<strong>1,000원</strong>",
+          },
+        ]
+      })
+    .inset_date
+      .set_date
+        span 지급일자 2019.01.01
+      +result({
+        dataType:"line",
+        data:[
+          {
+            title:"귀속연월",
+            text:"2019.01",
+          },
+          {
+            title:"과세구분",
+            text:"T",
+          },
+          {
+            title:"지급대상기간",
+            text:"2018.01.01 ~ 2018.03.01",
+          },
+          {
+            title:"원천징수액",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"내용",
+            text:"내용",
+          },
+          {
+            title:"<strong>계</strong>",
+            text:"<strong>1,000원</strong>",
+          },
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"확인",
+      size:"large",
+    })
+  

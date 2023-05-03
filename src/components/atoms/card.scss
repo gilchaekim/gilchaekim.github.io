@@ -29,6 +29,26 @@
       }
     }  
   }
+  &.select_type{
+    .inset{
+      padding-top: 62px;
+    }
+    .mui_radio{
+      position: static;
+      label{
+        position: absolute;
+        padding: 24px 24px 24px 56px;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        &::before{
+          top: 24px;
+          left: 24px;
+        }
+      }
+    }
+  }
   .inset{
     padding: 24px;
     position: relative;
