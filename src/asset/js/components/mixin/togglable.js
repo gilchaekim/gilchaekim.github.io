@@ -106,7 +106,6 @@ export default {
         },
 
         _toggle(el, toggled) {
-
             if (!el) {
                 return;
             }
@@ -123,7 +122,7 @@ export default {
             }
 
             $$('[autofocus]', el).some(el => isVisible(el) ? el.focus() || true : el.blur());
-
+            console.log(changed);
             if (changed) {
                 trigger(el, 'toggled', [toggled, this]);
                 // this.$update(el);
