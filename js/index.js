@@ -11558,6 +11558,33 @@
     }]
   };
 
+  var tooltip = {
+    props: {
+      text: String
+    },
+    data: {
+      text: ''
+    },
+    connected: function connected() {
+      console.log(this.text);
+    },
+    events: [{
+      name: 'focusin',
+      handler: function handler(e) {
+        this.show();
+      }
+    }, {
+      name: 'focusout',
+      handler: function handler(e) {
+        this.hide();
+      }
+    }],
+    methods: {
+      show: function show() {},
+      hide: function hide() {}
+    }
+  };
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -11668,6 +11695,7 @@
     Tree: tree,
     Scroll: scroll$1,
     Input: input,
+    Tooltip: tooltip,
     Worklists: worklists
   });
 
