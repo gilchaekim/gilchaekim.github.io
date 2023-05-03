@@ -1668,4 +1668,29 @@ hr {
 			margin-top: 12px;
 		}
 	}
+	.inset_date{
+		border-top: 1px solid $line_color03;
+		margin-top: 16px;
+		& ~ .inset_date{
+			border-top: 0 none;
+			margin-top: 0;
+		}
+		.set_date{
+			padding: 16px 0;
+			span{
+				display: inline-block;
+				height: 22px;
+				line-height: 22px;
+				border-radius: 11px;
+				background:$basic_color04;
+				color:$bg_color03;
+				padding: 0 8px;
+				font-size: 13px;
+			}
+		}
+		.mui_result.line{
+			border-top: 0 none;
+			padding-top: 0;
+		}
+	}
 }

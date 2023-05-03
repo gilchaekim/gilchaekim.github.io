@@ -1,2 +1,26 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
+
+.mui{
+  &_inputbtn{
+    position: relative;
+    display: flex;
+    align-items: center;
+    .mui_input, .mui_select{
+      position: static;
+    }
+    .btn_sec{
+      padding-left: 12px;
+    }
+    .mui_button:not(.mui_select) {
+      width: auto;
+      height: 28px;
+      padding: 0 8px;
+      font-size: 13px;
+      background: #5C627C;
+      span{
+        word-break: keep-all;
+      }
+    }
+  }
+}

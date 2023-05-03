@@ -1005,20 +1005,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   right: 0;
   display: flex;
 }
-.mui_inputbtn {
-  position: relative;
-}
-.mui_inputbtn .mui_button {
-  width: auto;
-  position: absolute;
-  top: 50%;
-  right: 0;
-  transform: translate(0, -50%);
-  height: 28px;
-  padding: 0 8px;
-  font-size: 13px;
-  background: #5C627C;
-}
 .mui_button_custom {
   display: inline-block;
   vertical-align: top;
@@ -1861,30 +1847,33 @@ table, th, td {
   display: inline-block;
 }
 
-.title {
+.mui_title + .mui_result {
+  margin-top: 16px;
+}
+.mui_title .title {
   font-weight: 700;
   color: var(--font_color01);
 }
-.title.lv1 {
+.mui_title .title.lv1 {
   font-size: 24px;
 }
-.title.lv2 {
+.mui_title .title.lv2 {
   font-size: 22px;
 }
-.title.lv3 {
+.mui_title .title.lv3 {
   font-size: 20px;
 }
-.title.lv4 {
+.mui_title .title.lv4 {
   font-size: 18px;
 }
-.title.lv5 {
+.mui_title .title.lv5 {
   font-size: 16px;
 }
-.title.lv6 {
+.mui_title .title.lv6 {
   font-size: 14px;
   font-weight: 400;
 }
-.title em {
+.mui_title .title em {
   color: var(--main_color01);
 }
 
@@ -1941,7 +1930,7 @@ table, th, td {
   text-align: center;
 }
 .mui_result_ico.null {
-  padding-top: 36px;
+  padding-top: 40px;
 }
 .mui_result_ico.null .main_txt {
   color: var(--font_color02);
@@ -2308,6 +2297,12 @@ table, th, td {
   width: 100%;
 }
 
+.mui_contents_group.lv_3 {
+  margin-top: 16px;
+}
+.mui_contents_group.lv_3:first-child {
+  margin-top: 0;
+}
 .mui_contents_group.lv_2 {
   margin-top: 24px;
 }
@@ -2715,6 +2710,28 @@ table, th, td {
 }
 .mui_inputmoney .result {
   text-align: right;
+}
+
+.mui_inputbtn {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.mui_inputbtn .mui_input, .mui_inputbtn .mui_select {
+  position: static;
+}
+.mui_inputbtn .btn_sec {
+  padding-left: 12px;
+}
+.mui_inputbtn .mui_button:not(.mui_select) {
+  width: auto;
+  height: 28px;
+  padding: 0 8px;
+  font-size: 13px;
+  background: #5C627C;
+}
+.mui_inputbtn .mui_button:not(.mui_select) span {
+  word-break: keep-all;
 }
 
 .mui_collapse .acc_title {
@@ -3827,6 +3844,11 @@ hr {
 .webcom .mui_text_lists.dot + .mui_title {
   padding-top: 32px;
 }
+.webcom .webcom_sub_txt {
+  padding-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
 
 /* 통장사본 */
 .passbook {
@@ -3926,13 +3948,6 @@ hr {
   width: 100px;
   height: 100px;
   background: red;
-}
-
-/* 타이틀아래 서브텍스트 */
-.sub_txt {
-  padding-top: 8px;
-  font-size: 14px;
-  color: var(--font_color03);
 }
 
 /* list타입 텍스트 */
@@ -4510,6 +4525,54 @@ hr {
 .webcer .info_wrap {
   padding-top: 12px;
 }
+.webcer .info_wrap .mui_text.warning + .warning {
+  margin-top: 12px;
+}
+.webcer .txt_etc {
+  padding-top: 12px;
+  font-size: 13px;
+  color: var(--basic_color04);
+  text-align: right;
+}
+.webcer .txt_etc span {
+  display: inline-block;
+  padding-left: 8px;
+  color: var(--font_color01);
+}
+.webcer .btn_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.webcer .btn_wrap button {
+  position: relative;
+  padding-right: 12px;
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webcer .btn_wrap button:last-child {
+  padding-left: 12px;
+  padding-right: 0;
+}
+.webcer .btn_wrap button:last-child::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 12px;
+  background: var(--line_color02);
+  transform: translateY(-50%);
+}
+.webcer .btn_wrap button em {
+  color: var(--main_color01);
+}
+.webcer .form_normal::before {
+  background: var(--line_color02);
+}
+.webcer .form_select::before {
+  background: var(--line_color01);
+}
 .webcer .sub_txt_date {
   font-size: 14px;
   color: var(--font_color03);
@@ -4526,5 +4589,30 @@ hr {
 }
 .webcer .num_title + .mui_result {
   margin-top: 12px;
+}
+.webcer .inset_date {
+  border-top: 1px solid var(--line_color03);
+  margin-top: 16px;
+}
+.webcer .inset_date ~ .inset_date {
+  border-top: 0 none;
+  margin-top: 0;
+}
+.webcer .inset_date .set_date {
+  padding: 16px 0;
+}
+.webcer .inset_date .set_date span {
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 11px;
+  background: var(--basic_color04);
+  color: var(--bg_color03);
+  padding: 0 8px;
+  font-size: 13px;
+}
+.webcer .inset_date .mui_result.line {
+  border-top: 0 none;
+  padding-top: 0;
 }
 /*# sourceMappingURL=common.css.map */

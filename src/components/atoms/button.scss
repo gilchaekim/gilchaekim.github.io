@@ -238,20 +238,7 @@
       display: flex;
     }
   }
-  &_inputbtn{
-    position: relative;
-    .mui_button {
-      width: auto;
-      position: absolute;
-      top: 50%;
-      right: 0;
-      transform: translate(0, -50%);
-      height: 28px;
-      padding: 0 8px;
-      font-size: 13px;
-      background: #5C627C;
-    }
-  }
+
   &_button_custom{
     display: inline-block;
     vertical-align: top;
