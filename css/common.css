@@ -2348,7 +2348,7 @@ table, th, td {
 .mui_card ~ .mui_card {
   margin-top: 12px;
 }
-.mui_card.no_tag .inset {
+.mui_card.no_tag.is_linked .inset {
   padding-top: 62px;
 }
 .mui_card.is_linked .inset {
@@ -2773,6 +2773,7 @@ table, th, td {
 .mui_datasort .sort_data {
   font-size: 14px;
   line-height: 20px;
+  color: var(--basic_color04);
 }
 .mui_datasort .total {
   color: var(--font_color03);

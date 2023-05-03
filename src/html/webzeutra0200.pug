@@ -1,0 +1,84 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "제증명 신청조회/취소"
+
+block content
+  +content_group(0) 
+    +form()
+      +form_body({title:"발급신청서"})
+        +button_select({
+          placeholder:"선택"
+        })
+  +content_group(0)
+    +data_sort({
+      date:"2023.03.13~2023.03.19",
+      isBtn:true
+    })
+    +result({
+      type:'null',
+      mainText:"조회된 내역이 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+    +card({
+      data: [
+          {
+            title:"계좌상태",
+            text:"활동계좌",
+          },
+          {
+            title:"대출금액",
+            text:"200,000,000,000원",
+          },
+          {
+            title:"대출일자",
+            text:"YYYY.MM.DD",
+          },
+          {
+            title:"대출만기일자",
+            text:"YYYY.MM.DD",
+          },
+        ]
+    })
+    +card({
+      isSelecte:true,
+      data: [
+          {
+            title:"11",
+            text:"22",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk915268',
+        label:'신청서 선택21112'
+      })
+    +card({
+      isSelecte:true,
+      data: [
+          {
+            title:"11",
+            text:"22",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk915268',
+        label:'신청서 선택22'
+      })
+
+    //- +radioCheck({
+    //-   type:"radio",
+    //-   name:'chk915268',
+    //-   label:'신청서 선택22'
+    //- })
+
+    
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

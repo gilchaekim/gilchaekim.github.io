@@ -9,10 +9,11 @@
     margin-top: 12px;
   }
   &.no_tag{
-    .inset{
-      padding-top: 62px;
+    &.is_linked{
+      .inset{
+        padding-top: 62px;
+      }
     }
-    
   }
   &.is_linked{
     .inset{
