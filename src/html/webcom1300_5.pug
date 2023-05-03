@@ -1,0 +1,384 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"적합성/적정성 확인서",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"적합성/적정성 확인서",
+    id:"fullLayer",
+    type:"full"
+  })
+    .suitability_step
+      .step_nav
+        ul 
+          li.step
+            span 1
+          li.step
+            span 2
+          li.step.mui_active
+            span 3
+          li.step
+            span 4
+      .step_layer 
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"안녕하세요 <em>홍길동</em>님",
+            lv:2,
+          })
+          p.type1 대출계약자 적합성·적정성 확인을 위해 고객 정보를 입력해주세요.
+          .box 
+            .img 
+              img(src="/src/images/ico_suitability.png", alt="")
+            +title({
+              text:"적합성/적정성 확인서란?",
+              lv:4,
+            })
+            p.type1!="「금융소비자 보호에 대한 법률」 <em>제 17조(적합성원칙) 및 제 18조(적정성원칙)</em>에 따라 귀하의 연령, 재산상황, 대출계약의 목적 등을 파악하여 대출계약자에게 가장 적합한 대출계약 체결을 권유하기 위한 기초자료로 활용됩니다."
+          +textLists({
+            type:'dot',
+            lists:[
+              {
+                text:"허위 또는 불성실한 답변을 하시는 경우 부적합한 대출계약을 권유하게 될 수 있으며, 이로 인해 발생하는 모든 손해는 계약자 본인에게 귀속되오니 유념하여 주시기 바랍니다.",
+              },
+            ]
+          })
+          +button_bottom_fixed()
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"정보를 입력하세요.",
+            lv:2,
+          })
+          +form()
+            +form_body({title:"이름"})
+              +form_value({
+                value:"홍길동"
+              })
+            +form_body({title:"주민등록번호"})
+              +input_idnumber()
+            +form_body({title:"휴대폰번호"})
+              +input_phone()
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q1.<br>귀하의 연령은 어떻게 되십니까?",
+            lv:2,
+          })
+          +form()
+            +form_body({message:{type:"error", text:"연령을 선택해 주세요."}})
+              +radioCheck({
+                type:"radio",
+                name:'chk076916',
+                lists:[
+                  {
+                    label:'20대 이하',
+                  },
+                  {
+                    label:'30대'
+                  },
+                  {
+                    label:'40대',
+                    checked:true
+                  },
+                  {
+                    label:'50대'
+                  },
+                  {
+                    label:'50대 이상'
+                  }
+                ]
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q2.<br>귀하의 대출계약 체결의 목적은 무엇입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body({message:{type:"error", text:"내용을 입력해 주세요"}})
+              +radioCheck({
+                type:"radio",
+                name:'chk0769161',
+                lists:[
+                  {label:'가계자금',checked:true},
+                  {label:'사업자금',},
+                  {label:'주택자금',},
+                  {label:'타 기관 대출금 상환',},
+                  {label:'의료비',},
+                  {label:'교육비',},
+                  {label:'기타',},
+                ]
+              })
+              +input({
+                placeholder:"기타 선택 시 입력해 주세요"
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q3.<br>귀하의 연간 소득은 어느 정도입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body({message:{type:"error", text:"소득을 선택해 주세요."}})
+              +radioCheck({
+                type:"radio",
+                name:'chk076916',
+                lists:[
+                  {
+                    label:'선택안함',
+                    checked:true
+                  },
+                  {
+                    label:'6백만원 이상 5천만원 미만'
+                  },
+                  {
+                    label:'5천만원 이상 1억원 미만'
+                  },
+                  {
+                    label:'1억원 이상'
+                  },
+                  {
+                    label:'해당없음'
+                  }
+                ]
+              })
+              +input({
+                placeholder:"해당없음 선택 시 입력해 주세요"
+              })
+          +text({
+            type:'warning',
+            text:"법인 조합 등의 경우, 제무상황 확인 등을 위해 회사의 회계정보 제출이 필요합니다."
+          })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:;"
+        )
+          +title({
+            text:"Q4.<br>귀하의 총 자산규모(순자산)는 어느 정도입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body()
+              +radioCheck({
+                type:"radio",
+                name:'chk0769162',
+                lists:[
+                  {label:'1억원 미만'},
+                  {label:'1억원 이상 5억원 미만'},
+                  {label:'5억원 이상 10억원 미만'},
+                  {label:'10억원 이상'},
+                ]
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q5.<br>귀하의 부채는 어느 정도입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body()
+              +radioCheck({
+                type:"radio",
+                name:'chk0769163',
+                lists:[
+                  {label:'1천만원 미만'},
+                  {label:'1천만원 이상 1억원 미만'},
+                  {label:'1억원 이상'},
+                ]
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q6.<br>귀하의 신용점수는 어떻게 되십니까?",
+            lv:2,
+          })
+          +form()
+            +form_body()
+              +radioCheck({
+                type:"radio",
+                name:'chk0769163',
+                lists:[
+                  {label:'600점 이하'},
+                  {label:'600점 초과'},
+                  {label:'모름'},
+                ]
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q7.<br>귀하의 체결할 대출금의 변제방법은 무엇입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body()
+              +radioCheck({
+                type:"radio",
+                name:'chk0769164',
+                lists:[
+                  {label:'근로소득'},
+                  {label:'사업소득'},
+                  {label:'임대소득'},
+                  {label:'연금소득'},
+                  {label:'기타'},
+                ]
+              })
+              +input({
+                placeholder:"기타 선택 시 입력해 주세요"
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          +title({
+            text:"Q8.<br>귀하의 연간소득 대비 고정 지출비용은 어느 정도입니까?",
+            lv:2,
+          })
+          +form()
+            +form_body()
+              +radioCheck({
+                type:"radio",
+                name:'chk0769165',
+                lists:[
+                  {label:'연간소득을 초과하지 않음'},
+                  {label:'연간소득을 초과'},
+                ]
+              })
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+        .step_cont(
+          style="display:none;"
+        )
+          .box 
+            .img 
+              img(src="/src/images/ico_suitability.png", alt="")
+            p.type2!="본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다."
+          +textLists({
+            type:'dot',
+            lists:[
+              {
+                text:"본인이 귀행에 제공한 적합성·적정성 관련 정보는 본인의 재산상황, 용도 등의 정보를 정확히 알려드린 것입니다.",
+              },
+              {
+                text:"본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.",
+              },
+            ]
+          })
+          .confirm 
+            p.txt1 2021년 07월 01일
+            p.txt2 대출계약자 성명 : 홍길동
+          +button_bottom_fixed()
+            +button({
+              label:"이전",
+              type:"default",
+              size:"large",
+            })
+            +button({
+              label:"다음",
+              size:"large",
+            })
+    
+
+
+  script.
+    GCui.modal('#fullLayer').show()

@@ -1,0 +1,55 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "재증명"
+
+block content
+  .main_list 
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"금융거래확인서"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"부채잔액확인서"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"예금잔액확인서(한글)"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"예금잔액확인서(영문)"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"원천징수영수증"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"신청내역조회/취소"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"제증명진위확인"
+    })
+
+    +collapse({
+      className:"guide_text",
+      isOpen:true,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"상기 발급대상 이외의 증명서를 신청하는 경우에는 해당 영업점에 문의하시거나 방문을 통해 신청하여 주시기 바랍니다.",
+            },
+            {
+              text:"저축은행에 따라 제증명서 발급 시 수수료가 부과될 수 있습니다.",
+            },
+          ]
+        })

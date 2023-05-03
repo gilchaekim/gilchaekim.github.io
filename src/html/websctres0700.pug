@@ -6,10 +6,11 @@ block prepend top
 
 block content
   .main_list 
-    a.list(href="") 
-      span.img 
-      span.text 예약이체 등록
-    a.list(href="") 
-      span.img 
-      span.text 등록조회/변경/해지
-    
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"예약이체 등록"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:"등록조회/변경/해지"
+    })

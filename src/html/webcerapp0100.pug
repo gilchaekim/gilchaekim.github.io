@@ -1,0 +1,85 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명"
+
+block content
+  +title({
+    text:'대상업무',
+    lv:4,
+  })
+
+  .bg_box
+    +textLists({
+      type:'dot',
+      className:'bg_type',
+      lists:[
+        {
+          text:"각종증명서 발급에 대한 신청업무",
+        },
+        {
+          text:"대상증명서 : 금융거래확인서, 부채증명서, 예금잔액증명서",
+          className:"list_txt",
+        }
+      ]
+    })
+
+  +textLists({
+    type:'dot',
+    lists:[
+      {
+        text:"<strong class='txt'>금융거래확인서</strong>해당 저축은행과 저래한 내역에 대한 증명서",
+        className:"list_txt",
+        subLists:{
+          type:'hyphhen',
+          lists:[
+            {
+              text:"대출금 거래상환 (차입일자, 잔액, 대출기한 등), 담보내용(소대지, 종류, 수량, 설정내용 등), 연체현황등"
+            },
+          ]
+        }
+      },
+      {
+        text:"<strong class='txt'>부채증명서</strong>부채사실에 대한 증명서(발급기준 일자의 최종잔액)",
+        className:"list_txt",
+      },
+      {
+        text:"<strong class='txt'>예금잔액증명서</strong>예금 등의 잔액을 보여주는 증명서(발급기준일자의 최종잔액)",
+        className:"list_txt",
+      },
+    ]
+  })
+
+  .step_wrap 
+    +title({
+      text:'절차',
+      lv:4,
+    })
+
+    +stepWrap()
+      +step()
+        .txt 고객이 제증명서 발급신청
+      +step()
+        .txt 저축은행접수
+      +step()
+        .txt 저축은행 발급(e-mnail)
+
+  +collapse({
+    className:"guide_text",
+    isOpen:false,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"상기 발급대상 이외의 증명서를 신청하는 경우에는 해당 영업점에 문의하시거나 방문을 통해 신청하여 주시기 바랍니다."
+          },
+          {
+            text:"저축은행에 따라 제증명서 발급 시 수수료가 부과될 수 있습니다."
+          },
+        ]
+      })

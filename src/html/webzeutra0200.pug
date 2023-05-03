@@ -1,0 +1,132 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "제증명 신청조회/취소"
+
+block content
+  +content_group(0) 
+    +form()
+      +form_body({title:"발급신청서"})
+        +button_select({
+          placeholder:"선택"
+        })
+  +content_group(0)
+    +data_sort({
+      date:"2023.03.13~2023.03.19",
+      isBtn:true
+    })
+    +result({
+      type:'null',
+      mainText:"조회된 내역이 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+    +card({
+      data: [
+          {
+            title:"계좌상태",
+            text:"활동계좌",
+          },
+          {
+            title:"대출금액",
+            text:"200,000,000,000원",
+          },
+          {
+            title:"대출일자",
+            text:"YYYY.MM.DD",
+          },
+          {
+            title:"대출만기일자",
+            text:"YYYY.MM.DD",
+          },
+        ]
+    })
+    +card({
+      isSelecte:true,
+      data: [
+          {
+            title:"비대면거래번호",
+            text:"1234567890",
+          },
+          {
+            title:"저축은행",
+            text:"중앙저축은행",
+          },
+          {
+            title:"신청상태",
+            text:"신청",
+          },
+          {
+            title:"증명서종류",
+            text:"부채잔액증명서",
+          },
+          {
+            title:"신청일자",
+            text:"2023.04.05",
+          },
+          {
+            title:"발급기준일자",
+            text:"2023.04.04",
+          },
+          {
+            title:"발급사유",
+            text:"개인보관용",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk915268',
+        label:'신청서 선택21112'
+      })
+    +card({
+      isSelecte:true,
+      data: [
+          {
+            title:"비대면거래번호",
+            text:"1234567890",
+          },
+          {
+            title:"저축은행",
+            text:"중앙저축은행",
+          },
+          {
+            title:"신청상태",
+            text:"신청",
+          },
+          {
+            title:"증명서종류",
+            text:"부채잔액증명서",
+          },
+          {
+            title:"신청일자",
+            text:"2023.04.05",
+          },
+          {
+            title:"발급기준일자",
+            text:"2023.04.04",
+          },
+          {
+            title:"발급사유",
+            text:"개인보관용",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk915268',
+        label:'신청서 선택22'
+      })
+
+    //- +radioCheck({
+    //-   type:"radio",
+    //-   name:'chk915268',
+    //-   label:'신청서 선택22'
+    //- })
+
+    
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

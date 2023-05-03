@@ -3,18 +3,27 @@ mixin input_button(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, placeholder, value, btnText, title, ...rest} = Object.assign({}, params);
+  - const {element='div', className, placeholder, value, btnText, title, type="input", ...rest} = Object.assign({}, params);
   - let blockData = {};
 
   #{element}(
     class=`${prefix}${divide}inputbtn`
     class=className
   )
-    +input({
-      value:value,
-      title:title,
-      placeholder:placeholder,
-    })
-    +button({
-      label:btnText,
-    })
+    if type === 'input'
+      +input({
+        value:value,
+        title:title,
+        placeholder:placeholder,
+      })
+    else if type === 'select'
+      +button_select({
+        placeholder:placeholder,
+        label:value
+      })
+    .btn_sec
+      +button({
+        label:btnText,
+      })
+
+    

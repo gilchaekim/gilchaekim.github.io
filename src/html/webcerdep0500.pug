@@ -1,0 +1,79 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +title({
+    text:'예금잔액증명서(한글) 신청',
+    lv:4,
+  })
+
+  +content_group(2)
+    +form()
+      +form_body({title:"이름"})
+        +form_value({
+          value:"방수현"
+        })
+      +form_body({title:"발급기준일"})
+        +form_value({
+          value:"2023.04.04"
+        })
+      +form_body({title:"발급목적(사유)", message:{type:"error", text:"발급목적은 2~10자 이내로 입력해주세요."}})
+        +button_select({
+          placeholder:"선택",
+          className:"form_normal"
+        })
+        <!-- 기타 선택시 노출 -->
+        +input({
+          placeholder:"2~10자 이내 입력"
+        })
+        <!-- //기타 선택시 노출 -->
+      +form_body({title:"제증명발급장수"})
+        +button_select({
+          label:"1"
+        })
+      +form_body({title:"SMS수신여부"})
+        +radioCheck({
+          type:"radio",
+          name:'radiolist',
+          lists:[
+            {
+              label:'수신'
+            },
+            {
+              label:'미수신',
+              checked:true
+            }
+          ]
+        })
+      +form_body({title:"발금신청 계좌"})
+        .check_card
+          +radioCheck({
+            name:'checklist',
+            label:'전체 선택'
+          })
+          .mui_selectlist.account
+            ul
+              li.lists
+                button
+                  strong 중앙정기예금
+                  span.acc_num 123-1212-1234-56
+                    span.acc_aka 100,000원
+              li.lists
+                button
+                  strong 중앙정기예금
+                  span.acc_num 123-1212-1234-56
+                    span.acc_aka 100,000원
+              li.lists
+                button
+                  strong 중앙정기예금
+                  span.acc_num 123-1212-1234-56
+                    span.acc_aka 100,000원
+    
+    +button_bottom_fixed()
+      +button({
+        label:"신청하기",
+        size:"large",
+      })

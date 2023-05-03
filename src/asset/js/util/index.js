@@ -14,5 +14,6 @@ export * from './fastdom';
 export * from './style';
 export * from './env';
 export * from './viewport';
-export * from './format';
+export * from './format'; 
 export * from './observer';
+export * from './position';

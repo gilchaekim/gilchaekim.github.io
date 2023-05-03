@@ -27,7 +27,7 @@
 	"content_group": {
 		"prefix": "!content_group",
 		"body": [
-				"+content_group(${1|1,2,3|})",
+				"+content_group(${1|0,1,2,3|})",
 				"\t$0"
 		],
 		"description": "컨텐츠 그룹"
@@ -43,6 +43,14 @@
 		],
 		"description": "기본 버튼"
 	},
+	"button_bottom_fixed": {
+		"prefix": "!button_bottom_fixed",
+		"body": [
+				"+button_bottom_fixed()",
+				"\t$0"
+		],
+		"description": "하단 고정 버튼"
+	},
 	"Button_link": {
 		"prefix": "!button_link",
 		"body": [
@@ -53,6 +61,23 @@
 				"})"
 		],
 		"description": "기본 버튼"
+	},
+	"Button_more": {
+		"prefix": "!button_more",
+		"body": [
+			"+button_more()"
+		],
+		"description": "더보기 버튼"
+	},
+	"button_custom": {
+			"prefix": "!button_custom",
+			"body": [
+					"+button_custom({",
+					"\ttype:\"${1|round-40,darkgray-28,gray-32,download-32,timeselect-24,white-round-24|}\",",
+					"\tlabel:\"$0\"",
+					"})"
+			],
+			"description": "1"
 	},
 	"Button_group": {
 		"prefix": "!Button_group",
@@ -74,11 +99,53 @@
 		"description": "버튼 렙핑"
 	},
 	"Button_select": {
-		"prefix": "!button_select",
+			"prefix": "!button_select",
+			"body": [
+					"+button_select({",
+					"\tplaceholder:\"\",",
+					"\tlabel:\"\"",
+					"})"
+			],
+			"description": "셀렉트 박스형 버튼"
+	},
+	"button_select_account": {
+		"prefix": "!button_select_account",
 		"body": [
-				"+button_select('$0')",
+			"+button_select_account({",
+			"\t${1:isMoney:true}",
+			"})"
+	],
+		"description": "계좌선택 셀렉트 버튼"
+	},
+	"button_keypad": {
+			"prefix": "!button_keypad",
+			"body": [
+					"+button_keypad()",
+					"\t+button_group({",
+					"\t\tbtns:[",
+					"\t\t\t\"\",",
+					"\t\t]",
+					"\t})"
+			],
+			"description": "키패드 버튼"
+	},
+	"button_tooltip": {
+		"prefix": "!button_tooltip",
+		"body": [
+				"+button_tooltip(\"$0\")"
 		],
-		"description": "셀렉트 박스형 버튼"
+		"description": "튤팁"
+	},
+	"data_sort": {
+			"prefix": "!data_sort",
+			"body": [
+					"+data_sort({",
+					"\ttotal:\"${1:0}\",",
+					"\tdate:\"$2\",",
+					"\t${3:isBtn:true}",
+					"})"
+			],
+			"description": "1"
 	},
 	"dataTable": {
 		"prefix": "!dataTable",
@@ -131,17 +198,18 @@
 		],
 		"description": "금액 입력 폼"
 	},
-	"input_money": {
-			"prefix": "input_btn",
+	"input_btn": {
+			"prefix": "!input_button",
 			"body": [
 				"+input_button({",
 				"\tbtnText:\"\",",
 				"\tplaceholder:\"\",",
-				"\ttitle:\"\"",
+				"\ttype:\"${1|input,select|}\"",
 				"})"
 			],
 			"description": "input + button"
 	},
+
 	"modal": {
 		"prefix": "!modal",
 		"body": [
@@ -158,7 +226,11 @@
 		"body": [
 				"+radioCheck({",
 				"\t${1:type:\"radio\",}",
-				"\tname:'chk$RANDOM'",
+				"\tname:'chk$RANDOM',",
+				"\tlabel:'$0'",
+				"\tlists:[",
+				"\t\t{label:'라디오버튼1',},",
+				"\t]"
 				"})"
 		],
 		"description": "라디오 & 체크"
@@ -169,7 +241,7 @@
 				"+radioCheck({",
 				"\tname:'btnType',",
 				"\ttype:\"radio\",",
-				"\tclassName:'button_type',",
+				"\tclassName:'button_type ${1|type1|}',",
 				"\tlists:[",
 				"\t\t{",
 				"\t\t\tlabel:''",
@@ -183,6 +255,7 @@
 			"prefix": ["!result", "!ㄱㄷㄴ"],
 			"body": [
 					"+result({",
+					"\tdataType:\"${1|default,line|}\",",
 					"\tdata:[",
 					"\t\t{",
 					"\t\t\ttitle:\"\",",
@@ -192,6 +265,29 @@
 					"})"
 			],
 			"description": "결과 리스트"
+	},
+	"result_null": {
+			"prefix": "!result_null",
+			"body": [
+					"+result({",
+					"\ttype:'null',",
+					"\tmainText:\"검색결과가 없습니다.\",",
+					"\timg:\"/src/images/ico_search_empty.svg\",",
+					"})"
+			],
+			"description": "검색 결과 없음"
+	},
+	"result_success": {
+			"prefix": "!result_success",
+			"body": [
+					"+result({",
+					"\ttype:'result',",
+					"\tmainText:\"\",",
+					"\tsubText:\"\",",
+					"\timg:\"/src/images/ico_example2.png\",",
+					"})"
+			],
+			"description": "프로세스 성공 메세지"
 	},
 	"tab": {
 		"prefix": ["!tab", "!ㅅ뮤"],
@@ -205,17 +301,17 @@
 		"description": "텝"
 	},
 	"tab_link": {
-		"prefix": ["!tab_link"],
-		"body": [
-				"+tabsLink({",
-				"\tlists:[",
-				"\t\t{name:\"\", active:true},",
-				"\t\t{name:\"\"},",
-				"\t],",
-				"})",
-				"\t$0"
-		],
-		"description": "텝"
+			"prefix": "!tab_link",
+			"body": [
+					"+tabsLink({",
+					"\tlist:[\t\t",
+					"\t\t{name:\"\", active:true},",
+					"\t\t{name:\"\"},",
+					"\t],",
+					"\tclassName:\"custom_tab\"",
+					"})"
+			],
+			"description": "텝 링크형태"
 	},
 	"tag": {
 		"prefix": ["!tag", "!ㅅㅁㅎ"],
@@ -251,6 +347,26 @@
 		],
 		"description": "textarea"
 	},
+	"text": {
+		"prefix": "!text",
+		"body": [
+				"+text({",
+				"\t${1:type:'warning',}",
+				"\ttext:\"$0\"",
+				"})"
+		],
+		"description": "기본 텍스트 스타일"
+	},
+	"agree_check": {
+			"prefix": "!agree_check",
+			"body": [
+					"+agree_check({",
+					"\ttext:\"$0\",",
+					"\t${1:isChecked:true}",
+					"})"
+			],
+			"description": "1"
+	},
 	"title": {
 		"prefix": ["!title", "!샤ㅅ"],
 		"body": [
@@ -282,10 +398,10 @@
 				"\tisOpen:true,",
 				"})",
 				"\t+header()",
-				"\t p.title 알아두세요",
+				"\t\tp.title 알아두세요",
 				"\t+content()",
 				"\t\t+textLists({",
-				"\t\t\ttype:'dot',",
+				"\t\t\ttype:'guide',",
 				"\t\t\tlists:[",
 				"\t\t\t\t{",
 				"\t\t\t\t\ttext:\"\",",
@@ -369,6 +485,20 @@
 		],
 		"description": "휴대폰번호입력 폼"
 	},
+	"form_business": {
+		"prefix": "!form_business",
+		"body": [
+				"+input_business()"
+		],
+		"description": "사업자번호 입력 폼"
+	},
+	"form_proofapp": {
+		"prefix": "!form_proofapp",
+		"body": [
+				"+input_proofapp()"
+		],
+		"description": "제증명발행번호 입력 폼"
+	},
 	
 	"form_button_check": {
 		"prefix": "!form_button_check",
@@ -389,6 +519,35 @@
 				"})"
 		],
 		"description": "버튼형 체크 박스"
+	},
+	"card": {
+		"prefix": "!card",
+		"body": [
+				"+card({",
+				"\t${1:isLinked:true,}",
+				"\ttag : {",
+				"\t\tlabel:\"\",",
+				"\t\tstatus:\"\"",
+				"\t},",
+				"\tdata: [",
+				"\t\t\t{",
+				"\t\t\t\ttitle:\"\",",
+				"\t\t\t\ttext:\"\",",
+				"\t\t\t},",
+				"\t\t]",
+				"})"
+		],
+		"description": "1"
+	},
+	"card_list": {
+			"prefix": "!card_list",
+			"body": [
+					"+card_ico_list({",
+					"\tsrc:\"${1:/src/images/ico_example2.png}\",",
+					"\ttext:\"$0\"",
+					"})"
+			],
+			"description": "1"
 	},
 	"form_jumin": {
 		"prefix": "!form_jumin",
