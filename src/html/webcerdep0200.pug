@@ -1,0 +1,49 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +content_group(0)
+    +title({
+      text:'발급내역',
+      lv:4,
+    })
+    +content_group(3)
+      +result({
+        dataType:"line",
+        data:[
+          {
+            title:"발급기준일",
+            text:"2023.04.13",
+          },
+          {
+            title:"발급목적",
+            text:"개인보관용",
+          },
+          {
+            title:"이메일주소",
+            text:"kjc@gmail,com",
+          },
+        ]
+      })
+
+  +content_group(0)
+    +title({
+      text:'발급신청 계좌',
+      lv:4,
+    })
+    +content_group(3)
+    
+    +button_bottom_fixed()
+      +button({
+        label:"취소",
+        size:"large",
+        type:"default",
+      })
+      +button({
+        label:"발급하기",
+        size:"large",
+      })
+    

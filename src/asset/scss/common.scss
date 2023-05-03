@@ -1596,6 +1596,11 @@ hr {
 	}
 	.info_wrap {
 		padding-top:12px;
+		.mui_text {
+			&.warning+.warning {
+				margin-top:12px;
+			}
+		}
 	}
 	.txt_etc {
 		padding-top:12px;
@@ -1634,6 +1639,16 @@ hr {
 			em {
 				color:$main_color01;
 			}
+		}
+	}
+	.form_normal {
+		&::before {
+			background: var(--line_color02);
+		}
+	}
+	.form_select {
+		&::before {
+			background:$line_color01;
 		}
 	}
 }
