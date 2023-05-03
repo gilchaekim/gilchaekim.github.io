@@ -1905,6 +1905,17 @@ table, th, td {
 .mui_result.line dl ~ dl {
   margin-top: 16px;
 }
+.mui_result.line dl ~ .inner_title {
+  margin-top: 16px;
+}
+.mui_result.line p.inner_title {
+  font-size: 14px;
+  color: var(--font_color01);
+  font-weight: 700;
+}
+.mui_result.line p.inner_title ~ dl {
+  margin-top: 16px;
+}
 .mui_result.line strong {
   color: var(--font_color01);
   font-weight: 700;
@@ -2366,6 +2377,24 @@ table, th, td {
   position: absolute;
   top: 24px;
   right: 24px;
+}
+.mui_card.select_type .inset {
+  padding-top: 62px;
+}
+.mui_card.select_type .mui_radio {
+  position: static;
+}
+.mui_card.select_type .mui_radio label {
+  position: absolute;
+  padding: 24px 24px 24px 56px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.mui_card.select_type .mui_radio label::before {
+  top: 24px;
+  left: 24px;
 }
 .mui_card .inset {
   padding: 24px;
@@ -4480,5 +4509,22 @@ hr {
 }
 .webcer .info_wrap {
   padding-top: 12px;
+}
+.webcer .sub_txt_date {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 8px;
+}
+.webcer .num_title {
+  margin-top: 24px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.webcer .num_title em {
+  color: var(--main_color01);
+}
+.webcer .num_title + .mui_result {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=common.css.map */

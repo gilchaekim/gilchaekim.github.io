@@ -1598,4 +1598,21 @@ hr {
 	.info_wrap {
 		padding-top:12px;
 	}
+	.sub_txt_date{
+		font-size: 14px;
+		color: $font_color03;
+		margin-top: 8px;
+	}
+	.num_title{
+		margin-top: 24px;
+		font-size: 14px;
+		font-weight: 700;
+		color:$font_color01;
+		em{
+			color:$main_color01;
+		}
+		& + .mui_result {
+			margin-top: 12px;
+		}
+	}
 }

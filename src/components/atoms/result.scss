@@ -17,6 +17,17 @@
       & ~ dl{
         margin-top: 16px;
       }
+      & ~ .inner_title{
+        margin-top: 16px;
+      }
+    }
+    p.inner_title{
+      font-size: 14px;
+      color:$font_color01;
+      font-weight: 700;
+      & ~ dl{
+        margin-top: 16px;
+      }
     }
     strong{
       color:$font_color01;

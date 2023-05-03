@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">제증명 신청조회/취소</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#wrapper;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,162 +232,112 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webauc" id="contants">
-      <div class="mui_contents_group lv_0">
-        <div class="mui_form">
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">발급신청서</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">선택</span></span></button>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>금융소득종합과세 상세정보</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>금융소득종합과세 상세정보</p>
             </div>
+            <div class="mui_modal_content">
+              <div class="webcer">
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">소득자 인적사항
+                    </p>
+                  </div>
+                  <div class="mui_result line">
+                    <dl>
+                      <dt>고객명
+                      </dt>
+                      <dd> 김저축
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>주민등록번호
+                      </dt>
+                      <dd> 900000-1******
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>주소
+                      </dt>
+                      <dd> 서울 마포구
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">계좌별 소득 발생명세
+                    </p>
+                  </div>
+                  <p class="sub_txt_date">소득귀속기간 : 2018.01.01 ~ 2018.06.01</p>
+                  <p class="num_title">일련번호 <em>1</em></p>
+                  <div class="mui_result line">
+                    <dl>
+                      <dt>소득종류
+                      </dt>
+                      <dd> 이자(배당)
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>소득 지급점
+                      </dt>
+                      <dd> 14.00
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>사업자 등록번호
+                      </dt>
+                      <dd> 473-682-47985
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>계좌번호
+                      </dt>
+                      <dd> 123-456-78901
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>소득금액(세전)
+                      </dt>
+                      <dd> 8,000원
+                      </dd>
+                    </dl>
+                    <p class="inner_title">원천징수액</p>
+                    <dl>
+                      <dt>소득세
+                      </dt>
+                      <dd> 1,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>주민세
+                      </dt>
+                      <dd> 1,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>농어촌특별세
+                      </dt>
+                      <dd> 1,000원
+                      </dd>
+                    </dl>
+                  </div>
+                </div>
+              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_datasort"><span class="sort_data"><span class="date">2023.03.13~2023.03.19</span></span>
-          <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">1주일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
-        </div>
-        <div class="mui_result_ico null">
-          <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt="" /></div>
-          <p class="main_txt">조회된 내역이 없습니다.</p>
-        </div>
-        <div class="mui_card no_tag">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>계좌상태
-                </dt>
-                <dd> 활동계좌
-                </dd>
-              </dl>
-              <dl>
-                <dt>대출금액
-                </dt>
-                <dd> 200,000,000,000원
-                </dd>
-              </dl>
-              <dl>
-                <dt>대출일자
-                </dt>
-                <dd> YYYY.MM.DD
-                </dd>
-              </dl>
-              <dl>
-                <dt>대출만기일자
-                </dt>
-                <dd> YYYY.MM.DD
-                </dd>
-              </dl>
-            </div>
-          </div>
-        </div>
-        <div class="mui_card no_tag select_type">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>비대면거래번호
-                </dt>
-                <dd> 1234567890
-                </dd>
-              </dl>
-              <dl>
-                <dt>저축은행
-                </dt>
-                <dd> 중앙저축은행
-                </dd>
-              </dl>
-              <dl>
-                <dt>신청상태
-                </dt>
-                <dd> 신청
-                </dd>
-              </dl>
-              <dl>
-                <dt>증명서종류
-                </dt>
-                <dd> 부채잔액증명서
-                </dd>
-              </dl>
-              <dl>
-                <dt>신청일자
-                </dt>
-                <dd> 2023.04.05
-                </dd>
-              </dl>
-              <dl>
-                <dt>발급기준일자
-                </dt>
-                <dd> 2023.04.04
-                </dd>
-              </dl>
-              <dl>
-                <dt>발급사유
-                </dt>
-                <dd> 개인보관용
-                </dd>
-              </dl>
-            </div>
-            <span class="mui_radio">
-              <input type="radio" id="chk915268Id1" name="chk915268" />
-              <label for="chk915268Id1">신청서 선택21112</label>
-            </span>
-          </div>
-        </div>
-        <div class="mui_card no_tag select_type">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>비대면거래번호
-                </dt>
-                <dd> 1234567890
-                </dd>
-              </dl>
-              <dl>
-                <dt>저축은행
-                </dt>
-                <dd> 중앙저축은행
-                </dd>
-              </dl>
-              <dl>
-                <dt>신청상태
-                </dt>
-                <dd> 신청
-                </dd>
-              </dl>
-              <dl>
-                <dt>증명서종류
-                </dt>
-                <dd> 부채잔액증명서
-                </dd>
-              </dl>
-              <dl>
-                <dt>신청일자
-                </dt>
-                <dd> 2023.04.05
-                </dd>
-              </dl>
-              <dl>
-                <dt>발급기준일자
-                </dt>
-                <dd> 2023.04.04
-                </dd>
-              </dl>
-              <dl>
-                <dt>발급사유
-                </dt>
-                <dd> 개인보관용
-                </dd>
-              </dl>
-            </div>
-            <span class="mui_radio">
-              <input type="radio" id="chk915268Id2" name="chk915268" />
-              <label for="chk915268Id2">신청서 선택22</label>
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>
