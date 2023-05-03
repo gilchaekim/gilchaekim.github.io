@@ -880,6 +880,11 @@ hr {
 			padding-top:32px;
 		}
 	}
+	.webcom_sub_txt {
+		padding-top:8px;
+		font-size:14px;
+		color:$font_color03;
+	}
 }
 /* 통장사본 */
 .passbook {
@@ -989,12 +994,6 @@ hr {
 	}
 }
 
-/* 타이틀아래 서브텍스트 */
-.sub_txt {
-	padding-top:8px;
-	font-size:14px;
-	color:$font_color03;
-}
 /* list타입 텍스트 */
 .list_txt {
 	display:flex;
@@ -1597,6 +1596,60 @@ hr {
 	}
 	.info_wrap {
 		padding-top:12px;
+		.mui_text {
+			&.warning+.warning {
+				margin-top:12px;
+			}
+		}
+	}
+	.txt_etc {
+		padding-top:12px;
+		font-size:13px;
+		color:$basic_color04;
+		text-align:right;
+		span {
+			display:inline-block;
+			padding-left:8px;
+			color:$font_color01;
+		}
+	}
+	.btn_wrap {
+		display:flex;
+		justify-content:center;
+		align-items:center;
+		button {
+			position:relative;
+			padding-right:12px;
+			font-size:13px;
+			color:$basic_color04;
+			&:last-child {
+				padding-left:12px;
+				padding-right:0;
+			}
+			&:last-child::before {
+				content:"";
+				position:absolute;
+				top:50%;
+				left:0;
+				width:1px;
+				height:12px;
+				background:$line_color02;
+				transform:translateY(-50%);
+			}
+			em {
+				color:$main_color01;
+			}
+		}
+	}
+	.form_normal {
+		&::before {
+			background: var(--line_color02);
+		}
+	}
+	.form_select {
+		&::before {
+			background:$line_color01;
+		}
 	}
 	.sub_txt_date{
 		font-size: 14px;
