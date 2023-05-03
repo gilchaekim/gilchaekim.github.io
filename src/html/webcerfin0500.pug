@@ -20,7 +20,7 @@ block content
         +form_value({
           value:"2023.04.04"
         })
-      +form_body({title:"발급목적(사유)", message:{type:"error", text:"발급기준일은 현재일자 또는 이전 날짜만 가능합니다."}})
+      +form_body({title:"발급목적(사유)", message:{type:"error", text:"발급목적은 2~10자 이내로 입력해주세요."}})
         +button_select({
           placeholder:"선택",
           className:"form_normal"
@@ -32,8 +32,7 @@ block content
         <!-- //기타 선택시 노출 -->
       +form_body({title:"제증명발급장수"})
         +button_select({
-          label:"1",
-          className:"form_select"
+          label:"1"
         })
       +form_body({title:"SMS수신여부"})
         +radioCheck({
