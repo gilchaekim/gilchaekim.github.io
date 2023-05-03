@@ -49,6 +49,22 @@ block content
             }
           ]
         })
+      +form_body({title:"발금신청 계좌"})
+        .check_card
+          +radioCheck({
+            name:'checklist',
+            label:'전체 선택'
+          })
+          .mui_selectlist.account
+            ul
+              .lists
+                button
+                  strong 중앙정기예금
+                  span.acc_num 123-1212-1234-56
+                    span.money 100,000원
+          +select_list({
+            type:"account"
+          })
     
     +button_bottom_fixed()
       +button({
