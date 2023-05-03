@@ -3779,6 +3779,7 @@
         if (this.cls) {
           changed = includes(this.cls, ' ') || toggled !== hasClass(el, this.cls);
           changed && toggleClass(el, this.cls, includes(this.cls, ' ') ? undefined : toggled);
+          console.log('ddd');
         } else {
           changed = toggled === el.hidden;
           changed && (el.hidden = !toggled);
@@ -11871,12 +11872,14 @@
   var tooltip = {
     mixins: [Container, Togglable, Position],
     props: {
-      text: String,
-      delay: 500,
-      animation: ['uk-animation-scale-up']
+      text: String
     },
     data: {
-      text: ''
+      text: '',
+      delay: 0,
+      animation: ['uk-animation-scale-up'],
+      duration: 5000,
+      cls: 'uk-active'
     },
     connected: function connected() {
       console.log(this.text);

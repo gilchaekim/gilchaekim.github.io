@@ -116,6 +116,7 @@ export default {
             if (this.cls) {
                 changed = includes(this.cls, ' ') || toggled !== hasClass(el, this.cls);
                 changed && toggleClass(el, this.cls, includes(this.cls, ' ') ? undefined : toggled);
+                console.log('ddd');
             } else {
                 changed = toggled === el.hidden;
                 changed && (el.hidden = !toggled);

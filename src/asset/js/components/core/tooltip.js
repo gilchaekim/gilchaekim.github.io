@@ -21,11 +21,13 @@ export default {
     mixins: [Container, Togglable, Position],
     props: {
         text: String,
-        delay:500,
-        animation: ['uk-animation-scale-up'],
     },
     data: {
         text: '',
+        delay:0,
+        animation: ['uk-animation-scale-up'],
+        duration: 5000,
+        cls: 'uk-active',
     },
     connected () {
         console.log(this.text);
