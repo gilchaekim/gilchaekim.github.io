@@ -12,18 +12,18 @@ block content
   })
     .acc_confirm.otp
       .code 
-        span.write 
-          input(type="password", maxlength="1")
-        span.write 
-          input(type="password", maxlength="1")
-        span.write 
-          input(type="password", maxlength="1")
-        span.write 
-          input(type="password", maxlength="1")
-        span.write 
-          input(type="password", maxlength="1")
-        span.write 
-          input(type="password", maxlength="1")
+        span.mask 
+          span
+        span.mask 
+          span
+        span.mask 
+          span
+        span.mask 
+          span
+        span.mask.dim
+          span
+        span.mask.dim
+          span
       +title({
         text:"OTP인증",
         lv:4,

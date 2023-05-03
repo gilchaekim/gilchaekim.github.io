@@ -848,6 +848,12 @@ hr {
 				border: 2px solid $main_color01;
 				background: url($url_common+"ico_mask.svg") no-repeat center;
 			}
+			&.dim{
+				span{
+					background:$bg_color02;		
+					border-color: $bg_color02;
+				}
+			}
 			& ~ .mask{
 				margin-left: 8px;
 			}
