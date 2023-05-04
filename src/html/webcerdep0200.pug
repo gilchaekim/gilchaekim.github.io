@@ -34,44 +34,46 @@ block content
       text:'발급신청 계좌',
       lv:4,
     })
-    +content_group(3)
-      .check_card
+    .check_card
+      .all_check
         +radioCheck({
           name:'checklist',
           label:'전체 선택'
         })
-        .mui_selectlist.account
-          ul
-            li.lists
-              button
-                strong 중앙정기예금
-                span.acc_num 123-1212-1234-56
-                  span.acc_aka 100,000원
-                span.date 개설일
-                  span 2020.04.02
-            li.lists
-              button
-                strong 중앙정기예금
-                span.acc_num 123-1212-1234-56
-                  span.acc_aka 100,000원
-                span.date 개설일
-                  span 2020.04.02
-            li.lists
-              button
-                strong 중앙정기예금
-                span.acc_num 123-1212-1234-56
-                  span.acc_aka 100,000원
-                span.date 개설일
-                  span 2020.04.02
+      .selectlist_account
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
     
-    +button_bottom_fixed()
-      +button({
-        label:"취소",
-        size:"large",
-        type:"default",
-      })
-      +button({
-        label:"발급하기",
-        size:"large",
-      })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"발급하기",
+      size:"large",
+    })
     

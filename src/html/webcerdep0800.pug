@@ -56,27 +56,33 @@ block content
         })
       +form_body({title:"발금신청 계좌"})
         .check_card
-          +radioCheck({
-            name:'checklist',
-            label:'전체 선택'
-          })
-          .mui_selectlist.account
-            ul
-              li.lists
-                button
-                  strong 중앙정기예금
-                  span.acc_num 123-1212-1234-56
-                    span.acc_aka 100,000원
-              li.lists
-                button
-                  strong 중앙정기예금
-                  span.acc_num 123-1212-1234-56
-                    span.acc_aka 100,000원
-              li.lists
-                button
-                  strong 중앙정기예금
-                  span.acc_num 123-1212-1234-56
-                    span.acc_aka 100,000원
+          .all_check
+            +radioCheck({
+              name:'checklist',
+              label:'전체 선택'
+            })
+          .selectlist_account
+            +radioCheck({
+              name:'checklist',
+            })
+              .lists
+                strong 중앙정기예금
+                span.acc_num 123-1212-1234-56
+                  span.acc_aka 100,000원
+            +radioCheck({
+              name:'checklist',
+            })
+              .lists
+                strong 중앙정기예금
+                span.acc_num 123-1212-1234-56
+                  span.acc_aka 100,000원
+            +radioCheck({
+              name:'checklist',
+            })
+              .lists
+                strong 중앙정기예금
+                span.acc_num 123-1212-1234-56
+                  span.acc_aka 100,000원
     
     +collapse({
       className:"guide_text",
