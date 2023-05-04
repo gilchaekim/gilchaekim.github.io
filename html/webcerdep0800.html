@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">자동이체(당/타행)</span></div>
+          <div class="title_center"><span class="title">제증명 신청/발급</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#wrapper;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,88 +232,138 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webauc" id="contants">
+    <div class="webcer" id="contants">
       <div class="mui_title">
-        <p class="title lv2">언제부터<br>언제까지 보낼까요?
+        <p class="title lv4">예금잔액증명서(영문) 신청
         </p>
       </div>
-      <div class="mui_form">
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">매월자동이체일자</span></div>
-          <div class="mui_form_content">
-            <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">26일<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
-            <span class="mui_checkbox">
-              <input type="checkbox" id="chk073306Id1" name="chk073306" />
-              <label for="chk073306Id1">
-              </label>
-            </span>
+      <div class="mui_contents_group lv_2">
+        <div class="mui_form">
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">이름</span></div>
+            <div class="mui_form_content">
+              <div class="mui_form_value"><span>방수현</span></div>
+            </div>
           </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">이체시작일
-              <div class="mui_tooltip_wrap" mui-tooltip="text:이체가 시작되는 일자는 오늘 이후 영업일 기준 5일 이후부터 가능합니다.;">
-                <button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">영문명</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="text" placeholder="영문명 입력" mui-input="" />
+              </span>
+              <p class="msg_form msg_error">영문명으로 입력해주세요.</p>
+            </div>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">증명서통화코드</span></div>
+            <div class="mui_form_content">
+              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">선택</span></span></button>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">발급기준일</span></div>
+            <div class="mui_form_content">
+              <div class="mui_datepicker">
+                <span class="mui_input">
+                  <input type="text" placeholder="날짜선택" mui-input="" />
+                </span>
               </div>
-            </span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker">
-              <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
+              <p class="msg_form msg_error">발급기준일은 현재일 기준으로 이전 날짜만 가능합니다.</p>
             </div>
           </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">이체종료일</span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker">
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">발급목적(사유)</span></div>
+            <div class="mui_form_content">
+              <button class="mui_button mui_select form_normal" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">선택</span></span></button><!-- 기타 선택시 노출 -->
               <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
+                <input type="text" placeholder="2~10자 이내 입력" mui-input="" />
+              </span><!-- //기타 선택시 노출 -->
+              <p class="msg_form msg_error">발급목적은 2~10자 이내로 입력해주세요.</p>
             </div>
           </div>
-        </div>
-        <div class="mui_form_list form_error">
-          <div class="mui_form_head"><span class="form_title">이체종료일</span></div>
-          <div class="mui_form_content">
-            <div class="mui_datepicker">
-              <span class="mui_input">
-                <input type="text" placeholder="날짜선택" mui-input="" />
-              </span>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">제증명발급장수</span></div>
+            <div class="mui_form_content">
+              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">1<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true"></span></span></button>
             </div>
-            <p class="msg_form msg_error">자동이체 시작일과 종료일은 같을 수 없습니다.</p>
           </div>
-        </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 열기
-              </button>
-            </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>고객님의 본인 소유 당/타행 출금계좌에서 자동이체(CMS)를 신청하는 서비스입니다.
-                  </li>
-                  <li>고객님의 당/타행 출금계좌의 예금주가 본인이 아닐 경우 계좌등록 할 수 없습니다.
-                  </li>
-                  <li>매월 이체 설정된 일자에 출금 또는 입금이 이루어집니다.
-                  </li>
-                  <li>자동이체업무상의 본인 소유 당행 출금계조하에서 타행 계좌로 입금하는 서비스와는 별개의 업무이오며, 궁금하신 사항은 당행에 문의하시길 바랍니다.
-                  </li>
-                  <li>은행별 평생계좌는 이용기관 CMS [타은행->저축은행 입금] 신규등록 할 수 없습니다.
-                  </li>
-                </ul>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">SMS수신여부</span></div>
+            <div class="mui_form_content">
+              <div class="mui_radio_group">
+                <span class="mui_radio">
+                  <input type="radio" id="radiolistId1" name="radiolistId1" />
+                  <label for="radiolistId1">수신</label>
+                </span>
+                <span class="mui_radio">
+                  <input type="radio" id="radiolistId2" name="radiolistId1" checked="checked" />
+                  <label for="radiolistId2">미수신</label>
+                </span>
               </div>
             </div>
           </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">발금신청 계좌</span></div>
+            <div class="mui_form_content">
+              <div class="check_card">
+                <div class="all_check">
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="checklistId3" name="checklist" />
+                    <label for="checklistId3">전체 선택</label>
+                  </span>
+                </div>
+                <div class="selectlist_account">
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="checklistId4" name="checklist" />
+                    <label class="inner_block" for="checklistId4">
+                      <div class="lists"><strong>중앙정기예금</strong><span class="acc_num">123-1212-1234-56<span class="acc_aka">100,000원</span></span></div>
+                    </label>
+                  </span>
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="checklistId5" name="checklist" />
+                    <label class="inner_block" for="checklistId5">
+                      <div class="lists"><strong>중앙정기예금</strong><span class="acc_num">123-1212-1234-56<span class="acc_aka">100,000원</span></span></div>
+                    </label>
+                  </span>
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="checklistId6" name="checklist" />
+                    <label class="inner_block" for="checklistId6">
+                      <div class="lists"><strong>중앙정기예금</strong><span class="acc_num">123-1212-1234-56<span class="acc_aka">100,000원</span></span></div>
+                    </label>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
+        <div class="mui_collapse guide_text">
+          <div class="mui_accordion" mui-accordion="">
+            <div class="acc_lists">
+              <div class="acc_header">
+                <p class="title">알아두세요</p>
+                <button class="mui_acc_button" type="button"> 열기
+                </button>
+              </div>
+              <div class="mui_acc_content">
+                <div class="mui_text_lists guide">
+                  <ul>
+                    <li>발급기준일자를 현재일자로 등록하는 경우 발급처리 후 상환 처리할 수 없습니다.
+                    </li>
+                    <li>발급기준일 당일은 자동이체를 포함한 입/출금 거래가 제한되오며, 계좌를 담보로 한 대출도 불가능 하오니 참고하여 주시기 바랍니다.
+                    </li>
+                    <li>고객님의 예금등에 대해서 발급기준일자의 최종잔액을 증명할 수 있습니다.
+                    </li>
+                    <li>아래와 같은 경우에는 가까운 영업점 방문 후 발급하시기 바랍니다.<br>- 신청 당일의 잔액기준일이 필요한 경우, 제3자에게 양도거래한 예금, 수익자를 타인으로 지정한 타인 신탁상품, PC환경 등 기타사유로 발급이 불가한 경우
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mui_button_fixed"><span class="inset">
+            <button class="mui_button mui_large mui_primary" type="button"><span>신청하기</span></button></span></div>
       </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

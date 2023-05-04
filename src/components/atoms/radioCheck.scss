@@ -22,6 +22,9 @@
     min-height: 24px;
     color:$font_color03;
     font-size: 16px;
+    &.inner_block{
+      display: block;
+    }
     &::before{
       content: '';
       display: block;

@@ -1654,7 +1654,7 @@
     }
   };
 
-  var dirs = {
+  var dirs$1 = {
     width: ['left', 'right'],
     height: ['top', 'bottom']
   };
@@ -1697,9 +1697,9 @@
       height: pageYOffset,
       width: pageXOffset
     };
-    for (var dir in dirs) {
-      for (var i in dirs[dir]) {
-        currentOffset[dirs[dir][i]] += offsetBy[dir];
+    for (var dir in dirs$1) {
+      for (var i in dirs$1[dir]) {
+        currentOffset[dirs$1[dir][i]] += offsetBy[dir];
       }
     }
     if (!coordinates) {
@@ -1789,15 +1789,15 @@
   }
   function boxModelAdjust(element, prop) {
     var sizing = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'border-box';
-    return css(element, 'boxSizing') === sizing ? dirs[prop].map(ucfirst).reduce(function (value, prop) {
+    return css(element, 'boxSizing') === sizing ? dirs$1[prop].map(ucfirst).reduce(function (value, prop) {
       return value + toFloat(css(element, "padding".concat(prop))) + toFloat(css(element, "border".concat(prop, "Width")));
     }, 0) : 0;
   }
   function flipPosition(pos) {
-    for (var dir in dirs) {
-      for (var i in dirs[dir]) {
-        if (dirs[dir][i] === pos) {
-          return dirs[dir][1 - i];
+    for (var dir in dirs$1) {
+      for (var i in dirs$1[dir]) {
+        if (dirs$1[dir][i] === pos) {
+          return dirs$1[dir][1 - i];
         }
       }
     }
@@ -1988,11 +1988,11 @@
       return false;
     }
     return intersectRect.apply(void 0, _toConsumableArray(scrollParents(element).map(function (parent) {
-      var _offset = offset(getViewport(parent)),
-        top = _offset.top,
-        left = _offset.left,
-        bottom = _offset.bottom,
-        right = _offset.right;
+      var _offsetViewport = offsetViewport(parent),
+        top = _offsetViewport.top,
+        left = _offsetViewport.left,
+        bottom = _offsetViewport.bottom,
+        right = _offsetViewport.right;
       return {
         top: top - offsetTop,
         left: left - offsetLeft,
@@ -2001,64 +2001,67 @@
       };
     }).concat(offset(element))));
   }
-  function scrollTop(element, top) {
-    if (isWindow(element) || isDocument(element)) {
-      element = getScrollingElement(element);
-    } else {
-      element = toNode(element);
-    }
-    element.scrollTop = top;
-  }
   function scrollIntoView(element) {
     var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
       _ref$offset = _ref.offset,
       offsetBy = _ref$offset === void 0 ? 0 : _ref$offset;
     var parents = isVisible(element) ? scrollParents(element) : [];
-    var diff = 0;
     return parents.reduce(function (fn, scrollElement, i) {
       var scrollTop = scrollElement.scrollTop,
-        scrollHeight = scrollElement.scrollHeight;
-      var maxScroll = scrollHeight - getViewportClientHeight(scrollElement);
-      var top = Math.ceil(offset(parents[i - 1] || element).top - offset(getViewport(scrollElement)).top - offsetBy + diff + scrollTop);
-      if (top > maxScroll) {
-        diff = top - maxScroll;
-        top = maxScroll;
+        scrollHeight = scrollElement.scrollHeight,
+        offsetHeight = scrollElement.offsetHeight;
+      var viewport = offsetViewport(scrollElement);
+      var maxScroll = scrollHeight - viewport.height;
+      var _ref2 = parents[i - 1] ? offsetViewport(parents[i - 1]) : offset(element),
+        elHeight = _ref2.height,
+        elTop = _ref2.top;
+      var top = Math.ceil(elTop - viewport.top - offsetBy + scrollTop);
+      if (offsetBy > 0 && offsetHeight < elHeight + offsetBy) {
+        top += offsetBy;
       } else {
-        diff = 0;
+        offsetBy = 0;
+      }
+      if (top > maxScroll) {
+        offsetBy -= top - maxScroll;
+        top = maxScroll;
+      } else if (top < 0) {
+        offsetBy -= top;
+        top = 0;
       }
       return function () {
         return scrollTo(scrollElement, top - scrollTop).then(fn);
       };
     }, function () {
-      return Promise$1.resolve();
+      return Promise.resolve();
     })();
     function scrollTo(element, top) {
-      return new Promise$1(function (resolve) {
+      return new Promise(function (resolve) {
         var scroll = element.scrollTop;
         var duration = getDuration(Math.abs(top));
         var start = Date.now();
         (function step() {
           var percent = ease(clamp((Date.now() - start) / duration));
-          scrollTop(element, scroll + top * percent);
+          element.scrollTop = scroll + top * percent;
 
           // scroll more if we have not reached our destination
-          if (percent !== 1) {
-            requestAnimationFrame(step);
-          } else {
+          if (percent === 1) {
             resolve();
+          } else {
+            requestAnimationFrame(step);
           }
         })();
       });
     }
     function getDuration(dist) {
-      return 40 * Math.pow(dist, .375);
+      return 40 * Math.pow(dist, 0.375);
     }
     function ease(k) {
       return 0.5 * (1 - Math.cos(Math.PI * k));
     }
   }
   function scrolledOver(element) {
-    var heightOffset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var startOffset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var endOffset = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 0;
     if (!isVisible(element)) {
       return 0;
     }
@@ -2067,17 +2070,18 @@
       scrollElement = _scrollParents2[0];
     var scrollHeight = scrollElement.scrollHeight,
       scrollTop = scrollElement.scrollTop;
-    var clientHeight = getViewportClientHeight(scrollElement);
-    var viewportTop = offsetPosition(element)[0] - scrollTop - offsetPosition(scrollElement)[0];
-    var viewportDist = Math.min(clientHeight, viewportTop + scrollTop);
-    var top = viewportTop - viewportDist;
-    var dist = Math.min(element.offsetHeight + heightOffset + viewportDist, scrollHeight - (viewportTop + scrollTop), scrollHeight - clientHeight);
-    return clamp(-1 * top / dist);
+    var _offsetViewport2 = offsetViewport(scrollElement),
+      viewportHeight = _offsetViewport2.height;
+    var maxScroll = scrollHeight - viewportHeight;
+    var elementOffsetTop = offsetPosition(element)[0] - offsetPosition(scrollElement)[0];
+    var start = Math.max(0, elementOffsetTop - viewportHeight + startOffset);
+    var end = Math.min(maxScroll, elementOffsetTop + element.offsetHeight - endOffset);
+    return clamp((scrollTop - start) / (end - start));
   }
   function scrollParents(element) {
-    var overflowRe = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : /auto|scroll|hidden/;
+    var overflowRe = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : /auto|scroll|hidden|clip/;
     var scrollable = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
-    var scrollEl = getScrollingElement(element);
+    var scrollEl = scrollingElement(element);
     var ancestors = parents(element).reverse();
     ancestors = ancestors.slice(ancestors.indexOf(scrollEl) + 1);
     var fixedIndex = findIndex(ancestors, function (el) {
@@ -2087,21 +2091,51 @@
       ancestors = ancestors.slice(fixedIndex);
     }
     return [scrollEl].concat(ancestors.filter(function (parent) {
-      return overflowRe.test(css(parent, 'overflow')) && (!scrollable || parent.scrollHeight > getViewportClientHeight(parent));
+      return overflowRe.test(css(parent, 'overflow')) && (!scrollable || parent.scrollHeight > offsetViewport(parent).height);
     })).reverse();
   }
-  function getViewport(scrollElement) {
-    return scrollElement === getScrollingElement(scrollElement) ? window : scrollElement;
+  function offsetViewport(scrollElement) {
+    var window = toWindow(scrollElement);
+    var documentElement = window.document.documentElement;
+    var viewportElement = scrollElement === scrollingElement(scrollElement) ? window : scrollElement;
+    var visualViewport = window.visualViewport;
+    if (isWindow(viewportElement) && visualViewport) {
+      var height = visualViewport.height,
+        width = visualViewport.width,
+        scale = visualViewport.scale,
+        top = visualViewport.pageTop,
+        left = visualViewport.pageLeft;
+      height = Math.round(height * scale);
+      width = Math.round(width * scale);
+      return {
+        height: height,
+        width: width,
+        top: top,
+        left: left,
+        bottom: top + height,
+        right: left + width
+      };
+    }
+    var rect = offset(viewportElement);
+    for (var _i = 0, _arr = [['width', 'x', 'left', 'right'], ['height', 'y', 'top', 'bottom']]; _i < _arr.length; _i++) {
+      var _arr$_i = _slicedToArray(_arr[_i], 4),
+        prop = _arr$_i[0],
+        dir = _arr$_i[1],
+        start = _arr$_i[2],
+        end = _arr$_i[3];
+      if (isWindow(viewportElement)) {
+        // iOS 12 returns <body> as scrollingElement
+        viewportElement = documentElement;
+      } else {
+        rect[start] += toFloat(css(viewportElement, "border-".concat(start, "-width")));
+      }
+      rect[prop] = rect[dir] = viewportElement["client".concat(ucfirst(prop))];
+      rect[end] = rect[prop] + rect[start];
+    }
+    return rect;
   }
-
-  // iOS 12 returns <body> as scrollingElement
-  function getViewportClientHeight(scrollElement) {
-    return (scrollElement === getScrollingElement(scrollElement) ? document.documentElement : scrollElement).clientHeight;
-  }
-  function getScrollingElement(element) {
-    var _toWindow = toWindow(element),
-      document = _toWindow.document;
-    return document.scrollingElement || document.documentElement;
+  function scrollingElement(element) {
+    return toWindow(element).document.scrollingElement;
   }
 
   function toNumeric(el) {}
@@ -2452,6 +2486,208 @@
     return observer;
   }
 
+  var dirs = [['width', 'x', 'left', 'right'], ['height', 'y', 'top', 'bottom']];
+  function positionAt(element, target, options) {
+    options = _objectSpread2({
+      attach: _objectSpread2({
+        element: ['left', 'top'],
+        target: ['left', 'top']
+      }, options.attach),
+      offset: [0, 0],
+      placement: []
+    }, options);
+    if (!isArray(target)) {
+      target = [target, target];
+    }
+    offset(element, getPosition(element, target, options));
+  }
+  function getPosition(element, target, options) {
+    var position = attachTo(element, target, options);
+    var boundary = options.boundary,
+      _options$viewportOffs = options.viewportOffset,
+      viewportOffset = _options$viewportOffs === void 0 ? 0 : _options$viewportOffs,
+      placement = options.placement;
+    var offsetPosition = position;
+    for (var _i = 0, _Object$entries = Object.entries(dirs); _i < _Object$entries.length; _i++) {
+      var _Object$entries$_i = _slicedToArray(_Object$entries[_i], 2),
+        i = _Object$entries$_i[0],
+        _Object$entries$_i$ = _slicedToArray(_Object$entries$_i[1], 4),
+        prop = _Object$entries$_i$[0],
+        start = _Object$entries$_i$[2],
+        end = _Object$entries$_i$[3];
+      var viewport = getViewport(target[i], viewportOffset, boundary, i);
+      if (isWithin(position, viewport, i)) {
+        continue;
+      }
+      var offsetBy = 0;
+
+      // Flip
+      if (placement[i] === 'flip') {
+        var attach = options.attach.target[i];
+        if (attach === end && position[end] <= viewport[end] || attach === start && position[start] >= viewport[start]) {
+          continue;
+        }
+        offsetBy = flip(element, target, options, i)[start] - position[start];
+        var scrollArea = getScrollArea(target[i], viewportOffset, i);
+        if (!isWithin(applyOffset(position, offsetBy, i), scrollArea, i)) {
+          if (isWithin(position, scrollArea, i)) {
+            continue;
+          }
+          if (options.recursion) {
+            return false;
+          }
+          var newPos = flipAxis(element, target, options);
+          if (newPos && isWithin(newPos, scrollArea, 1 - i)) {
+            return newPos;
+          }
+          continue;
+        }
+
+        // Shift
+      } else if (placement[i] === 'shift') {
+        var targetDim = offset(target[i]);
+        var elOffset = options.offset;
+        offsetBy = clamp(clamp(position[start], viewport[start], viewport[end] - position[prop]), targetDim[start] - position[prop] + elOffset[i], targetDim[end] - elOffset[i]) - position[start];
+      }
+      offsetPosition = applyOffset(offsetPosition, offsetBy, i);
+    }
+    return offsetPosition;
+  }
+  function attachTo(element, target, options) {
+    var _attach$offset$option = _objectSpread2({
+        attach: _objectSpread2({
+          element: ['left', 'top'],
+          target: ['left', 'top']
+        }, options.attach),
+        offset: [0, 0]
+      }, options),
+      attach = _attach$offset$option.attach,
+      offsetBy = _attach$offset$option.offset;
+    var elOffset = offset(element);
+    for (var _i2 = 0, _Object$entries2 = Object.entries(dirs); _i2 < _Object$entries2.length; _i2++) {
+      var _Object$entries2$_i = _slicedToArray(_Object$entries2[_i2], 2),
+        i = _Object$entries2$_i[0],
+        _Object$entries2$_i$ = _slicedToArray(_Object$entries2$_i[1], 4),
+        prop = _Object$entries2$_i$[0],
+        start = _Object$entries2$_i$[2],
+        end = _Object$entries2$_i$[3];
+      var targetOffset = attach.target[i] === attach.element[i] ? offsetViewport(target[i]) : offset(target[i]);
+      elOffset = applyOffset(elOffset, targetOffset[start] - elOffset[start] + moveBy(attach.target[i], end, targetOffset[prop]) - moveBy(attach.element[i], end, elOffset[prop]) + +offsetBy[i], i);
+    }
+    return elOffset;
+  }
+  function applyOffset(position, offset, i) {
+    var _dirs$i = _slicedToArray(dirs[i], 4),
+      dir = _dirs$i[1],
+      start = _dirs$i[2],
+      end = _dirs$i[3];
+    var newPos = _objectSpread2({}, position);
+    newPos[start] = position[dir] = position[start] + offset;
+    newPos[end] += offset;
+    return newPos;
+  }
+  function moveBy(attach, end, dim) {
+    return attach === 'center' ? dim / 2 : attach === end ? dim : 0;
+  }
+  function getViewport(element, viewportOffset, boundary, i) {
+    var viewport = getIntersectionArea.apply(void 0, _toConsumableArray(scrollParents(element).map(offsetViewport)));
+    if (viewportOffset) {
+      viewport[dirs[i][2]] += viewportOffset;
+      viewport[dirs[i][3]] -= viewportOffset;
+    }
+    if (boundary) {
+      viewport = getIntersectionArea(viewport, offset(boundary));
+    }
+    return viewport;
+  }
+  function getScrollArea(element, viewportOffset, i) {
+    var _dirs$i2 = _slicedToArray(dirs[i], 4),
+      prop = _dirs$i2[0],
+      start = _dirs$i2[2],
+      end = _dirs$i2[3];
+    var _scrollParents = scrollParents(element),
+      _scrollParents2 = _slicedToArray(_scrollParents, 1),
+      scrollElement = _scrollParents2[0];
+    var viewport = offsetViewport(scrollElement);
+    viewport[start] -= scrollElement["scroll".concat(ucfirst(start))] - viewportOffset;
+    viewport[end] = viewport[start] + scrollElement["scroll".concat(ucfirst(prop))] - viewportOffset;
+    return viewport;
+  }
+  function getIntersectionArea() {
+    var area = {};
+    for (var _len = arguments.length, rects = new Array(_len), _key = 0; _key < _len; _key++) {
+      rects[_key] = arguments[_key];
+    }
+    for (var _i3 = 0, _rects = rects; _i3 < _rects.length; _i3++) {
+      var rect = _rects[_i3];
+      var _iterator = _createForOfIteratorHelper(dirs),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _step$value = _slicedToArray(_step.value, 4),
+            start = _step$value[2],
+            end = _step$value[3];
+          area[start] = Math.max(area[start] || 0, rect[start]);
+          area[end] = Math.min.apply(Math, _toConsumableArray([area[end], rect[end]].filter(Boolean)));
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
+    return area;
+  }
+  function isWithin(positionA, positionB, i) {
+    var _dirs$i3 = _slicedToArray(dirs[i], 4),
+      start = _dirs$i3[2],
+      end = _dirs$i3[3];
+    return positionA[start] >= positionB[start] && positionA[end] <= positionB[end];
+  }
+  function flip(element, target, _ref, i) {
+    var offset = _ref.offset,
+      attach = _ref.attach;
+    return attachTo(element, target, {
+      attach: {
+        element: flipAttach(attach.element, i),
+        target: flipAttach(attach.target, i)
+      },
+      offset: flipOffset(offset, i)
+    });
+  }
+  function flipAxis(element, target, options) {
+    return getPosition(element, target, _objectSpread2(_objectSpread2({}, options), {}, {
+      attach: {
+        element: options.attach.element.map(flipAttachAxis).reverse(),
+        target: options.attach.target.map(flipAttachAxis).reverse()
+      },
+      offset: options.offset.reverse(),
+      placement: options.placement.reverse(),
+      recursion: true
+    }));
+  }
+  function flipAttach(attach, i) {
+    var newAttach = _toConsumableArray(attach);
+    var index = dirs[i].indexOf(attach[i]);
+    if (~index) {
+      newAttach[i] = dirs[i][1 - index % 2 + 2];
+    }
+    return newAttach;
+  }
+  function flipAttachAxis(prop) {
+    for (var i = 0; i < dirs.length; i++) {
+      var index = dirs[i].indexOf(prop);
+      if (~index) {
+        return dirs[1 - i][index % 2 + 2];
+      }
+    }
+  }
+  function flipOffset(offset, i) {
+    offset = _toConsumableArray(offset);
+    offset[i] *= -1;
+    return offset;
+  }
+
   var util = /*#__PURE__*/Object.freeze({
     __proto__: null,
     addClass: addClass,
@@ -2590,12 +2826,10 @@
     pointerLeave: pointerLeave,
     pointerCancel: pointerCancel,
     isInView: isInView,
-    scrollTop: scrollTop,
     scrollIntoView: scrollIntoView,
     scrolledOver: scrolledOver,
     scrollParents: scrollParents,
-    getViewport: getViewport,
-    getViewportClientHeight: getViewportClientHeight,
+    offsetViewport: offsetViewport,
     toNumeric: toNumeric,
     headStr: headStr,
     numberOnly: numberOnly,
@@ -2615,7 +2849,8 @@
     getPostDelimiter: getPostDelimiter,
     observeIntersection: observeIntersection,
     observeResize: observeResize,
-    observeMutation: observeMutation
+    observeMutation: observeMutation,
+    positionAt: positionAt
   });
 
   function globalApi (UICommon) {

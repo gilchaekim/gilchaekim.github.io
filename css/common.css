@@ -474,6 +474,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--font_color03);
   font-size: 16px;
 }
+.mui_radio label.inner_block, .mui_checkbox label.inner_block {
+  display: block;
+}
 .mui_radio label::before, .mui_checkbox label::before {
   content: "";
   display: block;
@@ -1088,6 +1091,28 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   width: 20px;
   height: 20px;
   display: inline-block;
+}
+.mui_tooltip_content {
+  display: block;
+  position: fixed;
+  top: 40%;
+  left: 40%;
+  padding: 16px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  font-size: 13px;
+  color: var(--font_color03);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.04);
+  background: var(--bg_color03);
+}
+.mui_tooltip_content .mui_arrow {
+  width: 12px;
+  height: 9px;
+  background: url("/src/images/ico_arrow2.png") no-repeat center;
+  background-size: 100%;
+  position: absolute;
+  top: -8.5px;
+  left: 15px;
 }
 .mui_button_group {
   display: flex;
@@ -4571,42 +4596,106 @@ hr {
 .webcer .form_normal::before {
   background: var(--line_color02);
 }
-.webcer .form_select::before {
-  background: var(--line_color01);
-}
 .webcer .check_card {
-  padding: 24px;
+  margin-top: 12px;
+  padding: 24px 24px 16px 24px;
   border: 1px solid var(--line_color03);
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
-.webcer .check_card .mui_checkbox {
+.webcer .check_card .all_check .mui_checkbox {
   display: block;
   margin-right: 0;
 }
-.webcer .check_card .mui_checkbox label {
+.webcer .check_card .all_check .mui_checkbox label {
   padding-left: 0;
   padding-right: 32px;
 }
-.webcer .check_card .mui_checkbox label::before {
+.webcer .check_card .all_check .mui_checkbox label::before {
   left: initial;
   right: 0;
 }
-.webcer .check_card .mui_selectlist.account .money {
-  position: relative;
-  display: inline-block;
-  padding-left: 9px;
-  margin-left: 7px;
+.webcer .check_card .all_check .mui_checkbox label::after {
+  left: initial;
+  right: 4px;
 }
-.webcer .check_card .mui_selectlist.account .money::before {
-  content: "";
-  position: absolute;
+.webcer .check_card .selectlist_account {
+  border-top: 1px solid var(--line_color03);
+  padding-top: 8px;
+  margin-top: 16px;
+}
+.webcer .check_card .selectlist_account .mui_checkbox {
   display: block;
-  top: 3px;
-  left: 0;
+  margin: 0;
+}
+.webcer .check_card .selectlist_account .mui_checkbox input:checked + label::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23df6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: auto;
+  margin-top: -12px;
+}
+.webcer .check_card .selectlist_account .mui_checkbox label {
+  padding-left: 0;
+}
+.webcer .check_card .selectlist_account .mui_checkbox label::before {
+  display: none;
+}
+.webcer .check_card .selectlist_account .mui_checkbox label::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23ccc' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -12px;
+}
+.webcer .check_card .selectlist_account .lists {
+  padding: 8px 0;
+}
+.webcer .check_card .selectlist_account .lists strong {
+  display: block;
+  font-size: 16px;
+  color: var(--font_color01);
+}
+.webcer .check_card .selectlist_account .lists .acc_num {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--font_color03);
+}
+.webcer .check_card .selectlist_account .lists .date {
+  display: block;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--font_color03);
+}
+.webcer .check_card .selectlist_account .lists .acc_aka {
+  display: inline-flex;
+  position: relative;
+  margin-left: 8px;
+  padding-left: 9px;
+}
+.webcer .check_card .selectlist_account .lists .acc_aka::after {
+  content: "";
+  display: block;
   width: 1px;
   height: 10px;
-  background: var(--font_color05);
+  background: var(--basic_color05);
+  position: absolute;
+  top: 5px;
+  left: 0;
 }
 .webcer .sub_txt_date {
   font-size: 14px;

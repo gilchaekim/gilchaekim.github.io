@@ -1653,41 +1653,95 @@ hr {
 		border:1px solid var(--line_color03);
 		border-radius:20px;
 		box-shadow:0 4px 8px rgba(0, 0, 0, 0.04);
-		.mui_checkbox {
-			display:block;
-			margin-right:0;
-			label {
-				padding-left:0;
-				padding-right:32px;
-				&::before {
-					left:initial;
-					right:0;
+		.all_check{
+			.mui_checkbox {
+				display:block;
+				margin-right:0;
+				label {
+					padding-left:0;
+					padding-right:32px;
+					
+					&::before {
+						left:initial;
+						right:0;
+					}
+					&::after {
+						left:initial;
+						right:4px;
+					}
 				}
 			}
 		}
-		.mui_selectlist.account {
-			ul {
-				padding-top:16px;
+		
+		.selectlist_account {
+			border-top:1px solid $line_color03;
+			padding-top: 8px;
+			margin-top: 16px;
+			.mui_checkbox{
+				display: block;	
+				margin: 0;
+				input:checked + label{
+					&::after{
+						content: '';
+						display: block;
+						@include icon_svg(check, "#df6311", 24px);
+						position: absolute;
+						top: 50%;
+						right: 0;
+						left: auto;
+						margin-top: -12px;
+					}
+				}
+				label{
+					padding-left: 0;
+					&::before{
+						display: none;
+					}
+					&::after{
+						content: '';
+						display: block;
+						@include icon_svg(check, "#ccc", 24px);
+						position: absolute;
+						top: 50%;
+						right: 0;
+						margin-top: -12px;
+					}
+				}
 			}
 			.lists {
-				padding-top:8px;
-				border-top:1px solid $line_color03;
-				&+.lists {
-					padding-top:0;
-					border-top:0;
+				padding: 8px 0;
+				strong{
+					display: block;
+					font-size: 16px;
+					color:$font_color01;
 				}
-				button {
-					padding:8px 0;
-				}
-				.acc_num {
-					margin-top:4px;
-				}
-				.date {
-					display:block;
-					margin-top:4px;
-					font-size:13px;
+				.acc_num{
+					display: block;
+					margin-top: 4px;
+					font-size: 13px;
 					color:$font_color03;
-					font-weight:300;
+				}
+				.date{
+					display: block;
+					margin-top: 4px;
+					font-size: 13px;
+					color:$font_color03;
+				}
+				.acc_aka{
+					display: inline-flex;
+					position: relative;
+					margin-left: 8px;
+					padding-left: 9px;
+					&::after{
+						content: '';
+						display: block;
+						width: 1px;
+						height: 10px;
+						background:$basic_color05;
+						position: absolute;
+						top: 5px;
+						left: 0;
+					}
 				}
 			}
 		}

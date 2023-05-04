@@ -23,17 +23,15 @@ mixin radioCheck(params={})
       each item in lists
         +radioCheckEl(item, type, radioName)
   else
-    +radioCheckEl(params, type, name)
-
-    block last
+    +radioCheckEl(params, type, name, block)
 
 
-mixin radioCheckEl(params={}, type="checkbox",  radioName)
+mixin radioCheckEl(params={}, type="checkbox",  radioName, fnBlock)
   //- 공통 요소 Start
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-
+  
   - ++radioCheckIdIndex;
   - const { elememt = 'span', className, id=`${radioCheckId}${radioCheckIdIndex}`, label, disabled, checked, ...rest } = Object.assign({}, params)
   
@@ -49,11 +47,12 @@ mixin radioCheckEl(params={}, type="checkbox",  radioName)
       disabled=disabled
       checked=checked
     )
-    if block
+    if !!fnBlock
       label(
         for=id
+        class="inner_block"
       )
-        block
+        - fnBlock()
     else if label
       label(
         for=id

@@ -10,122 +10,119 @@ block content
       text:'발급내역',
       lv:4,
     })
-    +content_group(3)
-      +result({
-        dataType:"line",
-        data:[
-          {
-            title:"발급기준일",
-            text:"2023.04.13",
-          },
-          {
-            title:"발급목적",
-            text:"개인보관용",
-          },
-          {
-            title:"제출처",
-            text:"저축은행중앙회",
-          },
-          {
-            title:"이메일주소",
-            text:"kjc@gmail,com",
-          },
-        ]
-      })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"발급기준일",
+          text:"2023.04.13",
+        },
+        {
+          title:"발급목적",
+          text:"개인보관용",
+        },
+        {
+          title:"제출처",
+          text:"저축은행중앙회",
+        },
+        {
+          title:"이메일주소",
+          text:"kjc@gmail,com",
+        },
+      ]
+    })
 
   +content_group(0)
     +title({
       text:'대출내용',
       lv:4,
     })
-    +content_group(3)
-      +result({
-        dataType:"line",
-        data:[
-          {
-            title:"대출일자",
-            text:"2019.01.21",
-          },
-          {
-            title:"대출과목",
-            text:"일반자금대출(월수분할)",
-          },
-          {
-            title:"대출잔액",
-            text:"11,500,000 원",
-          },
-          {
-            title:"비고",
-            text:"신용",
-          },
-        ]
-      })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"대출일자",
+          text:"2019.01.21",
+        },
+        {
+          title:"대출과목",
+          text:"일반자금대출(월수분할)",
+        },
+        {
+          title:"대출잔액",
+          text:"11,500,000 원",
+        },
+        {
+          title:"비고",
+          text:"신용",
+        },
+      ]
+    })
 
-      +result({
-        dataType:"line",
-        data:[
-          {
-            title:"대출일자",
-            text:"2019.01.21",
-          },
-          {
-            title:"대출과목",
-            text:"일반자금대출(월수분할)",
-          },
-          {
-            title:"대출잔액",
-            text:"11,500,000 원",
-          },
-          {
-            title:"비고",
-            text:"신용",
-          },
-        ]
-      })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"대출일자",
+          text:"2019.01.21",
+        },
+        {
+          title:"대출과목",
+          text:"일반자금대출(월수분할)",
+        },
+        {
+          title:"대출잔액",
+          text:"11,500,000 원",
+        },
+        {
+          title:"비고",
+          text:"신용",
+        },
+      ]
+    })
 
   +content_group(0)
     +title({
       text:'담보내용',
       lv:4,
     })
-    +content_group(3)
-      +result({
-        dataType:"line",
-        data:[
-          {
-            title:"종류",
-            text:"정기적금(정기/장학)",
-          },
-          {
-            title:"유효담보가",
-            text:"11,500,000원",
-          },
-          {
-            title:"소재지",
-            text:"서울시 성동구",
-          },
-          {
-            title:"소유자",
-            text:"박진주",
-          },
-        ]
-      })
-      <!-- 해당사항 없는경우 -->
-      +result({
-        type:'null',
-        mainText:"검색결과가 없습니다.",
-        img:"/src/images/ico_search_empty.svg",
-      })
-      <!-- //해당사항 없는경우 -->
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"종류",
+          text:"정기적금(정기/장학)",
+        },
+        {
+          title:"유효담보가",
+          text:"11,500,000원",
+        },
+        {
+          title:"소재지",
+          text:"서울시 성동구",
+        },
+        {
+          title:"소유자",
+          text:"박진주",
+        },
+      ]
+    })
+    <!-- 해당사항 없는경우 -->
+    +result({
+      type:'null',
+      mainText:"검색결과가 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+    <!-- //해당사항 없는경우 -->
     
-    +button_bottom_fixed()
-      +button({
-        label:"취소",
-        size:"large",
-        type:"default",
-      })
-      +button({
-        label:"발급하기",
-        size:"large",
-      })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"발급하기",
+      size:"large",
+    })
     
