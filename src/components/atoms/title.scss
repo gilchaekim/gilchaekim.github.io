@@ -2,7 +2,7 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_title{
-  & + .mui_result {
+  & + .mui_result, & + .mui_datatable {
     margin-top: 16px;
   }
   .title{

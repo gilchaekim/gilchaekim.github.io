@@ -1,0 +1,1 @@
+{"version":3,"sources":["common/animation.scss"],"names":[],"mappings":"AAAA;EACE;;;AAGF;EACE;IACE;;EAEF;IACE","file":"animation.css","sourcesContent":[".mui-animation-fade-in{\r\n  animation-name: mui-fade;\r\n}\r\n\r\n@keyframes mui-fade {\r\n  0% {\r\n    opacity: 0;\r\n  }\r\n  100% {\r\n    opacity: 1;\r\n  }\r\n}"]}

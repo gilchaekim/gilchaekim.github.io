@@ -30,7 +30,7 @@ export function css(element, property, value, priority = '') {
             property = propName(property);
 
             if (isUndefined(value)) {
-                return getStyle(element, property);
+                return getComputedStyle(element).getPropertyValue(property);
             } else if (!value && !isNumber(value)) {
                 element.style.removeProperty(property);
             } else {

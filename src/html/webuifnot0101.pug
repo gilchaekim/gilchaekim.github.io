@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif"
+  - pageTitle = "새소식"
+
+
+block content
+  .news_title
+    p.title 금융결제원 전산 작업으로 한 신분증 진위확인 서비스 일시중단 안내
+    p.date 2023-04-14 ~ 2023-04-14
+  .news_cont 
+    | 현재 휴대폰본인인증 시 인증 처리가 지연되고 있습니다. 이용에 불편을 드려 죄송합니다.
+    br
+    | 빠른 시간 내로 조치할 예정이니 고객님들의 많은 양해 부탁드립니다.
+  +button_bottom_fixed()
+    +button({
+      label:"이전",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"다음",
+      size:"large",
+    })

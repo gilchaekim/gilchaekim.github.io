@@ -1841,7 +1841,7 @@
       if (isString(property)) {
         property = propName(property);
         if (isUndefined(value)) {
-          return getStyle(element, property);
+          return getComputedStyle(element).getPropertyValue(property);
         } else if (!value && !isNumber(value)) {
           element.style.removeProperty(property);
         } else {
@@ -2133,7 +2133,7 @@
       return value + toFloat(css(element, "padding".concat(prop))) + toFloat(css(element, "border".concat(prop, "Width")));
     }, 0) : 0;
   }
-  function flipPosition(pos) {
+  function flipPosition$1(pos) {
     for (var dir in dirs$1) {
       for (var i in dirs$1[dir]) {
         if (dirs$1[dir][i] === pos) {
@@ -3052,7 +3052,7 @@
     height: height,
     width: width,
     boxModelAdjust: boxModelAdjust,
-    flipPosition: flipPosition,
+    flipPosition: flipPosition$1,
     toPx: toPx,
     query: query,
     queryAll: queryAll,
@@ -11822,7 +11822,7 @@
         var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
         var placement = [this.flip && 'flip', this.shift && 'shift'];
         var attach = {
-          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
+          element: [this.inset ? this.dir : flipPosition$1(this.dir), this.align],
           target: [this.dir, this.align]
         };
         if (this.axis === 'y') {
@@ -11857,14 +11857,13 @@
         scrollElement.scrollLeft = scrollLeft;
       },
       getPositionOffset: function getPositionOffset(element) {
-        console.log(css(element, '--uk-position-offset'));
-        return toPx(this.offset === false ? css(element, '--uk-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
+        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
       },
       getShiftOffset: function getShiftOffset(element) {
-        return this.align === 'center' ? 0 : toPx(css(element, '--uk-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
+        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
       },
       getViewportOffset: function getViewportOffset(element) {
-        return toPx(css(element, '--uk-position-viewport-offset'));
+        return toPx(css(element, '--mui-position-viewport-offset'));
       }
     }
   };
@@ -11878,9 +11877,9 @@
     data: {
       text: '',
       delay: 0,
-      animation: ['uk-animation-scale-up'],
-      duration: 5000,
-      cls: 'uk-active'
+      animation: ['mui-animation-fade-in'],
+      duration: 100,
+      cls: 'mui_active'
     },
     connected: function connected() {
       console.log(this.text);
@@ -11912,51 +11911,47 @@
         this.showTimer = setTimeout(this._show, this.delay);
       },
       _show: function _show() {
+        var _this2 = this;
         this.tooltip = append(this.container, "<div class=\"mui_".concat(this.$options.name, "_content\">\n                    <div class=\"mui_arrow\"></div>\n                    <div class=\"mui_").concat(this.$options.name, "_inner\">").concat(this.text, "</div>\n                 </div>"));
         on(this.tooltip, 'toggled', function (e, toggled) {
-          console.log('sfsdf');
           if (!toggled) {
             return;
           }
-
-          // this.positionAt(this.tooltip, this.$el);
-
-          // const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
-
-          // this.origin =
-          //     this.axis === 'y'
-          //         ? `${flipPosition(dir)}-${align}`
-          //         : `${align}-${flipPosition(dir)}`;
+          _this2.positionAt(_this2.tooltip, _this2.$el);
+          var _getAlignment = getAlignment(_this2.tooltip, _this2.$el, _this2.pos),
+            _getAlignment2 = _slicedToArray(_getAlignment, 2),
+            dir = _getAlignment2[0],
+            align = _getAlignment2[1];
+          _this2.origin = _this2.axis === 'y' ? "".concat(flipPosition(dir), "-").concat(align) : "".concat(align, "-").concat(flipPosition(dir));
         });
-
         this.toggleElement(this.tooltip, true);
       },
       hide: function hide() {
-        var _this2 = this;
+        var _this3 = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
           return _regeneratorRuntime().wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  if (!matches(_this2.$el, 'input:focus')) {
+                  if (!matches(_this3.$el, 'input:focus')) {
                     _context.next = 2;
                     break;
                   }
                   return _context.abrupt("return");
                 case 2:
-                  clearTimeout(_this2.showTimer);
-                  if (_this2.isToggled(_this2.tooltip || null)) {
+                  clearTimeout(_this3.showTimer);
+                  if (_this3.isToggled(_this3.tooltip || null)) {
                     _context.next = 5;
                     break;
                   }
                   return _context.abrupt("return");
                 case 5:
                   _context.next = 7;
-                  return _this2.toggleElement(_this2.tooltip, false, false);
+                  return _this3.toggleElement(_this3.tooltip, false, false);
                 case 7:
-                  remove$1(_this2.tooltip);
-                  _this2.tooltip = null;
-                  _this2._unbind();
+                  remove$1(_this3.tooltip);
+                  _this3.tooltip = null;
+                  _this3._unbind();
                 case 10:
                 case "end":
                   return _context.stop();

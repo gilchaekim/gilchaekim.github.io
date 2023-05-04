@@ -2,11 +2,6 @@ import Container from '../mixin/container';
 import Togglable from '../mixin/togglable';
 import Position from '../mixin/position';
 import {
-    $,
-    addClass,
-    removeClass,
-    parent,
-    hasAttr,
     isTouch,
     pointerEnter,
     pointerDown,
@@ -25,9 +20,9 @@ export default {
     data: {
         text: '',
         delay:0,
-        animation: ['uk-animation-scale-up'],
-        duration: 5000,
-        cls: 'uk-active',
+        animation: ['mui-animation-fade-in'],
+        duration: 100,
+        cls: 'mui_active',
     },
     connected () {
         console.log(this.text);
@@ -78,19 +73,18 @@ export default {
                  </div>`
             );
             on(this.tooltip, 'toggled', (e, toggled) => {
-                console.log('sfsdf');
                 if (!toggled) {
                     return;
                 }
 
-                // this.positionAt(this.tooltip, this.$el);
+                this.positionAt(this.tooltip, this.$el);
 
-                // const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
+                const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
 
-                // this.origin =
-                //     this.axis === 'y'
-                //         ? `${flipPosition(dir)}-${align}`
-                //         : `${align}-${flipPosition(dir)}`;
+                this.origin =
+                    this.axis === 'y'
+                        ? `${flipPosition(dir)}-${align}`
+                        : `${align}-${flipPosition(dir)}`;
             });
 
             this.toggleElement(this.tooltip, true);

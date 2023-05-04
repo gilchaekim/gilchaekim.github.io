@@ -1,0 +1,33 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif events"
+  - pageTitle = "이벤트"  
+
+
+
+block content
+  +tabsWrap()
+    +tab("진행중인 이벤트")
+      .uif_total 
+        span!="총 <em>56</em>건"
+      .event_list 
+        .event_box 
+          span.img 
+            img(src="/src/images/img_bn02.jpg", alt="임시 베너")
+          span.data 
+            span.title 오픈뱅킹 정기적금 프로모션
+            span.date 2021.05.03
+        .event_box 
+          span.img 
+            img(src="/src/images/img_bn02.jpg", alt="임시 베너")
+          span.data 
+            span.title 오픈뱅킹 정기적금 프로모션
+            span.date 2021.05.03
+        
+    +tab("종료된 이벤트")
+      +result({
+        type:'null',
+        mainText:"등록된 글이 없습니다.",
+        img:"/src/images/ico_search_empty.svg",
+      })

@@ -71,10 +71,9 @@ export default {
         },
 
         getPositionOffset(element) {
-            console.log(css(element, '--uk-position-offset'));
             return (
                 toPx(
-                    this.offset === false ? css(element, '--uk-position-offset') : this.offset,
+                    this.offset === false ? css(element, '--mui-position-offset') : this.offset,
                     this.axis === 'x' ? 'width' : 'height',
                     element
                 ) *
@@ -87,14 +86,14 @@ export default {
             return this.align === 'center'
                 ? 0
                 : toPx(
-                      css(element, '--uk-position-shift-offset'),
+                      css(element, '--mui-position-shift-offset'),
                       this.axis === 'y' ? 'width' : 'height',
                       element
                   ) * (includes(['left', 'top'], this.align) ? 1 : -1);
         },
 
         getViewportOffset(element) {
-            return toPx(css(element, '--uk-position-viewport-offset'));
+            return toPx(css(element, '--mui-position-viewport-offset'));
         },
     },
 };

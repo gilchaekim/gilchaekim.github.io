@@ -323,8 +323,10 @@
       display: inline-block;
     }
     &_content{
+      --mui-position-offset: 0;
+      --mui-position-viewport-offset: 0;
       display: block;
-      position: fixed;
+      position: absolute;
       top: 40%;
       left: 40%;
       padding: 16px;
