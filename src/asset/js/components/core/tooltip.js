@@ -83,7 +83,7 @@ export default {
                     return;
                 }
 
-                this.positionAt(this.tooltip, this.$el);
+                // this.positionAt(this.tooltip, this.$el);
 
                 // const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
 
