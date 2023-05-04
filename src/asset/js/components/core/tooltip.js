@@ -43,8 +43,6 @@ export default {
             }
         },
 
-        // Clicking a button does not give it focus on all browsers and platforms
-        // https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button#clicking_and_focus
         [pointerDown](e) {
             if (isTouch(e)) {
                 this.show();
@@ -81,11 +79,11 @@ export default {
             );
             on(this.tooltip, 'toggled', (e, toggled) => {
                 console.log('sfsdf');
-                // if (!toggled) {
-                //     return;
-                // }
+                if (!toggled) {
+                    return;
+                }
 
-                // this.positionAt(this.tooltip, this.$el);
+                this.positionAt(this.tooltip, this.$el);
 
                 // const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
 

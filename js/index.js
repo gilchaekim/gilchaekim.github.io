@@ -11857,6 +11857,7 @@
         scrollElement.scrollLeft = scrollLeft;
       },
       getPositionOffset: function getPositionOffset(element) {
+        console.log(css(element, '--uk-position-offset'));
         return toPx(this.offset === false ? css(element, '--uk-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
       },
       getShiftOffset: function getShiftOffset(element) {
@@ -11911,14 +11912,14 @@
         this.showTimer = setTimeout(this._show, this.delay);
       },
       _show: function _show() {
+        var _this2 = this;
         this.tooltip = append(this.container, "<div class=\"mui_".concat(this.$options.name, "_content\">\n                    <div class=\"mui_arrow\"></div>\n                    <div class=\"mui_").concat(this.$options.name, "_inner\">").concat(this.text, "</div>\n                 </div>"));
         on(this.tooltip, 'toggled', function (e, toggled) {
           console.log('sfsdf');
-          // if (!toggled) {
-          //     return;
-          // }
-
-          // this.positionAt(this.tooltip, this.$el);
+          if (!toggled) {
+            return;
+          }
+          _this2.positionAt(_this2.tooltip, _this2.$el);
 
           // const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
 
@@ -11931,31 +11932,31 @@
         this.toggleElement(this.tooltip, true);
       },
       hide: function hide() {
-        var _this2 = this;
+        var _this3 = this;
         return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
           return _regeneratorRuntime().wrap(function _callee$(_context) {
             while (1) {
               switch (_context.prev = _context.next) {
                 case 0:
-                  if (!matches(_this2.$el, 'input:focus')) {
+                  if (!matches(_this3.$el, 'input:focus')) {
                     _context.next = 2;
                     break;
                   }
                   return _context.abrupt("return");
                 case 2:
-                  clearTimeout(_this2.showTimer);
-                  if (_this2.isToggled(_this2.tooltip || null)) {
+                  clearTimeout(_this3.showTimer);
+                  if (_this3.isToggled(_this3.tooltip || null)) {
                     _context.next = 5;
                     break;
                   }
                   return _context.abrupt("return");
                 case 5:
                   _context.next = 7;
-                  return _this2.toggleElement(_this2.tooltip, false, false);
+                  return _this3.toggleElement(_this3.tooltip, false, false);
                 case 7:
-                  remove$1(_this2.tooltip);
-                  _this2.tooltip = null;
-                  _this2._unbind();
+                  remove$1(_this3.tooltip);
+                  _this3.tooltip = null;
+                  _this3._unbind();
                 case 10:
                 case "end":
                   return _context.stop();
