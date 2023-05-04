@@ -26,11 +26,12 @@
     }
     &.hyphhen{
         & > ul > li{
+            padding-left: 12px;
             &::before{
                 content: '-';
                 display: block;
                 position: absolute;
-                top: 2px;
+                top: -2px;
                 left: 0;
             }
         }
