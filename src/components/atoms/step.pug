@@ -1,4 +1,3 @@
-
 mixin stepWrap(params={})
   //- 공통 요소 Start
   - const prefix = "mui"
@@ -17,4 +16,27 @@ mixin stepWrap(params={})
       li
         .num!='0' + (index+1)
         - item.body && item.body()
+
+mixin stepNum(params={})
+  //- 공통 요소 Start
+  - const prefix = "mui"
+  - const divide = '_'
+  //- 공통 요소 End
+
+  - const { className, activeIndex, total, ...rest } = Object.assign({}, params)
+  - let index = 1;
+  #{element}(
+    class=`${prefix}${divide}stepnum`
+    class=className
+  )
+    ul
+      while index <= total
+        - let isActive = activeIndex == index
+        li.step(
+          class={"mui_active":isActive}
+        )
+          span!=index++
+
+      
+    
       

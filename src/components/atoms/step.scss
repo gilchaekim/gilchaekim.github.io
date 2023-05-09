@@ -2,14 +2,45 @@
 @import "../../asset/scss/common/varialbles";
 
 .step {
-    display: flex;
-    justify-content:space-between;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  li {
+    display: inline-flex;
+    justify-content: center;
     align-items: center;
-    li {
+    padding: 5px;
+    color: #333;
+  }
+}
+
+.mui {
+  &_stepnum {
+    ul {
+      display: flex;
+      .step {
+        & ~ .step {
+          margin-left: 4px;
+        }
+        &.mui_active {
+          span {
+            border-color: $line_color01;
+            background: $basic_color01;
+            color: $font_color06;
+          }
+        }
+      }
+      span {
         display: inline-flex;
+        width: 24px;
+        height: 24px;
+        border: 1px solid $line_color02;
+        color: $font_color03;
+        font-size: 12px;
+        border-radius: 12px;
         justify-content: center;
         align-items: center;
-        padding: 5px;
-        color: #333;
+      }
     }
+  }
 }

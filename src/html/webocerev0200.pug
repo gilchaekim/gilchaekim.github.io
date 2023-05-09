@@ -1,0 +1,51 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="weboce"
+  - pageTitle = "타기관 금융인증서 해지"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:3,
+      activeIndex:3
+    })
+    +result({
+      type:'result',
+      mainText:"해지 완료",
+      subText:"타행/타기관 금융인증서 해지가<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"성명",
+          text:"김저축",
+        },
+        {
+          title:"인증서 구분",
+          text:"금융인증서",
+        },
+        {
+          title:"발행기관",
+          text:"금융결제원",
+        },
+        {
+          title:"만료일자",
+          text:"2022.02.02",
+        },
+        {
+          title:"상태",
+          text:"해지완료",
+        },
+      ]
+    })
+        
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

@@ -1,0 +1,55 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="weboce"
+  - pageTitle = "타기관 금융인증서 해지"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:3,
+      activeIndex:3
+    })
+  +content_group(0)
+    +title({
+      text:"인증서를 확인하세요.",
+      lv:2,
+    })
+  +content_group(2)
+    +card({
+      data: [
+        {
+          title:"종류",
+          text:"타행",
+        },
+        {
+          title:"로그인ID",
+          text:"asfsdf",
+        },
+        {
+          title:"등록일자",
+          text:"2023.04.20",
+        },
+      ]
+    })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"타기관 금융인증서를 해지하시려면 [다음]버튼을 눌러주세요.",
+          },
+        ]
+      })
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

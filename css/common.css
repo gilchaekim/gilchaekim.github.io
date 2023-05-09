@@ -1436,6 +1436,29 @@ table, th, td {
   color: #333;
 }
 
+.mui_stepnum ul {
+  display: flex;
+}
+.mui_stepnum ul .step ~ .step {
+  margin-left: 4px;
+}
+.mui_stepnum ul .step.mui_active span {
+  border-color: var(--line_color01);
+  background: var(--basic_color01);
+  color: var(--font_color06);
+}
+.mui_stepnum ul span {
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--line_color02);
+  color: var(--font_color03);
+  font-size: 12px;
+  border-radius: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
 .mui_textarea textarea {
   width: 100%;
 }
@@ -4444,6 +4467,22 @@ hr {
 }
 .suitability_step .mui_text_lists {
   margin-top: 24px;
+}
+
+.weboce .config {
+  padding-top: 60px;
+  text-align: center;
+}
+.weboce .text {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 16px;
+}
+.weboce .config_link {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: 32px auto 0;
 }
 
 .webauc {
