@@ -1978,3 +1978,19 @@ hr {
 		}
 	}
 }
+
+/* 보안/인증 */
+.weboce {
+	.mui_text_lists.dot {
+		padding-top:16px;
+		ul {
+			display:flex;
+			flex-direction:column;
+			gap:8px 0;
+		}
+		li {
+			font-size:14px;
+			color:$basic_color03;
+		}
+	}
+}
