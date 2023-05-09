@@ -1,9 +1,13 @@
 footer.footer
   .site_lists
     span 
-      +button_select('관련사이트')
+      +button_select({
+        label:"관련사이트"
+      })
     span 
-      +button_select('저축은행비리신고')
+      +button_select({
+        label:"저축은행비리신고"
+      })
   .address 
     span (우04130)
     span 지번주소 : 서울특별시 마포구 마포대로 163, 11~13층

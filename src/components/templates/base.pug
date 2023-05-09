@@ -9,7 +9,10 @@ include ../index
 
 block top
 doctype html
-html(lang="ko")
+html#pageRoot(
+  lang="ko"
+  class={"open_allmenu":showAllMenu}
+)
   head
     title 저축은행중앙회
     meta(
@@ -28,9 +31,7 @@ html(lang="ko")
       src="/js/index.js"
     )
   body
-    #wrapper(
-      class={"open_allmenu":showAllMenu}
-    )
+    #wrapper
       <!-- 전체메뉴 -->
       include all_menu.pug
       <!--// 전체메뉴 -->

@@ -734,6 +734,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .switch .mui_checkbox {
   display: inline-block;
   vertical-align: top;
+  margin-right: 0;
 }
 .switch .mui_checkbox input {
   opacity: 0;
@@ -3109,127 +3110,13 @@ table, th, td {
   color: var(--font_color03);
 }
 
-a:link, a:active, a:hover, a:focus {
-  color: #111;
-  text-decoration: none;
-}
-
-#contants {
-  padding: 24px;
-}
-
-hr {
-  margin: 40px -24px;
-  height: 12px;
-  background: var(--bg_color01);
-  border: none;
-}
-
-.al_left {
-  text-align: left !important;
-}
-
-.al_right {
-  text-align: right !important;
-}
-
-.al_center {
-  text-align: center !important;
-}
-
-.main_color01 {
-  color: var(--main_color01);
-}
-
-/* 버튼 - 라인, 흰색배경, 글자색상 */
-.btn_wrap .btn_line {
-  color: var(--main_color01);
-  background: var(--bg_color03);
-  border: 1px solid var(--line_color02);
-  border-radius: 8px;
-}
-.btn_wrap .btn_round {
-  padding: 12px 24px;
-  width: initial;
-  font-size: 14px;
-  color: var(--basic_color01);
-  border-color: var(--basic_color01);
-  border-radius: 60px;
-}
-
-/* 하단안내문구(아이콘 유무) */
-.info_txt {
-  position: relative;
-  padding-top: 12px;
-  font-size: 14px;
-  color: var(--basic_color04);
-}
-.info_txt.icon_type {
-  padding-left: 24px;
-  font-size: 13px;
-}
-.info_txt.icon_type::before {
-  content: "";
-  position: absolute;
-  top: 10px;
-  left: 0;
-  width: 20px;
-  height: 20px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='9' cy='9' r='9' transform='translate(1 1)' fill='%23ccc'/%3E%3Cpath d='M11.111,13.861a1,1,0,0,1-1,1H9.889a1,1,0,0,1-1-1V9.334a1,1,0,0,1,1-1h.222a1,1,0,0,1,1,1Z' fill='%23fff'/%3E%3Ccircle cx='1.111' cy='1.111' r='1.111' transform='translate(11.111 7.223) rotate(180)' fill='%23fff'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-}
-
 /* 전체메뉴 */
-#wrapper.open_allmenu .allmenu_wrap {
+#pageRoot.open_allmenu {
+  overflow-y: clip;
+  touch-action: none;
+}
+#pageRoot.open_allmenu .allmenu_wrap {
   display: block;
-}
-
-.header .title_center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 40px;
-}
-.header .title {
-  font-size: 16px;
-  color: var(--font_color01);
-  font-weight: 700;
-}
-.header .inner {
-  height: 56px;
-  padding: 8px 88px;
-  font-size: 0;
-  position: 1;
-}
-.header .side_left {
-  position: absolute;
-  left: 8px;
-  top: 8px;
-}
-.header .side_right {
-  position: absolute;
-  right: 8px;
-  top: 8px;
-}
-.header button {
-  width: 36px;
-  height: 36px;
-}
-.header button.btn_prev {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 24px;
-  height: 24px;
-}
-.header button.btn_home {
-  background: url("/src/images/ico_home.svg") no-repeat center;
-}
-.header button.btn_allmenu {
-  background: url("/src/images/ico_menu.svg") no-repeat center;
 }
 
 .allmenu_wrap {
@@ -3493,6 +3380,124 @@ hr {
   display: inline-block;
   padding: 8px 24px 8px 32px;
   color: var(--font_color04);
+}
+
+a:link, a:active, a:hover, a:focus {
+  color: #111;
+  text-decoration: none;
+}
+
+#contants {
+  padding: 24px;
+}
+
+hr {
+  margin: 40px -24px;
+  height: 12px;
+  background: var(--bg_color01);
+  border: none;
+}
+
+.al_left {
+  text-align: left !important;
+}
+
+.al_right {
+  text-align: right !important;
+}
+
+.al_center {
+  text-align: center !important;
+}
+
+.main_color01 {
+  color: var(--main_color01);
+}
+
+/* 버튼 - 라인, 흰색배경, 글자색상 */
+.btn_wrap .btn_line {
+  color: var(--main_color01);
+  background: var(--bg_color03);
+  border: 1px solid var(--line_color02);
+  border-radius: 8px;
+}
+.btn_wrap .btn_round {
+  padding: 12px 24px;
+  width: initial;
+  font-size: 14px;
+  color: var(--basic_color01);
+  border-color: var(--basic_color01);
+  border-radius: 60px;
+}
+
+/* 하단안내문구(아이콘 유무) */
+.info_txt {
+  position: relative;
+  padding-top: 12px;
+  font-size: 14px;
+  color: var(--basic_color04);
+}
+.info_txt.icon_type {
+  padding-left: 24px;
+  font-size: 13px;
+}
+.info_txt.icon_type::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='9' cy='9' r='9' transform='translate(1 1)' fill='%23ccc'/%3E%3Cpath d='M11.111,13.861a1,1,0,0,1-1,1H9.889a1,1,0,0,1-1-1V9.334a1,1,0,0,1,1-1h.222a1,1,0,0,1,1,1Z' fill='%23fff'/%3E%3Ccircle cx='1.111' cy='1.111' r='1.111' transform='translate(11.111 7.223) rotate(180)' fill='%23fff'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+}
+
+.header .title_center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+}
+.header .title {
+  font-size: 16px;
+  color: var(--font_color01);
+  font-weight: 700;
+}
+.header .inner {
+  height: 56px;
+  padding: 8px 88px;
+  font-size: 0;
+  position: 1;
+}
+.header .side_left {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+}
+.header .side_right {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+}
+.header button {
+  width: 36px;
+  height: 36px;
+}
+.header button.btn_prev {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 24px;
+  height: 24px;
+}
+.header button.btn_home {
+  background: url("/src/images/ico_home.svg") no-repeat center;
+}
+.header button.btn_allmenu {
+  background: url("/src/images/ico_menu.svg") no-repeat center;
 }
 
 .login {
