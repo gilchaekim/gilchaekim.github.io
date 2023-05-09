@@ -51,6 +51,21 @@ block content
         }
       ]
     })
+    +collapse({
+      className:"guide_text",
+      isOpen:true,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"1인 1기기로만 이용이 가능하며 휴대폰 기기 또는 번호 변경시 서비스를 다시 등록해야 합니다.",
+            },
+          ]
+        })
         
   +button_bottom_fixed()
     +button({
