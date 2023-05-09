@@ -77,9 +77,34 @@ block content
                 strong 중앙정기예금
                 span.acc_num 123-1212-1234-56
                   span.acc_aka 100,000원
-    
-    +button_bottom_fixed()
-      +button({
-        label:"신청하기",
-        size:"large",
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"고객님의 예금등에 대해서 발급기준일자의 최종잔액을 증명할 수 있습니다.",
+          },
+          {
+            text:"아래와 같은 사유는 인터넷뱅킹으로 증명서 발급이 불가합니다. 가까운 영업점을 방문 후 발급하시기 바랍니다.",
+            subLists:{
+              type:'hyphhen',
+              lists:[
+                {
+                  text:"개인회생, 파산, 기업회생 등의 용도로 발급을 원하는 경우 영업점을 방문하여 주시기 바랍니다."
+                },
+              ]
+            }
+          },
+        ]
       })
+  +button_bottom_fixed()
+    +button({
+      label:"신청하기",
+      size:"large",
+    })

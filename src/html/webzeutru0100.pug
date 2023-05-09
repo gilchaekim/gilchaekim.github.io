@@ -20,7 +20,7 @@ block content
         })
       +form_body({title:"제증명발행번호"})
         +input_proofapp()
-      +form_body({title:"고객정보입력"})
+      +form_body({title:"고객구분"})
         +radioCheck({
           type:"radio",
           name:'chk552469',
@@ -30,7 +30,7 @@ block content
           ]
         })
         +input({
-          placeholder:"주민번호 앞자리를 입력하세요"
+          placeholder:"주민번호 앞 6자리"
         })
         +input_business()
     +collapse({
