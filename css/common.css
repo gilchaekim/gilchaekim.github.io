@@ -4960,4 +4960,18 @@ hr {
 .webuif .callcenter .mui_text_lists {
   margin-top: 24px;
 }
+
+/* 보안/인증 */
+.weboce .mui_text_lists.dot {
+  padding-top: 16px;
+}
+.weboce .mui_text_lists.dot ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+}
+.weboce .mui_text_lists.dot li {
+  font-size: 14px;
+  color: var(--basic_color03);
+}
 /*# sourceMappingURL=common.css.map */
