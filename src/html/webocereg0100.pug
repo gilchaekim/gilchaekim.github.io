@@ -1,0 +1,59 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="weboce"
+  - pageTitle = "타기관 금융인증서 등록"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"금융인증서란?",
+      subText:"금융결제원의 클라우드에 인증서를<br>보관하여 분실/유출 위험없이 자유롭게<br>이용할 수 있는 새로운 인증 서비스 입니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  
+  hr
+  
+  +content_group(0)
+    +title({
+      text:'주요특징',
+      lv:4,
+    })
+    +textLists({
+      type:'dot',
+      lists:[
+        {
+          text:"6자리 비밀번호로 접속"
+        },
+        {
+          text:"클라우드 보관으로 어디서나 이용가능"
+        },
+        {
+          text:"유효기간 3년 마다 갱신"
+        },
+        {
+          text:"용도제한 없음/개인고객 대상, 법인 제외"
+        },
+      ]
+    })
+
+  +content_group(0)
+    +title({
+      text:'발급방법',
+      lv:4,
+    })
+    +textLists({
+      type:'dot',
+      lists:[
+        {
+          text:"타행/타기관에서 발급한 금융인증서를 등록하여 사용가능(현재 저축은행에서는 금융인증서 발급을 제공하지 않음)"
+        }
+      ]
+    })
+        
+  +button_bottom_fixed()
+    +button({
+      label:"등록하기",
+      size:"large",
+    })
