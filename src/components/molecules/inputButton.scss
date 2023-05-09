@@ -19,7 +19,7 @@
       font-size: 13px;
       background: #5C627C;
       span{
-        word-break: keep-all;
+        white-space: nowrap;
       }
     }
   }

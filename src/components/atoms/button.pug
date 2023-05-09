@@ -112,7 +112,9 @@ mixin button_select_account(params={})
       if isMoney
         span.money 
           span.text 출금가능
-          span.num 10,000,000원
+          span.num 
+            | 10,000,000
+            span 원
       span.hidden 선택 됨
 
 mixin button_more()

@@ -27,7 +27,7 @@
   }
 }
 .guide_text{
-  padding-top: 32px;
+  padding-top: 36px;
   position: relative;
   margin-top: 60px;
   .mui_text_lists.dot > ul > li{
@@ -40,7 +40,7 @@
   &:before{
     content: '';
     display: block;
-    height: 8px;
+    height: 12px;
     top: 0;
     left: -24px;
     right: -24px;

@@ -3,7 +3,7 @@
 
 .mui_agree_check{
   & ~ .mui_agree_check{
-    margin-top: 12px;
+    margin-top: 16px;
   }
   .chk_btn{
     border: 1px solid $line_color02;
@@ -116,7 +116,7 @@
     }
   }
   .inset{
-    padding: 20px 16px 0;
+    padding: 24px 16px 0;
     .mui_agree_check{
       & ~.mui_agree_check{
         margin-top: 16px;

@@ -70,6 +70,14 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: normal;
 }
 
+strong {
+  font-weight: 700;
+}
+
+em {
+  color: var(--main_color01);
+}
+
 img {
   width: 100%;
   vertical-align: top;
@@ -151,7 +159,7 @@ html {
   --line_color03: #eee;
   --line_color04: #f6f6f6;
   --bg_color01: #f1f1f1;
-  --bg_color02: #f8f8f8;
+  --bg_color02: #F7F8FA;
   --bg_color03: #fff;
   --bg_color04: rgba(255, 255, 255, 0.8);
   --bg_color05: rgba(0, 0, 0, 0.8);
@@ -910,7 +918,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_select.account {
   border-radius: 20px;
   border: 1px solid var(--line_color03);
-  padding: 24px;
+  padding: 20px;
   height: auto;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
@@ -950,12 +958,18 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--basic_color04);
 }
 .mui_select.account .money {
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 8px;
 }
 .mui_select.account .money .num {
-  margin-left: 8px;
-  color: var(--font_color01);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--main_color01);
+}
+.mui_select.account .money .num span {
+  font-weight: 400;
 }
 .mui_more {
   border-radius: 0;
@@ -1988,7 +2002,7 @@ table, th, td {
   text-align: right;
 }
 .mui_result dl ~ dl {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 .mui_result_ico {
   padding-top: 60px;
@@ -2035,7 +2049,7 @@ table, th, td {
 }
 
 .mui_agree_check ~ .mui_agree_check {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_agree_check .chk_btn {
   border: 1px solid var(--line_color02);
@@ -2153,7 +2167,7 @@ table, th, td {
   height: 20px;
 }
 .mui_agree_check .inset {
-  padding: 20px 16px 0;
+  padding: 24px 16px 0;
 }
 .mui_agree_check .inset .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
@@ -2421,7 +2435,7 @@ table, th, td {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
 .mui_card ~ .mui_card {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_card.no_tag.is_linked .inset {
   padding-top: 62px;
@@ -2450,18 +2464,18 @@ table, th, td {
 }
 .mui_card.select_type .mui_radio label {
   position: absolute;
-  padding: 24px 24px 24px 56px;
+  padding: 20px 20px 20px 52px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
 }
 .mui_card.select_type .mui_radio label::before {
-  top: 24px;
-  left: 24px;
+  top: 20px;
+  left: 20px;
 }
 .mui_card .inset {
-  padding: 24px;
+  padding: 20px;
   position: relative;
 }
 .mui_card .mui_result {
@@ -2513,7 +2527,7 @@ table, th, td {
 .mui_card_list .text {
   line-height: 40px;
   color: var(--font_color02);
-  font-size: 14px;
+  font-size: 15px;
 }
 
 .mui_datepicker input {
@@ -2539,7 +2553,7 @@ table, th, td {
 }
 
 .inner_quick_btn .mui_datepicker, .inner_quick_btn ~ .mui_multipicker {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .mui_datepicker_layer {
@@ -2686,7 +2700,7 @@ table, th, td {
   text-align: center;
   line-height: 20px;
   border-radius: 10px;
-  background: var(--basic_color01);
+  background: rgba(17, 17, 17, 0.3);
   color: var(--font_color06);
   font-size: 13px;
   vertical-align: top;
@@ -2720,20 +2734,22 @@ table, th, td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 700;
 }
 .mui_accountbox .acc_val {
   text-align: right;
-  margin-top: 16px;
+  margin-top: 24px;
   font-size: 22px;
   font-weight: 700;
   color: var(--font_color01);
 }
 .mui_accountbox .acc_val .won {
-  font-size: 18px;
+  font-weight: 400;
   margin-left: 4px;
+  display: inline-flex;
 }
 .mui_accountbox .btns {
-  margin-top: 16px;
+  margin: 16px -4px -4px;
   display: flex;
 }
 .mui_accountbox .btns .mui_button {
@@ -2800,7 +2816,7 @@ table, th, td {
   background: #5C627C;
 }
 .mui_inputbtn .mui_button:not(.mui_select) span {
-  word-break: keep-all;
+  white-space: nowrap;
 }
 
 .mui_collapse .acc_title {
@@ -2831,7 +2847,7 @@ table, th, td {
 }
 
 .guide_text {
-  padding-top: 32px;
+  padding-top: 36px;
   position: relative;
   margin-top: 60px;
 }
@@ -2845,7 +2861,7 @@ table, th, td {
 .guide_text:before {
   content: "";
   display: block;
-  height: 8px;
+  height: 12px;
   top: 0;
   left: -24px;
   right: -24px;
@@ -2975,19 +2991,19 @@ table, th, td {
   margin-top: 12px;
 }
 .mui_form_list .mui_input + .mui_input {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_form_list .mui_button + .mui_input, .mui_form_list .mui_button + .mui_inputbtn {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_form_list .mui_radio_group {
-  padding-top: 4px;
+  padding-top: 8px;
 }
 .mui_form_list .mui_radio_group + .mui_input {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_form_list .mui_radio_group + .mui_inputmultiple {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .mui_form_list .mui_radio_group.button_type {
   padding-top: 0;
@@ -3049,7 +3065,6 @@ table, th, td {
 .mui_accresult .time {
   margin-top: 4px;
   font-size: 13px;
-  font-weight: 300;
   color: var(--basic_color04);
 }
 .mui_accresult .mui_collapse .mui_open .mui_acc_button {
@@ -3083,7 +3098,7 @@ table, th, td {
 }
 .mui_accresult .mui_collapse .acc_lists .mui_acc_content .box {
   background: var(--bg_color02);
-  padding: 16px;
+  padding: 20px;
   border-radius: 8px;
 }
 .mui_accresult .mui_collapse .acc_lists .mui_acc_content .text ~ .text {
@@ -3092,7 +3107,6 @@ table, th, td {
 .mui_accresult .mui_collapse .acc_lists .mui_acc_content .text .txt1, .mui_accresult .mui_collapse .acc_lists .mui_acc_content .text .txt2 {
   font-size: 13px;
   color: var(--font_color03);
-  font-weight: 300;
 }
 
 a:link, a:active, a:hover, a:focus {
@@ -3106,7 +3120,7 @@ a:link, a:active, a:hover, a:focus {
 
 hr {
   margin: 40px -24px;
-  height: 8px;
+  height: 12px;
   background: var(--bg_color01);
   border: none;
 }
@@ -3623,7 +3637,7 @@ hr {
   padding: 20px;
 }
 .login .acc_list_result .list ~ .list {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .login .acc_list_result .list dt {
   font-size: 16px;
@@ -3690,7 +3704,7 @@ hr {
   align-items: center;
   padding: 16px 24px 16px 0;
   width: 100%;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--font_color02);
 }
 .webinq .inquiry_setting::before {
@@ -3790,6 +3804,12 @@ hr {
   display: flex;
   justify-content: space-between;
   width: 100%;
+}
+.webinq .acc_lists .acc_tit strong:last-child {
+  font-size: 18px;
+}
+.webinq .acc_lists .acc_tit strong:last-child span {
+  font-weight: 400;
 }
 .webinq .acc_lists .mui_acc_button {
   font-size: 0;
@@ -3922,7 +3942,7 @@ hr {
 /* 통장사본 */
 .passbook {
   margin-bottom: 24px;
-  padding: 24px;
+  padding: 20px;
   background: var(--bg_color02);
   border-radius: 20px;
 }
@@ -4362,7 +4382,7 @@ hr {
   margin-top: 8px;
 }
 .search_address .last_addr_write .mui_input {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 
 .suitability .img {
@@ -4389,7 +4409,7 @@ hr {
   margin: 0;
 }
 .suitability_step .mui_radio_group .mui_radio ~ .mui_radio {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .suitability_step .mui_form + .mui_text.warning {
   margin-top: 24px;
@@ -4551,6 +4571,20 @@ hr {
   width: 200px;
   height: 200px;
 }
+.webauc .plus_data {
+  margin: 0 -24px;
+}
+.webauc .plus_data .acc_header {
+  padding: 16px 24px;
+  background: var(--bg_color02);
+}
+.webauc .plus_data .acc_header .mui_acc_button {
+  top: 26px;
+  right: 24px;
+}
+.webauc .plus_data .mui_acc_content {
+  padding: 0 24px;
+}
 
 /* 제증명 */
 .webcer .bg_box {
@@ -4658,7 +4692,7 @@ hr {
 }
 .webcer .check_card {
   margin-top: 12px;
-  padding: 24px 24px 16px 24px;
+  padding: 20px 20px 12px 20px;
   border: 1px solid var(--line_color03);
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -4908,12 +4942,12 @@ hr {
 .webuif .branchs {
   border: 1px solid var(--line_color03);
   border-radius: 20px;
-  padding: 24px;
+  padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
   background: var(--bg_color03);
 }
 .webuif .branchs ~ .branchs {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .webuif .branchs + .mui_more {
   margin-top: 12px;
@@ -4967,7 +5001,7 @@ hr {
   min-height: 40px;
 }
 .webuif .callcenter .list ~ .list {
-  margin-top: 12px;
+  margin-top: 16px;
 }
 .webuif .callcenter .list .img {
   display: block;

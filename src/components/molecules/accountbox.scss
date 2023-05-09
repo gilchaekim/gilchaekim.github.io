@@ -95,7 +95,7 @@
       text-align: center;
       line-height: 20px;
       border-radius: 10px;
-      background:$basic_color01;
+      background:rgba($color: #111, $alpha: .3);
       color:$font_color06;
       font-size: 13px;
       vertical-align: top;
@@ -123,22 +123,24 @@
       }
       span{
         @include ellipsis();
+        font-weight: 700;
       }
     }
   }
   .acc_val{
     text-align: right;
-    margin-top: 16px;
+    margin-top: 24px;
     font-size: 22px;
     font-weight: 700;
     color:$font_color01;
     .won{
-      font-size: 18px;
+      font-weight: 400;
       margin-left: 4px;
+      display: inline-flex;
     }
   }
   .btns{
-    margin-top: 16px;
+    margin: 16px -4px -4px;
     display: flex;
     .mui_button{
       flex: 1;

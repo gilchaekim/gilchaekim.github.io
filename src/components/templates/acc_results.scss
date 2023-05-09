@@ -30,7 +30,6 @@
   .time{
     margin-top: 4px;
     font-size: 13px;
-    font-weight: 300;
     color:$basic_color04;
   }
   .mui_collapse{
@@ -59,7 +58,7 @@
         padding-top: 16px;
         .box{
           background:$bg_color02;
-          padding: 16px;
+          padding: 20px;
           border-radius: 8px;
         }
         .text{
@@ -69,7 +68,6 @@
           .txt1, .txt2{
             font-size: 13px;
             color:$font_color03;
-            font-weight: 300;
           }
         }
       }

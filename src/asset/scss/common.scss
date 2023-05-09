@@ -23,7 +23,7 @@ a:link, a:active, a:hover, a:focus {
 }
 hr {
 	margin:40px -24px;
-	height:8px;
+	height:12px;
 	background:$bg_color01;
 	border:none;
 }
@@ -550,7 +550,7 @@ hr {
 			border-radius: 20px;
 			padding: 20px;
 			& ~ .list{
-				margin-top: 12px;
+				margin-top: 16px;
 			}
 			dt{
 				font-size: 16px;
@@ -620,7 +620,7 @@ hr {
 		align-items:center;
 		padding:16px 24px 16px 0;
 		width:100%;
-		font-size:13px;
+		font-size:12px;
 		color:$font_color02;
 		&::before {
 			content:"";
@@ -728,6 +728,12 @@ hr {
 			display:flex;
 			justify-content:space-between;
 			width:100%;
+			strong:last-child{
+				font-size: 18px;
+				span{
+					font-weight: 400;
+				}
+			}
 		}
 		.mui_acc_button {
 			font-size:0;
@@ -870,7 +876,7 @@ hr {
 /* 통장사본 */
 .passbook {
 	margin-bottom:24px;
-	padding:24px;
+	padding:20px;
 	background:$bg_color02;
 	border-radius:20px;
 	.img_wrap {
@@ -1322,7 +1328,7 @@ hr {
 			margin-top: 8px;
 		}
 		.mui_input{
-			margin-top: 12px;
+			margin-top: 16px;
 		}
 	}
 }
@@ -1351,7 +1357,7 @@ hr {
 				display: block;
 				margin: 0;
 				& ~ .mui_radio{
-					margin-top: 12px;
+					margin-top: 16px;
 				}
 			}
 		}
@@ -1532,6 +1538,20 @@ hr {
 			height: 200px;
 		}
 	}
+	.plus_data{
+		.acc_header{
+			padding: 16px 24px;
+			background:$bg_color02;
+			.mui_acc_button{
+				top: 26px;
+				right: 24px;
+			}
+		}
+		margin: 0 -24px;
+		.mui_acc_content{
+			padding: 0 24px;
+		}
+	}
 }
 
 /* 제증명 */
@@ -1647,7 +1667,7 @@ hr {
 	}
 	.check_card {
 		margin-top:12px;
-		padding:24px 24px 16px 24px;
+		padding:20px 20px 12px 20px;
 		border:1px solid var(--line_color03);
 		border-radius:20px;
 		box-shadow:0 4px 8px rgba(0, 0, 0, 0.04);
@@ -1900,11 +1920,11 @@ hr {
 	.branchs{
 		border: 1px solid $line_color03;
 		border-radius: 20px;
-		padding: 24px;
+		padding: 20px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 		background:$bg_color03;
 		& ~ .branchs{
-			margin-top: 12px;
+			margin-top: 16px;
 		}
 		& + .mui_more{
 			margin-top: 12px;
@@ -1960,7 +1980,7 @@ hr {
 			display: block;
 			min-height: 40px;
 			& ~ .list{
-				margin-top: 12px;
+				margin-top: 16px;
 			}
 			.img{
 				display: block;

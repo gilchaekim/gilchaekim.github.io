@@ -45,21 +45,21 @@
   }
   .mui_input{
     & + .mui_input{
-      margin-top: 12px;
+      margin-top: 16px;
     }
   }
   .mui_button{
     & + .mui_input, & + .mui_inputbtn{
-      margin-top: 12px;
+      margin-top: 16px;
     }
   }
   .mui_radio_group{
-    padding-top: 4px;
+    padding-top: 8px;
     & + .mui_input{
-      margin-top: 12px;
+      margin-top: 16px;
     }
     & + .mui_inputmultiple{
-      margin-top: 12px;
+      margin-top: 16px;
     }
     &.button_type{
       padding-top: 0;

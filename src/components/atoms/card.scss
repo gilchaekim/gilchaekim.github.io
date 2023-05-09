@@ -6,7 +6,7 @@
   border: 1px solid $line_color03;
   box-shadow: 0 4px 8px rgba(0,0,0,.04);
   & ~ .mui_card{
-    margin-top: 12px;
+    margin-top: 16px;
   }
   &.no_tag{
     &.is_linked{
@@ -37,20 +37,20 @@
       position: static;
       label{
         position: absolute;
-        padding: 24px 24px 24px 56px;
+        padding: 20px 20px 20px 52px;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
         &::before{
-          top: 24px;
-          left: 24px;
+          top: 20px;
+          left: 20px;
         }
       }
     }
   }
   .inset{
-    padding: 24px;
+    padding: 20px;
     position: relative;
   }
   .mui_result {
@@ -108,7 +108,7 @@
     .text{
       line-height: 40px;
       color:$font_color02;
-      font-size: 14px;
+      font-size: 15px;
     }
   }
 }
