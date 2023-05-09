@@ -491,26 +491,6 @@ hr {
 			}
 		}
 	}
-	.support{
-		text-align: right;
-		margin-top: 12px;
-		a{
-			display: inline-block;
-			font-size: 13px;
-			color:$main_color01;
-			padding-right: 16px;
-			position: relative;
-			&::after{
-				content: '';
-				display: block;
-				position: absolute;
-				top: 0;
-				right: 0;
-				@include icon_svg(arrow-left, "#DF6311", 16px);
-				transform: rotate(180deg);
-			}
-		}
-	}
 	.bottom_fixed{
 		text-align: center;
 		padding: 16px;

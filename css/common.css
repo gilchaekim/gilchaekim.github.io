@@ -2912,6 +2912,30 @@ table, th, td {
   padding-top: 24px;
 }
 
+.mui_form_list .support {
+  text-align: right;
+  margin-top: 12px;
+}
+.mui_form_list .support a {
+  display: inline-block;
+  font-size: 13px;
+  color: var(--main_color01);
+  padding-right: 16px;
+  position: relative;
+}
+.mui_form_list .support a::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23DF6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+}
 .mui_form_list ~ .mui_form_list {
   margin-top: 32px;
 }
@@ -3511,30 +3535,6 @@ hr {
   top: 3px;
   left: 0;
   background: var(--line_color02);
-}
-.login .support {
-  text-align: right;
-  margin-top: 12px;
-}
-.login .support a {
-  display: inline-block;
-  font-size: 13px;
-  color: var(--main_color01);
-  padding-right: 16px;
-  position: relative;
-}
-.login .support a::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23DF6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-  transform: rotate(180deg);
 }
 .login .bottom_fixed {
   text-align: center;
