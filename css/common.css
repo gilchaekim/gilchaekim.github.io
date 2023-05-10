@@ -5095,6 +5095,9 @@ hr {
 .webuif .event_box ~ .event_box {
   margin-top: 12px;
 }
+.webuif .event_box + .mui_more {
+  margin-top: 12px;
+}
 .webuif .event_box .data {
   display: block;
   padding: 16px 20px;
@@ -5157,6 +5160,9 @@ hr {
 }
 .webuif .news_list {
   border-bottom: 1px solid var(--line_color03);
+}
+.webuif .news_list + .mui_more {
+  margin-top: 12px;
 }
 .webuif .news_list .title {
   font-size: 16px;

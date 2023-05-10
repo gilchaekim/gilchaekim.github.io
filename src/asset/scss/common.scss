@@ -1762,6 +1762,9 @@ hr {
 		& ~ .event_box{
 			margin-top: 12px;
 		}
+		& + .mui_more{
+			margin-top: 12px;
+		}
 		border: 1px solid $line_color03;
 		border-radius: 20px;
 		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -1830,6 +1833,9 @@ hr {
 	}
 	.news_list{
 		border-bottom: 1px solid $line_color03;
+		& + .mui_more{
+			margin-top: 12px;
+		}
 		.title{
 			font-size: 16px;
 			color:$font_color01;
