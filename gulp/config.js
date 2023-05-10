@@ -6,7 +6,7 @@ const sourceDir = "./src/";
 const config = {
   source: {
     data: `${sourceDir}_data/`,
-    scss: `${sourceDir}asset/scss/**/*.scss`,
+    scss: `${sourceDir}asset/scss/**/!(_*).scss`,
     jsIndex: `${sourceDir}asset/js/index.js`,
     jsAll: `${sourceDir}asset/js/**/*.js`,
     pug: [

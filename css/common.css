@@ -862,6 +862,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   padding: 0;
   font-size: 16px;
 }
+.mui_select[disabled] .inset::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23ccc' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+}
 .mui_select .inset {
   display: block;
   position: relative;
@@ -1161,6 +1168,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 
 .mui_keypad {
   position: fixed;
+  background: var(--bg_color03);
   bottom: 94px;
   left: 0;
   right: 0;
@@ -2980,16 +2988,37 @@ table, th, td {
   margin-top: 32px;
 }
 .mui_form_list .mui_form_content {
+  margin-top: 16px;
+  position: relative;
+}
+.mui_form_list .mui_form_content .mui_button:first-child {
   margin-top: 8px;
+}
+.mui_form_list .mui_form_content .mui_button:first-child + .mui_radio_group {
+  padding-top: 16px;
 }
 .mui_form_list .mui_form_content .mui_phone .mui_button + .mui_input {
   margin-top: 0;
 }
 .mui_form_list .mui_form_content .mui_text {
-  margin-top: 24px;
+  margin-top: 12px;
 }
 .mui_form_list .mui_form_content > .mui_button_custom, .mui_form_list .mui_form_content > .mui_checkbox, .mui_form_list .mui_form_content > .mui_button_group {
   margin-top: 12px;
+}
+.mui_form_list .mui_form_content > .mui_button_custom.white-round-24, .mui_form_list .mui_form_content > .mui_checkbox.white-round-24, .mui_form_list .mui_form_content > .mui_button_group.white-round-24 {
+  margin-top: 8px;
+}
+.mui_form_list .mui_form_content > .mui_button_custom + .mui_text {
+  margin-top: 24px;
+}
+.mui_form_list .mui_form_content .right_top {
+  position: absolute;
+  top: -28px;
+  right: 0;
+}
+.mui_form_list .mui_form_content .right_top.mui_button_custom {
+  margin-top: 0;
 }
 .mui_form_list .mui_input + .mui_input {
   margin-top: 16px;
@@ -4516,15 +4545,57 @@ hr {
 .webauc .mui_more {
   margin-top: 20px;
 }
-.webauc .bookmark_wrap {
-  margin-top: 24px;
-  text-align: right;
+.webauc .error_msg {
+  color: var(--font_color08);
 }
-.webauc .bookmark_wrap .bookmark {
-  padding-right: 22px;
-  line-height: 22px;
-  color: var(--font_color03);
+.webauc .confirm_msg {
+  color: var(--font_color07);
+}
+.webauc .sms_title {
+  padding-left: 36px;
+  background: url("/src/images/ico_sms.svg") no-repeat left center;
+  background-size: 28px;
+  line-height: 28px;
+}
+.webauc .sms_msg_box {
+  border-radius: 0 26px 26px 26px;
+  padding: 20px;
+  color: var(--font_color02);
+  background: var(--bg_color02);
+  font-size: 14px;
+}
+.webauc .bookmark_wrap {
+  margin-top: 16px;
+  display: flex;
+}
+.webauc .bookmark_wrap button {
+  text-align: center;
+  font-size: 13px;
+  flex: 1;
+  color: var(--font_color01);
+  background: var(--bg_color01);
+  border-radius: 8px;
+  height: 40px;
+}
+.webauc .bookmark_wrap button ~ button {
+  margin-left: 8px;
+}
+.webauc .bookmark_wrap button span {
+  vertical-align: middle;
+}
+.webauc .bookmark_wrap button::before {
+  vertical-align: -5px;
+  content: "";
+  display: inline-flex;
+  width: 20px;
+  height: 20px;
+  margin-right: 4px;
+}
+.webauc .bookmark_wrap .bookmark::before {
   background: url("/src/images/ico_star.svg") no-repeat right top;
+}
+.webauc .bookmark_wrap .sms::before {
+  background: url("/src/images/ico_sms.svg") no-repeat right top;
 }
 .webauc .table_list {
   margin-top: 16px;
@@ -4550,6 +4621,9 @@ hr {
   font-weight: 700;
   color: var(--font_color01);
 }
+.webauc .acc_data2 {
+  margin-top: 16px;
+}
 .webauc .form_val {
   line-height: 28px;
 }
@@ -4561,6 +4635,14 @@ hr {
   margin-top: 12px;
   font-size: 13px;
   color: var(--main_color01);
+}
+.webauc .money_support + .mui_button_custom.white-round-24 {
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+}
+.webauc .mui_title.min_title .title.lv4 {
+  margin-bottom: 8px;
 }
 .webauc .mui_title .title.lv2 {
   margin-bottom: 24px;
@@ -4589,6 +4671,150 @@ hr {
 }
 .webauc .plus_data .mui_acc_content {
   padding: 0 24px;
+}
+.webauc .sort_big .sort_data {
+  font-size: 16px;
+  font-weight: 700;
+}
+.webauc .data_results .mui_result.line ~ .line {
+  border-top: 0 none;
+}
+.webauc .inner_closebtn {
+  position: relative;
+}
+.webauc .inner_closebtn .mui_card .inset {
+  padding-top: 56px;
+}
+.webauc .inner_closebtn .close_btn {
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/ico_close.svg") no-repeat center;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 2;
+}
+.webauc .inset_date {
+  border-top: 1px solid var(--line_color03);
+  margin-top: 16px;
+}
+.webauc .inset_date ~ .inset_date {
+  border-top: 0 none;
+  margin-top: 0;
+}
+.webauc .inset_date .set_date {
+  padding: 16px 0;
+}
+.webauc .inset_date .set_date span {
+  display: inline-block;
+  height: 22px;
+  line-height: 22px;
+  border-radius: 11px;
+  background: var(--basic_color04);
+  color: var(--bg_color03);
+  padding: 0 8px;
+  font-size: 13px;
+}
+.webauc .inset_date .mui_result.line {
+  border-top: 0 none;
+  padding-top: 0;
+}
+.webauc .total_data {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--font_color03);
+  padding-right: 20px;
+  position: relative;
+  display: inline-block;
+}
+.webauc .total_data::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.webauc .total_data > span {
+  display: inline-flex;
+  position: relative;
+}
+.webauc .total_data > span ~ span {
+  margin-left: 8px;
+  padding-left: 9px;
+}
+.webauc .total_data > span ~ span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 3px;
+  background: var(--line_color02);
+  width: 1px;
+  height: 14px;
+}
+.webauc .grey_box_result {
+  background: var(--bg_color02);
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  margin-bottom: 57px;
+}
+.webauc .grey_box_result .dot {
+  position: absolute;
+  bottom: -33px;
+  left: 50%;
+  margin-left: -4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg_color02);
+}
+.webauc .grey_box_result .dot::before, .webauc .grey_box_result .dot::after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: -14px;
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--bg_color02);
+}
+.webauc .grey_box_result .dot::after {
+  top: 14px;
+}
+.webauc .grey_box_result .money {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 24px;
+}
+.webauc .grey_box_result .money .name {
+  font-size: 13px;
+  color: var(--font_color03);
+}
+.webauc .grey_box_result .money .number {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--main_color01);
+}
+.webauc .grey_box_result .money .number span {
+  font-weight: 400;
+}
+.webauc .grey_box_result .acc_name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.webauc .grey_box_result .acc_number {
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--basic_color04);
 }
 
 /* 제증명 */

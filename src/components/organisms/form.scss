@@ -26,7 +26,16 @@
     margin-top: 32px;
   }
   .mui_form_content{
-    margin-top: 8px;
+    margin-top: 16px;
+    position: relative;
+    .mui_button{
+      &:first-child{
+        margin-top: 8px;
+        & + .mui_radio_group{
+          padding-top: 16px;
+        }
+      }
+    }
     .mui_phone{
       .mui_button{
         & + .mui_input{
@@ -35,12 +44,26 @@
       }
     }
     .mui_text {
-      margin-top: 24px;
+      margin-top: 12px;
     }
     & > .mui_button_custom,
     & > .mui_checkbox,
     & > .mui_button_group {
+      &.white-round-24{
+        margin-top: 8px;
+      }
       margin-top: 12px;
+    }
+    & > .mui_button_custom + .mui_text {
+      margin-top: 24px;
+    }
+    .right_top{
+      &.mui_button_custom{
+        margin-top: 0;
+      }
+      position: absolute;
+      top: -28px;
+      right: 0;
     }
   }
   .mui_input{

@@ -1455,7 +1455,7 @@
     return isString(css) ? escapeFn.call(null, css) : '';
   }
 
-  function on$1() {
+  function on() {
     for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
       args[_key] = arguments[_key];
     }
@@ -1511,7 +1511,7 @@
       listener = _getArgs4[3],
       useCapture = _getArgs4[4],
       condition = _getArgs4[5];
-    var off = on$1(element, type, selector, function (e) {
+    var off = on(element, type, selector, function (e) {
       var result = !condition || condition(e);
       if (result) {
         off();
@@ -1602,7 +1602,7 @@
       fn();
       return;
     }
-    var unbind = on$1(document, 'DOMContentLoaded', function () {
+    var unbind = on(document, 'DOMContentLoaded', function () {
       unbind();
       fn();
     });
@@ -2803,8 +2803,8 @@
         _iterator2.f();
       }
     };
-    on$1(window, 'load resize', handleResize);
-    on$1(document, 'loadedmetadata load', handleResize, true);
+    on(window, 'load resize', handleResize);
+    on(document, 'loadedmetadata load', handleResize, true);
   }
   function observeMutation(targets, cb, options) {
     return observe(MutationObserver, targets, cb, options);
@@ -3075,7 +3075,7 @@
     parents: parents,
     children: children,
     index: index,
-    on: on$1,
+    on: on,
     off: off,
     once: once,
     trigger: trigger,
@@ -3532,7 +3532,7 @@
     if (!el || filter && !filter.call(component)) {
       return;
     }
-    component._events.push(on$1(el, name, delegate ? isString(delegate) ? delegate : delegate.call(component) : null, isString(handler) ? component[handler] : handler.bind(component), {
+    component._events.push(on(el, name, delegate ? isString(delegate) ? delegate : delegate.call(component) : null, isString(handler) ? component[handler] : handler.bind(component), {
       passive: passive,
       capture: capture,
       self: self
@@ -6183,7 +6183,7 @@
   var prevented;
   function preventBackgroundScroll(el) {
     // 'overscroll-behavior: contain' only works consistently if el overflows (Safari)
-    var off = on$1(el, 'touchmove', function (e) {
+    var off = on(el, 'touchmove', function (e) {
       if (e.targetTouches.length !== 1) {
         return;
       }
@@ -6430,14 +6430,14 @@
     return time ? endsWith(time, 'ms') ? toFloat(time) : toFloat(time) * 1000 : 0;
   }
   function preventBackgroundFocus(modal) {
-    return on$1(document, 'focusin', function (e) {
+    return on(document, 'focusin', function (e) {
       if (last(active) === modal && !within(e.target, modal.$el)) {
         modal.$el.focus();
       }
     });
   }
   function listenForBackgroundClose(modal) {
-    return on$1(document, pointerDown, function (_ref3) {
+    return on(document, pointerDown, function (_ref3) {
       var target = _ref3.target;
       if (last(active) !== modal || modal.overlay && !within(target, modal.$el) || within(target, modal.panel)) {
         return;
@@ -6453,7 +6453,7 @@
     });
   }
   function listenForEscClose(modal) {
-    return on$1(document, 'keydown', function (e) {
+    return on(document, 'keydown', function (e) {
       if (e.keyCode === 27 && last(active) === modal) {
         modal.hide();
       }
@@ -6493,7 +6493,7 @@
     modal.dialog = function (content, options) {
       var dialog = modal("<div class=\"mui_modal system_pop".concat(!!(options !== null && options !== void 0 && options.closeBtn) ? " close_btn" : "").concat(!!(options !== null && options !== void 0 && options.className) ? " ".concat(options.className) : "", "\">\n                <div class=\"mui_modal_dialog mui_auto_vertical\">\n                    <div class=\"mui_modal_body\">").concat(content, "</div>\n                </div>\n             </div>"), options);
       dialog.show();
-      on$1(dialog.$el, 'hidden', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
+      on(dialog.$el, 'hidden', /*#__PURE__*/_asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
         return _regeneratorRuntime().wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
@@ -6544,13 +6544,13 @@
       var dialog = modal.dialog(tmpl(options), options);
       var deferred = new Deferred();
       var resolved = false;
-      on$1(dialog.$el, 'submit', 'form', function (e) {
+      on(dialog.$el, 'submit', 'form', function (e) {
         e.preventDefault();
         deferred.resolve(submitFn === null || submitFn === void 0 ? void 0 : submitFn(dialog));
         resolved = true;
         dialog.hide();
       });
-      on$1(dialog.$el, 'hide', function () {
+      on(dialog.$el, 'hide', function () {
         return !resolved && hideFn(deferred);
       });
       deferred.promise.dialog = dialog;
@@ -11747,7 +11747,7 @@
   var components$1 = new Set();
   function registerClick(cmp) {
     if (!components$1.size) {
-      on$1(document, 'click', clickHandler);
+      on(document, 'click', clickHandler);
     }
     components$1.add(cmp);
   }
@@ -12304,7 +12304,7 @@
       // on(window, 'load resize', () => GCui.update(null, 'resize'))
 
       var pending;
-      on$1(window, 'scroll', function (e) {
+      on(window, 'scroll', function (e) {
         if (pending) {
           return;
         }

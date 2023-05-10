@@ -1,0 +1,89 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"추가이체 등록내역",
+    id:"fullLayer",
+    type:"full"
+  })
+    .webauc
+      +content_group(3)
+        +data_sort({
+          total:"2",
+          className:"sort_big"
+        })
+      +content_group(3)
+        .inner_closebtn 
+          button.close_btn 
+            span.hidden 삭제  
+          +card({
+              data: [
+              {
+                title:"받는분",
+                text:"김중앙",
+              },
+              {
+                title:"입금계좌",
+                text:"중앙저축은행<br>125-45-67-8910112",
+              },
+              {
+                title:"이체금액",
+                text:"10,000,000원",
+              },
+              {
+                title:"수수료",
+                text:"면제",
+              },
+              {
+                title:"받는분통장표시 ",
+                text:"김저축(상상인저축은행)",
+              },
+              {
+                title:"내 통장표시",
+                text:"김저축",
+              },
+            ]
+          })
+      +content_group(3)
+        .inner_closebtn 
+          button.close_btn 
+            span.hidden 삭제  
+          +card({
+              data: [
+              {
+                title:"받는분",
+                text:"김중앙",
+              },
+              {
+                title:"입금계좌",
+                text:"중앙저축은행<br>125-45-67-8910112",
+              },
+              {
+                title:"이체금액",
+                text:"10,000,000원",
+              },
+              {
+                title:"수수료",
+                text:"면제",
+              },
+              {
+                title:"받는분통장표시 ",
+                text:"김저축(상상인저축은행)",
+              },
+              {
+                title:"내 통장표시",
+                text:"김저축",
+              },
+            ]
+          })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

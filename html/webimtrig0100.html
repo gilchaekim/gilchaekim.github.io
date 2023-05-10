@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">계좌정보</span></div>
+          <div class="title_center"><span class="title">즉시이체</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,113 +232,46 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webinq" id="contants">
-      <div class="card_topwrap topwrap">
-        <div class="mui_accountbox main_card">
-          <div class="acc_name_wrap inner_tag">
-            <p class="acc_name">비대면 파킹통장 보통예금</p>
-            <div class="tags">
-              <span class="mui_tag test111222">거래중지</span>
+    <div class="webauc" id="contants">
+      <div class="mui_contents_group lv_1">
+        <div class="mui_title min_title">
+          <p class="title lv4">출금계좌
+          </p>
+        </div>
+        <button class="mui_button mui_select account" type="button"><span class="inset"><span class="img"> <img src="/src/images/icon_bank.png" alt="은행 이미지" /></span><span class="label">저축보통예금</span><span class="accnum">123-1212-1234-56</span><span class="money"> <span class="text">출금가능</span><span class="num">
+                10,000,000<span>원</span></span></span><span class="hidden">선택 됨</span></span></button>
+      </div>
+      <div class="mui_contents_group lv_1">
+        <div class="mui_contents_group lv_3">
+          <button class="total_data"><span>
+              총 <em>2</em>건</span><span> <em>80000000</em>원</span></button>
+        </div>
+        <div class="mui_contents_group lv_3">
+          <div class="mui_form">
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">받는 분</span></div>
+              <div class="mui_form_content">
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">한화저축은행<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
+                <span class="mui_input">
+                  <input type="text" placeholder="계좌번호 입력" value="000-000-00000" mui-input="" />
+                </span>
+                <button class="mui_button_custom timeselect-24" type="button"><span class="inset">최근ㆍ자주ㆍ내계좌</span></button>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">보낼 금액</span></div>
+              <div class="mui_form_content">
+                <span class="mui_input">
+                  <input type="text" placeholder="숫자만 입력" mui-input="" />
+                </span>
+                <button class="mui_button_custom white-round-24" type="button"><span class="inset">이체한도</span></button>
+              </div>
             </div>
           </div>
-          <div class="acc_data">
-            <p class="acc_num">평생 010-1234-5678-12</p>
-          </div>
-          <p class="acc_val">17,558,000<span class="won">원</span>
-          </p>
-          <div class="btns">
-            <button class="mui_button mui_medium mui_primary" type="button"><span>이체</span></button>
-            <button class="mui_button mui_medium mui_primary" type="button"><span>거래내역조회</span></button>
-          </div>
         </div>
       </div>
-      <div class="mui_result default">
-        <dl>
-          <dt>계좌상태
-          </dt>
-          <dd> 활동계좌
-          </dd>
-        </dl>
-        <dl>
-          <dt>출금가능액
-          </dt>
-          <dd> 123,456,789원
-          </dd>
-        </dl>
-        <dl>
-          <dt>신규일자
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>최종거래일
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>현재적용금리
-          </dt>
-          <dd> 1.0%
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통설정여부
-          </dt>
-          <dd> N
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통한도
-          </dt>
-          <dd> 0원
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통만기일
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통이율
-          </dt>
-          <dd> 0.0%
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통이자 (조회일기준)
-          </dt>
-          <dd> 0원
-          </dd>
-        </dl>
-        <dl>
-          <dt>연체이율
-          </dt>
-          <dd> 0.0%
-          </dd>
-        </dl>
-      </div>
-      <div class="inq_list">
-        <div class="mui_text_lists dot">
-          <ul>
-            <li>계좌 해지 시에는 이자가 반영되어 잔액과 차이가 있을 수 있습니다.
-            </li>
-          </ul>
-        </div>
-        <div class="btn_wrap">
-          <button class="mui_button mui_medium mui_primary btn_line" type="button"><span>통장사본</span></button>
-        </div>
-        <hr>
-        <div class="mui_title ddssd">
-          <p class="title lv4">예금자 보호 안내
-          </p>
-        </div>
-        <p class="info_txt">예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 5천만원까지 예금자 보호</p>
-        <div class="mui_button_fixed"><span class="inset">
-            <button class="mui_button mui_large mui_primary" type="button"><span>계좌목록</span></button></span></div>
-      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

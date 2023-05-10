@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">계좌정보</span></div>
+          <div class="title_center"><span class="title">즉시이체</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,113 +232,55 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webinq" id="contants">
-      <div class="card_topwrap topwrap">
-        <div class="mui_accountbox main_card">
-          <div class="acc_name_wrap inner_tag">
-            <p class="acc_name">비대면 파킹통장 보통예금</p>
-            <div class="tags">
-              <span class="mui_tag test111222">거래중지</span>
-            </div>
+    <div class="webauc" id="contants">
+      <div class="mui_form">
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">받는 분</span></div>
+          <div class="mui_form_content">
+            <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">한화저축은행<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
+            <span class="mui_input">
+              <input type="text" placeholder="계좌번호 입력" value="000-000-00000" mui-input="" />
+            </span>
           </div>
-          <div class="acc_data">
-            <p class="acc_num">평생 010-1234-5678-12</p>
-          </div>
-          <p class="acc_val">17,558,000<span class="won">원</span>
-          </p>
-          <div class="btns">
-            <button class="mui_button mui_medium mui_primary" type="button"><span>이체</span></button>
-            <button class="mui_button mui_medium mui_primary" type="button"><span>거래내역조회</span></button>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">보낼 금액</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input inner_subfix sublength_1">
+              <input type="text" value="10,000,000" mui-input="" /><span class="subfix"><span>원</span></span>
+            </span>
+            <button class="mui_button_custom white-round-24 right_top" type="button"><span class="inset">이체한도</span></button>
+            <div class="money_support"><span>1,000만 원</span></div>
+            <p class="mui_text warning">이체수수료 발생시, 전액이체가 불가할 수 있습니다.</p>
           </div>
         </div>
       </div>
-      <div class="mui_result default">
-        <dl>
-          <dt>계좌상태
-          </dt>
-          <dd> 활동계좌
-          </dd>
-        </dl>
-        <dl>
-          <dt>출금가능액
-          </dt>
-          <dd> 123,456,789원
-          </dd>
-        </dl>
-        <dl>
-          <dt>신규일자
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>최종거래일
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>현재적용금리
-          </dt>
-          <dd> 1.0%
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통설정여부
-          </dt>
-          <dd> N
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통한도
-          </dt>
-          <dd> 0원
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통만기일
-          </dt>
-          <dd> YYYY.MM.DD
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통이율
-          </dt>
-          <dd> 0.0%
-          </dd>
-        </dl>
-        <dl>
-          <dt>종통이자 (조회일기준)
-          </dt>
-          <dd> 0원
-          </dd>
-        </dl>
-        <dl>
-          <dt>연체이율
-          </dt>
-          <dd> 0.0%
-          </dd>
-        </dl>
+      <div class="mui_keypad">
+        <div class="quick_btn">
+          <div class="mui_button_group"><span class="group">
+              <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
+              <button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group">
+              <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
+              <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span>
+          </div>
+        </div>
+        <div class="key_number">
+          <button class="key" type="button">1</button>
+          <button class="key" type="button">2</button>
+          <button class="key" type="button">3</button>
+          <button class="key" type="button">4</button>
+          <button class="key" type="button">5</button>
+          <button class="key" type="button">6</button>
+          <button class="key" type="button">7</button>
+          <button class="key" type="button">8</button>
+          <button class="key" type="button">9</button>
+          <button class="key" type="button">00</button>
+          <button class="key" type="button">0 </button>
+          <button class="key del" type="button"> <span class="hidden">삭제</span></button>
+        </div>
       </div>
-      <div class="inq_list">
-        <div class="mui_text_lists dot">
-          <ul>
-            <li>계좌 해지 시에는 이자가 반영되어 잔액과 차이가 있을 수 있습니다.
-            </li>
-          </ul>
-        </div>
-        <div class="btn_wrap">
-          <button class="mui_button mui_medium mui_primary btn_line" type="button"><span>통장사본</span></button>
-        </div>
-        <hr>
-        <div class="mui_title ddssd">
-          <p class="title lv4">예금자 보호 안내
-          </p>
-        </div>
-        <p class="info_txt">예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 5천만원까지 예금자 보호</p>
-        <div class="mui_button_fixed"><span class="inset">
-            <button class="mui_button mui_large mui_primary" type="button"><span>계좌목록</span></button></span></div>
-      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>
