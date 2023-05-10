@@ -5052,4 +5052,17 @@ hr {
   font-size: 14px;
   color: var(--basic_color03);
 }
+
+.main_pop .pop {
+  padding-top: 24px;
+}
+.main_pop .bottom {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0;
+}
+.main_pop .bottom button {
+  font-size: 16px;
+  color: #333;
+}
 /*# sourceMappingURL=common.css.map */

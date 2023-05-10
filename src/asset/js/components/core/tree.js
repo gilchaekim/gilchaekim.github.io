@@ -11,6 +11,7 @@ import {
     addClass,
     $$,
     hasClass,
+    html,
 } from '../../util';
 export default {
 
@@ -33,6 +34,7 @@ export default {
         mainFrame:null,
         index:0,
         template:`<div class="tree_control">
+            <div class="path_box">현재 페이지 : <p class="page_path"></p></div>
             <span class="status">
                 <span class="complete">퍼블 작업 완료</span>
                 <span class="confirm">기획 검수 완료</span>
@@ -50,10 +52,13 @@ export default {
     beforeConnect(){
         this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
         this.appendTree(this.data);
+        this.filepath = $('.page_path', prepend(this.$el, this.template));
         if(!!this.highlightItem) {
-            attr(this.mainFrame, 'src', $(`#${this.highlightItem}`)?.pathname)
+            let src = $(`#${this.highlightItem}`)?.pathname;
+            attr(this.mainFrame, 'src', src)
+            this.setFilePath(src);
         }
-        prepend(this.$el, this.template)
+        
     },
 
 
@@ -84,7 +89,8 @@ export default {
             handler(e) {
                 e.preventDefault();
                 this.highlight(e.current.id)
-                attr(this.mainFrame, 'src', e.current.pathname)
+                attr(this.mainFrame, 'src', e.current.pathname);
+                this.setFilePath(e.current.pathname);
             }
         },
         {
@@ -211,6 +217,9 @@ export default {
         },
         closeAll() {
 
+        },
+        setFilePath(path) {
+            html(this.filepath, path)
         },
         clearStorage(){
             localStorage.removeItem(this.keyActiveItem);

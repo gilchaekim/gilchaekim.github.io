@@ -13,6 +13,15 @@ a {
   text-decoration: none;
 }
 
+.path_box {
+  height: 20px;
+  display: flex;
+  margin-bottom: 20px;
+}
+.path_box p {
+  margin-left: 10px;
+}
+
 .inner {
   padding: 0 32px;
   margin: 0 auto;
@@ -46,7 +55,7 @@ a {
 }
 
 #contents {
-  height: calc(100vh - 54px);
+  height: calc(100vh - 74px);
   display: flex;
 }
 #contents .side_nav {

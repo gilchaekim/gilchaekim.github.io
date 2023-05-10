@@ -1749,3 +1749,18 @@ hr {
 		}
 	}
 }
+
+.main_pop{
+	.pop{
+		padding-top: 24px;
+	}
+	.bottom{
+		display: flex;
+		justify-content:space-between;
+		padding:20px 0;
+		button{
+			font-size: 16px;
+			color: #333;
+		}
+	}
+}

@@ -116,14 +116,12 @@ export default {
             if (this.cls) {
                 changed = includes(this.cls, ' ') || toggled !== hasClass(el, this.cls);
                 changed && toggleClass(el, this.cls, includes(this.cls, ' ') ? undefined : toggled);
-                console.log('ddd');
             } else {
                 changed = toggled === el.hidden;
                 changed && (el.hidden = !toggled);
             }
 
             $$('[autofocus]', el).some(el => isVisible(el) ? el.focus() || true : el.blur());
-            console.log(changed);
             if (changed) {
                 trigger(el, 'toggled', [toggled, this]);
                 // this.$update(el);
@@ -172,6 +170,7 @@ function toggleAnimation(cmp) {
 
         if (show) {
             _toggle(el, true);
+            console.log(cmp.origin);
             return Animation.in(el, animation[0], duration, cmp.origin);
         }
 

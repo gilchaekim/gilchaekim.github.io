@@ -3,6 +3,7 @@ import Togglable from '../mixin/togglable';
 import Position from '../mixin/position';
 import {
     isTouch,
+    flipPosition,
     pointerEnter,
     pointerDown,
     pointerLeave,
@@ -11,6 +12,8 @@ import {
     within,
     matches,
     remove,
+    offset,
+    includes,
 } from '../../util';
 export default {
     mixins: [Container, Togglable, Position],
@@ -20,12 +23,13 @@ export default {
     data: {
         text: '',
         delay:0,
+        offset:10,
         animation: ['mui-animation-fade-in'],
-        duration: 100,
+        duration: 10000,
         cls: 'mui_active',
     },
     connected () {
-        console.log(this.text);
+        // console.log(this.text);
     },
     events: {
         focus: 'show',
@@ -41,7 +45,6 @@ export default {
         [pointerDown](e) {
             if (isTouch(e)) {
                 this.show();
-                console.log(e.type);
             }
         },
     },
@@ -80,11 +83,11 @@ export default {
                 this.positionAt(this.tooltip, this.$el);
 
                 const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
-
                 this.origin =
                     this.axis === 'y'
                         ? `${flipPosition(dir)}-${align}`
                         : `${align}-${flipPosition(dir)}`;
+                console.log(this.origin);
             });
 
             this.toggleElement(this.tooltip, true);
@@ -108,3 +111,35 @@ export default {
         },
     }
 };
+
+
+function getAlignment(el, target, [dir, align]) {
+    const elOffset = offset(el);
+    const targetOffset = offset(target);
+    const properties = [
+        ['left', 'right'],
+        ['top', 'bottom'],
+    ];
+
+    for (const props of properties) {
+        if (elOffset[props[0]] >= targetOffset[props[1]]) {
+            dir = props[1];
+            break;
+        }
+        if (elOffset[props[1]] <= targetOffset[props[0]]) {
+            dir = props[0];
+            break;
+        }
+    }
+
+    const props = includes(properties[0], dir) ? properties[1] : properties[0];
+    if (elOffset[props[0]] === targetOffset[props[0]]) {
+        align = props[0];
+    } else if (elOffset[props[1]] === targetOffset[props[1]]) {
+        align = props[1];
+    } else {
+        align = 'center';
+    }
+
+    return [dir, align];
+}

@@ -2133,7 +2133,7 @@
       return value + toFloat(css(element, "padding".concat(prop))) + toFloat(css(element, "border".concat(prop, "Width")));
     }, 0) : 0;
   }
-  function flipPosition$1(pos) {
+  function flipPosition(pos) {
     for (var dir in dirs$1) {
       for (var i in dirs$1[dir]) {
         if (dirs$1[dir][i] === pos) {
@@ -3052,7 +3052,7 @@
     height: height,
     width: width,
     boxModelAdjust: boxModelAdjust,
-    flipPosition: flipPosition$1,
+    flipPosition: flipPosition,
     toPx: toPx,
     query: query,
     queryAll: queryAll,
@@ -3779,7 +3779,6 @@
         if (this.cls) {
           changed = includes(this.cls, ' ') || toggled !== hasClass(el, this.cls);
           changed && toggleClass(el, this.cls, includes(this.cls, ' ') ? undefined : toggled);
-          console.log('ddd');
         } else {
           changed = toggled === el.hidden;
           changed && (el.hidden = !toggled);
@@ -3787,7 +3786,6 @@
         $$('[autofocus]', el).some(function (el) {
           return isVisible(el) ? el.focus() || true : el.blur();
         });
-        console.log(changed);
         if (changed) {
           trigger(el, 'toggled', [toggled, this]);
           // this.$update(el);
@@ -3835,6 +3833,7 @@
         _toggle = cmp._toggle;
       if (show) {
         _toggle(el, true);
+        console.log(cmp.origin);
         return Animation["in"](el, animation[0], duration, cmp.origin);
       }
       return Animation.out(el, animation[1] || animation[0], duration, cmp.origin).then(function () {
@@ -11505,16 +11504,18 @@
       activeItem: 'activeItem',
       mainFrame: null,
       index: 0,
-      template: "<div class=\"tree_control\">\n            <span class=\"status\">\n                <span class=\"complete\">\uD37C\uBE14 \uC791\uC5C5 \uC644\uB8CC</span>\n                <span class=\"confirm\">\uAE30\uD68D \uAC80\uC218 \uC644\uB8CC</span>\n            </span>\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
+      template: "<div class=\"tree_control\">\n            <div class=\"path_box\">\uD604\uC7AC \uD398\uC774\uC9C0 : <p class=\"page_path\"></p></div>\n            <span class=\"status\">\n                <span class=\"complete\">\uD37C\uBE14 \uC791\uC5C5 \uC644\uB8CC</span>\n                <span class=\"confirm\">\uAE30\uD68D \uAC80\uC218 \uC644\uB8CC</span>\n            </span>\n            <span class=\"collapse\">\n                <button type=\"button\" class=\"open_all\">open all</button>\n                <button type=\"button\" class=\"close_all\">close all</button>\n            </span>\n            <span class=\"search\">\n                <input type=\"text\"> \n                <button type=\"button\">\uAC80\uC0C9</button>\n            </span>\n        </div>"
     },
     beforeConnect: function beforeConnect() {
       this.$wrap = append(this.$el, '<div id="tree_wrap"></div>');
       this.appendTree(this.data);
+      this.filepath = $('.page_path', prepend(this.$el, this.template));
       if (!!this.highlightItem) {
         var _$;
-        attr(this.mainFrame, 'src', (_$ = $("#".concat(this.highlightItem))) === null || _$ === void 0 ? void 0 : _$.pathname);
+        var src = (_$ = $("#".concat(this.highlightItem))) === null || _$ === void 0 ? void 0 : _$.pathname;
+        attr(this.mainFrame, 'src', src);
+        this.setFilePath(src);
       }
-      prepend(this.$el, this.template);
     },
     computed: {
       mainFrame: function mainFrame(_ref) {
@@ -11548,6 +11549,7 @@
         e.preventDefault();
         this.highlight(e.current.id);
         attr(this.mainFrame, 'src', e.current.pathname);
+        this.setFilePath(e.current.pathname);
       }
     }, {
       name: 'load',
@@ -11666,6 +11668,9 @@
         });
       },
       closeAll: function closeAll() {},
+      setFilePath: function setFilePath(path) {
+        html(this.filepath, path);
+      },
       clearStorage: function clearStorage() {
         localStorage.removeItem(this.keyActiveItem);
       }
@@ -11822,7 +11827,7 @@
         var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
         var placement = [this.flip && 'flip', this.shift && 'shift'];
         var attach = {
-          element: [this.inset ? this.dir : flipPosition$1(this.dir), this.align],
+          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
           target: [this.dir, this.align]
         };
         if (this.axis === 'y') {
@@ -11877,12 +11882,13 @@
     data: {
       text: '',
       delay: 0,
+      offset: 10,
       animation: ['mui-animation-fade-in'],
-      duration: 100,
+      duration: 10000,
       cls: 'mui_active'
     },
     connected: function connected() {
-      console.log(this.text);
+      // console.log(this.text);
     },
     events: (_events = {
       focus: 'show',
@@ -11895,7 +11901,6 @@
     }), _defineProperty(_events, pointerDown, function (e) {
       if (isTouch(e)) {
         this.show();
-        console.log(e.type);
       }
     }), _events),
     methods: {
@@ -11923,6 +11928,7 @@
             dir = _getAlignment2[0],
             align = _getAlignment2[1];
           _this2.origin = _this2.axis === 'y' ? "".concat(flipPosition(dir), "-").concat(align) : "".concat(align, "-").concat(flipPosition(dir));
+          console.log(_this2.origin);
         });
         this.toggleElement(this.tooltip, true);
       },
@@ -11962,6 +11968,34 @@
       }
     }
   };
+  function getAlignment(el, target, _ref) {
+    var _ref2 = _slicedToArray(_ref, 2),
+      dir = _ref2[0],
+      align = _ref2[1];
+    var elOffset = offset(el);
+    var targetOffset = offset(target);
+    var properties = [['left', 'right'], ['top', 'bottom']];
+    for (var _i = 0, _properties = properties; _i < _properties.length; _i++) {
+      var _props = _properties[_i];
+      if (elOffset[_props[0]] >= targetOffset[_props[1]]) {
+        dir = _props[1];
+        break;
+      }
+      if (elOffset[_props[1]] <= targetOffset[_props[0]]) {
+        dir = _props[0];
+        break;
+      }
+    }
+    var props = includes(properties[0], dir) ? properties[1] : properties[0];
+    if (elOffset[props[0]] === targetOffset[props[0]]) {
+      align = props[0];
+    } else if (elOffset[props[1]] === targetOffset[props[1]]) {
+      align = props[1];
+    } else {
+      align = 'center';
+    }
+    return [dir, align];
+  }
 
   var worklists = {
     mixins: [Class, Togglable],

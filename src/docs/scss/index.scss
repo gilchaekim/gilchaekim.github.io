@@ -8,6 +8,14 @@
 ul, ol, dl, li{list-style:none;}
 a{text-decoration: none;}
 
+.path_box{
+  height: 20px;
+  display: flex;
+  margin-bottom: 20px;
+  p{
+    margin-left: 10px;
+  }
+}
 .inner{
   padding: 0 32px;
   margin: 0 auto;
@@ -39,7 +47,7 @@ a{text-decoration: none;}
   }
 }
 #contents{
-  height: calc(100vh - 54px);
+  height: calc(100vh - 74px);
   // background-color: #f00;
   display: flex;
   .side_nav{
