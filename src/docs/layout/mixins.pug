@@ -39,6 +39,7 @@ mixin guideTitle(params={})
       class="guide_title"
       class=`title_lv${level}`
     ) #{text}
+    block
 
 
 mixin guideExample()
@@ -73,6 +74,28 @@ mixin attributesLists(data)
           },
           {
             text: "Default"
+          }
+        ]
+      ],
+      bodyData:data
+    })
+
+mixin eventLists(data)
+   - const element = 'div'
+   #{element}(
+    class="attribute_table"
+  )
+    +dataTable({
+      caption:"Attributes",
+      className:'attr_table',
+      colgroup:['30', "80"],
+      headData:[
+        [
+          {
+            text: "Name",
+          },
+          {
+            text: "Description"
           }
         ]
       ],
