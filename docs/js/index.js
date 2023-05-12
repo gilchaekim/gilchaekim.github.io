@@ -1547,6 +1547,9 @@
   });
   var cssPrefixes = ['webkit', 'moz', 'ms'];
   function vendorPropName(name) {
+    if (startsWith(name, '--')) {
+      return name;
+    }
     name = hyphenate(name);
     var style = document.documentElement.style;
     if (name in style) {
@@ -1562,6 +1565,7 @@
     }
   }
 
+  var transitionClassName = 'mui-transition';
   function transition(element, props) {
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 400;
     var timing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'linear';
@@ -1579,7 +1583,7 @@
         once(element, 'transitionend transitioncanceled', function (_ref) {
           var type = _ref.type;
           clearTimeout(timer);
-          removeClass(element, 'uk-transition');
+          removeClass(element, transitionClassName);
           css(element, {
             transitionProperty: '',
             transitionDuration: '',
@@ -1589,7 +1593,7 @@
         }, {
           self: true
         });
-        addClass(element, 'uk-transition');
+        addClass(element, transitionClassName);
         css(element, assign({
           transitionProperty: Object.keys(props).map(propName).join(','),
           transitionDuration: "".concat(duration, "ms"),
@@ -1608,14 +1612,15 @@
       trigger(element, 'transitioncanceled');
     },
     inProgress: function inProgress(element) {
-      return hasClass(element, 'uk-transition');
+      return hasClass(element, transitionClassName);
     }
   };
-  var animationPrefix = 'uk-animation-';
+  var animationPrefix = 'mui-animation-';
   function animate(element, animation) {
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
     var origin = arguments.length > 3 ? arguments[3] : undefined;
     var out = arguments.length > 4 ? arguments[4] : undefined;
+    console.log(element);
     return Promise$1.all(toNodes(element).map(function (element) {
       return new Promise$1(function (resolve, reject) {
         trigger(element, 'animationcanceled');

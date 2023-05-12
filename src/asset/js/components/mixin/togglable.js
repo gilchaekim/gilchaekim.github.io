@@ -170,9 +170,9 @@ function toggleAnimation(cmp) {
 
         if (show) {
             _toggle(el, true);
-            console.log(cmp.origin);
             return Animation.in(el, animation[0], duration, cmp.origin);
         }
+        
 
         return Animation.out(el, animation[1] || animation[0], duration, cmp.origin).then(() => _toggle(el, false));
     };

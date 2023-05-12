@@ -15,6 +15,8 @@ import {
     remove,
     offset,
     includes,
+    css,
+    $,
 } from '../../util';
 export default {
     mixins: [Container, Togglable, Position],
@@ -24,9 +26,10 @@ export default {
     data: {
         text: '',
         delay:0,
-        offset:10,
-        animation: ['mui-animation-fade-in'],
-        duration: 10000,
+        offset:15,
+        pos: 'bottom-center',
+        animation: ['mui-animation-tooltip'],
+        duration: 200,
         cls: 'mui_active',
     },
     connected () {
@@ -39,7 +42,6 @@ export default {
         [`${pointerEnter} ${pointerLeave}`](e) {
             if (!isTouch(e)) {
                 this[e.type === pointerEnter ? 'show' : 'hide']();
-                console.log(e.type);
             }
         },
 
@@ -73,7 +75,7 @@ export default {
                 this.container,
                 `<div class="mui_${this.$options.name}_content">
                     <div class="mui_arrow"></div>
-                    <div class="mui_${this.$options.name}_inner">${this.text}</div>
+                    <div class="mui_${this.$options.name}_inner"><span class="text">${this.text}</div>
                  </div>`
             );
             on(this.tooltip, 'toggled', (e, toggled) => {
@@ -81,14 +83,19 @@ export default {
                     return;
                 }
 
-                this.positionAt(this.tooltip, this.$el);
+                const position = this.positionAt(this.tooltip, this.$el);
+                
+                if (!!position?.cale) {
+                    // console.log($('.mui_arrow', this.tooltip));
+                    console.log(position.cale);
+                    css($('.mui_arrow', this.tooltip), 'transform', `translateX(${position.cale * -1}px)`)
+                }
 
                 const [dir, align] = getAlignment(this.tooltip, this.$el, this.pos);
                 this.origin =
                     this.axis === 'y'
                         ? `${flipPosition(dir)}-${align}`
                         : `${align}-${flipPosition(dir)}`;
-                console.log(this.origin);
             });
 
             this.toggleElement(this.tooltip, true);

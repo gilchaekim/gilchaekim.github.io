@@ -250,12 +250,44 @@ html.bank2 {
   animation-name: mui-fade;
 }
 
+.mui-animation-fade-out {
+  animation-name: mui-fade;
+  animation-direction: reverse;
+}
+
+.mui-animation-scale-in {
+  animation-name: mui-fade, mui-scale-in;
+}
+
+.mui-animation-tooltip {
+  animation-name: mui-fade, mui-slide-up;
+}
+
 @keyframes mui-fade {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+@keyframes mui-scale-in {
+  0% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes mui-slide-up {
+  0% {
+    transform: translateY(8px);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+  100% {
+    transform: translateY(0);
   }
 }
 :root {
@@ -1127,12 +1159,11 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: inline-block;
 }
 .mui_tooltip_content {
-  --mui-position-offset: 0;
-  --mui-position-viewport-offset: 0;
+  --mui-position-viewport-offset: 12;
   display: block;
   position: absolute;
   top: 40%;
-  left: 40%;
+  left: 50%;
   padding: 16px;
   border-radius: 12px;
   border: 1px solid #ddd;
@@ -1141,6 +1172,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.04);
   background: var(--bg_color03);
 }
+.mui_tooltip_content .text {
+  max-width: calc(100vw - 58px);
+  display: block;
+}
 .mui_tooltip_content .mui_arrow {
   width: 12px;
   height: 9px;
@@ -1148,7 +1183,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   background-size: 100%;
   position: absolute;
   top: -8.5px;
-  left: 15px;
+  left: 50%;
+  margin-left: -6px;
 }
 .mui_button_group {
   display: flex;

@@ -56,8 +56,7 @@ export default {
             // Ensure none positioned element does not generate scrollbars
             const elDim = dimensions(element);
             css(element, { top: -elDim.height, left: -elDim.width });
-
-            positionAt(element, target, {
+            return positionAt(element, target, {
                 attach,
                 offset,
                 boundary,

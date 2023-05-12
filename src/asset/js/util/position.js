@@ -8,6 +8,7 @@ const dirs = [
 ];
 
 export function positionAt(element, target, options) {
+    let position;
     options = {
         attach: {
             element: ['left', 'top'],
@@ -22,14 +23,15 @@ export function positionAt(element, target, options) {
     if (!isArray(target)) {
         target = [target, target];
     }
-
-    offset(element, getPosition(element, target, options));
+    position = getPosition(element, target, options);
+    offset(element, position);
+    return position;
 }
 
 function getPosition(element, target, options) {
     const position = attachTo(element, target, options);
     const { boundary, viewportOffset = 0, placement } = options;
-
+    
     let offsetPosition = position;
     for (const [i, [prop, , start, end]] of Object.entries(dirs)) {
         const viewport = getViewport(target[i], viewportOffset, boundary, i);
@@ -39,7 +41,7 @@ function getPosition(element, target, options) {
         }
 
         let offsetBy = 0;
-
+        
         // Flip
         if (placement[i] === 'flip') {
             const attach = options.attach.target[i];
@@ -74,6 +76,7 @@ function getPosition(element, target, options) {
 
             // Shift
         } else if (placement[i] === 'shift') {
+            
             const targetDim = offset(target[i]);
             const { offset: elOffset } = options;
             offsetBy =
@@ -82,11 +85,12 @@ function getPosition(element, target, options) {
                     targetDim[start] - position[prop] + elOffset[i],
                     targetDim[end] - elOffset[i]
                 ) - position[start];
+            offsetPosition.cale = offsetBy;
         }
-
+        
         offsetPosition = applyOffset(offsetPosition, offsetBy, i);
     }
-
+    
     return offsetPosition;
 }
 

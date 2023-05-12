@@ -1887,6 +1887,9 @@
   });
   var cssPrefixes = ['webkit', 'moz', 'ms'];
   function vendorPropName(name) {
+    if (startsWith(name, '--')) {
+      return name;
+    }
     name = hyphenate(name);
     var style = document.documentElement.style;
     if (name in style) {
@@ -1902,6 +1905,7 @@
     }
   }
 
+  var transitionClassName = 'mui-transition';
   function transition$1(element, props) {
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 400;
     var timing = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 'linear';
@@ -1919,7 +1923,7 @@
         once(element, 'transitionend transitioncanceled', function (_ref) {
           var type = _ref.type;
           clearTimeout(timer);
-          removeClass(element, 'uk-transition');
+          removeClass(element, transitionClassName);
           css(element, {
             transitionProperty: '',
             transitionDuration: '',
@@ -1929,7 +1933,7 @@
         }, {
           self: true
         });
-        addClass(element, 'uk-transition');
+        addClass(element, transitionClassName);
         css(element, assign({
           transitionProperty: Object.keys(props).map(propName).join(','),
           transitionDuration: "".concat(duration, "ms"),
@@ -1948,10 +1952,10 @@
       trigger(element, 'transitioncanceled');
     },
     inProgress: function inProgress(element) {
-      return hasClass(element, 'uk-transition');
+      return hasClass(element, transitionClassName);
     }
   };
-  var animationPrefix = 'uk-animation-';
+  var animationPrefix = 'mui-animation-';
   function animate$1(element, animation) {
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
     var origin = arguments.length > 3 ? arguments[3] : undefined;
@@ -2828,6 +2832,7 @@
 
   var dirs = [['width', 'x', 'left', 'right'], ['height', 'y', 'top', 'bottom']];
   function positionAt(element, target, options) {
+    var position;
     options = _objectSpread2({
       attach: _objectSpread2({
         element: ['left', 'top'],
@@ -2839,7 +2844,9 @@
     if (!isArray(target)) {
       target = [target, target];
     }
-    offset(element, getPosition(element, target, options));
+    position = getPosition(element, target, options);
+    offset(element, position);
+    return position;
   }
   function getPosition(element, target, options) {
     var position = attachTo(element, target, options);
@@ -2888,6 +2895,7 @@
         var targetDim = offset(target[i]);
         var elOffset = options.offset;
         offsetBy = clamp(clamp(position[start], viewport[start], viewport[end] - position[prop]), targetDim[start] - position[prop] + elOffset[i], targetDim[end] - elOffset[i]) - position[start];
+        offsetPosition.cale = offsetBy;
       }
       offsetPosition = applyOffset(offsetPosition, offsetBy, i);
     }
@@ -3833,7 +3841,6 @@
         _toggle = cmp._toggle;
       if (show) {
         _toggle(el, true);
-        console.log(cmp.origin);
         return Animation["in"](el, animation[0], duration, cmp.origin);
       }
       return Animation.out(el, animation[1] || animation[0], duration, cmp.origin).then(function () {
@@ -11840,8 +11847,8 @@
         var _scrollParents = scrollParents(element, /auto|scroll/),
           _scrollParents2 = _slicedToArray(_scrollParents, 1),
           scrollElement = _scrollParents2[0];
-        var scrollTop = scrollElement.scrollTop,
-          scrollLeft = scrollElement.scrollLeft;
+        scrollElement.scrollTop;
+          scrollElement.scrollLeft;
 
         // Ensure none positioned element does not generate scrollbars
         var elDim = dimensions(element);
@@ -11849,17 +11856,13 @@
           top: -elDim.height,
           left: -elDim.width
         });
-        positionAt(element, target, {
+        return positionAt(element, target, {
           attach: attach,
           offset: offset,
           boundary: boundary,
           placement: placement,
           viewportOffset: this.getViewportOffset(element)
         });
-
-        // Restore scroll position
-        scrollElement.scrollTop = scrollTop;
-        scrollElement.scrollLeft = scrollLeft;
       },
       getPositionOffset: function getPositionOffset(element) {
         return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
@@ -11882,9 +11885,10 @@
     data: {
       text: '',
       delay: 0,
-      offset: 10,
-      animation: ['mui-animation-fade-in'],
-      duration: 10000,
+      offset: 15,
+      pos: 'bottom-center',
+      animation: ['mui-animation-tooltip'],
+      duration: 200,
       cls: 'mui_active'
     },
     connected: function connected() {
@@ -11896,7 +11900,6 @@
     }, _defineProperty(_events, "".concat(pointerEnter, " ").concat(pointerLeave), function _(e) {
       if (!isTouch(e)) {
         this[e.type === pointerEnter ? 'show' : 'hide']();
-        console.log(e.type);
       }
     }), _defineProperty(_events, pointerDown, function (e) {
       if (isTouch(e)) {
@@ -11917,18 +11920,22 @@
       },
       _show: function _show() {
         var _this2 = this;
-        this.tooltip = append(this.container, "<div class=\"mui_".concat(this.$options.name, "_content\">\n                    <div class=\"mui_arrow\"></div>\n                    <div class=\"mui_").concat(this.$options.name, "_inner\">").concat(this.text, "</div>\n                 </div>"));
+        this.tooltip = append(this.container, "<div class=\"mui_".concat(this.$options.name, "_content\">\n                    <div class=\"mui_arrow\"></div>\n                    <div class=\"mui_").concat(this.$options.name, "_inner\"><span class=\"text\">").concat(this.text, "</div>\n                 </div>"));
         on(this.tooltip, 'toggled', function (e, toggled) {
           if (!toggled) {
             return;
           }
-          _this2.positionAt(_this2.tooltip, _this2.$el);
+          var position = _this2.positionAt(_this2.tooltip, _this2.$el);
+          if (!!(position !== null && position !== void 0 && position.cale)) {
+            // console.log($('.mui_arrow', this.tooltip));
+            console.log(position.cale);
+            css($$1('.mui_arrow', _this2.tooltip), 'transform', "translateX(".concat(position.cale * -1, "px)"));
+          }
           var _getAlignment = getAlignment(_this2.tooltip, _this2.$el, _this2.pos),
             _getAlignment2 = _slicedToArray(_getAlignment, 2),
             dir = _getAlignment2[0],
             align = _getAlignment2[1];
           _this2.origin = _this2.axis === 'y' ? "".concat(flipPosition(dir), "-").concat(align) : "".concat(align, "-").concat(flipPosition(dir));
-          console.log(_this2.origin);
         });
         this.toggleElement(this.tooltip, true);
       },

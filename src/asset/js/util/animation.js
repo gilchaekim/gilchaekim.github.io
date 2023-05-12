@@ -5,8 +5,9 @@ import {css, propName} from './style';
 import {assign, startsWith, toNodes} from './lang';
 import {addClass, hasClass, removeClass, removeClasses} from './class';
 
+const transitionClassName = 'mui-transition';
 export function transition(element, props, duration = 400, timing = 'linear') {
-
+    
     return Promise.all(toNodes(element).map(element =>
         new Promise((resolve, reject) => {
 
@@ -21,7 +22,7 @@ export function transition(element, props, duration = 400, timing = 'linear') {
 
             once(element, 'transitionend transitioncanceled', ({type}) => {
                 clearTimeout(timer);
-                removeClass(element, 'uk-transition');
+                removeClass(element, transitionClassName);
                 css(element, {
                     transitionProperty: '',
                     transitionDuration: '',
@@ -30,7 +31,7 @@ export function transition(element, props, duration = 400, timing = 'linear') {
                 type === 'transitioncanceled' ? reject() : resolve(element);
             }, {self: true});
 
-            addClass(element, 'uk-transition');
+            addClass(element, transitionClassName);
             css(element, assign({
                 transitionProperty: Object.keys(props).map(propName).join(','),
                 transitionDuration: `${duration}ms`,
@@ -56,15 +57,14 @@ export const Transition = {
     },
 
     inProgress(element) {
-        return hasClass(element, 'uk-transition');
+        return hasClass(element, transitionClassName);
     }
 
 };
 
-const animationPrefix = 'uk-animation-';
+const animationPrefix = 'mui-animation-';
 
 export function animate(element, animation, duration = 200, origin, out) {
-
     return Promise.all(toNodes(element).map(element =>
         new Promise((resolve, reject) => {
 

@@ -1,7 +1,7 @@
 import {isIE} from './env';
 import {append, remove} from './dom';
 import {addClass} from './class';
-import {each, hyphenate, isArray, isNumber, isNumeric, isObject, isString, isUndefined, memoize, toNodes, toWindow} from './lang';
+import {each, hyphenate, isArray, isNumber, isNumeric, isObject, isString, isUndefined, memoize, startsWith, toNodes, toWindow} from './lang';
 
 const cssNumber = {
     'animation-iteration-count': true,
@@ -91,7 +91,10 @@ export const propName = memoize(name => vendorPropName(name));
 const cssPrefixes = ['webkit', 'moz', 'ms'];
 
 function vendorPropName(name) {
-
+    if (startsWith(name, '--')) {
+        return name;
+    }
+    
     name = hyphenate(name);
 
     const {style} = document.documentElement;
