@@ -82,6 +82,30 @@ hr {
 	}
 }
 
+/* 알림 */
+.notice {
+	text-align: center;
+	.img{
+		img{
+			width: 102px;
+			height: 102px;
+		}
+	}
+	.main_text{
+		margin-top: 32px;
+		color: $font_color01;
+		font-size: 18px;
+		em{
+			font-weight: bold;
+		}
+	}
+	.sub_text{
+		margin-top: 16px;
+		font-size: 14px;
+		color:$font_color03;
+	}
+}
+
 
 // header
 .header{

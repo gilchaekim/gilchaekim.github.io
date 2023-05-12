@@ -3484,6 +3484,28 @@ hr {
   height: 20px;
 }
 
+/* 알림 */
+.notice {
+  text-align: center;
+}
+.notice .img img {
+  width: 102px;
+  height: 102px;
+}
+.notice .main_text {
+  margin-top: 32px;
+  color: var(--font_color01);
+  font-size: 18px;
+}
+.notice .main_text em {
+  font-weight: bold;
+}
+.notice .sub_text {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+
 .header .title_center {
   display: flex;
   justify-content: center;
