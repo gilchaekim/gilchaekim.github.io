@@ -1399,6 +1399,7 @@ table, th, td {
 .mui_phone .mui_select {
   position: static;
   width: 80px;
+  margin-top: 0 !important;
 }
 .mui_phone .mui_input {
   margin-left: 16px;

@@ -6523,7 +6523,7 @@
     modal.alert = function (message, options) {
       return openDialog(function (_ref3) {
         var i18n = _ref3.i18n;
-        return "\n            ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n            <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n            <div class=\"mui_modal_footer\">\n                <button class=\"mui_button mui_modal_close\" autofocus><span>").concat(i18n.ok, "</span></button>\n            </div>\n            ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            ");
+        return "\n            ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n            <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n            <div class=\"mui_modal_footer\">\n                <button class=\"mui_button mui_modal_close\" autofocus><span>").concat(message.ok ? message.ok : i18n.ok, "</span></button>\n            </div>\n            ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            ");
       }, options, function (deferred) {
         return deferred.resolve();
       });
@@ -6531,7 +6531,7 @@
     modal.confirm = function (message, options) {
       return openDialog(function (_ref4) {
         var i18n = _ref4.i18n;
-        return "<form>\n                ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n                <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n                <div class=\"mui_modal_footer confirm\">\n                    <button class=\"mui_button mui_modal_close\" type=\"button\"><span>").concat(i18n.cancel, "</span></button>\n                    <button class=\"mui_button\" autofocus><span>").concat(i18n.ok, "</span></button>\n                </div>\n                ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            </form>");
+        return "<form>\n                ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n                <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n                <div class=\"mui_modal_footer confirm\">\n                    <button class=\"mui_button mui_modal_close\" type=\"button\"><span>").concat(message.cancel ? message.cancel : i18n.cancel, "</span></button>\n                    <button class=\"mui_button\" autofocus><span>").concat(message.ok ? message.ok : i18n.ok, "</span></button>\n                </div>\n                ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            </form>");
       }, options, function (deferred) {
         return deferred.reject();
       });
