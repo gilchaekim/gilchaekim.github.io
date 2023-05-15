@@ -233,6 +233,10 @@ export default {
         hide() {
             return this.toggleElement(this.$el, false, animate);
         },
+
+        // append() {
+        //     return this.toggleElement(this.$el, false, animate);
+        // },
     },
 };
 
