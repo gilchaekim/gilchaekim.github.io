@@ -87,6 +87,57 @@
       </div>
       <div class="guide_card_box">
         <section class="code_view">
+          <div class="mui_checkbox_group block_type"><span class="mui_checkbox"><input type="checkbox" id="block_typeId1" /><label for="block_typeId1">체크1</label></span><span class="mui_checkbox"><input type="checkbox" id="block_typeId2" /><label for="block_typeId2">체크2</label></span><span class="mui_checkbox"><input type="checkbox" id="block_typeId3" /><label for="block_typeId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'block_type',
+  className:'block_type',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_radio_group mini_type"><span class="mui_radio"><input type="radio" id="mini_typeId1" name="mini_typeId1" /><label for="mini_typeId1">체크1</label></span><span class="mui_radio"><input type="radio" id="mini_typeId2" name="mini_typeId1" /><label for="mini_typeId2">체크2</label></span><span class="mui_radio"><input type="radio" id="mini_typeId3" name="mini_typeId1" /><label for="mini_typeId3">체크3</label></span></div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+radioCheck({
+  name:'mini_type',
+  type:"radio",
+  className:'mini_type',
+  lists:[
+    {
+      label:'체크1'
+    },
+    {
+      label:'체크2'
+    },
+    {
+      label:'체크3'
+    }
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
           <div class="mui_radio_group button_type"><span class="mui_radio"><input type="radio" id="btnTypeId1" name="btnTypeId1" /><label for="btnTypeId1">체크1</label></span><span class="mui_radio"><input type="radio" id="btnTypeId2" name="btnTypeId1" /><label for="btnTypeId2">체크2</label></span><span class="mui_radio"><input type="radio" id="btnTypeId3" name="btnTypeId1" /><label for="btnTypeId3">체크3</label></span></div>
         </section>
         <div class="code_block">
@@ -141,7 +192,12 @@
         <section class="code_view">
           <div class="switch"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId1" name="chk" /><label for="chkId1">잔액표시</label></span></div><br />
           <div class="switch type2"><span class="label">잔액 ON</span><span class="mui_checkbox"><input type="checkbox" id="chkId2" name="chk" /><label for="chkId2">잔액표시</label></span></div><br />
-          <div class="switch type3"><span class="mui_checkbox"><input type="checkbox" id="chkId3" name="chk" /><label for="chkId3">잔액</label></span></div>
+          <div class="switch type2 main_color"><span class="mui_checkbox"><input type="checkbox" id="chk23Id3" name="chk23" /><label for="chk23Id3">동의</label></span></div><br />
+          <div class="switch type3"><span class="mui_checkbox"><input type="checkbox" id="chkId4" name="chk" /><label for="chkId4">잔액</label></span></div>
+          <div class="box_check">
+            <p>만기 SMS 통지</p>
+            <div class="switch type2 main_color"><span class="mui_checkbox"><input type="checkbox" id="chk23Id5" name="chk23" /><label for="chk23Id5">동의</label></span></div>
+          </div>
         </section>
         <div class="code_block">
           <pre><code class="language-pug">.switch
@@ -158,11 +214,24 @@ br
     label:'잔액표시',
   })
 br
+.switch.type2.main_color
+  +radioCheck({
+    name:'chk23',
+    label:'동의',
+  })
+br
 .switch.type3
   +radioCheck({
     name:'chk',
     label:'잔액',
-  })</code></pre>
+  })
+.box_check 
+  p 만기  SMS 통지
+  .switch.type2.main_color
+    +radioCheck({
+      name:'chk23',
+      label:'동의',
+    })</code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>

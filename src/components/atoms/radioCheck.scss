@@ -78,7 +78,7 @@
   .mui_checkbox{
     display: inline-block;
     & ~ .mui_checkbox{
-      margin-left: 20px;
+      // margin-left: 20px;
     }
   }
 }
@@ -186,6 +186,69 @@
     }
   }
 }
+.block_type{
+  .mui_radio, .mui_checkbox {
+    display: block;
+    margin-right: 0;
+    & ~ .mui_radio, & ~ .mui_checkbox {
+      margin-top: 12px;
+      margin-left: 0;
+    }
+    input:checked + label {
+      border-color:$main_color01;
+      color:$font_color01;
+      font-weight: 700;
+      &::after {
+        top: 24px;
+        left: 20px;
+      }
+    }
+    label {
+      border-radius: 8px;
+      border: 1px solid $line_color02;
+      display: block;
+      padding: 20px 16px 20px 48px;
+      line-height: 24px;
+      font-size: 16px;
+      color:$font_color02;
+      &::before {
+        top: 20px;
+        left: 16px;
+      }
+    }
+  }
+}
+.mini_type{
+  .mui_radio, .mui_checkbox {
+    & ~ .mui_radio, & ~ .mui_checkbox {
+      margin-left: 0;
+      margin-right: 20px;
+    }
+    input:checked + label {
+      color:$font_color01;
+      &::after {
+        display: none;
+      }
+      &::before {
+        background: none;
+        @include icon_svg(check, "#df6311", 20px);
+        border: 0 none;
+      }
+    }
+    label {
+      font-size: 14px;
+      color:$font_color01;
+      line-height: 20px;
+      min-height: 20px;
+      padding-left: 28px;
+      display: inline-block;
+      &::before {
+        @include icon_svg(check, "#ccc", 20px);
+        border: 0 none;
+      }
+    }
+  }
+}
 .switch{
   display: inline-block;
   vertical-align: top;
@@ -194,6 +257,18 @@
     .label{
       height: 20px;
       line-height: 20px;
+    }
+    &.main_color{
+      .mui_checkbox{
+        input{
+          &:checked + label{
+            &::before{
+              background: $main_color01;
+            }
+          }
+        }
+      }
+      
     }
     .mui_checkbox{
       label{
@@ -343,5 +418,21 @@
         transition: left .2s;
       }
     }
+  }
+}
+.box_check{
+  background:$bg_color02;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  p {
+    font-size: 15px;
+    color:$font_color01;
+    font-weight: 700;
+  }
+  .switch{
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }
