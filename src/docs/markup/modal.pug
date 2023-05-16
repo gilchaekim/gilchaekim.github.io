@@ -1,7 +1,6 @@
 extends ../layout/guideBase.pug
 
 block content
-  script(src="https://code.jquery.com/jquery-1.12.4.min.js") 
   div.main_content
     +guideTitle({
       text:"Modal"
@@ -318,14 +317,6 @@ block content
 
 
     script. 
-
-      $("#modal").on('show', function(){
-        console.log('show');
-      })
-
-      $("#modal").on('hide', function(){
-        console.log('hide');
-      })
 
       document.addEventListener("DOMContentLoaded", (event) => {
         let elem = []

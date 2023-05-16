@@ -1,0 +1,41 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"이어가기 안내호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"알림",
+    id:"modal_bottom",
+    type:"bottom",
+    className:"webinf"
+  })
+    .notice 
+      .img 
+        img(src="/src/images/ico_suitability.png", alt="")
+      p.main_text <strong>직장인 톡톡 자금 신용대출자금</strong><br>신청이 진행중입니다.
+        em.tit 이어서 진행하시겠어요?
+    +content_group(3)
+      +text({
+        type:'warning',
+        text:"가나다라마바사"
+      })
+      
+    +button_bottom_fixed()
+      +button({
+        label:"신청취소",
+        size:"large",
+        type:"default"
+      })
+      +button({
+        label:"이어가기",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#modal_bottom').show()

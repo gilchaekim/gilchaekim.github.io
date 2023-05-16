@@ -34,6 +34,7 @@
       &.mui_active{
         button, a{
           color: $font_color01;
+          font-weight:700;
           &::after{
             content: '';
             display: block;
