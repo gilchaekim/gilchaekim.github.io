@@ -2002,3 +2002,57 @@ hr {
 		}
 	}
 }
+
+/* 금융상품(대출) */
+.webinf {
+	.sub_title {
+		padding-top:4px;
+		font-size:15px;
+	}
+	.info_list {
+		.acc_header {
+			.title {
+				padding-left:0;
+				font-weight:300;
+				&::before {
+					display:none;
+				}
+			}
+		}
+		.mui_acc_content {
+			padding-left:0;
+			padding-right:0;
+			border-top:0;
+			.title.lv5 {
+				font-size:15px;
+			}
+			.txt {
+				padding-top:4px;
+				color:$font_color03;
+			}
+			.mui_button_wrap {
+				&+.mui_button_wrap {
+					margin-top:12px;
+				}
+				.mui_white {
+					color:$font_color03;
+				}
+			}
+		}
+		.mui_text_lists {
+			ul li {
+				margin-top:4px;
+				&::before {
+					background:$basic_color03;
+				}
+				&~li {
+					margin-top:4px;
+				}
+			}
+		}
+	}
+	.low_txt {
+		font-size:13px;
+		color:$basic_color04;
+	}
+}
