@@ -230,7 +230,7 @@
 				"\tlabel:'$0'",
 				"\tlists:[",
 				"\t\t{label:'라디오버튼1',},",
-				"\t]"
+				"\t]",
 				"})"
 		],
 		"description": "라디오 & 체크"
@@ -242,6 +242,22 @@
 				"\tname:'btnType',",
 				"\ttype:\"radio\",",
 				"\tclassName:'button_type ${1|type1|}',",
+				"\tlists:[",
+				"\t\t{",
+				"\t\t\tlabel:''",
+				"\t\t}",
+				"\t]",
+				"})"
+		],
+		"description": ""
+	},
+	"radio&check_block": {
+		"prefix": ["!radio&check_block", "!ㄱㅁㅇ_ㅠ수"],
+		"body": [
+				"+radioCheck({",
+				"\tname:'btnType',",
+				"\ttype:\"radio\",",
+				"\tclassName:'block_type',",
 				"\tlists:[",
 				"\t\t{",
 				"\t\t\tlabel:''",
@@ -575,7 +591,16 @@
 				"+input_drivingnumber(${1:{data:[{value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}, {value:\"\"\\}]\\}})"
 		],
 		"description": "면허번호"
+	},
+	"step_number": {
+		"prefix": "!step_number",
+		"body": [
+				"+stepNum({",
+				"\ttotal:$1,",
+				"\tactiveIndex:$0",
+				"})"
+		],
+		"description": "숫자 형 스텝"
 	}
 }
-
 

@@ -37,16 +37,24 @@
       position: static;
       label{
         position: absolute;
-        padding: 20px 20px 20px 52px;
+        padding: 20px;
         top: 0;
         left: 0;
         right: 0;
         bottom: 0;
+        font-size: 16px;
+        font-weight: 700;
+        color:$font_color01;
         &::before{
           top: 20px;
-          left: 20px;
+          left: auto;
+          right: 20px;
         }
       }
+    }
+    .mui_result {
+      padding-top: 16px;
+      border-top: 1px solid $line_color03;
     }
   }
   .inset{
