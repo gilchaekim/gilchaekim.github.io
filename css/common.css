@@ -1339,6 +1339,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   background: url("/src/images/ico_del.svg") no-repeat center;
 }
 
+.mui_bottom_tray .mui_button_fixed {
+  height: 108px;
+}
+
 caption {
   font-size: 0;
   width: 0;
@@ -1994,7 +1998,6 @@ table, th, td {
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content:first-child, [mui-modal].mui_bottom_tray_wrap .mui_modal_content:first-child {
   padding-top: 40px;
-  padding-bottom: 20px;
 }
 .mui_modal.mui_fullpop_wrap, [mui-modal].mui_fullpop_wrap {
   padding: 0;
@@ -5531,6 +5534,19 @@ hr {
   font-size: 18px;
   font-weight: 700;
   color: var(--font_color01);
+}
+.webdep .signup_remind .title ~ .title {
+  padding-top: 16px;
+  margin-top: 16px;
+  border-top: 1px solid var(--line_color03);
+}
+.webdep .signup_remind .text {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 16px;
+}
+.webdep .mui_checkbox {
+  margin-top: 32px;
 }
 
 .signupguide_wrap .condition_title {

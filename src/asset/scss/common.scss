@@ -2065,7 +2065,21 @@ hr {
 			font-size: 18px;
 			font-weight: 700;
 			color:$font_color01;
+			& ~ .title {
+				padding-top: 16px;
+				margin-top: 16px;
+				border-top: 1px solid $line_color03;
+			}
 		}
+		.text {
+			font-size: 14px;
+			color:$font_color03;
+			margin-top: 16px;
+		}
+	}
+	.mui_checkbox {
+		margin-top: 32px;
+
 	}
 }
 // 가입 사전안내
