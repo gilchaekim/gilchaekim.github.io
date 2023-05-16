@@ -2002,3 +2002,114 @@ hr {
 		}
 	}
 }
+
+.webdep {
+	.mui_white {
+		color:$font_color03;
+	}
+}
+// 가입 사전안내
+.signupguide_wrap{
+	.condition_title{
+		margin-bottom: 8px;
+		font-size: 14px;
+		color:$font_color01;
+	}
+	.signup_guide {
+		border-radius: 12px;
+		background:$bg_color02;
+		padding: 20px;
+		li {
+			position: relative;
+			display: flex;
+			align-items: center;
+			.img {
+				margin-right: 12px;
+				img {
+					width: 36px;
+					height: 36px;
+					border-radius: 18px;
+				}
+			}
+			.text {
+				font-size: 14px;
+				color:$font_color01;
+			}
+			& ~ li {
+				margin-top: 16px;
+
+			}
+		}
+	}
+}
+.bank_products {
+	.sub_txt {
+		padding-top: 4px;
+		font-size: 15px;
+		color:$font_color02;
+	}
+	.detail {
+		margin-top: 36px;
+		position: relative;
+		.list {
+			display: flex;
+			& ~ .list {
+				margin-top: 16px;
+			}
+		}
+		dl {
+			& ~ dl {
+					margin-left: 32px;
+			}
+			dt {
+				font-size: 13px;
+				color:$basic_color04;
+			}
+			dd {
+				font-size: 20px;
+				font-weight: 700;
+				color:$font_color01;
+			}
+		}
+		.img {
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			img {
+				width: 120px;
+			}
+		}
+	}
+	.other_guide {
+		.img {
+			text-align: center;
+		}
+		img {
+			width: 92px;
+			height: 92px;
+		}
+		.text {
+			font-size: 14px;
+			color:$font_color03;
+			padding: 20px;
+			border-radius: 20px;
+			background: $bg_color02;
+			margin-top: 16px;
+		}
+	}
+}
+.product_data {
+	.title {
+		font-size: 15px;
+		color:$font_color02;
+		font-weight: 700;
+		& ~ .title {
+			margin-top: 16px;
+		}
+	} 
+	.text {
+		font-size: 14px;
+		color:$font_color03;
+		margin-top: 4px;
+	}
+}
