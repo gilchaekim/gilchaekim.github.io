@@ -1,0 +1,17 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "예적금"
+
+block content
+  .products
+    +content_group(0)   
+      
+
+  
+  +button_bottom_fixed()
+    +button({
+      label:"가입하기",
+      size:"large",
+    })

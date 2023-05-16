@@ -3868,7 +3868,7 @@
       active: false,
       animation: [true],
       collapsible: true,
-      multiple: false,
+      multiple: true,
       openText: "열기",
       closeText: "닫기",
       clsOpen: 'mui_open',
