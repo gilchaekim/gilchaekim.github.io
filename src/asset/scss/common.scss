@@ -1416,15 +1416,7 @@ hr {
 		padding-right: 20px;
 		position: relative;
 		display: inline-block;
-		&::after{
-			content: '';
-			display: block;
-			@include icon_svg(arrow-left, "#666", 20px);
-			transform: rotate(180deg);
-			position: absolute;
-			top: 0;
-			right: 0;
-		}
+		
 		& > span{
 			display: inline-flex;
 			position: relative;
@@ -1441,6 +1433,17 @@ hr {
 					height: 14px;
 				}
 			}
+		}
+	}
+	button.total_data {
+		&::after{
+			content: '';
+			display: block;
+			@include icon_svg(arrow-left, "#666", 20px);
+			transform: rotate(180deg);
+			position: absolute;
+			top: 0;
+			right: 0;
 		}
 	}
 	.grey_box_result{
@@ -2057,8 +2060,12 @@ hr {
 	}
 }
 .webdep {
-	.mui_white {
-		color:$font_color03;
+	.signup_remind {
+		.title {
+			font-size: 18px;
+			font-weight: 700;
+			color:$font_color01;
+		}
 	}
 }
 // 가입 사전안내

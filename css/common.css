@@ -509,7 +509,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_radio, .mui_checkbox {
   position: relative;
   display: inline-block;
-  margin-right: 24px;
 }
 .mui_radio input, .mui_checkbox input {
   opacity: 0;
@@ -569,6 +568,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   height: 16px;
 }
 
+.mui_radio_group, .mui_checkbox_group {
+  margin-left: -24px;
+}
+.mui_radio_group .mui_radio, .mui_radio_group .mui_checkbox, .mui_checkbox_group .mui_radio, .mui_checkbox_group .mui_checkbox {
+  margin-left: 24px;
+}
+
 .mui_radio_group .mui_radio {
   display: inline-block;
 }
@@ -576,6 +582,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .mui_checkbox_group .mui_checkbox {
   display: inline-block;
 }
+
 .button_type {
   border-radius: 8px;
   position: relative;
@@ -675,9 +682,12 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: none;
 }
 
+.block_type.mui_radio_group, .block_type.mui_checkbox_group {
+  margin-left: 0;
+}
 .block_type .mui_radio, .block_type .mui_checkbox {
   display: block;
-  margin-right: 0;
+  margin-left: 0;
 }
 .block_type .mui_radio ~ .mui_radio, .block_type .mui_radio ~ .mui_checkbox, .block_type .mui_checkbox ~ .mui_radio, .block_type .mui_checkbox ~ .mui_checkbox {
   margin-top: 12px;
@@ -706,9 +716,11 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   left: 16px;
 }
 
-.mini_type .mui_radio ~ .mui_radio, .mini_type .mui_radio ~ .mui_checkbox, .mini_type .mui_checkbox ~ .mui_radio, .mini_type .mui_checkbox ~ .mui_checkbox {
-  margin-left: 0;
-  margin-right: 20px;
+.mini_type.mui_radio_group, .mini_type.mui_checkbox_group {
+  margin-left: -20px;
+}
+.mini_type .mui_radio, .mini_type .mui_checkbox {
+  margin-left: 20px;
 }
 .mini_type .mui_radio input:checked + label, .mini_type .mui_checkbox input:checked + label {
   color: var(--font_color01);
@@ -2185,6 +2197,17 @@ table, th, td {
   padding-top: 20px;
 }
 
+.mui_bottom_tray .mui_result_ico {
+  padding-top: 0;
+}
+.mui_bottom_tray .mui_result_ico .icon_img {
+  width: 48px;
+  height: 48px;
+}
+.mui_bottom_tray .mui_result_ico .main_txt {
+  font-size: 18px;
+}
+
 .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
 }
@@ -2628,6 +2651,10 @@ table, th, td {
 }
 .mui_card .mui_result dl ~ dl {
   margin-top: 16px;
+}
+.mui_card .mui_result + .mui_button_custom {
+  margin-top: 24px;
+  width: 100%;
 }
 .mui_card .tags {
   margin-bottom: 16px;
@@ -4885,19 +4912,6 @@ hr {
   position: relative;
   display: inline-block;
 }
-.webauc .total_data::after {
-  content: "";
-  display: block;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  transform: rotate(180deg);
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 .webauc .total_data > span {
   display: inline-flex;
   position: relative;
@@ -4914,6 +4928,19 @@ hr {
   background: var(--line_color02);
   width: 1px;
   height: 14px;
+}
+.webauc button.total_data::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 .webauc .grey_box_result {
   background: var(--bg_color02);
@@ -5456,8 +5483,54 @@ hr {
   color: #333;
 }
 
-.webdep .mui_white {
+/* 금융상품(대출) */
+.webinf .sub_title {
+  padding-top: 4px;
+  font-size: 15px;
+}
+.webinf .info_list .acc_header .title {
+  padding-left: 0;
+  font-weight: 300;
+}
+.webinf .info_list .acc_header .title::before {
+  display: none;
+}
+.webinf .info_list .mui_acc_content {
+  padding-left: 0;
+  padding-right: 0;
+  border-top: 0;
+}
+.webinf .info_list .mui_acc_content .title.lv5 {
+  font-size: 15px;
+}
+.webinf .info_list .mui_acc_content .txt {
+  padding-top: 4px;
   color: var(--font_color03);
+}
+.webinf .info_list .mui_acc_content .mui_button_wrap + .mui_button_wrap {
+  margin-top: 12px;
+}
+.webinf .info_list .mui_acc_content .mui_button_wrap .mui_white {
+  color: var(--font_color03);
+}
+.webinf .info_list .mui_text_lists ul li {
+  margin-top: 4px;
+}
+.webinf .info_list .mui_text_lists ul li::before {
+  background: var(--basic_color03);
+}
+.webinf .info_list .mui_text_lists ul li ~ li {
+  margin-top: 4px;
+}
+.webinf .low_txt {
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+
+.webdep .signup_remind .title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color01);
 }
 
 .signupguide_wrap .condition_title {

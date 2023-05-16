@@ -68,6 +68,10 @@
         margin-top: 16px;
       }
     }
+    & + .mui_button_custom  {
+      margin-top: 24px;
+      width: 100%;
+    }
   }
   .tags{
 

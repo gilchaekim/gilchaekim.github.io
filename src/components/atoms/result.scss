@@ -94,3 +94,16 @@
 .tab_pane .mui_result_ico.null{
   padding-top: 20px;
 }
+
+.mui_bottom_tray{
+  .mui_result_ico{
+    padding-top: 0;
+    .icon_img {
+      width: 48px;
+      height: 48px;
+    }
+    .main_txt {
+      font-size: 18px;
+    }
+  }
+}

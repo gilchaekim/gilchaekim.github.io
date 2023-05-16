@@ -1,0 +1,51 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"가입정보 입력",
+      lv:2,
+    })
+  +content_group(3)
+    +title({
+      text:"1.고객 기본 정보",
+      lv:4,
+    })
+  +content_group(2)
+    +card({
+      data: [
+          {
+            title:"이름",
+            text:"김저축",
+          },
+          {
+            title:"후대폰번호",
+            text:"010-1234-5678",
+          },
+          {
+            title:"주소",
+            text:"[04130]서울 마포구 공덕공<br>168 11층",
+          },
+        ]
+    })
+      +button_custom({
+        type:"gray-32",
+        label:"주소변경"
+      })
+      
+
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
