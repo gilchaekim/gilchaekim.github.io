@@ -13,5 +13,8 @@
     }
     .mui_button_group {
         margin-top: 12px;
+        .mui_button {
+            padding: 0;
+        }
     }
 }

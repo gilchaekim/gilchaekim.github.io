@@ -2979,6 +2979,9 @@ table, th, td {
 .mui_inputmoney .mui_button_group {
   margin-top: 12px;
 }
+.mui_inputmoney .mui_button_group .mui_button {
+  padding: 0;
+}
 
 .mui_inputbtn {
   position: relative;
