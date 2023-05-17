@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">약관동의</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -233,74 +233,25 @@
     </div><!-- / header -->
     <!-- contents -->
     <div id="contants">
-      <div class="common_agreement">
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_check inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
-            <button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-            <div class="inset">
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>휴대폰 본인인증</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
+          <div class="mui_modal_body">
+            <div class="mui_modal_content">
+              <div class="mui_result_ico result">
+                <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt="" /></div>
+                <p class="main_txt">최근 20영업일 이내 타금융기관 포함 입출금통장을 개설한 이력이 존재합니다.</p>
+                <p class="sub_txt">YYYY년 MM월 DD일 이후에 다시 시도해주세요.</p>
               </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
             </div>
           </div>
         </div>
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_check chk_lists inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
-            <button class="chk_btn" type="button"><span class="text">개인(신용)정보 수집,이용 동의서 (상품서비스 안내 등)</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-            <div class="inset">
-              <div class="mui_checkbox_group">
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId1" checked="checked" />
-                  <label for="checklistId1">전체</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId2" />
-                  <label for="checklistId2">SMS</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId3" />
-                  <label for="checklistId3">이메일</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId4" />
-                  <label for="checklistId4">알림톡</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId5" />
-                  <label for="checklistId5">전화</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId6" />
-                  <label for="checklistId6">우편</label>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_box">
-            <div class="agree_box">
-              <div class="inset">
-                <p>약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트</p>
-              </div>
-            </div>
-            <div class="check_sec">
-            </div>
-          </div>
-          <p class="mui_text warning">상품가입 진행을 위해서 동의가 필요해요</p>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

@@ -4,6 +4,7 @@
 <head>
   <title>METAUI</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="/docs/css/index.css">
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
@@ -12,7 +13,6 @@
 
 <body>
   <div id="guideWrap">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"> </script>
     <div class="main_content">
       <div class="title_sec">
         <p class="guide_title title_lv1">Modal</p>
@@ -332,14 +332,6 @@ GCui.modal.alert({
         <pre class="pre">GCui.toast({text:"String"})</pre>
       </div>
       <script>
-        $("#modal").on('show', function() {
-          console.log('show');
-        })
-
-        $("#modal").on('hide', function() {
-          console.log('hide');
-        })
-
         document.addEventListener("DOMContentLoaded", (event) => {
           let elem = []
           elem.push(document.querySelector("#callAlert"))

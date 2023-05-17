@@ -35,8 +35,8 @@ mixin form(params={})
         div(
           class=`${prefix}${divide}form_content`
         )
-          - item.content && item.content()
-          if !!message
+          - item.content && item.content();
+          if !!message && message.text
             p(
               class="msg_form"
               class=`msg_${message.type}`

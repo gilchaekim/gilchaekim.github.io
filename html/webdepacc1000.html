@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">약관동의</span></div>
+          <div class="title_center"><span class="title">상품가입</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,71 +232,95 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <div class="common_agreement">
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_check inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
-            <button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-            <div class="inset">
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
-              <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
-                <button class="chk_btn" type="button"><span class="text">[필수] 상세 약관 타이틀</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-              </div>
+    <div class="webdep" id="contants">
+      <div class="mui_contents_group lv_0">
+        <undefined class="mui_stepnum">
+          <ul>
+            <li class="step"><span>1</span></li>
+            <li class="step mui_active"><span>2</span></li>
+            <li class="step"><span>3</span></li>
+            <li class="step"><span>4</span></li>
+          </ul>
+        </undefined>
+      </div>
+      <div class="mui_contents_group lv_0">
+        <div class="mui_title">
+          <p class="title lv2">가입정보 입력
+          </p>
+        </div>
+      </div>
+      <div class="mui_contents_group lv_3">
+        <div class="mui_title">
+          <p class="title lv4">3.상품 정보
+          </p>
+        </div>
+        <div class="bank_product_details">
+          <div class="mui_title">
+            <p class="title lv1"><em>보통예금</em>
+            </p>
+          </div>
+          <p class="sub_txt">금액, 기간 제한없이 입출금이 자유로운 상품입니다.</p>
+          <div class="detail">
+            <div class="list">
+              <dl>
+                <dt>최저금리</dt>
+                <dd>24.5%</dd>
+              </dl>
             </div>
+            <div class="img"> <img src="/src/images/img_prd.png" alt="보통예금 상품 이미지"></div>
           </div>
         </div>
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_check chk_lists inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
-            <button class="chk_btn" type="button"><span class="text">개인(신용)정보 수집,이용 동의서 (상품서비스 안내 등)</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
-            <div class="inset">
-              <div class="mui_checkbox_group">
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId1" checked="checked" />
-                  <label for="checklistId1">전체</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId2" />
-                  <label for="checklistId2">SMS</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId3" />
-                  <label for="checklistId3">이메일</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId4" />
-                  <label for="checklistId4">알림톡</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId5" />
-                  <label for="checklistId5">전화</label>
-                </span>
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="checklistId6" />
-                  <label for="checklistId6">우편</label>
-                </span>
+      </div>
+      <div class="mui_contents_group lv_2">
+        <div class="mui_form">
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">신규계좌 비밀번호</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="text" placeholder="숫자 4자리" mui-input="" />
+              </span>
+            </div>
+          </div>
+          <div class="mui_form_list form_error">
+            <div class="mui_form_head"><span class="form_title">신규계좌 비밀번호 확인</span></div>
+            <div class="mui_form_content">
+              <span class="mui_input">
+                <input type="text" placeholder="숫자 4자리" mui-input="" />
+              </span>
+              <p class="msg_form msg_error">비밀번호는 4자리를 입력해주세요</p>
+              <p class="mui_text warning">연속된 숫자, 반복된 숫자, 개인정보와 관련된 숫자는 입력하실 수 없습니다.</p>
+            </div>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">금융정보취약계층 구분</span></div>
+            <div class="mui_form_content">
+              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">만 65세 이상<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">선택하세요</span></span></button>
+            </div>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">금융정보취약계층 안내</span></div>
+            <div class="mui_form_content">
+              <div class="mui_agree_box inner_agree">
+                <div class="agree_box">
+                  <div class="inset">
+                    <p>금융정보취약계층(만 65세 이상인자, 은퇴자, 주부) 등에 해당하시고 그 정보를 제공하기로 동의하신 고객께서는 예금보험관계 성립여부 및 보호한도에 대해 다른 정보보다 우선적으로 설명받으실 수 있습니다. 금융정보 취약계층(만 65세 이상인자, 은퇴자, 주부 등)에 해당하여, '예금자보호여부 및 보호한도(원금과 소정의 이자를 합하여 1인당 5천만원)에 대하여 확인하셨습니까?</p>
+                  </div>
+                </div>
+                <div class="check_sec">
+                  <div class="mui_radio_group">
+                    <span class="mui_radio">
+                      <input type="radio" id="chk172727Id1" name="chk172727Id1" />
+                      <label for="chk172727Id1">예</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="chk172727Id2" name="chk172727Id1" />
+                      <label for="chk172727Id2">아니오</label>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="mui_contents_group lv_1">
-          <div class="mui_agree_box">
-            <div class="agree_box">
-              <div class="inset">
-                <p>약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트</p>
-              </div>
-            </div>
-            <div class="check_sec">
-            </div>
-          </div>
-          <p class="mui_text warning">상품가입 진행을 위해서 동의가 필요해요</p>
         </div>
       </div>
       <div class="mui_button_fixed"><span class="inset">
