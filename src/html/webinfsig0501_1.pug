@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"이어가기 안내호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"이어가기 안내",
+    id:"modal_bottom",
+    type:"bottom",
+    className:"webinf"
+  })
+    .notice 
+      .img 
+        img(src="/src/images/ico_suitability.png", alt="")
+      p.main_text <strong>직장인 톡톡 자금 신용대출자금</strong><br>신청이 진행중입니다.
+        em.tit 이어서 진행하시겠어요?
+    +content_group(3)
+      +text({
+        type:'warning',
+        text:"대출금액과 금리는 조회시점에 따라 변동될 수 있습니다."
+      })
+      
+    +button_bottom_fixed()
+      +button({
+        label:"신청취소",
+        size:"large",
+        type:"default"
+      })
+      +button({
+        label:"이어가기",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#modal_bottom').show()
+    GCui.modal.confirm({
+      text:"<p class='alert_tit'><strong>직장인 톡톡 자금 신용대출</strong><br>신청을 취소하시겠어요?</p><p class='alert_txt'>대출취소 후 재신청하면<br>한도와 금리가 달라질 수 있습니다.",
+    })
