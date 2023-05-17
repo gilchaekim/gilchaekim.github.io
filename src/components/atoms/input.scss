@@ -67,6 +67,8 @@
       text-align: right;
     }
     .subfix{
+      flex:none;
+      font-weight:700;
       line-height: 48px;
     }
   }

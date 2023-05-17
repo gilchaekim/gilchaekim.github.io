@@ -25,6 +25,9 @@ block content
             dd 제한없음
         .img 
           img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+      button.btn_arrow
+        span.calc_txt 나의 대출 이자는?
+          strong 계산해보기
     hr
     +content_group(0)
       +accordion({
@@ -61,11 +64,18 @@ block content
             p.text 유의사항이 있나요??
         +acc_title('약관 및 상품설명서')
         +acc_content()
-          +button({
-            label:"입출 자유 예금 약관",
-            size:"medium",
-            type:"white",
-          })
+          +button_wrap()
+            +button({
+              label:"입출 자유 예금 약관",
+              size:"medium",
+              type:"white",
+            })
+          +button_wrap()
+            +button({
+              label:"입출 자유 예금 약관",
+              size:"medium",
+              type:"white",
+            })
     hr
     .other_guide 
       .img 

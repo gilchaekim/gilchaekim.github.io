@@ -61,6 +61,48 @@ hr {
 		border-radius:60px;
 	}
 }
+/* 회색배경 화살표 버튼 */
+.btn_arrow {
+	display:block;
+	margin-top:40px;
+	padding:16px 20px;
+	width:100%;
+	border-radius:20px;
+	background:$bg_color02;
+	.calc_txt {
+		position:relative;
+		display:flex;
+		flex-direction:column;
+		align-items:flex-start;
+		padding-left:52px;
+		font-size:13px;
+		color:$basic_color04;
+		&::before {
+			content:"";
+			position:absolute;
+			top:50%;
+			left:0;
+			width:42px;
+			height:42px;
+			background:red;
+			transform:translateY(-50%);
+		}
+		&:after {
+			content:"";
+			position:absolute;
+			top:50%;
+			right:0;
+			@include icon_svg(arrow-left, "#111", 20px);
+			transform:translateY(-50%) rotate(180deg);
+		}
+	}
+	strong {
+		display:block;
+		font-size:16px;
+		color:$font_color01;
+		font-weight:700;
+	}
+}
 /* 하단안내문구(아이콘 유무) */
 .info_txt {
 	position:relative;
@@ -105,7 +147,6 @@ hr {
 		color:$font_color03;
 	}
 }
-
 
 // header
 .header{
@@ -2008,47 +2049,6 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
-	.btn_arrow {
-		display:block;
-		margin-top:40px;
-		padding:16px 20px;
-		width:100%;
-		border-radius:20px;
-		background:$bg_color02;
-		.calc_txt {
-			position:relative;
-			display:flex;
-			flex-direction:column;
-			align-items:flex-start;
-			padding-left:52px;
-			font-size:13px;
-			color:$basic_color04;
-			&::before {
-				content:"";
-				position:absolute;
-				top:50%;
-				left:0;
-				width:42px;
-				height:42px;
-				background:red;
-				transform:translateY(-50%);
-			}
-			&:after {
-				content:"";
-				position:absolute;
-				top:50%;
-				right:0;
-				@include icon_svg(arrow-left, "#111", 20px);
-				transform:translateY(-50%) rotate(180deg);
-			}
-		}
-		strong {
-			display:block;
-			font-size:16px;
-			color:$font_color01;
-			font-weight:700;
-		}
-	}
 	.mui_accordion {
 		.acc_lists:first-child {
 			.acc_header{
@@ -2080,45 +2080,27 @@ hr {
 			}
 		}
 	}
-	.mui_acc_content {
-		.mui_button_wrap {
-			.mui_white {
-				color:$basic_color03;
-			}
-			&+.mui_button_wrap {
-				margin-top:12px;
-			}
-		}
-	}
 	.low_txt {
 		padding-top:16px;
 		font-size:13px;
 		color:$basic_color04;
 	}
-	.tab_contents {
-		.money_support {
-			padding-top:12px;
+	.btn_money .group {
+		.mui_button {
+			padding:0 8px;
 			font-size:13px;
-			color:$main_color01;
-			text-align:right;
 		}
-		.mui_input.inner_subfix {
-			.subfix {
-				flex:none;
-				font-weight:700;
-			}
-		}
-		.btn_money {
-			.group {
-				.mui_button {
-					padding:0 8px;
-					font-size:13px;
-				}
-			}
-		}
+	}
+	.tab_contents {
 		.white-round-24.right_top {
 			top:-38px;
 		}
+	}
+	.money_support {
+		padding-top:12px;
+		font-size:13px;
+		color:$main_color01;
+		text-align:right;
 	}
 	.mui_text.default {
 		&.sub_title {
@@ -2138,6 +2120,64 @@ hr {
 			padding-bottom:32px;
 			font-size:22px;
 			border-bottom:1px solid $line_color03;
+		}
+	}
+	.mui_agree_check {
+		.text {
+			.sub_txt {
+				margin-right:-20px;
+				padding-top:8px;
+				font-size:13px;
+				color:$basic_color04;
+			}
+		}
+	}
+	.mui_form {
+		&+.mui_text.warning {
+			margin-top:12px;
+			margin-bottom:32px;
+		}
+	}
+	.bank_product_details {
+		&.long_type {
+			position:static;
+			padding-bottom:84px;
+		}
+		.detail {
+			position:relative;
+			.img {
+				right:0;
+				bottom:0;
+				width:95px;
+				height:80px;
+			}
+		}
+	}
+	.mui_card {
+		margin-top:-60px;
+		background:$bg_color03;
+		&+.mui_card {
+			margin-top:12px;
+		}
+	}
+	.mui_result {
+		&.line {
+			&+.btn_loan {
+				position:relative;
+				margin-top:16px;
+				padding-right: 16px;
+				font-size:14px;
+				color:$font_color03;
+				text-align:right;
+				&::after {
+					content: "";
+					position:absolute;
+					top:1px;
+					right:0;
+					@include icon_svg(arrow-left, "#888", 16px);
+					transform:rotate(180deg);
+				}
+			}
 		}
 	}
 }
@@ -2226,6 +2266,16 @@ hr {
 			right: 0;
 			img {
 				width: 120px;
+			}
+		}
+	}
+	.mui_acc_content {
+		.mui_button_wrap {
+			.mui_white {
+				color:$basic_color03;
+			}
+			&+.mui_button_wrap {
+				margin-top:12px;
 			}
 		}
 	}
