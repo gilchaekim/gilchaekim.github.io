@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"보안매체별 최대이제한도",
+    id:"fullLayer",
+    type:"full",
+  })
+    +title({
+      text:"이자계산기",
+      lv:2,
+    })
+    
+  script.
+    GCui.modal('#fullLayer').show()

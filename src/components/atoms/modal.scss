@@ -146,9 +146,16 @@
             &_content{
                 max-height: 70vh;
                 overflow: auto;
-                padding: 16px 24px 0;
+                padding: 16px 24px 40px;
                 .mui_tabs {
                     margin: 0 -24px;
+                    &.overflow {
+                        margin: 0;
+                        .tab_pane {
+                            padding-left: 0;
+                            padding-right: 0;
+                        }
+                    }
                 }
                 .tab_pane {
                     padding: 16px 24px 0;
@@ -159,6 +166,9 @@
                 }
                 &:first-child {
                     padding-top: 40px;
+                }
+                .mui_button_fixed:last-child{
+                    margin-bottom: -40px;
                 }
             }
         }

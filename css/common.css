@@ -1623,6 +1623,9 @@ table, th, td {
   width: 100%;
 }
 
+.mui_text_lists + .mui_text {
+  margin-top: 12px;
+}
 .mui_text_lists li {
   position: relative;
 }
@@ -1776,6 +1779,9 @@ table, th, td {
 .mui_tabs.link_tab .tab_contents .tab_pane {
   display: block;
 }
+.mui_tabs + .mui_text {
+  margin-top: 12px;
+}
 .mui_tabs .mui_tab_nav {
   display: flex;
   padding: 0 24px;
@@ -1826,6 +1832,45 @@ table, th, td {
 }
 .mui_tabs .tab_contents .tab_pane.mui_active {
   display: block;
+}
+.mui_tabs.overflow .mui_tab_nav {
+  display: block;
+  padding: 0;
+  font-size: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  margin-right: -24px;
+  padding-bottom: 8px;
+}
+.mui_tabs.overflow .mui_tab_nav .nav_list {
+  flex: none;
+  display: inline-block;
+  margin-left: 8px;
+}
+.mui_tabs.overflow .mui_tab_nav .nav_list:first-child {
+  margin-left: 0;
+}
+.mui_tabs.overflow .mui_tab_nav .nav_list button, .mui_tabs.overflow .mui_tab_nav .nav_list a {
+  display: block;
+  position: relative;
+  height: 32px;
+  line-height: 32px;
+  background: var(--bg_color02);
+  color: var(--font_color03);
+  font-size: 13px;
+  padding: 0 12px;
+  border-radius: 16px;
+}
+.mui_tabs.overflow .mui_tab_nav .nav_list.mui_active button, .mui_tabs.overflow .mui_tab_nav .nav_list.mui_active a {
+  color: var(--font_color06);
+  background: var(--basic_color01);
+  font-weight: 700;
+}
+.mui_tabs.overflow .mui_tab_nav .nav_list.mui_active button::after, .mui_tabs.overflow .mui_tab_nav .nav_list.mui_active a::after {
+  display: none;
+}
+.mui_tabs.overflow .mui_tab_nav::after {
+  display: none;
 }
 
 .mui_accordion .acc_lists {
@@ -1986,10 +2031,17 @@ table, th, td {
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content, [mui-modal].mui_bottom_tray_wrap .mui_modal_content {
   max-height: 70vh;
   overflow: auto;
-  padding: 16px 24px 0;
+  padding: 16px 24px 40px;
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_tabs, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_tabs {
   margin: 0 -24px;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_tabs.overflow, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_tabs.overflow {
+  margin: 0;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_tabs.overflow .tab_pane, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_tabs.overflow .tab_pane {
+  padding-left: 0;
+  padding-right: 0;
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content .tab_pane, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .tab_pane {
   padding: 16px 24px 0;
@@ -2000,6 +2052,9 @@ table, th, td {
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content:first-child, [mui-modal].mui_bottom_tray_wrap .mui_modal_content:first-child {
   padding-top: 40px;
+}
+.mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_button_fixed:last-child, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_button_fixed:last-child {
+  margin-bottom: -40px;
 }
 .mui_modal.mui_fullpop_wrap, [mui-modal].mui_fullpop_wrap {
   padding: 0;
@@ -5617,6 +5672,73 @@ hr {
   font-weight: 700;
   color: var(--font_color01);
 }
+.webdep .pos_top {
+  margin: -24px -24px 0;
+  padding: 11px 24px 9px;
+  background: var(--bg_color02);
+}
+.webdep .pos_top .mui_datasort {
+  margin-bottom: 0;
+}
+.webdep .req_list_result {
+  margin-top: 24px;
+}
+.webdep .req_list_result .date {
+  font-size: 14px;
+  border-width: 700;
+  color: var(--basic_color04);
+}
+.webdep .req_list_result .data {
+  display: flex;
+  padding: 23px 0 22px;
+  border-bottom: 1px solid var(--line_color03);
+  justify-content: space-between;
+  align-items: center;
+}
+.webdep .req_list_result .data .text {
+  font-size: 16px;
+  color: var(--font_color02);
+}
+.webdep .req_list_result .link a {
+  display: block;
+  font-size: 16px;
+  color: var(--font_color02);
+  padding: 23px 0 22px;
+  border-bottom: 1px solid var(--line_color03);
+  position: relative;
+}
+.webdep .req_list_result .link a::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -10px;
+}
+.webdep .req_list_result .tag {
+  height: 20px;
+  padding: 0 8px;
+  color: var(--font_color06);
+  line-height: 20px;
+  font-size: 13px;
+  background: var(--basic_color01);
+  border-radius: 10px;
+}
+.webdep .req_list_result .tag.ing {
+  background: var(--basic_color07);
+}
+.webdep .req_list_result .tag.error {
+  background: var(--basic_color08);
+}
+.webdep .req_list_result .list ~ .list {
+  margin-top: 32px;
+}
 
 .signupguide_wrap .condition_title {
   margin-bottom: 8px;
@@ -5750,9 +5872,16 @@ hr {
 }
 
 .otp_code {
-  margin: 24px 0 40px;
+  margin: 24px 0 0;
 }
 .otp_code img {
   width: 100%;
+}
+
+.guide_limit .text {
+  font-weight: bold;
+  font-size: 14px;
+  color: var(--font_color01);
+  font-weight: 700;
 }
 /*# sourceMappingURL=common.css.map */
