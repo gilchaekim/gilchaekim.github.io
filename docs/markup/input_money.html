@@ -22,13 +22,22 @@
       </div>
       <div class="guide_card_box">
         <section class="code_view">
-          <div class="mui_inputmoney">
-            <div class="result"><span>원</span></div><span class="mui_input inner_subfix sublength_1"><input type="text" value="" mui-input="" /><span class="subfix"><span>원</span></span></span>
+          <div class="mui_inputmoney"><span class="mui_input inner_subfix sublength_1"><input type="text" value="" mui-input="" /><span class="subfix"><span>원</span></span></span>
+            <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>전액</span></button></span></div>
+          </div>
+          <div class="mui_inputmoney"><span class="mui_input inner_subfix sublength_1"><input type="text" value="" mui-input="" /><span class="subfix"><span>원</span></span></span>
+            <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span></div>
+            <p class="msg_form msg_error">에러 메세지</p>
+          </div>
+          <div class="mui_inputmoney"><span class="mui_input inner_subfix sublength_1"><input type="text" value="" mui-input="" /><span class="subfix"><span>원</span></span></span>
+            <p class="money_guide"> 100만<span>원</span></p>
             <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>전액</span></button></span></div>
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+input_money()</code></pre>
+          <pre><code class="language-pug">+input_money()
++input_money({btns:["1만", "1만", "1만", "1만"], message:{type:"error", text:"에러 메세지"}})
++input_money({guideMoney:true})</code></pre>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>

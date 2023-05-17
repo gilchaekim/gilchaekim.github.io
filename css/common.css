@@ -2967,11 +2967,17 @@ table, th, td {
   left: 0;
 }
 
-.mui_inputmoney {
-  border: 1px solid red;
-}
 .mui_inputmoney .result {
   text-align: right;
+}
+.mui_inputmoney .money_guide {
+  text-align: right;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--main_color01);
+}
+.mui_inputmoney .mui_button_group {
+  margin-top: 12px;
 }
 
 .mui_inputbtn {
@@ -3179,6 +3185,9 @@ table, th, td {
 }
 .mui_form_list .mui_form_content > .mui_button_custom + .mui_text {
   margin-top: 24px;
+}
+.mui_form_list .mui_form_content > .mui_checkbox + .mui_inputbtn, .mui_form_list .mui_form_content > .mui_checkbox + .mui_input, .mui_form_list .mui_form_content > .mui_radio + .mui_inputbtn, .mui_form_list .mui_form_content > .mui_radio + .mui_input {
+  margin-top: 16px;
 }
 .mui_form_list .mui_form_content .right_top {
   position: absolute;
@@ -5735,5 +5744,12 @@ hr {
   font-size: 14px;
   color: var(--font_color03);
   margin-top: 4px;
+}
+
+.otp_code {
+  margin: 24px 0 40px;
+}
+.otp_code img {
+  width: 100%;
 }
 /*# sourceMappingURL=common.css.map */

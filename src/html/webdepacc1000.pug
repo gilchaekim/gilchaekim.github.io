@@ -38,12 +38,14 @@ block content
     +form()
       +form_body({title:"신규계좌 비밀번호"})
         +input({
-          placeholder:"숫자 4자리"
+          placeholder:"숫자 4자리",
+          type:"password"
         })
 
       +form_body({title:"신규계좌 비밀번호 확인", message:{type:"error"}})
         +input({
-          placeholder:"숫자 4자리", 
+          placeholder:"숫자 4자리",
+          type:"password",
           message:{type:"error",text:"비밀번호는 4자리를 입력해주세요"}
         })
         +text({
@@ -73,6 +75,26 @@ block content
           name:'chk364721',
           label:'권유직원'
         })
+        +input_button({
+          btnText:"직원찾기",
+          placeholder:"권유직원",
+          type:"input"
+        })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"입출금예금(보통예금)의 해지는 영업점 또는 SB+에서 가능합니다.",
+          },
+        ]
+      })
 
   +button_bottom_fixed()
     +button({
