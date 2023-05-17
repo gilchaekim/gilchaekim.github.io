@@ -73,7 +73,19 @@ block content
           name:'chk364721',
           label:'권유직원'
         })
-
+        +input_button({
+          btnText:"직원찾기",
+          placeholder:"권유직원",
+          type:"input"
+        })
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS 통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk23',
+              label:'동의',
+            })
   +button_bottom_fixed()
     +button({
       label:"다음",

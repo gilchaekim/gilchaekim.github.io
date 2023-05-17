@@ -12,41 +12,22 @@ block content
   })
     +content_group(2)
       +title({
-        text:"예금이자계산",
+        text:"적금이자",
         lv:2,
       })
     +content_group(2)
       +form()
-        +form_body({title:"예금금리"})
+        +form_body({title:"적금금리"})
           +input({
             placeholder:"숫자만 입력",
             subfix:"%",
           })
-          +text({
-            type:'warning',
-            text:"입력 되어있는 금리는 저축은행 평균 금리입니다."
-          })
-        +form_body({title:"예금액"})
-          +input_money({btns:["+100만","+500만","+1천만","+5천만",], guideMoney:true})
-        +form_body({title:"예치기간"})
+        +form_body({title:"월납입액"})
+          +input_money({btns:["+10만","+50만","+100만","+500만",], guideMoney:true})
+        +form_body({title:"납입개월"})
           +input({
             placeholder:"숫자만 입력",
             subfix:"개월",
-          })
-        +form_body({title:"이자방식"})
-          +radioCheck({
-            name:'btnType',
-            type:"radio",
-            className:'button_type',
-            lists:[
-              {
-                label:'단리',
-                checked:true
-              },
-              {
-                label:'복리'
-              }
-            ]
           })
       +content_group(1)
         +button({
@@ -71,7 +52,7 @@ block content
             className:"greybox",
             data:[
               {
-                title:"예치금액",
+                title:"월납입액 합계(원)",
                 text:"10,000,000원",
               },
               {
@@ -94,7 +75,7 @@ block content
             className:"greybox",
             data:[
               {
-                title:"예치금액",
+                title:"월납입액 합계(원)",
                 text:"10,000,000원",
               },
               {

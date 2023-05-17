@@ -1,0 +1,164 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"상품정보 입력",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"출금계좌",
+      lv:4,
+    })
+  +content_group(4)
+    +button_select_account({
+      isMoney:true
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"가입기간"})
+        +input({
+          placeholder:"6~60",
+          subfix:"개월",
+        })
+        +datepicker()
+      +form_body({title:"불입금액"})
+        +input_money({guideMoney:true, btns:["+1만", "+100만", "+500만", "+1,000만"]})
+      +form_body({title:"이자지급방법"})
+        +form_value({
+          value:"정액식"
+        })
+      +form_body()
+        +radioCheck({
+          name:'chk409889',
+          label:'비과세종합저축'
+        })
+      +form_body()
+        .agree_switch
+          p.text 자동이체여부
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk232',
+              label:'동의',
+            })
+          .add_data 
+            +form()
+              +form_body({title:"자동이체출금 계좌정보"})
+                +button_select({
+                  label:"저축은행"
+                })
+                +input_button({
+                  btnText:"예금주 확인",
+                  placeholder:"계좌번호 입력",
+                  type:"input"
+                })
+                +text({
+                  type:'warning',
+                  text:"동일저축은행간 자동이체 등록 시 출금계좌로 등록됩니다."
+                })
+                +text({
+                  type:'warning',
+                  text:"매월 납입일에 CMS계좌에서 적금계좌로 자동이체 됩니다."
+                })
+              +form_body({title:"자동이체 일자"})
+                +button_select({
+                  label:"17일"
+                })
+        +text({
+          type:'warning',
+          text:"매월 납입일에 직접 적금계좌로 입금하셔야 합니다."
+        })
+      +form_body()
+        +content_group(3)
+          .agree_switch
+            p.text 만기해지 후 송금
+            .switch.type2.main_color
+              +radioCheck({
+                name:'chk2321',
+                label:'동의',
+              })
+            .add_data 
+              +form()
+                +form_body({title:"만기해지 후 송금 계좌정보"})
+                  +button_select({
+                    label:"저축은행"
+                  })
+                  +input_button({
+                    btnText:"예금주 확인",
+                    placeholder:"계좌번호 입력",
+                    type:"input"
+                  })
+        +content_group(3)
+          .agree_switch
+            p.text 만기 SMS통지
+            .switch.type2.main_color
+              +radioCheck({
+                name:'chk2322',
+                label:'동의',
+              })
+
+      +form_body()
+        +radioCheck({
+          name:'chk4098892',
+          label:'권유직원'
+        })
+        +input_button({
+          btnText:"직원찾기",
+          placeholder:"권유직원",
+          type:"input"
+        })
+      +form_body()
+      +form_body({title:"신규계좌 비밀번호"})
+        +input({
+          placeholder:"숫자 4자리",
+          type:"password"
+        })
+      +form_body({title:"신규계좌 비밀번호 확인"})
+        +input({
+          placeholder:"숫자 4자리",
+          type:"password"
+        })
+        +text({
+          type:'warning',
+          text:"연속된 숫자, 반복된 숫자, 개인정보와 련된 숫자는 입력하실 수 없습니다."
+        })
+      +form_body()
+
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"상품가입 전 반드시 상품설명서 및 약관을 확인하세요.",
+          },
+          {
+            text:"해당 상품에 대해 충분한 사전 설명을 받을 권리가 있으며, 설명을 이해한 후 가입해 주세요.",
+          },
+          {
+            text:"인터넷 예적금은 통장을 발급하지 않습니다.",
+          },
+        ]
+      })
+  
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">상품가입</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,186 +232,59 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
-      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>금융계산기</p>
+    <div class="webdep" id="contants">
+      <div class="mui_contents_group lv_0">
+        <undefined class="mui_stepnum">
+          <ul>
+            <li class="step mui_active"><span>1</span></li>
+            <li class="step"><span>2</span></li>
+            <li class="step"><span>3</span></li>
+            <li class="step"><span>4</span></li>
+          </ul>
+        </undefined>
+      </div>
+      <div class="mui_contents_group lv_0">
+        <div class="mui_title">
+          <p class="title lv2">약관동의
+          </p>
+        </div>
+      </div>
+      <div class="mui_contents_group lv_2">
+        <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+          <button class="chk_btn" type="button"><span class="text">금융상품 중요사항 안내</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+        </div>
+        <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+          <button class="chk_btn" type="button"><span class="text">[필수] 보통예금 상품설명서</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+        </div>
+        <div class="mui_agree_check inner_agree"><!-- 체크 시 mui_active 클래스 추가 -->
+          <button class="chk_btn" type="button"><span class="text">전체 동의</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+          <div class="inset">
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 예금거래기본약관</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
             </div>
-            <div class="mui_modal_content">
-              <div class="mui_contents_group lv_2">
-                <div class="mui_title">
-                  <p class="title lv2">예금이자계산
-                  </p>
-                </div>
-              </div>
-              <div class="mui_contents_group lv_2">
-                <div class="mui_form">
-                  <div class="mui_form_list">
-                    <div class="mui_form_head"><span class="form_title">예금금리</span></div>
-                    <div class="mui_form_content">
-                      <span class="mui_input inner_subfix sublength_1">
-                        <input type="text" placeholder="숫자만 입력" mui-input="" /><span class="subfix"><span>%</span></span>
-                      </span>
-                      <p class="mui_text warning">입력 되어있는 금리는 저축은행 평균 금리입니다.</p>
-                    </div>
-                  </div>
-                  <div class="mui_form_list">
-                    <div class="mui_form_head"><span class="form_title">예금액</span></div>
-                    <div class="mui_form_content">
-                      <div class="mui_inputmoney">
-                        <span class="mui_input inner_subfix sublength_1">
-                          <input type="text" value="" mui-input="" /><span class="subfix"><span>원</span></span>
-                        </span>
-                        <p class="money_guide">
-                          100만<span>원</span></p>
-                        <div class="mui_button_group"><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+500만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+1천만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+5천만</span></button></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="mui_form_list">
-                    <div class="mui_form_head"><span class="form_title">예치기간</span></div>
-                    <div class="mui_form_content">
-                      <span class="mui_input inner_subfix sublength_2">
-                        <input type="text" placeholder="숫자만 입력" mui-input="" /><span class="subfix"><span>개월</span></span>
-                      </span>
-                    </div>
-                  </div>
-                  <div class="mui_form_list">
-                    <div class="mui_form_head"><span class="form_title">이자방식</span></div>
-                    <div class="mui_form_content">
-                      <div class="mui_radio_group button_type">
-                        <span class="mui_radio">
-                          <input type="radio" id="btnTypeId1" name="btnTypeId1" checked="checked" />
-                          <label for="btnTypeId1">단리</label>
-                        </span>
-                        <span class="mui_radio">
-                          <input type="radio" id="btnTypeId2" name="btnTypeId1" />
-                          <label for="btnTypeId2">복리</label>
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="mui_contents_group lv_1">
-                  <button class="mui_button mui_medium mui_white" type="button"><span>계산하기</span></button>
-                </div>
-              </div>
-              <hr>
-              <div class="calc_result">
-                <div class="mui_title">
-                  <p class="title lv4">계산결괴
-                  </p>
-                </div>
-                <div class="mui_accordion type2" mui-accordion="">
-                  <div class="acc_lists mui_open">
-                    <div class="acc_header"><span class="acc_title">일반과세(15.4%)</span>
-                      <button class="mui_acc_button" type="button"> 닫기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="mui_result default greybox">
-                        <dl>
-                          <dt>예치금액
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>이자(세전)
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>이자(세후)
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>만기지급액
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="acc_lists">
-                    <div class="acc_header"><span class="acc_title">비과세(0%)</span>
-                      <button class="mui_acc_button" type="button"> 열기
-                      </button>
-                    </div>
-                    <div class="mui_acc_content">
-                      <div class="mui_result default greybox">
-                        <dl>
-                          <dt>예치금액
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>이자(세전)
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>이자(세후)
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                        <dl>
-                          <dt>만기지급액
-                          </dt>
-                          <dd> 10,000,000원
-                          </dd>
-                        </dl>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="mui_collapse guide_text">
-                  <div class="mui_accordion" mui-accordion="">
-                    <div class="acc_lists mui_open">
-                      <div class="acc_header">
-                        <p class="title">알아두세요</p>
-                        <button class="mui_acc_button" type="button"> 닫기
-                        </button>
-                      </div>
-                      <div class="mui_acc_content">
-                        <div class="mui_text_lists guide">
-                          <ul>
-                            <li>일반과세는 이자금액의 15.4%가 원천징수 됩니다.
-                            </li>
-                            <li>비과세 종합저축(가입대상자에 한해 5천만원 한도, 기존 세금우대종합저축, 생계형 저축 한도 포함, 통합한도로 운용)<br>단, 관련세법 변경으로 인한 세율변동의 경우에는 변경된 세율이 적용됩니다.
-                            </li>
-                            <li>상기금액은 실제 상품 적용시에 다소 차이가 있을 수 있으므로 참고용으로 확인 하시기 바랍니다.
-                            </li>
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 거치식예금약관 및 특약</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
             </div>
-            <button class="mui_modal_close">닫기</button>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 금융실명법에 관한 고객 주의의무</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            </div>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 예금자보호안내</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            </div>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 예금보험관계 설명 확인</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            </div>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 비과세종합저축 소득요건 관련 동의서</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            </div>
+            <div class="mui_agree_check"><!-- 체크 시 mui_active 클래스 추가 -->
+              <button class="chk_btn" type="button"><span class="text">[필수] 공공마이데이터 수집이용 동의서</span><span class="hidden status_1">동의 완료</span><span class="hidden status_2">동의 안됨</span><span class="hidden">변경하려면 클릭 하세요</span></button>
+            </div>
           </div>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

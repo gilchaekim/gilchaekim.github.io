@@ -34,6 +34,11 @@
       font-weight: 700;
     }
   }
+  &.greybox {
+    background:$bg_color02;
+    border-radius: 8px;
+    padding: 20px;
+  }
   dl{
     display: flex;
     justify-content: space-between;

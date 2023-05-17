@@ -588,12 +588,13 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   position: relative;
   display: flex;
   background: var(--bg_color03);
+  margin-left: 0;
 }
 .button_type .mui_radio, .button_type .mui_checkbox {
   flex: 1;
   position: relative;
   z-index: 1;
-  margin-right: 0;
+  margin-left: 0;
 }
 .button_type .mui_radio::after, .button_type .mui_checkbox::after {
   content: "";
@@ -1433,6 +1434,8 @@ table, th, td {
   text-align: right;
 }
 .mui_input.inner_subfix .subfix {
+  flex: none;
+  font-weight: 700;
   line-height: 48px;
 }
 .mui_input::after {
@@ -1902,6 +1905,15 @@ table, th, td {
   transform: rotate(180deg);
   top: 22px;
 }
+.mui_accordion.type2 .acc_lists .acc_header {
+  border-bottom: 0 none;
+}
+.mui_accordion.type2 .acc_lists .mui_acc_content {
+  padding-top: 0;
+}
+.mui_accordion.type2 .acc_lists.mui_open .mui_acc_content {
+  border-bottom: 1px solid var(--line_color03);
+}
 
 .mui_modal, [mui-modal] {
   display: none;
@@ -1929,8 +1941,11 @@ table, th, td {
   color: var(--font_color01);
   padding: 18px 0 0 20px;
 }
+.mui_modal.system_pop .mui_modal_header + .mui_modal_content, .mui_modal.system_pop .mui_modal_header form + .mui_modal_content, [mui-modal].system_pop .mui_modal_header + .mui_modal_content, [mui-modal].system_pop .mui_modal_header form + .mui_modal_content {
+  padding-top: 32px;
+}
 .mui_modal.system_pop .mui_modal_content, [mui-modal].system_pop .mui_modal_content {
-  padding: 32px 24px 40px;
+  padding: 40px 24px;
   text-align: center;
 }
 .mui_modal.system_pop .mui_modal_footer .mui_button, [mui-modal].system_pop .mui_modal_footer .mui_button {
@@ -2131,6 +2146,13 @@ table, th, td {
   top: 0px;
 }
 
+.f18bold {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color01);
+  text-align: center;
+}
+
 .mui_tag {
   display: inline-block;
 }
@@ -2196,6 +2218,11 @@ table, th, td {
 .mui_result.line strong {
   color: var(--font_color01);
   font-weight: 700;
+}
+.mui_result.greybox {
+  background: var(--bg_color02);
+  border-radius: 8px;
+  padding: 20px;
 }
 .mui_result dl {
   display: flex;
@@ -2600,6 +2627,12 @@ table, th, td {
   width: 100%;
 }
 
+.mui_contents_group.lv_4 {
+  margin-top: 8px;
+}
+.mui_contents_group.lv_4:first-child {
+  margin-top: 0;
+}
 .mui_contents_group.lv_3 {
   margin-top: 16px;
 }
@@ -3034,8 +3067,9 @@ table, th, td {
 .mui_inputmoney .mui_button_group {
   margin-top: 12px;
 }
-.mui_inputmoney .mui_button_group .mui_button {
+.mui_inputmoney .mui_button_group .group .mui_button:first-child {
   padding: 0;
+  margin-top: 0;
 }
 
 .mui_inputbtn {
@@ -3192,6 +3226,16 @@ table, th, td {
   padding-top: 24px;
 }
 
+.mui_form .mui_form {
+  margin-top: 32px;
+}
+.mui_form .add_data {
+  margin-top: 16px;
+}
+.mui_form .add_data > .mui_form {
+  margin-top: 24px;
+}
+
 .mui_form_list .support {
   text-align: right;
   margin-top: 12px;
@@ -3220,7 +3264,7 @@ table, th, td {
   margin-top: 32px;
 }
 .mui_form_list .mui_form_content {
-  margin-top: 16px;
+  margin-top: 8px;
   position: relative;
 }
 .mui_form_list .mui_form_content .mui_button:first-child {
@@ -3240,6 +3284,9 @@ table, th, td {
 }
 .mui_form_list .mui_form_content > .mui_button_custom.white-round-24, .mui_form_list .mui_form_content > .mui_checkbox.white-round-24, .mui_form_list .mui_form_content > .mui_button_group.white-round-24 {
   margin-top: 8px;
+}
+.mui_form_list .mui_form_content > .mui_button_custom + .mui_form, .mui_form_list .mui_form_content > .mui_checkbox + .mui_form, .mui_form_list .mui_form_content > .mui_button_group + .mui_form {
+  margin-top: 16px;
 }
 .mui_form_list .mui_form_content > .mui_button_custom + .mui_text {
   margin-top: 24px;
@@ -3264,7 +3311,7 @@ table, th, td {
 .mui_form_list .mui_radio_group {
   padding-top: 8px;
 }
-.mui_form_list .mui_radio_group + .mui_input {
+.mui_form_list .mui_radio_group + .mui_input, .mui_form_list .mui_radio_group + .mui_datepicker, .mui_form_list .mui_radio_group + .mui_select {
   margin-top: 16px;
 }
 .mui_form_list .mui_radio_group + .mui_inputmultiple {
@@ -3692,6 +3739,53 @@ hr {
   color: var(--basic_color01);
   border-color: var(--basic_color01);
   border-radius: 60px;
+}
+
+/* 회색배경 화살표 버튼 */
+.btn_arrow {
+  display: block;
+  margin-top: 40px;
+  padding: 16px 20px;
+  width: 100%;
+  border-radius: 20px;
+  background: var(--bg_color02);
+}
+.btn_arrow .calc_txt {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-left: 52px;
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.btn_arrow .calc_txt::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  background: red;
+  transform: translateY(-50%);
+}
+.btn_arrow .calc_txt:after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: translateY(-50%) rotate(180deg);
+}
+.btn_arrow strong {
+  display: block;
+  font-size: 16px;
+  color: var(--font_color01);
+  font-weight: 700;
 }
 
 /* 하단안내문구(아이콘 유무) */
@@ -4977,7 +5071,7 @@ hr {
   padding-top: 0;
 }
 .webauc .total_data {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 700;
   color: var(--font_color03);
   padding-right: 20px;
@@ -5556,51 +5650,6 @@ hr {
 }
 
 /* 금융상품(대출) */
-.webinf .btn_arrow {
-  display: block;
-  margin-top: 40px;
-  padding: 16px 20px;
-  width: 100%;
-  border-radius: 20px;
-  background: var(--bg_color02);
-}
-.webinf .btn_arrow .calc_txt {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding-left: 52px;
-  font-size: 13px;
-  color: var(--basic_color04);
-}
-.webinf .btn_arrow .calc_txt::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 42px;
-  height: 42px;
-  background: red;
-  transform: translateY(-50%);
-}
-.webinf .btn_arrow .calc_txt:after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  transform: translateY(-50%) rotate(180deg);
-}
-.webinf .btn_arrow strong {
-  display: block;
-  font-size: 16px;
-  color: var(--font_color01);
-  font-weight: 700;
-}
 .webinf .mui_accordion .acc_lists:first-child .acc_header {
   padding-top: 0;
 }
@@ -5624,33 +5673,23 @@ hr {
   background: var(--basic_color03);
   transform: translateY(-50%);
 }
-.webinf .mui_acc_content .mui_button_wrap .mui_white {
-  color: var(--basic_color03);
-}
-.webinf .mui_acc_content .mui_button_wrap + .mui_button_wrap {
-  margin-top: 12px;
-}
 .webinf .low_txt {
   padding-top: 16px;
   font-size: 13px;
   color: var(--basic_color04);
 }
-.webinf .tab_contents .money_support {
-  padding-top: 12px;
-  font-size: 13px;
-  color: var(--main_color01);
-  text-align: right;
-}
-.webinf .tab_contents .mui_input.inner_subfix .subfix {
-  flex: none;
-  font-weight: 700;
-}
-.webinf .tab_contents .btn_money .group .mui_button {
+.webinf .btn_money .group .mui_button {
   padding: 0 8px;
   font-size: 13px;
 }
 .webinf .tab_contents .white-round-24.right_top {
   top: -38px;
+}
+.webinf .money_support {
+  padding-top: 12px;
+  font-size: 13px;
+  color: var(--main_color01);
+  text-align: right;
 }
 .webinf .mui_text.default.sub_title {
   padding-top: 4px;
@@ -5666,7 +5705,81 @@ hr {
   font-size: 22px;
   border-bottom: 1px solid var(--line_color03);
 }
+.webinf .mui_agree_check .text .sub_txt {
+  margin-right: -20px;
+  padding-top: 8px;
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webinf .mui_form + .mui_text.warning {
+  margin-top: 12px;
+  margin-bottom: 32px;
+}
+.webinf .bank_product_details.long_type {
+  position: static;
+  padding-bottom: 84px;
+}
+.webinf .bank_product_details .detail {
+  position: relative;
+}
+.webinf .bank_product_details .detail .img {
+  right: 0;
+  bottom: 0;
+  width: 95px;
+  height: 80px;
+}
+.webinf .mui_card {
+  margin-top: -60px;
+  background: var(--bg_color03);
+}
+.webinf .mui_card + .mui_card {
+  margin-top: 12px;
+}
+.webinf .mui_result.line + .btn_loan {
+  position: relative;
+  margin-top: 16px;
+  padding-right: 16px;
+  font-size: 14px;
+  color: var(--font_color03);
+  text-align: right;
+}
+.webinf .mui_result.line + .btn_loan::after {
+  content: "";
+  position: absolute;
+  top: 1px;
+  right: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+}
 
+.webdep .support {
+  margin-top: 16px;
+  text-align: right;
+}
+.webdep .support a {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--font_color03);
+  padding-right: 16px;
+  position: relative;
+}
+.webdep .support a::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 .webdep .signup_remind .title {
   font-size: 18px;
   font-weight: 700;
@@ -5773,6 +5886,12 @@ hr {
 .signupguide_wrap .mui_text_lists.dot li + li {
   margin-top: 4px;
 }
+.signupguide_wrap .text1 {
+  margin-bottom: 16px;
+}
+.signupguide_wrap .text2 {
+  margin-bottom: 8px;
+}
 
 .bank_products .sub_txt {
   padding-top: 4px;
@@ -5808,6 +5927,12 @@ hr {
 }
 .bank_products .detail .img img {
   width: 120px;
+}
+.bank_products .mui_acc_content .mui_button_wrap .mui_white {
+  color: var(--basic_color03);
+}
+.bank_products .mui_acc_content .mui_button_wrap + .mui_button_wrap {
+  margin-top: 12px;
 }
 .bank_products .other_guide .img {
   text-align: center;
@@ -5883,5 +6008,22 @@ hr {
   font-size: 14px;
   color: var(--font_color01);
   font-weight: 700;
+}
+
+.agree_switch {
+  background: var(--bg_color02);
+  padding: 20px;
+  border-radius: 20px;
+  position: relative;
+}
+.agree_switch .switch {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+.agree_switch .text {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--font_color01);
 }
 /*# sourceMappingURL=common.css.map */

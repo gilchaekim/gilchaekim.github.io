@@ -1451,7 +1451,7 @@ hr {
 		}
 	}
 	.total_data{
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: 700;
 		color:$font_color03;
 		padding-right: 20px;
@@ -2182,6 +2182,26 @@ hr {
 	}
 }
 .webdep {
+	.support{
+		margin-top: 16px;
+		text-align: right;
+		a{
+			display: inline-block;
+			font-size: 14px;
+			color:$font_color03;
+			padding-right: 16px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				@include icon_svg(arrow-left, "#888", 16px);
+				transform: rotate(180deg);
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
 	.signup_remind {
 		.title {
 			font-size: 18px;
@@ -2254,6 +2274,7 @@ hr {
 			}
 		}
 	}
+
 }
 // 가입 사전안내
 .signupguide_wrap{
@@ -2294,6 +2315,12 @@ hr {
 				margin-top:4px;
 			}
 		}
+	}
+	.text1{
+		margin-bottom: 16px;
+	}
+	.text2{
+		margin-bottom: 8px;
 	}
 }
 .bank_products {
@@ -2423,5 +2450,21 @@ hr {
 		font-size: 14px;
 		color:$font_color01;
 		font-weight: 700;
+	}
+}
+.agree_switch {
+	background:$bg_color02;
+	padding: 20px;
+	border-radius: 20px;
+	position: relative;
+	.switch {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+	.text {
+		font-size: 15px;
+		font-weight: 700;
+		color: $font_color01;
 	}
 }
