@@ -1,0 +1,78 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:3
+    })
+  +content_group(0)
+    +title({
+      text:"가입정보확인",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"입력정보 확인",
+      lv:4,
+    })
+  +content_group(3)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"가입기간",
+          text:"12개월(만기일자)",
+        },
+        {
+          title:"이자지급방법",
+          text:"매월이자지급",
+        },
+        {
+          title:"과세구분",
+          text:"개인과세",
+        },
+        {
+          title:"이율",
+          text:"3%",
+        },
+        {
+          title:"예금금액",
+          text:"<em>100,000원</em>",
+        },
+        {
+          title:"매월 이자입금 일자",
+          text:"2023.04.24",
+        },
+        {
+          title:"매월 이자입금 계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기자동재예치여부",
+          text:"신청",
+        },
+        {
+          title:"만기자동재예치 입금계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기 SMS 통지",
+          text:"신청",
+        },
+        {
+          title:"권유자사번",
+          text:"없음",
+        },
+      ]
+    })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

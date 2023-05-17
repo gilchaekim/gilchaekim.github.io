@@ -1,6 +1,18 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
+
+.mui_form {
+  .mui_form {
+    margin-top: 32px;
+  }
+  .add_data{
+    margin-top: 16px;
+    & > .mui_form {
+      margin-top: 24px;
+    }
+  }
+}
 .mui_form_list{
   .support{
 		text-align: right;
@@ -26,7 +38,7 @@
     margin-top: 32px;
   }
   .mui_form_content{
-    margin-top: 16px;
+    margin-top: 8px;
     position: relative;
     .mui_button{
       &:first-child{
@@ -51,6 +63,9 @@
     & > .mui_button_group {
       &.white-round-24{
         margin-top: 8px;
+      }
+      & + .mui_form {
+        margin-top: 16px;
       }
       margin-top: 12px;
     }
@@ -83,7 +98,9 @@
   }
   .mui_radio_group{
     padding-top: 8px;
-    & + .mui_input{
+    & + .mui_input,
+    & + .mui_datepicker,
+    & + .mui_select{
       margin-top: 16px;
     }
     & + .mui_inputmultiple{

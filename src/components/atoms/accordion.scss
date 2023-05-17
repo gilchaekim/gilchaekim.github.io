@@ -30,4 +30,19 @@
       }
     }
   }
+  &.type2 {
+    .acc_lists{
+			.acc_header	{
+				border-bottom: 0 none;
+			}
+			.mui_acc_content {
+				padding-top: 0;
+			}
+			&.mui_open{
+				.mui_acc_content {
+					border-bottom: 1px solid $line_color03;
+				}	
+			}
+		}
+  }
 }

@@ -90,11 +90,12 @@
   position: relative;
   display: flex;
   background:$bg_color03;
+  margin-left: 0;
   .mui_radio, .mui_checkbox{
     flex: 1;
     position: relative;
     z-index: 1;
-    margin-right: 0;
+    margin-left: 0;
     &::after{
       content: '';
       display: block;

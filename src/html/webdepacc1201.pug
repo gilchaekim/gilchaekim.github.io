@@ -1,0 +1,79 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"보안매체별 최대이제한도",
+    id:"fullLayer",
+    type:"bottom",
+    isCloseBtn:false
+  })
+    +tabsWrap({
+      active:0,
+      className:"overflow"
+    })
+      +tab("OTP")
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"1회 이체한도",
+              text:"1억원",
+            },
+            {
+              title:"1일 이체한도",
+              text:"1억원",
+            },
+          ]
+        })
+      +tab("보안카드+SMS")
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"1회 이체한도",
+              text:"12억원",
+            },
+            {
+              title:"1일 이체한도",
+              text:"12억원",
+            },
+          ]
+        })  
+      +tab("보안카드")
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"1회 이체한도",
+              text:"13억원",
+            },
+            {
+              title:"1일 이체한도",
+              text:"13억원",
+            },
+          ]
+        })
+      +tab("모바일OTP")
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"1회 이체한도",
+              text:"14억원",
+            },
+            {
+              title:"1일 이체한도",
+              text:"14억원",
+            },
+          ]
+        })
+    +text({
+      type:'warning',
+      text:"간편비밀번호 / 생체인증 / 패턴의 경우 1일 300만원까지 이체 가능"
+    })
+  script.
+    GCui.modal('#fullLayer').show()

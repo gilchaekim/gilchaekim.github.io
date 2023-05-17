@@ -1451,7 +1451,7 @@ hr {
 		}
 	}
 	.total_data{
-		font-size: 16px;
+		font-size: 18px;
 		font-weight: 700;
 		color:$font_color03;
 		padding-right: 20px;
@@ -2208,6 +2208,26 @@ hr {
 	}
 }
 .webdep {
+	.support{
+		margin-top: 16px;
+		text-align: right;
+		a{
+			display: inline-block;
+			font-size: 14px;
+			color:$font_color03;
+			padding-right: 16px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				@include icon_svg(arrow-left, "#888", 16px);
+				transform: rotate(180deg);
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+	}
 	.signup_remind {
 		.title {
 			font-size: 18px;
@@ -2215,6 +2235,72 @@ hr {
 			color:$font_color01;
 		}
 	}
+	.pos_top {
+		margin:-24px -24px 0;
+		padding: 11px 24px 9px;
+		background:$bg_color02;
+		.mui_datasort {
+			margin-bottom: 0;
+		}
+	}
+	.req_list_result {
+		margin-top: 24px;
+		.date {
+			font-size: 14px;
+			border-width: 700;
+			color:$basic_color04;
+		}
+		.data {
+			display: flex;
+			padding: 23px 0 22px;
+			border-bottom: 1px solid $line_color03;
+			justify-content: space-between;
+			align-items:center;
+			.text {
+				font-size: 16px;
+				color:$font_color02;
+			}
+		}
+		.link a{
+			display: block;
+			font-size: 16px;
+			color:$font_color02;
+			padding: 23px 0 22px;
+			border-bottom: 1px solid $line_color03;
+			position: relative;
+			&::after {
+				content: '';
+				display: block;
+				@include icon_svg(arrow-left, "#666", 20px);
+				transform: rotate(180deg);
+				position: absolute;
+				top: 50%;
+				right: 0;
+				margin-top: -10px;
+			}
+		}
+		.tag {
+			height: 20px;
+			padding: 0 8px;
+			color:$font_color06;
+			line-height: 20px;
+			font-size: 13px;
+			background:$basic_color01;
+			border-radius: 10px;
+			&.ing {
+				background: $basic_color07;
+			}
+			&.error {
+				background: $basic_color08;
+			}
+		}
+		.list {
+			& ~ .list {
+				margin-top: 32px;
+			}
+		}
+	}
+
 }
 // 가입 사전안내
 .signupguide_wrap{
@@ -2255,6 +2341,12 @@ hr {
 				margin-top:4px;
 			}
 		}
+	}
+	.text1{
+		margin-bottom: 16px;
+	}
+	.text2{
+		margin-bottom: 8px;
 	}
 }
 .bank_products {
@@ -2372,9 +2464,33 @@ hr {
 	}
 }
 .otp_code {
-	margin:24px 0 40px;
+	margin:24px 0 0;
 	img {
 		width: 100%;
 	}
 	
+}
+.guide_limit{
+	.text {
+		font-weight: bold;
+		font-size: 14px;
+		color:$font_color01;
+		font-weight: 700;
+	}
+}
+.agree_switch {
+	background:$bg_color02;
+	padding: 20px;
+	border-radius: 20px;
+	position: relative;
+	.switch {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+	}
+	.text {
+		font-size: 15px;
+		font-weight: 700;
+		color: $font_color01;
+	}
 }

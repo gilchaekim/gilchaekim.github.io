@@ -2,6 +2,9 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_text_lists{
+    & + .mui_text {
+        margin-top: 12px;
+    } 
     li{
         position: relative;
 
