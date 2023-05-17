@@ -1,0 +1,18 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf flex_top_bot"
+  - pageTitle = "예적금담보대출"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"김저축님의<br><em>예적금담보대출 신청</em>이<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

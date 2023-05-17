@@ -1,0 +1,92 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "햇살론"
+
+block content
+  .bank_products
+    +content_group(0)   
+      +title({
+        text:"<em>온라인 햇살론</em>",
+        lv:1,
+      })
+      p.sub_txt 비대면으로 진행하는 정부지원 대출
+      .detail
+        .list 
+          dl 
+            dt 금리
+            dd 6.04%~11.0%
+        .list 
+          dl 
+            dt 최대한도
+            dd 2천만원
+          dl 
+            dt 최대기간
+            dd 5년
+        .img 
+          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+      button.btn_arrow
+        span.calc_txt 나의 대출 이자는?
+          strong 계산해보기
+        
+    hr
+    +content_group(0)
+      +accordion({
+        active:0
+      })
+        +acc_title('상품안내')
+        +acc_content()
+          .product_data   
+            p.title 상품내용
+            p.text 저신용 저소득 서민에게 제공하는 대출상품
+            p.title 대출대상
+            p.text 만 20세 이상 소득증빙이 가능한 일반인
+            p.title 대출한도
+            p.text 최대 2,000만원
+            p.title 대출기간
+            p.text 3년/5년
+            p.title 상환방법
+            p.text.dot 원금균등분할상환
+
+        +acc_title('금리정보')
+        +acc_content()
+          .product_data   
+            p.title 대출금리
+            p.text 연 6.04%~11.0%
+            p.title 연체이율
+            p.text 연체이율
+            p.title 이자의 부과시기
+            p.text.dot 당해 예적금의 이자지급일 또는 불입일에 1월분씩 납입가능
+            p.text.dot 대출원리금의 합계액이 예적금의 범위내인 경우에는 계약 만기일에 이자납부 가능
+            p.title 상환방법
+            p.text.dot 원금균등분할상환
+            p.title 중도상환수수료
+            p.text 최대 1% 내, 3년 경과 시 없음
+
+        +acc_title('유의사항')
+        +acc_content()
+          .product_data   
+            p.title 유의사항이 있나요??
+            p.text 유의사항이 있나요??
+        +acc_title('약관 및 상품설명서')
+        +acc_content()
+          +button_wrap()
+            +button({
+              label:"여신거래 기본약관",
+              size:"medium",
+              type:"white",
+            })
+          +button_wrap()
+            +button({
+              label:"온라인햇살론 상품설명서",
+              size:"medium",
+              type:"white",
+            })
+    p.low_txt 준법감시인 심의필 제21022호<br>(2021.09.24~2022.09.23)
+
+  +button_bottom_fixed()
+    +button({
+      label:"신청하기",
+      size:"large",
+    })
