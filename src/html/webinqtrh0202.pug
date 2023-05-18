@@ -15,8 +15,16 @@ block content
   })
     +form()
       +form_body({title:"조회기간"})
-        +datepicker({
-          quickBtn:true
+        +multiPicker({
+          quickBtn:true,
+          data:[
+            {
+              placeholder:"기간선택"
+            },
+            {
+              placeholder:"기간선택"
+            }
+          ]
         })
     
     +button_wrap({

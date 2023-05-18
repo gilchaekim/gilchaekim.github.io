@@ -1,0 +1,58 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "만기자동이체예치"
+
+block content
+  +content_group(1)
+    +card({
+      data: [
+          {
+            title:"계좌번호",
+            text:"123-45-67890",
+          },
+          {
+            title:"신규일",
+            text:"2023.05.12",
+          },
+          {
+            title:"만기일",
+            text:"2023.05.12",
+          },
+          {
+            title:"계약기간",
+            text:"6개월",
+          },
+          {
+            title:"계약금액",
+            text:"100,000원",
+          },
+        ]
+    })
+  +content_group(1)
+    +form()
+      +form_body({title:"만기이자이체구분"})
+        +button_select({
+          placeholder:"선택",
+          label:"선택 됨"
+        })
+      +form_body({title:"입금은행"})
+        +button_select({
+          label:"중앙저축은행"
+        })
+        +input_button({
+          btnText:"예금주확인",
+          placeholder:"계좌번호 입력",
+          type:"input"
+        })
+        +text({
+          type:'warning',
+          text:"예금주 본인 계좌만 가능합니다."
+        })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
+    

@@ -2217,6 +2217,9 @@ hr {
 			margin-bottom: 0;
 		}
 	}
+	.top_btn {
+		text-align: right;
+	}
 	.req_list_result {
 		margin-top: 24px;
 		.date {
@@ -2321,6 +2324,11 @@ hr {
 	}
 	.text2{
 		margin-bottom: 8px;
+	}
+	hr.dvd{
+		margin: 16px 0;
+		height: 1px;
+		background:$line_color03;
 	}
 }
 .bank_products {
@@ -2466,5 +2474,21 @@ hr {
 		font-size: 15px;
 		font-weight: 700;
 		color: $font_color01;
+	}
+}
+.guide_pop_msg {
+	&.al_c {
+		text-align: center;
+		.mui_text {
+			display: inline-block;
+		}
+	}
+	.basic14{
+		font-size: 14px;
+		color:$font_color03;
+		margin-top: 16px;
+	}
+	.mui_text {
+		margin-top: 12px;
 	}
 }
