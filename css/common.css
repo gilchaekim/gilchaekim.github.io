@@ -2690,6 +2690,9 @@ table, th, td {
 .mui_card ~ .mui_card {
   margin-top: 16px;
 }
+.mui_card + .mui_more {
+  margin-top: 12px;
+}
 .mui_card.no_tag.is_linked .inset {
   padding-top: 62px;
 }
@@ -3791,7 +3794,7 @@ hr {
 /* 하단안내문구(아이콘 유무) */
 .info_txt {
   position: relative;
-  padding-top: 12px;
+  margin-top: 12px;
   font-size: 14px;
   color: var(--basic_color04);
 }
@@ -5650,6 +5653,18 @@ hr {
 }
 
 /* 금융상품(대출) */
+.webinf {
+  /* 항상하단위치하는 컨텐츠 용도 사용 */
+}
+.webinf.flex_top_bot {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+}
+.webinf.flex_top_bot .flex_bot {
+  margin-top: auto;
+}
 .webinf .mui_accordion .acc_lists:first-child .acc_header {
   padding-top: 0;
 }
@@ -5666,12 +5681,11 @@ hr {
 .webinf .product_data .dot::before {
   content: "";
   position: absolute;
-  top: 50%;
+  top: 6px;
   left: 0;
   width: 3px;
   height: 3px;
   background: var(--basic_color03);
-  transform: translateY(-50%);
 }
 .webinf .low_txt {
   padding-top: 16px;
@@ -5728,12 +5742,26 @@ hr {
   width: 95px;
   height: 80px;
 }
-.webinf .mui_card {
+.webinf .bank_product_details + .mui_card {
   margin-top: -60px;
   background: var(--bg_color03);
 }
-.webinf .mui_card + .mui_card {
+.webinf .bank_product_details + .mui_card + .mui_card {
   margin-top: 12px;
+}
+.webinf .card_box {
+  padding-top: 8px;
+}
+.webinf .card_box .mui_card_list {
+  position: relative;
+  border-radius: 20px;
+  padding: 20px 20px 20px 76px;
+  height: 80px;
+  border: 1px solid var(--line_color03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.webinf .card_box .mui_card_list .text {
+  line-height: initial;
 }
 .webinf .mui_result.line + .btn_loan {
   position: relative;
@@ -5754,6 +5782,9 @@ hr {
   width: 16px;
   height: 16px;
   transform: rotate(180deg);
+}
+.webinf .email_recive {
+  display: inline-block;
 }
 
 .webdep .support {
@@ -5792,6 +5823,9 @@ hr {
 }
 .webdep .pos_top .mui_datasort {
   margin-bottom: 0;
+}
+.webdep .top_btn {
+  text-align: right;
 }
 .webdep .req_list_result {
   margin-top: 24px;
@@ -5891,6 +5925,11 @@ hr {
 }
 .signupguide_wrap .text2 {
   margin-bottom: 8px;
+}
+.signupguide_wrap hr.dvd {
+  margin: 16px 0;
+  height: 1px;
+  background: var(--line_color03);
 }
 
 .bank_products .sub_txt {
@@ -6025,5 +6064,20 @@ hr {
   font-size: 15px;
   font-weight: 700;
   color: var(--font_color01);
+}
+
+.guide_pop_msg.al_c {
+  text-align: center;
+}
+.guide_pop_msg.al_c .mui_text {
+  display: inline-block;
+}
+.guide_pop_msg .basic14 {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 16px;
+}
+.guide_pop_msg .mui_text {
+  margin-top: 12px;
 }
 /*# sourceMappingURL=common.css.map */

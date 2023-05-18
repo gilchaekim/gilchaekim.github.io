@@ -1,0 +1,78 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"full",
+    title:"상세정보"
+
+  })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"은행명",
+          text:"예가람저축은행",
+        },
+        {
+          title:"상품명",
+          text:"정기예금복리식",
+        },
+        {
+          title:"계좌번호",
+          text:"403-61-24-2635185",
+        },
+        {
+          title:"가입기간",
+          text:"12개월(만기일자)",
+        },
+        {
+          title:"과세구분",
+          text:"개인과세",
+        },
+        {
+          title:"이율",
+          text:"3%",
+        },
+        {
+          title:"최초불입금액",
+          text:"<em>100,000원</em>",
+        },
+        {
+          title:"자동이체여부",
+          text:"등록",
+        },
+        {
+          title:"자동이체일자",
+          text:"매월 24일",
+        },
+        {
+          title:"자동이체 출금계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기해지 후 송금계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기 SMS 통지",
+          text:"신청",
+        },
+        {
+          title:"권유자사번",
+          text:"없음",
+        },
+      ]
+    })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+        
+  script.
+    GCui.modal('#fullLayer').show()

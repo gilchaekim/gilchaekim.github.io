@@ -1,0 +1,85 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"full",
+    title:"만기자동개예치 안내"
+  })
+    .signupguide_wrap
+      +title({
+        text:"예금의 만기가 도래한 경우 원금 또는 원리금(원금+이자)을 계좌의 변경 없이 최대 3회차까지 자동으로 재예치합니다.",
+        lv:4,
+        className:"text1"
+      })
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"재예치 회차에 관계없이 중도해지가 가능합니다.",
+          },
+          {
+            text:"만기일이 공휴일인 경우 익영업일자를 신규일자로 하여 자동만기연장 처리됩니다.",
+          },
+          {
+            text:"3회차 재예치 이후 계좌해지는 인터넷뱅킹 또는 창구방문을 통해 해지가 가능합니다.",
+          },
+          {
+            text:"질권 설정 및 사고 신고 등록된 계좌는 만기자동연장 처리에서 제외됩니다.",
+          },
+        ]
+      })
+      hr.dvd
+      +title({
+        text:"만기이자이체구분",
+        lv:4,
+        className:"text1"
+      })
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"내부(타행)이체 : 만기당일 발생한 세후이자 금액을 제외한 원금만을 재예치합니다.",
+            subLists:{
+              type:'hyphhen',
+              lists:[
+                {
+                  text:"발생한 세후이자 금액은 등록하신 당 저축은행 또는 타행 본인소유 입출금가능계좌로 자동입금",
+                },
+              ]
+            }
+          },
+          {
+            text:"원금+이자 : 만기 당일 발생한 원금과 세후이자 금액을 합산하여 재예치합니다.",
+            subLists:{
+              type:'hyphhen',
+              lists:[
+                {
+                  text:"만기해지 후 송금 : 만기해지 후 원금+이자가 등록한 은행의 계좌로 자동 입금됩니다.",
+                },
+                {
+                  text:"비과세 종합저축 계좌의 경우 만기자동재예치 시 비과세 한도초과에 따른 재예치 오류가 발생할 수 있습니다.",
+                },
+                {
+                  text:"납입 연체일수가 있는 정기적금인 경우 자동만기연장 및 만기해지후 송금은 이연된 만기일에 처리됩니다.(불입완료된 계좌에 한해 적용)",
+                },
+              ]
+            }
+          },
+        ]
+      })
+      +text({
+        type:'warning',
+        text:"만기자동재예치 등록은 만기일 21시까지만 가능합니다."
+      })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()
