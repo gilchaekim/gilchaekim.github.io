@@ -4916,16 +4916,16 @@ hr {
   margin-top: 24px;
 }
 
-.weboce .config {
+.weboce .config, .webpin .config {
   padding-top: 60px;
   text-align: center;
 }
-.weboce .text {
+.weboce .text, .webpin .text {
   font-size: 14px;
   color: var(--font_color03);
   margin-top: 16px;
 }
-.weboce .config_link {
+.weboce .config_link, .webpin .config_link {
   display: block;
   width: 120px;
   height: 120px;
@@ -5661,18 +5661,47 @@ hr {
   margin-top: 24px;
 }
 
-/* 보안/인증 */
-.weboce .mui_text_lists.dot {
+/* 보안/인증, 간편비밀번호 */
+.weboce .mui_text_lists.dot, .webpin .mui_text_lists.dot {
   padding-top: 16px;
 }
-.weboce .mui_text_lists.dot ul {
+.weboce .mui_text_lists.dot ul, .webpin .mui_text_lists.dot ul {
   display: flex;
   flex-direction: column;
   gap: 8px 0;
 }
-.weboce .mui_text_lists.dot li {
+.weboce .mui_text_lists.dot li, .webpin .mui_text_lists.dot li {
   font-size: 14px;
   color: var(--basic_color03);
+}
+
+/* 간편비밀번호 */
+.webpin .guide_wrap .mui_text + .mui_text {
+  padding-top: 16px;
+}
+.webpin .guide_wrap .mui_text_lists.dot {
+  padding-top: 8px;
+}
+.webpin .guide_wrap .mui_checkbox label {
+  display: inline-block;
+}
+.webpin .mui_title + .text {
+  margin-top: 16px;
+}
+.webpin .text {
+  margin-top: 0;
+}
+.webpin .text .sub_txt {
+  margin-right: -20px;
+  padding-top: 8px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--basic_color04);
+}
+
+/* OTP보정 */
+.webseu .mui_form + .mui_text.warning {
+  margin-top: 12px;
 }
 
 .main_pop .pop {
