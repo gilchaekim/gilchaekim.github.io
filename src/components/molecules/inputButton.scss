@@ -21,6 +21,10 @@
       span{
         white-space: nowrap;
       }
+      &[disabled] {
+        background: $basic_color05;
+        color:$font_color03;
+      }
     }
   }
 }

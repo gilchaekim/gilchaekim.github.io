@@ -19,4 +19,23 @@
       @include icon_svg_tooltip(grey, 20px);
     }
   }
+  &.link {
+    text-align: right;
+		a{
+			display: inline-block;
+			font-size: 14px;
+			color:$font_color03;
+			padding-right: 16px;
+			position: relative;
+			&::after{
+				content: '';
+				display: block;
+				@include icon_svg(arrow-left, "#888", 16px);
+				transform: rotate(180deg);
+				position: absolute;
+				top: 0;
+				right: 0;
+			}
+		}
+  }
 }

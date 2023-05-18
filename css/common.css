@@ -524,6 +524,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   min-height: 24px;
   color: var(--font_color03);
   font-size: 16px;
+  display: inline-flex;
 }
 .mui_radio label.inner_block, .mui_checkbox label.inner_block {
   display: block;
@@ -1163,6 +1164,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .mui_button_fixed .inset {
   position: fixed;
+  z-index: 1;
   background: var(--font_color06);
   padding: 40px 16px 16px;
   bottom: 0;
@@ -1267,6 +1269,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--font_color03);
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.04);
   background: var(--bg_color03);
+  z-index: 999;
 }
 .mui_tooltip_content .text {
   max-width: calc(100vw - 58px);
@@ -1882,7 +1885,7 @@ table, th, td {
 .mui_accordion .acc_lists .acc_header {
   position: relative;
   border-bottom: 1px solid var(--line_color03);
-  padding: 24px 0 12px;
+  padding: 20px 0;
   font-size: 16px;
   color: var(--font_color01);
 }
@@ -2195,6 +2198,9 @@ table, th, td {
 }
 .mui_result + .mui_text {
   margin-top: 12px;
+}
+.mui_result + .mui_text.link {
+  margin-top: 16px;
 }
 .mui_result.line {
   border-top: 1px solid var(--line_color03);
@@ -2681,6 +2687,29 @@ table, th, td {
   width: 20px;
   height: 20px;
 }
+.mui_text.link {
+  text-align: right;
+}
+.mui_text.link a {
+  display: inline-block;
+  font-size: 14px;
+  color: var(--font_color03);
+  padding-right: 16px;
+  position: relative;
+}
+.mui_text.link a::after {
+  content: "";
+  display: block;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
 
 .mui_card {
   border-radius: 20px;
@@ -2717,6 +2746,7 @@ table, th, td {
 }
 .mui_card.select_type .mui_radio {
   position: static;
+  display: block;
 }
 .mui_card.select_type .mui_radio label {
   position: absolute;
@@ -3096,6 +3126,10 @@ table, th, td {
 .mui_inputbtn .mui_button:not(.mui_select) span {
   white-space: nowrap;
 }
+.mui_inputbtn .mui_button:not(.mui_select)[disabled] {
+  background: var(--basic_color05);
+  color: var(--font_color03);
+}
 
 .mui_collapse .acc_title {
   font-size: 16px;
@@ -3129,13 +3163,6 @@ table, th, td {
   position: relative;
   margin-top: 60px;
 }
-.guide_text .mui_text_lists.dot > ul > li {
-  font-size: 14px;
-  color: var(--font_color03);
-}
-.guide_text .mui_text_lists.dot > ul > li ~ li {
-  margin-top: 12px;
-}
 .guide_text:before {
   content: "";
   display: block;
@@ -3146,9 +3173,8 @@ table, th, td {
   background: var(--line_color04);
   position: absolute;
 }
-.guide_text .acc_header {
+.guide_text .mui_accordion .acc_lists .acc_header {
   padding: 12px 0;
-  position: relative;
 }
 .guide_text .acc_header .title {
   font-size: 16px;
@@ -3294,7 +3320,7 @@ table, th, td {
 .mui_form_list .mui_form_content > .mui_button_custom + .mui_text {
   margin-top: 24px;
 }
-.mui_form_list .mui_form_content > .mui_checkbox + .mui_inputbtn, .mui_form_list .mui_form_content > .mui_checkbox + .mui_input, .mui_form_list .mui_form_content > .mui_radio + .mui_inputbtn, .mui_form_list .mui_form_content > .mui_radio + .mui_input {
+.mui_form_list .mui_form_content > .mui_inputbtn:not(:first-child), .mui_form_list .mui_form_content > .mui_input:not(:first-child) {
   margin-top: 16px;
 }
 .mui_form_list .mui_form_content .right_top {
@@ -3886,6 +3912,19 @@ hr {
 .login {
   overflow: auto;
   padding: 0 24px;
+}
+.login .mui_text.link {
+  margin-top: 12px;
+}
+.login .mui_text.link a {
+  color: var(--main_color01);
+}
+.login .mui_text.link a::after {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23df6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 16px;
+  height: 16px;
 }
 .login .mui_form:first-child {
   margin-top: 24px;
@@ -4896,9 +4935,6 @@ hr {
 .webauc {
   position: relative;
 }
-.webauc .mui_more {
-  margin-top: 20px;
-}
 .webauc .error_msg {
   color: var(--font_color08);
 }
@@ -5787,30 +5823,6 @@ hr {
   display: inline-block;
 }
 
-.webdep .support {
-  margin-top: 16px;
-  text-align: right;
-}
-.webdep .support a {
-  display: inline-block;
-  font-size: 14px;
-  color: var(--font_color03);
-  padding-right: 16px;
-  position: relative;
-}
-.webdep .support a::after {
-  content: "";
-  display: block;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16px' height='16px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23888' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 16px;
-  height: 16px;
-  transform: rotate(180deg);
-  position: absolute;
-  top: 0;
-  right: 0;
-}
 .webdep .signup_remind .title {
   font-size: 18px;
   font-weight: 700;
@@ -5885,6 +5897,54 @@ hr {
 }
 .webdep .req_list_result .list ~ .list {
   margin-top: 32px;
+}
+.webdep .recom_lists {
+  margin-top: 16px;
+}
+.webdep .recom_lists .list {
+  display: block;
+  padding: 20px;
+  background: var(--bg_color02);
+  border-radius: 20px;
+}
+.webdep .recom_lists .list .title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
+.webdep .recom_lists .list .text {
+  color: var(--basic_color04);
+  font-size: 13px;
+}
+.webdep .recom_lists .list .data {
+  margin-top: 12px;
+  display: flex;
+  font-size: 14px;
+}
+.webdep .recom_lists .list .data span {
+  position: relative;
+  color: #5c627c;
+}
+.webdep .recom_lists .list .data span em, .webdep .recom_lists .list .data span strong {
+  font-weight: 700;
+  margin-left: 4px;
+}
+.webdep .recom_lists .list .data span ~ span {
+  margin-left: 12px;
+  padding-left: 13px;
+}
+.webdep .recom_lists .list .data span ~ span::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 12px;
+  background: var(--line_color02);
+  position: absolute;
+  top: 3px;
+  left: 0;
+}
+.webdep .recom_lists .list ~ .list {
+  margin-top: 16px;
 }
 
 .signupguide_wrap .condition_title {

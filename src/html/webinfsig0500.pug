@@ -33,8 +33,10 @@ block content
         },
       ]
     })
-    .btn_loan 
-        a(href) 대출신청조회
+    +text({
+      type:'link',
+      text:"대출신청조회"
+    })
   +text({
     type:'warning',
     text:"대출 진행을 원하실 경우 전자약정을 통해 대출을 완료하실 수 있습니다.",

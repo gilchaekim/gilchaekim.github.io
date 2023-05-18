@@ -196,6 +196,15 @@ hr {
 
 .login{
 	overflow: auto;
+	.mui_text.link{
+		margin-top: 12px;
+		a {
+			color:$main_color01;
+			&::after {
+				@include icon_svg(arrow-left, "#df6311", 16px);
+			}
+		}
+	}
 	.mui_form{
 		&:first-child{
 			margin-top: 24px;
@@ -1250,9 +1259,6 @@ hr {
 
 .webauc{
 	position: relative;
-	.mui_more{
-		margin-top: 20px;
-	}
 	.error_msg{
 		color:$font_color08;
 	}
@@ -1546,6 +1552,7 @@ hr {
 			color:$basic_color04;
 		}	
 	}
+
 }
 
 /* 제증명 */
@@ -2208,26 +2215,6 @@ hr {
 	}
 }
 .webdep {
-	.support{
-		margin-top: 16px;
-		text-align: right;
-		a{
-			display: inline-block;
-			font-size: 14px;
-			color:$font_color03;
-			padding-right: 16px;
-			position: relative;
-			&::after{
-				content: '';
-				display: block;
-				@include icon_svg(arrow-left, "#888", 16px);
-				transform: rotate(180deg);
-				position: absolute;
-				top: 0;
-				right: 0;
-			}
-		}
-	}
 	.signup_remind {
 		.title {
 			font-size: 18px;
@@ -2300,6 +2287,54 @@ hr {
 		.list {
 			& ~ .list {
 				margin-top: 32px;
+			}
+		}
+	}
+	.recom_lists{
+		margin-top: 16px;
+		.list {
+			display: block;
+			padding: 20px;
+			background:$bg_color02;
+			border-radius: 20px;
+			.title {
+				font-size: 14px;
+				font-weight: 700;
+				color:$font_color01;
+			}
+			.text {
+				color:$basic_color04;
+				font-size: 13px;
+			}
+			.data {
+				margin-top: 12px;
+				display: flex;
+				font-size: 14px;
+				span {
+					position: relative;
+					color: #5c627c;
+					em, strong {
+						font-weight: 700;
+						margin-left: 4px;
+					}
+					& ~ span {
+						margin-left: 12px;
+						padding-left: 13px;
+						&::after {
+							content: "";
+							display: block;
+							width: 1px;
+							height: 12px;
+							background: $line_color02;
+							position: absolute;
+							top: 3px;
+							left: 0;
+						}
+					}
+				}
+			}
+			& ~ .list {
+				margin-top: 16px;
 			}
 		}
 	}

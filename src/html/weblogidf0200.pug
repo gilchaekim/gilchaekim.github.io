@@ -12,8 +12,10 @@ block content
     })
   .result_box 
     p SAV***
-  .support 
-    a(href) 아이디 전체 확인하기
+  +text({
+    type:'link',
+    text:"아이디 전체 확인하기"
+  })
   +button_link({
     list: [
       '비밀번호(분실) 재등록',
