@@ -1,35 +1,53 @@
 import {
-  getCssVar,
+  createEvent,
+  css,
+  isNumeric,
   isString,
-  toFloat
+  on,
+  startsWith,
+  toFloat,
+  trigger,
 } from '../../util';
 
 export default {
-
   props: {
-    media: Boolean,
+      media: Boolean,
   },
 
   data: {
-    media: false,
+      media: false,
   },
 
-  compute: {
-    mathMedia() {
-      const media = toMedia(this.media);
-    }
-  }
+  connected() {
+      const media = toMedia(this.media, this.$el);
+      this.matchMedia = true;
+      if (media) {
+          this.mediaObj = window.matchMedia(media);
+          const handler = () => {
+              this.matchMedia = this.mediaObj.matches;
+              trigger(this.$el, createEvent('mediachange', false, true, [this.mediaObj]));
+          };
+          this.offMediaObj = on(this.mediaObj, 'change', () => {
+              handler();
+              this.$emit('resize');
+          });
+          handler();
+      }
+  },
 
+  disconnected() {
+      this.offMediaObj?.();
+  },
 };
 
-function toMedia(value) {
-  
+function toMedia(value, element) {
   if (isString(value)) {
-    const name = `breakepoint-${value.substr(1)}`;
-    value = toFloat(getCssVar(name));
-  } else if (isNaN(value)) {
-    return value;
+      if (startsWith(value, '@')) {
+          value = toFloat(css(element, `--uk-breakpoint-${value.substr(1)}`));
+      } else if (isNaN(value)) {
+          return value;
+      }
   }
-  return value && !isNaN(value) ? `(min-width: ${value}px)` : false;
-  
+
+  return value && isNumeric(value) ? `(min-width: ${value}px)` : '';
 }
