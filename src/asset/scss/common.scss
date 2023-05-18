@@ -106,7 +106,7 @@ hr {
 /* 하단안내문구(아이콘 유무) */
 .info_txt {
 	position:relative;
-	padding-top:12px;
+	margin-top:12px;
 	font-size:14px;
 	color:$basic_color04;
 	&.icon_type {
@@ -2049,6 +2049,16 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	/* 항상하단위치하는 컨텐츠 용도 사용 */
+	&.flex_top_bot {
+		overflow:auto;
+		display:flex;
+		flex-direction:column;
+		height:calc(100vh - 56px);
+		.flex_bot {
+			margin-top:auto;
+		}
+	}
 	.mui_accordion {
 		.acc_lists:first-child {
 			.acc_header{
@@ -2071,12 +2081,11 @@ hr {
 			&::before {
 				content:"";
 				position:absolute;
-				top:50%;
+				top:6px;
 				left:0;
 				width:3px;
 				height:3px;
 				background:$basic_color03;
-				transform:translateY(-50%);
 			}
 		}
 	}
@@ -2152,12 +2161,26 @@ hr {
 				height:80px;
 			}
 		}
-	}
-	.mui_card {
-		margin-top:-60px;
-		background:$bg_color03;
 		&+.mui_card {
-			margin-top:12px;
+			margin-top:-60px;
+			background:$bg_color03;
+			&+.mui_card {
+				margin-top:12px;
+			}
+		}
+	}
+	.card_box {
+		padding-top:8px;
+		.mui_card_list {
+			position:relative;
+			border-radius:20px;
+			padding:20px 20px 20px 76px;
+			height:80px;
+			border:1px solid var(--line_color03);
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+			.text {
+				line-height:initial;
+			}
 		}
 	}
 	.mui_result {
@@ -2179,6 +2202,9 @@ hr {
 				}
 			}
 		}
+	}
+	.email_recive {
+		display:inline-block;
 	}
 }
 .webdep {

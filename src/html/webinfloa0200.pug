@@ -1,0 +1,68 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "예적금담보대출"
+
+block content
+  +content_group(0)
+    +agree_check({
+      text:"전체 동의"
+    })
+      +agree_check({
+        text:"[필수] 대출약관동의"
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보수집 · 이용 · 제공 동의서"
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 조회 동의서"
+      })
+      +agree_check({
+        text:"[선택] 개인(신용)정보수집 · 이용 · 제공 동의서"
+      })
+        +radioCheck({
+          name:'mini_type',
+          type:"radio",
+          className:'mini_type',
+          lists:[
+            {
+              label:'SMS'
+            },
+            {
+              label:'전화'
+            },
+            {
+              label:'우편'
+            }
+          ]
+        })
+    +agree_check({
+      text:"[필수]개인(신용)정보 수집ㆍ이용 동의서(상품서비스 안내 등)",
+      className:"chk_lists"
+    })
+      +radioCheck({
+        name:'checklist',
+        lists:[
+          {
+            label:'휴대폰'
+          },
+          {
+            label:'자택'
+          },
+          {
+            label:'직장'
+          }
+        ]
+      })
+    +content_group(2)
+      +text({
+        type:'warning',
+        text:"상품가입 진행을 위해서 동의가 필요해요",
+      })
+    +button_bottom_fixed()
+      +button({
+        label:"다음",
+        size:"large",
+        disabled:"disabled"
+      })
