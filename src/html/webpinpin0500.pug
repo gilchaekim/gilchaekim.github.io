@@ -1,0 +1,18 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webpin"
+  - pageTitle = "간편비밀번호 등록"
+
+block content
+  .config
+    +title({
+      text:"간편비밀번호 등록",
+      lv:1,
+    })
+
+    p.text!="간편비밀번호 등록을 위해<br>간편비밀번호 아이콘을 터치해주세요."
+
+    a(href="", class="config_link")
+      img(src="/src/images/ico_suitability.png", alt="")
+  

@@ -1238,7 +1238,7 @@ hr {
 		}
 	}
 }
-.weboce{
+.weboce, .webpin{
 	.config{
 		padding-top: 60px;
 		text-align: center;
@@ -2023,8 +2023,8 @@ hr {
 	}
 }
 
-/* 보안/인증 */
-.weboce {
+/* 보안/인증, 간편비밀번호 */
+.weboce, .webpin {
 	.mui_text_lists.dot {
 		padding-top:16px;
 		ul {
@@ -2035,6 +2035,43 @@ hr {
 		li {
 			font-size:14px;
 			color:$basic_color03;
+		}
+	}
+}
+/* 간편비밀번호 */
+.webpin {
+	.guide_wrap {
+		.mui_text+.mui_text {
+			padding-top:16px;
+		}
+		.mui_text_lists.dot {
+			padding-top:8px;
+		}
+		.mui_checkbox label {
+			display:inline-block;
+		}
+	}
+	.mui_title {
+		&+.text {
+			margin-top:16px;
+		}
+	}
+	.text {
+		margin-top:0;
+		.sub_txt {
+			margin-right:-20px;
+			padding-top:8px;
+			font-size:13px;
+			font-weight:300;
+			color:var(--basic_color04);
+		}
+	}
+}
+/* OTP보정 */
+.webseu {
+	.mui_form {
+		&+.mui_text.warning {
+			margin-top:12px;
 		}
 	}
 }
