@@ -1,0 +1,39 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="weboce"
+  - pageTitle = "토스인증서 해지"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:3,
+      activeIndex:1
+    })
+  +content_group(0)
+    +title({
+      text:"정보를 입력하세요.",
+      lv:2,
+    })
+  +content_group(2)
+      
+    +form()
+      +form_body({title:"사용자 ID"})
+        +input({
+          placeholder:"아이디 입력"
+        })
+        .support 
+          a(href) 아이디 찾기
+      +form_body({title:"사용자 비밀번호"})
+        +input({
+          placeholder:"비밀번호 입력",
+          type:"password"
+        })
+      +form_body({title:"주민등록구분"})
+        +input_idnumber()
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
