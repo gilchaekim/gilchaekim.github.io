@@ -72,8 +72,8 @@
     & > .mui_button_custom + .mui_text {
       margin-top: 24px;
     }
-    & > .mui_checkbox, & > .mui_radio {
-      & + .mui_inputbtn, & + .mui_input {
+    & > .mui_inputbtn, & > .mui_input {
+      &:not(:first-child) {
         margin-top: 16px;
       }
     }

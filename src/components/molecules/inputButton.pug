@@ -3,7 +3,7 @@ mixin input_button(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, placeholder, value, btnText, title, type="input", ...rest} = Object.assign({}, params);
+  - const {element='div', className, placeholder, value, btnText, title, type="input", disabled, ...rest} = Object.assign({}, params);
   - let blockData = {};
 
   #{element}(
@@ -19,11 +19,12 @@ mixin input_button(params={})
     else if type === 'select'
       +button_select({
         placeholder:placeholder,
-        label:value
+        label:value,
       })
     .btn_sec
       +button({
         label:btnText,
+        disabled:disabled
       })
 
     

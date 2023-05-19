@@ -30,13 +30,6 @@
   padding-top: 36px;
   position: relative;
   margin-top: 60px;
-  .mui_text_lists.dot > ul > li{
-    font-size: 14px;
-    color:$font_color03;
-    & ~ li{
-      margin-top: 12px;
-    }
-  }
   &:before{
     content: '';
     display: block;
@@ -47,10 +40,14 @@
     background: $line_color04;
     position: absolute;
   }
+  .mui_accordion {
+    .acc_lists{
+      .acc_header{
+        padding: 12px 0;
+      }
+    }
+  }
   .acc_header{
-    padding: 12px 0;
-    position: relative;
-    
     .title{
       font-size: 16px;
       font-weight: 700;

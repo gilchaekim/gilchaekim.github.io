@@ -3,7 +3,7 @@ mixin input_money(params={})
   - const prefix = "mui"
   - const divide = '_'
   //- 공통 요소 End
-  - const {element='div', className, btns = ['+1만','+5만','+10만','전액'], message, guideMoney, placeholder, ...rest} = Object.assign({}, params);
+  - const {element='div', className, btns = ['+1만','+5만','+10만','전액'], message, guideMoney, placeholder="숫자만 입력", ...rest} = Object.assign({}, params);
 
   #{element}(
     class=`${prefix}${divide}inputmoney`
@@ -21,8 +21,8 @@ mixin input_money(params={})
     +button_group({
       btns:btns
     })
-    if !!message
-      p(
-        class="msg_form"
-        class=`msg_${message.type}`
-      )!=message.text
+  if !!message
+    p(
+      class="msg_form"
+      class=`msg_${message.type}`
+    )!=message.text

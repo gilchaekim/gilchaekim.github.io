@@ -52,20 +52,14 @@ block content
           ]
         })
       +form_body({title:"연소득"})
-        +input({
-          placeholder:"숫자만 입력",
-          subfix:"원"
-        })
-        .money_support
-          strong 1,000만 원
-        +button_group({
-          className:"btn_money",
+        +input_money({
           btns:[
             '+1만',
             '+10만',
             '+100만',
             '+1000만',
-          ]
+          ],
+          guideMoney:true
         })
       +form_body()
         +radioCheck({
@@ -73,7 +67,6 @@ block content
           name:'chk02',
           label:'권유직원'
         })
-      +form_body()
         +input_button({
           btnText:"직원찾기",
           placeholder:"권유직원",

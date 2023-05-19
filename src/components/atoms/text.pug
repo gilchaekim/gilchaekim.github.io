@@ -5,11 +5,17 @@ mixin text(params={})
   //- 공통 요소 End
 
   - const { element = 'p', text, className, type="default", ...rest } = Object.assign({}, params)
+  
   #{element}(
     class=`${prefix}${divide}text`
     class=type
     class=className
-  )!=text
+  )
+    if type == 'link'
+      a(href="")!=text
+    else 
+      !=text
+
 
 
 

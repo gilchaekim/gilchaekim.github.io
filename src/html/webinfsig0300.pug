@@ -66,27 +66,21 @@ block content
 
     +content_group(0)
       +form()
-        +form_body({title:"대출신청금액", message:{type:"error", text:"대출 최소신청금액은 10만원입니다."}})
-          +input({
-            placeholder:"숫자만 입력",
-            subfix:"원"
-          })
-          .money_support
-            strong 1,000만 원
-          +button_group({
-            className:"btn_money",
+        +form_body({title:"대출신청금액", message:{type:"error"}})
+          +input_money({
+            message:{type:"error", text:"대출 최소신청금액은 10만원입니다."},
             btns:[
               '+1만',
               '+10만',
               '+100만',
               '+1000만',
-            ]
+            ],
+            guideMoney:true
           })
-      +text({
-        type:'warning',
-        text:"대출신청금액은 최대 1억원입니다."
-      })
-      +form()
+          +text({
+            type:'warning',
+            text:"대출신청금액은 최대 1억원입니다."
+          })
         +form_body({title:"거래유형"})
           +radioCheck({
             name:'btnType',
@@ -113,11 +107,12 @@ block content
           +input_button({
             btnText:"계좌확인",
             placeholder:"계좌번호 입력",
+            disabled:true,
           })
-      +text({
-        type:'warning',
-        text:"기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다."
-      })
+          +text({
+            type:'warning',
+            text:"기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다."
+          })
 
   +button_bottom_fixed()
     +button({

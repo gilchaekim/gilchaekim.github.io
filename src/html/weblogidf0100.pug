@@ -8,8 +8,10 @@ block content
   +form()
     +form_body({title:"계좌번호"})
       +input({placeholder:"숫자만 입력", title:"숫자만 입력"})
-      .support 
-        a(href) 계좌번호 찾기
+      +text({
+        type:'link',
+        text:"계좌번호 찾기"
+      })
     +form_body({title:"등록구분"})
       +radioCheck({
         type:"radio",

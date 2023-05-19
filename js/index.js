@@ -3402,36 +3402,25 @@
     UICommon.prototype._callUpdate = function () {
       var _this2 = this;
       var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'update';
-      var type = e.type || e;
-      if (type === 'update' || type === 'resize') {
+      if (!this._connected) {
+        return;
+      }
+      if (e === 'update' || e === 'resize') {
         this._callWatches();
       }
-      var updates = this.$options.update;
-      var _this$_frames = this._frames;
-        _this$_frames.reads;
-        var writes = _this$_frames.writes;
-      if (!updates) return;
-      updates.forEach(function (_ref, i) {
-        var read = _ref.read,
-          write = _ref.write,
-          events = _ref.events;
-        if (type !== 'update' && !includes(events, type)) return;
-        if (read && !includes(fastdom.reads, read[i])) {
-          read[i] = fastdom.read(function () {
-            var result = _this2._connected && read.call(_this2, _this2._data, type);
-            if (result === false && write) {
-              fastdom.clear(writes[i]);
-            } else if (isPlainObject(result)) {
-              assign(_this2._data, result);
-            }
-          });
-        }
-        if (write && !includes(fastdom.writes, writes[i])) {
-          writes[i] = fastdom.write(function () {
-            return _this2._connected && write.call(_this2, _this2._data, type);
-          });
-        }
-      });
+      if (!this.$options.update) {
+        return;
+      }
+      if (!this._updates) {
+        this._updates = new Set();
+        fastdom.read(function () {
+          if (_this2._connected) {
+            runUpdates.call(_this2, _this2._updates);
+          }
+          delete _this2._updates;
+        });
+      }
+      this._updates.add(e.type || e);
     };
     UICommon.prototype._callWatches = function () {
       var _this3 = this;
@@ -3460,6 +3449,47 @@
         _frames._watch = null;
       });
     };
+    function runUpdates(types) {
+      var _this4 = this;
+      var _iterator = _createForOfIteratorHelper(this.$options.update),
+        _step;
+      try {
+        var _loop = function _loop() {
+          var _step$value = _step.value,
+            read = _step$value.read,
+            write = _step$value.write,
+            _step$value$events = _step$value.events,
+            events = _step$value$events === void 0 ? [] : _step$value$events;
+          if (!types.has('update') && !events.some(function (type) {
+            return types.has(type);
+          })) {
+            return "continue";
+          }
+          var result = void 0;
+          if (read) {
+            result = read.call(_this4, _this4._data, types);
+            if (result && isPlainObject(result)) {
+              assign(_this4._data, result);
+            }
+          }
+          if (write && result !== false) {
+            fastdom.write(function () {
+              if (_this4._connected) {
+                write.call(_this4, _this4._data, types);
+              }
+            });
+          }
+        };
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _ret = _loop();
+          if (_ret === "continue") continue;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
   }
   function getProps(opts, name) {
     var data$1 = {};
@@ -3546,12 +3576,12 @@
       self: self
     }));
   }
-  function normalizeData(_ref2, _ref3) {
-    var data = _ref2.data;
-      _ref2.el;
-    var args = _ref3.args,
-      _ref3$props = _ref3.props,
-      props = _ref3$props === void 0 ? {} : _ref3$props;
+  function normalizeData(_ref, _ref2) {
+    var data = _ref.data;
+      _ref.el;
+    var args = _ref2.args,
+      _ref2$props = _ref2.props,
+      props = _ref2$props === void 0 ? {} : _ref2$props;
     data = isArray(data) ? !isEmpty(args) ? data.slice(0, args.length).reduce(function (data, value, index) {
       if (isPlainObject(value)) {
         assign(data, value);
@@ -3619,8 +3649,8 @@
     }).concat($name);
     var observer = new MutationObserver(function (records) {
       var data = getProps($options, $name);
-      if (records.some(function (_ref4) {
-        var attributeName = _ref4.attributeName;
+      if (records.some(function (_ref3) {
+        var attributeName = _ref3.attributeName;
         var prop = attributeName.replace('data-', '');
         return (prop === $name ? attributes : [camelize(prop), camelize(attributeName)]).some(function (prop) {
           return !isUndefined(data[prop]) && data[prop] !== $props[prop];
@@ -5115,20 +5145,37 @@
     data: {
       media: false
     },
-    compute: {
-      mathMedia: function mathMedia() {
-        toMedia(this.media);
+    connected: function connected() {
+      var _this = this;
+      var media = toMedia(this.media, this.$el);
+      this.matchMedia = true;
+      if (media) {
+        this.mediaObj = window.matchMedia(media);
+        var handler = function handler() {
+          _this.matchMedia = _this.mediaObj.matches;
+          trigger(_this.$el, createEvent('mediachange', false, true, [_this.mediaObj]));
+        };
+        this.offMediaObj = on(this.mediaObj, 'change', function () {
+          handler();
+          _this.$emit('resize');
+        });
+        handler();
       }
+    },
+    disconnected: function disconnected() {
+      var _this$offMediaObj;
+      (_this$offMediaObj = this.offMediaObj) === null || _this$offMediaObj === void 0 ? void 0 : _this$offMediaObj.call(this);
     }
   };
-  function toMedia(value) {
+  function toMedia(value, element) {
     if (isString(value)) {
-      var name = "breakepoint-".concat(value.substr(1));
-      value = toFloat(getCssVar(name));
-    } else if (isNaN(value)) {
-      return value;
+      if (startsWith(value, '@')) {
+        value = toFloat(css(element, "--uk-breakpoint-".concat(value.substr(1))));
+      } else if (isNaN(value)) {
+        return value;
+      }
     }
-    return value && !isNaN(value) ? "(min-width: ".concat(value, "px)") : false;
+    return value && isNumeric(value) ? "(min-width: ".concat(value, "px)") : '';
   }
 
   var sticky = {
@@ -5181,7 +5228,7 @@
       name: 'load hashchange popstate',
       el: window,
       handler: function handler() {
-        console.log('hahahaha');
+        // console.log('hahahaha');
       }
     }],
     update: [{
@@ -5191,11 +5238,11 @@
           _ref.margin;
         this.inactive = !this.matchMedia || isVisible(this.$el);
         // 비활성화 되었거나 미디어쿼리 범위에 벗어나면 실행 취소
-        if (this.inactive) return false;
+        // if (this.inactive) return false
+
         if (this.isActive && types.has('resize')) {
           this.hide();
           height = this.$el.offsetHeight;
-          console.log(this.$el);
         }
         height = this.isActive ? height : this.$el.offsetHeight;
         var referenceElement = this.isActive ? this.placeholder : this.$el;
@@ -5212,11 +5259,10 @@
       },
       write: function write(data) {
         var height = data.height,
-          margins = data.margins,
-          start = data.start;
+          margins = data.margins;
+          data.start;
         var $el = this.$el,
           placeholder = this.placeholder;
-        console.log(start);
         css(placeholder, assign({
           height: height
         }, margins));
@@ -5231,7 +5277,6 @@
         var _ref2$scroll = _ref2.scroll,
           scroll = _ref2$scroll === void 0 ? 0 : _ref2$scroll;
         this.scroll = window.pageYOffset;
-        console.log(this.$el);
         return {
           dir: scroll <= this.scroll ? 'down' : 'up',
           scroll: this.scroll,

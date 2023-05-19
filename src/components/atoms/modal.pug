@@ -51,6 +51,10 @@ mixin modal(params={})
             class=`${prefix}${divide}modal${divide}header`
           ) 
             p #{title}
+        else if isCloseBtn
+          div(
+            class=`${prefix}${divide}modal${divide}header`
+          ) 
         div(
           class=`${prefix}${divide}modal${divide}content`
         )

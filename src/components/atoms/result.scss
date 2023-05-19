@@ -8,6 +8,9 @@
   }
   & + .mui_text {
     margin-top: 12px;
+    &.link {
+      margin-top: 16px;
+    }
   }
   &.line{
     border-top: 1px solid $line_color03;
