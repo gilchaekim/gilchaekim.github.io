@@ -502,24 +502,18 @@ hr {
 		}
 	}
 	.acc_lists {
-		padding-top:16px;
-		&.mui_open {
-			.mui_acc_button {
-				font-size:0;
-				@include icon_svg(arrow-down, "#111", 20px);
-				transform:rotate(180deg);
-			}
-		}
 		.acc_header {
-			display:flex;
-			justify-content:space-between;
-			gap:0 8px;
 			padding:16px 0;
+			border-bottom: 0 none;
+		}
+		.mui_acc_content{
+			padding: 0 0 32px;
 		}
 		.acc_tit {
 			display:flex;
 			justify-content:space-between;
 			width:100%;
+			padding-right: 28px;
 			strong:last-child{
 				font-size: 18px;
 				span{
@@ -528,8 +522,7 @@ hr {
 			}
 		}
 		.mui_acc_button {
-			font-size:0;
-			@include icon_svg(arrow-down, "#111", 20px);
+
 		}
 	}
 }

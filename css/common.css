@@ -1894,7 +1894,8 @@ table, th, td {
 }
 .mui_accordion .acc_lists .mui_acc_button {
   position: absolute;
-  top: 24px;
+  top: 50%;
+  margin-top: -10px;
   right: 0;
   font-size: 0;
   color: transparent;
@@ -1906,7 +1907,7 @@ table, th, td {
 }
 .mui_accordion .acc_lists.mui_open .mui_acc_button {
   transform: rotate(180deg);
-  top: 22px;
+  margin-top: -12px;
 }
 .mui_accordion.type2 .acc_lists .acc_header {
   border-bottom: 0 none;
@@ -3422,7 +3423,7 @@ table, th, td {
 }
 .mui_accresult .mui_collapse .acc_lists .acc_header .mui_acc_button {
   position: absolute;
-  top: -16px;
+  top: -10px;
   right: 0;
   width: 16px;
   height: 16px;
@@ -4209,28 +4210,18 @@ hr {
 .webinq .inq_list .btn_wrap {
   padding-top: 24px;
 }
-.webinq .acc_lists {
-  padding-top: 16px;
-}
-.webinq .acc_lists.mui_open .mui_acc_button {
-  font-size: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-  transform: rotate(180deg);
-}
 .webinq .acc_lists .acc_header {
-  display: flex;
-  justify-content: space-between;
-  gap: 0 8px;
   padding: 16px 0;
+  border-bottom: 0 none;
+}
+.webinq .acc_lists .mui_acc_content {
+  padding: 0 0 32px;
 }
 .webinq .acc_lists .acc_tit {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  padding-right: 28px;
 }
 .webinq .acc_lists .acc_tit strong:last-child {
   font-size: 18px;
@@ -4238,15 +4229,6 @@ hr {
 .webinq .acc_lists .acc_tit strong:last-child span {
   font-weight: 400;
 }
-.webinq .acc_lists .mui_acc_button {
-  font-size: 0;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cpath d='M15,8l-5,5L5,8' transform='translate(0 -1)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 20px;
-  height: 20px;
-}
-
 .photo_capture .title {
   padding-top: 38px;
   font-size: 24px;

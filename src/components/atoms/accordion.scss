@@ -17,7 +17,8 @@
     }
     .mui_acc_button{
       position: absolute;
-      top: 24px;
+      top: 50%;
+      margin-top: -10px;
       right: 0;
       font-size: 0;
       color: transparent;
@@ -26,7 +27,7 @@
     &.mui_open{
       .mui_acc_button{
         transform: rotate(180deg);
-        top: 22px;
+        margin-top: -12px;
       }
     }
   }
