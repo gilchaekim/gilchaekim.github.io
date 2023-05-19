@@ -2060,11 +2060,46 @@ hr {
 		}
 	}
 }
-/* OTP보정 */
+/* OTP보정, 등록 */
 .webseu {
 	.mui_form {
 		&+.mui_text.warning {
 			margin-top:12px;
+		}
+	}
+	.mui_title {
+		&+.mui_card.no_tag {
+			margin-top:20px;
+		}
+	}
+	.ellipsis {
+		.label {
+			overflow:hidden;
+			display:inline-block;
+			width:calc(100% - 28px);
+			text-overflow:ellipsis;
+			white-space:nowrap;
+		}
+	}
+}
+/* 추가인증서비스 */
+.webads {
+	.mui_title {
+		&+.mui_radio_group.block_type {
+			margin-top:20px;
+			&+.mui_text.warning {
+				margin-top:12px;
+			}
+		}
+	}
+	.mui_text_lists {
+		&.dot {
+			padding-top:16px;
+			ul {
+				display:flex;
+				flex-direction:column;
+				gap:8px 0;
+			}
 		}
 	}
 }
@@ -2092,8 +2127,16 @@ hr {
 		display:flex;
 		flex-direction:column;
 		height:calc(100vh - 56px);
+		padding-bottom:108px !important;
 		.flex_bot {
 			margin-top:auto;
+			padding-top:24px;
+			&:after {
+				top:24px;
+			}
+		}
+		.mui_button_fixed {
+			height:initial;
 		}
 	}
 	.mui_accordion {
@@ -2260,9 +2303,6 @@ hr {
 			margin-bottom: 0;
 		}
 	}
-	.top_btn {
-		text-align: right;
-	}
 	.req_list_result {
 		margin-top: 24px;
 		.date {
@@ -2415,11 +2455,6 @@ hr {
 	}
 	.text2{
 		margin-bottom: 8px;
-	}
-	hr.dvd{
-		margin: 16px 0;
-		height: 1px;
-		background:$line_color03;
 	}
 }
 .bank_products {

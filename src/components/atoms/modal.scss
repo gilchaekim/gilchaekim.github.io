@@ -33,6 +33,17 @@
             &_content{
                 padding: 40px 24px;
                 text-align: center;
+                .alert_tit {
+                    color:$basic_color02;
+                    strong {
+                        color:$basic_color01;
+                    }
+                }
+                .alert_txt {
+                    padding-top:16px;
+                    font-size:14px;
+                    color:$basic_color03;
+                }
             }
             &_footer{
                 .mui_button{

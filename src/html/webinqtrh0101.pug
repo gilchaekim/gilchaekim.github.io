@@ -15,16 +15,8 @@ block content
   })
     +form()
       +form_body({title:"조회기간"})
-        +multiPicker({
-          quickBtn:true,
-          data:[
-            {
-              placeholder:"기간선택"
-            },
-            {
-              placeholder:"기간선택"
-            }
-          ]
+        +datepicker({
+          quickBtn:true
         })
   
       +form_body({title:"거래유형"})
