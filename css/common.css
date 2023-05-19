@@ -1952,6 +1952,17 @@ table, th, td {
   padding: 40px 24px;
   text-align: center;
 }
+.mui_modal.system_pop .mui_modal_content .alert_tit, [mui-modal].system_pop .mui_modal_content .alert_tit {
+  color: var(--basic_color02);
+}
+.mui_modal.system_pop .mui_modal_content .alert_tit strong, [mui-modal].system_pop .mui_modal_content .alert_tit strong {
+  color: var(--basic_color01);
+}
+.mui_modal.system_pop .mui_modal_content .alert_txt, [mui-modal].system_pop .mui_modal_content .alert_txt {
+  padding-top: 16px;
+  font-size: 14px;
+  color: var(--basic_color03);
+}
 .mui_modal.system_pop .mui_modal_footer .mui_button, [mui-modal].system_pop .mui_modal_footer .mui_button {
   background: var(--main_color01);
   height: 40px;
@@ -2719,9 +2730,6 @@ table, th, td {
 }
 .mui_card ~ .mui_card {
   margin-top: 16px;
-}
-.mui_card + .mui_more {
-  margin-top: 12px;
 }
 .mui_card.no_tag.is_linked .inset {
   padding-top: 62px;
@@ -5681,9 +5689,35 @@ hr {
   color: var(--basic_color04);
 }
 
-/* OTP보정 */
+/* OTP보정, 등록 */
 .webseu .mui_form + .mui_text.warning {
   margin-top: 12px;
+}
+.webseu .mui_title + .mui_card.no_tag {
+  margin-top: 20px;
+}
+.webseu .ellipsis .label {
+  overflow: hidden;
+  display: inline-block;
+  width: calc(100% - 28px);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 추가인증서비스 */
+.webads .mui_title + .mui_radio_group.block_type {
+  margin-top: 20px;
+}
+.webads .mui_title + .mui_radio_group.block_type + .mui_text.warning {
+  margin-top: 12px;
+}
+.webads .mui_text_lists.dot {
+  padding-top: 16px;
+}
+.webads .mui_text_lists.dot ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
 }
 
 .main_pop .pop {
@@ -5708,9 +5742,17 @@ hr {
   display: flex;
   flex-direction: column;
   height: calc(100vh - 56px);
+  padding-bottom: 108px !important;
 }
 .webinf.flex_top_bot .flex_bot {
   margin-top: auto;
+  padding-top: 24px;
+}
+.webinf.flex_top_bot .flex_bot:after {
+  top: 24px;
+}
+.webinf.flex_top_bot .mui_button_fixed {
+  height: initial;
 }
 .webinf .mui_accordion .acc_lists:first-child .acc_header {
   padding-top: 0;
@@ -5846,9 +5888,6 @@ hr {
 }
 .webdep .pos_top .mui_datasort {
   margin-bottom: 0;
-}
-.webdep .top_btn {
-  text-align: right;
 }
 .webdep .req_list_result {
   margin-top: 24px;
@@ -5996,11 +6035,6 @@ hr {
 }
 .signupguide_wrap .text2 {
   margin-bottom: 8px;
-}
-.signupguide_wrap hr.dvd {
-  margin: 16px 0;
-  height: 1px;
-  background: var(--line_color03);
 }
 
 .bank_products .sub_txt {

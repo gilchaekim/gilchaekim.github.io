@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">간편비밀번호 해지</span></div>
+          <div class="title_center"><span class="title">추가인증서비스 조회/해지</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,14 +232,24 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webpin" id="contants">
-      <div class="config">
+    <div class="webads" id="contants">
+      <div class="mui_contents_group lv_0">
         <div class="mui_title">
-          <p class="title lv1">간편비밀번호 해지
+          <p class="title lv4">추가인증서비스 해지선택
           </p>
         </div>
-        <p class="text">간편비밀번호 해지를 위해<br>간편비밀번호 아이콘을 터치해주세요.</p><a class="config_link" href=""><img src="/src/images/ico_suitability.png" alt=""></a>
+        <div class="mui_radio_group block_type">
+          <span class="mui_radio">
+            <input type="radio" id="btnTypeId1" name="btnTypeId1" />
+            <label for="btnTypeId1">전화승인(ARS) 서비스</label>
+          </span>
+        </div>
+        <p class="mui_text warning">추가인증서비스는 이체업무 및 인증서업무 등의 서비스에서 사용됩니다.
+        </p>
       </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_default" type="button"><span>취소</span></button>
+          <button class="mui_button mui_large mui_primary" type="button"><span>신청하기</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>
