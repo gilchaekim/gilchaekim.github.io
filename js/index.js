@@ -5357,7 +5357,77 @@
     }
   }
 
+  var Position = {
+    props: {
+      pos: String,
+      offset: null,
+      flip: Boolean,
+      shift: Boolean,
+      inset: Boolean
+    },
+    data: {
+      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
+      offset: false,
+      flip: true,
+      shift: true,
+      inset: false
+    },
+    connected: function connected() {
+      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
+      var _this$pos = _slicedToArray(this.pos, 2);
+      this.dir = _this$pos[0];
+      this.align = _this$pos[1];
+      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
+    },
+    methods: {
+      positionAt: function positionAt$1(element, target, boundary) {
+        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
+        var placement = [this.flip && 'flip', this.shift && 'shift'];
+        var attach = {
+          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
+          target: [this.dir, this.align]
+        };
+        if (this.axis === 'y') {
+          for (var prop in attach) {
+            attach[prop].reverse();
+          }
+          offset.reverse();
+          placement.reverse();
+        }
+        var _scrollParents = scrollParents(element, /auto|scroll/),
+          _scrollParents2 = _slicedToArray(_scrollParents, 1),
+          scrollElement = _scrollParents2[0];
+        scrollElement.scrollTop;
+          scrollElement.scrollLeft;
+
+        // Ensure none positioned element does not generate scrollbars
+        var elDim = dimensions(element);
+        css(element, {
+          top: -elDim.height,
+          left: -elDim.width
+        });
+        return positionAt(element, target, {
+          attach: attach,
+          offset: offset,
+          boundary: boundary,
+          placement: placement,
+          viewportOffset: this.getViewportOffset(element)
+        });
+      },
+      getPositionOffset: function getPositionOffset(element) {
+        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
+      },
+      getShiftOffset: function getShiftOffset(element) {
+        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
+      },
+      getViewportOffset: function getViewportOffset(element) {
+        return toPx(css(element, '--mui-position-viewport-offset'));
+      }
+    }
+  };
+
   var datepicker = {
+    mixins: [Position],
     props: {
       pickerButton: Boolean,
       value: String
@@ -5370,6 +5440,7 @@
       testBtn: '>.testbtn',
       pickerButton: false,
       value: '',
+      offset: 20,
       initialValue: '',
       initialDate: null,
       viewDate: null,
@@ -5402,7 +5473,7 @@
       daysClassName: 'mui_days',
       todayClassName: 'mui_today',
       selectedClassName: 'mui_selected',
-      template: "<div class=\"mui_datepicker_layer\">\n                <div class=\"picker_header\">\n                  <button type=\"button\" class=\"prev_btn\"><span class=\"text\">\uC774\uC804 \uB2EC \uBCF4\uAE30</span></button>\n                  <span class=\"year_month\">\n                    <span class=\"current_year\"></span>\n                    <span class=\"current_month\"></span>\n                  </span>                  \n                  <button type=\"button\" class=\"next_btn\"><span class=\"text\">\uB2E4\uC74C \uB2EC \uBCF4\uAE30</span></button>\n                </div>\n                <div class=\"picker_contents\">\n                  <table class=\"mui_calendar\">\n                    <thead class=\"head\"></thead>\n                    <tbody class=\"body\"></tbody>\n                  </table>\n                </div>\n              </div>"
+      template: "<div class=\"mui_datepicker_layer\">\n                <p class=\"title\">\uB0A0\uC9DC\uC120\uD0DD</p>\n                <div class=\"picker_header\">\n                  <button type=\"button\" class=\"prev_btn\"><span class=\"text\"><span class=\"hidden\">\uC774\uC804 \uB2EC \uBCF4\uAE30</span></button>\n                  <span class=\"year_month\">\n                    <span class=\"current_year\"></span>\n                    <span class=\"current_month\"></span>\n                  </span>                  \n                  <button type=\"button\" class=\"next_btn\"><span class=\"text\"><span class=\"hidden\">\uB2E4\uC74C \uB2EC \uBCF4\uAE30</span></span></button>\n                </div>\n                <div class=\"picker_contents\">\n                  <table class=\"mui_calendar\">\n                    <thead class=\"head\"></thead>\n                    <tbody class=\"body\"></tbody>\n                  </table>\n                </div>\n              </div>"
     },
     created: function created() {
       this.calendar = append(document.body, this.template);
@@ -5516,7 +5587,6 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        console.log('이전');
         var year = this.viewDate.getFullYear();
         var month = this.viewDate.getMonth() - 1;
         var day = this.viewDate.getDate();
@@ -5533,7 +5603,6 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        console.log('다음');
         var year = this.viewDate.getFullYear();
         var month = this.viewDate.getMonth() + 1;
         var day = this.viewDate.getDate();
@@ -5563,10 +5632,10 @@
       },
       handler: function handler(e) {
         var self = e.target;
-        // const val = this.parseDate(this.parseDate(this.getValue()));
-        // this.viewDate = val
-        // this.date = val
-        // this.renderPickerDate();
+        var val = this.parseDate(this.parseDate(this.getValue()));
+        this.viewDate = val;
+        this.date = val;
+        this.renderPickerDate();
         console.log(self.value);
       }
     }, {
@@ -5596,9 +5665,10 @@
         $month.innerHTML = montText;
         addClass(calendar, 'mui_active');
         this.renderDays();
-        css(calendar, 'top', "30%");
-        // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
-        css(calendar, 'left', "".concat(dimensions(this.$el).left, "px"));
+        // css(calendar, 'top', `30%`)
+        // // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+        // css(calendar, 'left', `${dimensions(this.$el).left}px`)
+        this.positionAt(calendar, this.$el);
       },
       closePickerDate: function closePickerDate() {
         var weeks = this.weeks,
@@ -11850,75 +11920,6 @@
         removeClass(parent$1(this.$el), this.active);
       }
     }]
-  };
-
-  var Position = {
-    props: {
-      pos: String,
-      offset: null,
-      flip: Boolean,
-      shift: Boolean,
-      inset: Boolean
-    },
-    data: {
-      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
-      offset: false,
-      flip: true,
-      shift: true,
-      inset: false
-    },
-    connected: function connected() {
-      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
-      var _this$pos = _slicedToArray(this.pos, 2);
-      this.dir = _this$pos[0];
-      this.align = _this$pos[1];
-      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
-    },
-    methods: {
-      positionAt: function positionAt$1(element, target, boundary) {
-        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
-        var placement = [this.flip && 'flip', this.shift && 'shift'];
-        var attach = {
-          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
-          target: [this.dir, this.align]
-        };
-        if (this.axis === 'y') {
-          for (var prop in attach) {
-            attach[prop].reverse();
-          }
-          offset.reverse();
-          placement.reverse();
-        }
-        var _scrollParents = scrollParents(element, /auto|scroll/),
-          _scrollParents2 = _slicedToArray(_scrollParents, 1),
-          scrollElement = _scrollParents2[0];
-        scrollElement.scrollTop;
-          scrollElement.scrollLeft;
-
-        // Ensure none positioned element does not generate scrollbars
-        var elDim = dimensions(element);
-        css(element, {
-          top: -elDim.height,
-          left: -elDim.width
-        });
-        return positionAt(element, target, {
-          attach: attach,
-          offset: offset,
-          boundary: boundary,
-          placement: placement,
-          viewportOffset: this.getViewportOffset(element)
-        });
-      },
-      getPositionOffset: function getPositionOffset(element) {
-        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
-      },
-      getShiftOffset: function getShiftOffset(element) {
-        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
-      },
-      getViewportOffset: function getViewportOffset(element) {
-        return toPx(css(element, '--mui-position-viewport-offset'));
-      }
-    }
   };
 
   var _events;

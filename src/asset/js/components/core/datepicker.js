@@ -1,25 +1,14 @@
+import Position from '../mixin/position';
+
 import {
   $, 
-  findAll, 
   isDate, 
   each, 
   mergeOptions, 
   addLeadingZero, 
-  isString, 
-  hasClass, 
-  toggleClass, 
+  isString,  
   dimensions, 
-  height, 
-  isVisible, 
-  width, 
-  toNodes, 
-  queryAll, 
-  trigger, 
-  isNumber, 
-  $$, 
   append, 
-  fragment, 
-  toNode, 
   addClass,
   removeClass,
   find, 
@@ -30,7 +19,7 @@ import {
 import {cssPrefix} from 'GC-data'
 
 export default {
-
+  mixins: [Position],
   props: {
     pickerButton:Boolean,
     value:String,
@@ -44,6 +33,7 @@ export default {
     testBtn: '>.testbtn',
     pickerButton:false,
     value:'',
+    offset: 20,
     initialValue:'',
     initialDate:null,
     viewDate:null,
@@ -80,13 +70,14 @@ export default {
     todayClassName:'mui_today',
     selectedClassName:'mui_selected',
     template: `<div class="mui_datepicker_layer">
+                <p class="title">날짜선택</p>
                 <div class="picker_header">
-                  <button type="button" class="prev_btn"><span class="text">이전 달 보기</span></button>
+                  <button type="button" class="prev_btn"><span class="text"><span class="hidden">이전 달 보기</span></button>
                   <span class="year_month">
                     <span class="current_year"></span>
                     <span class="current_month"></span>
                   </span>                  
-                  <button type="button" class="next_btn"><span class="text">다음 달 보기</span></button>
+                  <button type="button" class="next_btn"><span class="text"><span class="hidden">다음 달 보기</span></span></button>
                 </div>
                 <div class="picker_contents">
                   <table class="mui_calendar">
@@ -209,7 +200,6 @@ export default {
 
       handler(e) {
         e.preventDefault();
-        console.log('이전')
         const year = this.viewDate.getFullYear()
         const month = this.viewDate.getMonth()-1
         const day = this.viewDate.getDate()
@@ -227,7 +217,6 @@ export default {
       },
       handler(e) {
         e.preventDefault();
-        console.log('다음')
         const year = this.viewDate.getFullYear()
         const month = this.viewDate.getMonth()+1
         const day = this.viewDate.getDate()
@@ -259,10 +248,10 @@ export default {
 
       handler(e) {
         const self = e.target
-        // const val = this.parseDate(this.parseDate(this.getValue()));
-        // this.viewDate = val
-        // this.date = val
-        // this.renderPickerDate();
+        const val = this.parseDate(this.parseDate(this.getValue()));
+        this.viewDate = val
+        this.date = val
+        this.renderPickerDate();
         console.log(self.value)
         
       }
@@ -296,9 +285,10 @@ export default {
       $month.innerHTML = montText;
       addClass(calendar, 'mui_active');
       this.renderDays()
-      css(calendar, 'top', `30%`)
-      // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
-      css(calendar, 'left', `${dimensions(this.$el).left}px`)
+      // css(calendar, 'top', `30%`)
+      // // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+      // css(calendar, 'left', `${dimensions(this.$el).left}px`)
+      this.positionAt(calendar, this.$el);
       
     },
     closePickerDate() {
