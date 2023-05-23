@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"인터넷뱅킹 이용 관련 동의서",
+    id:"fullLayer",
+    type:"full",
+    isCloseBtn:false
+  })
+    +content_group(1)
+        
+      +agree_check({
+        text:"전체동의",
+      })
+        +agree_check({
+          text:"[필수] 전자금융거래 기본약관",
+        })
+        +agree_check({
+          text:"[필수] 전자금융서비스 이용약관",
+        })
+        +agree_check({
+          text:"[필수] 전자금융거래 유의사항",
+        })
+    +content_group(1)
+      +agree_box({
+        text:"전자금융거래 기본약과 제 20조(손실부담 및 면책) 및 전자금융서비스 이용약관 제 16조(면책)에 대하여 충분히 인지하였습니까?"
+      })
+        +radioCheck({
+          name:'chk646157',
+          label:'확인'
+        })
+    +content_group(2)
+      +text({
+        type:'warning',
+        text:"인터넷 뱅킹 이용을 위한 동의가 필요해요"
+      })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

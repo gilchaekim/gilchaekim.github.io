@@ -272,15 +272,24 @@
           <div class="mui_form_list">
             <div class="mui_form_head"><span class="form_title">최초불입금액</span></div>
             <div class="mui_form_content">
-              <div class="mui_inputmoney">
-                <span class="mui_input inner_subfix sublength_1">
-                  <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
-                </span>
-                <div class="mui_button_group"><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+500만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+1,000만</span></button></span>
+              <div class="rangeslidr_wrap">
+                <div class="currdata"><span id="currData">6000만원</span></div>
+                <div id="rangeSlider"></div>
+                <div class="rangedata"><span>1만원</span><span>1억원</span></div>
+              </div>
+              <div class="mui_contents_group lv_2">
+                <div class="view_data">
+                  <button class="write_pop">직접입력</button>
+                  <div class="guide_box">
+                    <div class="list">
+                      <p class="title">적용이율</p>
+                      <p class="text">4.30%</p>
+                    </div>
+                    <div class="list">
+                      <p class="title">예상총이자</p>
+                      <p class="text">120,300원(세전)</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -432,6 +441,35 @@
       </div>
       <div class="mui_button_fixed"><span class="inset">
           <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      <script src="/js/nouislider.min.js"></script>
+      <script>
+        var el = GCui.util.$('#rangeSlider');
+        var data = GCui.util.$('#currData');
+        var range = [1, 10000];
+        noUiSlider.create(el, {
+          start: [range[0]],
+          connect: 'lower',
+          range: {
+            'min': range[0],
+            'max': range[1]
+          }
+        });
+        setSufix(range[0]);
+        el.noUiSlider.on('update', function(values, handle, unencoded, isTap, positions) {
+          setSufix(values[handle]);
+        });
+
+        function setSufix(n) {
+          var index = 0;
+          var sufix = ['만원', '억원'];
+          var rangeData = parseInt(n);
+          if (rangeData === range[1]) {
+            index = 1;
+            rangeData = 1;
+          }
+          data.innerHTML = rangeData + sufix[index];
+        }
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

@@ -33,7 +33,24 @@ block content
         })
         +datepicker()
       +form_body({title:"불입금액"})
-        +input_money({guideMoney:true, btns:["+1만", "+100만", "+500만", "+1,000만"]})
+        .rangeslidr_wrap
+          .currdata
+            span#currData 6000만원
+          #rangeSlider
+          .rangedata
+            span 1만원
+            span 1억원
+        +content_group(2)
+            
+          .view_data
+            button.write_pop 직접입력
+            .guide_box 
+              .list 
+                p.title 적용이율
+                p.text 4.30%
+              .list 
+                p.title 예상총이자
+                p.text 120,300원(세전)
       +form_body({title:"이자지급방법"})
         +form_value({
           value:"정액식"
@@ -45,7 +62,9 @@ block content
         })
       +form_body()
         .agree_switch
-          p.text 자동이체여부
+          p.text 자동이체여부 
+            button(type="button").guide_btn_line 자동이체(CMS)등록 안내
+
           .switch.type2.main_color
             +radioCheck({
               name:'chk232',
@@ -162,3 +181,31 @@ block content
       label:"다음",
       size:"large",
     })
+  script(src="/js/nouislider.min.js")
+  script. 
+    var el = GCui.util.$('#rangeSlider');
+    var data = GCui.util.$('#currData');
+    var range = [1, 10000];
+    noUiSlider.create(el, {
+      start: [range[0]],
+      connect: 'lower',
+      range: {
+        'min': range[0],
+        'max': range[1]
+      }
+    });
+    setSufix(range[0]);
+    el.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
+      setSufix(values[handle]);
+    });
+
+    function setSufix(n) {
+      var index = 0;
+      var sufix = ['만원', '억원'];
+      var rangeData = parseInt(n);
+      if (rangeData === range[1]) {
+        index = 1;
+        rangeData = 1;
+      }
+      data.innerHTML = rangeData + sufix[index];
+    }

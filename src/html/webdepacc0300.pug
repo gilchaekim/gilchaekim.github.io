@@ -17,7 +17,7 @@ block content
     })
   +content_group(3)
     +title({
-      text:"1.고객 기본 정보",
+      text:"1.기본정보",
       lv:4,
     })
   +content_group(2)
@@ -28,24 +28,43 @@ block content
             text:"김저축",
           },
           {
-            title:"후대폰번호",
+            title:"휴대폰번호",
             text:"010-1234-5678",
+          },
+          {
+            title:"이메일",
+            text:"aaa11223344@naver.com",
           },
           {
             title:"주소",
             text:"[04130]서울 마포구 공덕공<br>168 11층",
           },
           {
-            title:"이메일",
-            text:"aaa11223344@naver.com",
+            title:"주소",
+            text:"<button class=\"search_addr\" type=\"button\">주소찾기</button>",
           },
         ]
     })
-      +button_custom({
-        type:"gray-32",
-        label:"주소변경"
-      })
-      
+  +content_group(1)
+    +title({
+      text:"2.추가정보",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"직업"})
+        +button_select({
+          placeholder:"직업 선택",
+          label:"기타"
+        })
+        +input({
+          placeholder:"직접입력",
+        })
+      +form_body({title:"직종"})
+        +button_select({
+          placeholder:"직종 선택",
+          label:"직종"
+        })
 
   
   +button_bottom_fixed()

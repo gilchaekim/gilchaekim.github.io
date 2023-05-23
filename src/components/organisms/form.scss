@@ -40,6 +40,17 @@
   .mui_form_content{
     margin-top: 8px;
     position: relative;
+    .guide_btn{
+      height: 22px;
+      color: #5C627C;
+      font-size: 13px;
+      background:$bg_color02;
+      padding: 0 10px;
+      border-radius: 11px;
+      position: absolute;
+      top: -30px;
+      right: 0;
+    }
     .mui_button{
       &:first-child{
         margin-top: 8px;

@@ -32,7 +32,7 @@
             </div>
             <div class="mui_form_list form_successes">
               <div class="mui_form_head"><span class="form_title">입금은행</span></div>
-              <div class="mui_form_content"><button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true"></span></span></button>
+              <div class="mui_form_content"><button class="guide_btn" type="button">안내</button><button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true"></span></span></button>
                 <p class="msg_form msg_successes">완료 메세지</p>
               </div>
             </div>
@@ -151,6 +151,7 @@
     })
  
   +form_body({title:"입금은행", message:{type:"successes", text:"완료 메세지"}})
+    button(type="button").guide_btn 안내
     +button_select('셀렉트 버튼')
   +form_body({title:"주민번호 기본"})
     +input_idnumber({

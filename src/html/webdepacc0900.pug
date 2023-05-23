@@ -1,141 +1,119 @@
 extends ../components/templates/base.pug
 
-block prepend top 
-  - mainClassName="webdep"
-  - pageTitle = "상품가입"
-
 block content
-  +content_group(0)
-    +stepNum({
-      total:4,
-      activeIndex:2
-    })
-  +content_group(0)
-    +title({
-      text:"가입정보 입력",
-      lv:2,
-    })
-  +content_group(3)
-    +title({
-      text:"2. 고객 추가정보",
-      lv:4,
-    })
-  +content_group(2)
-    +form()
-      +form_body({title:"직업"})
-        +button_select({
-          placeholder:"직업 선택",
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"금융거래 확인사항",
+    id:"fullLayer",
+    type:"full",
+    isCloseBtn:false
+  })
+    .webdep
+      p.guide_msg 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
+      +content_group(2)
+        +form()
+          +form_body({title:"개인거래목적"})
+            +button_select({
+              placeholder:"개인거래목적 선택",
+            })
+          +form_body({title:"걸제구분"})
+            +radioCheck({
+              type:"radio",
+              name:'chk650105',
+              className:'mini_type',
+              lists:[
+                {label:'보험료납부',},
+                {label:'공과금납부',},
+                {label:'카드납부',},
+              ]
+            })
+          +form_body({title:"거래자금원천"})
+            +button_select({
+              placeholder:"거래자금원천 선택",
+            })
+      hr
+      +content_group(0)
+        +title({
+          text:"가입하시는 상품의 명의인, <em>실소유인이 본인</em>이십니까?",
+          lv:4,
         })
-        +input({
-          placeholder:"직접입력",
-        })
-      +form_body({title:"직종"})
-        +button_select({
-          placeholder:"직종 선택",
-        })
-      +form_body({title:"개인거래목적"})
-        +button_select({
-          placeholder:"개인거래목적 선택",
-        })
-      +form_body({title:"걸제구분"})
+      +content_group(3)
         +radioCheck({
+          name:'btnType',
           type:"radio",
-          name:'chk650105',
-          className:'mini_type',
+          className:'block_type',
           lists:[
-            {label:'보험료납부',},
-            {label:'공과금납부',},
-            {label:'카드납부',},
+            {
+              label:'본인 맞습니다.',
+              checked:true
+            },
+            {
+              label:'본인이 아닙니다.'
+            }
           ]
         })
-      +form_body({title:"거래자금원천"})
-        +button_select({
-          placeholder:"거래자금원천 선택",
+      +content_group(0)
+        +title({
+          text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
+          lv:4,
         })
-  hr
-  +content_group(0)
-    +title({
-      text:"가입하시는 상품의 명의인, <em>실소유인이 본인</em>이십니까?",
-      lv:4,
-    })
-  +content_group(3)
-    +radioCheck({
-      name:'btnType',
-      type:"radio",
-      className:'block_type',
-      lists:[
-        {
-          label:'본인 맞습니다.',
-          checked:true
-        },
-        {
-          label:'본인이 아닙니다.'
-        }
-      ]
-    })
-  +content_group(0)
-    +title({
-      text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
-      lv:4,
-    })
-  +content_group(3)
-    +radioCheck({
-      name:'btnType1',
-      type:"radio",
-      className:'block_type',
-      lists:[
-        {
-          label:'예'
-        },
-        {
-          label:'아니오',
-          checked:true
-        }
-      ]
-    })
-  +content_group(0)
-    +title({
-      text:"타인으로부터 <em>통장대여 요청</em>을 받은 사실이 있습니까?",
-      lv:4,
-    })
-  +content_group(3)
-    +radioCheck({
-      name:'btnType2',
-      type:"radio",
-      className:'block_type',
-      lists:[
-        {
-          label:'예'
-        },
-        {
-          label:'아니오',
-          checked:true
-        }
-      ]
-    })
-  +content_group(0)
-    +title({
-      text:"타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?",
-      lv:4,
-    })
-  +content_group(3)
-    +radioCheck({
-      name:'btnType2',
-      type:"radio",
-      className:'block_type',
-      lists:[
-        {
-          label:'예'
-        },
-        {
-          label:'아니오',
-          checked:true
-        }
-      ]
-    })
-  
-  +button_bottom_fixed()
-    +button({
-      label:"다음",
-      size:"large",
-    })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType1',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+      +content_group(0)
+        +title({
+          text:"타인으로부터 <em>통장대여 요청</em>을 받은 사실이 있습니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType2',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+      +content_group(0)
+        +title({
+          text:"타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType2',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+  script.
+    GCui.modal('#fullLayer').show()
