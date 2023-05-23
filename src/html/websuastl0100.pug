@@ -1,0 +1,62 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus"
+  - pageTitle = "거래중지계좌관리"
+
+block content
+  +title({
+    text:"거래중지계좌 목록",
+    lv:2,
+  })
+  +content_group(2)
+    .data_sort_wrap
+      +data_sort({
+        total:"1",
+        date:"",
+        isBtn:false
+      })
+  +content_group(3)
+    +card({
+      isLinked:false,
+      tag : {
+        label:"편입일 2023.05.11",
+        status:"disabled"
+      },
+      data: [
+          {
+            title:"계좌번호",
+            text:"123-45-678910",
+          },
+          {
+            title:"상태",
+            text:"신청",
+          },
+          {
+            title:"개설일",
+            text:"2023.05.08",
+          },
+          {
+            title:"최종거래일",
+            text:"2023.05.08",
+          },
+          {
+            title:"잔액",
+            text:"0원",
+          },
+          {
+            title:"관리지점",
+            text:"영업부",
+          },
+          {
+            title:"지점전화번호",
+            text:"031-123-5678",
+          },
+        ]
+    })
+  +button_more()
+  +result({
+    type:'null',
+    mainText:"거래중지계좌가 없습니다.",
+    img:"/src/images/ico_search_empty.svg",
+  })

@@ -327,7 +327,8 @@ hr {
 
 	.total{
 		margin-top: 24px;
-		font-size: 14px;
+		font-size: 18px;
+		font-weight: 700;
 		color:$font_color03;
 		em{
 			font-weight: 700;
@@ -345,29 +346,28 @@ hr {
 				margin-top: 16px;
 			}
 			dt{
-				font-size: 16px;
-				color:$main_color01;
+				font-size: 14px;
+				color:$basic_color01;
 			}
 			dd{
 				font-size: 13px;
 				color:$basic_color04;
 				margin-top: 4px;
 				line-height: 20px;
-				span{
-					border-bottom: 1px solid $basic_color04;
-				}
 				.copy{
-					display: inline-block;
-					width: 20px;
-					height: 20px;
-					background: url($url_common+"icon_copy.svg") no-repeat center;
-					vertical-align: top;
-					margin-left: 4px;
+					display:inline-flex;
+					padding:4px 10px 3px;
+					color:#5c627c;
+					line-height:initial;
+					background:$bg_color02;
+					border-radius:12px;
 				}
 			}
 		}
 	}
-
+	.mui_link_text {
+		margin-top:16px;
+	}
 }
 
 .toast_pop_wrap{
@@ -2121,24 +2121,6 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
-	/* 항상하단위치하는 컨텐츠 용도 사용 */
-	&.flex_top_bot {
-		overflow:auto;
-		display:flex;
-		flex-direction:column;
-		height:calc(100vh - 56px);
-		padding-bottom:108px !important;
-		.flex_bot {
-			margin-top:auto;
-			padding-top:24px;
-			&:after {
-				top:24px;
-			}
-		}
-		.mui_button_fixed {
-			height:initial;
-		}
-	}
 	.mui_accordion {
 		.acc_lists:first-child {
 			.acc_header{
@@ -2410,6 +2392,194 @@ hr {
 	}
 
 }
+/* 자주쓰는 계좌관리 */
+.webcus {
+	.fav_card_list {
+		display:flex;
+		flex-direction:column;
+		gap:16px 0;
+		.fav_card {
+			position:relative;
+			display:flex;
+			flex-direction:column;
+			padding:20px 20px 20px 64px;
+			border-radius:20px;
+			border:1px solid var(--line_color03);
+			box-shadow:0 4px 8px rgba(0, 0, 0, 0.04);
+			.close_btn {
+				z-index:2;
+				position:absolute;
+				top:20px;
+				right:20px;
+				width:20px;
+				height:20px;
+				background:url($url_common+"ico_close.svg") no-repeat center;
+			}
+			.img_wrap {
+				position:absolute;
+				top:24px;
+				left:20px;
+				width:32px;
+				height:32px;
+				background:var(--line_color03);
+			}
+			.account_info {
+				p {
+					font-size:14px;
+					color:$basic_color01;
+				}
+				span {
+					display:block;
+					padding-top:4px;
+					font-size:13px;
+					color:$basic_color04;
+				}
+			}
+			.nickname {
+				position:relative;
+				margin-top:16px;
+				font-size:14px;
+				font-weight:700;
+				color:$basic_color02;
+				.btn_modify {
+					width:20px;
+					height:20px;
+					font-size:0;
+					text-indent:-9999px;
+					background:url($url_common+"btn_modify.svg") no-repeat center;
+				}
+			}
+		}
+	}
+	.card_ico_arrow {
+		a {
+			position:relative;
+			&::after {
+				content:"";
+				position:absolute;
+				top:50%;
+				right: 24px;
+				@include icon_svg(arrow-left, "#111", 20px);
+				transform: rotate(180deg) translateY(50%);
+			}
+		}
+		&+.mui_more {
+			margin-top:12px;
+		}
+	}
+	.mui_card {
+		&+.mui_more {
+			margin-top:12px;
+		}
+	}
+	.info_wrap {
+		padding:20px;
+		background:$bg_color02;
+		border-radius:12px;
+		.info_txt {
+			margin-top:0;
+			color:$basic_color01;
+		}
+		&+.mui_title {
+			margin-top:24px;
+			&+.mui_text_lists {
+				ul {
+					display:flex;
+					flex-direction:column;
+					gap:8px 0;
+					padding-top:16px;
+				}
+				li {
+					font-size:14px;
+					color:$font_color03;
+				}
+			}
+		}
+	}
+	.data_sort_wrap {
+		display:flex;
+		justify-content:space-between;
+		.mui_datasort {
+			margin-bottom:0;
+		}
+		.sort_data {
+			font-size:18px;
+			font-weight:700;
+		}
+	}
+	.select_info {
+		margin-top:24px;
+		ul {
+			display:flex;
+			flex-direction:column;
+			gap:8px 0;
+			margin-top:16px;
+			padding-left:32px;
+		}
+	}
+}
+/* 계좌비밀번호변경 */
+.webiba {
+	.sort_data {
+		font-size:18px;
+		font-weight:700;
+	}
+	.card_list {
+		position:relative;
+		display:flex;
+		flex-direction:column;
+		gap:16px 0;
+	}
+	.card_box {
+		position:relative;
+		display:flex;
+		gap:4px 0;
+		padding:20px;
+		border-radius:20px;
+		border:1px solid var(--line_color03);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+		a {
+			display:flex;
+			flex-direction:column;
+			gap:4px 0;
+			&::after {
+				content:"";
+				position:absolute;
+				top:50%;
+				right:24px;
+				@include icon_svg(arrow-left, "#111", 20px);
+				transform:rotate(180deg) translateY(10px);
+			}
+		}
+		strong {
+			font-size:14px;
+			color:$basic_color01;
+		}
+		span {
+			font-size:13px;
+			color:$basic_color04;
+		}
+		.img {
+			display:inline-block;
+			margin-right:11px;
+			width:32px;
+			height:32px;
+		}
+		.bank_info {
+			display:flex;
+			flex-direction:column;
+		}
+	}
+	.text {
+		.sub_txt {
+			margin-right:-20px;
+			padding-top:8px;
+			font-size:13px;
+			font-weight:300;
+			color:var(--basic_color04);
+		}
+	}
+}
 // 가입 사전안내
 .signupguide_wrap{
 	.condition_title{
@@ -2611,6 +2781,24 @@ hr {
 		font-size: 15px;
 		font-weight: 700;
 		color: $font_color01;
+	}
+}
+/* 항상하단위치하는 컨텐츠 용도 사용 */
+.flex_top_bot {
+	overflow:auto;
+	display:flex;
+	flex-direction:column;
+	height:calc(100vh - 56px);
+	padding-bottom:108px !important;
+	.flex_bot {
+		margin-top:auto;
+		padding-top:24px;
+		&:after {
+			top:24px;
+		}
+	}
+	.mui_button_fixed {
+		height:initial;
 	}
 }
 
