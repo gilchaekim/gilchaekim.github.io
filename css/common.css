@@ -2487,7 +2487,7 @@ table, th, td {
 
 .mui_agree_box .check_sec {
   text-align: right;
-  margin-top: 4px;
+  margin-top: 12px;
 }
 .mui_agree_box .agree_box {
   background: var(--bg_color02);
@@ -6050,6 +6050,17 @@ hr {
 }
 .signupguide_wrap .text2 {
   margin-bottom: 8px;
+}
+.signupguide_wrap .sub_txt {
+  margin-top: 16px;
+  font-size: 14px;
+  color: var(--font_color03);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--line_color03);
+}
+.signupguide_wrap .sub_txt.last {
+  border-bottom: 0 none;
 }
 
 .bank_products .sub_txt {

@@ -2456,6 +2456,17 @@ hr {
 	.text2{
 		margin-bottom: 8px;
 	}
+	.sub_txt {
+		margin-top: 16px;
+		font-size: 14px;
+		color:$font_color03;
+		padding-bottom: 16px;
+		margin-bottom: 16px;
+		border-bottom: 1px solid $line_color03;
+		&.last{
+			border-bottom: 0 none;
+		}
+	}
 }
 .bank_products {
 	.sub_txt {
