@@ -4071,7 +4071,8 @@ hr {
 }
 .login .total {
   margin-top: 24px;
-  font-size: 14px;
+  font-size: 18px;
+  font-weight: 700;
   color: var(--font_color03);
 }
 .login .total em {
@@ -4091,8 +4092,8 @@ hr {
   margin-top: 16px;
 }
 .login .acc_list_result .list dt {
-  font-size: 16px;
-  color: var(--main_color01);
+  font-size: 14px;
+  color: var(--basic_color01);
 }
 .login .acc_list_result .list dd {
   font-size: 13px;
@@ -4100,16 +4101,16 @@ hr {
   margin-top: 4px;
   line-height: 20px;
 }
-.login .acc_list_result .list dd span {
-  border-bottom: 1px solid var(--basic_color04);
-}
 .login .acc_list_result .list dd .copy {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: url("/src/images/icon_copy.svg") no-repeat center;
-  vertical-align: top;
-  margin-left: 4px;
+  display: inline-flex;
+  padding: 4px 10px 3px;
+  color: #5c627c;
+  line-height: initial;
+  background: var(--bg_color02);
+  border-radius: 12px;
+}
+.login .mui_link_text {
+  margin-top: 16px;
 }
 
 .toast_pop_wrap {
@@ -5749,26 +5750,6 @@ hr {
 }
 
 /* 금융상품(대출) */
-.webinf {
-  /* 항상하단위치하는 컨텐츠 용도 사용 */
-}
-.webinf.flex_top_bot {
-  overflow: auto;
-  display: flex;
-  flex-direction: column;
-  height: calc(100vh - 56px);
-  padding-bottom: 108px !important;
-}
-.webinf.flex_top_bot .flex_bot {
-  margin-top: auto;
-  padding-top: 24px;
-}
-.webinf.flex_top_bot .flex_bot:after {
-  top: 24px;
-}
-.webinf.flex_top_bot .mui_button_fixed {
-  height: initial;
-}
 .webinf .mui_accordion .acc_lists:first-child .acc_header {
   padding-top: 0;
 }
@@ -6012,6 +5993,190 @@ hr {
   margin-top: 16px;
 }
 
+/* 자주쓰는 계좌관리 */
+.webcus .fav_card_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.webcus .fav_card_list .fav_card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 20px 64px;
+  border-radius: 20px;
+  border: 1px solid var(--line_color03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.webcus .fav_card_list .fav_card .close_btn {
+  z-index: 2;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/ico_close.svg") no-repeat center;
+}
+.webcus .fav_card_list .fav_card .img_wrap {
+  position: absolute;
+  top: 24px;
+  left: 20px;
+  width: 32px;
+  height: 32px;
+  background: var(--line_color03);
+}
+.webcus .fav_card_list .fav_card .account_info p {
+  font-size: 14px;
+  color: var(--basic_color01);
+}
+.webcus .fav_card_list .fav_card .account_info span {
+  display: block;
+  padding-top: 4px;
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webcus .fav_card_list .fav_card .nickname {
+  position: relative;
+  margin-top: 16px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--basic_color02);
+}
+.webcus .fav_card_list .fav_card .nickname .btn_modify {
+  width: 20px;
+  height: 20px;
+  font-size: 0;
+  text-indent: -9999px;
+  background: url("/src/images/btn_modify.svg") no-repeat center;
+}
+.webcus .card_ico_arrow a {
+  position: relative;
+}
+.webcus .card_ico_arrow a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg) translateY(50%);
+}
+.webcus .card_ico_arrow + .mui_more {
+  margin-top: 12px;
+}
+.webcus .mui_card + .mui_more {
+  margin-top: 12px;
+}
+.webcus .info_wrap {
+  padding: 20px;
+  background: var(--bg_color02);
+  border-radius: 12px;
+}
+.webcus .info_wrap .info_txt {
+  margin-top: 0;
+  color: var(--basic_color01);
+}
+.webcus .info_wrap + .mui_title {
+  margin-top: 24px;
+}
+.webcus .info_wrap + .mui_title + .mui_text_lists ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+  padding-top: 16px;
+}
+.webcus .info_wrap + .mui_title + .mui_text_lists li {
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.webcus .data_sort_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.webcus .data_sort_wrap .mui_datasort {
+  margin-bottom: 0;
+}
+.webcus .data_sort_wrap .sort_data {
+  font-size: 18px;
+  font-weight: 700;
+}
+.webcus .select_info {
+  margin-top: 24px;
+}
+.webcus .select_info ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+  margin-top: 16px;
+  padding-left: 32px;
+}
+
+/* 계좌비밀번호변경 */
+.webiba .sort_data {
+  font-size: 18px;
+  font-weight: 700;
+}
+.webiba .card_list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.webiba .card_box {
+  position: relative;
+  display: flex;
+  gap: 4px 0;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--line_color03);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.webiba .card_box a {
+  display: flex;
+  flex-direction: column;
+  gap: 4px 0;
+}
+.webiba .card_box a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg) translateY(10px);
+}
+.webiba .card_box strong {
+  font-size: 14px;
+  color: var(--basic_color01);
+}
+.webiba .card_box span {
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webiba .card_box .img {
+  display: inline-block;
+  margin-right: 11px;
+  width: 32px;
+  height: 32px;
+}
+.webiba .card_box .bank_info {
+  display: flex;
+  flex-direction: column;
+}
+.webiba .text .sub_txt {
+  margin-right: -20px;
+  padding-top: 8px;
+  font-size: 13px;
+  font-weight: 300;
+  color: var(--basic_color04);
+}
+
 .signupguide_wrap .condition_title {
   margin-bottom: 8px;
   font-size: 14px;
@@ -6195,6 +6360,25 @@ hr {
   font-size: 15px;
   font-weight: 700;
   color: var(--font_color01);
+}
+
+/* 항상하단위치하는 컨텐츠 용도 사용 */
+.flex_top_bot {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 56px);
+  padding-bottom: 108px !important;
+}
+.flex_top_bot .flex_bot {
+  margin-top: auto;
+  padding-top: 24px;
+}
+.flex_top_bot .flex_bot:after {
+  top: 24px;
+}
+.flex_top_bot .mui_button_fixed {
+  height: initial;
 }
 
 .guide_pop_msg.al_c {

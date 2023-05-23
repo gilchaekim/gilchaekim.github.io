@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">계좌번호 찾기</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,37 +232,47 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="login" id="contants"><!-- mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <!-- .main_title.type2 -->
-      <!-- //mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <div class="mui_title">
-        <p class="title lv1">보유 계좌번호 결과
-        </p>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_datasort"><span class="sort_data"><span class="total">
-              총 <em>5</em>건</span></span>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>계좌별칭수정 팝업호출</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
+        <div class="mui_modal_dialog mui_size_medium webcus mui_auto_vertical mui_bottom_tray">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>거래중지계좌 안내</p>
+            </div>
+            <div class="mui_modal_content">
+              <div class="mui_title">
+                <p class="title lv4">거래중지계좌란?
+                </p>
+              </div>
+              <div class="mui_contents_group lv_2">
+                <div class="info_wrap">
+                  <div class="info_txt">대포통장 발생요인의 사전적 차단을 위하여「거래중지계좌 제도」가 시행됨에따라 고객님께서 보유하신 입출금이 자유로운 예금 중 아래 요건에 해당되는 경우 '거래중지계좌'로 관리되어 입출금거래 등이 제한될 수 있습니다.</div>
+                </div>
+                <div class="mui_title">
+                  <p class="title lv4">거래중지계좌가 적용되는 경우
+                  </p>
+                </div>
+                <div class="mui_text_lists dot">
+                  <ul>
+                    <li>예금잔액이 1만원 미만이며, 1년이상 입출금거래가 업는 계좌
+                    </li>
+                    <li>예금잔액이 1만원 이상 5만원 미만이며, 2년 이상 입출금거래가 없는 계좌
+                    </li>
+                    <li>예금잔액이 5만원 이상 10만원 미만이며, 3년 이상 입출금거래가 없는 계좌
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="acc_list_result">
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-      </div>
-      <hr>
-      <div class="mui_title">
-        <p class="title lv4">관련 메뉴 바로가기
-        </p>
-      </div>
-      <div class="mui_link_text"><a href=""><span>사용자비밀번호 분실 재등록</span></a><a href=""><span>아이디 찾기</span></a><a href=""><span>장기미접속 해제</span></a>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#modal_bottom').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

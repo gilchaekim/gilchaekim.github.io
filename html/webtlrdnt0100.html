@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">계좌번호 찾기</span></div>
+          <div class="title_center"><span class="title">이체한도관리</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,34 +232,91 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="login" id="contants"><!-- mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <!-- .main_title.type2 -->
-      <!-- //mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <div class="mui_title">
-        <p class="title lv1">보유 계좌번호 결과
-        </p>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_datasort"><span class="sort_data"><span class="total">
-              총 <em>5</em>건</span></span>
+    <div class="webcus" id="contants">
+      <div class="mui_contents_group lv_0">
+        <div class="mui_title">
+          <p class="title lv2">이체한도 조회 및 감액
+          </p>
         </div>
-      </div>
-      <div class="acc_list_result">
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-      </div>
-      <hr>
-      <div class="mui_title">
-        <p class="title lv4">관련 메뉴 바로가기
-        </p>
-      </div>
-      <div class="mui_link_text"><a href=""><span>사용자비밀번호 분실 재등록</span></a><a href=""><span>아이디 찾기</span></a><a href=""><span>장기미접속 해제</span></a>
+        <div class="mui_contents_group lv_2">
+          <div class="mui_title">
+            <p class="title lv4">현재 이체한도
+            </p>
+          </div>
+          <div class="mui_result line">
+            <dl>
+              <dt>1일
+              </dt>
+              <dd> 1,000,000원
+              </dd>
+            </dl>
+            <dl>
+              <dt>1회
+              </dt>
+              <dd> 1,000,000원
+              </dd>
+            </dl>
+          </div>
+        </div>
+        <div class="mui_contents_group lv_2">
+          <div class="mui_form">
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">감액 1회 이체한도</span></div>
+              <div class="mui_form_content">
+                <div class="mui_inputmoney">
+                  <span class="mui_input inner_subfix sublength_1">
+                    <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
+                  </span>
+                  <div class="mui_button_group"><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1,000만</span></button></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">감액 1일 이체한도</span></div>
+              <div class="mui_form_content">
+                <div class="mui_inputmoney">
+                  <span class="mui_input inner_subfix sublength_1">
+                    <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
+                  </span>
+                  <div class="mui_button_group"><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1,000만</span></button></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mui_collapse guide_text">
+            <div class="mui_accordion" mui-accordion="">
+              <div class="acc_lists mui_open">
+                <div class="acc_header">
+                  <p class="title">알아두세요</p>
+                  <button class="mui_acc_button" type="button"> 닫기
+                  </button>
+                </div>
+                <div class="mui_acc_content">
+                  <div class="mui_text_lists guide">
+                    <ul>
+                      <li>[금융감독원 전자금융거래 보안대책]에 따라 이체한도증액은 영업점을 방문 또는 SB톡톡플러스에서 신청해주시기 바랍니다.
+                      </li>
+                      <li>2013.12.27부터 [전자금융 보안등급별 이체한도 변경]에 따라 변경된 이체한도 내에서 등록하실 수 있습니다.
+                      </li>
+                      <li>인터넷뱅킹, SB스마트뱅킹, 텔레뱅킹 서비스도 함께 적용됩니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="mui_button_fixed"><span class="inset">
           <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>

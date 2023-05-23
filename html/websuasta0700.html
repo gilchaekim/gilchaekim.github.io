@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">계좌번호 찾기</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,37 +232,57 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="login" id="contants"><!-- mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <!-- .main_title.type2 -->
-      <!-- //mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
-      <div class="mui_title">
-        <p class="title lv1">보유 계좌번호 결과
-        </p>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_datasort"><span class="sort_data"><span class="total">
-              총 <em>5</em>건</span></span>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>해제 신청 방식 선택 팝업호출</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
+        <div class="mui_modal_dialog mui_size_medium webcus mui_auto_vertical mui_bottom_tray">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>해제 신청 방식 선택</p>
+            </div>
+            <div class="mui_modal_content">
+              <div class="mui_title">
+                <p class="title lv4">가능한 신청 방식을 선택해주세요
+                </p>
+              </div>
+              <div class="select_info">
+                <span class="mui_radio">
+                  <input type="radio" id="chk552197Id1" name="chk552197" />
+                  <label for="chk552197Id1">비대면 중지해제 신청</label>
+                </span>
+                <div class="mui_text_lists dot">
+                  <ul>
+                    <li>금융거래목적확인서 비대면 전자 서명
+                    </li>
+                    <li>신분증 진위확인 절차를 통해 신청 완료
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="select_info">
+                <span class="mui_radio">
+                  <input type="radio" id="chk552197Id2" name="chk552197" />
+                  <label for="chk552197Id2">Fax/E-mail로 중지해제 신청</label>
+                </span>
+                <div class="mui_text_lists dot">
+                  <ul>
+                    <li>고객이 직업 Fax 또는 E-mail 번호를 기재하여 거래목적확인서를 송부
+                    </li>
+                    <li>필요 서류를 작성 후, 안내 받은 회신처로 회신
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            </div>
+            <button class="mui_modal_close">닫기</button>
+          </div>
         </div>
-      </div>
-      <div class="acc_list_result">
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-        <dl class="list">
-          <dt>참알찬IBK저축은행보통예금</dt>
-          <dd> <span>000-00-00-00000 </span><a class="copy"><span>복사하기</span></a></dd>
-        </dl>
-      </div>
-      <hr>
-      <div class="mui_title">
-        <p class="title lv4">관련 메뉴 바로가기
-        </p>
-      </div>
-      <div class="mui_link_text"><a href=""><span>사용자비밀번호 분실 재등록</span></a><a href=""><span>아이디 찾기</span></a><a href=""><span>장기미접속 해제</span></a>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#modal_bottom').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>
