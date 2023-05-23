@@ -4,6 +4,7 @@
 @import "common/reset";
 @import "common/animation";
 @import "common/swiper";
+@import "common/nouislider";
 
 
 @import '../../components/atoms/index.scss';
@@ -2270,6 +2271,56 @@ hr {
 	}
 }
 .webdep {
+	.view_data{
+		text-align: center;
+		.write_pop{
+			border-bottom: 1px solid $basic_color03;
+			color:$font_color03;
+		}
+		.guide_box {
+			border-radius: 12px;
+			margin-top: 24px;
+			background:$bg_color02;
+			padding: 20px;
+			.list {
+				display: flex;
+				justify-content: space-between;
+				font-size: 14px;
+				.title {
+					color:$font_color03;
+				}
+				.text {
+					color:$font_color01;
+					font-weight: 700;
+				}
+				& ~ .list {
+					margin-top: 16px;
+				}
+			}
+		}
+	}
+	.rangeslidr_wrap{
+		.rangedata{
+			padding-top: 24px;
+			display: flex;
+			justify-content: space-between;
+			font-size: 13px;
+			color:$basic_color04;
+		}
+		.currdata {
+			font-size: 24px;
+			font-weight: 700;
+			color:$font_color01;
+			padding-bottom: 12px;
+		}
+	}
+	.guide_msg{
+		font-size: 14px;
+		color:$font_color03;
+		padding: 20px;
+		background:$bg_color02;
+		border-radius: 12px;
+	}
 	.signup_remind {
 		.title {
 			font-size: 18px;
@@ -2707,25 +2758,15 @@ hr {
 .bank_product_details {
 	margin: 16px -24px;
 	background:$bg_color02;
-	padding: 32px 24px;
+	padding: 32px 156px 32px 24px;
 	position: relative;
+	min-height: 153px;
 	.sub_txt {
 		font-size: 15px;
 		color: #333;
 		margin-top: 4px;
 	}
 	.detail {
-		margin-top: 32px;
-		
-		dt {
-			color:$basic_color04;
-			font-size: 13px;
-		}
-		dd {
-			font-size: 22px;
-			color:$font_color01;
-			font-weight: 700;
-		}
 		.img {
 			position: absolute;
 			bottom: 24px;
@@ -2772,6 +2813,13 @@ hr {
 	padding: 20px;
 	border-radius: 20px;
 	position: relative;
+	.guide_btn_line{
+		margin-left: 8px;
+		font-size: 12px;
+		color:$font_color03;
+		border-bottom: 1px solid $font_color03;
+		vertical-align: 2px;
+	}
 	.switch {
 		position: absolute;
 		top: 20px;

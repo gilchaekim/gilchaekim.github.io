@@ -12994,6 +12994,11 @@
     "query-string" "^5.0.1"
     "sort-keys" "^2.0.0"
 
+"nouislider@^15.7.0":
+  "integrity" "sha512-aJVEULBPOUwq32/s7xnLNyLvo4kuzYJJsNp2PNGW932AQ0uuDAbLShAqswtxRzJc5n/dLJXNlYSLOZ57bcUg1w=="
+  "resolved" "https://registry.npmjs.org/nouislider/-/nouislider-15.7.0.tgz"
+  "version" "15.7.0"
+
 "now-and-later@^2.0.0":
   "integrity" "sha512-KGvQ0cB70AQfg107Xvs/Fbu+dGmZoTRJp2TaPwcwQm3/7PteUyN2BCgk8KBMPGBUXZdVwyWS8fDCGFygBm19UQ=="
   "resolved" "https://registry.npmjs.org/now-and-later/-/now-and-later-2.0.1.tgz"

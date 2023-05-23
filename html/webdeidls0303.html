@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">상품가입</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,94 +232,43 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webdep" id="contants">
-      <div class="mui_contents_group lv_0">
-        <undefined class="mui_stepnum">
-          <ul>
-            <li class="step"><span>1</span></li>
-            <li class="step mui_active"><span>2</span></li>
-            <li class="step"><span>3</span></li>
-            <li class="step"><span>4</span></li>
-          </ul>
-        </undefined>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv2">가입정보 입력
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_title">
-          <p class="title lv4">1.기본정보
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_card no_tag">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>이름
-                </dt>
-                <dd> 김저축
-                </dd>
-              </dl>
-              <dl>
-                <dt>휴대폰번호
-                </dt>
-                <dd> 010-1234-5678
-                </dd>
-              </dl>
-              <dl>
-                <dt>이메일
-                </dt>
-                <dd> aaa11223344@naver.com
-                </dd>
-              </dl>
-              <dl>
-                <dt>주소
-                </dt>
-                <dd> [04130]서울 마포구 공덕공<br>168 11층
-                </dd>
-              </dl>
-              <dl>
-                <dt>주소
-                </dt>
-                <dd> <button class="search_addr" type="button">주소찾기</button>
-                </dd>
-              </dl>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>직접입력</p>
             </div>
+            <div class="mui_modal_content">
+              <div class="mui_form">
+                <div class="mui_form_list">
+                  <div class="mui_form_head"><span class="form_title">가입금액</span></div>
+                  <div class="mui_form_content">
+                    <div class="mui_inputmoney">
+                      <span class="mui_input inner_subfix sublength_1">
+                        <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
+                      </span>
+                      <div class="mui_button_group"><span class="group">
+                          <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
+                          <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
+                          <button class="mui_button mui_medium mui_primary" type="button"><span>+500만</span></button></span><span class="group">
+                          <button class="mui_button mui_medium mui_primary" type="button"><span>+1,000만</span></button></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-      </div>
-      <div class="mui_contents_group lv_1">
-        <div class="mui_title">
-          <p class="title lv4">2.추가정보
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_form">
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">직업</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">기타<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">직업 선택</span></span></button>
-              <span class="mui_input">
-                <input type="text" placeholder="직접입력" mui-input="" />
-              </span>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">직종</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">직종<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">직종 선택</span></span></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

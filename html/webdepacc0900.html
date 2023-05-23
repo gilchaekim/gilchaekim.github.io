@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">상품가입</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,154 +232,133 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webdep" id="contants">
-      <div class="mui_contents_group lv_0">
-        <undefined class="mui_stepnum">
-          <ul>
-            <li class="step"><span>1</span></li>
-            <li class="step mui_active"><span>2</span></li>
-            <li class="step"><span>3</span></li>
-            <li class="step"><span>4</span></li>
-          </ul>
-        </undefined>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv2">가입정보 입력
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_title">
-          <p class="title lv4">2. 고객 추가정보
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_form">
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">직업</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">직업 선택</span></span></button>
-              <span class="mui_input">
-                <input type="text" placeholder="직접입력" mui-input="" />
-              </span>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>금융거래 확인사항</p>
             </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">직종</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">직종 선택</span></span></button>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">개인거래목적</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">개인거래목적 선택</span></span></button>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">걸제구분</span></div>
-            <div class="mui_form_content">
-              <div class="mui_radio_group mini_type">
-                <span class="mui_radio">
-                  <input type="radio" id="chk650105Id1" name="chk650105Id1" />
-                  <label for="chk650105Id1">보험료납부</label>
-                </span>
-                <span class="mui_radio">
-                  <input type="radio" id="chk650105Id2" name="chk650105Id1" />
-                  <label for="chk650105Id2">공과금납부</label>
-                </span>
-                <span class="mui_radio">
-                  <input type="radio" id="chk650105Id3" name="chk650105Id1" />
-                  <label for="chk650105Id3">카드납부</label>
-                </span>
+            <div class="mui_modal_content">
+              <div class="webdep">
+                <p class="guide_msg">안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요</p>
+                <div class="mui_contents_group lv_2">
+                  <div class="mui_form">
+                    <div class="mui_form_list">
+                      <div class="mui_form_head"><span class="form_title">개인거래목적</span></div>
+                      <div class="mui_form_content">
+                        <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">개인거래목적 선택</span></span></button>
+                      </div>
+                    </div>
+                    <div class="mui_form_list">
+                      <div class="mui_form_head"><span class="form_title">걸제구분</span></div>
+                      <div class="mui_form_content">
+                        <div class="mui_radio_group mini_type">
+                          <span class="mui_radio">
+                            <input type="radio" id="chk650105Id1" name="chk650105Id1" />
+                            <label for="chk650105Id1">보험료납부</label>
+                          </span>
+                          <span class="mui_radio">
+                            <input type="radio" id="chk650105Id2" name="chk650105Id1" />
+                            <label for="chk650105Id2">공과금납부</label>
+                          </span>
+                          <span class="mui_radio">
+                            <input type="radio" id="chk650105Id3" name="chk650105Id1" />
+                            <label for="chk650105Id3">카드납부</label>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_form_list">
+                      <div class="mui_form_head"><span class="form_title">거래자금원천</span></div>
+                      <div class="mui_form_content">
+                        <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">거래자금원천 선택</span></span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr>
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">가입하시는 상품의 명의인, <em>실소유인이 본인</em>이십니까?
+                    </p>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_3">
+                  <div class="mui_radio_group block_type">
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId4" name="btnTypeId2" checked="checked" />
+                      <label for="btnTypeId4">본인 맞습니다.</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnTypeId5" name="btnTypeId2" />
+                      <label for="btnTypeId5">본인이 아닙니다.</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">자택주소가 현재 <em>거주하시는 장소</em>입니까?
+                    </p>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_3">
+                  <div class="mui_radio_group block_type">
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType1Id6" name="btnType1Id3" />
+                      <label for="btnType1Id6">예</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType1Id7" name="btnType1Id3" checked="checked" />
+                      <label for="btnType1Id7">아니오</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">타인으로부터 <em>통장대여 요청</em>을 받은 사실이 있습니까?
+                    </p>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_3">
+                  <div class="mui_radio_group block_type">
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType2Id8" name="btnType2Id4" />
+                      <label for="btnType2Id8">예</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType2Id9" name="btnType2Id4" checked="checked" />
+                      <label for="btnType2Id9">아니오</label>
+                    </span>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_0">
+                  <div class="mui_title">
+                    <p class="title lv4">타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?
+                    </p>
+                  </div>
+                </div>
+                <div class="mui_contents_group lv_3">
+                  <div class="mui_radio_group block_type">
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType2Id10" name="btnType2Id5" />
+                      <label for="btnType2Id10">예</label>
+                    </span>
+                    <span class="mui_radio">
+                      <input type="radio" id="btnType2Id11" name="btnType2Id5" checked="checked" />
+                      <label for="btnType2Id11">아니오</label>
+                    </span>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">거래자금원천</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">거래자금원천 선택</span></span></button>
-            </div>
-          </div>
         </div>
-      </div>
-      <hr>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">가입하시는 상품의 명의인, <em>실소유인이 본인</em>이십니까?
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_radio_group block_type">
-          <span class="mui_radio">
-            <input type="radio" id="btnTypeId4" name="btnTypeId2" checked="checked" />
-            <label for="btnTypeId4">본인 맞습니다.</label>
-          </span>
-          <span class="mui_radio">
-            <input type="radio" id="btnTypeId5" name="btnTypeId2" />
-            <label for="btnTypeId5">본인이 아닙니다.</label>
-          </span>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">자택주소가 현재 <em>거주하시는 장소</em>입니까?
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_radio_group block_type">
-          <span class="mui_radio">
-            <input type="radio" id="btnType1Id6" name="btnType1Id3" />
-            <label for="btnType1Id6">예</label>
-          </span>
-          <span class="mui_radio">
-            <input type="radio" id="btnType1Id7" name="btnType1Id3" checked="checked" />
-            <label for="btnType1Id7">아니오</label>
-          </span>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">타인으로부터 <em>통장대여 요청</em>을 받은 사실이 있습니까?
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_radio_group block_type">
-          <span class="mui_radio">
-            <input type="radio" id="btnType2Id8" name="btnType2Id4" />
-            <label for="btnType2Id8">예</label>
-          </span>
-          <span class="mui_radio">
-            <input type="radio" id="btnType2Id9" name="btnType2Id4" checked="checked" />
-            <label for="btnType2Id9">아니오</label>
-          </span>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <div class="mui_radio_group block_type">
-          <span class="mui_radio">
-            <input type="radio" id="btnType2Id10" name="btnType2Id5" />
-            <label for="btnType2Id10">예</label>
-          </span>
-          <span class="mui_radio">
-            <input type="radio" id="btnType2Id11" name="btnType2Id5" checked="checked" />
-            <label for="btnType2Id11">아니오</label>
-          </span>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>

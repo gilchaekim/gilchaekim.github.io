@@ -5153,11 +5153,11 @@
         this.mediaObj = window.matchMedia(media);
         var handler = function handler() {
           _this.matchMedia = _this.mediaObj.matches;
-          trigger(_this.$el, createEvent('mediachange', false, true, [_this.mediaObj]));
+          trigger(_this.$el, createEvent("mediachange", false, true, [_this.mediaObj]));
         };
-        this.offMediaObj = on(this.mediaObj, 'change', function () {
+        this.offMediaObj = on(this.mediaObj, "change", function () {
           handler();
-          _this.$emit('resize');
+          _this.$emit("resize");
         });
         handler();
       }
@@ -5169,13 +5169,13 @@
   };
   function toMedia(value, element) {
     if (isString(value)) {
-      if (startsWith(value, '@')) {
+      if (startsWith(value, "@")) {
         value = toFloat(css(element, "--uk-breakpoint-".concat(value.substr(1))));
       } else if (isNaN(value)) {
         return value;
       }
     }
-    return value && isNumeric(value) ? "(min-width: ".concat(value, "px)") : '';
+    return value && isNumeric(value) ? "(min-width: ".concat(value, "px)") : "";
   }
 
   var sticky = {

@@ -7,47 +7,50 @@ import {
   startsWith,
   toFloat,
   trigger,
-} from '../../util';
+} from "../../util";
 
 export default {
   props: {
-      media: Boolean,
+    media: Boolean,
   },
 
   data: {
-      media: false,
+    media: false,
   },
 
   connected() {
-      const media = toMedia(this.media, this.$el);
-      this.matchMedia = true;
-      if (media) {
-          this.mediaObj = window.matchMedia(media);
-          const handler = () => {
-              this.matchMedia = this.mediaObj.matches;
-              trigger(this.$el, createEvent('mediachange', false, true, [this.mediaObj]));
-          };
-          this.offMediaObj = on(this.mediaObj, 'change', () => {
-              handler();
-              this.$emit('resize');
-          });
-          handler();
-      }
+    const media = toMedia(this.media, this.$el);
+    this.matchMedia = true;
+    if (media) {
+      this.mediaObj = window.matchMedia(media);
+      const handler = () => {
+        this.matchMedia = this.mediaObj.matches;
+        trigger(
+          this.$el,
+          createEvent("mediachange", false, true, [this.mediaObj])
+        );
+      };
+      this.offMediaObj = on(this.mediaObj, "change", () => {
+        handler();
+        this.$emit("resize");
+      });
+      handler();
+    }
   },
 
   disconnected() {
-      this.offMediaObj?.();
+    this.offMediaObj?.();
   },
 };
 
 function toMedia(value, element) {
   if (isString(value)) {
-      if (startsWith(value, '@')) {
-          value = toFloat(css(element, `--uk-breakpoint-${value.substr(1)}`));
-      } else if (isNaN(value)) {
-          return value;
-      }
+    if (startsWith(value, "@")) {
+      value = toFloat(css(element, `--uk-breakpoint-${value.substr(1)}`));
+    } else if (isNaN(value)) {
+      return value;
+    }
   }
 
-  return value && isNumeric(value) ? `(min-width: ${value}px)` : '';
+  return value && isNumeric(value) ? `(min-width: ${value}px)` : "";
 }

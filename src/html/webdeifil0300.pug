@@ -32,7 +32,24 @@ block content
           subfix:"개월",
         })
       +form_body({title:"최초불입금액"})
-        +input_money({btns:["+1만", "+100만", "+500만", "+1,000만"]})
+        .rangeslidr_wrap
+          .currdata
+            span#currData 6000만원
+          #rangeSlider
+          .rangedata
+            span 1만원
+            span 1억원
+        +content_group(2)
+            
+          .view_data
+            button.write_pop 직접입력
+            .guide_box 
+              .list 
+                p.title 적용이율
+                p.text 4.30%
+              .list 
+                p.title 예상총이자
+                p.text 120,300원(세전)
       +form_body({title:"납입방법"})
         +form_value({
           value:"자유적립식"
@@ -130,3 +147,31 @@ block content
       label:"다음",
       size:"large",
     })
+  script(src="/js/nouislider.min.js")
+  script. 
+    var el = GCui.util.$('#rangeSlider');
+    var data = GCui.util.$('#currData');
+    var range = [1, 10000];
+    noUiSlider.create(el, {
+      start: [range[0]],
+      connect: 'lower',
+      range: {
+        'min': range[0],
+        'max': range[1]
+      }
+    });
+    setSufix(range[0]);
+    el.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
+      setSufix(values[handle]);
+    });
+
+    function setSufix(n) {
+      var index = 0;
+      var sufix = ['만원', '억원'];
+      var rangeData = parseInt(n);
+      if (rangeData === range[1]) {
+        index = 1;
+        rangeData = 1;
+      }
+      data.innerHTML = rangeData + sufix[index];
+    }
