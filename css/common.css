@@ -3196,7 +3196,8 @@ table, th, td {
   background: var(--font_color08);
 }
 .mui_card_list a {
-  display: block;
+  display: flex;
+  align-items: center;
   position: relative;
   border-radius: 20px;
   padding: 20px 20px 20px 76px;
@@ -5181,18 +5182,19 @@ hr {
 }
 .search_address .addr_lists .box {
   padding: 16px 0;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  gap: 12px 0;
 }
 .search_address .addr_lists .box ~ .box {
   border-top: 1px solid var(--line_color03);
 }
 .search_address .addr_lists .box .post {
-  display: block;
   font-size: 16px;
   color: var(--main_color01);
-  padding-bottom: 12px;
 }
-.search_address .addr_lists .box p {
+.search_address .addr_lists .box a {
+  display: block;
   font-size: 14px;
   color: var(--font_color02);
 }
