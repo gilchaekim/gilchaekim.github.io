@@ -3103,10 +3103,20 @@ table, th, td {
   border: 1px solid var(--line_color03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
+.mui_card .title {
+  color: var(--font_color01);
+  font-weight: 700;
+  font-size: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line_color03);
+}
+.mui_card .title + .mui_result {
+  margin-top: 16px;
+}
 .mui_card ~ .mui_card {
   margin-top: 16px;
 }
-.mui_card.no_tag.is_linked .inset {
+.mui_card.no_tag.is_linked:not(.in_title) .inset {
   padding-top: 62px;
 }
 .mui_card.is_linked .inset {

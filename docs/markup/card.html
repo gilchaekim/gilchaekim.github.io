@@ -94,6 +94,15 @@
               </div><span class="mui_radio"><input type="radio" id="chk250176Id2" name="chk250176" /><label for="chk250176Id2">라디오 버튼 있음!</label></span>
             </div>
           </div>
+          <div class="mui_card is_linked no_tag in_title"><a class="inset" href="">
+              <p class="title">타이틀</p>
+              <div class="mui_result default">
+                <dl>
+                  <dt>내용</dt>
+                  <dd> 내용</dd>
+                </dl>
+              </div>
+            </a></div>
           <div class="mui_card is_linked"><a class="inset" href="">
               <div class="tags"><span class="tag disabled">정상</span></div>
               <div class="mui_result default">
@@ -175,6 +184,16 @@
     name:'chk250176',
     label:'라디오 버튼 있음!'
   })
++card({
+  isLinked:true,
+  title : "타이틀",
+  data: [
+      {
+        title:"내용",
+        text:"내용",
+      },
+    ]
+})
 +card({
   isLinked:true,
   tag : {
