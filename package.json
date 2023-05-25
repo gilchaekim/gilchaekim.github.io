@@ -4,6 +4,7 @@
   "description": "metaui",
   "scripts": {
     "start": "gulp start",
+    "build": "gulp build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },

@@ -370,7 +370,7 @@
   border: 1px solid var(--line_color02);
   background: var(--bg_color03);
   box-shadow: none;
-  top: -10px;
+  top: -12px;
   right: -16px;
 }
 .noUi-horizontal .noUi-handle::before, .noUi-horizontal .noUi-handle::after {
