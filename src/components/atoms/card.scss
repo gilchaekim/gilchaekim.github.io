@@ -106,7 +106,8 @@
   }
   &_list{
     a{
-      display: block;
+      display: flex;
+      align-items: center;
       position: relative;
       border-radius: 20px;
       padding: 20px 20px 20px 76px;
