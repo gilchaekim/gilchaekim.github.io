@@ -1085,17 +1085,18 @@ hr {
 		margin-top: 24px;
 		.box{
 			padding: 16px 0;
-			display: block;
+			display: flex;
+			flex-direction:column;
+			gap:12px 0;
 			& ~ .box{
 				border-top: 1px solid $line_color03;
 			}
 			.post{
-				display: block;
 				font-size: 16px;
 				color:$main_color01;
-				padding-bottom: 12px;
 			}
-			p{
+			a{
+				display:block;
 				font-size: 14px;
 				color:$font_color02;
 			}
