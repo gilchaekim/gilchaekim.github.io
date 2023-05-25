@@ -321,7 +321,7 @@
     border: 1px solid $line_color02;
     background:$bg_color03;
     box-shadow: none;
-    top: -10px;
+    top: -12px;
     right: -16px;
     &::before, &::after {
       display: none;
@@ -333,5 +333,4 @@
   border: 0 none;
   background:$bg_color01;
   border-radius: 4px;
-
 }
