@@ -3207,7 +3207,6 @@ table, th, td {
   background: var(--line_color03);
 }
 .mui_card_list .text {
-  line-height: 40px;
   color: var(--font_color02);
   font-size: 15px;
 }
@@ -6425,6 +6424,9 @@ hr {
 }
 .webdep .recom_lists .list ~ .list {
   margin-top: 16px;
+}
+.webdep .top_btn {
+  text-align: right;
 }
 
 /* 자주쓰는 계좌관리 */
