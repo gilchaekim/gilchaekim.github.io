@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">대출신청조회</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,55 +232,73 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>전자금융사기예방서비스</span></button><!-- layer -->
-      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium webcom mui_auto_vertical mui_fullpop">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>전자금융사기예방서비스</p>
-            </div>
-            <div class="mui_modal_content">
-              <div class="mui_title">
-                <p class="title lv2">전자금융사기예방서비스
-                </p>
-              </div><!-- 2023.05.02 수정 [클래스수정 sub_txt > webcom_sub_txt] -->
-              <p class="webcom_sub_txt">보이스피싱 등 금융사기 예방을 위해 감독기관의 정책에 따라 아래의 추가인증서비스 중 하나 이상을 가입하셔야 뱅킹서비스 이용이 가능합니다.</p>
-              <div class="mui_button_wrap">
-                <button class="mui_button mui_medium mui_primary btn_line" type="button"><span>추가인증서비스 등록</span></button>
-              </div>
-              <div class="mui_title">
-                <p class="title lv4">추가인증서비스(ARS, 스마트폰 앱 인증서비스)
-                </p>
-              </div>
-              <div class="mui_text_lists dot">
-                <ul>
-                  <li class="list_txt"><strong>전화(ARS)승인서비스</strong>
-                    <div class="mui_text_lists hyphhen">
-                      <ul>
-                        <li>회원정보 연락처에 등록된 전화가능 연락처를 이용하여 전화(ARS)를 통해 공인인증서 발급 등 인터넷뱅킹 이용이 가능한 서비스
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="list_txt"><strong>스마트폰 앱 인증서비스</strong>
-                    <div class="mui_text_lists hyphhen">
-                      <ul>
-                        <li>회원정보 연락처에 등록된 본인 명의 스마트폰에서 스마트 2채널 인증 앱을 이용하여 인증한 후 공인인증서 발급 등 뱅킹서비스 이용이 가능한 서비스
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <button class="mui_modal_close">닫기</button>
-          </div>
+    <div class="webinq" id="contants">
+      <div class="mui_title">
+        <p class="title lv2">대출신청상세
+        </p>
+      </div>
+      <div class="mui_contents_group lv_2">
+        <div class="mui_result line">
+          <dl>
+            <dt>비대면 거래번호
+            </dt>
+            <dd> 20170505055555000
+            </dd>
+          </dl>
+          <dl>
+            <dt>저축은행
+            </dt>
+            <dd> 예가람저축은행(325)
+            </dd>
+          </dl>
+          <dl>
+            <dt>진행상태
+            </dt>
+            <dd> 심사중
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출 상품종류
+            </dt>
+            <dd> 신용대출
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출상품
+            </dt>
+            <dd> 직장인 신용대출(760051)
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출 신청 금액
+            </dt>
+            <dd> 1,000,000원
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출 신청기간
+            </dt>
+            <dd> 24개월
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출 신청 개시일
+            </dt>
+            <dd> 2024.01.01
+            </dd>
+          </dl>
+          <dl>
+            <dt>대출 예정 만기일
+            </dt>
+            <dd> 2024.01.01
+            </dd>
+          </dl>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+        <p class="mui_text warning">심사가 완료되면 전자약정 메뉴를 통해 대출을 완료하실 수 있습니다.
+        </p>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

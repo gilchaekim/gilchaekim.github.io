@@ -1,0 +1,55 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "적정성등록"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:6,
+      activeIndex:4
+    })
+  +content_group(0)
+    +title({
+      text:"적합성 · 적정성 확인서 ",
+      lv:2,
+    })
+    .text_wrap
+      +text({
+        text:"법인·조합등의 경우, 재무상황 확인 등을 위해 회사의 회계정보 제출이 필요합니다."
+      })
+  +content_group(2)
+    +form()
+      +form_body({title:"연령"})
+        +button_select({
+          placeholder:"연령 선택",
+          label:"연령"
+        })
+      +form_body({title:"대출계약 체결 목적"})
+        +button_select({
+          placeholder:"대출계약 체결 목적 선택",
+          label:"기타"
+        })
+        +input({
+          placeholder:"직접 입력"
+        })
+      +form_body({title:"연간 소득"})
+        +button_select({
+          placeholder:"연간 소득 선택",
+          label:"해당 없음"
+        })
+        +input({
+          placeholder:"직접 입력"
+        })
+      +form_body({title:"총 자산규모(순자산)"})
+        +button_select({
+          placeholder:"총 자산규모 선택",
+          label:"총 자산규모"
+        })
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

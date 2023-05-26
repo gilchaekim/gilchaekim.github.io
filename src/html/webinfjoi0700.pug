@@ -1,0 +1,20 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"(햇살론)대출상품설명서",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"full",
+    title:"(햇살론)대출상품설명서"
+  })
+    div 솔루션 개발확인 필요
+    +button_bottom_fixed()
+      +button({
+        label:"전자약정 확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

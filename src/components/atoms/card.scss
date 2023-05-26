@@ -5,6 +5,9 @@
   border-radius: 20px;
   border: 1px solid $line_color03;
   box-shadow: 0 4px 8px rgba(0,0,0,.04);
+  & + .mui_more {
+    margin-top: 12px;
+  }
   .title{
     color:$font_color01;
     font-weight: 700;
