@@ -2803,8 +2803,8 @@ hr {
 		}
 	}
 }
-/* 금리인하요구권 */
-.webirc {
+/* 금리인하요구권, 대출계약철회 */
+.webirc, .webwil {
 	.guide_wrap {
 		padding-bottom:16px;
 		border-bottom:1px solid $line_color03;

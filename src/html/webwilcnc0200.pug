@@ -1,0 +1,66 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webwil"
+  - pageTitle = "대출철회조회/취소"
+
+block content
+  +title({
+    text:"대출철회신청상세",
+    lv:2,
+  })
+  +content_group(2)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"대출상품",
+          text:"직장인 신용대출",
+        },
+        {
+          title:"대출계좌번호",
+          text:"123-12-12-123456",
+        },
+        {
+          title:"대출금리",
+          text:"3.18%",
+        },
+        {
+          title:"대출잔액",
+          text:"1,000,000원",
+        },
+        {
+          title:"대출일자",
+          text:"2024.01.01",
+        },
+        {
+          title:"만기일자",
+          text:"2024.01.01",
+        },
+        {
+          title:"처리상태",
+          text:"처리상태값노출",
+        },
+        {
+          title:"비대면거래번호",
+          text:"123456789",
+        },
+        {
+          title:"신청상태",
+          text:"신청상태값노출",
+        },
+        {
+          title:"신청일자",
+          text:"2024.01.01",
+        },
+        {
+          title:"처리일자",
+          text:"2024.01.01",
+        },
+      ]
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"신청취소",
+      size:"large",
+    })
