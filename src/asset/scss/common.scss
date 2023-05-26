@@ -2324,6 +2324,20 @@ hr {
 			height:80px;
 			border:1px solid var(--line_color03);
 			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+			&.no_img {
+				padding-left: 20px;
+				display: flex;
+				justify-content: space-between;
+				height: auto;
+				font-size: 14px;
+				margin-top: 8px;
+				.text {
+					color:$basic_color04;
+				}
+				.acc_num {
+					color:$font_color02;
+				}
+			}
 			.text {
 				line-height:initial;
 			}
@@ -2351,6 +2365,27 @@ hr {
 	}
 	.email_recive {
 		display:inline-block;
+	}
+	.acc_select {
+		&.mui_card.select_type {
+			.inset{
+				padding-top: 83px;
+			}
+			.mui_radio label::before{
+				top: 32px;
+			}
+		} 
+		.mui_radio {
+			label {
+				display: block;
+				font-size: 14px;
+				span {
+					display: block;
+					font-size: 16px;
+					font-weight: 700;
+				}
+			} 
+		}
 	}
 }
 .webdep {
