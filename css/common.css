@@ -4328,6 +4328,91 @@ hr {
   background: url("/src/images/ico_menu.svg") no-repeat center;
 }
 
+.popup._FSB_LayerPopupArea {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.popup._FSB_LayerPopupArea .dim-bg {
+  background: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.popup._FSB_LayerPopupArea .common-layerpopup {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  right: 20px;
+  transform: translate(0, -50%);
+  z-index: 2;
+  background-color: var(--bg_color03);
+  border-radius: 20px;
+  padding: 20px 12px 20px;
+}
+.popup._FSB_LayerPopupArea .dateselect-box {
+  text-align: center;
+}
+.popup._FSB_LayerPopupArea .dateselect-box .text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color02);
+  padding: 0 6px;
+}
+.popup._FSB_LayerPopupArea .dateselect-box .prev, .popup._FSB_LayerPopupArea .dateselect-box .next {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23111' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  vertical-align: 2px;
+}
+.popup._FSB_LayerPopupArea .dateselect-box .next {
+  transform: rotate(180deg);
+}
+.popup._FSB_LayerPopupArea .dateselect-box .next + .prev {
+  margin-left: 4px;
+}
+.popup._FSB_LayerPopupArea .dateselect-box button {
+  text-indent: -9999em;
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap {
+  margin-top: 20px;
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap table {
+  width: 100%;
+  text-align: center;
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap thead th {
+  height: 42px;
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--font_color03);
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td {
+  height: 42px;
+  font-size: 14px;
+  color: var(--font_color02);
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td.sun {
+  color: #f00;
+}
+.popup._FSB_LayerPopupArea .common-closepopup02 {
+  position: absolute;
+  top: 20px;
+  right: 16px;
+}
+.popup._FSB_LayerPopupArea .common-closepopup02 button {
+  width: 24px;
+  height: 24px;
+  background: url("/src/images/ico_close.svg") no-repeat center;
+  text-indent: -9999em;
+}
+
 .login {
   overflow: auto;
   padding: 0 24px;

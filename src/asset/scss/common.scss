@@ -194,6 +194,87 @@ hr {
 }
 
 
+// calendar
+.popup._FSB_LayerPopupArea{
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	.dim-bg{
+		background: rgba($color: #000, $alpha: .7);
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+	.common-layerpopup {
+		position: absolute;
+		top: 50%;
+		left: 20px;
+		right: 20px;
+		transform: translate(0, -50%);
+		z-index: 2;
+		background-color:$bg_color03;
+		border-radius: 20px;
+		padding: 20px 12px 20px;
+	}
+	.dateselect-box {
+		text-align: center;
+		.text {
+			font-size: 18px;
+			font-weight: 700;
+			color:$font_color02;
+			padding: 0 6px
+		}
+		.prev, .next  {
+			@include icon_svg(arrow-left, "#111", 20px);
+			vertical-align: 2px;
+		}
+		.next {
+			transform: rotate(180deg);
+			& + .prev {
+				margin-left: 4px;
+			}
+		}
+		button {
+			text-indent: -9999em;
+		}
+	}
+	.tbl-calendar-wrap {
+		margin-top: 20px;
+		table {
+			width: 100%;
+			text-align: center;
+		}
+		thead th {
+			height: 42px;
+			font-weight: 400;
+			font-size: 12px;
+			color:$font_color03;
+		}
+		tbody td {
+			height: 42px;
+			font-size: 14px;
+			color:$font_color02;
+			&.sun {
+				color: #f00;
+			}
+		}
+	}
+	.common-closepopup02 {
+		position: absolute;
+		top: 20px;
+		right: 16px;
+		button {
+			width: 24px;
+			height: 24px;
+			background: url($url_common+"ico_close.svg") no-repeat center;
+			text-indent: -9999em;
+		}
+	}
+}
 
 .login{
 	overflow: auto;
