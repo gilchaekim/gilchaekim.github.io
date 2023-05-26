@@ -23,7 +23,7 @@ const watch11 = () => {
     let pagePath;
     if(isComponents<0){
       pagePath = `./${path.replace('\\', '/')}`;
-    } 
+    }
     pug(pagePath);
   })
 
