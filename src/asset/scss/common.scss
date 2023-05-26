@@ -262,6 +262,27 @@ hr {
 			&.sun {
 				color: #f00;
 			}
+			&.sat {
+				color: $font_color07;
+			}
+			&.next-day {
+				color: $basic_color04;
+			}
+			&.today {
+				.box {
+					color:$font_color06;
+					background:$main_color01;
+				}
+				
+			}
+			.box {
+				width: 38px;
+				height: 38px;
+				display: inline-block;
+				border-radius: 19px;
+				line-height: 38px;
+			}
+
 		}
 	}
 	.common-closepopup02 {

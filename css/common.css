@@ -4402,6 +4402,23 @@ hr {
 .popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td.sun {
   color: #f00;
 }
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td.sat {
+  color: var(--font_color07);
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td.next-day {
+  color: var(--basic_color04);
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td.today .box {
+  color: var(--font_color06);
+  background: var(--main_color01);
+}
+.popup._FSB_LayerPopupArea .tbl-calendar-wrap tbody td .box {
+  width: 38px;
+  height: 38px;
+  display: inline-block;
+  border-radius: 19px;
+  line-height: 38px;
+}
 .popup._FSB_LayerPopupArea .common-closepopup02 {
   position: absolute;
   top: 20px;
