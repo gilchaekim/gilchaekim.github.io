@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"인증서 선택"
+  })
+    +card_ico_list({
+      src:"/src/images/ico_example2.png",
+      text:""
+    })
+    
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+        
+  script.
+    GCui.modal('#fullLayer').show()

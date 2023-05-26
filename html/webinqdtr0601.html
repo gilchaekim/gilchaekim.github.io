@@ -233,54 +233,108 @@
     </div><!-- / header -->
     <!-- contents -->
     <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>전자금융사기예방서비스</span></button><!-- layer -->
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>대출정보확인 팝업호출</span></button><!-- layer -->
       <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium webcom mui_auto_vertical mui_fullpop">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
           <div class="mui_modal_body">
             <div class="mui_modal_header">
-              <p>전자금융사기예방서비스</p>
+              <p>대출정보확인</p>
             </div>
             <div class="mui_modal_content">
-              <div class="mui_title">
-                <p class="title lv2">전자금융사기예방서비스
-                </p>
-              </div><!-- 2023.05.02 수정 [클래스수정 sub_txt > webcom_sub_txt] -->
-              <p class="webcom_sub_txt">보이스피싱 등 금융사기 예방을 위해 감독기관의 정책에 따라 아래의 추가인증서비스 중 하나 이상을 가입하셔야 뱅킹서비스 이용이 가능합니다.</p>
-              <div class="mui_button_wrap">
-                <button class="mui_button mui_medium mui_primary btn_line" type="button"><span>추가인증서비스 등록</span></button>
+              <div class="webinq">
+                <div class="gray_box">인지세 발생 시 대출금액에서 인지세를 제외한 금액이 입금됩니다.</div>
+                <div class="mui_contents_group lv_2">
+                  <div class="mui_result line">
+                    <dl>
+                      <dt>예적금계좌번호
+                      </dt>
+                      <dd> 123-12-12-123456
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>대출금액
+                      </dt>
+                      <dd> 1,000,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>인지세
+                      </dt>
+                      <dd> 0월
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>고객부담 인지세
+                      </dt>
+                      <dd> 0월
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>만기일자
+                      </dt>
+                      <dd> 2024.01.01
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>대출이율
+                      </dt>
+                      <dd> 4.1%
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>연체이율
+                      </dt>
+                      <dd> 0.0%
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>대출방식
+                      </dt>
+                      <dd> 한도(마이너스통장)
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>대출입금(한도등록)계좌
+                      </dt>
+                      <dd> 310-04-13-1234567
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>입금액
+                      </dt>
+                      <dd> 1,000,000원
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>다음이자납입일
+                      </dt>
+                      <dd> 2024.01.01
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>자동이체여부
+                      </dt>
+                      <dd> Y
+                      </dd>
+                    </dl>
+                    <dl>
+                      <dt>자동이체출금계좌
+                      </dt>
+                      <dd> 0812345-145-156484
+                      </dd>
+                    </dl>
+                  </div>
+                  <p class="mui_text warning">매월 이자납입일은 24 일 입니다.
+                  </p>
+                </div>
               </div>
-              <div class="mui_title">
-                <p class="title lv4">추가인증서비스(ARS, 스마트폰 앱 인증서비스)
-                </p>
-              </div>
-              <div class="mui_text_lists dot">
-                <ul>
-                  <li class="list_txt"><strong>전화(ARS)승인서비스</strong>
-                    <div class="mui_text_lists hyphhen">
-                      <ul>
-                        <li>회원정보 연락처에 등록된 전화가능 연락처를 이용하여 전화(ARS)를 통해 공인인증서 발급 등 인터넷뱅킹 이용이 가능한 서비스
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                  <li class="list_txt"><strong>스마트폰 앱 인증서비스</strong>
-                    <div class="mui_text_lists hyphhen">
-                      <ul>
-                        <li>회원정보 연락처에 등록된 본인 명의 스마트폰에서 스마트 2채널 인증 앱을 이용하여 인증한 후 공인인증서 발급 등 뱅킹서비스 이용이 가능한 서비스
-                        </li>
-                      </ul>
-                    </div>
-                  </li>
-                </ul>
-              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
             </div>
             <button class="mui_modal_close">닫기</button>
           </div>
         </div>
       </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
     </div><!-- / contents -->
   </div>
 </body>

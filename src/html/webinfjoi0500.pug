@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "전자약정"
+
+block content
+  +result({
+    type:'result',
+    mainText:"김저축님의<br>하나슈퍼드림론 약정서 제출이<br>완료되었습니다.",
+    subText:"입력해주신 이메일로 약정서 부본을<br>발송하였습니다.",
+    img:"/src/images/ico_example2.png",
+  })
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })
