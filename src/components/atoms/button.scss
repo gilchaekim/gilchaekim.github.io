@@ -82,6 +82,10 @@
         @include icon_svg(arrow-down, "#ccc", 20px);
       }  
     }
+    &+.mui_select {
+      margin-left:0;
+      margin-top:16px;
+    }
     .inset{
       display: block;
       position: relative;

@@ -106,8 +106,9 @@
   }
   &_list{
     a{
-      display: block;
+      display: flex;
       position: relative;
+      align-items:center;
       border-radius: 20px;
       padding: 20px 20px 20px 76px;
       border: 1px solid $line_color03;
