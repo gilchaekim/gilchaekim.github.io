@@ -1,0 +1,83 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"대출정보확인 팝업호출",
+    muiToggle:'target:#fullLayer;'
+  })
+
+  +modal({
+    title:"대출정보확인",
+    id:"fullLayer",
+    type:"full"
+  })
+    .webinq
+      .gray_box 인지세 발생 시 대출금액에서 인지세를 제외한 금액이 입금됩니다.
+
+      +content_group(2)
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"예적금계좌번호",
+              text:"123-12-12-123456",
+            },
+            {
+              title:"대출금액",
+              text:"1,000,000원",
+            },
+            {
+              title:"인지세",
+              text:"0월",
+            },
+            {
+              title:"고객부담 인지세",
+              text:"0월",
+            },
+            {
+              title:"만기일자",
+              text:"2024.01.01",
+            },
+            {
+              title:"대출이율",
+              text:"4.1%",
+            },
+            {
+              title:"연체이율",
+              text:"0.0%",
+            },
+            {
+              title:"대출방식",
+              text:"한도(마이너스통장)",
+            },
+            {
+              title:"대출입금(한도등록)계좌",
+              text:"310-04-13-1234567",
+            },
+            {
+              title:"입금액",
+              text:"1,000,000원",
+            },
+            {
+              title:"다음이자납입일",
+              text:"2024.01.01",
+            },
+            {
+              title:"자동이체여부",
+              text:"Y",
+            },
+            {
+              title:"자동이체출금계좌",
+              text:"0812345-145-156484",
+            },
+          ]
+        })
+        +text({
+          type:'warning',
+          text:"매월 이자납입일은 24 일 입니다."
+        })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })

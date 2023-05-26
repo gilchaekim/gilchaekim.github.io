@@ -629,6 +629,26 @@ hr {
 
 		}
 	}
+
+	/* 대출신청조회 */
+	.sub_txt {
+		padding-top:4px;
+		font-size:14px;
+		color:$basic_color03;
+	}
+	.mui_datasort {
+		.total {
+			font-size:18px;
+			font-weight:700;
+		}
+	}
+	.gray_box {
+		padding:16px;
+		font-size:14px;
+		color:$basic_color03;
+		border-radius:12px;
+		background:$bg_color02;
+	}
 }
 .photo_capture{
 	.title{
@@ -2387,6 +2407,37 @@ hr {
 	.email_recive {
 		display:inline-block;
 	}
+	.text_wrap {
+		.mui_text.default {
+			padding-top:8px;
+			color:$basic_color03;
+		}
+	}
+	.inf_wrap {
+		margin-top:24px;
+		.inf_tit {
+			margin-bottom:10px;
+			font-size:14px;
+			color:$basic_color02;
+		}
+		.mui_text.warning {
+			margin-top:12px;
+		}
+	}
+	.info_wrap {
+		.mui_text_lists.circle_num {
+			> ul > li ~ li {
+				margin-top:8px;
+			}
+		}
+	}
+	.flex_bot {
+		.mui_text.warning {
+			&+.mui_text.warning {
+				margin-top:12px;
+			}
+		}
+	}
 	.acc_select {
 		&.mui_card.select_type {
 			.inset{
@@ -2773,6 +2824,70 @@ hr {
 		}
 	}
 }
+/* 금리인하요구권 */
+.webirc {
+	.guide_wrap {
+		padding-bottom:16px;
+		border-bottom:1px solid $line_color03;
+		.mui_text_lists.dot {
+			& > ul > li {
+				margin-top:16px;
+				&::before {
+					background:$basic_color03;
+				}
+			}
+		}
+		.num {
+			ul {
+				padding-top:4px;
+			}
+		}
+		.tit {
+			font-size:14px;
+			color:$basic_color01;
+		}
+		.txt {
+			color:$basic_color04;
+		}
+		&+.mui_text.warning {
+			margin-top:12px;
+		}
+	}
+	.agree_wrap {
+		margin-top:32px;
+		.mui_checkbox_group {
+			text-align:right;
+		}
+	}
+	.mui_result_ico {
+		&.null {
+			strong {
+				font-size:22px;
+			}
+		}
+	}
+}
+/* 대출금액조회 */
+.webrpi {
+	.guide_wrap {
+		display:flex;
+		flex-direction:column;
+		gap:12px 0;
+		padding-top:12px;
+	}
+	.money {
+		display:flex;
+		justify-content:flex-end;
+		gap:0 8px;
+		padding-top:12px;
+		font-size:13px;
+		color:$basic_color04;
+		span {
+			color:$basic_color01;
+		}
+	}
+}
+
 // 가입 사전안내
 .signupguide_wrap{
 	.condition_title{
