@@ -4330,6 +4330,7 @@ hr {
 
 .popup._FSB_LayerPopupArea {
   position: fixed;
+  z-index: 999;
   top: 0;
   left: 0;
   right: 0;
@@ -6326,6 +6327,20 @@ hr {
   border: 1px solid var(--line_color03);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
 }
+.webinf .card_box .mui_card_list.no_img {
+  padding-left: 20px;
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  font-size: 14px;
+  margin-top: 8px;
+}
+.webinf .card_box .mui_card_list.no_img .text {
+  color: var(--basic_color04);
+}
+.webinf .card_box .mui_card_list.no_img .acc_num {
+  color: var(--font_color02);
+}
 .webinf .card_box .mui_card_list .text {
   line-height: initial;
 }
@@ -6351,6 +6366,21 @@ hr {
 }
 .webinf .email_recive {
   display: inline-block;
+}
+.webinf .acc_select.mui_card.select_type .inset {
+  padding-top: 83px;
+}
+.webinf .acc_select.mui_card.select_type .mui_radio label::before {
+  top: 32px;
+}
+.webinf .acc_select .mui_radio label {
+  display: block;
+  font-size: 14px;
+}
+.webinf .acc_select .mui_radio label span {
+  display: block;
+  font-size: 16px;
+  font-weight: 700;
 }
 
 .webdep .view_data {

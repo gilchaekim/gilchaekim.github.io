@@ -10,10 +10,9 @@ block content
     lv:4,
   })
   .card_box
-    .mui_card_list
-      span.img
-        img(src="/src/images/ico_example2.png", alt="")
-      span.text 참알찬IBK저축은행보통예금<br>000-00-00-00000
+    .mui_card_list.no_img
+      span.text 계좌번호
+      span.acc_num 000-00-00-00000
   +content_group(0)
     +form()
       +form_body({title:"자금용도"})
