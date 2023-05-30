@@ -3080,6 +3080,153 @@ hr {
 			padding-left:32px;
 		}
 	}
+	.confirm_sec{
+		.mixin_btn {
+			margin:16px 0 24px;
+		}
+	}
+	.cdd_edd {
+		margin-top: 24px;
+		.grey_box{
+			 border-radius: 8px;
+			 background:$bg_color02;
+			 padding: 20px;
+			 .txt1 {
+				font-size: 14px;
+				font-weight: 700;
+				color:$font_color01;
+			 }
+			 .txt2 {
+				font-size: 14px;
+				color:$font_color03;
+				margin-top: 8px;
+			 }
+			 .sec ~ .sec {
+				margin-top: 16px;
+				border-top: 1px solid $line_color02;
+				padding-top: 16px;
+			 }
+		}
+		.more{
+			.mui_title {
+				margin-bottom: 16px;
+			}
+			.mui_text_lists.circle_num > ul > li ~ li {
+				margin-top: 8px;
+			}
+			.dot{
+				font-size: 14px;
+				color:$font_color03;
+				position: relative;
+				padding-left: 9px;
+				&::before {
+					content: '';
+					display: block;
+					width: 3px;
+					height: 3px;
+					background:$font_color03;
+					border-radius: 50%;
+					position: absolute;
+					top:6px;
+					left: 0;
+				}
+			}
+		}
+	}
+	.confirm_msg{
+		margin-top: 24px;
+		p {
+			height: 40px;
+			text-align: center;
+			background:$bg_color02;
+			position: relative;
+			color:$font_color01;
+			font-size: 16px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 8px;
+			&::before {
+				content: '';
+				@include icon_svg(check, "#DF6311", 24px);
+				margin-right: 8px;
+			}
+		}
+	}
+	.mixin_btn{
+		position: relative;
+		.mixin_sec {
+			display: flex;
+			align-items: center;
+			position: absolute;
+			top: 50%;
+			right: 0;
+			transform: translate(0, -50%);
+		}
+		.count_time {
+			font-size: 13px;
+			color:$main_color01;
+			margin-right: 12px;
+			line-height: 100%;
+		}
+		.btn{
+      width: auto;
+      height: 28px;
+      padding: 0 8px;
+      font-size: 13px;
+      background: #5C627C;
+			border-radius: 8px;
+      span{
+        white-space: nowrap;
+				color:$bg_color03;
+				font-size: 13px;
+
+      }
+      &[disabled] {
+        background: $basic_color05;
+        color:$font_color03;
+      }
+		}
+	}
+	.joi_steps {
+		margin-top: 16px;
+		position: relative;
+		&::before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 24px;
+			bottom: 0;
+			border-left: 1px dashed $basic_color05;
+		}
+		li {
+			display: flex;
+			align-items: center;
+			position: relative;
+			z-index: 1;
+			& ~ li {
+				margin-top: 16px;
+			}
+		}
+		.num {
+			width: 48px;
+			height: 48px;
+			border-radius: 24px;
+			background:$bg_color01;
+			font-size: 18px;
+			color:$font_color02;
+			display: inline-flex;
+			font-weight: 700;
+			align-items: center;
+			justify-content: center;
+		}
+		.text {
+			font-size: 14px;
+			color: $font_color03;
+			margin-left: 12px;
+		}
+	}
 }
 /* 계좌비밀번호변경 */
 .webiba {
@@ -3207,6 +3354,17 @@ hr {
 	}
 }
 
+.webiba {
+	&.pop {
+		.txts {
+			font-weight: 700;
+			font-size: 18px;
+			color:$font_color01;
+			text-align: center;
+			margin: 8px 0 24px;
+		}
+	}
+}
 // 가입 사전안내
 .signupguide_wrap{
 	.condition_title{

@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">적정성등록</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,46 +232,67 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
-      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>제공한 정보 확인</p>
+    <div class="webinf" id="contants">
+      <undefined class="mui_stepnum">
+        <ul>
+          <li class="step"><span>1</span></li>
+          <li class="step"><span>2</span></li>
+          <li class="step mui_active"><span>3</span></li>
+          <li class="step"><span>4</span></li>
+        </ul>
+      </undefined>
+      <div class="mui_contents_group lv_0">
+        <div class="mui_title">
+          <p class="title lv1">적합성·적정성 확인서
+          </p>
+        </div>
+        <div class="text_wrap">
+          <p class="mui_text default">본 확인서는 「금융소비자 보호에 대한 법률」 제 17조(적합성원칙) 및 제18조(적정성원칙)에 따라 귀하의 연령, 재산상황, 대출계약의 목적 등을 파악하여 대출계약자에게 가장 적합한 대출계약 체결을 권유하기 위한 기초자료로 활용됩니다. 허위 또는 불성실한 답변을 하시는 경우 부적합한 대출계약을 권유하게 될 수 있으며, 이로 인해 발생하는 모든 손해는 계약자 본인에게 귀속되오니 유념하여 주시기 바랍니다.
+          </p>
+        </div>
+      </div>
+      <div class="inf_wrap">
+        <div class="inf_tit">금융소비자 유형
+          <div class="mui_tooltip_wrap" mui-tooltip="text:전문금융소비자란 “국가기관, 한국은행, 금융기관, 상시근로자 5인 이상의 법인, 대출모집인 등＂을 의미합니다.;">
+            <button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button>
+          </div>
+        </div>
+        <div class="mui_radio_group button_type">
+          <span class="mui_radio">
+            <input type="radio" id="btnTypeId1" name="btnTypeId1" />
+            <label for="btnTypeId1">일반금융소비자</label>
+          </span>
+          <span class="mui_radio">
+            <input type="radio" id="btnTypeId2" name="btnTypeId1" />
+            <label for="btnTypeId2">전문금융소비자</label>
+          </span>
+        </div>
+        <p class="mui_text warning">전문금융소비자는 확인서 작성 대상이 아닙니다.
+        </p>
+      </div>
+      <div class="mui_collapse guide_text">
+        <div class="mui_accordion" mui-accordion="">
+          <div class="acc_lists mui_open">
+            <div class="acc_header">
+              <p class="title">알아두세요</p>
+              <button class="mui_acc_button" type="button"> 닫기
+              </button>
             </div>
-            <div class="mui_modal_content">
-              <div class="webinf">
-                <div class="info_wrap">
-                  <div class="mui_text_lists circle_num">
-                    <ul>
-                      <li>본인이 귀행에 제공한 적합성 ·적정성 관련 정보는 본인의 재산 상황, 용도 등의 정보를 정확히 알려드린것입니다.
-                      </li>
-                      <li>본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성 ·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.
-                      </li>
-                      <li>상기 목적을 위해 본인의 개인(신용) 정보를 수집, 이용, 제공하는 것에 동의합니다.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mui_contents_group lv_1">
-                    <div class="mui_checkbox_group">
-                      <span class="mui_checkbox">
-                        <input type="checkbox" id="chk299866Id1" />
-                        <label for="chk299866Id1">본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.</label>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mui_button_fixed"><span class="inset">
-                    <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            <div class="mui_acc_content">
+              <div class="mui_text_lists guide">
+                <ul>
+                  <li>대출가능여부 확인을 위해서는 본인확인 및 고객님의 신용정보조회 동의가 반드시 필요합니다.
+                  </li>
+                  <li>고객님의 동의 없이 신용정보조회를 하지 않습니다.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

@@ -47,7 +47,7 @@ export default {
         stack: false,
         role: 'dialog',
         returnFocusTarget:null,
-        layerd:false,
+        layerd:true,
     },
 
     computed: {

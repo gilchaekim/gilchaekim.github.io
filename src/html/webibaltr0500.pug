@@ -1,0 +1,26 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"인증방법 선택",
+    isCloseBtn:false
+  })
+    .webinf
+      .certi_list
+        a(href="")
+          span.img_wrap
+            img(src="/src/images/ico_example2.png", alt="")
+          strong 보안매체(OTP/MOTP/보안카드)
+        a(href="")
+          span.img_wrap
+            img(src="/src/images/ico_example2.png", alt="")
+          strong ARS인증
+      
+  script.
+    GCui.modal('#fullLayer').show()

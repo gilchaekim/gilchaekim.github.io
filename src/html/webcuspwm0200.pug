@@ -1,0 +1,18 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - pageTitle = "뱅킹비밀번호 변경"
+
+block content
+  +result({
+    type:'result',
+    mainText:"사용자 비밀번호 변경이<br>완료되었습니다.",
+    subText:"자동으로 로그아웃되오니, 재로그인 후<br>서비스를 이용하여 주시기 바랍니다.",
+    img:"/src/images/ico_example2.png",
+  })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

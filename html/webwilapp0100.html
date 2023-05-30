@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">대출철회신청</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,46 +232,77 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
-      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>제공한 정보 확인</p>
-            </div>
-            <div class="mui_modal_content">
-              <div class="webinf">
-                <div class="info_wrap">
-                  <div class="mui_text_lists circle_num">
-                    <ul>
-                      <li>본인이 귀행에 제공한 적합성 ·적정성 관련 정보는 본인의 재산 상황, 용도 등의 정보를 정확히 알려드린것입니다.
-                      </li>
-                      <li>본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성 ·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.
-                      </li>
-                      <li>상기 목적을 위해 본인의 개인(신용) 정보를 수집, 이용, 제공하는 것에 동의합니다.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mui_contents_group lv_1">
-                    <div class="mui_checkbox_group">
-                      <span class="mui_checkbox">
-                        <input type="checkbox" id="chk299866Id1" />
-                        <label for="chk299866Id1">본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.</label>
-                      </span>
-                    </div>
-                  </div>
+    <div class="webwil" id="contants">
+      <div class="mui_contents_group lv_0">
+        <div class="mui_result_ico result">
+          <div class="icon_img"><img src="/src/images/ico_example2.png" alt="" /></div>
+          <p class="main_txt">대출계약철회란?</p>
+          <p class="sub_txt">대출신청 후 대출의 필요성, 대출금리·규모의 적정성<br>등에 대해 제고할 수 있도록 대출실행 후 14일 이내<br>철회의 의사표시를 하고 원리금 및 부대비용을<br>상환함으로써 계약으로부터 탈퇴할 수 있는 제도입니다.</p>
+        </div>
+      </div>
+      <hr>
+      <div class="mui_contents_group lv_0">
+        <div class="guide_wrap">
+          <div class="mui_title">
+            <p class="title lv4">대상고객
+            </p>
+          </div>
+          <div class="mui_text_lists dot">
+            <ul>
+              <li><strong class='tit'>신용 및 담보대출 모두 철회 가능, 다만 다음에 해당하는 대출은 대출계약 철회 불가</strong>
+                <div class="mui_text_lists num">
+                  <ul>
+                    <li>대출금액이 4천만원을 초과하는 신용대출
+                    </li>
+                    <li>대출금액이 2억원을 초과하는 담보대출
+                    </li>
+                    <li>외부기관 위탁대출 및 기타협약 대출
+                    </li>
+                    <li>해당저축은행을 대상으로 1년이내에 2회 초과하여 대출계약을 철회하는 경우
+                    </li>
+                    <li>전체 금융회사를 대상으로 1개월이내에 1회를 초과하여 대출계약을 철회하는 경우
+                    </li>
+                  </ul>
                 </div>
-                <div class="mui_button_fixed"><span class="inset">
-                    <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+              </li>
+            </ul>
+          </div>
+          <div class="mui_contents_group lv_1">
+            <div class="mui_title">
+              <p class="title lv4">신청절차
+              </p>
+            </div>
+            <div class="mui_contents_group lv_3">
+              <div class="mui_text_lists num">
+                <ul>
+                  <li>계약철회신청
+                  </li>
+                  <li>원리금 및 부대비용 반환
+                  </li>
+                  <li>철회완료
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
+          <div class="mui_contents_group lv_0">
+            <div class="mui_title">
+              <p class="title lv4">유의사항
+              </p>
+            </div>
+            <div class="mui_text_lists dot">
+              <ul>
+                <li><strong class='tit'>대출계약철회 신청시 채무자가 철회기한 이내(대출신규일로 부터 14일 이내)에 원금과 이자 및 은행에서 지급한 부대비용(인지세, 보증료 등)을 전액 반환해야함(철회 효력 발생)</strong>
+                </li>
+              </ul>
+            </div>
+          </div>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+        <p class="mui_text warning">기타 자세한 사항은 해당 저축은행 영업점에 문의하여 주시기 바랍니다.
+        </p>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>신청하기</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

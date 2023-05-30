@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">장기미접속해제</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,46 +232,91 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
-      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>제공한 정보 확인</p>
+    <div class="webiba" id="contants">
+      <div class="mui_form">
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">뱅킹 아이디</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="text" placeholder="사용자 아이디" mui-input="" />
+            </span>
+            <p class="mui_text link em"><a href="">아이디 찾기</a>
+            </p>
+          </div>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">뱅킹 비밀번호</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="password" placeholder="비밀번호 입력" mui-input="" />
+            </span>
+          </div>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">계좌번호</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="text" placeholder="숫자만 입력" mui-input="" />
+            </span>
+            <p class="mui_text link em"><a href="">계좌번호 찾기</a>
+            </p>
+          </div>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">등록구분</span></div>
+          <div class="mui_form_content">
+            <div class="mui_radio_group">
+              <span class="mui_radio">
+                <input type="radio" id="chk353339Id1" name="chk353339Id1" />
+                <label for="chk353339Id1">개인고객</label>
+              </span>
+              <span class="mui_radio">
+                <input type="radio" id="chk353339Id2" name="chk353339Id1" />
+                <label for="chk353339Id2">법인 (기업) 고객</label>
+              </span>
             </div>
-            <div class="mui_modal_content">
-              <div class="webinf">
-                <div class="info_wrap">
-                  <div class="mui_text_lists circle_num">
-                    <ul>
-                      <li>본인이 귀행에 제공한 적합성 ·적정성 관련 정보는 본인의 재산 상황, 용도 등의 정보를 정확히 알려드린것입니다.
-                      </li>
-                      <li>본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성 ·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.
-                      </li>
-                      <li>상기 목적을 위해 본인의 개인(신용) 정보를 수집, 이용, 제공하는 것에 동의합니다.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mui_contents_group lv_1">
-                    <div class="mui_checkbox_group">
-                      <span class="mui_checkbox">
-                        <input type="checkbox" id="chk299866Id1" />
-                        <label for="chk299866Id1">본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.</label>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mui_button_fixed"><span class="inset">
-                    <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
+            <span class="mui_input">
+              <input type="text" placeholder="생년월일 6자리" mui-input="" />
+            </span>
+            <div class="mui_business mui_inputmultiple">
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" />
+              </span><span class="divide">-</span>
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" />
+              </span><span class="divide">-</span>
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mui_collapse guide_text">
+        <div class="mui_accordion" mui-accordion="">
+          <div class="acc_lists mui_open">
+            <div class="acc_header">
+              <p class="title">알아두세요</p>
+              <button class="mui_acc_button" type="button"> 닫기
+              </button>
+            </div>
+            <div class="mui_acc_content">
+              <div class="mui_text_lists guide">
+                <ul>
+                  <li>장기미접속으로 로그인이 안될 시 이용가능한 거래입니다.
+                  </li>
+                  <li>현재 사용중인 보안매체를 사용할 수 없는 경우 추가인증(전화ARS/스마트폰앱)절차를 통해 장기미접속 해제를 해주시기 바랍니다.
+                  </li>
+                  <li>현재 사용중인 보안매체를 사용할 수 없는 경우 추가인증(전화ARS/스마트폰앱)절차를 통해 장기미접속 해제를 해주시기 바랍니다.
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>
