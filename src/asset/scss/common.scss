@@ -2267,6 +2267,93 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	.loan_wrap {
+		.bank_products {
+			margin:-24px -24px 0;
+			padding:40px 24px 50px;
+			background:$bg_color02;
+		}
+		.status{
+			.tab_pane{
+				padding:16px 0 0 0;
+				.inset {
+					&::after {
+						top:33px;
+					}
+				}
+				.title {
+					overflow:hidden;
+					padding-bottom:8px;
+					padding-right:40px;
+					text-overflow:ellipsis;
+					font-size:18px;
+					white-space:nowrap;
+					border-bottom:0;
+					span {
+						overflow:hidden;
+						display:block;
+						text-overflow:ellipsis;
+						font-size:14px;
+						color:$font_color03;
+						white-space:nowrap;
+					}
+				}
+				.mui_result {
+					&.default {
+						dl {
+							justify-content:flex-start;
+							gap:0 36px;
+						}
+						dt, dd {
+							font-size:13px;
+							text-align:left;
+						}
+						em {
+							display:block;
+							font-size:18px;
+							font-weight:700;
+						}
+						strong {
+							display:block;
+							font-size:18px;
+							font-weight:700;
+						}
+					}
+				}
+			}
+			.mui_tab_nav{
+				margin:0;
+				padding:0;
+				height:40px;
+				border-radius:12px;
+				background:#f4f4f4;
+				&::after {
+					display:none;
+				}
+			}
+			.nav_list{
+				&.mui_active{
+					button{
+						color:$font_color06;
+						font-weight: 700;
+						background:$main_color02;
+						border-radius: 12px;
+			
+					}
+				}
+				button{
+					height: 40px;
+					line-height: 40px;
+					font-size: 16px;
+					color:$font_color03;
+					padding: 0;
+					&::after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
 	.mui_accordion {
 		.acc_lists:first-child {
 			.acc_header{
