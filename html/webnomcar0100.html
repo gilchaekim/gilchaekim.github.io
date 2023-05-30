@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="title_center"><span class="title">고객확인제도</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,46 +232,58 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
-      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
-          <div class="mui_modal_body">
-            <div class="mui_modal_header">
-              <p>제공한 정보 확인</p>
+    <div class="webcus" id="contants">
+      <div class="mui_result_ico result">
+        <div class="icon_img"><img src="/src/images/ico_example2.png" alt="" /></div>
+        <p class="main_txt">고객확인제도(CDD/EDD)란?</p>
+      </div>
+      <div class="cdd_edd">
+        <div class="grey_box">
+          <div class="sec">
+            <div class="txt1">고객확인<br>(CDD, Customer Due Diligence)</div>
+            <div class="txt2">고객님과의 계좌개설 등의 금융거래에서 고객확인을 위하여 고객명, 주민등록번호, 직업 등의 내용을 확인하도록 되어있습니다.<br>제공하신 정보는 고객확인을 위한 용도 외의 목적으로 용되지 않으며, 금융실명법과 신용정보보호법 등에 따라 보호됩니다.</div>
+          </div>
+          <div class="sec">
+            <div class="txt1">강화된 고객확인<br>(EDD, Enhanced Due Diligence)</div>
+            <div class="txt2">CDD에 추가하여 거래목적, 자금 원천 등을 추가 확인하게 됩니다. (근거:특정 금융거래정보의 보고 및 이용 등에 관한 법률)</div>
+          </div>
+        </div>
+        <hr>
+        <div class="more">
+          <div class="mui_contents_group lv_1">
+            <div class="mui_title">
+              <p class="title lv4">준비사항
+              </p>
             </div>
-            <div class="mui_modal_content">
-              <div class="webinf">
-                <div class="info_wrap">
-                  <div class="mui_text_lists circle_num">
-                    <ul>
-                      <li>본인이 귀행에 제공한 적합성 ·적정성 관련 정보는 본인의 재산 상황, 용도 등의 정보를 정확히 알려드린것입니다.
-                      </li>
-                      <li>본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성 ·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.
-                      </li>
-                      <li>상기 목적을 위해 본인의 개인(신용) 정보를 수집, 이용, 제공하는 것에 동의합니다.
-                      </li>
-                    </ul>
-                  </div>
-                  <div class="mui_contents_group lv_1">
-                    <div class="mui_checkbox_group">
-                      <span class="mui_checkbox">
-                        <input type="checkbox" id="chk299866Id1" />
-                        <label for="chk299866Id1">본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.</label>
-                      </span>
-                    </div>
-                  </div>
-                </div>
-                <div class="mui_button_fixed"><span class="inset">
-                    <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
-              </div>
+            <div class="mui_text_lists circle_num">
+              <ul>
+                <li>본인명의 휴대폰
+                </li>
+                <li>신분증(주민등록증 또는 운전면허증)
+                </li>
+                <li>본인명의 타행계좌
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="mui_contents_group lv_1">
+            <div class="mui_title">
+              <p class="title lv4">인증절차
+              </p>
+            </div>
+            <p class="dot">고객확인을 위해서는 본인인증이 필요하며 인증 절차는 아래와 같습니다.</p>
+            <div class="joi_steps">
+              <ul>
+                <li> <span class="num">01</span><span class="text">휴대폰 본인인증</span></li>
+                <li> <span class="num">02</span><span class="text">신분증 진위확인</span></li>
+                <li> <span class="num">03</span><span class="text">본인명의 타행계좌 인증</span></li>
+              </ul>
             </div>
           </div>
         </div>
-      </div><!-- / layer -->
-      <script>
-        GCui.modal('#fullLayer').show()
-      </script>
+      </div>
+      <div class="mui_button_fixed"><span class="inset">
+          <button class="mui_button mui_large mui_primary" type="button"><span>수정하기</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

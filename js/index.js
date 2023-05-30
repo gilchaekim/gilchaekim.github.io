@@ -6367,7 +6367,7 @@
       stack: false,
       role: 'dialog',
       returnFocusTarget: null,
-      layerd: false
+      layerd: true
     },
     computed: {
       panel: function panel(_ref, $el) {

@@ -6,6 +6,19 @@ block content
     muiToggle:'target:#fullLayer;'
   })
   +modal({
+    title:"추가인증 선택",
+    id:"fullLayer2211",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"ARS 인증"},
+        {name:"스마트앱 인증", active:true},
+      ],
+      className:"custom_tab"
+    })
+      div 스마트인증 모듈 호출
+  +modal({
     title:"본인인증 선택",
     id:"fullLayer",
     type:"full"

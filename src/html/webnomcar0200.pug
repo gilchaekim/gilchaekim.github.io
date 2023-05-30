@@ -1,0 +1,74 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webcus"
+  - pageTitle = "고객확인제도"
+
+block content
+  +form()
+    +form_body({title:"고객명"})
+      +form_value({
+        value:"김저축"
+      })
+    +form_body({title:"영문명(선택)"})
+      +input({
+        placeholder:"대문자",
+      })
+    +form_body({title:"휴대폰번호"})
+      +form_value({
+        value:"010-1234-5678"
+      })
+    +form_body({title:"SMS수신여부"})
+      +radioCheck({
+        type:"radio",
+        name:'chk95381792',
+        lists:[
+          {label:'수신',},
+          {label:'미수신', checked:true}
+        ]
+      })
+    +form_body({title:"이메일 수신동의"})
+      +radioCheck({
+        type:"radio",
+        name:'chk9538179',
+        lists:[
+          {label:'수신',},
+          {label:'미수신', checked:true},
+          {label:'이메일없음',},
+        ]
+      })
+      +input({
+        placeholder:"이메일 주소 입력",
+      })
+    +form_body({title:"주소"})
+      +input_button({
+        btnText:"주소찾기",
+        placeholder:"주소 검색",
+        type:"input"
+      })
+      +input({
+        placeholder:"상세주소",
+      })
+    +form_body({title:"우편물 수신여부"})
+      +radioCheck({
+        type:"radio",
+        name:'chk953879',
+        lists:[
+          {label:'현 거주지 주소로 주신',},
+          {label:'발송거부', checked:true},
+        ]
+      })
+    +form_body({title:"연락구분"})
+      +radioCheck({
+        type:"radio",
+        name:'chk280702',
+        lists:[
+          {label:'연락거부', checked:true},
+          {label:'휴대전화',},
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

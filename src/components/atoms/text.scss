@@ -18,9 +18,18 @@
       left: 0;
       @include icon_svg_tooltip(grey, 20px);
     }
+    & ~ .warning {
+      margin-top: 12px;
+    }
   }
   &.link {
     text-align: right;
+    &.em a{
+      color:$main_color01;
+      &::after {
+        @include icon_svg(arrow-left, "#df6311", 16px);
+      }
+    }
 		a{
 			display: inline-block;
 			font-size: 14px;

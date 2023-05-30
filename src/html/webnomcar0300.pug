@@ -1,0 +1,17 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webcus"
+  - pageTitle = "고객정보조회 변경"
+
+block content
+  +result({
+    type:'result',
+    mainText:"재수행주기도래확인이<br>완료되었습니다.",
+    img:"/src/images/ico_example2.png",
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

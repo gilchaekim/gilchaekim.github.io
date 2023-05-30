@@ -1,0 +1,73 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webiba"
+  - pageTitle = "장기미접속해제"
+
+block content
+  +form()
+    +form_body({title:"뱅킹 아이디"})
+      +input({
+        placeholder:"사용자 아이디",
+      })
+      +text({
+        type:'link',
+        className:"em",
+        text:"아이디 찾기"
+      })
+
+    +form_body({title:"뱅킹 비밀번호"})
+      +input({
+        type:"password",
+        placeholder:"비밀번호 입력",
+      })
+    +form_body({title:"계좌번호"})
+      +input({
+        placeholder:"숫자만 입력",
+      })
+      +text({
+        type:'link',
+        className:"em",
+        text:"계좌번호 찾기"
+      })
+    +form_body({title:"등록구분"})
+      +radioCheck({
+        type:"radio",
+        name:'chk353339',
+        lists:[
+          {label:'개인고객',},
+          {label:'법인 (기업) 고객',},
+        ]
+      })
+      +input({
+        placeholder:"생년월일 6자리",
+      })
+      +input_business()
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"장기미접속으로 로그인이 안될 시 이용가능한 거래입니다.",
+          },
+          {
+            text:"현재 사용중인 보안매체를 사용할 수 없는 경우 추가인증(전화ARS/스마트폰앱)절차를 통해 장기미접속 해제를 해주시기 바랍니다.",
+          },
+          {
+            text:"현재 사용중인 보안매체를 사용할 수 없는 경우 추가인증(전화ARS/스마트폰앱)절차를 통해 장기미접속 해제를 해주시기 바랍니다.",
+          },
+        ]
+      })
+      
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+      type:"primary",
+    })
