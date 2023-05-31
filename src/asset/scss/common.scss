@@ -3573,10 +3573,17 @@ hr {
 		font-size: 14px;
 		color:$font_color01;
 	}
+	.mui_title {
+		& + .mui_text_lists {
+			margin-top: 16px;
+		}
+	}
 	.signup_guide {
 		border-radius: 12px;
 		background:$bg_color02;
 		padding: 20px;
+		font-size: 14px;
+		color:$font_color03;
 		li {
 			position: relative;
 			display: flex;
@@ -3619,6 +3626,9 @@ hr {
 		padding-bottom: 16px;
 		margin-bottom: 16px;
 		border-bottom: 1px solid $line_color03;
+		p ~ p {
+			margin-top: 8px;
+		}
 		&.last{
 			border-bottom: 0 none;
 		}

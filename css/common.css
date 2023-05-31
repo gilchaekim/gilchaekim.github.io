@@ -7560,10 +7560,15 @@ hr {
   font-size: 14px;
   color: var(--font_color01);
 }
+.signupguide_wrap .mui_title + .mui_text_lists {
+  margin-top: 16px;
+}
 .signupguide_wrap .signup_guide {
   border-radius: 12px;
   background: var(--bg_color02);
   padding: 20px;
+  font-size: 14px;
+  color: var(--font_color03);
 }
 .signupguide_wrap .signup_guide li {
   position: relative;
@@ -7601,6 +7606,9 @@ hr {
   padding-bottom: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--line_color03);
+}
+.signupguide_wrap .sub_txt p ~ p {
+  margin-top: 8px;
 }
 .signupguide_wrap .sub_txt.last {
   border-bottom: 0 none;

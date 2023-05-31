@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">장기미접속해제</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,99 +232,55 @@
       </header>
     </div><!-- / header -->
     <!-- contents -->
-    <div class="webiba" id="contants">
-      <div class="mui_form">
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">뱅킹 아이디</span></div>
-          <div class="mui_form_content">
-            <span class="mui_input">
-              <input type="text" placeholder="사용자 아이디" mui-input="" />
-            </span>
-            <p class="mui_text link em"><a href="">아이디 찾기</a>
-            </p>
-          </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">뱅킹 비밀번호</span></div>
-          <div class="mui_form_content">
-            <span class="mui_input">
-              <input type="password" placeholder="비밀번호 입력" mui-input="" />
-            </span>
-          </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">계좌번호</span></div>
-          <div class="mui_form_content">
-            <span class="mui_input">
-              <input type="text" placeholder="숫자만 입력" mui-input="" />
-            </span>
-            <p class="mui_text link em"><a href="">계좌번호 찾기</a>
-            </p>
-          </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">계좌 비밀번호</span></div>
-          <div class="mui_form_content">
-            <span class="mui_input">
-              <input type="password" placeholder="숫자 4자리" mui-input="" />
-            </span>
-            <p class="mui_text link em"><a href="">계좌번호 찾기</a>
-            </p>
-          </div>
-        </div>
-        <div class="mui_form_list">
-          <div class="mui_form_head"><span class="form_title">등록구분</span></div>
-          <div class="mui_form_content">
-            <div class="mui_radio_group">
-              <span class="mui_radio">
-                <input type="radio" id="chk353339Id1" name="chk353339Id1" />
-                <label for="chk353339Id1">개인고객</label>
-              </span>
-              <span class="mui_radio">
-                <input type="radio" id="chk353339Id2" name="chk353339Id1" />
-                <label for="chk353339Id2">법인 (기업) 고객</label>
-              </span>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>상품가입 전 확인사항</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>카카오톡 정보수신 동의서</p>
             </div>
-            <span class="mui_input">
-              <input type="text" placeholder="생년월일 6자리" mui-input="" />
-            </span>
-            <div class="mui_business mui_inputmultiple">
-              <span class="mui_input">
-                <input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" />
-              </span><span class="divide">-</span>
-              <span class="mui_input">
-                <input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" />
-              </span><span class="divide">-</span>
-              <span class="mui_input">
-                <input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" />
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists mui_open">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 닫기
-              </button>
-            </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>장기미접속으로 로그인이 안될 시 이용가능한 거래입니다.
-                  </li>
-                  <li>현재 사용중인 보안매체를 사용할 수 없는 경우 추가인증(전화ARS/스마트폰앱)절차를 통해 장기미접속 해제를 해주시기 바랍니다.
-                  </li>
-                </ul>
+            <div class="mui_modal_content">
+              <div class="signupguide_wrap">
+                <div class="mui_contents_group lv_2">
+                  <div class="signup_guide">저축은행 금융거래 관련 [카카오톡 알림톡]에 의한 정보수신 동의서 입니다.</div>
+                </div>
+                <div class="mui_contents_group lv_2">
+                  <div class="mui_title">
+                    <p class="title lv4">[IBK저축은행] 귀중
+                    </p>
+                  </div>
+                  <div class="sub_txt">
+                    <p>본인은 귀 저축은행과의 금융거래 과정에서 발생하는 주요사항(입출금) 알림 수신 시 문자메시지에 갈음하여 [카카오톡 알림톡]을 통해 정보를 제공받는 것에 동의합니다.</p>
+                    <p>아울러, 귀 저축은행이 알림톡 서비스 제공을 위해 필요한 정보(휴대폰 번호, 메시지 내용 등)를 문자메시지 및 알림톡 발송대행업체 (슈어엠 주식회사), [카카오톡 알림톡] 서비스 회사(카카오주식회사)에 제공하는 것에 동의합니다.</p>
+                  </div>
+                  <div class="mui_title">
+                    <p class="title lv4">[고객 안내 사항]
+                    </p>
+                  </div>
+                  <div class="mui_text_lists guide">
+                    <ul>
+                      <li>본 서비스는 문자(SMS) 수신 동의 고객에 한하여 적용됩니다.
+                      </li>
+                      <li>알림톡 전송 실패 시 고객에게 문자메시지로 재전송됩니다.
+                      </li>
+                      <li>알림톡 서비스를 통해 발송된 메시지 조회 과정에서 발생하는 카카오톡 데이터 사용료는 고객이 부담함을 알려드립니다.
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_default" type="button"><span>미동의</span></button>
+                  <button class="mui_button mui_large mui_primary" type="button"><span>동의</span></button></span></div>
             </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>
