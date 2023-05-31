@@ -667,6 +667,12 @@
   function isDate(value) {
     return typeOf(value) === 'date' && !isNaN(value.getTime());
   }
+  function isLeapYear$1(year) {
+    return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+  }
+  function getDaysInMonth$1(year, month) {
+    return [31, isLeapYear$1(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  }
 
   /**
    * Add leading zeroes to the given value
@@ -3113,6 +3119,8 @@
     isNumeric: isNumeric,
     typeOf: typeOf,
     isDate: isDate,
+    isLeapYear: isLeapYear$1,
+    getDaysInMonth: getDaysInMonth$1,
     addLeadingZero: addLeadingZero,
     isEmpty: isEmpty$1,
     isUndefined: isUndefined,
@@ -4213,7 +4221,7 @@
       var initialValue = this.initialValue,
         date = this.date;
       this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>');
-      this.format = parseFormat$1(this.format);
+      this.format = parseFormat(this.format);
       // console.log(this.format)
 
       this.initialValue = this.getValue();
@@ -4580,7 +4588,7 @@
 
         // The length of the days of prev month
         // 이전달의 마지막 날 또는 이전달의 길이
-        length = getDaysInMonth$1(prevViewYear, prevViewMonth);
+        length = getDaysInMonth(prevViewYear, prevViewMonth);
 
         // The first day of current month
         // 이번달의 첫 날
@@ -4634,7 +4642,7 @@
 
         // The length of the days of current month
         // 이번달의 마지막 날
-        length = getDaysInMonth$1(viewYear, viewMonth);
+        length = getDaysInMonth(viewYear, viewMonth);
 
         // The visible length of next month (42 means 6 rows and 7 columns)
         // 켈린더 개수 42칸 유지 (이번달 게수에서 이전 달 개수를 뺀 값)
@@ -4802,7 +4810,7 @@
     }
   };
 
-  function parseFormat$1(format) {
+  function parseFormat(format) {
     var source = String(format).toLowerCase();
     var parts = source.match(/(y|m|d)+/g);
     if (!parts || parts.length === 0) {
@@ -4830,10 +4838,10 @@
     });
     return format;
   }
-  function getDaysInMonth$1(year, month) {
-    return [31, isLeapYear$1(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  function getDaysInMonth(year, month) {
+    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
   }
-  function isLeapYear$1(year) {
+  function isLeapYear(year) {
     return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
   }
 
@@ -5506,7 +5514,7 @@
       },
       format: function format(_ref7) {
         var format = _ref7.format;
-        return parseFormat(format);
+        return this.parseFormat(format);
       }
     },
     connected: function connected() {
@@ -5516,9 +5524,6 @@
         this.$el;
       var initialValue = this.initialValue,
         date = this.date;
-      // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
-      // this.format = parseFormat(this.format);
-
       initialValue = this.getValue();
       date = this.parseDate(date || initialValue);
       this.date = date;
@@ -5666,7 +5671,7 @@
         addClass(calendar, 'mui_active');
         this.renderDays();
         // css(calendar, 'top', `30%`)
-        // // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+        // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
         // css(calendar, 'left', `${dimensions(this.$el).left}px`)
         this.positionAt(calendar, this.$el);
       },
@@ -5865,7 +5870,7 @@
         }
 
         // 이전달의 마지막 날 또는 이전달의 길이
-        length = getDaysInMonth(prevViewYear, prevViewMonth);
+        length = getDaysInMonth$1(prevViewYear, prevViewMonth);
 
         // 이번달의 첫 날
         var firstDay = new Date(viewYear, viewMonth, 1);
@@ -5916,7 +5921,7 @@
         }
 
         // 이번달의 마지막 날
-        length = getDaysInMonth(viewYear, viewMonth);
+        length = getDaysInMonth$1(viewYear, viewMonth);
 
         // 켈린더 개수 42칸 유지 (이번달 게수에서 이전 달 개수를 뺀 값) (42 means 6 rows and 7 columns)
         n = 42 - (prevItems.length + length);
@@ -6080,6 +6085,34 @@
         this.viewDate = val;
         this.date = val;
         this.setValue();
+      },
+      parseFormat: function parseFormat(format) {
+        var source = String(format).toLowerCase();
+        var parts = source.match(/(y|m|d)+/g);
+        if (!parts || parts.length === 0) {
+          throw new Error('Invalid date format.');
+        }
+        format = {
+          source: source,
+          parts: parts
+        };
+        each(parts, function (part) {
+          switch (part) {
+            case 'dd':
+            case 'd':
+              format.hasDay = true;
+              break;
+            case 'mm':
+            case 'm':
+              format.hasMonth = true;
+              break;
+            case 'yyyy':
+            case 'yy':
+              format.hasYear = true;
+              break;
+          }
+        });
+        return format;
       }
     },
     update: {
@@ -6090,40 +6123,6 @@
       events: ['scroll', 'resize']
     }
   };
-  function parseFormat(format) {
-    var source = String(format).toLowerCase();
-    var parts = source.match(/(y|m|d)+/g);
-    if (!parts || parts.length === 0) {
-      throw new Error('Invalid date format.');
-    }
-    format = {
-      source: source,
-      parts: parts
-    };
-    each(parts, function (part) {
-      switch (part) {
-        case 'dd':
-        case 'd':
-          format.hasDay = true;
-          break;
-        case 'mm':
-        case 'm':
-          format.hasMonth = true;
-          break;
-        case 'yyyy':
-        case 'yy':
-          format.hasYear = true;
-          break;
-      }
-    });
-    return format;
-  }
-  function getDaysInMonth(year, month) {
-    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-  }
-  function isLeapYear(year) {
-    return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
-  }
 
   var formatter = {
     props: {

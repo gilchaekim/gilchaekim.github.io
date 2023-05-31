@@ -3,6 +3,7 @@ import Position from '../mixin/position';
 import {
   $, 
   isDate, 
+  getDaysInMonth,
   each, 
   mergeOptions, 
   addLeadingZero, 
@@ -111,14 +112,12 @@ export default {
       return `${test}234234233444${value}`;
     },
     format({format}) {
-      return parseFormat(format);
+      return this.parseFormat(format);
     }
   },
   connected() {
     const {pickerButton, startDate, endDate, $el} = this;
     let {initialValue, date} = this;
-    // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
-    // this.format = parseFormat(this.format);
     
     initialValue = this.getValue();
 
@@ -286,7 +285,7 @@ export default {
       addClass(calendar, 'mui_active');
       this.renderDays()
       // css(calendar, 'top', `30%`)
-      // // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
+      // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
       // css(calendar, 'left', `${dimensions(this.$el).left}px`)
       this.positionAt(calendar, this.$el);
       
@@ -797,6 +796,41 @@ export default {
       this.viewDate = val;
       this.date = val;
       this.setValue();
+    },
+    parseFormat(format) {
+      const source = String(format).toLowerCase();
+      const parts = source.match(/(y|m|d)+/g);
+    
+      if (!parts || parts.length === 0) {
+        throw new Error('Invalid date format.');
+      }
+    
+      format = {
+        source,
+        parts,
+      };
+    
+      each(parts, (part) => {
+        switch (part) {
+          case 'dd':
+          case 'd':
+            format.hasDay = true;
+            break;
+    
+          case 'mm':
+          case 'm':
+            format.hasMonth = true;
+            break;
+    
+          case 'yyyy':
+          case 'yy':
+            format.hasYear = true;
+            break;
+    
+          default:
+        }
+      });
+      return format;
     }
   },
   update: {
@@ -808,48 +842,3 @@ export default {
     events: ['scroll', 'resize'],
   }
 };
-
-
-function parseFormat(format) {
-  const source = String(format).toLowerCase();
-  const parts = source.match(/(y|m|d)+/g);
-
-  if (!parts || parts.length === 0) {
-    throw new Error('Invalid date format.');
-  }
-
-  format = {
-    source,
-    parts,
-  };
-
-  each(parts, (part) => {
-    switch (part) {
-      case 'dd':
-      case 'd':
-        format.hasDay = true;
-        break;
-
-      case 'mm':
-      case 'm':
-        format.hasMonth = true;
-        break;
-
-      case 'yyyy':
-      case 'yy':
-        format.hasYear = true;
-        break;
-
-      default:
-    }
-  });
-
-  return format;
-}
-
-function getDaysInMonth(year, month) {
-  return [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-}
-function isLeapYear(year) {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}
