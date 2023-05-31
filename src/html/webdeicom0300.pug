@@ -94,35 +94,35 @@ block content
         +form_value({
           value:"만기일시지급"
         })
-      +form_body({title:"이자 지급 계좌정보"})
-        +radioCheck({
-          name:'chk4734722',
-          type:"radio",
-          className:'button_type',
-          lists:[
-            {
-              label:'출금계좌와 동일',
-              checked:true
-            },
-            {
-              label:'다른 계좌'
-            }
-          ]
-        })
-        .add_data 
-          +button_select({
-            placeholder:"선택하세요",
-            label:"저축은행"
-          })
-          +input_button({
-            btnText:"예금주확인",
-            placeholder:"계좌번호입력",
-            type:"input"
-          })
-          +text({
-            type:'warning',
-            text:"동일저축은행간 자동이체 등록 시 출금계좌로 등록됩니다."
-          })
+      //- +form_body({title:"이자 지급 계좌정보"})
+      //-   +radioCheck({
+      //-     name:'chk4734722',
+      //-     type:"radio",
+      //-     className:'button_type',
+      //-     lists:[
+      //-       {
+      //-         label:'출금계좌와 동일',
+      //-         checked:true
+      //-       },
+      //-       {
+      //-         label:'다른 계좌'
+      //-       }
+      //-     ]
+      //-   })
+      //-   .add_data 
+      //-     +button_select({
+      //-       placeholder:"선택하세요",
+      //-       label:"저축은행"
+      //-     })
+      //-     +input_button({
+      //-       btnText:"예금주확인",
+      //-       placeholder:"계좌번호입력",
+      //-       type:"input"
+      //-     })
+      //-     +text({
+      //-       type:'warning',
+      //-       text:"동일저축은행간 자동이체 등록 시 출금계좌로 등록됩니다."
+      //-     })
       +form_body({title:"만기자동재예치여부"})
         button(type="button").guide_btn 안내
         +button_select({

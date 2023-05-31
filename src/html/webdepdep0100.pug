@@ -1,0 +1,80 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "대출상품"
+
+block content
+  .webdep_wrap
+    .item_wrap
+      .bank_products.card_type
+        .badge 추천상품
+        +title({
+          text:"보통예금",
+          lv:2,
+        })
+        .sub_txt 입출금이 자유료운 예금
+        .img
+          img(src="/src/images/img_prd.png", alt="상품 이미지")
+        .detail
+          .list 
+            dl 
+              dt 금리 연
+              dd <strong>1.3<span>%</span></strong>
+            dl 
+              dt 가입기간
+              dd <strong>제한없음</strong>
+        .btn_wrap
+          button.btn 가입하러 가기
+    +content_group(3)
+      +tabsWrap({
+        active:0,
+        className:""
+      })
+        +tab("전체")
+          .mui_card_list
+            a(href="")
+              .bank_info
+                span.text <strong>보통예금</strong><span>입출금이 자유로운 예금</span>
+              .info_wrap
+                dl 
+                  dt 금리 연
+                  dd <em>1.3%</em>
+                dl 
+                  dt 가입기간
+                  dd 24개월
+            
+            a(href="")
+              .bank_info
+                span.text <strong>정기예금(복리)정기예금(복리)정기예금(복리)</strong><span>1년만 돼도 중도해지 손해 없이 해지할 수 있는 상품</span>
+              .info_wrap
+                dl 
+                  dt 금리 연
+                  dd <em>1.3%</em>
+                dl 
+                  dt 가입기간
+                  dd 24개월
+        +tab("예금")
+          .mui_card_list
+            a(href="")
+              .bank_info
+                span.text <strong>보통예금</strong><span>입출금이 자유로운 예금</span>
+              .info_wrap
+                dl 
+                  dt 금리 연
+                  dd <em>1.3%</em>
+                dl 
+                  dt 가입기간
+                  dd 24개월
+        +tab("적금")
+          .mui_card_list
+            a(href="")
+              .bank_info
+                span.text <strong>정기예금(복리)정기예금(복리)정기예금(복리)</strong><span>1년만 돼도 중도해지 손해 없이 해지할 수 있는 상품</span>
+              .info_wrap
+                dl 
+                  dt 금리 연
+                  dd <em>1.3%</em>
+                dl 
+                  dt 가입기간
+                  dd 24개월

@@ -2267,6 +2267,93 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	.loan_wrap {
+		.bank_products {
+			margin:-24px -24px 0;
+			padding:40px 24px 50px;
+			background:$bg_color02;
+		}
+		.status{
+			.tab_pane{
+				padding:16px 0 0 0;
+				.inset {
+					&::after {
+						top:33px;
+					}
+				}
+				.title {
+					overflow:hidden;
+					padding-bottom:8px;
+					padding-right:40px;
+					text-overflow:ellipsis;
+					font-size:18px;
+					white-space:nowrap;
+					border-bottom:0;
+					span {
+						overflow:hidden;
+						display:block;
+						text-overflow:ellipsis;
+						font-size:14px;
+						color:$font_color03;
+						white-space:nowrap;
+					}
+				}
+				.mui_result {
+					&.default {
+						dl {
+							justify-content:flex-start;
+							gap:0 36px;
+						}
+						dt, dd {
+							font-size:13px;
+							text-align:left;
+						}
+						em {
+							display:block;
+							font-size:18px;
+							font-weight:700;
+						}
+						strong {
+							display:block;
+							font-size:18px;
+							font-weight:700;
+						}
+					}
+				}
+			}
+			.mui_tab_nav{
+				margin:0;
+				padding:0;
+				height:40px;
+				border-radius:12px;
+				background:#f4f4f4;
+				&::after {
+					display:none;
+				}
+			}
+			.nav_list{
+				&.mui_active{
+					button{
+						color:$font_color06;
+						font-weight: 700;
+						background:$main_color02;
+						border-radius: 12px;
+			
+					}
+				}
+				button{
+					height: 40px;
+					line-height: 40px;
+					font-size: 16px;
+					color:$font_color03;
+					padding: 0;
+					&::after{
+						display: none;
+					}
+				}
+			}
+		}
+	}
 	.mui_accordion {
 		.acc_lists:first-child {
 			.acc_header{
@@ -2693,6 +2780,167 @@ hr {
 	
 }
 .webdep {
+	.webdep_wrap {
+		.item_wrap {
+			margin:-24px -24px 0;
+			padding:24px 24px 32px 24px;
+			background:rgba(243, 115, 32, 0.04);
+			.bank_products.card_type {
+				position:relative;
+				padding:20px 0 84px 20px;
+				border-radius:12px;
+				background:$main_color01;
+				box-shadow:0 4px 8px rgba(0, 0, 0, 0.04);
+				.badge {
+					display:inline-block;
+					margin-bottom:8px;
+					padding:3px 8px 2px 8px;
+					font-size:13px;
+					color:$font_color06;
+					border-radius:12px;
+					background:rgba(111, 111, 111, 0.3);
+				}
+				.img {
+					position:absolute;
+					top:42px;
+					right:5px;
+					width:111px;
+					height:77px;
+				}
+				.btn_wrap {
+					position:absolute;
+					bottom:0;
+					left:0;
+					width:100%;
+					font-size:16px;
+					button {
+						display:block;
+						width:100%;
+						padding:17px 0 16px 0;
+						font-size:16px;
+						color:$font_color06;
+						text-align:center;
+						background:rgba(0, 0, 0, 0.3);
+						border-radius:0 0 12px 12px;
+					}
+				}
+				.title {
+					padding-right:128px;
+					color:$font_color06;
+				}
+				.sub_txt {
+					overflow:hidden;
+					padding-right:128px;
+					font-size:14px;
+					color:rgba(255, 255, 255, 0.8);
+					text-overflow:ellipsis;
+					white-space:nowrap;
+				}
+				.detail {
+					margin-top:40px;
+					dl~dl {
+						position:relative;
+						margin-left:40px;
+						padding-left:40px;
+						&::before {
+							content:"";
+							position:absolute;
+							top:50%;
+							left:0                                                                                 ;
+							width:1px;
+							height:46px;
+							background:rgba(255, 255, 255, 0.4);
+							transform:translateY(-50%);
+						}
+						strong {
+							font-size:26px;
+						}
+					}
+					dt, dd {
+						color:$font_color06;
+					}
+					strong {
+						font-size:30px;
+						span {
+							display:inline-block;
+							padding-left:4px;
+							font-size:13px;
+						}
+					}
+				}
+			}
+		}
+		.mui_tab_nav {
+			margin:0 -24px;
+			padding:0;
+			.nav_list {
+				&:first-child {
+					padding-left:24px;
+				}
+				&:last-child {
+					padding-right:24px;
+				}
+			}
+		}
+		.tab_pane {
+			padding-left:0;
+			padding-right:0;
+		}
+		.mui_card_list {
+			display:flex;
+			flex-direction:column;
+			gap:16px 0;
+			a {
+				flex-direction:column;
+				align-items:initial;
+				padding:20px;
+				height:initial;
+				&::after {
+					content:"";
+					position:absolute;
+					top:50%;
+					right:20px;
+					@include icon_svg(arrow-left, "#666", 20px);
+					transform:rotate(180deg) translateY(50%);
+				}
+			}
+			.bank_info {
+				.text {
+					display:block;
+					padding-right:32px;
+					font-size:13px;
+					color:$basic_color04;
+					text-align:left;
+					strong {
+						display:block;
+						font-size:18px;
+						color:$font_color01;
+					}
+					span {
+						overflow:hidden;
+						display:block;
+						text-overflow:ellipsis;
+						white-space:nowrap;
+					}
+				}
+			}
+			.info_wrap {
+				display:flex;
+				gap:0 40px;
+				padding-top:16px;
+				dt {
+					font-size:13px;
+					color:$basic_color04;
+				}
+				dd {
+					padding-top:4px;
+					font-size:18px;
+					font-weight:700;
+					color:$font_color01;
+				}
+			}
+		}
+	}
 	.view_data{
 		text-align: center;
 		.write_pop{
