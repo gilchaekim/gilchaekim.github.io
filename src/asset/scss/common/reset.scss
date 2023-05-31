@@ -35,7 +35,7 @@ body, input, textarea, select, button, table
 // keypad 충돌 방지
 .kpd-group {
   img {
-    max-width: 0;
+    max-width: none;
   }
 }
 

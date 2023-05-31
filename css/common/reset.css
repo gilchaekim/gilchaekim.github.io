@@ -32,7 +32,7 @@ body, input, textarea, select, button, table {
 }
 
 .kpd-group img {
-  max-width: 0;
+  max-width: none;
 }
 
 em, address, i {
