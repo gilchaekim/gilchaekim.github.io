@@ -27,6 +27,10 @@ block content
   +content_group(2)
     +form()
       +form_body({title:"가입기간"})
+        +button_select({
+          placeholder:"가입기간 선택",
+          label:"가입기간"
+        })
         +radioCheck({
           name:'chk473472',
           type:"radio",
@@ -58,13 +62,34 @@ block content
             
           .view_data
             button.write_pop 직접입력
-            .guide_box 
-              .list 
-                p.title 적용이율
-                p.text 4.30%
-              .list 
-                p.title 예상총이자
-                p.text 120,300원(세전)
+            .guide_box.gcoverflow_box
+              .overflow_wrap
+                .list 
+                  p.title 적용이율
+                  p.text 4.30%
+                .list 
+                  p.title 예상총이자
+                  p.text 120,300원(세전)
+                .list 
+                  p.title 월지급이자
+                  p.text 233원
+                .list 
+                  p.title 잔여일수 지급이자
+                  p.text 0원
+                .list 
+                  p.title 총 수입제세
+                  p.text 360원
+                .list 
+                  p.title 차감지급 월이자
+                  p.text 200원
+                .list 
+                  p.title 차감지급 잔여일수 이자
+                  p.text 0원
+                .list 
+                  p.title 차감지급액
+                  p.text 2,111원
+              button.more(mui-toggle="target:.gcoverflow_box;cls:mui_active;")
+                span 상세정보 조회
       +form_body({title:"이자지급방법"})
         +form_value({
           value:"만기일시지급"
@@ -166,13 +191,13 @@ block content
         type:'guide',
         lists:[
           {
-            text:"상품가입 전 반드시 상품설명서 및 약관을 확인하세요.",
+            text:"신규계좌 비밀번호는 출금계좌 비밀번호와 동일하게 설정됩니다.",
           },
           {
-            text:"해당 상품에 대해 충분한 사전 설명을 받을 권리가 있으며, 설명을 이해한 후 가입해 주세요.",
+            text:"비과세종합저축의 경우 자격요건 및 한도초과 여부에 따라 변경될 수 있습니다.<br>(서비스시간 02:00 ~ 23:50)",
           },
           {
-            text:"인터넷 예적금은 통장을 발급하지 않습니다.",
+            text:"예치금액은 10만원 이상 가능합니다.",
           },
         ]
       })

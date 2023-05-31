@@ -2704,6 +2704,19 @@ hr {
 			margin-top: 24px;
 			background:$bg_color02;
 			padding: 20px;
+			&.gcoverflow_box {
+				.overflow_wrap {
+					height: 58px;
+					overflow: hidden;
+				}
+				&.mui_active {
+					.overflow_wrap {
+						height: auto;
+						overflow: hidden;
+					}
+				}
+
+			}
 			.list {
 				display: flex;
 				justify-content: space-between;
@@ -2717,6 +2730,33 @@ hr {
 				}
 				& ~ .list {
 					margin-top: 16px;
+				}
+			}
+			.more {
+				display: block;
+				width: 100%;
+				margin-top: 24px;
+				&.mui_active {
+					span {
+						&::after {
+							transform: rotate(180deg);
+							top: 0;
+						}
+					}
+					
+				}
+				span {
+					color:$basic_color04;
+					display: inline-flex;
+					position: relative;
+					&::after {
+						content: '';
+						display: inline-flex;
+						@include icon_svg(arrow-down, "#111", 16px);
+						margin-left: 4px;
+						position: relative;
+						top: 1px;
+					}
 				}
 			}
 		}
