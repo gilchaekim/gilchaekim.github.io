@@ -69,35 +69,35 @@ block content
         +form_value({
           value:"만기일시지급"
         })
-      +form_body({title:"이자 지급 계좌정보"})
-        +radioCheck({
-          name:'chk4734722',
-          type:"radio",
-          className:'button_type',
-          lists:[
-            {
-              label:'출금계좌와 동일',
-              checked:true
-            },
-            {
-              label:'다른 계좌'
-            }
-          ]
-        })
-        .add_data 
-          +button_select({
-            placeholder:"선택하세요",
-            label:"저축은행"
-          })
-          +input_button({
-            btnText:"예금주확인",
-            placeholder:"계좌번호입력",
-            type:"input"
-          })
-          +text({
-            type:'warning',
-            text:"동일저축은행간 자동이체 등록 시 출금계좌로 등록됩니다."
-          })
+      //- +form_body({title:"이자 지급 계좌정보"})
+      //-   +radioCheck({
+      //-     name:'chk4734722',
+      //-     type:"radio",
+      //-     className:'button_type',
+      //-     lists:[
+      //-       {
+      //-         label:'출금계좌와 동일',
+      //-         checked:true
+      //-       },
+      //-       {
+      //-         label:'다른 계좌'
+      //-       }
+      //-     ]
+      //-   })
+      //-   .add_data 
+      //-     +button_select({
+      //-       placeholder:"선택하세요",
+      //-       label:"저축은행"
+      //-     })
+      //-     +input_button({
+      //-       btnText:"예금주확인",
+      //-       placeholder:"계좌번호입력",
+      //-       type:"input"
+      //-     })
+      //-     +text({
+      //-       type:'warning',
+      //-       text:"동일저축은행간 자동이체 등록 시 출금계좌로 등록됩니다."
+      //-     })
       +form_body({title:"만기자동재예치여부"})
         button(type="button").guide_btn 안내
         +button_select({
@@ -166,13 +166,13 @@ block content
         type:'guide',
         lists:[
           {
-            text:"상품가입 전 반드시 상품설명서 및 약관을 확인하세요.",
+            text:"신규계좌 비밀번호는 출금계좌 비밀번호와 동일하게 설정됩니다.",
           },
           {
-            text:"해당 상품에 대해 충분한 사전 설명을 받을 권리가 있으며, 설명을 이해한 후 가입해 주세요.",
+            text:"비과세종합저축의 경우 자격요건 및 한도초과 여부에 따라 변경 될 수 있습니다.<br>(서비스시간 02:00 ~ 23:50)",
           },
           {
-            text:"인터넷 예적금은 통장을 발급하지 않습니다.",
+            text:"예치금액은 10만원 이상 가능합니다.",
           },
         ]
       })

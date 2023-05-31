@@ -9,10 +9,9 @@ block content
     title:"금융거래 확인사항",
     id:"fullLayer",
     type:"full",
-    isCloseBtn:false
   })
     .webdep
-      p.guide_msg 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
+      p.guide_msg 비대면 계좌개설을 위해 개인정보를 확인 및 입력해 주세요.
       +content_group(2)
         +form()
           +form_body({title:"개인거래목적"})
@@ -95,6 +94,11 @@ block content
             }
           ]
         })
+        +text({
+          type:'warning',
+          text:"통장/현금카드 등을 타인에게 양도하여 범죄에 이용되는 경우 미성년자 여부와 상관없이 민-형사상 책임을 질 수 있습니다."
+        })
+        
       +content_group(0)
         +title({
           text:"타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?",
@@ -115,5 +119,10 @@ block content
             }
           ]
         })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
   script.
     GCui.modal('#fullLayer').show()

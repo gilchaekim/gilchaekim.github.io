@@ -225,6 +225,9 @@
       }
     }
   }
+  & ~ .mui_text {
+    margin-top: 12px;
+  }
 }
 .mini_type{
   &.mui_radio_group, &.mui_checkbox_group {
