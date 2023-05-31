@@ -57,6 +57,10 @@ body, input, textarea, select, button, table {
   line-height: 1.5;
 }
 
+.kpd-group img {
+  max-width: 0;
+}
+
 em, address, i {
   font-style: normal;
 }
@@ -1102,6 +1106,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .block_type .mui_radio label::before, .block_type .mui_checkbox label::before {
   top: 20px;
   left: 16px;
+}
+.block_type ~ .mui_text {
+  margin-top: 12px;
 }
 
 .mini_type.mui_radio_group, .mini_type.mui_checkbox_group {
@@ -6351,6 +6358,78 @@ hr {
 }
 
 /* 금융상품(대출) */
+.webinf .loan_wrap .bank_products {
+  margin: -24px -24px 0;
+  padding: 40px 24px 50px;
+  background: var(--bg_color02);
+}
+.webinf .loan_wrap .status .tab_pane {
+  padding: 16px 0 0 0;
+}
+.webinf .loan_wrap .status .tab_pane .inset::after {
+  top: 33px;
+}
+.webinf .loan_wrap .status .tab_pane .title {
+  overflow: hidden;
+  padding-bottom: 8px;
+  padding-right: 40px;
+  text-overflow: ellipsis;
+  font-size: 18px;
+  white-space: nowrap;
+  border-bottom: 0;
+}
+.webinf .loan_wrap .status .tab_pane .title span {
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  font-size: 14px;
+  color: var(--font_color03);
+  white-space: nowrap;
+}
+.webinf .loan_wrap .status .tab_pane .mui_result.default dl {
+  justify-content: flex-start;
+  gap: 0 36px;
+}
+.webinf .loan_wrap .status .tab_pane .mui_result.default dt, .webinf .loan_wrap .status .tab_pane .mui_result.default dd {
+  font-size: 13px;
+  text-align: left;
+}
+.webinf .loan_wrap .status .tab_pane .mui_result.default em {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.webinf .loan_wrap .status .tab_pane .mui_result.default strong {
+  display: block;
+  font-size: 18px;
+  font-weight: 700;
+}
+.webinf .loan_wrap .status .mui_tab_nav {
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  border-radius: 12px;
+  background: #f4f4f4;
+}
+.webinf .loan_wrap .status .mui_tab_nav::after {
+  display: none;
+}
+.webinf .loan_wrap .status .nav_list.mui_active button {
+  color: var(--font_color06);
+  font-weight: 700;
+  background: var(--main_color02);
+  border-radius: 12px;
+}
+.webinf .loan_wrap .status .nav_list button {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: var(--font_color03);
+  padding: 0;
+}
+.webinf .loan_wrap .status .nav_list button::after {
+  display: none;
+}
 .webinf .mui_accordion .acc_lists:first-child .acc_header {
   padding-top: 0;
 }
@@ -6720,6 +6799,165 @@ hr {
   margin-left: 12px;
 }
 
+.webdep .webdep_wrap .item_wrap {
+  margin: -24px -24px 0;
+  padding: 24px 24px 32px 24px;
+  background: rgba(243, 115, 32, 0.04);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type {
+  position: relative;
+  padding: 20px 0 84px 20px;
+  border-radius: 12px;
+  background: var(--main_color01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .badge {
+  display: inline-block;
+  margin-bottom: 8px;
+  padding: 3px 8px 2px 8px;
+  font-size: 13px;
+  color: var(--font_color06);
+  border-radius: 12px;
+  background: rgba(111, 111, 111, 0.3);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .img {
+  position: absolute;
+  top: 42px;
+  right: 5px;
+  width: 111px;
+  height: 77px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .btn_wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 16px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .btn_wrap button {
+  display: block;
+  width: 100%;
+  padding: 17px 0 16px 0;
+  font-size: 16px;
+  color: var(--font_color06);
+  text-align: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 0 0 12px 12px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .title {
+  padding-right: 128px;
+  color: var(--font_color06);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .sub_txt {
+  overflow: hidden;
+  padding-right: 128px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail {
+  margin-top: 40px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail dl ~ dl {
+  position: relative;
+  margin-left: 40px;
+  padding-left: 40px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail dl ~ dl::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 1px;
+  height: 46px;
+  background: rgba(255, 255, 255, 0.4);
+  transform: translateY(-50%);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail dl ~ dl strong {
+  font-size: 26px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail dt, .webdep .webdep_wrap .item_wrap .bank_products.card_type .detail dd {
+  color: var(--font_color06);
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail strong {
+  font-size: 30px;
+}
+.webdep .webdep_wrap .item_wrap .bank_products.card_type .detail strong span {
+  display: inline-block;
+  padding-left: 4px;
+  font-size: 13px;
+}
+.webdep .webdep_wrap .mui_tab_nav {
+  margin: 0 -24px;
+  padding: 0;
+}
+.webdep .webdep_wrap .mui_tab_nav .nav_list:first-child {
+  padding-left: 24px;
+}
+.webdep .webdep_wrap .mui_tab_nav .nav_list:last-child {
+  padding-right: 24px;
+}
+.webdep .webdep_wrap .tab_pane {
+  padding-left: 0;
+  padding-right: 0;
+}
+.webdep .webdep_wrap .mui_card_list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+}
+.webdep .webdep_wrap .mui_card_list a {
+  flex-direction: column;
+  align-items: initial;
+  padding: 20px;
+  height: initial;
+}
+.webdep .webdep_wrap .mui_card_list a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20px' height='20px' viewBox='0 0 20 20'%3E%3Cg transform='translate(20 20) rotate(180)'%3E%3Cpath d='M9,5l5,5L9,15' transform='translate(-1.5)' fill='none' stroke='%23666' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  width: 20px;
+  height: 20px;
+  transform: rotate(180deg) translateY(50%);
+}
+.webdep .webdep_wrap .mui_card_list .bank_info .text {
+  display: block;
+  padding-right: 32px;
+  font-size: 13px;
+  color: var(--basic_color04);
+  text-align: left;
+}
+.webdep .webdep_wrap .mui_card_list .bank_info .text strong {
+  display: block;
+  font-size: 18px;
+  color: var(--font_color01);
+}
+.webdep .webdep_wrap .mui_card_list .bank_info .text span {
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.webdep .webdep_wrap .mui_card_list .info_wrap {
+  display: flex;
+  gap: 0 40px;
+  padding-top: 16px;
+}
+.webdep .webdep_wrap .mui_card_list .info_wrap dt {
+  font-size: 13px;
+  color: var(--basic_color04);
+}
+.webdep .webdep_wrap .mui_card_list .info_wrap dd {
+  padding-top: 4px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
 .webdep .view_data {
   text-align: center;
 }

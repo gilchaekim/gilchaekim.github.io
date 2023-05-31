@@ -57,6 +57,10 @@ body, input, textarea, select, button, table {
   line-height: 1.5;
 }
 
+.kpd-group img {
+  max-width: 0;
+}
+
 em, address, i {
   font-style: normal;
 }
