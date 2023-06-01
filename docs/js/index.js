@@ -327,6 +327,12 @@
   function isDate(value) {
     return typeOf(value) === 'date' && !isNaN(value.getTime());
   }
+  function isLeapYear(year) {
+    return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+  }
+  function getDaysInMonth(year, month) {
+    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  }
 
   /**
    * Add leading zeroes to the given value
@@ -2773,6 +2779,8 @@
     isNumeric: isNumeric,
     typeOf: typeOf,
     isDate: isDate,
+    isLeapYear: isLeapYear,
+    getDaysInMonth: getDaysInMonth,
     addLeadingZero: addLeadingZero,
     isEmpty: isEmpty$1,
     isUndefined: isUndefined,

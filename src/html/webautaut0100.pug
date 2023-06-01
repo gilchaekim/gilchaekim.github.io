@@ -5,12 +5,19 @@ block prepend top
   - pageTitle = "자동이체(당/타행)"
 
 block content
-  +title({
-    text:"어느 계좌에서 보낼까요?",
-    lv:2,
-  })
-  +button_select_account()
-
+  +content_group(1)
+    +title({
+      text:"어느 계좌에서 보낼까요?",
+      lv:2,
+    })
+    +button_select_account()
+  +content_group(1)
+    +form()
+      +form_body({title:"계좌 비밀번호"})
+        +input({
+          placeholder:"숫자 4자리",
+          type:"password"
+        })
   +collapse({
     className:"guide_text",
     isOpen:true,

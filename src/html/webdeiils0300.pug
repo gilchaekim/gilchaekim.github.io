@@ -31,7 +31,6 @@ block content
           placeholder:"6~60",
           subfix:"개월",
         })
-        +datepicker()
       +form_body({title:"불입금액"})
         .rangeslidr_wrap
           .currdata
@@ -53,8 +52,14 @@ block content
                   p.title 예상총이자
                   p.text 120,300원(세전)
                 .list 
-                  p.title 월지급이자
-                  p.text 233원
+                  p.title 계약금액
+                  p.text 255%
+                .list 
+                  p.title 할부금
+                  p.text 120,300원(세전)
+                .list 
+                  p.title 총 적립금액
+                  p.text 230원
                 .list 
                   p.title 잔여일수 지급이자
                   p.text 0원
@@ -72,7 +77,7 @@ block content
                   p.text 2,111원
               button.more(mui-toggle="target:.gcoverflow_box;cls:mui_active;")
                 span 상세정보 조회
-      +form_body({title:"이자지급방법"})
+      +form_body({title:"납입방법"})
         +form_value({
           value:"정액식"
         })
@@ -110,10 +115,6 @@ block content
                   type:'warning',
                   text:"매월 납입일에 CMS계좌에서 적금계좌로 자동이체 됩니다."
                 })
-              +form_body({title:"자동이체 일자"})
-                +button_select({
-                  label:"17일"
-                })
         +text({
           type:'warning',
           text:"매월 납입일에 직접 적금계좌로 입금하셔야 합니다."
@@ -142,6 +143,10 @@ block content
           btnText:"예금주확인",
           placeholder:"계좌번호입력",
           type:"input"
+        })
+        +text({
+          type:'warning',
+          text:"예금주 본인 계좌만 가능합니다."
         })
       +form_body()
         .agree_switch

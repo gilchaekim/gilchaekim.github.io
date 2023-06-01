@@ -1,20 +1,18 @@
 extends ../components/templates/base.pug
 
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "금융계산기"
+
 block content
-  +button({
-    label:"클릭!",
-    muiToggle:'target:#fullLayer;'
+  +tabsLink({
+    list:[		
+      {name:"예금이자"},
+      {name:"적금이자", active:true},
+      {name:"대출이자"},
+    ],
+    className:"custom_tab"
   })
-  +modal({
-    title:"금융계산기",
-    id:"fullLayer",
-    type:"full",
-  })
-    +content_group(2)
-      +title({
-        text:"적금이자",
-        lv:2,
-      })
     +content_group(2)
       +form()
         +form_body({title:"적금금리"})
@@ -113,9 +111,3 @@ block content
               },
             ]
           })
-          
-    
-
-    
-  script.
-    GCui.modal('#fullLayer').show()
