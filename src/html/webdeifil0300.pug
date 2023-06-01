@@ -24,8 +24,13 @@ block content
     +button_select_account({
       isMoney:true
     })
-  +content_group(2)
+  +content_group(1)
     +form()
+      +form_body({title:"출금계좌 비밀번호"})
+        +input({
+          placeholder:"숫자 4자리",
+          type:"password"
+        })
       +form_body({title:"가입기간"})
         +input({
           placeholder:"6~36",
