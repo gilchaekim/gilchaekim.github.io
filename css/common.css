@@ -1902,17 +1902,12 @@ table, th, td {
 }
 .mui_phone .mui_select {
   position: static;
-  width: auto;
+  width: 80px;
   margin-top: 0 !important;
-}
-.mui_phone .mui_select .inset {
-  padding-right: 28px;
-  min-width: 80px;
 }
 .mui_phone .mui_input {
   margin-left: 16px;
   position: static;
-  width: 99%;
 }
 
 .mui_drivingnumber .divide {
@@ -2525,7 +2520,7 @@ table, th, td {
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content .mui_button_wrap, [mui-modal].mui_bottom_tray_wrap .mui_modal_content .mui_button_wrap {
   padding: 40px 0 16px;
-  margin: 0 -8px -40px;
+  margin: 0 -8px;
 }
 .mui_modal.mui_bottom_tray_wrap .mui_modal_content:first-child, [mui-modal].mui_bottom_tray_wrap .mui_modal_content:first-child {
   padding-top: 40px;
@@ -2981,25 +2976,6 @@ table, th, td {
   color: var(--font_color01);
 }
 
-.mui_selectlist.check_select .lists.mui_active button::after {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23DF6311' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 24px;
-  height: 24px;
-}
-.mui_selectlist.check_select .lists button::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 0;
-  margin-top: -12px;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24px' height='24px' viewBox='0 0 24 24'%3E%3Cpath d='M3,10.444,8.635,16,19,6' transform='translate(1 1)' fill='none' stroke='%23ccc' stroke-linecap='round' stroke-linejoin='round' stroke-width='2.5'/%3E%3Crect width='24px' height='24px' fill='none'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-size: 100%;
-  width: 24px;
-  height: 24px;
-}
 .mui_selectlist .lists ~ .lists {
   border-top: 1px solid var(--line_color03);
 }
