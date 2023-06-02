@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출상품본인인증"
+
+block content
+  +stepNum({
+    total:4,
+    activeIndex:3
+  })
+  +content_group(0)
+    +title({
+      text:"본인인증",
+      lv:1,
+    })
+    +text({
+      text:"인증서 인증을 위해 본인확인 정보를 입력해주세요."
+    })
+  
+  +content_group(2)
+    +form()
+      +form_body({title:"이름"})
+        +input({
+          placeholder:"이름 입력",
+        })
+      +form_body({title:"주민등록번호"})
+        +input_idnumber({
+          data:[
+            {
+              value:""
+            },
+            {
+              value:""
+            }
+          ]
+        })
+      +form_body({title:"휴대폰번호"})
+        +input({
+          placeholder:"휴대폰번호(숫자만)",
+        })
+    
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
