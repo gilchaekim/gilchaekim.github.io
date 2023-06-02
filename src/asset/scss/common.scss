@@ -18,7 +18,23 @@
 // *{
 // 	background: url($url_common+"fggdgdf") no-repeat center;
 // }
-
+.error_pop{
+	.main_text {
+		font-size: 18px;
+		font-weight: 700;
+		color:$font_color02;
+	}
+	.text {
+		font-size: 16px;
+		color:$font_color02;
+		margin-top: 16px;
+	}
+	.code {
+		margin-top: 12px;
+		font-size: 16px;
+		color: #EB4852;
+	}
+}
 a:link, a:active, a:hover, a:focus {
 	color:#111;
 	text-decoration:none;
