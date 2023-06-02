@@ -1562,7 +1562,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .mui_button_fixed .inset {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   background: var(--font_color06);
   padding: 40px 16px 16px;
   bottom: 0;
