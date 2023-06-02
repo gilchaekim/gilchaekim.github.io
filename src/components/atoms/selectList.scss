@@ -2,19 +2,34 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_selectlist{
+  &.check_select{
+    .lists{
+      &.mui_active{
+      
+        button{
+          &::after{
+            @include icon_svg(check, "#DF6311", 24px);
+          }
+        }
+      }
+      button{
+        &::after{
+          content: '';
+          position: absolute;
+          top:50%;
+          right: 0;
+          margin-top: -12px;
+          @include icon_svg(check, "#ccc", 24px);
+        }
+      }
+    }  
+  }
   .lists{
     
     & ~ .lists{
       border-top: 1px solid $line_color03;
     }
-    &.mui_active{
-      
-      // button{
-      //   &::after{
-      //     @include icon_svg(check, "#DF6311", 24px);
-      //   }
-      // }
-    }
+
     button{
       display: block;
       width: 100%;
@@ -24,14 +39,7 @@
       position: relative;
       font-weight: 700;
       color:$font_color01;
-      // &::after{
-      //   content: '';
-      //   position: absolute;
-      //   top:50%;
-      //   right: 0;
-      //   margin-top: -12px;
-      //   @include icon_svg(check, "#ccc", 24px);
-      // }
+
     }
   }
   &.account{
