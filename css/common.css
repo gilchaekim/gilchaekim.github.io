@@ -4224,6 +4224,22 @@ table, th, td {
   color: var(--font_color04);
 }
 
+.error_pop .main_text {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--font_color02);
+}
+.error_pop .text {
+  font-size: 16px;
+  color: var(--font_color02);
+  margin-top: 16px;
+}
+.error_pop .code {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #EB4852;
+}
+
 a:link, a:active, a:hover, a:focus {
   color: #111;
   text-decoration: none;
