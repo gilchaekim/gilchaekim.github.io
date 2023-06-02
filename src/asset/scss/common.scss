@@ -3747,6 +3747,9 @@ hr {
 		& ~ .title {
 			margin-top: 16px;
 		}
+		&.small {
+			font-size:14px;
+		}
 	} 
 	.text {
 		font-size: 14px;
