@@ -1,0 +1,116 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webcus"
+  - pageTitle = "고객정보조회 변경"
+
+block content
+  +content_group(0)
+    +title({
+      text:"기본정보",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"고객명",
+          text:"김저축",
+        },
+        {
+          title:"사업자등록번호",
+          text:"123-45-*****",
+        },
+        {
+          title:"휴대폰번호",
+          text:"010-1234-****",
+        },
+        {
+          title:"이메일주소",
+          text:"si****@siwanco.com",
+        },
+      ]
+    })
+  +content_group(0)
+    +title({
+      text:"기업정보",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"고객명",
+          text:"김저축",
+        },
+        {
+          title:"주민등록번호",
+          text:"010100-1******",
+        },
+        {
+          title:"법인등록번호",
+          text:"02-2233-****",
+        },
+        {
+          title:"영업장 전화번호",
+          text:"02-2233-****",
+        },
+        {
+          title:"영업장주소",
+          text:"12345<br>서울특별시 마포구 마포대로<br>136 14F",
+        },
+        {
+          title:"소재지주소",
+          text:"12345<br>서울특별시 마포구 마포대로<br>136 14F",
+        },
+      ]
+    })
+  +content_group(0)
+    +title({
+      text:"추가정보",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"연락구분",
+          text:"우편",
+        },
+        {
+          title:"DM발송구분",
+          text:"거주지주소",
+        },
+        {
+          title:"SMS수신여부",
+          text:"수신",
+        },
+        {
+          title:"카카오톡 알림신청",
+          text:"신청",
+        },
+      ]
+    })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"고객정보 변경시에는 반드시 보안매체와 인증서의 인증절차가 필요합니다.",
+          },
+          {
+            text:"기존에 전화번호 및 휴대폰번호가 모두 등록이 안된 고객님께서는 반드시 가까운 지점에 내방하시어 번호를 등록하셔야합니다.",
+          },
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"수정하기",
+      size:"large",
+    })
