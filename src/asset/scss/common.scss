@@ -3811,3 +3811,155 @@ hr {
 		margin-top: 12px;
 	}
 }
+
+/* 약관 */
+.agreement {
+	.mui_title {
+		&+p {
+			padding-top:4px;
+		}
+	}
+	.mui_datatable {
+		overflow:auto;
+		margin-top:8px;
+		width:calc(100% + 24px);
+		table, th, td {
+			white-space:nowrap;
+		}
+		&+.indent {
+			margin-top:8px;
+		}
+	}
+	.mui_text {
+		&.warning {
+			margin-top:12px;;
+		}
+	}
+	.indent {
+		display:flex;
+		margin-top:8px;
+		strong, span {
+			&:first-child {
+				flex:none;
+				width:24px;
+			}
+		}
+	}
+	p {
+		font-size:14px;
+		color:$font_color03;
+		&+p {
+			margin-top:8px;
+		}
+		&.txt {
+			padding-top:8px;
+		}
+	}
+	em {
+		color:$font_color08;
+	}
+	.gray_box {
+		padding:16px;
+		font-size:14px;
+		color:$font_color03;
+		background:$bg_color02;
+		border-radius:8px;
+	}
+	.fake_agree {
+		display:flex;
+		justify-content:flex-end;
+		gap:0 8px;
+		padding-top:12px;
+		strong {
+			position:relative;
+			padding-top:15%W;
+			padding-right:16px;
+			&::after {
+				content:"";
+				position:absolute;
+				top:50%;
+				right:0;
+				width:12px;
+				height:12px;
+				border:2px solid $font_color01;
+				transform: translateY(-50%);
+			}
+		}
+	}
+	.circle_num {
+		padding-top:16px;
+		ul {
+			li {
+				padding-left:20px;
+				font-weight:700;
+				&::before {
+					left:0;
+				}
+				& ~ li {
+					margin-top:8px;
+				}
+			}
+		}
+		.depth_01 {
+			margin-left:-20px;
+			li {
+				font-weight:400;
+				& ~ li {
+					margin-top:0;
+				}
+			}
+		}
+	}
+	.depth_01 {
+		counter-reset:number;
+		li {
+			position:relative;
+			padding-top:8px;
+			padding-left:20px;
+			font-size:14px;
+			font-weight:400;
+			color:$font_color03;
+			&::before {
+				content:"" counter(number) ". ";
+				counter-increment:number;
+				position:absolute;
+				left:0;
+			}
+			p {
+				padding-top:8px;
+			}
+			& ~ li {
+				margin-top:0;
+			}
+		}
+	}
+	.prev_agreement {
+		font-size:14px;
+		color:$font_color03;
+		border-bottom:1px solid $font_color03;
+	}
+	ul.dot {
+		display:flex;
+		flex-direction:column;
+		gap:8px 0;
+		margin-top:8px;
+		li {
+			position:relative;
+			padding-left:9px;
+			font-size:14px;
+			color:$font_color03;
+			&::before {
+				content:"";
+				position:absolute;
+				top:8px;
+				left:0;
+				width:3px;
+				height:3px;
+				background:$basic_color03;
+			}
+			strong {
+				color:$font_color01;
+			}
+		}
+	}
+}

@@ -1,0 +1,76 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+  - pageTitle = "NICE 고유식별정보 수집 및 이용 동의";
+
+block content
+  +modal({
+    title:"NICE 고유식별정보 수집 및 이용 동의",
+    id:"fullLayer",
+    type:"full",
+    isDownBtn:true
+  })
+    .agreement
+      +content_group(1)
+        +title({
+          text:"(필수)고유식별정보 수집 및 이용 동의",
+          lv:4,
+        })
+        p 회사는 아래와 같이 고유식별정보를 수집하고 있습니다.
+
+      +content_group(3)
+        ul.dot
+          li <strong>고유식별정보 제공에 동의하지 않을 경우, 서비스 이용이 불가능할 수 있습니다.</strong>
+        p.txt 수집하는 개인정보의 필수항목
+
+      +dataTable({
+        caption:"수집하는 개인정보의 필수항목",
+        colgroup:[30,70],
+        headData:[
+          [
+            {
+              text: "수집항목",
+            },
+            {
+              text: "수집목적",
+            },
+          ],
+        ],
+        bodyData:[
+          [
+            {
+              text: "주민등록번호"
+            },
+            {
+              text: "“이용자”에 대한 신용관리 서비스의 제공"
+            }
+          ],
+          [
+            {
+              text: "외국인등록번호"
+            },
+            {
+              text: "“이용자”에 대한 명의보호 서비스의 제공"
+            }
+          ],
+        ]
+      })
+      p.txt 보유 및 기간 : 탈회 즉시 삭제
+
+
+
+
+
+
+
+
+    +button_bottom_fixed()
+      +button({
+        label:"동의",
+        size:"large",
+        type:"primary",
+      })
+      
+  script.
+    GCui.modal('#fullLayer').show()

@@ -1,0 +1,105 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+  - pageTitle = "KCB 신용관리서비스 동의서 - 신용";
+
+block content
+  +modal({
+    title:"KCB 신용관리서비스 동의서 - 신용",
+    id:"fullLayer",
+    type:"full",
+    isDownBtn:true
+  })
+    .agreement
+      +content_group(1)
+        +title({
+          text:"[필수]개인(신용)정보 수집∙이용 동의서",
+          lv:4,
+        })
+        p 저축은행중앙회 “신용관리서비스”(이하 “서비스”) 이용과 관련하여 저축은행중앙회와 코리아크레딧뷰로㈜가 본인의 개인(신용)정보를 수집∙이용하고자 하는 경우에는 「개인정보 보호법」, 「신용정보의 이용 및 보호에 관한 법률」 및 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에 따라 본인의 동의가 필요합니다.
+
+      +content_group(2)
+        +title({
+          text:"수집∙이용목적",
+          lv:5,
+        })
+        p 본인확인을 통한 마이데이터 스코어 등 마이데이터서비스 제공
+        p 신용정보 변동알림 발송
+      
+      +content_group(2)
+        +title({
+          text:"수집항목",
+          lv:5,
+        })
+        p 신용관리서비스
+        p - 이름, 생년월일, 성별, 휴대전화번호, 중복가입확인정보(CI/DI)
+      
+      +content_group(2)
+        +title({
+          text:"보유 및 이용기간",
+          lv:5,
+        })
+        p 서비스 종료일까지(회원탈회 또는 서비스이용동의 철회 시 까지)
+        p (단, 관련법령에 따라 보존 의무가 있는 경우는 해당 보존기간까지 보관)
+      +content_group(2)
+        p 위 개인(신용) 정보 수집·이용에 관한 동의는 본건 서비스 이용을 위하여 필수적이므로, 위 사항에 동의하셔야만 본건 서비스 이용이 가능합니다.
+      +content_group(2)
+        .gray_box 다음과 같이 본인의 개인(신용)정보를 수집∙이용하는 것에 동의합니다.
+        .fake_agree
+          strong 동의하지 않음
+          strong 동의함
+      
+      +content_group(1)
+        +title({
+          text:"[필수]개인(신용)정보 제3자제공 동의서",
+          lv:4,
+        })
+        p 저축은행중앙회 “신용관리서비스”(이하 “서비스”) 이용과 관련하여 코리아크레딧뷰로㈜가 본인의 개인(신용)정보를 제3자에게 제공하고자 하는 경우에는 「개인정보 보호법」, 「신용정보의 이용 및 보호에 관한 법률」 및 「정보통신망 이용촉진 및 정보보호 등에 관한 법률」에 따라 본인의 동의가 필요합니다.
+
+      +content_group(2)
+        +title({
+          text:"제공받는자",
+          lv:5,
+        })
+        p 저축은행중앙회
+      
+      +content_group(2)
+        +title({
+          text:"제공항목",
+          lv:5,
+        })
+        p 신용정보 변동여부
+      
+      +content_group(2)
+        +title({
+          text:"제공받는 자의 이용 목적",
+          lv:5,
+        })
+        p 신용정보 변동알림 발송
+      
+      +content_group(2)
+        +title({
+          text:"보유 및 이용기간",
+          lv:5,
+        })
+        p 서비스 종료일까지(회원탈회 또는 서비스이용동의 철회 시 까지)
+        p (단, 관련법령에 따라 보존 의무가 있는 경우는 해당 보존기간까지 보관)
+
+      +content_group(2)
+        p 위 개인(신용) 정보 제3자제공에 관한 동의는 본건 서비스 이용을 위하여 필수적이므로, 위 사항에 동의하셔야만 본건 서비스 이용이 가능합니다.
+      +content_group(2)
+        .gray_box 위와 같이 본인의 개인(신용)정보를 제3자에게 제공하는 것에 동의합니다
+        .fake_agree
+          strong 동의하지 않음
+          strong 동의함
+
+    +button_bottom_fixed()
+      +button({
+        label:"동의",
+        size:"large",
+        type:"primary",
+      })
+
+  script.
+    GCui.modal('#fullLayer').show()

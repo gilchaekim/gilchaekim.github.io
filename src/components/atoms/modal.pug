@@ -5,7 +5,7 @@ mixin modal(params={})
   //- 공통 요소 End
   - let alignBottom = false;
   - let alignFull = false;
-  - const { title, className, size, id, type, isCloseBtn=true, ...rest } = Object.assign({}, params)
+  - const { title, className, size, id, type, isDownBtn=false, isCloseBtn=true, ...rest } = Object.assign({}, params)
   - let element = "div"
   - let { muiModal } = Object.assign({}, params)
   - let modalItems = {};
@@ -51,6 +51,8 @@ mixin modal(params={})
             class=`${prefix}${divide}modal${divide}header`
           ) 
             p #{title}
+              if isDownBtn
+                a(href="").btn_down 내려받기
         else if isCloseBtn
           div(
             class=`${prefix}${divide}modal${divide}header`

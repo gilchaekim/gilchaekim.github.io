@@ -210,6 +210,16 @@
                 color:$font_color01;
                 font-size: 16px;
                 font-weight: 700;
+                .btn_down {
+                    position:absolute;
+                    top:16px;
+                    right:48px;
+                    width:24px;
+                    height:24px;
+                    font-size:0;
+                    text-indent:-9999px;
+                    background:url($url_common+"btn_down.svg") no-repeat center;
+                }
             }
         }
         .mui_modal_content{
