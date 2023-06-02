@@ -2546,6 +2546,16 @@ table, th, td {
   font-size: 16px;
   font-weight: 700;
 }
+.mui_modal.mui_fullpop_wrap .mui_modal_header p .btn_down, [mui-modal].mui_fullpop_wrap .mui_modal_header p .btn_down {
+  position: absolute;
+  top: 16px;
+  right: 48px;
+  width: 24px;
+  height: 24px;
+  font-size: 0;
+  text-indent: -9999px;
+  background: url("/src/images/btn_down.svg") no-repeat center;
+}
 .mui_modal.mui_fullpop_wrap .mui_modal_content, [mui-modal].mui_fullpop_wrap .mui_modal_content {
   padding: 24px;
 }
@@ -7777,5 +7787,147 @@ hr {
 }
 .guide_pop_msg .mui_text {
   margin-top: 12px;
+}
+
+/* 약관 */
+.agreement .mui_title + p {
+  padding-top: 4px;
+}
+.agreement .mui_datatable {
+  overflow: auto;
+  margin-top: 8px;
+  width: calc(100% + 24px);
+}
+.agreement .mui_datatable table, .agreement .mui_datatable th, .agreement .mui_datatable td {
+  white-space: nowrap;
+}
+.agreement .mui_datatable + .indent {
+  margin-top: 8px;
+}
+.agreement .mui_text.warning {
+  margin-top: 12px;
+}
+.agreement .indent {
+  display: flex;
+  margin-top: 8px;
+}
+.agreement .indent strong:first-child, .agreement .indent span:first-child {
+  flex: none;
+  width: 24px;
+}
+.agreement p {
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.agreement p + p {
+  margin-top: 8px;
+}
+.agreement p.txt {
+  padding-top: 8px;
+}
+.agreement em {
+  color: var(--font_color08);
+}
+.agreement .gray_box {
+  padding: 16px;
+  font-size: 14px;
+  color: var(--font_color03);
+  background: var(--bg_color02);
+  border-radius: 8px;
+}
+.agreement .fake_agree {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0 8px;
+  padding-top: 12px;
+}
+.agreement .fake_agree strong {
+  position: relative;
+  padding-top: 15% W;
+  padding-right: 16px;
+}
+.agreement .fake_agree strong::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--font_color01);
+  transform: translateY(-50%);
+}
+.agreement .circle_num {
+  padding-top: 16px;
+}
+.agreement .circle_num ul li {
+  padding-left: 20px;
+  font-weight: 700;
+}
+.agreement .circle_num ul li::before {
+  left: 0;
+}
+.agreement .circle_num ul li ~ li {
+  margin-top: 8px;
+}
+.agreement .circle_num .depth_01 {
+  margin-left: -20px;
+}
+.agreement .circle_num .depth_01 li {
+  font-weight: 400;
+}
+.agreement .circle_num .depth_01 li ~ li {
+  margin-top: 0;
+}
+.agreement .depth_01 {
+  counter-reset: number;
+}
+.agreement .depth_01 li {
+  position: relative;
+  padding-top: 8px;
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--font_color03);
+}
+.agreement .depth_01 li::before {
+  content: "" counter(number) ". ";
+  counter-increment: number;
+  position: absolute;
+  left: 0;
+}
+.agreement .depth_01 li p {
+  padding-top: 8px;
+}
+.agreement .depth_01 li ~ li {
+  margin-top: 0;
+}
+.agreement .prev_agreement {
+  font-size: 14px;
+  color: var(--font_color03);
+  border-bottom: 1px solid var(--font_color03);
+}
+.agreement ul.dot {
+  display: flex;
+  flex-direction: column;
+  gap: 8px 0;
+  margin-top: 8px;
+}
+.agreement ul.dot li {
+  position: relative;
+  padding-left: 9px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.agreement ul.dot li::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 3px;
+  height: 3px;
+  background: var(--basic_color03);
+}
+.agreement ul.dot li strong {
+  color: var(--font_color01);
 }
 /*# sourceMappingURL=common.css.map */
