@@ -16,27 +16,6 @@ block content
         +input_money({guideMoney:true})
     br
     br
-    //- +guideTitle({
-    //-   text:"Attribute",
-    //-   level:2
-    //- })
-
-    //- +attributesLists([
-    //-   [
-    //-     {
-    //-       text:'className'
-    //-     },
-    //-     {
-    //-       text:'커스텀 클래스'
-    //-     },
-    //-     {
-    //-       text:'string'
-    //-     },
-    //-     {
-    //-       text:'-'
-    //-     }
-    //-   ]
-    //- ])
 
     +guideTitle({
       text:"Input + button",
@@ -48,6 +27,14 @@ block content
           btnText:"인증요청",
           placeholder:"'-'제외하고 숫자만 입력하세요",
           title:"숫자만 입력하세요"
+        })
+    +guideExample()(code)
+      :code
+        +input_button({
+          btnText:"검색",
+          placeholder:"주소 입력",
+          title:"주소 입력",
+          className:"ico search"
         })
     br
     br

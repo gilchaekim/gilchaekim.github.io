@@ -3637,6 +3637,16 @@ table, th, td {
 .mui_inputbtn .btn_sec {
   padding-left: 12px;
 }
+.mui_inputbtn.ico .mui_button:not(.mui_select) {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 0;
+  color: transparent;
+}
+.mui_inputbtn.ico.search .mui_button:not(.mui_select) {
+  background: url("/src/images/ico_search.svg") no-repeat center;
+}
 .mui_inputbtn .mui_button:not(.mui_select) {
   width: auto;
   height: 28px;
@@ -7756,6 +7766,9 @@ hr {
 }
 .product_data .title ~ .title {
   margin-top: 16px;
+}
+.product_data .title.small {
+  font-size: 14px;
 }
 .product_data .text {
   font-size: 14px;
