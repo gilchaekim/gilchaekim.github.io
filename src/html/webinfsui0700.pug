@@ -6,7 +6,7 @@ block prepend top
 
 block content
   +stepNum({
-    total:4,
+    total:5,
     activeIndex:1
   })
   +content_group(0)
@@ -32,6 +32,10 @@ block content
         +form_value({
           value:"김저축"
         })
+      +form_body({title:"성명"})
+        +input({
+          placeholder:"이름 입력"
+        })
       +form_body({title:"주민번호"})
         +input_idnumber({
           data:[
@@ -44,8 +48,8 @@ block content
           ]
         })
       +form_body({title:"연락처"})
-        +form_value({
-          value:"010-1234-5678"
+        +input({
+          placeholder:"연락처 입력"
         })
     
     +content_group(1)

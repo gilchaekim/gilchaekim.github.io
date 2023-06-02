@@ -141,17 +141,12 @@
   display: flex;
   .mui_select{
     position: static;
-    width: auto;
+    width: 80px;
     margin-top: 0 !important;
-    .inset{
-      padding-right: 28px;
-      min-width: 80px;
-    }
   }
   .mui_input{
     margin-left: 16px;
     position: static;
-    width: 99%;
   }
 }
 .mui_drivingnumber {
