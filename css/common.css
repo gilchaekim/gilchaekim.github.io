@@ -2399,24 +2399,29 @@ table, th, td {
   font-size: 14px;
   color: var(--basic_color03);
 }
+.mui_modal.system_pop .mui_modal_footer, [mui-modal].system_pop .mui_modal_footer {
+  padding: 0 12px 12px;
+}
 .mui_modal.system_pop .mui_modal_footer .mui_button, [mui-modal].system_pop .mui_modal_footer .mui_button {
   background: var(--main_color01);
   height: 40px;
   line-height: 40px;
   font-size: 16px;
+  font-weight: 700;
   color: var(--font_color06);
-  border-radius: 0;
+  border-radius: 10px;
 }
 .mui_modal.system_pop .mui_modal_footer.confirm, [mui-modal].system_pop .mui_modal_footer.confirm {
   display: flex;
 }
 .mui_modal.system_pop .mui_modal_footer.confirm .mui_button, [mui-modal].system_pop .mui_modal_footer.confirm .mui_button {
   margin: 0;
-  width: 60%;
 }
 .mui_modal.system_pop .mui_modal_footer.confirm .mui_button.mui_modal_close, [mui-modal].system_pop .mui_modal_footer.confirm .mui_button.mui_modal_close {
-  width: 40%;
   background: #5c627c;
+}
+.mui_modal.system_pop .mui_modal_footer.confirm .mui_button ~ .mui_button, [mui-modal].system_pop .mui_modal_footer.confirm .mui_button ~ .mui_button {
+  margin-left: 8px;
 }
 .mui_modal.system_pop.dialog_type .mui_modal_header, [mui-modal].system_pop.dialog_type .mui_modal_header {
   height: auto;
@@ -2430,6 +2435,7 @@ table, th, td {
 }
 .mui_modal.system_pop.dialog_type .mui_modal_footer, [mui-modal].system_pop.dialog_type .mui_modal_footer {
   border-top: 1px solid var(--line_color03);
+  padding: 0;
 }
 .mui_modal.system_pop.dialog_type .mui_modal_footer .mui_button, [mui-modal].system_pop.dialog_type .mui_modal_footer .mui_button {
   background: transparent;

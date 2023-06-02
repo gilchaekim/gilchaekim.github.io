@@ -46,22 +46,25 @@
                 }
             }
             &_footer{
+                padding: 0 12px 12px;
                 .mui_button{
                     background:$main_color01;
                     height: 40px;
                     line-height: 40px;
                     font-size: 16px;
+                    font-weight: 700;
                     color:$font_color06;
-                    border-radius: 0;
+                    border-radius: 10px;
                 }
                 &.confirm{
                     display: flex;
                     .mui_button{
                         margin: 0;
-                        width: 60%;
                         &.mui_modal_close{
-                            width: 40%;
                             background: #5c627c;
+                        }
+                        & ~ .mui_button {
+                            margin-left: 8px;
                         }
                     }
                 }
@@ -84,6 +87,7 @@
                 }
                 &_footer{
                     border-top: 1px solid $line_color03;
+                    padding: 0;
                     .mui_button{
                         background:transparent;
                         height: 48px;
