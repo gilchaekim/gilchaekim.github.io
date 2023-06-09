@@ -4276,3 +4276,54 @@ hr {
 		}
 	}
 }
+
+// 랜딩 페이지.
+.webloa {
+	.landing {
+		.title_sec {
+			text-align: center;
+			padding-top: 40px;
+		}
+		.mui_title {
+			margin-bottom: 16px;
+		}
+		.txt {
+			font-size: 14px;
+			color: $font_color03;
+		}
+		.greybox {
+			background:$bg_color02;
+			border-radius: 12px;
+			padding: 20px 24px;
+			margin-bottom: 12px;
+		}
+		.check_list{
+			.lists {
+				& ~ .lists {
+					margin-top: 16px;
+				}
+			}
+			.box {
+				display: flex;
+				align-items: center;
+				font-size: 14px;
+				color:$font_color01;
+				.img {
+					width: 32px;
+					height: 32px;
+					border-radius: 16px;
+					margin-right: 4px;
+					overflow: hidden;
+				}
+			}
+		}
+		.product_data {
+			.mui_text_lists {
+				margin-top: 4px;
+				& > ul > li ~ li {
+					margin-top: 4px;
+				}
+			}
+		}
+	}
+}

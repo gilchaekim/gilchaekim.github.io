@@ -1,0 +1,146 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webloa"
+  - showHeader = false;
+
+block content
+  .landing
+    +content_group(1)
+      .title_sec
+        +title({
+          text:"고객님, 환영합니다!",
+          lv:2,
+        })
+        +title({
+          text:"<em>한화저축은행</em>에서<br>이어서 진행해 주세요.",
+          lv:1,
+        })
+        p.txt 보통예금 신청을 위해 아래 사항은<br>미리 준비해주세요.
+    +content_group(1)
+      .greybox 
+        ul.check_list   
+          li.lists  
+            .box 
+              .img 
+                img(src="/src/images/ico_ars.png", alt="")
+              .text 
+                p 
+                  strong 신분증 
+                  span (주민등록증, 운전면허증)
+          li.lists  
+            .box 
+              .img 
+                img(src="/src/images/ico_ars.png", alt="")
+              .text 
+                p 
+                  strong 본인 명의 휴대폰
+          li.lists  
+            .box 
+              .img 
+                img(src="/src/images/ico_ars.png", alt="")
+              .text 
+                p 
+                  strong 본인 명의 계좌 
+                  span (본인명의의 타행 계좌)
+          li.lists  
+            .box 
+              .img 
+                img(src="/src/images/ico_ars.png", alt="")
+              .text 
+                p 
+                  strong OTP 
+                  span (당/타행 발급한 OTP단말기)
+          li.lists  
+            .box 
+              .img 
+                img(src="/src/images/ico_ars.png", alt="")
+              .text 
+                p 
+                  strong 본인 명의 인증서 
+                  span (금융/토스인증서)  
+      +text({
+        type:'warning',
+        text:"최근 20영업일 이내 타금융회사(저축은행포함) 입출금 예금을 개설한 경우 서비스 가입이 제한됩니다."
+      })      
+      +text({
+        type:'warning',
+        text:"만 19세 이하 개인고객, 외국인은 신청할 수 없습니다."
+      })      
+      +text({
+        type:'warning',
+        text:"간편비밀번호를 등록한 경우 간편비밀번호로 상품가입이 가능합니다."
+      })      
+    hr
+    +content_group(0)
+      +accordion({
+        active:0
+      })
+        +acc_title('상품안내')
+        +acc_content()
+          .product_data   
+            p.title 상품내용
+            p.text 재직중인 직장인을 위한 신용대출상품
+            p.title 대출대상
+            p.text 만 20세 이상 소득증빙이 가능한 일반인
+            p.title 대출한도
+            p.text 최대 5,000만원
+            p.title 대출기간
+            p.text 1년~7년
+            p.title 상환방법
+            +textLists({
+              type:'guide',
+              lists:[
+                {
+                  text:"만기일시상환방식",
+                },
+                {
+                  text:"원리금균등분할상환방식",
+                },
+              ]
+            })
+
+        +acc_title('금리정보')
+        +acc_content()
+          .product_data   
+            p.title 대출금리
+            p.text 연 5.05%~6.05%
+            p.title 연체이율
+            p.text 연체이율
+            p.title 이자의 부과시기
+            +textLists({
+              type:'guide',
+              lists:[
+                {
+                  text:"당해 예적금의 이자지급일 또는 불입일에 1월분씩 납입가능",
+                },
+                {
+                  text:"대출원리금의 합계액이 예적금의 범위내인 경우에는 계약 만기일에 이자납부 가능",
+                },
+              ]
+            })
+            p.title 상환방법
+            +textLists({
+              type:'guide',
+              lists:[
+                {
+                  text:"만기일시상환방식",
+                },
+                {
+                  text:"원리금균등분할상환방식",
+                },
+              ]
+            })
+            p.title 중도상환수수료
+            p.text 최대 1% 내, 3년 경과 시 없음
+        +acc_title('유의사항')
+        +acc_content()
+          .product_data
+            p.text 준법감시인 심의필 제21022호<br>(2021.09.24~2022.09.23)
+          
+    
+  +button_bottom_fixed()
+    +button({
+      label:"신청하기",
+      size:"large",
+    })

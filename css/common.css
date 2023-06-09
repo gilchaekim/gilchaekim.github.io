@@ -8280,4 +8280,44 @@ hr {
 .agreement ul.dot li strong {
   color: var(--font_color01);
 }
+
+.webloa .landing .title_sec {
+  text-align: center;
+  padding-top: 40px;
+}
+.webloa .landing .mui_title {
+  margin-bottom: 16px;
+}
+.webloa .landing .txt {
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.webloa .landing .greybox {
+  background: var(--bg_color02);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+}
+.webloa .landing .check_list .lists ~ .lists {
+  margin-top: 16px;
+}
+.webloa .landing .check_list .box {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--font_color01);
+}
+.webloa .landing .check_list .box .img {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  margin-right: 4px;
+  overflow: hidden;
+}
+.webloa .landing .product_data .mui_text_lists {
+  margin-top: 4px;
+}
+.webloa .landing .product_data .mui_text_lists > ul > li ~ li {
+  margin-top: 4px;
+}
 /*# sourceMappingURL=common.css.map */
