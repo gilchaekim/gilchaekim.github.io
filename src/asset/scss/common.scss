@@ -1279,6 +1279,80 @@ hr {
 		}
 	}
 }
+.home_wrap {
+	position:relative;
+	&::after {
+		content:"";
+		position:absolute;
+		top:50%;
+		right:0;
+		width:56px;
+		height:56px;
+		transform:translateY(-50%);
+	}
+	&.apt {
+		background:url($url_common+"img_apt.png") no-repeat center right / contain;
+	}
+	&.villa {
+		background-image:url($url_common+"img_villa.png") no-repeat center right / contain;
+	}
+	&.shop {
+		background-image:url($url_common+"img_shop.png") no-repeat center right / contain;
+	}
+	.mui_tag {
+		margin-bottom:4px;
+	}
+}
+.addr_map_card {
+	position:relative;
+	display:flex;
+	flex-direction:column;
+	gap:24px 0;
+	padding:20px;
+    border:1px solid $line_color03;
+	border-radius:20px;
+    box-shadow:0 4px 8px rgba(0, 0, 0, 0.04);
+	&::after {
+		content:"";
+		position:absolute;
+		top:20px;
+		right:20px;
+		width:24px;
+		height:24px;
+		background:url($url_common+"ico_location.png") no-repeat center / contain;
+	}
+	dl {
+		display:flex;
+		gap:0 4px;
+		font-size:14px;
+		dt {
+			width:42px;
+			color:$basic_color04;
+		}
+		dd {
+			color:$font_color01;
+		}
+		&+dl {
+			padding-top:6px;
+		}
+	}
+	.appraisal {
+		padding-top:16px;
+		justify-content:space-between;
+		align-items:center;
+		gap:0 32px;
+		border-top:1px solid $line_color03;
+		dt {
+			width:initial;
+			font-size:14px;
+			color:$font_color02;
+			font-weight:700;
+		}
+		dd {
+			font-size:20px;
+		}
+	}
+}
 
 .suitability{
 	.img{
@@ -2793,7 +2867,227 @@ hr {
 			margin-left: 12px;
 		}
 	}
-	
+	.chatbot_wrap {
+		display:flex;
+		flex-direction:column;
+		gap:32px 0;
+		margin:-24px;
+		padding:24px;
+		height:calc(100% - 56px);
+		min-height:calc(100vh - 56px);
+		background:#f0f3f7;
+		&.other_type {
+			background:$bg_color03;
+			.chatbot {
+				.chatting {
+					padding:12px;
+					background:$bg_color02;
+				}
+				.mui_button_wrap {
+					padding:0;
+					background:initial;
+					border-radius:initial;
+					
+				}
+				&.fin .mui_button {
+					min-width:224px;
+				}
+			}
+			
+			.block_type.mui_radio_group,
+			.block_type.mui_checkbox_group,
+			.mui_button_wrap {
+				padding:12px;
+				background:$bg_color02;
+				border-radius:20px;
+			}
+			.chatuser .user_wrap {
+				button {
+					padding:4px 22px 4px 10px;
+					width:56px;
+					height:28px;
+					font-size:12px;
+					color:$basic_color04;
+					text-indent:initial;
+					background:#fff url($url_common+"btn_modify02.svg") no-repeat center right 6px / 16px;
+					border:1px solid $line_color03;
+					border-radius:16px;
+					box-sizing:border-box;
+				}
+			}
+		}
+		.chatbot {
+			display:flex;
+			flex-direction:column;
+			align-items:flex-start;
+			gap:12px 0;
+			.chatting {
+				position:relative;
+				display:flex;
+				flex-direction:column;
+				gap:8px 0;
+				margin-top:60px;
+				padding:12px 16px;
+				width:fit-content;
+				max-width:248px;
+				font-size:14px;
+				color:$font_color03;
+				border-radius:0 14px 14px 14px;
+				background:$bg_color03;
+				&::before {
+					content:"";
+					position:absolute;
+					top:-60px;
+					left:0;
+					width:48px;
+					height:48px;
+					background:url($url_common+"ico_chatbot.png") no-repeat center / 100%;
+				}
+				strong {
+					color:$font_color01;
+				}
+				.dot {
+					border-top:1px solid $line_color02;
+				}
+				.dot li:before {
+					background:$basic_color02;
+				}
+				.dot.no_line {
+					border:0;
+				}
+			}
+		}
+		.fin {
+			position:relative;
+			.chatting {
+				margin-top:45px;
+				&+.chatting {
+					margin-top:0;
+				}
+			}
+			.chatting::before {
+				display:none;
+			}
+			&::before {
+				content:"";
+				position:absolute;
+				top:0;
+				width:79px;
+				height:59px;
+				background:url($url_common+"ico_chatbot_fin.png") no-repeat center / 100%;
+			}
+			.mui_button {
+				color:$font_color06;
+				&.mui_white {
+					color:$font_color01;
+				}
+			}
+		}
+		.chatuser {
+			display:flex;
+			flex-direction:column;
+			justify-content:flex-end;
+			align-items:flex-end;
+			gap:8px 0;
+			.mui_checkbox, .mui_radio {
+				margin-left:initial;
+				margin-right:auto;
+				width:230px;
+				max-width:100%;
+				label {
+					padding:13px 48px 13px 16px;
+					font-size:14px;
+					font-weight:700;
+					border:0;
+					border-radius:14px;
+					background:$bg_color03;
+					&::before {
+						top:50%;
+						left:initial;
+						right:16px;
+						border:0;
+						border-radius:0;
+						@include icon_svg(check, "#ccc", 20px);
+						transform:translateY(-50%);
+					}
+				}
+				input:checked + label::before {
+					background:none;
+					@include icon_svg(check, "#df3100", 20px);
+				}
+				input:checked + label::after {
+					content:"";
+					position:absolute;
+					top:0;
+					left:0;
+					width:100%;
+					height:100%;
+					border:2px solid $main_color01;
+					border-radius:14px;
+					background:none;
+				}
+				& + .mui_checkbox, & + .mui_radio {
+					margin-top:8px;
+				}
+			}
+			.user_wrap {
+				display:flex;
+				align-items:end;
+				gap:0 8px;
+				button {
+					padding:8px;
+					width:32px;
+					height:32px;
+					font-size:0;
+					text-indent:-9999px;
+					background:#fff url($url_common+"btn_modify02.svg") no-repeat center / 16px;
+					border:1px solid $line_color03;
+					border-radius:50%;
+				}
+				div {
+					padding:13px 16px;
+					width:fit-content;
+					max-width:210px;
+					font-size:14px;
+					color:$font_color06;
+					border-radius:14px 0 14px 14px;
+					background:$main_color01;
+				}
+			}
+		}
+		.mui_button {
+			padding:12px 16px 13px;
+			min-width:230px;
+			max-width:100%;
+			height:initial;
+			font-size:14px;
+			font-weight:700;
+			color:$font_color02;
+			border:0;
+			border-radius:14px;
+		}
+		.dot {
+			display:flex;
+			flex-direction:column;
+			gap:6px 0;
+			margin-top:6px;
+			padding-top:12px;
+			border-top:1px solid rgba(255, 255, 255, 0.4);
+			li {
+				position:relative;
+				padding-left:9px;
+			}
+			li::before {
+				content:"";
+				position:absolute;
+				top:8px;
+				left:0;
+				width:3px;
+				height:3px;
+				background:$bg_color03;
+			}
+		}
+	}
 }
 .webdep {
 	.webdep_wrap {
