@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">고객정보조회 변경</span></div>
+          <div class="title_center"><span class="title">제증명 신청/발급</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -231,138 +231,37 @@
         </div>
       </header>
     </div><!-- / header --><!-- contents -->
-    <div class="webcus" id="contants">
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">기본정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>고객명
-            </dt>
-            <dd> 김저축
-            </dd>
-          </dl>
-          <dl>
-            <dt>사업자등록번호
-            </dt>
-            <dd> 123-45-*****
-            </dd>
-          </dl>
-          <dl>
-            <dt>휴대폰번호
-            </dt>
-            <dd> 010-1234-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>이메일주소
-            </dt>
-            <dd> si****@siwanco.com
-            </dd>
-          </dl>
-        </div>
+    <div class="webcer" id="contants">
+      <div class="mui_title">
+        <p class="title lv4">예금잔액증명서(영문)
+        </p>
       </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">기업정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>대표자명
-            </dt>
-            <dd> 김저축
-            </dd>
-          </dl>
-          <dl>
-            <dt>주민등록번호
-            </dt>
-            <dd> 010100-1******
-            </dd>
-          </dl>
-          <dl>
-            <dt>법인등록번호
-            </dt>
-            <dd> 02-2233-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>영업장 전화번호
-            </dt>
-            <dd> 02-2233-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>영업장주소
-            </dt>
-            <dd> 12345<br>서울특별시 마포구 마포대로<br>136 14F
-            </dd>
-          </dl>
-          <dl>
-            <dt>소재지주소
-            </dt>
-            <dd> 12345<br>서울특별시 마포구 마포대로<br>136 14F
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">추가정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>연락구분
-            </dt>
-            <dd> 우편
-            </dd>
-          </dl>
-          <dl>
-            <dt>DM발송구분
-            </dt>
-            <dd> 거주지주소
-            </dd>
-          </dl>
-          <dl>
-            <dt>SMS수신여부
-            </dt>
-            <dd> 수신
-            </dd>
-          </dl>
-          <dl>
-            <dt>카카오톡 알림신청
-            </dt>
-            <dd> 신청
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists mui_open">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 닫기
-              </button>
+      <div class="mui_contents_group lv_2">
+        <div class="mui_form">
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">이름</span></div>
+            <div class="mui_form_content">
+              <div class="mui_form_value"><span>방수현</span></div>
             </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>고객정보 변경시에는 반드시 보안매체와 인증서의 인증절차가 필요합니다.
-                  </li>
-                  <li>기존에 전화번호 및 휴대폰번호가 모두 등록이 안된 고객님께서는 반드시 가까운 지점에 내방하시어 번호를 등록하셔야합니다.
-                  </li>
-                </ul>
+          </div>
+          <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">발급기준일</span></div>
+            <div class="mui_form_content">
+              <div class="mui_datepicker">
+                <span class="mui_input">
+                  <input type="text" placeholder="날짜선택" mui-input="" />
+                </span>
               </div>
+              <p class="mui_text warning">발급기준일자를 현재일자로 등록하는 경우 발급처리 후 상환처리할 수 없습니다.
+              </p>
+              <p class="mui_text warning">발급기준일 당일은 자동이체를 포함한 입/출금 거래가 제한되오며, 계좌를 담보로 한 대출도 불가능 하오니 참고하여 주시기 바랍니다.
+              </p>
             </div>
           </div>
         </div>
+        <div class="mui_button_fixed"><span class="inset">
+            <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
       </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>수정하기</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>

@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">고객정보조회 변경</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -231,138 +231,74 @@
         </div>
       </header>
     </div><!-- / header --><!-- contents -->
-    <div class="webcus" id="contants">
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">기본정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>고객명
-            </dt>
-            <dd> 김저축
-            </dd>
-          </dl>
-          <dl>
-            <dt>사업자등록번호
-            </dt>
-            <dd> 123-45-*****
-            </dd>
-          </dl>
-          <dl>
-            <dt>휴대폰번호
-            </dt>
-            <dd> 010-1234-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>이메일주소
-            </dt>
-            <dd> si****@siwanco.com
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">기업정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>대표자명
-            </dt>
-            <dd> 김저축
-            </dd>
-          </dl>
-          <dl>
-            <dt>주민등록번호
-            </dt>
-            <dd> 010100-1******
-            </dd>
-          </dl>
-          <dl>
-            <dt>법인등록번호
-            </dt>
-            <dd> 02-2233-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>영업장 전화번호
-            </dt>
-            <dd> 02-2233-****
-            </dd>
-          </dl>
-          <dl>
-            <dt>영업장주소
-            </dt>
-            <dd> 12345<br>서울특별시 마포구 마포대로<br>136 14F
-            </dd>
-          </dl>
-          <dl>
-            <dt>소재지주소
-            </dt>
-            <dd> 12345<br>서울특별시 마포구 마포대로<br>136 14F
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv4">추가정보
-          </p>
-        </div>
-        <div class="mui_result line">
-          <dl>
-            <dt>연락구분
-            </dt>
-            <dd> 우편
-            </dd>
-          </dl>
-          <dl>
-            <dt>DM발송구분
-            </dt>
-            <dd> 거주지주소
-            </dd>
-          </dl>
-          <dl>
-            <dt>SMS수신여부
-            </dt>
-            <dd> 수신
-            </dd>
-          </dl>
-          <dl>
-            <dt>카카오톡 알림신청
-            </dt>
-            <dd> 신청
-            </dd>
-          </dl>
-        </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists mui_open">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 닫기
-              </button>
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>주소검색 팝업</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>주소검색
+              </p>
             </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>고객정보 변경시에는 반드시 보안매체와 인증서의 인증절차가 필요합니다.
-                  </li>
-                  <li>기존에 전화번호 및 휴대폰번호가 모두 등록이 안된 고객님께서는 반드시 가까운 지점에 내방하시어 번호를 등록하셔야합니다.
-                  </li>
-                </ul>
+            <div class="mui_modal_content">
+              <div class="search_address">
+                <div class="mui_form">
+                  <div class="mui_form_list">
+                    <div class="mui_form_content">
+                      <div class="input_sec">
+                        <span class="mui_input">
+                          <input type="text" placeholder="도로명, 지번, 건물명 검색" mui-input="" />
+                        </span>
+                        <button class="search_btn" type="button"> <span class="hidden">검색</span></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mui_form">
+                  <div class="mui_form_list form_error">
+                    <div class="mui_form_content">
+                      <div class="input_sec">
+                        <span class="mui_input">
+                          <input type="text" placeholder="도로명, 지번, 건물명 검색" mui-input="" />
+                        </span>
+                        <button class="search_btn" type="button"> <span class="hidden">검색</span></button>
+                      </div>
+                      <p class="msg_form msg_error">에러 메세지</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="addr_lists" style="display:block;">
+                  <div class="box"><a class="type1" href=""><strong>서울특별시 마포구 공덕동 188-108 현대아파트</strong></a><a class="type2" href="">마포대로11길 84 (공덕동 현대아파트)</a></div>
+                  <div class="box"> <a class="type1" href=""><strong>서울특별시 마포구 공덕동 43 삼성래미안공덕2차아파트</strong></a><a class="type2" href="">마포대로20길 26 (공덕동 삼성래미안공덕2차아파트)</a></div>
+                  <div class="box"> <a class="type1" href=""><strong>서울특별시 마포구 공덕동 188-108 현대아파트</strong></a><a class="type2" href="">마포대로11길 84 (공덕동 현대아파트)</a></div>
+                  <div class="box"> <a class="type1" href=""><strong>서울특별시 마포구 공덕동 188-108 현대아파트</strong></a><a class="type2" href="">마포대로11길 84 (공덕동 현대아파트)</a></div>
+                  <div class="box"> <a class="type1" href=""><strong>서울특별시 마포구 공덕동 188-108 현대아파트</strong></a><a class="type2" href="">마포대로11길 84 (공덕동 현대아파트)</a></div>
+                </div>
+                <div class="last_addr_write" style="display:none;">
+                  <dl>
+                    <dt>주소</dt>
+                    <dd>04130 서울 마포구 마포대로 163 서울신용보증재단</dd>
+                  </dl>
+                  <span class="mui_input">
+                    <input type="text" placeholder="상세주소 입력" mui-input="" />
+                  </span>
+                </div>
+                <div style="display:none;">
+                  <div class="mui_result_ico null">
+                    <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt="" /></div>
+                    <p class="main_txt">조회된 주소가 없습니다.</p>
+                    <p class="sub_txt">도로명 또는 지번 주소를 다시 확인해주세요.</p>
+                  </div>
+                </div>
               </div>
             </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>수정하기</span></button></span></div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
     </div><!-- / contents -->
   </div>
 </body>
