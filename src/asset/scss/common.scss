@@ -4132,6 +4132,15 @@ hr {
 			padding-top:4px;
 		}
 	}
+	.tbl_wrap {
+		tbody {
+			tr:first-child {
+				td:last-child {
+					border-left:1px solid $line_color03;
+				}
+			}
+		}
+	}
 	.mui_datatable {
 		overflow:auto;
 		margin-top:8px;
@@ -4222,12 +4231,20 @@ hr {
 				}
 			}
 		}
+		span {
+			display:block;
+			font-weight:400;
+		}
+		.size-s {
+			margin-top:12px;
+			font-size:13px;
+		}
 	}
 	.depth_01 {
 		counter-reset:number;
 		li {
 			position:relative;
-			padding-top:8px;
+			margin-top:8px;
 			padding-left:20px;
 			font-size:14px;
 			font-weight:400;
@@ -4239,7 +4256,16 @@ hr {
 				left:0;
 			}
 			p {
-				padding-top:8px;
+				margin-top:8px;
+				&:first-child {
+					margin-top:0;
+				}
+				&:last-child {
+					margin-bottom:12px;
+				}
+			}
+			.warning {
+				margin-top:8px;
 			}
 			& ~ li {
 				margin-top:0;
