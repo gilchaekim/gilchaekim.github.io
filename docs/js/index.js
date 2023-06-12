@@ -1620,7 +1620,6 @@
     var duration = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 200;
     var origin = arguments.length > 3 ? arguments[3] : undefined;
     var out = arguments.length > 4 ? arguments[4] : undefined;
-    console.log(element);
     return Promise$1.all(toNodes(element).map(function (element) {
       return new Promise$1(function (resolve, reject) {
         trigger(element, 'animationcanceled');
@@ -2493,6 +2492,7 @@
 
   var dirs = [['width', 'x', 'left', 'right'], ['height', 'y', 'top', 'bottom']];
   function positionAt(element, target, options) {
+    var position;
     options = _objectSpread2({
       attach: _objectSpread2({
         element: ['left', 'top'],
@@ -2504,7 +2504,9 @@
     if (!isArray(target)) {
       target = [target, target];
     }
-    offset(element, getPosition(element, target, options));
+    position = getPosition(element, target, options);
+    offset(element, position);
+    return position;
   }
   function getPosition(element, target, options) {
     var position = attachTo(element, target, options);
@@ -2553,6 +2555,7 @@
         var targetDim = offset(target[i]);
         var elOffset = options.offset;
         offsetBy = clamp(clamp(position[start], viewport[start], viewport[end] - position[prop]), targetDim[start] - position[prop] + elOffset[i], targetDim[end] - elOffset[i]) - position[start];
+        offsetPosition.cale = offsetBy;
       }
       offsetPosition = applyOffset(offsetPosition, offsetBy, i);
     }
