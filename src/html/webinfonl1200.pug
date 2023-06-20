@@ -1,0 +1,59 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "온라인서류제출 조회"
+
+block content
+  +title({
+    text:"온라인서류직접제출 상세",
+    lv:2,
+  })
+
+  +content_group(2)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"서류제출용도",
+          text:"대출",
+        },
+        {
+          title:"처리상태",
+          text:"검토중",
+        },
+        {
+          title:"제출일시",
+          text:"yyyy.mm.dd 00:00",
+        },
+      ]
+    })
+  
+  +content_group(1)
+    +title({
+      text:"서류제출 목록",
+      lv:4,
+    })
+    +textLists({
+      type:'num',
+      lists:[
+        {
+          text:"건강보험자격득실확인서",
+        },
+        {
+          text:"주민등록등본",
+        },
+        {
+          text:"소득금액증명원",
+        },
+        {
+          text:"가족관계증명서",
+        },
+      ]
+    })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large"
+    })

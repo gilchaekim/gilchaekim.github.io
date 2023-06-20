@@ -12,6 +12,8 @@ block content
         type:'link',
         text:"계좌번호 찾기"
       })
+    +form_body({title:"계좌비밀번호"})
+      +input({placeholder:"숫자만 입력", title:"숫자만 입력"})
     +form_body({title:"등록구분"})
       +radioCheck({
         type:"radio",
@@ -26,6 +28,8 @@ block content
         ]
       })
       +input({placeholder:"생년월일 6자리", title:"생년월일 6자리"})
+    +form_body({title:"사업자번호"})
+      +input_business()
   +collapse({
     className:"guide_text",
     isOpen:true,
