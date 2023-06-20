@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "온라인서류 직접제출"
+
+block content
+  +card_ico_list({
+    src:"/src/images/ico_example2.png",
+    text:"온라인서류 직접제출"
+  })
+  +card_ico_list({
+    src:"/src/images/ico_example2.png",
+    text:"온라인서류 자동제출"
+  })
+  +card_ico_list({
+    src:"/src/images/ico_example2.png",
+    text:"온라인서류제출 조회"
+  })

@@ -60,6 +60,9 @@ hr {
 .main_color01 {
 	color:$main_color01;
 }
+.font_color07 {
+	color:$basic_color07;
+}
 /* 버튼 - 라인, 흰색배경, 글자색상 */
 .btn_wrap {
 	
@@ -780,6 +783,19 @@ hr {
 				border-radius: 8px;
 				border: 2px solid $main_color01;
 				background: url($url_common+"ico_mask.svg") no-repeat center;
+			}
+			input {
+				width: 52px;
+				height: 52px;
+				border-radius: 8px;
+				border: 2px solid $main_color01;
+				text-align: center;
+				font-family: "password";
+				font-size: 24px;
+				&[disabled] {
+					background:$bg_color02;		
+					border-color: $bg_color02;
+				}
 			}
 			&.dim{
 				span{
@@ -2357,6 +2373,118 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	.sub_title {
+		padding-top:8px;
+		font-size:14px;
+		color:$font_color03;
+	}
+	.total_file {
+		display:flex;
+		justify-content:space-between;
+		strong {
+			font-size:18px;
+			color:$font_color03;
+		}
+	}
+	.file_list {
+		display:flex;
+		flex-direction:column;
+		gap:24px 0;
+		margin:0 -24px;
+		.file_wrap {
+			.file_name {
+				display:flex;
+				justify-content:space-between;
+				padding:14px 20px;
+				font-size:16px;
+				font-weight:700;
+				background:$bg_color02;
+				.btn_del {
+					width:20px;
+					height:20px;
+					background: url($url_common+"ico_close.svg") no-repeat center;
+				}
+			}
+			.file_text {
+				display:flex;
+				justify-content:space-between;
+				gap:0 12px;
+				padding:16px 24px 0 24px;
+				.mui_form {
+					flex:1;
+				}
+				.img_wrap {
+					height:72px;
+					img {
+						max-width:120px;
+						width:auto;
+						height:100%;
+					}
+				}
+			}
+		}
+	}
+	.btn_wrap {
+		display:flex;
+		gap:0 12px;
+		.ico_btn {
+			padding:96px 20px 24px 20px;
+			width:50%;
+			font-size:13px;
+			color:$font_color03;
+			letter-spacing:-1px;
+			border-radius:12px;
+			background:$bg_color02 url($url_common+"ico_example2.png") no-repeat center / 48px;
+			background-position:center top 24px;
+			strong {
+				display:block;
+				padding-bottom:4px;
+				font-size:18px;
+				color:$font_color01;
+			}
+		}
+	}
+	.sorting {
+		margin:-20px -24px 0;
+		padding:11px 24px 9px 24px;
+		background:$bg_color02;
+		.mui_datasort {
+			margin-bottom:0;
+		}
+	}
+	.waiting_wrap {
+		display:flex;
+		flex-direction:column;
+		align-items:center;
+		height:calc(100vh - 48px);
+		.waiting {
+			margin:auto 0;
+			padding-top:130px;
+			text-align:center;
+			background: url($url_common+"ico_example2.png") no-repeat center / 114px;
+			background-position:top;
+			p {
+				padding-bottom:32px;
+				font-size:32px;
+				text-align:center;
+			}
+			strong {
+				display:block;
+				font-size:24px;
+			}
+			em {
+				padding-top:8px;
+				font-size:18px;
+			}
+		}
+	}
+	.mui_text_lists.num {
+		padding-top:16px;
+		padding-left:8px;
+	}
+	.linkbtn_wrap {
+		.mui_text.link {text-align:center;}
+	}
 	.loan_wrap {
 		.bank_products {
 			margin:-24px -24px 0;
@@ -3861,6 +3989,11 @@ hr {
 		color:$basic_color04;
 		span {
 			color:$basic_color01;
+		}
+	}
+	.mui_result.line {
+		&+.mui_result.line {
+			border-top:0;
 		}
 	}
 }

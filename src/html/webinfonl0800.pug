@@ -1,0 +1,40 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "약관동의"
+
+block content
+  +content_group(1)
+    +title({
+      text:'온라인서류 자동제출을 위해 아래<br>항목에 동의해 주세요',
+      lv:2,
+    })
+  
+  +content_group(2)
+    +agree_check({
+      text:"전체 동의"
+    })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집 이용 제공 동의서"
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 조회 동의서"
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 제3자제공 동의"
+      })
+      +agree_check({
+        text:"[필수]  공공마이데이터 수집이용 동의서"
+      })
+    div(
+      style="width:100%; height:100px; background:#ccc;"
+    ) 약관항목수급필요<br>(공공마이데이터 약관항목)
+      
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+      type:"primary",
+      disabled:"disabled"
+    })

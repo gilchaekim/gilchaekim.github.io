@@ -113,7 +113,32 @@ block content
             },
           ]
         })
-    
+      +content_group(0)
+        +title({
+          text:'미보유채권현황',
+          lv:4,
+        })
+        +result({
+          dataType:"line",
+          data:[
+            {
+              title:"채권구분",
+              text:"-",
+            },
+            {
+              title:"계좌번호",
+              text:"-",
+            },
+            {
+              title:"최초대출일",
+              text:"-",
+            },
+            {
+              title:"매각회사명",
+              text:"-",
+            },
+          ]
+        })
       +button_bottom_fixed()
         +button({
           label:"확인",
