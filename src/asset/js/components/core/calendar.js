@@ -1,27 +1,13 @@
 import {
   $, 
-  findAll, 
   isDate, 
   each, 
   mergeOptions, 
   addLeadingZero, 
   isString, 
-  hasClass, 
-  toggleClass, 
-  Dimensions, 
-  height, 
-  isVisible, 
-  width, 
-  toNodes, 
-  queryAll, 
-  trigger, 
-  isNumber, 
-  $$, 
   append, 
   fragment, 
-  toNode, 
   addClass,
-  removeClass,
   find, 
   empty, 
   data,
@@ -59,6 +45,7 @@ export default {
     $month:'.picker_header>.year_month>.current_month',
     format: 'yyyy-mm-dd',
     // The start view date
+    
     startDate: null,
 
     // The end view date
