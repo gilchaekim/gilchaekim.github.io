@@ -4304,6 +4304,10 @@ hr {
   color: var(--main_color01);
 }
 
+.font_color07 {
+  color: var(--basic_color07);
+}
+
 /* 버튼 - 라인, 흰색배경, 글자색상 */
 .btn_wrap .btn_line {
   color: var(--main_color01);
@@ -5006,6 +5010,19 @@ hr {
   border-radius: 8px;
   border: 2px solid var(--main_color01);
   background: url("/src/images/ico_mask.svg") no-repeat center;
+}
+.acc_confirm .code .mask input {
+  width: 52px;
+  height: 52px;
+  border-radius: 8px;
+  border: 2px solid var(--main_color01);
+  text-align: center;
+  font-family: "password";
+  font-size: 24px;
+}
+.acc_confirm .code .mask input[disabled] {
+  background: var(--bg_color02);
+  border-color: var(--bg_color02);
 }
 .acc_confirm .code .mask.dim span {
   background: var(--bg_color02);
@@ -6493,6 +6510,116 @@ hr {
 }
 
 /* 금융상품(대출) */
+.webinf .sub_title {
+  padding-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.webinf .total_file {
+  display: flex;
+  justify-content: space-between;
+}
+.webinf .total_file strong {
+  font-size: 18px;
+  color: var(--font_color03);
+}
+.webinf .file_list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px 0;
+  margin: 0 -24px;
+}
+.webinf .file_list .file_wrap .file_name {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--bg_color02);
+}
+.webinf .file_list .file_wrap .file_name .btn_del {
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/ico_close.svg") no-repeat center;
+}
+.webinf .file_list .file_wrap .file_text {
+  display: flex;
+  justify-content: space-between;
+  gap: 0 12px;
+  padding: 16px 24px 0 24px;
+}
+.webinf .file_list .file_wrap .file_text .mui_form {
+  flex: 1;
+}
+.webinf .file_list .file_wrap .file_text .img_wrap {
+  height: 72px;
+}
+.webinf .file_list .file_wrap .file_text .img_wrap img {
+  max-width: 120px;
+  width: auto;
+  height: 100%;
+}
+.webinf .btn_wrap {
+  display: flex;
+  gap: 0 12px;
+}
+.webinf .btn_wrap .ico_btn {
+  padding: 96px 20px 24px 20px;
+  width: 50%;
+  font-size: 13px;
+  color: var(--font_color03);
+  letter-spacing: -1px;
+  border-radius: 12px;
+  background: var(--bg_color02) url("/src/images/ico_example2.png") no-repeat center/48px;
+  background-position: center top 24px;
+}
+.webinf .btn_wrap .ico_btn strong {
+  display: block;
+  padding-bottom: 4px;
+  font-size: 18px;
+  color: var(--font_color01);
+}
+.webinf .sorting {
+  margin: -20px -24px 0;
+  padding: 11px 24px 9px 24px;
+  background: var(--bg_color02);
+}
+.webinf .sorting .mui_datasort {
+  margin-bottom: 0;
+}
+.webinf .waiting_wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: calc(100vh - 48px);
+}
+.webinf .waiting_wrap .waiting {
+  margin: auto 0;
+  padding-top: 130px;
+  text-align: center;
+  background: url("/src/images/ico_example2.png") no-repeat center/114px;
+  background-position: top;
+}
+.webinf .waiting_wrap .waiting p {
+  padding-bottom: 32px;
+  font-size: 32px;
+  text-align: center;
+}
+.webinf .waiting_wrap .waiting strong {
+  display: block;
+  font-size: 24px;
+}
+.webinf .waiting_wrap .waiting em {
+  padding-top: 8px;
+  font-size: 18px;
+}
+.webinf .mui_text_lists.num {
+  padding-top: 16px;
+  padding-left: 8px;
+}
+.webinf .linkbtn_wrap .mui_text.link {
+  text-align: center;
+}
 .webinf .loan_wrap .bank_products {
   margin: -24px -24px 0;
   padding: 40px 24px 50px;
@@ -7903,6 +8030,9 @@ hr {
 }
 .webrpi .money span {
   color: var(--basic_color01);
+}
+.webrpi .mui_result.line + .mui_result.line {
+  border-top: 0;
 }
 
 .webiba.pop .txts {
