@@ -4132,6 +4132,7 @@
       $month: '.picker_header>.year_month>.current_month',
       format: 'yyyy-mm-dd',
       // The start view date
+
       startDate: null,
       // The end view date
       endDate: null,
@@ -11735,7 +11736,7 @@
           if (!isArray(data)) {
             str += "\n                    <div class=\"tree_wrap ".concat(activeItem.length && activeItem.find(function (arr) {
               return arr === id;
-            }) ? activeCls : "", "\">\n                        <button type=\"button\" id=\"").concat(id, "\" class=\"").concat(treeNavCls, "\">").concat(key, "</button>\n                        <div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div>\n                    </div>\n                    ");
+            }) ? activeCls : "", "\">\n                        <button tabindex=\"-1\" type=\"button\" id=\"").concat(id, "\" class=\"").concat(treeNavCls, "\">").concat(key, "</button>\n                        <div class=\"tree_sub_wrap\">").concat(_this.sortData(data, deps), "</div>\n                    </div>\n                    ");
           } else {
             str += "\n                    <div class=\"tree_lists ".concat(data[1] ? data[1] : "", "\">\n                        <span>\n                            <a href=\"").concat(data[0], "\" class=\"name ").concat(hilight === id ? highlightCls : "", "\" id=\"").concat(id, "\">").concat(key, "</a>\n                            <a href=\"").concat(data[0], "\" class=\"blank\" target=\"_blank\" title=\"\uC0C8 \uCC3D\" tabindex=\"-1\">").concat(key, "</a>\n                        </span>\n                    </div>\n                    ");
           }
