@@ -52,6 +52,9 @@ strong{
 }
 em{
   color:$main_color01;
+  &.type2 {
+    color:$font_color07;
+  }
 }
 
 img {width: 100%; vertical-align: top;max-width: 100%;height: auto;}
