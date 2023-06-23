@@ -1,19 +1,6 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
-.step {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  li {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    color: #333;
-  }
-}
-
 .mui {
   &_stepnum {
     ul {
@@ -41,6 +28,44 @@
         justify-content: center;
         align-items: center;
       }
+    }
+  }
+  &_step {
+    li {
+      display: flex;
+      align-items: center;
+      &:not(:first-child) {
+        padding:16px 0 0 0;
+      }    
+      &:last-child .num::before {
+        display:none;
+      }
+    }
+    .num {
+      position:relative;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      width:48px;
+      height:48px;
+      font-size:18px;
+      font-weight:700;
+      background:$bg_color01;
+      border-radius:50%;
+      &::before {
+        content:"";
+        position:absolute;
+        top:48px;
+        left:50%;
+        height:16px;
+        transform:translateX(-50%);
+        border:1px dashed $basic_color05;
+      }
+    }
+    .txt {
+      padding-left:12px;
+      font-size:14px;
+      color:$basic_color03;
     }
   }
 }

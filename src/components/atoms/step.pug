@@ -11,7 +11,10 @@ mixin stepWrap(params={})
     - stepItems.push({name:item, body:block})
 
   block
-  ul.step
+  ul(
+    class=`${prefix}${divide}step`
+    class=className
+  )
     each item, index in stepItems
       li
         .num!='0' + (index+1)

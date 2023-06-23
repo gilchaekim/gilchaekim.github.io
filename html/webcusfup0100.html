@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">제증명</span></div>
+          <div class="title_center"><span class="title">최초뱅킹비밀번호 등록</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -232,72 +232,116 @@
       </header>
     </div><!-- / header --><!-- contents -->
     <div class="webcer" id="contants">
-      <div class="mui_title">
-        <p class="title lv4">대상업무
-        </p>
-      </div>
-      <div class="bg_box">
-        <div class="mui_text_lists dot">
-          <ul>
-            <li>각종증명서 발급에 대한 신청업무
-            </li>
-            <li class="list_txt">대상증명서 : 금융거래확인서, 부채증명서, 예금잔액증명서
-            </li>
-          </ul>
+      <div class="mui_form">
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">뱅킹 아이디</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="text" placeholder="뱅킹 아이디 입력" mui-input="" />
+            </span>
+            <p class="mui_text link em"><a href="">대출신청 조회</a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="mui_text_lists dot">
-        <ul>
-          <li class="list_txt"><strong class='txt'>금융거래확인서</strong>해당 저축은행과 저래한 내역에 대한 증명서
-            <div class="mui_text_lists hyphhen">
-              <ul>
-                <li>대출금 거래상환 (차입일자, 잔액, 대출기한 등), 담보내용(소대지, 종류, 수량, 설정내용 등), 연체현황등
-                </li>
-              </ul>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">초기 비밀번호
+              <div class="mui_tooltip_wrap" mui-tooltip="text:처음 창구를 방문해서 설정하신 비밀번호입니다. 잊으신 경우 [비밀번호 재등록]을 이용해주세요.;">
+                <button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button>
+              </div>
+            </span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="password" placeholder="창구에서 등록한 6자리 비밀번호" mui-input="" />
+            </span>
+            <p class="mui_text link em"><a href="">비밀번호 재등록</a>
+            </p>
+          </div>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">주민번호/사업자등록번호</span></div>
+          <div class="mui_form_content">
+            <div class="mui_radio_group">
+              <span class="mui_radio">
+                <input type="radio" id="chk786721Id1" name="chk786721Id1" checked="checked" />
+                <label for="chk786721Id1">개인고객</label>
+              </span>
+              <span class="mui_radio">
+                <input type="radio" id="chk786721Id2" name="chk786721Id1" />
+                <label for="chk786721Id2">법인(기업)고객</label>
+              </span>
             </div>
-          </li>
-          <li class="list_txt"><strong class='txt'>부채증명서</strong>부채사실에 대한 증명서(발급기준 일자의 최종잔액)
-          </li>
-          <li class="list_txt"><strong class='txt'>예금잔액증명서</strong>예금 등의 잔액을 보여주는 증명서(발급기준일자의 최종잔액)
-          </li>
-        </ul>
-      </div>
-      <div class="mui_contents_group lv_1">
-        <div class="mui_title">
-          <p class="title lv4">절차
-          </p>
+            <div class="mui_idNumber mui_inputmultiple default">
+              <span class="mui_input">
+                <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" mui-input="" />
+              </span><span class="divide">-</span>
+              <span class="mui_input">
+                <input type="password" title="주민번호 뒤7자리 입력" placeholder="뒤7자리" mui-input="" />
+              </span>
+            </div>
+            <div class="mui_business mui_inputmultiple">
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 첫 번째 세 자리 입력" placeholder="3자리" mui-input="" />
+              </span><span class="divide">-</span>
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 두 번째 두 자리 입력" placeholder="2자리" mui-input="" />
+              </span><span class="divide">-</span>
+              <span class="mui_input">
+                <input type="text" title="사업자등록번호 세 번째 세 자리 입력" placeholder="5자리" mui-input="" />
+              </span>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="mui_contents_group lv_3">
-        <ul class="mui_step">
-          <li>
-            <div class="num">01</div>
-            <div class="txt">고객이 제증명서 발급신청</div>
-          </li>
-          <li>
-            <div class="num">02</div>
-            <div class="txt">저축은행접수</div>
-          </li>
-          <li>
-            <div class="num">03</div>
-            <div class="txt">저축은행 발급(e-mnail)</div>
-          </li>
-        </ul>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">신규뱅킹 비밀번호</span></div>
+          <div class="mui_form_content">
+            <span class="mui_input">
+              <input type="password" placeholder="신규뱅킹 비밀번호" mui-input="" />
+            </span>
+            <span class="mui_input">
+              <input type="password" placeholder="신규뱅킹 비밀번호 확인" mui-input="" />
+            </span>
+          </div>
+        </div>
+        <div class="mui_form_list">
+          <div class="mui_form_head"><span class="form_title">인증방법</span></div>
+          <div class="mui_form_content">
+            <div class="mui_radio_group">
+              <span class="mui_radio">
+                <input type="radio" id="chk156557Id3" name="chk156557Id2" />
+                <label for="chk156557Id3">보안매체(보안카드/OTP/모바일OTP)</label>
+              </span>
+              <span class="mui_radio">
+                <input type="radio" id="chk156557Id4" name="chk156557Id2" />
+                <label for="chk156557Id4">ARS 인증</label>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="mui_collapse guide_text">
         <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists">
+          <div class="acc_lists mui_open">
             <div class="acc_header">
               <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 열기
+              <button class="mui_acc_button" type="button"> 닫기
               </button>
             </div>
             <div class="mui_acc_content">
               <div class="mui_text_lists guide">
                 <ul>
-                  <li>저축은행에 따라 제증명서 발급 시 수수료가 부과될 수 있습니다.
+                  <li>사용자아이디/초기비밀번호는 창구에서 등록한 정보를 입력해 주세요.
                   </li>
-                  <li>발급기준일자를 당일로 신청 시 바로 발급이 가능합니다.
+                  <li>비밀번호는 아래의 규칙가이드를 참고해주시기 바랍니다.
+                    <div class="mui_text_lists hyphhen">
+                      <ul>
+                        <li>영문자, 숫자, 특수문자가 혼용되어 최소 8자, 최대 12자 이내로 작성되어야 합니다.
+                        </li>
+                        <li>아이디와 4자리 이상 일치하는 비밀번호는 사용이 불가합니다.
+                        </li>
+                        <li>고객정보(주민번호, 휴대폰번호, 전화번호 등)과 4자리 이상 일치하는 비밀번호는 사용이 불가합니다.
+                        </li>
+                      </ul>
+                    </div>
                   </li>
                 </ul>
               </div>
@@ -305,8 +349,6 @@
           </div>
         </div>
       </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
     </div><!-- / contents -->
   </div>
 </body>
