@@ -2344,10 +2344,10 @@ table, th, td {
 
 .mui_accordion .acc_lists {
   position: relative;
+  border-bottom: 1px solid var(--line_color03);
 }
 .mui_accordion .acc_lists .acc_header {
   position: relative;
-  border-bottom: 1px solid var(--line_color03);
   padding: 20px 0;
   font-size: 16px;
   color: var(--font_color01);
@@ -3726,6 +3726,9 @@ table, th, td {
 .guide_text .mui_accordion .acc_lists .acc_header {
   padding: 12px 0;
 }
+.guide_text .mui_accordion .acc_lists.mui_open {
+  border-bottom: 0;
+}
 .guide_text .acc_header .title {
   font-size: 16px;
   font-weight: 700;
@@ -3908,7 +3911,7 @@ table, th, td {
   margin-top: 16px;
 }
 .mui_form_list .mui_radio_group.button_type {
-  padding-top: 0;
+  padding-top: 0 !important;
 }
 
 .mui_form_value {
