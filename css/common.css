@@ -1350,6 +1350,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   height: 52px;
   font-weight: 700;
   font-size: 18px;
+  border-radius: 12px;
 }
 .mui_medium {
   height: 40px;
@@ -6534,6 +6535,22 @@ hr {
 }
 
 /* 금융상품(대출) */
+.webinf .mui_button.main_search {
+  margin-top: -16px;
+  align-items: center;
+  display: flex;
+}
+.webinf .mui_button.main_search span {
+  line-height: 20px;
+}
+.webinf .mui_button.main_search::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/search_white.png") no-repeat center;
+  background-size: 20px;
+  margin-right: 6px;
+}
 .webinf .sub_title {
   padding-top: 8px;
   font-size: 14px;
@@ -6649,13 +6666,7 @@ hr {
   padding: 40px 24px 50px;
   background: var(--bg_color02);
 }
-.webinf .loan_wrap .status .tab_pane {
-  padding: 16px 0 0 0;
-}
-.webinf .loan_wrap .status .tab_pane .inset::after {
-  top: 33px;
-}
-.webinf .loan_wrap .status .tab_pane .title {
+.webinf .loan_wrap .status .mui_card .title {
   overflow: hidden;
   padding-bottom: 8px;
   padding-right: 40px;
@@ -6664,7 +6675,7 @@ hr {
   white-space: nowrap;
   border-bottom: 0;
 }
-.webinf .loan_wrap .status .tab_pane .title span {
+.webinf .loan_wrap .status .mui_card .title span {
   overflow: hidden;
   display: block;
   text-overflow: ellipsis;
@@ -6672,24 +6683,30 @@ hr {
   color: var(--font_color03);
   white-space: nowrap;
 }
-.webinf .loan_wrap .status .tab_pane .mui_result.default dl {
+.webinf .loan_wrap .status .mui_card .mui_result.default dl {
   justify-content: flex-start;
   gap: 0 36px;
 }
-.webinf .loan_wrap .status .tab_pane .mui_result.default dt,
-.webinf .loan_wrap .status .tab_pane .mui_result.default dd {
+.webinf .loan_wrap .status .mui_card .mui_result.default dt,
+.webinf .loan_wrap .status .mui_card .mui_result.default dd {
   font-size: 13px;
   text-align: left;
 }
-.webinf .loan_wrap .status .tab_pane .mui_result.default em {
+.webinf .loan_wrap .status .mui_card .mui_result.default em {
   display: block;
   font-size: 18px;
   font-weight: 700;
 }
-.webinf .loan_wrap .status .tab_pane .mui_result.default strong {
+.webinf .loan_wrap .status .mui_card .mui_result.default strong {
   display: block;
   font-size: 18px;
   font-weight: 700;
+}
+.webinf .loan_wrap .status .tab_pane {
+  padding: 16px 0 0 0;
+}
+.webinf .loan_wrap .status .tab_pane .inset::after {
+  top: 33px;
 }
 .webinf .loan_wrap .status .mui_tab_nav {
   margin: 0;

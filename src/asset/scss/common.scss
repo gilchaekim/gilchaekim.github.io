@@ -2799,6 +2799,24 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	.mui_button{
+		&.main_search {
+			margin-top: -52+36px;
+			align-items: center;
+			display: flex;
+			span {
+				line-height: 20px;	
+			}
+			&::before {
+				content: '';
+				width: 20px;
+				height: 20px;
+				background: url($url_common+"search_white.png") no-repeat center;
+				background-size: 20px;
+				margin-right: 6px;
+			}
+		}
+	}
 	.sub_title {
 		padding-top: 8px;
 		font-size: 14px;
@@ -2943,15 +2961,7 @@ hr {
 		}
 
 		.status {
-			.tab_pane {
-				padding: 16px 0 0 0;
-
-				.inset {
-					&::after {
-						top: 33px;
-					}
-				}
-
+			.mui_card {
 				.title {
 					overflow: hidden;
 					padding-bottom: 8px;
@@ -2970,7 +2980,6 @@ hr {
 						white-space: nowrap;
 					}
 				}
-
 				.mui_result {
 					&.default {
 						dl {
@@ -2997,6 +3006,19 @@ hr {
 						}
 					}
 				}
+			}
+			.tab_pane {
+				padding: 16px 0 0 0;
+
+				.inset {
+					&::after {
+						top: 33px;
+					}
+				}
+
+
+
+
 			}
 
 			.mui_tab_nav {
