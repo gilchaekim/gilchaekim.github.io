@@ -33,8 +33,12 @@ block content
         })
       +form_body({title:"가입기간"})
         +input({
-          placeholder:"6~60",
+          placeholder:"개월수 입력",
           subfix:"개월",
+        })
+        +text({
+          type:'warning',
+          text:"최소 N개월부터 N개월까지 입력 가능합니다."
         })
       +form_body({title:"불입금액"})
         .rangeslidr_wrap
