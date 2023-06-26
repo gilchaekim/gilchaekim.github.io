@@ -42,19 +42,23 @@ block content
           className:'button_type',
           lists:[
             {
-              label:'개월수로 선택',
+              label:'개월수',
               checked:true
             },
             {
-              label:'만기일로 선택'
+              label:'만기일'
             }
           ]
         })
         +input({
-          placeholder:"1~60",
+          placeholder:"개월수 입력",
           subfix:"개월",
         })
         +datepicker()
+        +text({
+          type:'warning',
+          text:"최소 N개월부터 N개월까지 입력 가능합니다."
+        })
       +form_body({title:"가입금액"})
         .rangeslidr_wrap
           .currdata
