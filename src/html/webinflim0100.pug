@@ -1,0 +1,62 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  .search_limit 
+    .main_sec 
+      em 대출한도조회
+      +title({
+        text:"내게 딱 맞는 대출상품<br>한번의 조회로 비교부터<br>신청까지!",
+        lv:2,
+      })
+      //- +button_custom({
+      //-   type:"timeselect-24",
+      //-   label:"유효 시간 12:24:31"
+      //- })
+      .img 
+        img(src="/src/images/img_inf.png", alt="")
+    .guide_list 
+      .list 
+        .img 
+          img(src="/src/images/img_inf.png", alt="")
+        dl 
+          dt 개인신용도 영향 없는 대출 한도 조회 서비스
+          dd 대출비교를 위한 한도 조회는 개인신용평점에 절대 영향을 주지 않아요.
+      .list 
+        .img 
+          img(src="/src/images/img_inf.png", alt="")
+        dl 
+          dt 내가 맞는 대출 조건 한번에 확인
+          dd 나에게 맞는 대출 조건을 한번에 비교할 수 있어요.
+      .list 
+        .img 
+          img(src="/src/images/img_inf.png", alt="")
+        dl 
+          dt 저축은행 방문없이 간편하게 대출신청
+          dd 은행 방문이나 서류제출 없이 바로 신청할 수 있어요.
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"대출 조건 조회 시 개인신용평점에 하락에 영향을 미치지 않습니다.(단, 대출 실행 시 개인 신용평점이 하락할 수 있습니다.)",
+          },
+          {
+            text:"당사를 통해 신용 조회 시, 총 조회건수는 1건으로 반영됩니다.",
+          },
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"비교하기",
+      size:"large",
+    })

@@ -1,0 +1,226 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  .bank_products.limit
+    +content_group(0)   
+      +title({
+        text:"직장인 신용대출",
+        lv:1,
+      })
+      .detail
+        .list 
+          dl 
+            dt 대출금리(연)
+            dd 
+              em 7.90%
+        .list 
+          dl 
+            dt 최대한도
+            dd 1억 3,000만원
+      button.btn_arrow
+        span.calc_txt 나의 대출 이자는?
+          strong 계산해보기
+        
+  hr
+  +tabsWrap({
+    active:0,
+    className:""
+  })
+    +tab("상품정보")
+      .grey_box 
+        p 중저 신용거래자에게 중금리 대출상품 공금을 목적으로 SGI서울보증과 연계하여 취급하는 보증대출상품
+      +content_group(2)
+        +title({
+          text:"대출대상",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"만 20세 이상의 소득증빙 가능한 전직군",
+              },
+              {
+                text:"NICE 신용평점 350점 이상",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"대출한도",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"최저 500만원 ~ 최고 1억원",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"대출기간",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"12개월 ~ 84개월",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"대출금리",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"연6.8% ~ 15.9%(내부신용등급에 따라 차등 적용)<br>*대출금리 = 기준금리 + 가산금리",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"연체이자율",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"연체이자율(지연배상금율)은 약정이자율에 연체가산이자율 3%를 가산하여 적용합니다.",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"상환방법",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"원금균등분할상환",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"이자의 부과시기",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"대출기간동안 매월 상환일에 균등한 원금 및 이자 후취",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"대출이자율 적용방식",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"변동금리 : 대출약정 기간내에 기준금리가 변경될 경우 당해 대출금리가 변동되는 금리로서 기준금리가 인상될 경우 고객의 이자부담이 증가될 수 있음",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"준비서류",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"신분증 사본(모바일로 촬영), 주민등록초본(과거이력포함), 소득증빙 서류",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"대출기한전 상환수수료",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"대출기한전 상환수수료율 : 1.9%<br>(단, 최대 24개월까지만 부과)",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"기타수수료 등",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"없음",
+              },
+            ]
+          })
+      +content_group(2)
+        +title({
+          text:"인지비용 부담",
+          lv:4,
+        })
+        +content_group(4)
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"없음",
+              },
+            ]
+          })
+    +tab("유의사항")
+      +textLists({
+        type:'guide',
+        lists:[
+          {text:"저축은행 심사기준과 고객 신용도에 따라 대출여부가 결정됩니다.",},
+          {text:"계약 체결 전 상품설명서 및 약관을 확인하시기 바랍니다.",},
+          {text:"대출금리는 기준금리 변동에 따라 변경될 수 있습니다.",},
+          {text:"과도한 대출은 개인신용평점 하락의 원인이 될 수 있습니다.",},
+          {text:"개인신용평점 하락으로 금융거래의 제약 또는 불이익이 발생할 수 있습니다.",},
+          {text:"연체 시 계약기한 만료 전 원리금 변제 의무가 발생할 수 있습니다.",},
+          {text:"기한 연장시점에 담보 또는 신용 등의 변경이 있는 경우 대출금의 일부 또는 전부가 회수 될 수 있습니다.",},
+          {text:"대출금의 상환 또는 이자납입이 지연된 경우 연체이율이 적용되며, 예금 등 기타채권과의 상계나 법적절차 등으로 재산상의 불이익을 당하실 수 있습니다.",},
+          {text:"해당 상품에 대한 충분한 사전 설명을 받을 권리가 있으며, 설명을 이해한후  거래하시기 바랍니다.",},
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"대출신청",
+      size:"large",
+    })

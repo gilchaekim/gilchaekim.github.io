@@ -233,6 +233,16 @@
     margin-top: 12px;
   }
 }
+.block_type2{
+  display: block;
+  .mui_radio, .mui_checkbox {
+    display: block;
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+
+}
 .mini_type{
   &.mui_radio_group, &.mui_checkbox_group {
     margin-left: -20px;

@@ -1,0 +1,42 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  +content_group(2)
+    +title({
+      text:"대출한도 조회를 위해<br>아래 항목에 동의해 주세요.",
+      lv:2,
+    })
+  +content_group(2)
+    +agree_check({
+      text:"전체 동의",
+    })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의서",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의서(여신금융거래)",
+      })
+      +agree_check({
+        text:"[필수] 가계대출상품설명서",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 조회 동의서(서민금융진흥원용)",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의(서민금융진흥원용)",
+      })
+      +agree_check({
+        text:"[필수] 계약체결·이행을 위한 상세동의서(개인금융성 신용보험용)",
+      })
+      +agree_check({
+        text:"[필수] CMS출금이체 동의",
+      })
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

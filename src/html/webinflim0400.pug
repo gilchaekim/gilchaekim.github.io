@@ -1,0 +1,23 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  +content_group(2)
+    +title({
+      text:"공공기관의 정보를 조회하여<br>직장 및 소득정보를 불러올게요.",
+      lv:2,
+    })
+    +content_group(4)
+      +text({
+        text:"공공마이데이터를 이용하여 공공기관의 전자증명서를 발급 받기 위해 금융인증서 인증이 필요합니다."
+      })
+      .processes_img 
+        img(src="/src/images/img_inf.png", alt="")
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
