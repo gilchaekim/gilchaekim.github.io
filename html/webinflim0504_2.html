@@ -232,45 +232,33 @@
       </header>
     </div><!-- / header --><!-- contents -->
     <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>상환방법안내호출</span></button><!-- layer -->
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>사업자명 검색</span></button><!-- layer -->
       <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
         <div class="mui_modal_dialog mui_size_medium webinf mui_auto_vertical mui_fullpop">
           <div class="mui_modal_body">
             <div class="mui_modal_header">
-              <p>상환방법안내
+              <p>사업자명 검색
               </p>
             </div>
             <div class="mui_modal_content">
               <div class="mui_contents_group lv_1">
-                <div class="mui_title">
-                  <p class="title lv2">만기 일시상환
-                  </p>
+                <div class="mui_inputbtn ico search">
+                  <span class="mui_input">
+                    <input type="text" title="사업자명 검색" placeholder="사업자명 검색" mui-input="" />
+                  </span>
+                  <div class="btn_sec">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>검색</span></button>
+                  </div>
                 </div>
-                <p class="mui_text default sub_title">대출만기까지 매월 대출 원금에 대한 이자만 납부하고 원금은 만기일에 전액 지불하는 방식입니다.
-                </p>
-                <div class="mui_contents_group lv_2"><img src="/src/images/graph1.png" alt="상환그래프">
-                </div>
-                <hr>
-              </div>
-              <div class="mui_contents_group lv_1">
-                <div class="mui_title">
-                  <p class="title lv2">원금 균등 분할 상환
-                  </p>
-                </div>
-                <p class="mui_text default sub_title">대출기한에 매월 일정한 원금을 납부하고, 매달 원금 잔액에 따라 책정되는 이자와 함께 납부하는 방식입니다.
-                </p>
-                <div class="mui_contents_group lv_2"><img src="/src/images/graph2.png" alt="상환그래프">
-                </div>
-                <hr>
-              </div>
-              <div class="mui_contents_group lv_1">
-                <div class="mui_title">
-                  <p class="title lv2">원리금 균등 분할 상환
-                  </p>
-                </div>
-                <p class="mui_text default sub_title">대출만기까지 매월 대출 원금에 대한 이자만 납부하고 원금은 만기일에 전액 지불하는 방식입니다.
-                </p>
-                <div class="mui_contents_group lv_2"><img src="/src/images/graph3.png" alt="상환그래프">
+                <div class="search_results">
+                  <div class="guide">
+                    <p>* 사업자명이 검색되지 않을 경우 직접 입력해주세요.</p>
+                    <button class="mui_button_custom darkgray-28" type="button"><span class="inset">직접입력</span></button>
+                  </div>
+                  <div class="lists">
+                    <button> <span class="title">중앙증권㈜</span><span class="txt1">사업자번호 : 107-81-76756</span><span class="txt2">대표자명 : 홍길동</span></button>
+                    <button> <span class="title">중앙증권㈜</span><span class="txt1">사업자번호 : 107-81-76756</span><span class="txt2">대표자명 : 홍길동</span></button>
+                  </div>
                 </div>
               </div>
             </div>
