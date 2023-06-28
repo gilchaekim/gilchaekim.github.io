@@ -26,7 +26,7 @@ mixin stepNum(params={})
   - const divide = '_'
   //- 공통 요소 End
 
-  - const { className, activeIndex, total, ...rest } = Object.assign({}, params)
+  - const { element="div", className, activeIndex, total, ...rest } = Object.assign({}, params)
   - let index = 1;
   #{element}(
     class=`${prefix}${divide}stepnum`

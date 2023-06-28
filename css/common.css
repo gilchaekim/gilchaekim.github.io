@@ -2835,6 +2835,9 @@ table, th, td {
 .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
 }
+.mui_agree_check:not(.chk_lists) .chk_btn.mui_active + .inset {
+  display: none;
+}
 .mui_agree_check .chk_btn {
   border: 1px solid var(--line_color02);
   border-radius: 8px;
@@ -2876,9 +2879,6 @@ table, th, td {
   left: 0;
 }
 .mui_agree_check .chk_btn .status_1 {
-  display: none;
-}
-.mui_agree_check .chk_btn.mui_active + .inset {
   display: none;
 }
 .mui_agree_check .chk_btn.mui_active .text::before {

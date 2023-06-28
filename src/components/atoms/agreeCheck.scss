@@ -5,6 +5,15 @@
   & ~ .mui_agree_check{
     margin-top: 16px;
   }
+  &:not(.chk_lists) {
+    .chk_btn{
+      &.mui_active{
+        & + .inset{
+          display: none;
+        }
+      }
+    }
+  }
   .chk_btn{
     border: 1px solid $line_color02;
     border-radius: 8px;
@@ -45,10 +54,8 @@
         display: none;
       }
     }
+
     &.mui_active{
-      & + .inset{
-        display: none;
-      }
       .text{
         &::before{
           content: '';
