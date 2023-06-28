@@ -22,56 +22,62 @@ block content
       date:"2023.03.13 17:07:07"
     })
     +card({
-      isLinked:true,
       tag : {
         label:"정상"
       },
       data: [
-          {
-            title:"입금계좌",
-            text:"중앙저축은행<br>125-45-67-8910112",
-          },
-          {
-            title:"이체금액",
-            text:"10,000원",
-          },
-          {
-            title:"이체기간",
-            text:"2023.03.01 ~ 2023.05.01",
-          },
-          {
-            title:"이체일",
-            text:"7일",
-          },
-          
-        ]
+        {
+          title:"입금계좌",
+          text:"중앙저축은행<br>125-45-67-8910112",
+        },
+        {
+          title:"이체금액",
+          text:"10,000원",
+        },
+        {
+          title:"이체기간",
+          text:"2023.03.01 ~ 2023.05.01",
+        },
+        {
+          title:"이체일",
+          text:"7일",
+        },
+        
+      ]
+    })
+      +button_custom({
+        type:"gray-32",
+        label:"상세보기"
       })
     +card({
-      isLinked:true,
       tag : {
         label:"해지",
         status:"disabled"
       },
       data: [
-          {
-            title:"입금계좌",
-            text:"중앙저축은행<br>125-45-67-8910112",
-          },
-          {
-            title:"이체금액",
-            text:"10,000원",
-          },
-          {
-            title:"이체기간",
-            text:"2023.03.01 ~ 2023.05.01",
-          },
-          {
-            title:"이체일",
-            text:"7일",
-          },
-          
-        ]
-      })
+        {
+          title:"입금계좌",
+          text:"중앙저축은행<br>125-45-67-8910112",
+        },
+        {
+          title:"이체금액",
+          text:"10,000원",
+        },
+        {
+          title:"이체기간",
+          text:"2023.03.01 ~ 2023.05.01",
+        },
+        {
+          title:"이체일",
+          text:"7일",
+        },
+        
+      ]
+    })
+      +button_custom({
+        type:"gray-32",
+        label:"상세보기"
+      })  
     +button_more()
     +result({
       type:'null',
