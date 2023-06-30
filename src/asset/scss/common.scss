@@ -3066,13 +3066,37 @@ hr {
 			}
 
 			.mui_acc_button {
-				top: 0;
+				transform:rotate(0) translateY(-50%);
 			}
 		}
 
 		.acc_lists:last-child {
 			.mui_acc_content {
 				padding-bottom: 0;
+			}
+		}
+		&.type2 {
+			&+.warning {
+				margin-top:12px;
+			}
+			.acc_lists.mui_open {
+				.mui_acc_content {
+					border-bottom:0;
+				}
+				.mui_acc_button {
+					transform:rotate(180deg);
+				}
+				&:first-child {
+					.mui_acc_button {
+						transform:rotate(180deg) translateY(50%);
+					}
+				}
+			}
+			
+			.acc_lists:last-child {
+				.mui_acc_content {
+					padding-bottom: 16px;
+				}
 			}
 		}
 	}
@@ -3104,6 +3128,9 @@ hr {
 		.mui_button {
 			padding: 0 8px;
 			font-size: 13px;
+			&:first-child {
+				margin-top:0;
+			}
 		}
 	}
 

@@ -329,6 +329,10 @@
       line-height: 22px;
       padding: 0 8px;
     }
+    &:disabled {
+      color:$basic_color04;
+      border:1px solid $line_color02;
+    }
   }
   &_tooltip{
     width: 20px;

@@ -178,6 +178,9 @@
     flex: auto;
     &:nth-child(1){
       width: 40%;
+      &::after {
+        z-index: 2;
+      }
     }
     &:nth-child(5){
       width: 20%;
