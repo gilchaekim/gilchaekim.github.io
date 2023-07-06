@@ -2843,7 +2843,7 @@ table, th, td {
 .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
 }
-.mui_agree_check:not(.chk_lists) .chk_btn.mui_active + .inset {
+.mui_agree_check:not(.chk_lists, .chk_lists_block) .chk_btn.mui_active + .inset {
   display: none;
 }
 .mui_agree_check .chk_btn {
@@ -3721,6 +3721,7 @@ table, th, td {
 .mui_collapse .mui_open .mui_acc_button {
   transform: rotate(180deg);
   top: 10px;
+  margin-top: -10px;
 }
 .mui_collapse .acc_header {
   position: relative;
@@ -4359,6 +4360,12 @@ hr {
   background: var(--bg_color01);
   border: none;
 }
+hr + .mui_contents_group .mui_accordion {
+  margin-top: -20px;
+}
+hr + .mui_accordion {
+  margin-top: -20px;
+}
 
 .al_left {
   text-align: left !important;
@@ -4507,6 +4514,20 @@ hr {
   margin-top: 16px;
   font-size: 14px;
   color: var(--font_color03);
+}
+.notice .sub_text02 {
+  margin-top: 8px;
+  font-size: 16px;
+  color: var(--font_color03);
+}
+.notice .sub_text02 span {
+  color: var(--font_color08);
+}
+.notice strong.tit {
+  font-size: 22px;
+}
+.notice + .warning {
+  margin-top: 12px;
 }
 
 .header .title_center {
@@ -5575,6 +5596,18 @@ hr {
 }
 .search_address .last_addr_write .mui_input {
   margin-top: 16px;
+}
+.search_address .job_list {
+  margin-top: 3px;
+}
+.search_address .job_list.etc_type a:last-child::after {
+  display: none;
+}
+.search_address .job_list.depth2_type a::after {
+  display: none;
+}
+.search_address .ft_white span {
+  color: var(--font_color03);
 }
 
 .home_wrap {
@@ -6755,15 +6788,6 @@ hr {
 .webinf .loan_wrap .status .nav_list button::after {
   display: none;
 }
-.webinf .mui_accordion .acc_lists:first-child .acc_header {
-  padding-top: 0;
-}
-.webinf .mui_accordion .acc_lists:first-child .mui_acc_button {
-  transform: rotate(0) translateY(-50%);
-}
-.webinf .mui_accordion .acc_lists:last-child .mui_acc_content {
-  padding-bottom: 0;
-}
 .webinf .mui_accordion.type2 + .warning {
   margin-top: 12px;
 }
@@ -6826,6 +6850,19 @@ hr {
   padding-bottom: 32px;
   font-size: 22px;
   border-bottom: 1px solid var(--line_color03);
+}
+.webinf .notice .item_name {
+  display: block;
+  padding-top: 16px;
+}
+.webinf .notice p.sub_txt {
+  margin-bottom: 16px;
+  padding-bottom: 32px;
+  border-bottom: 1px solid var(--line_color02);
+}
+.webinf .notice p.sub_txt strong {
+  padding-top: 4px;
+  font-size: 22px;
 }
 .webinf .mui_agree_check .text .sub_txt {
   margin-right: -20px;
@@ -7455,6 +7492,9 @@ hr {
   color: var(--font_color03);
   margin-top: 16px;
 }
+.webinf .card_list .mui_more {
+  margin-top: 12px;
+}
 .webinf .card_list a.card::after {
   content: "";
   display: block;
@@ -7476,8 +7516,14 @@ hr {
   padding: 20px 20px 20px 58px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.04);
 }
+.webinf .card_list .card .title {
+  font-weight: 700;
+}
 .webinf .card_list .card.error {
   background: var(--line_color03);
+}
+.webinf .card_list .card.error .title, .webinf .card_list .card.error dt {
+  color: var(--font_color03);
 }
 .webinf .card_list .card:not(:first-child) {
   margin-top: 16px;
@@ -7515,6 +7561,7 @@ hr {
 .webinf .card_list .card dd .error_msg {
   color: var(--font_color08);
   font-size: 14px;
+  font-weight: 400;
 }
 .webinf .card_list .card .ico {
   width: 28px;
@@ -7541,6 +7588,9 @@ hr {
 }
 .webinf .search_results {
   margin-top: 24px;
+}
+.webinf .search_results .mui_more {
+  margin-top: 12px;
 }
 .webinf .search_results .lists {
   padding-top: 8px;
@@ -7633,6 +7683,9 @@ hr {
 .webinf .search_limit .guide_list dl dd {
   color: var(--font_color03);
   font-size: 14px;
+}
+.webinf .mui_card .mui_result dd {
+  font-size: 20px;
 }
 
 .webdep .webdep_wrap .item_wrap {
@@ -8467,6 +8520,9 @@ hr {
 
 .bank_products.limit .btn_arrow {
   margin-top: 32px;
+}
+.bank_products.limit .timeselect-24 {
+  margin-top: 16px;
 }
 .bank_products.limit .detail {
   margin-top: 24px;
