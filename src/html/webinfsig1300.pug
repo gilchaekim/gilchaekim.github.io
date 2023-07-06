@@ -6,59 +6,26 @@ block prepend top
 
 block content
   +stepNum({
-    total:6,
-    activeIndex:3
+    total:4,
+    activeIndex:2
   })
   +content_group(1)
     +title({
       text:'신청정보 입력',
       lv:2,
     })
-  +content_group(2)
-    +title({
-      text:'1. 대출신청정보',
-      lv:4,
-    })
+    p.sub_txt 대출신청을 위한 정보를 작성해주세요
   
   +content_group(2)
-    .bank_product_details.long_type
-      +title({
-        text:"<em>온라인 햇살론</em>",
-        lv:1,
-      })
-      p.sub_txt 비대면으로 진행하는 정부지원 대출
-      .detail
-        .list 
-          dl 
-            dt 최저금리
-            dd 4.50%
-        .img 
-          img(src="/src/images/img_prd.png", alt="햇살론 상품 이미지")
-    +card({
-      data: [
-          {
-            title:"이름",
-            text:"김저축",
-          },
-          {
-            title:"휴대폰번호",
-            text:"010-1234-5678",
-          },
-          {
-            title:"주소",
-            text:"[04130]서울 마포구 공덕공<br>168 11층",
-          },
-        ]
-    })
-      +button_custom({
-        type:"gray-32",
-        label:"주소변경"
-      })
     +card({
       data: [
           {
             title:"대출가능한도",
             text:"<em><strong>3,000만원</strong></em>",
+          },
+          {
+            title:"예상금리",
+            text:"<em><strong>5.54%</strong></em>",
           }
         ]
     })
@@ -66,27 +33,29 @@ block content
 
     +content_group(0)
       +form()
-        +form_body({title:"대출신청금액", message:{type:"error", text:"대출 최소신청금액은 10만원입니다."}})
-          +input({
-            placeholder:"숫자만 입력",
-            subfix:"원"
+        +form_body({title:"자금용도"})
+          +button_select({
+            placeholder:"자금용도 선택",
+            label:""
           })
-          .money_support
-            strong 1,000만 원
-          +button_group({
-            className:"btn_money",
+          +input({
+            placeholder:"직접입력"
+          })
+        +form_body({title:"대출신청금액", message:{type:"error"}})
+          +input_money({
+            message:{type:"error", text:"대출 최소신청금액은 10만원입니다."},
             btns:[
               '+1만',
               '+10만',
               '+100만',
               '+1000만',
-            ]
+            ],
+            guideMoney:true
           })
-      +text({
-        type:'warning',
-        text:"대출신청금액은 최대 1억원입니다."
-      })
-      +form()
+          +text({
+            type:'warning',
+            text:"대출신청금액은 최대 1억원입니다."
+          })
         +form_body({title:"대출신청기간"})
           +radioCheck({
             name:'btnType',
@@ -120,19 +89,35 @@ block content
               }
             ]
           })
-        +form_body({title:"대출금 입금은행"})
+        +form_body({title:"대출금 입금계좌정보"})
           +button_select({
             placeholder:"은행 선택",
           })
-        +form_body({title:"대출금 입금계좌번호"})
           +input_button({
             btnText:"계좌확인",
             placeholder:"계좌번호 입력",
+            disabled:true,
           })
-      +text({
-        type:'warning',
-        text:"기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다."
-      })
+          +text({
+            type:'warning',
+            text:"기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다."
+          })
+        +form_body()
+          +radioCheck({
+            type:"checkbox",
+            name:'chk02',
+            label:'권유직원'
+          })
+          +input_button({
+            btnText:"직원찾기",
+            placeholder:"권유직원",
+          })
+        +form_body()
+          +radioCheck({
+            type:"checkbox",
+            name:'chk03',
+            label:'대출거절사유 고지 신청'
+          })
 
   +button_bottom_fixed()
     +button({

@@ -11,108 +11,88 @@ block content
   })
   +content_group(1)
     +title({
-      text:'신청정보 입력',
+      text:'고객정보 입력',
       lv:2,
     })
+    p.sub_txt 대출신청에 필요한 고객정보가 맞는지 확인 해주세요.
   +content_group(2)
     +title({
-      text:'2. 고객추가정보',
+      text:'기본정보',
       lv:4,
     })
   
-  +content_group(2)
+  +content_group(3)
     +form()
-      +form_body({title:"고용구분"})
-        +button_select({
-          placeholder:"고용구분 선택",
+      +form_body({title:"이름"})
+        +form_value({
+          value:"김저축"
         })
-      +form_body({title:"직업분류"})
-        +button_select({
-          placeholder:"직업분류 선택",
+      +form_body({title:"휴대폰번호"})
+        +form_value({
+          value:"010-1234-5678"
         })
-      +form_body({title:"직업구분"})
-        +button_select({
-          placeholder:"직업구분 선택",
-        })
-        +input({
-          placeholder:"직접입력",
-        })
-      +form_body({title:"직종"})
-        +button_select({
-          placeholder:"직종 선택",
-        })
-      +form_body({title:"개인거래목적"})
-        +button_select({
-          placeholder:"개인거래목적 선택",
-        })
-      +form_body({title:"걸제구분"})
-        +radioCheck({
-          type:"checkbox",
-          name:'chk01',
-          className:'mini_type',
-          lists:[
-            {label:'보험료납부',},
-            {label:'공과금납부',},
-            {label:'카드납부',},
-          ]
-        })
-      +form_body({title:"거래자금원천"})
-        +button_select({
-          placeholder:"거래자금원천 선택",
-        })
-      +form_body({title:"자금용도"})
-        +button_select({
-          placeholder:"자금용도 선택",
+      +form_body({title:"자택주소"})
+        +input_button({
+          btnText:"주소찾기",
+          placeholder:"주소 검색",
         })
         +input({
-          placeholder:"직접입력",
+          placeholder:"상세주소"
         })
     hr
-    +content_group(0)
-      +title({
-        text:"가입하시는 상품의 명의인,<br><em>실소유인이 본인</em>이십니까?",
-        lv:4,
-      })
-    +content_group(3)
-      +radioCheck({
-        name:'btnType',
-        type:"radio",
-        className:'block_type',
-        lists:[
-          {
-            label:'본인 맞습니다.',
-            checked:true
-          },
-          {
-            label:'본인이 아닙니다.'
-          }
-        ]
-      })
-    +content_group(0)
-      +title({
-        text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
-        lv:4,
-      })
-    +content_group(3)
-      +radioCheck({
-        name:'btnType1',
-        type:"radio",
-        className:'block_type',
-        lists:[
-          {
-            label:'예'
-          },
-          {
-            label:'아니오',
-            checked:true
-          }
-        ]
-      })
+    
+  +content_group(0)
+    +title({
+      text:'직장정보',
+      lv:4,
+    })
+  +content_group(3)
+    +form()
+      +form_body({title:"직장명"})
+        +form_value({
+          value:"(주)피노"
+        })
+      +form_body({title:"대표자명"})
+        +form_value({
+          value:"김성신"
+        })
+      +form_body({title:"사업자번호"})
+        +form_value({
+          value:"1234567890"
+        })
+      +form_body({title:"직장주소"})
+        +form_value({
+          value:"서울 마포구 양화로 11길 12, 6층"
+        })
+      +form_body({title:"입사일"})
+        +form_value({
+          value:"2020.01.01"
+        })
+      +form_body({title:"고용구분"})
+        +button_select({
+          placeholder:"고용구분 선택"
+        })
+    hr
+
+  +content_group(0)
+    +title({
+      text:'소득정보',
+      lv:4,
+    })
+  +content_group(3)
+    +form()
+      +form_body({title:"연소득"})
+        +form_value({
+          value:"1,000만원"
+        })
+      +form_body({title:"주거소유형태"})
+        +form_value({
+          value:"자가"
+        })
 
   +button_bottom_fixed()
     +button({
       label:"다음",
       size:"large",
-      type:"primary",
-      disabled:"disabled"
+      type:"primary"
     })

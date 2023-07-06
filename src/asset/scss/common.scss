@@ -80,6 +80,14 @@ hr {
 	height: 12px;
 	background: $bg_color01;
 	border: none;
+	&+.mui_contents_group {
+		.mui_accordion {
+			margin-top:-20px;
+		}
+	}
+	&+.mui_accordion {
+		margin-top:-20px;
+	}
 }
 
 .al_left {
@@ -241,6 +249,21 @@ hr {
 		margin-top: 16px;
 		font-size: 14px;
 		color: $font_color03;
+		&02 {
+			margin-top:8px;
+			font-size:16px;
+			color:$font_color03;
+			span {
+				color:$font_color08;
+			}
+		}
+	}
+
+	strong.tit {
+		font-size:22px;
+	}
+	&+.warning {
+		margin-top:12px;
 	}
 }
 
@@ -1558,6 +1581,27 @@ hr {
 
 		.mui_input {
 			margin-top: 16px;
+		}
+	}
+
+	.job_list {
+		margin-top:3px;
+		&.etc_type {
+			a:last-child {
+				&::after {
+					display:none;
+				}
+			}
+		}
+		&.depth2_type {
+			a::after {
+				display:none;
+			}
+		}
+	}
+	.ft_white {
+		span {
+			color:$font_color03;
 		}
 	}
 }
@@ -3060,21 +3104,15 @@ hr {
 	}
 
 	.mui_accordion {
-		.acc_lists:first-child {
-			.acc_header {
-				padding-top: 0;
-			}
+		// .acc_lists:first-child {
+		// 	.acc_header {
+		// 		padding-top: 0;
+		// 	}
 
-			.mui_acc_button {
-				transform:rotate(0) translateY(-50%);
-			}
-		}
-
-		.acc_lists:last-child {
-			.mui_acc_content {
-				padding-bottom: 0;
-			}
-		}
+		// 	.mui_acc_button {
+		// 		transform:rotate(0) translateY(-50%);
+		// 	}
+		// }
 		&.type2 {
 			&+.warning {
 				margin-top:12px;
@@ -3167,6 +3205,19 @@ hr {
 			padding-bottom: 32px;
 			font-size: 22px;
 			border-bottom: 1px solid $line_color03;
+		}
+		.item_name {
+			display:block;
+			padding-top:16px;
+		}
+		p.sub_txt {
+			margin-bottom:16px;
+			padding-bottom:32px;
+			border-bottom:1px solid $line_color02;
+			strong {
+				padding-top:4px;
+				font-size:22px;
+			}
 		}
 	}
 
@@ -3933,6 +3984,9 @@ hr {
 		}
 	}
 	.card_list {
+		.mui_more {
+			margin-top: 12px;
+		}
 		a.card {
 			&::after {
 				content: '';
@@ -3951,8 +4005,14 @@ hr {
 			border-radius: 20px;
 			padding: 20px 20px 20px 58px;
 			box-shadow: 0px 4px 8px rgba(0, 0, 0, .04);
+			.title {
+				font-weight: 700;
+			}
 			&.error {
 				background:$line_color03;
+				.title, dt {
+					color:$font_color03;
+				}
 			}
 			&:not(:first-child) {
 				margin-top: 16px;
@@ -3989,6 +4049,7 @@ hr {
 				.error_msg {
 					color:$font_color08;
 					font-size: 14px;
+					font-weight: 400;
 				}
 			}
 			.ico {
@@ -4018,6 +4079,9 @@ hr {
 	}
 	.search_results {
 		margin-top: 24px;
+		.mui_more {
+			margin-top: 12px;
+		}
 		.lists {
 			padding-top: 8px;
 			button {
@@ -4118,6 +4182,13 @@ hr {
 					color:$font_color03;
 					font-size: 14px;
 				}
+			}
+		}
+	}
+	.mui_card {
+		.mui_result {
+			dd {
+				font-size:20px;
 			}
 		}
 	}
@@ -5143,6 +5214,9 @@ hr {
 	&.limit {
 		.btn_arrow {
 			margin-top: 32px;
+		}
+		.timeselect-24 {
+			margin-top: 16px;
 		}
 		.detail {
 			margin-top: 24px;
