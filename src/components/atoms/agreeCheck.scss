@@ -5,7 +5,7 @@
   & ~ .mui_agree_check{
     margin-top: 16px;
   }
-  &:not(.chk_lists) {
+  &:not(.chk_lists, .chk_lists_block) {
     .chk_btn{
       &.mui_active{
         & + .inset{

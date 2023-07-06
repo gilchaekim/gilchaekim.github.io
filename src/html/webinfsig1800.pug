@@ -5,20 +5,12 @@ block prepend top
   - pageTitle = "햇살론"
 
 block content
-  +stepNum({
-    total:6,
-    activeIndex:1
-  })
   +content_group(1)
     +title({
-      text:'신청정보 입력',
+      text:'신청 사전 체크리스트',
       lv:2,
     })
-  +content_group(2)
-    +title({
-      text:'대상확인',
-      lv:4,
-    })
+    p.sub_txt 헷살론 신청 전 자격조건이 맞는지 확인합니다. 
   
   +content_group(2)
     +form()

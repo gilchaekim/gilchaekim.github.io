@@ -33,6 +33,12 @@ block content
             span.em 
               | 8,000
               span.sm 만원
+    +content_group(1)
+      +button({
+        label:"재심사 요청하기",
+        size:"medium",
+        type:"white",
+      })
     hr
     .status
       +tabsWrap({
@@ -49,14 +55,6 @@ block content
                 dd 
                   span.txt1 4.18%
                   span.txt2 6,200만원
-            .card.error
-              span.ico 
-                img(src="/src/images/img_inf.png", alt="")
-              dl
-                dt 사잇돌대출
-                dd 
-                  span.error_msg 오류메세지 출력영역
-              span.tag.error 오류
             a.card 
               span.ico 
                 img(src="/src/images/img_inf.png", alt="")
@@ -65,12 +63,7 @@ block content
                 dd 
                   span.txt1 4.18%
                   span.txt2 6,200만원
-          +content_group(1)
-            +button({
-              label:"재심사 요청하기",
-              size:"medium",
-              type:"white",
-            })
+            +button_more()
         +tab("최대한도순")
           .card_list
             a.card 
@@ -81,14 +74,6 @@ block content
                 dd 
                   span.txt1 4.18%
                   span.txt2 6,200만원
-            .card.error
-              span.ico 
-                img(src="/src/images/img_inf.png", alt="")
-              dl
-                dt 사잇돌대출
-                dd 
-                  span.error_msg 오류메세지 출력영역
-              span.tag.error 오류
             a.card 
               span.ico 
                 img(src="/src/images/img_inf.png", alt="")
@@ -97,12 +82,27 @@ block content
                 dd 
                   span.txt1 4.18%
                   span.txt2 6,200만원
-          +content_group(1)
-            +button({
-              label:"재심사 요청하기",
-              size:"medium",
-              type:"white",
-            })
+            +button_more()
+      +accordion({
+        active:0
+      })
+        +acc_title('조회실패')
+        +acc_content()
+          .card_list
+            .card.error
+              span.ico 
+                img(src="/src/images/img_inf.png", alt="")
+              p.title 사잇돌대출
+        +acc_title('대출불가')
+        +acc_content()
+          .card_list
+            .card.error
+              span.ico 
+                img(src="/src/images/img_inf.png", alt="")
+              dl
+                dt 사잇돌대출
+                dd 
+                  span.error_msg 오류메세지 출력영역
   +collapse({
     className:"guide_text",
     isOpen:true,

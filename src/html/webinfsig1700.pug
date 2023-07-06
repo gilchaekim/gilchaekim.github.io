@@ -6,9 +6,11 @@ block prepend top
 
 block content
   +content_group(0)
+    <!-- 2023.07.05 em태그 삭제 -->
     +result({
       type:'result',
-      mainText:"김저축님의<br><em>대출신청이 완료</em>되었습니다.",
+      mainText:"김저축님의<br>대출신청이 완료되었습니다.",
+      subText:"심사결과는 우리금융저축은행 담당자가<br>연락 드릴 예정입니다.",
       img:"/src/images/ico_example2.png",
     })
   +content_group(0)
@@ -37,7 +39,7 @@ block content
         a(href) 대출신청조회
   +text({
     type:'warning',
-    text:"대출 진행을 원하실 경우 전자약정을 통해 대출을 완료하실 수 있습니다.",
+    text:"심사가 완료되면 전자약정 메뉴를 통해 대출을 완료하실 수 있습니다.",
     className:"flex_bot"
   })
   +button_bottom_fixed()
