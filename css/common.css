@@ -6607,6 +6607,38 @@ hr + .mui_accordion {
   font-size: 14px;
   color: var(--font_color03);
 }
+.webinf .custom_tab .mui_tab_nav {
+  height: 40px;
+  border-radius: 12px;
+  background: #f4f4f4;
+  padding: 0;
+}
+.webinf .custom_tab .mui_tab_nav::after {
+  display: none;
+}
+.webinf .custom_tab .tab_pane {
+  padding-left: 0;
+  padding-right: 0;
+}
+.webinf .custom_tab .nav_list.mui_active button {
+  color: var(--font_color06);
+  font-weight: 700;
+  background: var(--main_color02);
+  border-radius: 12px;
+}
+.webinf .custom_tab .nav_list.mui_active button::after {
+  display: none;
+}
+.webinf .custom_tab .nav_list button {
+  height: 40px;
+  line-height: 40px;
+  font-size: 16px;
+  color: var(--font_color03);
+  padding: 0;
+}
+.webinf .custom_tab .nav_list button::after {
+  display: none;
+}
 .webinf .total_file {
   display: flex;
   justify-content: space-between;
