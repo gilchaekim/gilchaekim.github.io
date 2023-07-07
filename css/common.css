@@ -1126,12 +1126,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-top: 16px;
 }
 
-.mini_type.mui_radio_group, .mini_type.mui_checkbox_group {
-  margin-left: -20px;
-}
-.mini_type .mui_radio, .mini_type .mui_checkbox {
-  margin-left: 20px;
-}
 .mini_type .mui_radio input:checked + label, .mini_type .mui_checkbox input:checked + label {
   color: var(--font_color01);
 }
@@ -3867,6 +3861,9 @@ table, th, td {
 .mui_form_list .mui_form_content {
   margin-top: 8px;
   position: relative;
+}
+.mui_form_list .mui_form_content .mini_type {
+  padding-top: 8px;
 }
 .mui_form_list .mui_form_content .guide_btn {
   height: 22px;
@@ -7861,6 +7858,9 @@ hr + .mui_accordion {
   background: var(--bg_color02);
   padding: 20px;
 }
+.webdep .view_data .guide_box.layer_content {
+  margin-top: 0;
+}
 .webdep .view_data .guide_box.gcoverflow_box .overflow_wrap {
   height: 58px;
   overflow: hidden;
@@ -8174,6 +8174,21 @@ hr + .mui_accordion {
   gap: 8px 0;
   margin-top: 16px;
   padding-left: 32px;
+}
+.webcus .etc_agree {
+  margin-top: 32px;
+}
+.webcus .etc_agree p.txt {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 8px;
+}
+.webcus .etc_agree .chk {
+  margin-top: 24px;
+}
+.webcus .etc_agree .chk label {
+  color: var(--font_color01);
+  font-weight: 700;
 }
 .webcus .confirm_sec .mixin_btn {
   margin: 16px 0 24px;

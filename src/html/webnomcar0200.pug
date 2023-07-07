@@ -67,6 +67,102 @@ block content
           {label:'휴대전화',},
         ]
       })
+    +form_body({title:"직업 "})
+      +button_select({
+        placeholder:"직업 선택",
+      })
+      +input({
+        placeholder:"직접입력",
+      })
+    +form_body({title:"직종"})
+      +button_select({
+        placeholder:"직종 선택",
+      })
+    +form_body({title:"개인거래목적"})
+      +button_select({
+        placeholder:"개인거래목적 선택",
+      })
+    +form_body({title:"결제구분"})
+      +radioCheck({
+        name:'chk561333',
+        className:'mini_type',
+        lists:[
+          {label:'보험료납부',},
+          {label:'공과금납부',checked:true},
+          {label:'카드납부',checked:true},
+        ]
+      })
+    +form_body({title:"거래자금원천"})
+      +button_select({
+        placeholder:"거래자금원천 선택",
+      })
+    +form_body({title:"가입하시는 상품의 명의인 실소유인이 본인이십니까?"})
+      +radioCheck({
+        type:"radio",
+        name:'chk897765',
+        className:'button_type',
+        lists:[
+          {label:'본인 맞습니다.',checked:true},
+          {label:'본인이 아닙니다.',},
+        ]
+      })
+    +form_body({title:"자택주소가 현재 거주하시는 장소입니까?"})
+      +radioCheck({
+        type:"radio",
+        name:'chk8977651',
+        className:'button_type',
+        lists:[
+          {label:'예'},
+          {label:'아니오',checked:true},
+        ]
+      })
+    +form_body({title:"타인으로부터 통장대여 요청을 받은 사실이 있습니까?"})
+      +radioCheck({
+        type:"radio",
+        name:'chk89776513',
+        className:'button_type',
+        lists:[
+          {label:'예'},
+          {label:'아니오',checked:true},
+        ]
+      })
+      +text({
+        type:'warning',
+        text:"통장현금카드등 타인에게 양도하여 범죄에 이용되는 경우 미성년자 여부와 상관없이 민형사상 책임을 질 수 있습니다."
+      })
+    +form_body({title:"타인으로부터 신용등급 또는 개인신용평점산향,대출 등의 목적으로 통장개설을 요청받은 사실이 있습니까?"})
+      +radioCheck({
+        type:"radio",
+        name:'chk89776512',
+        className:'button_type',
+        lists:[
+          {label:'예'},
+          {label:'아니오',checked:true},
+        ]
+      })
+  .etc_agree
+    +content_group(1)
+      +title({
+        text:"차명거래 금지 설명 확인",
+        lv:4,
+      })
+      p.txt '금융실명거래 및 비밀보장에 관한 법률 제 3조 제 3항에 따라 누구든지 불법재산의 은닉, 자금세탁행위, 공중협박자금조달행위 및 강제 집행의 면탈, 그 밖의 탈법행위를 목적으로 타인의 실명으로 금융거래를 하여서는 아니되며, 이를위반 시 5년 이하의 징역 또는 8천만원 이하의 벌금에 처해질 수 있습니다.
+      .chk
+        +radioCheck({
+          name:'chk002965',
+          label:'본인은 위 안내에 대해 충분히 이해하였음을 확인합니다.'
+        })
+    +content_group(1)
+      +title({
+        text:"통장양도 불법성 안내 확인",
+        lv:4,
+      })
+      p.txt 통장, 현금카드를 타인에게 양도하는 경우 손해 배상책임을 부담할 수 있고 전자금융개설거래법에 의해 처벌 받을 수 있습니다.
+      .chk
+        +radioCheck({
+          name:'chk0029651',
+          label:'본인은 위 안내에 대해 충분히 이해하였음을 확인합니다.'
+        })
   +button_bottom_fixed()
     +button({
       label:"다음",

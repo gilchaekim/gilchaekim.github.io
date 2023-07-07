@@ -223,7 +223,7 @@
           <div class="side_left">
             <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
           </div>
-          <div class="title_center"><span class="title">상품가입</span></div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
           <div class="side_right">
             <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
             <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
@@ -231,234 +231,91 @@
         </div>
       </header>
     </div><!-- / header --><!-- contents -->
-    <div class="webdep" id="contants">
-      <div class="mui_contents_group lv_0">
-        <div class="mui_stepnum">
-          <ul>
-            <li class="step"><span>1</span></li>
-            <li class="step mui_active"><span>2</span></li>
-            <li class="step"><span>3</span></li>
-            <li class="step"><span>4</span></li>
-          </ul>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_0">
-        <div class="mui_title">
-          <p class="title lv2">상품정보 입력
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="mui_title">
-          <p class="title lv4">출금계좌
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_4">
-        <button class="mui_button mui_select account" type="button"><span class="inset"><span class="img"> <img src="/src/images/icon_bank.png" alt="은행 이미지" /></span><span class="label">저축보통예금</span><span class="accnum">123-1212-1234-56</span><span class="money"> <span class="text">출금가능</span><span class="num">
-                10,000,000<span>원</span></span></span><span class="hidden">선택 됨</span></span></button>
-      </div>
-      <div class="mui_contents_group lv_1">
-        <div class="mui_form">
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">출금계좌 비밀번호</span></div>
-            <div class="mui_form_content">
-              <span class="mui_input">
-                <input type="password" placeholder="숫자 4자리" mui-input="" />
-              </span>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">가입기간</span></div>
-            <div class="mui_form_content">
-              <span class="mui_input inner_subfix sublength_2">
-                <input type="text" placeholder="개월수 입력" mui-input="" /><span class="subfix"><span>개월</span></span>
-              </span>
-              <p class="mui_text warning">최소 N개월부터 N개월까지 입력 가능합니다.
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>클릭!</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium webdep mui_auto_vertical mui_bottom_tray">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>상품 상세정보
               </p>
             </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">최초불입금액</span></div>
-            <div class="mui_form_content">
-              <div class="rangeslidr_wrap">
-                <div class="currdata"><span id="currData">6000만원</span></div>
-                <div id="rangeSlider"></div>
-                <div class="rangedata"><span>1만원</span><span>1억원</span></div>
-              </div>
-              <div class="mui_contents_group lv_2">
+            <div class="mui_modal_content">
+              <div class="mui_contents_group lv_3">
                 <div class="view_data">
-                  <button class="write_pop">직접입력</button>
-                  <div class="mui_contents_group lv_1">
-                    <button class="mui_button mui_medium mui_white" type="button"><span>선택한 설정으로 상품 조회하기</span></button>
-                  </div>
-                  <div class="guide_box">
+                  <div class="guide_box layer_content">
                     <div class="list">
-                      <p class="title">적용이율</p>
-                      <p class="text">4.30%</p>
+                      <p class="title">가입기간</p>
+                      <p class="text">24개월</p>
                     </div>
                     <div class="list">
-                      <p class="title">예상총이자</p>
-                      <p class="text">120,300원(세전)</p>
+                      <p class="title">가입금액</p>
+                      <p class="text">100,000원</p>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">납입방법</span></div>
-            <div class="mui_form_content">
-              <div class="mui_form_value"><span>자유적립식</span></div>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_content">
-              <span class="mui_checkbox">
-                <input type="checkbox" id="chk409889Id1" name="chk409889" />
-                <label for="chk409889Id1">비과세종합저축</label>
-              </span>
-              <div class="add_data">
-                <div class="mui_form">
-                  <div class="mui_form_list">
-                    <div class="mui_form_head"><span class="form_title">총불입한도</span></div>
-                    <div class="mui_form_content">
-                      <div class="mui_inputmoney">
-                        <span class="mui_input inner_subfix sublength_1">
-                          <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
-                        </span>
-                        <div class="mui_button_group"><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+500만</span></button></span><span class="group">
-                            <button class="mui_button mui_medium mui_primary" type="button"><span>+1,000만</span></button></span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              <div class="mui_contents_group lv_3">
+                <div class="mui_result line">
+                  <dl>
+                    <dt>적용이율
+                    </dt>
+                    <dd> 2.55%
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>예상총이자
+                    </dt>
+                    <dd> 120,300원(세전)
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>월지급이자
+                    </dt>
+                    <dd> 233원
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>잔여일수 지급이자
+                    </dt>
+                    <dd> 0원
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>총 수입제세
+                    </dt>
+                    <dd> 360원
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>차감지급 월 이자
+                    </dt>
+                    <dd> 360원
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>차감지급 잔여일수 이자
+                    </dt>
+                    <dd> 360원
+                    </dd>
+                  </dl>
+                  <dl>
+                    <dt>차감지급액
+                    </dt>
+                    <dd> 360원
+                    </dd>
+                  </dl>
                 </div>
               </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
             </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">만기해지방법</span></div>
-            <div class="mui_form_content">
-              <div class="mui_radio_group button_type">
-                <span class="mui_radio">
-                  <input type="radio" id="btnType331Id2" name="btnType331Id2" checked="checked" />
-                  <label for="btnType331Id2">자동해지</label>
-                </span>
-                <span class="mui_radio">
-                  <input type="radio" id="btnType331Id3" name="btnType331Id2" />
-                  <label for="btnType331Id3">직접해지</label>
-                </span>
-              </div>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_head"><span class="form_title">만기시 입금계좌</span></div>
-            <div class="mui_form_content">
-              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">저축은행<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">입금은행 선택</span></span></button>
-              <div class="mui_inputbtn">
-                <span class="mui_input">
-                  <input type="text" placeholder="계좌번호입력" mui-input="" />
-                </span>
-                <div class="btn_sec">
-                  <button class="mui_button mui_medium mui_primary" type="button"><span>예금주확인</span></button>
-                </div>
-              </div>
-              <p class="mui_text warning">예금주 본인 계좌만 가능합니다.
-              </p>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_content">
-              <div class="agree_switch">
-                <p class="text">만기 SMS통지</p>
-                <div class="switch type2 main_color">
-                  <span class="mui_checkbox">
-                    <input type="checkbox" id="chk2322Id4" name="chk2322" />
-                    <label for="chk2322Id4">동의</label>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="mui_form_list">
-            <div class="mui_form_content">
-              <span class="mui_checkbox">
-                <input type="checkbox" id="chk4098892Id5" name="chk4098892" />
-                <label for="chk4098892Id5">권유직원</label>
-              </span>
-              <div class="mui_inputbtn">
-                <span class="mui_input">
-                  <input type="text" placeholder="권유직원" mui-input="" />
-                </span>
-                <div class="btn_sec">
-                  <button class="mui_button mui_medium mui_primary" type="button"><span>직원찾기</span></button>
-                </div>
-              </div>
-            </div>
+            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
-      </div>
-      <div class="mui_collapse guide_text">
-        <div class="mui_accordion" mui-accordion="">
-          <div class="acc_lists mui_open">
-            <div class="acc_header">
-              <p class="title">알아두세요</p>
-              <button class="mui_acc_button" type="button"> 닫기
-              </button>
-            </div>
-            <div class="mui_acc_content">
-              <div class="mui_text_lists guide">
-                <ul>
-                  <li>신규계좌 비밀번호는 출금계좌 비밀번호와 동일하게 설정됩니다.
-                  </li>
-                  <li>비과세종합저축의 경우 자격요건 및 한도초과 여부에 따라 변경될 수 있습니다.<br>(서비스시간 02:00 ~ 23:50)
-                  </li>
-                  <li>자동이체 등록시, 불입금액은 매월 입금계좌로 자동이체 됩니다.
-                  </li>
-                  <li>불입금액계약금액은 1만원 이상 가능합니다.
-                  </li>
-                  <li>기업은행 휴대폰번호계좌에 대해 이용가관CMS 신규 등록이 중단되었습니다.
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="mui_button_fixed"><span class="inset">
-          <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
-      <script src="/js/nouislider.min.js"></script>
+      </div><!-- / layer -->
       <script>
-        var el = GCui.util.$('#rangeSlider');
-        var data = GCui.util.$('#currData');
-        var range = [1, 10000];
-        noUiSlider.create(el, {
-          start: [range[0]],
-          connect: 'lower',
-          range: {
-            'min': range[0],
-            'max': range[1]
-          }
-        });
-        setSufix(range[0]);
-        el.noUiSlider.on('update', function(values, handle, unencoded, isTap, positions) {
-          setSufix(values[handle]);
-        });
-
-        function setSufix(n) {
-          var index = 0;
-          var sufix = ['만원', '억원'];
-          var rangeData = parseInt(n);
-          if (rangeData === range[1]) {
-            index = 1;
-            rangeData = 1;
-          }
-          data.innerHTML = rangeData + sufix[index];
-        }
+        GCui.modal('#fullLayer').show()
       </script>
     </div><!-- / contents -->
   </div>

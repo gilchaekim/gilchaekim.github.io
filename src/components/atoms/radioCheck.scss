@@ -245,11 +245,7 @@
 
 }
 .mini_type{
-  &.mui_radio_group, &.mui_checkbox_group {
-    margin-left: -20px;
-  }
   .mui_radio, .mui_checkbox {
-    margin-left: 20px;
     input:checked + label {
       color:$font_color01;
       &::after {

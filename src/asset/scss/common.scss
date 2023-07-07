@@ -4398,6 +4398,9 @@ hr {
 			margin-top: 24px;
 			background: $bg_color02;
 			padding: 20px;
+			&.layer_content {
+				margin-top: 0;
+			}
 
 			&.gcoverflow_box {
 				.overflow_wrap {
@@ -4785,6 +4788,21 @@ hr {
 			gap: 8px 0;
 			margin-top: 16px;
 			padding-left: 32px;
+		}
+	}
+	.etc_agree {
+		margin-top: 32px;
+		p.txt {
+			font-size: 14px;
+			color: $font_color03;
+			margin-top: 8px;
+		}
+		.chk {
+			margin-top: 24px;
+			label {
+				color: $font_color01;
+				font-weight: 700;
+			}
 		}
 	}
 
