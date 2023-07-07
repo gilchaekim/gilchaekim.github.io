@@ -246,55 +246,9 @@
           <p class="title lv2">신청정보 입력
           </p>
         </div>
+        <p class="sub_txt">대출신청을 위한 정보를 작성해주세요</p>
       </div>
       <div class="mui_contents_group lv_2">
-        <div class="mui_title">
-          <p class="title lv4">1. 대출신청정보
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="bank_product_details long_type">
-          <div class="mui_title">
-            <p class="title lv1"><em>직장인 신용대출</em>
-            </p>
-          </div>
-          <p class="sub_txt">재직중인 직장인을 위한 신용대출</p>
-          <div class="detail">
-            <div class="list">
-              <dl>
-                <dt>최저금리</dt>
-                <dd>연 1.3%</dd>
-              </dl>
-            </div>
-            <div class="img"> <img src="/src/images/img_prd.png" alt="신용대출/사잇돌 상품 이미지"></div>
-          </div>
-        </div>
-        <div class="mui_card no_tag">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>이름
-                </dt>
-                <dd> 김저축
-                </dd>
-              </dl>
-              <dl>
-                <dt>휴대폰번호
-                </dt>
-                <dd> 010-1234-5678
-                </dd>
-              </dl>
-              <dl>
-                <dt>주소
-                </dt>
-                <dd> [04130]서울 마포구 공덕공<br>168 11층
-                </dd>
-              </dl>
-            </div>
-            <button class="mui_button_custom gray-32" type="button"><span class="inset">주소변경</span></button>
-          </div>
-        </div>
         <div class="mui_card no_tag">
           <div class="inset">
             <div class="mui_result default">
@@ -304,12 +258,27 @@
                 <dd> <em><strong>3,000만원</strong></em>
                 </dd>
               </dl>
+              <dl>
+                <dt>예상금리
+                </dt>
+                <dd> <em><strong>5.54%</strong></em>
+                </dd>
+              </dl>
             </div>
           </div>
         </div>
         <hr>
         <div class="mui_contents_group lv_0">
           <div class="mui_form">
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">자금용도</span></div>
+              <div class="mui_form_content">
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">자금용도 선택</span></span></button>
+                <span class="mui_input">
+                  <input type="text" placeholder="직접입력" mui-input="" />
+                </span>
+              </div>
+            </div>
             <div class="mui_form_list form_error">
               <div class="mui_form_head"><span class="form_title">대출신청금액</span></div>
               <div class="mui_form_content">
@@ -332,33 +301,36 @@
               </div>
             </div>
             <div class="mui_form_list">
-              <div class="mui_form_head"><span class="form_title">거래유형</span></div>
+              <div class="mui_form_head"><span class="form_title">대출신청기간</span></div>
               <div class="mui_form_content">
                 <div class="mui_radio_group button_type">
                   <span class="mui_radio">
                     <input type="radio" id="btnTypeId1" name="btnTypeId1" checked="checked" />
-                    <label for="btnTypeId1">전체</label>
+                    <label for="btnTypeId1">1년</label>
                   </span>
                   <span class="mui_radio">
                     <input type="radio" id="btnTypeId2" name="btnTypeId1" />
-                    <label for="btnTypeId2">입금</label>
+                    <label for="btnTypeId2">2년</label>
                   </span>
                   <span class="mui_radio">
                     <input type="radio" id="btnTypeId3" name="btnTypeId1" />
-                    <label for="btnTypeId3">출금</label>
+                    <label for="btnTypeId3">3년</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId4" name="btnTypeId1" />
+                    <label for="btnTypeId4">4년</label>
+                  </span>
+                  <span class="mui_radio">
+                    <input type="radio" id="btnTypeId5" name="btnTypeId1" />
+                    <label for="btnTypeId5">5년</label>
                   </span>
                 </div>
               </div>
             </div>
             <div class="mui_form_list">
-              <div class="mui_form_head"><span class="form_title">입금은행</span></div>
+              <div class="mui_form_head"><span class="form_title">대출금 입금계좌정보</span></div>
               <div class="mui_form_content">
                 <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
-              </div>
-            </div>
-            <div class="mui_form_list">
-              <div class="mui_form_head"><span class="form_title">대출금 입금계좌번호</span></div>
-              <div class="mui_form_content">
                 <div class="mui_inputbtn">
                   <span class="mui_input">
                     <input type="text" placeholder="계좌번호 입력" mui-input="" />
@@ -369,6 +341,30 @@
                 </div>
                 <p class="mui_text warning">기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다.
                 </p>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_content">
+                <span class="mui_checkbox">
+                  <input type="checkbox" id="chk02Id6" name="chk02" />
+                  <label for="chk02Id6">권유직원</label>
+                </span>
+                <div class="mui_inputbtn">
+                  <span class="mui_input">
+                    <input type="text" placeholder="권유직원" mui-input="" />
+                  </span>
+                  <div class="btn_sec">
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>직원찾기</span></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_content">
+                <span class="mui_checkbox">
+                  <input type="checkbox" id="chk03Id7" name="chk03" />
+                  <label for="chk03Id7">대출거절사유 고지 신청</label>
+                </span>
               </div>
             </div>
           </div>
