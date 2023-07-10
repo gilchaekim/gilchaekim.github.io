@@ -139,12 +139,17 @@ block content
           type:'warning',
           text:"원금연장(이자당행이체) 시 이자는 출금계좌로 입금됩니다."
         })
-      +form_body()
-        +radioCheck({
-          name:'chk409889',
-          label:'비과세종합저축'
+      //- +form_body()
+      //-   +radioCheck({
+      //-     name:'chk409889',
+      //-     label:'비과세종합저축'
+      //-   })
+      +form_body({title:"과세구분"})
+        +button_select({
+          placeholder:"과세구분 선택",
+          label:"비과세"
         })
-
+        button(type="button").guide_btn 비과세종합저축 한도조회
       +form_body()
         +radioCheck({
           name:'chk4098892',

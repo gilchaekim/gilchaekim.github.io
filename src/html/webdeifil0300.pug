@@ -69,15 +69,12 @@ block content
         +form_value({
           value:"자유적립식"
         })
-      +form_body()
-        +radioCheck({
-          name:'chk409889',
-          label:'비과세종합저축'
-        })
-        .add_data
-          +form()
-            +form_body({title:"총불입한도"})
-              +input_money({btns:["+1만", "+100만", "+500만", "+1,000만"]})
+      //- +form_body()
+      //-   +radioCheck({
+      //-     name:'chk409889',
+      //-     label:'비과세종합저축'
+      //-   })
+
       +form_body({title:"만기해지방법"})
         +radioCheck({
           name:'btnType331',
@@ -107,15 +104,16 @@ block content
           type:'warning',
           text:"예금주 본인 계좌만 가능합니다."
         })
-      +form_body()
-        .agree_switch
-          p.text 만기 SMS통지
-          .switch.type2.main_color
-            +radioCheck({
-              name:'chk2322',
-              label:'동의',
-            })
-
+      +form_body({title:"과세구분"})
+        +button_select({
+          placeholder:"과세구분 선택",
+          label:"비과세"
+        })
+        button(type="button").guide_btn 비과세종합저축 한도조회
+        .add_data
+          +form()
+            +form_body({title:"총불입한도"})
+              +input_money({btns:["+1만", "+100만", "+500만", "+1,000만"],guideMoney:true})
       +form_body()
         +radioCheck({
           name:'chk4098892',
@@ -126,7 +124,14 @@ block content
           placeholder:"권유직원",
           type:"input"
         })
-
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk2322',
+              label:'동의',
+            })
   +collapse({
     className:"guide_text",
     isOpen:true,

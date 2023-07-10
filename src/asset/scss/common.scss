@@ -4423,7 +4423,13 @@ hr {
 			}
 		}
 	}
-
+	.grey_box {
+		background:$bg_color02;
+		border-radius: 12px;
+		padding: 16px;
+		font-size: 14px;
+		color:$font_color01;
+	}
 	.view_data {
 		text-align: center;
 

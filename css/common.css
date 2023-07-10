@@ -3862,6 +3862,9 @@ table, th, td {
   margin-top: 8px;
   position: relative;
 }
+.mui_form_list .mui_form_content:first-child {
+  margin-top: 0;
+}
 .mui_form_list .mui_form_content .mini_type {
   padding-top: 8px;
 }
@@ -3888,14 +3891,14 @@ table, th, td {
 .mui_form_list .mui_form_content .mui_text {
   margin-top: 12px;
 }
-.mui_form_list .mui_form_content > .mui_button_custom, .mui_form_list .mui_form_content > .mui_checkbox, .mui_form_list .mui_form_content > .mui_button_group {
-  margin-top: 12px;
-}
 .mui_form_list .mui_form_content > .mui_button_custom.white-round-24, .mui_form_list .mui_form_content > .mui_checkbox.white-round-24, .mui_form_list .mui_form_content > .mui_button_group.white-round-24 {
   margin-top: 8px;
 }
 .mui_form_list .mui_form_content > .mui_button_custom + .mui_form, .mui_form_list .mui_form_content > .mui_checkbox + .mui_form, .mui_form_list .mui_form_content > .mui_button_group + .mui_form {
   margin-top: 16px;
+}
+.mui_form_list .mui_form_content > .mui_button_custom:not(:first-child), .mui_form_list .mui_form_content > .mui_checkbox:not(:first-child), .mui_form_list .mui_form_content > .mui_button_group:not(:first-child) {
+  margin-top: 12px;
 }
 .mui_form_list .mui_form_content > .mui_button_custom + .mui_text {
   margin-top: 24px;
@@ -7875,6 +7878,13 @@ hr + .mui_accordion {
   padding-top: 4px;
   font-size: 18px;
   font-weight: 700;
+  color: var(--font_color01);
+}
+.webdep .grey_box {
+  background: var(--bg_color02);
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 14px;
   color: var(--font_color01);
 }
 .webdep .view_data {

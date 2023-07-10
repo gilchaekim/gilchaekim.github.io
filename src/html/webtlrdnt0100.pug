@@ -34,12 +34,14 @@ block content
           +input_money({
             btns:["+1만", "+10만", "+100만", "+1,000만"],
             placeholder:"숫자만 입력",
-            message:{type:"error", text:"에러 메세지"}
+            message:{type:"error", text:"에러 메세지"},
+            guideMoney:true
           })
         +form_body({title:"감액 1회 이체한도"})
           +input_money({
             btns:["+1만", "+10만", "+100만", "+1,000만"],
-            placeholder:"숫자만 입력"
+            placeholder:"숫자만 입력",
+            guideMoney:true
           })
       +collapse({
         className:"guide_text",

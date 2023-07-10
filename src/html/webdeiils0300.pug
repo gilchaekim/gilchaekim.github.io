@@ -65,14 +65,9 @@ block content
               .list 
                 p.title 예상총이자
                 p.text 120,300원(세전)
-      +form_body({title:"납입방법"})
+      +form_body({title:"이자지급방법"})
         +form_value({
           value:"정액식"
-        })
-      +form_body()
-        +radioCheck({
-          name:'chk409889',
-          label:'비과세종합저축'
         })
       +form_body()
         .agree_switch
@@ -136,15 +131,18 @@ block content
           type:'warning',
           text:"예금주 본인 계좌만 가능합니다."
         })
-      +form_body()
-        .agree_switch
-          p.text 만기 SMS통지
-          .switch.type2.main_color
-            +radioCheck({
-              name:'chk2322',
-              label:'동의',
-            })
 
+      //- +form_body()
+      //-   +radioCheck({
+      //-     name:'chk409889',
+      //-     label:'비과세종합저축'
+      //-   })
+      +form_body({title:"과세구분"})
+        +button_select({
+          placeholder:"과세구분 선택",
+          label:"비과세"
+        })
+        button(type="button").guide_btn 비과세종합저축 한도조회
       +form_body()
         +radioCheck({
           name:'chk4098892',
@@ -155,7 +153,14 @@ block content
           placeholder:"권유직원",
           type:"input"
         })
-
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk2322',
+              label:'동의',
+            })
   +collapse({
     className:"guide_text",
     isOpen:true,

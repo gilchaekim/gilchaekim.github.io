@@ -8,7 +8,7 @@ import {
   mergeOptions, 
   addLeadingZero, 
   isString,  
-  dimensions, 
+  numberOnly, 
   append, 
   addClass,
   removeClass,
@@ -49,6 +49,7 @@ export default {
     nextBtn:'.picker_header>.next_btn',
     $year:'.picker_header>.year_month>.current_year',
     $month:'.picker_header>.year_month>.current_month',
+    datePattern: ['yyyy', 'mm', 'dd'],
     format: 'yyyy.mm.dd',
     // The start view date
     startDate: null,
@@ -107,9 +108,6 @@ export default {
     },
     target({target}, $el) {
       return $(target, $el)
-    },
-    targetValue({test, value}) {
-      return `${test}234234233444${value}`;
     },
     format({format}) {
       return this.parseFormat(format);
@@ -798,6 +796,7 @@ export default {
       this.setValue();
     },
     parseFormat(format) {
+      
       const source = String(format).toLowerCase();
       const parts = source.match(/(y|m|d)+/g);
     
@@ -830,6 +829,7 @@ export default {
           default:
         }
       });
+      console.log(format);
       return format;
     }
   },

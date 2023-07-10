@@ -2022,7 +2022,7 @@
    *  right
    * }
    */
-  function dimensions(element) {
+  function dimensions$1(element) {
     var rect = isElement(element) ? toNode(element).getBoundingClientRect() : {
       height: height(element),
       width: width(element),
@@ -2039,7 +2039,7 @@
     };
   }
   function offset(element, coordinates) {
-    var currentOffset = dimensions(element);
+    var currentOffset = dimensions$1(element);
     var _toWindow = toWindow(element),
       pageYOffset = _toWindow.pageYOffset,
       pageXOffset = _toWindow.pageXOffset;
@@ -2156,7 +2156,7 @@
   function toPx(value) {
     var property = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'width';
     var element = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window;
-    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions(element)[property], value) : toFloat(value);
+    return isNumeric(value) ? +value : endsWith(value, 'vh') ? percent(height(toWindow(element)), value) : endsWith(value, 'vw') ? percent(width(toWindow(element)), value) : endsWith(value, '%') ? percent(dimensions$1(element)[property], value) : toFloat(value);
   }
   function percent(base, value) {
     return base * toFloat(value) / 100;
@@ -3059,7 +3059,7 @@
     hasAttr: hasAttr,
     removeAttr: removeAttr,
     data: data,
-    dimensions: dimensions,
+    dimensions: dimensions$1,
     offset: offset,
     position: position,
     offsetPosition: offsetPosition,
@@ -4259,6 +4259,7 @@
         }
         this.endDate = endDate;
       }
+      console.log('sdf');
     },
     // beforeDisconnect() {
     //   console.log('disconnected');
@@ -5257,7 +5258,7 @@
         var referenceElement = this.isActive ? this.placeholder : this.$el;
         this.topOffset = offset(referenceElement).top;
         var start = !!!this.start || parseProp(this.start, this.$el);
-        this.width = dimensions(isVisible(this.widthElement) ? this.widthElement : this.$el).width;
+        this.width = dimensions$1(isVisible(this.widthElement) ? this.widthElement : this.$el).width;
 
         // this._data로 들어감
         return {
@@ -5410,7 +5411,7 @@
           scrollElement.scrollLeft;
 
         // Ensure none positioned element does not generate scrollbars
-        var elDim = dimensions(element);
+        var elDim = dimensions$1(element);
         css(element, {
           top: -elDim.height,
           left: -elDim.width
@@ -5465,6 +5466,7 @@
       nextBtn: '.picker_header>.next_btn',
       $year: '.picker_header>.year_month>.current_year',
       $month: '.picker_header>.year_month>.current_month',
+      datePattern: ['yyyy', 'mm', 'dd'],
       format: 'yyyy.mm.dd',
       // The start view date
       startDate: null,
@@ -5508,13 +5510,8 @@
         var target = _ref5.target;
         return $$1(target, $el);
       },
-      targetValue: function targetValue(_ref6) {
-        var test = _ref6.test,
-          value = _ref6.value;
-        return "".concat(test, "234234233444").concat(value);
-      },
-      format: function format(_ref7) {
-        var format = _ref7.format;
+      format: function format(_ref6) {
+        var format = _ref6.format;
         return this.parseFormat(format);
       }
     },
@@ -6113,6 +6110,7 @@
               break;
           }
         });
+        console.log(format);
         return format;
       }
     },
@@ -7028,7 +7026,7 @@
   function getBrowser() {
     return browser || (browser = calcBrowser()), browser;
   }
-  function Resize(e) {
+  function Resize$1(e) {
     var t = e.swiper,
       s = e.on,
       a = e.emit;
@@ -9687,7 +9685,7 @@
       destroy: S
     });
   }
-  function Parallax(e) {
+  function Parallax$1(e) {
     var t = e.swiper,
       s = e.extendParams,
       a = e.on;
@@ -11469,8 +11467,8 @@
     Object.keys(prototypes[e]).forEach(function (t) {
       Swiper.prototype[t] = prototypes[e][t];
     });
-  }), Swiper.use([Resize, Observer]);
-  var modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax, Zoom, Controller, A11y, History, HashNavigation, Autoplay, Thumb, freeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards];
+  }), Swiper.use([Resize$1, Observer]);
+  var modules = [Virtual, Keyboard, Mousewheel, Navigation, Pagination, Scrollbar, Parallax$1, Zoom, Controller, A11y, History, HashNavigation, Autoplay, Thumb, freeMode, Grid, Manipulation, EffectFade, EffectCube, EffectFlip, EffectCoverflow, EffectCreative, EffectCards];
   Swiper.use(modules);
 
   var swiperData = {};
@@ -12050,6 +12048,526 @@
     return [dir, align];
   }
 
+  var Resize = {
+    connected: function connected() {
+      var _this$$options$resize,
+        _this = this;
+      this.registerObserver(observeResize(((_this$$options$resize = this.$options.resizeTargets) === null || _this$$options$resize === void 0 ? void 0 : _this$$options$resize.call(this)) || this.$el, function () {
+        return _this.$emit('resize');
+      }));
+    }
+  };
+
+  var Scroll = {
+    connected: function connected() {
+      var _this = this;
+      registerScrollListener(this._uid, function () {
+        return _this.$emit('scroll');
+      });
+    },
+    disconnected: function disconnected() {
+      unregisterScrollListener(this._uid);
+    }
+  };
+  var scrollListeners = new Map();
+  var unbindScrollListener;
+  function registerScrollListener(id, listener) {
+    unbindScrollListener = unbindScrollListener || on(window, 'scroll', function () {
+      return scrollListeners.forEach(function (listener) {
+        return listener();
+      });
+    }, {
+      passive: true,
+      capture: true
+    });
+    scrollListeners.set(id, listener);
+  }
+  function unregisterScrollListener(id) {
+    scrollListeners["delete"](id);
+    if (unbindScrollListener && !scrollListeners.size) {
+      unbindScrollListener();
+      unbindScrollListener = null;
+    }
+  }
+
+  function getMaxPathLength(el) {
+    return Math.ceil(Math.max.apply(Math, [0].concat(_toConsumableArray($$('[stroke]', el).map(function (stroke) {
+      try {
+        return stroke.getTotalLength();
+      } catch (e) {
+        return 0;
+      }
+    })))));
+  }
+
+  var _props = {
+    x: transformFn,
+    y: transformFn,
+    rotate: transformFn,
+    scale: transformFn,
+    color: colorFn,
+    backgroundColor: colorFn,
+    borderColor: colorFn,
+    blur: filterFn,
+    hue: filterFn,
+    fopacity: filterFn,
+    grayscale: filterFn,
+    invert: filterFn,
+    saturate: filterFn,
+    sepia: filterFn,
+    opacity: cssPropFn,
+    stroke: strokeFn,
+    bgx: backgroundFn,
+    bgy: backgroundFn
+  };
+  var keys = Object.keys;
+  var Parallax = {
+    mixins: [Media],
+    props: fillObject(keys(_props), 'list'),
+    data: fillObject(keys(_props), undefined),
+    computed: {
+      props: function props(properties, $el) {
+        var stops = {};
+        for (var prop in properties) {
+          if (prop in _props && !isUndefined(properties[prop])) {
+            stops[prop] = properties[prop].slice();
+          }
+        }
+        var result = {};
+        for (var _prop in stops) {
+          result[_prop] = _props[_prop](_prop, $el, stops[_prop], stops);
+        }
+        return result;
+      }
+    },
+    events: {
+      load: function load() {
+        this.$emit();
+      }
+    },
+    methods: {
+      reset: function reset() {
+        for (var prop in this.getCss(0)) {
+          css(this.$el, prop, '');
+        }
+      },
+      getCss: function getCss(percent) {
+        var css = {
+          transform: '',
+          filter: ''
+        };
+        for (var prop in this.props) {
+          this.props[prop](css, percent);
+        }
+        return css;
+      }
+    }
+  };
+  function transformFn(prop, el, stops) {
+    var unit = getUnit(stops) || {
+      x: 'px',
+      y: 'px',
+      rotate: 'deg'
+    }[prop] || '';
+    var transformFn;
+    if (prop === 'x' || prop === 'y') {
+      prop = "translate".concat(ucfirst(prop));
+      transformFn = function transformFn(stop) {
+        return toFloat(toFloat(stop).toFixed(unit === 'px' ? 0 : 6));
+      };
+    } else if (prop === 'scale') {
+      unit = '';
+      transformFn = function transformFn(stop) {
+        return getUnit([stop]) ? toPx(stop, 'width', el, true) / el.offsetWidth : stop;
+      };
+    }
+    if (stops.length === 1) {
+      stops.unshift(prop === 'scale' ? 1 : 0);
+    }
+    stops = parseStops(stops, transformFn);
+    return function (css, percent) {
+      css.transform += " ".concat(prop, "(").concat(getValue(stops, percent)).concat(unit, ")");
+    };
+  }
+  function colorFn(prop, el, stops) {
+    if (stops.length === 1) {
+      stops.unshift(getCssValue(el, prop, ''));
+    }
+    stops = parseStops(stops, function (stop) {
+      return parseColor(el, stop);
+    });
+    return function (css, percent) {
+      var _getStop = getStop(stops, percent),
+        _getStop2 = _slicedToArray(_getStop, 3),
+        start = _getStop2[0],
+        end = _getStop2[1],
+        p = _getStop2[2];
+      var value = start.map(function (value, i) {
+        value += p * (end[i] - value);
+        return i === 3 ? toFloat(value) : parseInt(value, 10);
+      }).join(',');
+      css[prop] = "rgba(".concat(value, ")");
+    };
+  }
+  function parseColor(el, color) {
+    return getCssValue(el, 'color', color).split(/[(),]/g).slice(1, -1).concat(1).slice(0, 4).map(toFloat);
+  }
+  function filterFn(prop, el, stops) {
+    if (stops.length === 1) {
+      stops.unshift(0);
+    }
+    var unit = getUnit(stops) || {
+      blur: 'px',
+      hue: 'deg'
+    }[prop] || '%';
+    prop = {
+      fopacity: 'opacity',
+      hue: 'hue-rotate'
+    }[prop] || prop;
+    stops = parseStops(stops);
+    return function (css, percent) {
+      var value = getValue(stops, percent);
+      css.filter += " ".concat(prop, "(").concat(value + unit, ")");
+    };
+  }
+  function cssPropFn(prop, el, stops) {
+    if (stops.length === 1) {
+      stops.unshift(getCssValue(el, prop, ''));
+    }
+    stops = parseStops(stops);
+    return function (css, percent) {
+      css[prop] = getValue(stops, percent);
+    };
+  }
+  function strokeFn(prop, el, stops) {
+    if (stops.length === 1) {
+      stops.unshift(0);
+    }
+    var unit = getUnit(stops);
+    var length = getMaxPathLength(el);
+    stops = parseStops(stops.reverse(), function (stop) {
+      stop = toFloat(stop);
+      return unit === '%' ? stop * length / 100 : stop;
+    });
+    if (!stops.some(function (_ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+        value = _ref2[0];
+      return value;
+    })) {
+      return noop;
+    }
+    css(el, 'strokeDasharray', length);
+    return function (css, percent) {
+      css.strokeDashoffset = getValue(stops, percent);
+    };
+  }
+  function backgroundFn(prop, el, stops, props) {
+    if (stops.length === 1) {
+      stops.unshift(0);
+    }
+    var attr = prop === 'bgy' ? 'height' : 'width';
+    props[prop] = parseStops(stops, function (stop) {
+      return toPx(stop, attr, el);
+    });
+    var bgProps = ['bgx', 'bgy'].filter(function (prop) {
+      return prop in props;
+    });
+    if (bgProps.length === 2 && prop === 'bgx') {
+      return noop;
+    }
+    if (getCssValue(el, 'backgroundSize', '') === 'cover') {
+      return backgroundCoverFn(prop, el, stops, props);
+    }
+    var positions = {};
+    var _iterator = _createForOfIteratorHelper(bgProps),
+      _step;
+    try {
+      for (_iterator.s(); !(_step = _iterator.n()).done;) {
+        var _prop2 = _step.value;
+        positions[_prop2] = getBackgroundPos(el, _prop2);
+      }
+    } catch (err) {
+      _iterator.e(err);
+    } finally {
+      _iterator.f();
+    }
+    return setBackgroundPosFn(bgProps, positions, props);
+  }
+  function backgroundCoverFn(prop, el, stops, props) {
+    var dimImage = getBackgroundImageDimensions(el);
+    if (!dimImage.width) {
+      return noop;
+    }
+    var dimEl = {
+      width: el.offsetWidth,
+      height: el.offsetHeight
+    };
+    var bgProps = ['bgx', 'bgy'].filter(function (prop) {
+      return prop in props;
+    });
+    var positions = {};
+    var _iterator2 = _createForOfIteratorHelper(bgProps),
+      _step2;
+    try {
+      for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+        var _prop3 = _step2.value;
+        var values = props[_prop3].map(function (_ref3) {
+          var _ref4 = _slicedToArray(_ref3, 1),
+            value = _ref4[0];
+          return value;
+        });
+        var min = Math.min.apply(Math, _toConsumableArray(values));
+        var max = Math.max.apply(Math, _toConsumableArray(values));
+        var down = values.indexOf(min) < values.indexOf(max);
+        var diff = max - min;
+        positions[_prop3] = "".concat((down ? -diff : 0) - (down ? min : max), "px");
+        dimEl[_prop3 === 'bgy' ? 'height' : 'width'] += diff;
+      }
+    } catch (err) {
+      _iterator2.e(err);
+    } finally {
+      _iterator2.f();
+    }
+    var dim = Dimensions.cover(dimImage, dimEl);
+    var _iterator3 = _createForOfIteratorHelper(bgProps),
+      _step3;
+    try {
+      for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+        var _prop4 = _step3.value;
+        var attr = _prop4 === 'bgy' ? 'height' : 'width';
+        var overflow = dim[attr] - dimEl[attr];
+        positions[_prop4] = "max(".concat(getBackgroundPos(el, _prop4), ",-").concat(overflow, "px) + ").concat(positions[_prop4]);
+      }
+    } catch (err) {
+      _iterator3.e(err);
+    } finally {
+      _iterator3.f();
+    }
+    var fn = setBackgroundPosFn(bgProps, positions, props);
+    return function (css, percent) {
+      fn(css, percent);
+      css.backgroundSize = "".concat(dim.width, "px ").concat(dim.height, "px");
+      css.backgroundRepeat = 'no-repeat';
+    };
+  }
+  function getBackgroundPos(el, prop) {
+    return getCssValue(el, "background-position-".concat(prop.substr(-1)), '');
+  }
+  function setBackgroundPosFn(bgProps, positions, props) {
+    return function (css, percent) {
+      var _iterator4 = _createForOfIteratorHelper(bgProps),
+        _step4;
+      try {
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          var prop = _step4.value;
+          var value = getValue(props[prop], percent);
+          css["background-position-".concat(prop.substr(-1))] = "calc(".concat(positions[prop], " + ").concat(value, "px)");
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+    };
+  }
+  var dimensions = {};
+  function getBackgroundImageDimensions(el) {
+    var src = css(el, 'backgroundImage').replace(/^none|url\(["']?(.+?)["']?\)$/, '$1');
+    if (dimensions[src]) {
+      return dimensions[src];
+    }
+    var image = new Image();
+    if (src) {
+      image.src = src;
+      if (!image.naturalWidth) {
+        image.onload = function () {
+          dimensions[src] = toDimensions(image);
+          trigger(el, createEvent('load', false));
+        };
+        return toDimensions(image);
+      }
+    }
+    return dimensions[src] = toDimensions(image);
+  }
+  function toDimensions(image) {
+    return {
+      width: image.naturalWidth,
+      height: image.naturalHeight
+    };
+  }
+  function parseStops(stops) {
+    var fn = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : toFloat;
+    var result = [];
+    var length = stops.length;
+    var nullIndex = 0;
+    for (var i = 0; i < length; i++) {
+      var _ref5 = isString(stops[i]) ? stops[i].trim().split(' ') : [stops[i]],
+        _ref6 = _slicedToArray(_ref5, 2),
+        value = _ref6[0],
+        percent = _ref6[1];
+      value = fn(value);
+      percent = percent ? toFloat(percent) / 100 : null;
+      if (i === 0) {
+        if (percent === null) {
+          percent = 0;
+        } else if (percent) {
+          result.push([value, 0]);
+        }
+      } else if (i === length - 1) {
+        if (percent === null) {
+          percent = 1;
+        } else if (percent !== 1) {
+          result.push([value, percent]);
+          percent = 1;
+        }
+      }
+      result.push([value, percent]);
+      if (percent === null) {
+        nullIndex++;
+      } else if (nullIndex) {
+        var leftPercent = result[i - nullIndex - 1][1];
+        var p = (percent - leftPercent) / (nullIndex + 1);
+        for (var j = nullIndex; j > 0; j--) {
+          result[i - j][1] = leftPercent + p * (nullIndex - j + 1);
+        }
+        nullIndex = 0;
+      }
+    }
+    return result;
+  }
+  function getStop(stops, percent) {
+    var index = findIndex(stops.slice(1), function (_ref7) {
+      var _ref8 = _slicedToArray(_ref7, 2),
+        targetPercent = _ref8[1];
+      return percent <= targetPercent;
+    }) + 1;
+    return [stops[index - 1][0], stops[index][0], (percent - stops[index - 1][1]) / (stops[index][1] - stops[index - 1][1])];
+  }
+  function getValue(stops, percent) {
+    var _getStop3 = getStop(stops, percent),
+      _getStop4 = _slicedToArray(_getStop3, 3),
+      start = _getStop4[0],
+      end = _getStop4[1],
+      p = _getStop4[2];
+    return isNumber(start) ? start + Math.abs(start - end) * p * (start < end ? 1 : -1) : +end;
+  }
+  var unitRe = /^-?\d+(\S*)/;
+  function getUnit(stops, defaultUnit) {
+    var _iterator5 = _createForOfIteratorHelper(stops),
+      _step5;
+    try {
+      for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+        var _stop$match;
+        var stop = _step5.value;
+        var match = (_stop$match = stop.match) === null || _stop$match === void 0 ? void 0 : _stop$match.call(stop, unitRe);
+        if (match) {
+          return match[1];
+        }
+      }
+    } catch (err) {
+      _iterator5.e(err);
+    } finally {
+      _iterator5.f();
+    }
+    return defaultUnit;
+  }
+  function getCssValue(el, prop, value) {
+    var prev = el.style[prop];
+    var val = css(css(el, prop, value), prop);
+    el.style[prop] = prev;
+    return val;
+  }
+  function fillObject(keys, value) {
+    return keys.reduce(function (data, prop) {
+      data[prop] = value;
+      return data;
+    }, {});
+  }
+
+  var parallax = {
+    mixins: [Parallax, Resize, Scroll],
+    props: {
+      target: String,
+      viewport: Number,
+      // Deprecated
+      easing: Number,
+      start: String,
+      end: String
+    },
+    data: {
+      target: false,
+      viewport: 1,
+      easing: 1,
+      start: 0,
+      end: 0
+    },
+    computed: {
+      target: function target(_ref, $el) {
+        var target = _ref.target;
+        return getOffsetElement(target && query(target, $el) || $el);
+      },
+      start: function start(_ref2) {
+        var start = _ref2.start;
+        return toPx(start, 'height', this.target, true);
+      },
+      end: function end(_ref3) {
+        var end = _ref3.end,
+          viewport = _ref3.viewport;
+        return toPx(end || (viewport = (1 - viewport) * 100) && "".concat(viewport, "vh+").concat(viewport, "%"), 'height', this.target, true);
+      }
+    },
+    update: {
+      read: function read(_ref4, types) {
+        var percent = _ref4.percent;
+        if (!types.has('scroll')) {
+          percent = false;
+        }
+        if (!this.matchMedia) {
+          return;
+        }
+        var prev = percent;
+        percent = ease(scrolledOver(this.target, this.start, this.end), this.easing);
+        return {
+          percent: percent,
+          style: prev === percent ? false : this.getCss(percent)
+        };
+      },
+      write: function write(_ref5) {
+        var style = _ref5.style;
+        if (!this.matchMedia) {
+          this.reset();
+          return;
+        }
+        style && css(this.$el, style);
+      },
+      events: ['scroll', 'resize']
+    }
+  };
+
+  /*
+   * Inspired by https://gist.github.com/gre/1650294?permalink_comment_id=3477425#gistcomment-3477425
+   *
+   * linear: 0
+   * easeInSine: 0.5
+   * easeOutSine: -0.5
+   * easeInQuad: 1
+   * easeOutQuad: -1
+   * easeInCubic: 2
+   * easeOutCubic: -2
+   * easeInQuart: 3
+   * easeOutQuart: -3
+   * easeInQuint: 4
+   * easeOutQuint: -4
+   */
+  function ease(percent, easing) {
+    return easing >= 0 ? Math.pow(percent, easing + 1) : 1 - Math.pow(1 - percent, 1 - easing);
+  }
+
+  // SVG elements do not inherit from HTMLElement
+  function getOffsetElement(el) {
+    return el ? 'offsetTop' in el ? el : getOffsetElement(parent$1(el)) : document.documentElement;
+  }
+
   var worklists = {
     mixins: [Class, Togglable],
     props: {
@@ -12161,6 +12679,7 @@
     Scroll: scroll$1,
     Input: input,
     Tooltip: tooltip,
+    Parallax: parallax,
     Worklists: worklists
   });
 

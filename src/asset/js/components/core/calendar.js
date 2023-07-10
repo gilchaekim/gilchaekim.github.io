@@ -189,7 +189,7 @@ export default {
 
       this.endDate = endDate;
     }
-    
+    console.log('sdf');
 
   },
   // beforeDisconnect() {

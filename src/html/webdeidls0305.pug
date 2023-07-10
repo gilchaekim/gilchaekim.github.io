@@ -1,0 +1,28 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"비과세 안내",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"비과세 안내",
+    className:"webdep",
+    isCloseBtn:false,
+  })
+    p.grey_box 2020년 1월 1일 이후 비과세종합저축 가입자는 관련법(조세특례제한법 제88조의2)에 의거 직전 3개 과세기간 중 어느 하나 이상의 과세기간이 금융소득 종합과세 대상(금융소득 연간 합계액이 2천만원 초과)에 해당될 경우 가입대상에서 제외되며, 이후 관련 법령에서 정하는 절차에 따라 비과세종합저축이 해지(일반과세 전환)되는 등 불이익을 받을 수 있습니다.
+    +content_group(1)
+      +title({
+        text:"<strong>상기 내용을 안내 받고 이에 동의합니다.</strong>",
+        lv:6,
+      })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+        
+  script.
+    GCui.modal('#fullLayer').show()

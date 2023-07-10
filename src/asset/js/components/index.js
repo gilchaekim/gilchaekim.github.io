@@ -15,6 +15,7 @@ export {default as Tree} from './core/tree';
 export {default as Scroll} from './core/scroll';
 export {default as Input} from './core/input';
 export {default as Tooltip} from './core/tooltip';
+export {default as Parallax} from './core/parallax';
 
 
 // 마크업진행표

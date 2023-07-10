@@ -232,45 +232,30 @@
       </header>
     </div><!-- / header --><!-- contents -->
     <div id="contants">
-      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#modal_bottom;"><span>대출신청금액</span></button><!-- layer -->
-      <div class="mui_bottom_tray_wrap" mui-modal="" id="modal_bottom">
-        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_bottom_tray">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>비과세 안내</span></button><!-- layer -->
+      <div class="mui_bottom_tray_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium webdep mui_auto_vertical mui_bottom_tray">
           <div class="mui_modal_body">
             <div class="mui_modal_header">
-              <p>대출신청금액
+              <p>비과세 안내
               </p>
             </div>
             <div class="mui_modal_content">
-              <div class="mui_form">
-                <div class="mui_form_list">
-                  <div class="mui_form_head"><span class="form_title">대출신청금액</span></div>
-                  <div class="mui_form_content">
-                    <div class="mui_inputmoney">
-                      <span class="mui_input inner_subfix sublength_1">
-                        <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
-                      </span>
-                      <p class="money_guide">
-                        100만<span>원</span></p>
-                      <div class="mui_button_group"><span class="group">
-                          <button class="mui_button mui_medium mui_primary" type="button"><span>1만</span></button></span><span class="group">
-                          <button class="mui_button mui_medium mui_primary" type="button"><span>10만</span></button></span><span class="group">
-                          <button class="mui_button mui_medium mui_primary" type="button"><span>100만</span></button></span><span class="group">
-                          <button class="mui_button mui_medium mui_primary" type="button"><span>1,000만</span></button></span>
-                      </div>
-                    </div>
-                  </div>
+              <p class="grey_box">2020년 1월 1일 이후 비과세종합저축 가입자는 관련법(조세특례제한법 제88조의2)에 의거 직전 3개 과세기간 중 어느 하나 이상의 과세기간이 금융소득 종합과세 대상(금융소득 연간 합계액이 2천만원 초과)에 해당될 경우 가입대상에서 제외되며, 이후 관련 법령에서 정하는 절차에 따라 비과세종합저축이 해지(일반과세 전환)되는 등 불이익을 받을 수 있습니다.</p>
+              <div class="mui_contents_group lv_1">
+                <div class="mui_title">
+                  <p class="title lv6"><strong>상기 내용을 안내 받고 이에 동의합니다.</strong>
+                  </p>
                 </div>
               </div>
-              <div class="mui_button_wrap">
-                <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button>
-              </div>
+              <div class="mui_button_fixed"><span class="inset">
+                  <button class="mui_button mui_large mui_primary" type="button"><span>확인</span></button></span></div>
             </div>
-            <button class="mui_modal_close">닫기</button>
           </div>
         </div>
       </div><!-- / layer -->
       <script>
-        GCui.modal('#modal_bottom').show()
+        GCui.modal('#fullLayer').show()
       </script>
     </div><!-- / contents -->
   </div>

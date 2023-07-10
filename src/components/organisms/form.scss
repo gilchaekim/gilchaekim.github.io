@@ -40,6 +40,9 @@
   .mui_form_content{
     margin-top: 8px;
     position: relative;
+    &:first-child {
+      margin-top: 0;
+    }
     .mini_type {
       padding-top: 8px;
     }
@@ -81,7 +84,10 @@
       & + .mui_form {
         margin-top: 16px;
       }
-      margin-top: 12px;
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+      
     }
     & > .mui_button_custom + .mui_text {
       margin-top: 24px;
