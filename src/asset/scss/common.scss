@@ -5198,7 +5198,11 @@ hr {
 		font-size: 14px;
 		color: $font_color01;
 	}
-
+	p.agree {
+		font-size: 14px;
+		font-weight: 700;
+		color:$font_color01;
+	}
 	.mui_title {
 		&+.mui_text_lists {
 			margin-top: 16px;
@@ -5269,6 +5273,7 @@ hr {
 
 		&.last {
 			border-bottom: 0 none;
+			margin-bottom: 8px;
 		}
 	}
 }

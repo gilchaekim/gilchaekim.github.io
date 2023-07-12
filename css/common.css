@@ -8521,6 +8521,11 @@ hr + .mui_accordion {
   font-size: 14px;
   color: var(--font_color01);
 }
+.signupguide_wrap p.agree {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--font_color01);
+}
 .signupguide_wrap .mui_title + .mui_text_lists {
   margin-top: 16px;
 }
@@ -8573,6 +8578,7 @@ hr + .mui_accordion {
 }
 .signupguide_wrap .sub_txt.last {
   border-bottom: 0 none;
+  margin-bottom: 8px;
 }
 
 .bank_products.limit .btn_arrow {

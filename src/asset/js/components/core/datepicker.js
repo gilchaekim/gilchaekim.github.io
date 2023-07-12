@@ -835,7 +835,6 @@ export default {
   },
   update: {
     write() {
-      console.log('resize')
       if (this.isActivePicker) this.closePickerDate()
     },
 

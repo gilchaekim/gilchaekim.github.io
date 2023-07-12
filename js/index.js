@@ -6116,7 +6116,6 @@
     },
     update: {
       write: function write() {
-        console.log('resize');
         if (this.isActivePicker) this.closePickerDate();
       },
       events: ['scroll', 'resize']
