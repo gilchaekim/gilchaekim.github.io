@@ -2837,6 +2837,9 @@ table, th, td {
 .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
 }
+.mui_agree_check.auto_chk .chk_btn::after {
+  display: none;
+}
 .mui_agree_check:not(.chk_lists, .chk_lists_block) .chk_btn.mui_active + .inset {
   display: none;
 }
@@ -2954,6 +2957,9 @@ table, th, td {
 }
 .mui_agree_check .inset {
   padding: 24px 16px 0;
+}
+.mui_agree_check .inset .inset {
+  padding-top: 16px;
 }
 .mui_agree_check .inset .mui_agree_check ~ .mui_agree_check {
   margin-top: 16px;
@@ -7720,6 +7726,11 @@ hr + .mui_accordion {
   font-size: 20px;
 }
 
+.webdep .sub_text {
+  font-size: 14px;
+  color: var(--font_color03);
+  margin-top: 8px;
+}
 .webdep .webdep_wrap .item_wrap {
   margin: -24px -24px 0;
   padding: 24px 24px 32px 24px;

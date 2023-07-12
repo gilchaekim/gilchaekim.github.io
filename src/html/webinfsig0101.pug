@@ -5,16 +5,13 @@ block prepend top
   - pageTitle = "금융계산기"
 
 block content
-  <!-- 2023.06.29 탭 내부 태그변경 button > a로 변경 -->
   +tabsLink({
     list:[		
       {name:"예금이자"},
       {name:"적금이자"},
       {name:"대출이자", active:true},
     ],
-    className:"custom_tab"
   })
-    <!-- 2023.06.29 태그추가 mui_contents_group lv_2 -->
     +content_group(2)
       +form()
         +form_body({title:"대출금리"})
@@ -69,7 +66,6 @@ block content
             className:"right_top"
           })
       
-    <!-- 2023.06.29 태그추가 mui_contents_group lv_1 -->
     +content_group(1)
       +button({
         label:"계산하기",
@@ -78,7 +74,6 @@ block content
         className:"mui_button_custom",
         disabled:true
       })
-    <!-- 2023.06.29 신규 -->
     hr
     div.calc_result
       +title({

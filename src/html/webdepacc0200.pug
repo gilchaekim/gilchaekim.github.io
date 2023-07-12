@@ -7,7 +7,7 @@ block prepend top
 block content
   +content_group(0)
     +stepNum({
-      total:4,
+      total:5,
       activeIndex:1
     })
   +content_group(0)
@@ -15,6 +15,7 @@ block content
       text:"약관동의",
       lv:2,
     })
+    p.sub_text 계좌개설에 필요한 약관에 동의해주세요.
   +content_group(2)
     +agree_check({
       text:"금융상품 중요사항 안내",
@@ -40,12 +41,20 @@ block content
       +agree_check({
         text:"[필수] 개인(신용)정보 수집 이용 동의",
       })
+        +agree_check({
+          text:"[필수] 고유식별정보 수집·이용 동의",
+          className:"auto_chk"
+        })
+        +agree_check({
+          text:"[필수] 개인(신용)정보 제3자 제공 동의",
+          className:"auto_chk"
+        })
       +agree_check({
         text:"[필수] 개인(신용)정보 제3자 제공 동의",
       })
-    +agree_check({
-      text:"상품가입 전 확인사항",
-    })
+      +agree_check({
+        text:"[필수] 예금자 보호 설명",
+      })
   +content_group(1)
     +agree_check({
       text:"[선택] 개인(신용)정보 수집제공동의",
@@ -68,6 +77,9 @@ block content
           },
         ]
       })
+    +agree_check({
+      text:"상품가입 전 확인사항",
+    })
       
       
 
