@@ -115,7 +115,8 @@ textarea {
 html {
   --main_color01: #DF6311;
   --main_color02: #477A71;
-  --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color03: rgba(223, 99, 17, 0.06);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;
@@ -150,6 +151,7 @@ html.bank1 {
   --main_color01: #DF6311;
   --main_color02: #477A71;
   --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;
@@ -184,6 +186,7 @@ html.bank2 {
   --main_color01: #DF6311;
   --main_color02: #477A71;
   --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;

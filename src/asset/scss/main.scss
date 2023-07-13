@@ -30,6 +30,9 @@
 .main{
   position: relative;
   overflow: hidden;
+  .notice {
+    text-align: left;
+  }
   #contants{
     position: relative;
     z-index: 2;
@@ -73,7 +76,7 @@
       }
     }
     .mui_contents_group{
-      margin-top: 32px;
+      margin-top: 24px;
       & ~ .mui_contents_group{
         margin-top: 40px;
       }
@@ -97,7 +100,7 @@
       display: block;
       width: 73px;
       height: 32px;
-      background: $main_color01;
+      background:$main_color02;
       border-radius: 16px 16px 16px 0;
       text-align: center;
       line-height: 32px;
@@ -111,7 +114,7 @@
     .text{
       position: relative;
       top: -7px;
-      background:$main_color03;
+      background: $main_color04;
       height: 56px;
       padding: 0 20px;
       line-height: 56px;
@@ -198,6 +201,8 @@
       width: 72px;
       display: inline-block;
       vertical-align: top;
+      position: relative;
+      top: 8px;
     }
     .swiper-scrollbar-drag{
       width: 30px;
@@ -211,7 +216,6 @@
       display: inline-block;
       vertical-align: top;
       position: relative;
-      top: -6px;
       margin-left: 8px;
     }
     .ico{
@@ -269,7 +273,7 @@
        a{
         height: 300px;
         border-radius:60px;
-        padding: 40px 32px 0;
+        padding: 32px 32px 0;
        } 
       }
       .title{
@@ -301,20 +305,19 @@
         color:$font_color06;
       }
       .decs{
-        margin-top: 12px;
+        margin-top: 8px;
       }
     }
     &.type3{
-      margin-top: 32px;
       .slider{
         background: none;
         box-shadow: none;
       }
       .ico{
-        width: 112px;
-        height: 112px;
+        width: 100px;
+        height: 100px;
         position: absolute;
-        top: 0;
+        top: 8px;
         right: 0;
       }
       .lists{
@@ -328,7 +331,7 @@
        } 
       }
       .decs{
-        margin-top: 16px;
+        margin-top: 12px;
         color:$font_color02;
       }
     }
@@ -418,6 +421,9 @@
         left: 0;
         display: block;
         padding: 0;
+        &::after {
+          display: none;
+        }
       }
       .nav_list{
         & ~ .nav_list {
@@ -479,7 +485,7 @@
     .text{
       color:$font_color03;
       font-size: 13px;
-      margin-top: 12px;
+      margin-top: 8px;
     }
     .divide{
       display: flex;
@@ -514,7 +520,7 @@
       .box{
         flex: 1;
         border: 1px solid #efefef;
-        padding: 24px 0;
+        padding: 20px 0;
         text-align: center;
         border-radius: 20px;
         box-shadow: 0 4px 8px rgba(0,0,0,.04);
@@ -523,7 +529,7 @@
         }
       }
       .percent{
-        margin-top: 32px;
+        margin-top: 24px;
         .txt2{
           color: $main_color01;
         }
@@ -570,7 +576,7 @@
         padding: 24px 24px 20px;
       }
       .divide{
-        margin-top: 24px;
+        margin-top: 20px;
         text-align: center;
         .percent{
           .txt2{
@@ -732,8 +738,8 @@
           height: 40px;
           line-height: 40px;
           background:$bg_color02;
-          border-radius: 20px;
-          padding: 0 16px;
+          border-radius: 12px;
+          padding: 0 12px;
           .text{
             @include ellipsis()
           }
@@ -746,7 +752,7 @@
         overflow: hidden;
         .lists {
           background:$bg_color02;
-          border-radius: 8px;
+          border-radius: 12px;
           padding: 20px;
         }
         span{
@@ -912,7 +918,7 @@
         a {
           flex: 1;
           border-radius: 20px;
-          padding: 24px;
+          padding: 20px;
           box-sizing: border-box;
           background:$bg_color02;
           & ~ a{
@@ -922,14 +928,11 @@
         .ico{
           width: 40px;
           height: 40px;
-          border-radius: 20px;
-          background:$bg_color03;
           display: block;
-          padding: 4px;
         }
         .tel{
           display: block;
-          margin-top: 16px;
+          margin-top: 12px;
         }
         .text{
           display: block;
