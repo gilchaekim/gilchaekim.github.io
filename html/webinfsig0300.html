@@ -255,13 +255,13 @@
               <dl>
                 <dt>대출가능한도
                 </dt>
-                <dd> <em><strong>3,000만원</strong></em>
+                <dd> <em class="big"><strong>3,000만원</strong></em>
                 </dd>
               </dl>
               <dl>
                 <dt>예상금리
                 </dt>
-                <dd> <em><strong>5.54%</strong></em>
+                <dd> <em class="big"><strong>5.54%</strong></em>
                 </dd>
               </dl>
             </div>
@@ -344,18 +344,31 @@
               </div>
             </div>
             <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">CMS은행</span></div>
               <div class="mui_form_content">
-                <span class="mui_checkbox">
-                  <input type="checkbox" id="chk02Id6" name="chk02" />
-                  <label for="chk02Id6">권유직원</label>
-                </span>
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
+                <p class="mui_text warning">본인명의의 계좌만 등록이 가능합니다.
+                </p>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">CMS계좌번호</span></div>
+              <div class="mui_form_content">
                 <div class="mui_inputbtn">
                   <span class="mui_input">
-                    <input type="text" placeholder="권유직원" mui-input="" />
+                    <input type="text" placeholder="계좌번호 입력" mui-input="" />
                   </span>
                   <div class="btn_sec">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>직원찾기</span></button>
+                    <button class="mui_button mui_medium mui_primary" type="button"><span>계좌확인</span></button>
                   </div>
+                </div>
+                <p class="mui_text warning">본인명의의 계좌만 등록이 가능합니다.
+                </p>
+                <div class="mui_checkbox_group mini_type sub_etc">
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="mini_typeId6" />
+                    <label for="mini_typeId6">대출금 입금은행 계좌정보와 동일</label>
+                  </span>
                 </div>
               </div>
             </div>
