@@ -6,7 +6,7 @@ block content
     muiToggle:'target:#fullLayer;'
   })
   +modal({
-    title:"토스인증서",
+    title:"금융인증서",
     id:"fullLayer",
     type:"full",
     className:"webcom"
@@ -14,12 +14,12 @@ block content
     .certifi
       .ico 
         span.type2
-          img(src="/src/images/ico_cer01.svg", alt="")
-      p.txt 토스인증서를 이용하시려면<br>토스인증서 등록을 하셔야합니다.
+          img(src="/src/images/ico_cer02.svg", alt="")
+      p.txt 금융인증서를 이용하시려면<br>금융인증서 등록을 하셔야 합니다.
       +content_group(1)
         +button_custom({
           type:"round-40",
-          label:"토스인증서 등록"
+          label:"금융인증서 등록"
         })
   script.
     GCui.modal('#fullLayer').show()

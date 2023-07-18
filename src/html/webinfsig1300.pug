@@ -102,16 +102,44 @@ block content
             type:'warning',
             text:"기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다."
           })
-        +form_body()
-          +radioCheck({
-            type:"checkbox",
-            name:'chk02',
-            label:'권유직원'
+        +form_body({title:"CMS은행"})
+          +button_select({
+            placeholder:"은행 선택",
           })
+          +text({
+            type:'warning',
+            text:"본인명의의 계좌만 등록이 가능합니다."
+          })
+        +form_body({title:"CMS계좌번호"})
           +input_button({
-            btnText:"직원찾기",
-            placeholder:"권유직원",
+            btnText:"계좌확인",
+            placeholder:"계좌번호 입력",
+            disabled:false,
           })
+          +text({
+            type:'warning',
+            text:"본인명의의 계좌만 등록이 가능합니다."
+          })
+          +radioCheck({
+            name:'mini_type',
+            type:"checkbox",
+            className:'mini_type sub_etc',
+            lists:[
+              {
+                label:'대출금 입금은행 계좌정보와 동일'
+              }
+            ]
+          })
+        //- +form_body()
+        //-   +radioCheck({
+        //-     type:"checkbox",
+        //-     name:'chk02',
+        //-     label:'권유직원'
+        //-   })
+        //-   +input_button({
+        //-     btnText:"직원찾기",
+        //-     placeholder:"권유직원",
+        //-   })
         +form_body()
           +radioCheck({
             type:"checkbox",

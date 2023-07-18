@@ -16,7 +16,6 @@ block content
     })
     .inf_card 
       .card 
-        span.ico 
         dl
           dt 직장인 신용대출 
           dd 
@@ -25,7 +24,6 @@ block content
               | 4.18
               span.sm %
       .card 
-        span.ico 
         dl
           dt 사잇돌대출
           dd 
@@ -33,12 +31,10 @@ block content
             span.em 
               | 8,000
               span.sm 만원
-    +content_group(1)
-      +button({
-        label:"재심사 요청하기",
-        size:"medium",
-        type:"white",
-      })
+    +content_group(2)
+      .txt_link_wrap
+        a(href="").txt_link
+          em 재심사 요청하기
     hr
     .status
       +tabsWrap({
