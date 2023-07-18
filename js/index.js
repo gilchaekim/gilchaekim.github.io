@@ -2488,8 +2488,6 @@
     return toWindow(element).document.scrollingElement;
   }
 
-  function toNumeric(el) {}
-
   /**
    * length 길이만큼 str길이를 잘라서 반환
    * @param {string} str 입력값
@@ -2499,16 +2497,29 @@
   function headStr(str, length) {
     return str.slice(0, length);
   }
+
+  /**
+   * 숫자만 추출하여 반환
+   * @param {string} val 평가 값
+   * @returns val 숫자만
+   */
   function numberOnly(val) {
-    return val.replace(/[A-Za-z]/g, '').replace(/[^\dM-]/g, '').replace(/\-/g, '');
+    return val.replace(/[A-Za-z]/g, "").replace(/[^\dM-]/g, "").replace(/\-/g, "");
   }
-  function dateFormat(value, pattern, blocks) {
+
+  /**
+   * 날짜 형식의 값으로 변환
+   * @param {string} value 입력 값
+   * @param {array} pattern 날짜 패턴 ([yyyy, mm, dd], [yy, mm, dd])
+   * @returns 주어진 날짜 형식의 값
+   */
+  function dateFormat(value, pattern) {
     var valArr;
-    var newVal = '';
+    var newVal = "";
     value = numberOnly(value);
     valArr = value.split("");
-    for (var i = 0; i < blocks.length; i++) {
-      var str = valArr.splice(0, blocks[i]).join("");
+    for (var i = 0; i < pattern.length; i++) {
+      var str = valArr.splice(0, pattern[i].length).join("");
       switch (pattern[i]) {
         case "yyyy":
           {
@@ -2520,23 +2531,23 @@
           }
         case "mm":
           {
-            if (str === '00') {
-              str = '01';
+            if (str === "00") {
+              str = "01";
             } else if (toNumber(str.slice(0, 1)) > 1) {
               str = "0".concat(toNumber(str));
             } else if (toNumber(str) > 12) {
-              str = '12';
+              str = "12";
             }
             break;
           }
         case "dd":
           {
-            if (str === '00') {
-              str = '01';
+            if (str === "00") {
+              str = "01";
             } else if (toNumber(str.slice(0, 1)) > 3) {
               str = "0".concat(toNumber(str));
             } else if (toNumber(str) > 31) {
-              str = '31';
+              str = "31";
             }
             break;
           }
@@ -2545,9 +2556,22 @@
     }
     return newVal;
   }
+
+  /**
+   * 숫자만 추출하여 반환
+   * @param {string} value 입력 값
+   * @param {string} delimiter 기호
+   * @returns value 에서 delimiter를 뺀 값
+   */
   function numerFormat(value, delimiter) {
     return numberOnly(value).replace(/(\d)(?=(\d{3})+$)/g, "$1".concat(delimiter));
   }
+
+  /**
+   * 숫자만 추출하여 반환
+   * @param {array} blocks 
+   * @returns value 에서 delimiter를 뺀 값
+   */
   function getMaxlength(blocks) {
     return blocks.reduce(function (previous, current) {
       return previous + current;
@@ -2560,13 +2584,13 @@
     return value.toLowerCase();
   }
   /**
-   * [ . ? * + ^ $ [ \ ] \ \ ( ) { } | - ] 
+   * [ . ? * + ^ $ [ \ ] \ \ ( ) { } | - ]
    * 구분자를 받아 구분자를 검색하는 정규식문자를 만들어 반환
    * @param {string} delimiter 구분자
    * @returns 구분자를 찾는 정규식
    */
   function getDelimiterREByDelimiter(delimiter) {
-    return new RegExp(delimiter.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1'), 'g');
+    return new RegExp(delimiter.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1"), "g");
   }
 
   /**
@@ -2579,13 +2603,13 @@
   function getRawValue(value, delimiter, delimiters, maxlength) {
     // single delimiter
     if (delimiters.length === 0) {
-      var delimiterRE = delimiter ? getDelimiterREByDelimiter(delimiter) : '';
-      value = value.replace(delimiterRE, '');
+      var delimiterRE = delimiter ? getDelimiterREByDelimiter(delimiter) : "";
+      value = value.replace(delimiterRE, "");
     } else {
       // multiple delimiters
       delimiters.forEach(function (current) {
-        current.split('').forEach(function (letter) {
-          value = value.replace(getDelimiterREByDelimiter(letter), '');
+        current.split("").forEach(function (letter) {
+          value = value.replace(getDelimiterREByDelimiter(letter), "");
         });
       });
     }
@@ -2599,7 +2623,7 @@
    * @returns 치횐된 값
    */
   function strip(value, re) {
-    return value.replace(re, '');
+    return value.replace(re, "");
   }
 
   /**
@@ -2613,9 +2637,9 @@
    * @returns 가공된 값
    */
   function getFormattedValue(value, blocks, delimiter, delimiters, delimiterLazyShow) {
-    var result = '',
+    var result = "",
       multipleDelimiters = delimiters.length > 0,
-      currentDelimiter = '';
+      currentDelimiter = "";
 
     // no options, normal input
     if (blocks.length === 0) {
@@ -2651,7 +2675,7 @@
 
   /**
    * 커서가 값의 끝에 위치할 경우 새 값의 길이 반환,
-   * 
+   *
    * @param {number} prevPos 입력박스 커서 위치 값 selectionEnd
    * @param {string} oldValue 입력박스 값
    * @param {string} newValue pps.result 값
@@ -2676,11 +2700,11 @@
   }
 
   /**
-   * 입력박스 내 값의 선택영역을 설정한다. 
+   * 입력박스 내 값의 선택영역을 설정한다.
    * start, end 두 값으로 지정하는데 시작과 끝의 값은 같다.
    * @param {element} element 엘리먼트
    * @param {number} position 커서 마지막 위치
-   * @param {document} doc 	
+   * @param {document} doc
    */
   function setSelection(element, position, doc) {
     if (element !== getActiveElement(doc)) {
@@ -2693,14 +2717,14 @@
     }
     if (element.createTextRange) {
       var range = element.createTextRange();
-      range.move('character', position);
+      range.move("character", position);
       range.select();
     } else {
       try {
         element.setSelectionRange(position, position);
       } catch (e) {
         // eslint-disable-next-line
-        console.warn('The input element type does not support selection');
+        console.warn("The input element type does not support selection");
       }
     }
   }
@@ -2723,17 +2747,17 @@
    * 입력값의 마지막 문자가 delimiter 와 일치하는가? delimiter : ""
    * @param {string} value 입력 값
    * @param {string} delimiter 구분자 문자열
-   * @param {attay} delimiters 구분자 배열
+   * @param {array} delimiters 구분자 배열
    * @returns 구분자 또는 빈 문자열
    */
   function getPostDelimiter(value, delimiter, delimiters) {
     // single delimiter
     if (delimiters.length === 0) {
-      return value.slice(-delimiter.length) === delimiter ? delimiter : '';
+      return value.slice(-delimiter.length) === delimiter ? delimiter : "";
     }
 
     // multiple delimiters
-    var matchedDelimiter = '';
+    var matchedDelimiter = "";
     delimiters.forEach(function (current) {
       if (value.slice(-current.length) === current) {
         matchedDelimiter = current;
@@ -3186,7 +3210,6 @@
     scrolledOver: scrolledOver,
     scrollParents: scrollParents,
     offsetViewport: offsetViewport,
-    toNumeric: toNumeric,
     headStr: headStr,
     numberOnly: numberOnly,
     dateFormat: dateFormat,
@@ -5683,9 +5706,13 @@
         removeClass(calendar, 'mui_active');
       },
       getValue: function getValue() {
+        console.log(dateFormat(this.target.value, this.datePattern));
+        // datePattern()
+        // dateFormat(this.target.value, this.datePattern)
         return this.target.value;
       },
       setValue: function setValue() {
+        console.log('aa');
         this.target.value = this.formatDate(this.date);
       },
       createItem: function createItem(data, type) {
@@ -6034,6 +6061,7 @@
         return formatted;
       },
       parseDate: function parseDate(date) {
+        console.log(date);
         var format = this.format;
         var parts = [];
         if (!isDate(date)) {
@@ -6110,7 +6138,6 @@
               break;
           }
         });
-        console.log(format);
         return format;
       }
     },
@@ -6242,7 +6269,7 @@
           $el.rawValue = numerFormat($el.rawValue, delimiter);
         }
         if (dateForm) {
-          $el.rawValue = dateFormat($el.rawValue, datePattern, blocks);
+          $el.rawValue = dateFormat($el.rawValue, datePattern);
         }
         if (uppercase) {
           $el.rawValue = uppercaseFormat($el.rawValue);

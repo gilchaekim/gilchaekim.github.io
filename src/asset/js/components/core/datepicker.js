@@ -9,6 +9,7 @@ import {
   addLeadingZero, 
   isString,  
   numberOnly, 
+  dateFormat,
   append, 
   addClass,
   removeClass,
@@ -297,9 +298,13 @@ export default {
       removeClass(calendar, 'mui_active');
     },
     getValue() {
+      console.log(dateFormat(this.target.value, this.datePattern));
+      // datePattern()
+      // dateFormat(this.target.value, this.datePattern)
       return this.target.value;
     },
     setValue() {
+      console.log('aa');
       this.target.value = this.formatDate(this.date);
     },
     createItem(data, type) {
@@ -729,10 +734,10 @@ export default {
           formatted = formatted.replace(part, values[part]);
         });
       }
-  
       return formatted;
     },
     parseDate(date) {
+      console.log(date);
       const { format } = this;
       let parts = [];
   
@@ -796,7 +801,6 @@ export default {
       this.setValue();
     },
     parseFormat(format) {
-      
       const source = String(format).toLowerCase();
       const parts = source.match(/(y|m|d)+/g);
     
@@ -829,7 +833,6 @@ export default {
           default:
         }
       });
-      console.log(format);
       return format;
     }
   },
