@@ -15,9 +15,9 @@
   &:not(.chk_lists, .chk_lists_block) {
     .chk_btn{
       &.mui_active{
-        & + .inset{
-          display: none;
-        }
+        // & + .inset{
+        //   display: none;
+        // }
       }
     }
   }

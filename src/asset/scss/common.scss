@@ -1008,6 +1008,41 @@ hr {
 			height: 160px;
 		}
 	}
+	.certifi {
+		text-align: center;
+		.ico {
+			&:first-child {
+				margin-top: 36px;
+			}
+			& + .txt {
+				margin-top: 24px;
+			}
+			a, span {
+				display: inline-block;
+				vertical-align: top;
+				&.type1 {
+					width: 120px;
+				}
+				&.type2 {
+					width: 100px;
+				}
+			}
+			
+		}
+		.mui_title {
+			margin-top: 36px;
+			& + .txt {
+				margin-top: 24px;
+			}
+		}
+		.txt {
+			font-size: 14px;
+			color: $font_color03;
+			& + .ico {
+				margin-top: 32px;
+			}
+		}
+	}
 
 	.mui_button_wrap {
 		padding: 16px 24px 40px 24px;
@@ -2843,6 +2878,34 @@ hr {
 
 /* 금융상품(대출) */
 .webinf {
+	.inf_result{
+		.text_main {
+			color:$main_color01;
+			margin-bottom: 8px;
+		}
+		.mui_text  {
+			margin-top: 12px;
+		}
+		.ico_block {
+			height: 120px;
+			margin: 24px 0;
+			background: url($url_common+"ico_inf01.svg") no-repeat right center;
+			background-size: 120px;
+			&.type2 {
+				background-image: url($url_common+"ico_inf02.svg");
+			}
+		}
+		.bg_ico{
+			min-height: 80px;
+			background: url($url_common+"ico_inf03.svg") no-repeat right center;
+			background-size: 80px;
+			.text {
+				margin-top: 8px;
+				font-size: 14px;
+				color:$font_color03;
+			}
+		}
+	}
 	.mui_button{
 		&.main_search {
 			margin-top: -52+36px;
@@ -3137,6 +3200,16 @@ hr {
 					&::after {
 						display: none;
 					}
+				}
+			}
+		}
+	}
+	.mui_form_list {
+		.mui_form_content {
+			.mini_type.sub_etc {
+				padding-top:12px;
+				label {
+					color:$font_color03;
 				}
 			}
 		}
@@ -3942,11 +4015,20 @@ hr {
 			width: 114px;
 		}
 	}
+	.txt_link_wrap {
+		text-align: center;
+		.txt_link {
+			display: inline-block;
+			border-bottom: 1px solid $main_color01;
+			font-size: 14px;
+		}
+	}
 	.inf_card {
 		margin-top: 24px;
 		display: flex;
 		gap: 16px;
 		flex: 1;
+		
 		.card {
 			width: 100%;
 			border-radius: 20px;
@@ -3960,7 +4042,6 @@ hr {
 				display: block;
 			}
 			dl {
-				margin-top: 8px;
 				dt {
 					font-size: 14px;
 					color:$font_color01;
@@ -4226,7 +4307,7 @@ hr {
 	}
 	.mui_card {
 		.mui_result {
-			dd {
+			.big{
 				font-size:20px;
 			}
 		}

@@ -11,9 +11,7 @@ block content
       mainText:"안타깝게도 대출한도가<br>조회되지 않아 대출상품을<br>찾을 수없네요",
       img:"/src/images/ico_example2.png",
     })
-  +content_group(1)
-    +button({
-      label:"재심사 요청하기",
-      size:"medium",
-      type:"white",
-    })
+  +content_group(2)
+    .txt_link_wrap
+      a(href="").txt_link
+        em 재심사 요청하기
