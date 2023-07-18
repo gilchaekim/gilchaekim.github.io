@@ -1918,8 +1918,13 @@ table, th, td {
 }
 .mui_phone .mui_select {
   position: static;
-  width: 80px;
+  width: auto;
   margin-top: 0 !important;
+}
+.mui_phone .mui_select .label {
+  display: block;
+  padding-right: 20px;
+  white-space: nowrap;
 }
 .mui_phone .mui_input {
   margin-left: 16px;
@@ -2841,9 +2846,6 @@ table, th, td {
   margin-top: 16px;
 }
 .mui_agree_check.auto_chk .chk_btn::after {
-  display: none;
-}
-.mui_agree_check:not(.chk_lists, .chk_lists_block) .chk_btn.mui_active + .inset {
   display: none;
 }
 .mui_agree_check .chk_btn {
@@ -5143,6 +5145,38 @@ hr + .mui_accordion {
   width: 160px;
   height: 160px;
 }
+.webcom .certifi {
+  text-align: center;
+}
+.webcom .certifi .ico:first-child {
+  margin-top: 36px;
+}
+.webcom .certifi .ico + .txt {
+  margin-top: 24px;
+}
+.webcom .certifi .ico a, .webcom .certifi .ico span {
+  display: inline-block;
+  vertical-align: top;
+}
+.webcom .certifi .ico a.type1, .webcom .certifi .ico span.type1 {
+  width: 120px;
+}
+.webcom .certifi .ico a.type2, .webcom .certifi .ico span.type2 {
+  width: 100px;
+}
+.webcom .certifi .mui_title {
+  margin-top: 36px;
+}
+.webcom .certifi .mui_title + .txt {
+  margin-top: 24px;
+}
+.webcom .certifi .txt {
+  font-size: 14px;
+  color: var(--font_color03);
+}
+.webcom .certifi .txt + .ico {
+  margin-top: 32px;
+}
 .webcom .mui_button_wrap {
   padding: 16px 24px 40px 24px;
 }
@@ -6598,6 +6632,32 @@ hr + .mui_accordion {
 }
 
 /* 금융상품(대출) */
+.webinf .inf_result .text_main {
+  color: var(--main_color01);
+  margin-bottom: 8px;
+}
+.webinf .inf_result .mui_text {
+  margin-top: 12px;
+}
+.webinf .inf_result .ico_block {
+  height: 120px;
+  margin: 24px 0;
+  background: url("/src/images/ico_inf01.svg") no-repeat right center;
+  background-size: 120px;
+}
+.webinf .inf_result .ico_block.type2 {
+  background-image: url("/src/images/ico_inf02.svg");
+}
+.webinf .inf_result .bg_ico {
+  min-height: 80px;
+  background: url("/src/images/ico_inf03.svg") no-repeat right center;
+  background-size: 80px;
+}
+.webinf .inf_result .bg_ico .text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--font_color03);
+}
 .webinf .mui_button.main_search {
   margin-top: -16px;
   align-items: center;
@@ -6828,6 +6888,12 @@ hr + .mui_accordion {
 }
 .webinf .loan_wrap .status .nav_list button::after {
   display: none;
+}
+.webinf .mui_form_list .mui_form_content .mini_type.sub_etc {
+  padding-top: 12px;
+}
+.webinf .mui_form_list .mui_form_content .mini_type.sub_etc label {
+  color: var(--font_color03);
 }
 .webinf .mui_accordion.type2 + .warning {
   margin-top: 12px;
@@ -7456,6 +7522,14 @@ hr + .mui_accordion {
 .webinf .processes_img img {
   width: 114px;
 }
+.webinf .txt_link_wrap {
+  text-align: center;
+}
+.webinf .txt_link_wrap .txt_link {
+  display: inline-block;
+  border-bottom: 1px solid var(--main_color01);
+  font-size: 14px;
+}
 .webinf .inf_card {
   margin-top: 24px;
   display: flex;
@@ -7474,9 +7548,6 @@ hr + .mui_accordion {
   background: var(--bg_color01);
   border-radius: 14px;
   display: block;
-}
-.webinf .inf_card .card dl {
-  margin-top: 8px;
 }
 .webinf .inf_card .card dl dt {
   font-size: 14px;
@@ -7725,7 +7796,7 @@ hr + .mui_accordion {
   color: var(--font_color03);
   font-size: 14px;
 }
-.webinf .mui_card .mui_result dd {
+.webinf .mui_card .mui_result .big {
   font-size: 20px;
 }
 
