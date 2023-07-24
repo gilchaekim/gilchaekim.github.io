@@ -708,6 +708,7 @@ export default {
       //     ? `${viewYear + yearSuffix} ${months[viewMonth]}`
       //     : `${months[viewMonth]} ${viewYear}${yearSuffix}`);
       // this.$days.html(prevItems.join('') + items.join('') + nextItems.join(''));
+      
     },
 
 
