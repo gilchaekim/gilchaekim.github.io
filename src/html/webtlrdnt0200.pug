@@ -1,0 +1,38 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus flex_top_bot"
+  - pageTitle = "이체한도조회 및 감액"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"이체한도감액 처리가<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"1일 이체한도",
+          text:"100,000원",
+        },
+        {
+          title:"1회 이체한도",
+          text:"100,000원",
+        }
+      ]
+    })
+    
+  +text({
+    type:'warning',
+    text:"이체한도는 보안매체에 따라 감액된 한도보다 하향 적용 될 수 있으므로 참고하여 주시기 바랍니다.",
+    className:"flex_bot"
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

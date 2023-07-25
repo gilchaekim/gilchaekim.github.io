@@ -4,6 +4,7 @@
 <head>
   <title>METAUI</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="/docs/css/index.css">
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
@@ -42,6 +43,54 @@
         </section>
         <div class="code_block">
           <pre><code class="language-pug">+result({
+  data:[
+    {
+      title:"계좌상태",
+      text:"활동계좌",
+    },
+    {
+      title:"대출금액",
+      text:"200,000,000,000원",
+    },
+    {
+      title:"대출일자",
+      text:"YYYY.MM.DD",
+    },
+    {
+      title:"대출만기일자",
+      text:"YYYY.MM.DD",
+    },
+  ]
+})</code></pre>
+        </div>
+        <div class="view_code">
+          <button>code view Toggle</button>
+        </div>
+      </div>
+      <div class="guide_card_box">
+        <section class="code_view">
+          <div class="mui_result default greybox">
+            <dl>
+              <dt>계좌상태</dt>
+              <dd> 활동계좌</dd>
+            </dl>
+            <dl>
+              <dt>대출금액</dt>
+              <dd> 200,000,000,000원</dd>
+            </dl>
+            <dl>
+              <dt>대출일자</dt>
+              <dd> YYYY.MM.DD</dd>
+            </dl>
+            <dl>
+              <dt>대출만기일자</dt>
+              <dd> YYYY.MM.DD</dd>
+            </dl>
+          </div>
+        </section>
+        <div class="code_block">
+          <pre><code class="language-pug">+result({
+  className:"greybox",
   data:[
     {
       title:"계좌상태",

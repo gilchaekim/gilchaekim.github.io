@@ -1,0 +1,59 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"계좌 정보 확인",
+    isCloseBtn:false
+  })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"계약금액",
+          text:"20,000,000원",
+        },
+        {
+          title:"이자이체구분",
+          text:"타행이체",
+        },
+        {
+          title:"이자입금은행",
+          text:"KB국민은행",
+        },
+        {
+          title:"이자입금 계좌번호",
+          text:"123-45-67890",
+        },
+        {
+          title:"신규일",
+          text:"2022.06.15",
+        },
+        {
+          title:"만기일",
+          text:"2022.06.15",
+        },
+        {
+          title:"계약기간",
+          text:"12개월 0일",
+        },
+      ]
+    })
+    +button_bottom_fixed()
+      +button({
+        label:"취소",
+        size:"large",
+        type:"default",
+      })
+      +button({
+        label:"다음",
+        size:"large",
+      })
+        
+  script.
+    GCui.modal('#fullLayer').show()

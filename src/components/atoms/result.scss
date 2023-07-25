@@ -8,6 +8,9 @@
   }
   & + .mui_text {
     margin-top: 12px;
+    &.link {
+      margin-top: 16px;
+    }
   }
   &.line{
     border-top: 1px solid $line_color03;
@@ -34,6 +37,11 @@
       font-weight: 700;
     }
   }
+  &.greybox {
+    background:$bg_color02;
+    border-radius: 8px;
+    padding: 20px;
+  }
   dl{
     display: flex;
     justify-content: space-between;
@@ -53,6 +61,9 @@
   &_ico{
 		padding-top: 60px;
 		text-align: center;
+    &:first-child {
+      padding-top: 46px;
+    }
     &.null{
       padding-top: 40px;
       .main_txt{
@@ -89,8 +100,34 @@
 			font-size: 14px;
 		}
 	}
+  .search_addr{
+    height: 22px;
+    border-radius: 11px;
+    background:$bg_color02;
+    padding: 0 10px;
+    font-size: 13px;
+    color: #5C627C;
+  }
 }
 
 .tab_pane .mui_result_ico.null{
   padding-top: 20px;
+}
+
+.mui_bottom_tray{
+  .mui_result_ico{
+    padding-top: 0;
+    &.lv2 {
+      .main_txt {
+        font-size: 22px;
+      }      
+    }
+    .icon_img {
+      width: 48px;
+      height: 48px;
+    }
+    .main_txt {
+      font-size: 18px;
+    }
+  }
 }

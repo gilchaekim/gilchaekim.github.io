@@ -4,6 +4,7 @@
   "description": "metaui",
   "scripts": {
     "start": "gulp start",
+    "build": "gulp build",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -98,6 +99,7 @@
     "jstransformer-markdown-it": "^3.0.0",
     "merge-stream": "^2.0.0",
     "minimist": "^1.2.7",
+    "nouislider": "^15.7.0",
     "pngquant-bin": "^8.0.1",
     "rollup": "^2.79.1",
     "storybook-addon-preview": "^2.3.0",

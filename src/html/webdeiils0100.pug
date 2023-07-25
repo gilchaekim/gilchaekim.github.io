@@ -1,0 +1,130 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+
+
+block content
+  .bank_products
+    +content_group(0)   
+      +title({
+        text:"<em>정기적금</em>",
+        lv:1,
+      })
+      p.sub_txt 계약기간 동안 매월 일정 금액을 납입하는 목돈 마련 상품
+      .detail
+        .list 
+          dl 
+            dt 금리
+            dd 연 1.3%
+        .list 
+          dl 
+            dt 가입기간
+            dd 24개월
+        .img 
+          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+      button.btn_arrow
+        span.calc_txt 나의 적금 이자는?
+          strong 계산해보기
+    hr
+    +content_group(0)
+      +accordion({
+        active:0
+      })
+        +acc_title('상품안내')
+        +acc_content()
+          .product_data   
+            p.title 상품내용
+            p.text 계약기간 동안 매월 일정 금액을 납입하는 목돈 마련 상품
+            p.title 가입대상
+            p.text 개인(개인사업자), 법인
+            p.title  가입기간
+            p.text 6개월 이상~24개월 이하
+            p.title  가입금액
+            p.text 10만원 ~ 100억원
+            p.title  이자지급시기
+            p.text 만기일시지급, 만기 전 중도해지(중도해지이율 적용) 요청 시
+
+        +acc_title('금리정보')
+        +acc_content()
+          .product_data   
+            p.title 계약기간
+            p.text 기본금리
+            p.title 6개월
+            p.text 연 0.2%
+            p.title 12개월
+            p.text 연 0.2%
+            p.title 24개월
+            p.text 연 0.2%
+            p.title 36개월
+            p.text 연 0%
+        +acc_title('중도해지이율')
+        +acc_content()
+          .product_data   
+            p.title 계약기간
+            p.text 기본금리
+            p.title 6개월
+            p.text 연 0.2%
+            p.title 12개월
+            p.text 연 0.2%
+            p.title 24개월
+            p.text 연 0.2%
+            p.title 36개월
+            p.text 연 0%
+        +acc_title('만기 후 이율')
+        +acc_content()
+          .product_data   
+            p.title 계약기간
+            p.text 기본금리
+            p.title 6개월
+            p.text 연 0.2%
+            p.title 12개월
+            p.text 연 0.2%
+            p.title 24개월
+            p.text 연 0.2%
+            p.title 36개월
+            p.text 연 0%
+        +acc_title('약관 및 상품설명서')
+        +acc_content()
+          +button_wrap()
+            +button({
+              label:"거치식예금약관 및 특약",
+              size:"medium",
+              type:"white",
+            })
+    hr
+    .other_guide 
+      .img 
+        img(src="/src/images/img_kdic.png", alt="kdic보호예금상품 1인당 최고 5만원")    
+      .text 이 예금은 예금자보호법에 따라 예금보험공사가 보호하되, 보호 한도는 본 상호저축은행에 있는 귀하의 모든 예금보호 대상 금융상품의 원금과 소정의 이자를 합하여 1인당 "최고 5천만원"이며, 5천만원을 초과하는 나머지 금액은 보호하지 않습니다.
+    +collapse({
+      className:"guide_text",
+      isOpen:true,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"상품가입 전 반드시 상품설명서 및 약관을 확인하세요.",
+            },
+            {
+              text:"해당 상품에 대해 충분한 사전 설명을 받을 권리가 있으며, 설명을 이해한 후 가입해 주세요.",
+            },
+            {
+              text:"인터넷 예적금은 통장을 발급하지 않습니다.",
+            },
+            {
+              text:"인터넷 예적금을 비과세종합저축으로 가입하실 경우 그 한도를 설정하셔야 합니다.",
+            },
+          ]
+        })
+
+
+  
+  +button_bottom_fixed()
+    +button({
+      label:"가입하기",
+      size:"large",
+    })

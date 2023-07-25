@@ -2,19 +2,22 @@ extends ../components/templates/base.pug
 block prepend top 
   - showBg = true;
   - mainClassName="login"
-  - pageTitle = "뱅킹비밀번호 재등록"
+  - pageTitle = "계좌번호 찾기"
 
 block content
-  .main_title.type2
-    +title({
-      text:'보유 계좌번호 결과',
-      lv:1,
+  <!-- mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
+  <!-- .main_title.type2 -->
+  <!-- //mui_title 부터 .main_title.type2 해당태그 바깥으로 이동 -->
+  +title({
+    text:'보유 계좌번호 결과',
+    lv:1,
+  })
+  +content_group(2)
+    +data_sort({
+      total:"5",
+      date:"",
+      isBtn:false
     })
-  .total 
-    p 
-      | 총
-      em 2
-      | 건
 
   .acc_list_result 
     dl.list 
@@ -22,13 +25,20 @@ block content
       dd 
         span 000-00-00-00000 
         a.copy
-          span.hidden 계좌번호 복사
+          span 복사하기
     dl.list 
       dt 참알찬IBK저축은행보통예금
       dd 
         span 000-00-00-00000 
         a.copy
-          span.hidden 계좌번호 복사
+          span 복사하기
+
+  hr
+
+  +title({
+    text:"관련 메뉴 바로가기",
+    lv:4,
+  })
 
   +button_link({
     list: [

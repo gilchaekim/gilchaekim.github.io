@@ -13,7 +13,7 @@ block content
     lv:2,
   })
   <!-- 2023.05.02 수정 [클래스수정 sub_txt > webcom_sub_txt] -->
-  p.webcom_sub_txt 가입된 추가인증(전화승인/2채널 스마트폰 인증 등)을 통해야만 중요거래를 할 수 있는 보안서비스입니다.
+  p.webcom_sub_txt 가입된 추가인증(전화승인)을 통해야만 중요거래를 할 수 있는 보안서비스입니다. OTP를 보안매체로 사용하시는 경우 이체 서비스에서 추가인증을 하지 않습니다.
 
   hr
 
@@ -33,16 +33,6 @@ block content
         text:"인터넷뱅킹에서 서비스를 가입하실 수 있습니다.",
         className:"list_txt",
       }
-      ,
-      {
-        text:"PC지정서비스와 추가인증서비스는 중복선택 가입이 가능하며, 중복선택 가입시 지정된 PC에서는 추가인증 없이 거래가능하며, 미지정된 PC에서는 추가인증만으로 이체가 가능합니다.",
-        className:"list_txt",
-      }
-      ,
-      {
-        text:"가입 시에는 공인인증서가 필요하지 않습니다.",
-        className:"list_txt",
-      }
     ]
   })
 
@@ -55,7 +45,7 @@ block content
     type:'dot',
     lists:[
       {
-        text:"공인인증서 발급/재발급/타기관인증서 등록 및 인터넷뱅킹 이체거래에 적용됩니다.",
+        text:"타기관금융인증서 등록 및 인터넷뱅킹 이체거래에 적용됩니다.",
         className:"list_txt",
       },
       {
@@ -78,11 +68,11 @@ block content
     type:'dot',
     lists:[
       {
-        text:"공인인증서 발급/재발급/타기관인증서 등록 및 인터넷뱅킹 이체거래 시 적용됩니다.",
+        text:"타기관금융인증서 등록 및 인터넷뱅킹 이체거래 시 적용됩니다.",
         className:"list_txt",
       },
       {
-        text:"인증서비스 신청시 인증에 실패하는 경우 거래제한이 발생할 수 있습니다.",
+        text:"인증서비스 신청 시 인증에 실패하는 경우 거래제한이 발생할 수 있습니다.",
         className:"list_txt",
       },
       {
@@ -98,26 +88,14 @@ block content
         className:"list_txt",
       },
       {
-        text:"서비스해지는 인터넷에서 가능합니다.",
+        text:"서비스해지는 SB스마트뱅킹, 인터넷뱅킹에서 가능합니다.",
         className:"list_txt",
-      },
-      {
-        text:"다음의 번호가 포함될 경우 설정이 불가합니다.",
-        className:"list_txt",
-        subLists:{
-          type:'hyphhen',
-          lists:[
-            {
-              text:"주민등록번호 13자리 중 연속 6자리"
-            },
-            {
-              text:"연속/동일한 숫자 6자리",
-            },
-            {
-              text:"휴대폰번호 11자리 중 연속 6자리"
-            },
-          ]
-        }
       }
     ]
   })
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

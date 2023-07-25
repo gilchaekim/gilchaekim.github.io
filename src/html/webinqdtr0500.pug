@@ -1,0 +1,65 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinq"
+  - pageTitle = "예적금담보대출신청조회"
+
+block content
+  +title({
+    text:"예적금담보대출 신청상세",
+    lv:2,
+  })
+  .sub_txt 선택하신 대출의 내용을 확인해주세요.
+  +content_group(2)
+    +title({
+      text:"내용 확인",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"예적금계좌번호",
+          text:"123-12-45-1234565",
+        },
+        {
+          title:"대출금액",
+          text:"2,000,000원",
+        },
+        {
+          title:"입출금계좌번호",
+          text:"310-01-13-1234567",
+        },
+        {
+          title:"만기일자",
+          text:"2024.10.10",
+        },
+        {
+          title:"자동이체등록여부",
+          text:"등록",
+        },
+        {
+          title:"자동이체출금계좌",
+          text:"310-01-13-1234567",
+        },
+        {
+          title:"요청시간",
+          text:"17:07",
+        },
+        {
+          title:"승인시간",
+          text:"18:07",
+        }
+      ]
+    })
+
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default"
+    })
+    +button({
+      label:"대출실행하기",
+      size:"large"
+    })

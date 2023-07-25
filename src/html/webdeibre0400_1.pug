@@ -1,0 +1,75 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상세정보"
+
+block content
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"비대면 거래번호",
+        text:"60561150034350",
+      },
+      {
+        title:"진행단계",
+        text:"신청",
+      },
+      {
+        title:"가상계좌",
+        text:"60561150034350",
+      },
+      {
+        title:"비대면 인증금액",
+        text:"<em>8,100원</em>",
+      },
+      {
+        title:"보통예금 신규 진행상태",
+        text:"신청",
+      },
+      {
+        title:"보통예금 계좌번호",
+        text:"미완료",
+      },
+      {
+        title:"보통예금 상품명",
+        text:"(13002)",
+      },
+      {
+        title:"정기예금 신규 진행상태",
+        text:"신청내역 없음",
+      },
+      {
+        title:"적금 신규 진행상태",
+        text:"신청내역 없음",
+      },
+      {
+        title:"자동이체등록 진행상태",
+        text:"신청내역 없음",
+      },
+      {
+        title:"CMS등록 진행상태",
+        text:"신청내역 없음",
+      },
+      {
+        title:"인터넷 뱅킹등록 진행",
+        text:"신청내역 없음",
+      },
+      {
+        title:"체크카드 신청 진행상태",
+        text:"신청",
+      },
+      {
+        title:"사잇돌대출 신청 진행상태",
+        text:"신청내역 없음",
+      },
+    ]
+  })
+  
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

@@ -191,7 +191,8 @@
   }
   .main_slider{
     padding: 0 24px;
-    text-align: center;    
+    text-align: center;
+    border-radius:60px;
     .swiper_scrollbar{
       border-top: 1px solid #bcbcbc;
       width: 72px;
@@ -230,7 +231,7 @@
     .lists{
       background: none;
       a{
-        background:$main_color01; 
+        // background:$main_color01; 
       }
     }
     .title{
@@ -264,9 +265,10 @@
       }
       .lists{
         text-align: center;
+        border-radius:60px;
        a{
         height: 300px;
-        
+        border-radius:60px;
         padding: 40px 32px 0;
        } 
       }
@@ -620,6 +622,7 @@
         
       }
       img{
+        width:161px;
         height: 38px;
       }
     }

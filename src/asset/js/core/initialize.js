@@ -179,35 +179,29 @@ export default function (UICommon) {
     }
     
     UICommon.prototype._callUpdate = function (e = 'update') {
-        const type = e.type || e;
-        if (type === 'update' || type === 'resize') {
+        if (!this._connected) {
+            return;
+        }
+
+        if (e === 'update' || e === 'resize') {
             this._callWatches();
         }
-    
-        const updates = this.$options.update;
-        const {reads, writes} = this._frames;
-    
-        if (!updates) return;
-    
-        updates.forEach(({read, write, events}, i) => {
-            if (type !== 'update' && !includes(events, type)) return;
-    
-            if (read && !includes(fastdom.reads, read[i])) {
-                read[i] = fastdom.read(() => {
-                    const result = this._connected && read.call(this, this._data, type);
-    
-                    if (result === false && write) {
-                        fastdom.clear(writes[i]);
-                    } else if (isPlainObject(result)) {
-                        assign(this._data, result);
-                    }
-                });
-            }
-    
-            if (write && !includes(fastdom.writes, writes[i])) {
-                writes[i] = fastdom.write(() => this._connected && write.call(this, this._data, type))
-            }
-        }) 
+
+        if (!this.$options.update) {
+            return;
+        }
+
+        if (!this._updates) {
+            this._updates = new Set();
+            fastdom.read(() => {
+                if (this._connected) {
+                    runUpdates.call(this, this._updates);
+                }
+                delete this._updates;
+            });
+        }
+
+        this._updates.add(e.type || e);
     }
     
     UICommon.prototype._callWatches = function () {
@@ -250,6 +244,30 @@ export default function (UICommon) {
         });
     
     };
+    function runUpdates(types) {
+        for (const { read, write, events = [] } of this.$options.update) {
+            if (!types.has('update') && !events.some((type) => types.has(type))) {
+                continue;
+            }
+
+            let result;
+            if (read) {
+                result = read.call(this, this._data, types);
+
+                if (result && isPlainObject(result)) {
+                    assign(this._data, result);
+                }
+            }
+
+            if (write && result !== false) {
+                fastdom.write(() => {
+                    if (this._connected) {
+                        write.call(this, this._data, types);
+                    }
+                });
+            }
+        }
+    }
 }
 
 function getProps(opts, name) {

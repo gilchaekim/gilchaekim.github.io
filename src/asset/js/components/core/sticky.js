@@ -104,7 +104,7 @@ export default {
       name: 'load hashchange popstate',
       el: window,
       handler() {
-        console.log('hahahaha');
+        // console.log('hahahaha');
       }
     }
   ],
@@ -112,21 +112,19 @@ export default {
   update: [
     {
       read({height = 0, margin}, types) {
-
         this.inactive = !this.matchMedia || isVisible(this.$el);
         // 비활성화 되었거나 미디어쿼리 범위에 벗어나면 실행 취소
-        if (this.inactive) return false
+        // if (this.inactive) return false
 
         if (this.isActive && types.has('resize')) {
           this.hide();
           height = this.$el.offsetHeight;
-          console.log(this.$el);
         }
 
         height = this.isActive ? height : this.$el.offsetHeight;
 
         const referenceElement = this.isActive ? this.placeholder : this.$el;
-
+        
         this.topOffset = offset(referenceElement).top;
 
         const start = !!!this.start || parseProp(this.start, this.$el);
@@ -146,7 +144,6 @@ export default {
         
         const { height, margins, start } = data;
         const { $el, placeholder } = this;
-        console.log(start);
         css(placeholder, assign({height}, margins));
 
         if (!within(placeholder, document)) {
@@ -161,7 +158,6 @@ export default {
     {
       read({scroll = 0}) {
         this.scroll = window.pageYOffset;
-        console.log(this.$el);
         return {
           dir: scroll <= this.scroll ? 'down' : 'up',
           scroll: this.scroll,
@@ -175,7 +171,6 @@ export default {
         const now = performance.now();
 
         data.lastScroll = scroll;
-
         if ((this.topOffset - this.offset) <= this.scroll) {
           this.show();
         }else{

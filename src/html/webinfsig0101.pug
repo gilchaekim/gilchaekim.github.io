@@ -1,0 +1,75 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "금융계산기"
+
+block content
+  +tabsWrap({
+    active:2,
+    className:'custom_tab'
+  })
+    +tab("예금이자")
+      div 11111
+    +tab("적금이자")
+      div 22222
+    +tab("대출이자")
+      +form()
+        +form_body({title:"대출금리"})
+          +input({
+            placeholder:"숫자만 입력",
+            subfix:"%"
+          })
+        +form_body({title:"대출금액"})
+          +input({
+            placeholder:"숫자만 입력",
+            subfix:"원"
+          })
+          .money_support
+            strong 1,000만 원
+          +button_group({
+            className:"btn_money",
+            btns:[
+              '+100만',
+              '+500만',
+              '+1천만',
+              '+5천만',
+              '+1억',
+            ]
+          })
+        +form_body({title:"대출기간"})
+          +input({
+            placeholder:"숫자만 입력",
+            subfix:"개월"
+          })
+        
+        +form_body({title:"대출상환방식"})
+          +radioCheck({
+            name:'btnType',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'원금 균등',
+                checked:true
+              },
+              {
+                label:'원리금 군등'
+              },
+              {
+                label:'만기일시상환'
+              }
+            ]
+          })
+          +button_custom({
+            type:"white-round-24",
+            label:"이체한도",
+            className:"right_top"
+          })
+          
+      
+  +button({
+    label:"계산하기",
+    size:"medium",
+    type:"white",
+  })

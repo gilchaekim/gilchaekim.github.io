@@ -1,0 +1,26 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"인증서 선택",
+    isCloseBtn:false
+  })
+    .webinf
+      .certi_list
+        a(href="")
+          span.img_wrap
+            img(src="/src/images/ico_example2.png", alt="")
+          strong 휴대폰본인인증
+        a(href="")
+          span.img_wrap
+            img(src="/src/images/ico_example2.png", alt="")
+          strong 금융인증서
+      
+  script.
+    GCui.modal('#fullLayer').show()

@@ -42,5 +42,12 @@ const startServer = series(
   watch
 )
 
+
+const build = series(
+  scss,
+  javascript,
+  pug,
+)
+
 exports.start = startServer;
-exports.start = startServer;
+exports.build = build;

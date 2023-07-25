@@ -4,6 +4,7 @@
 <head>
   <title>METAUI</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
   <link rel="stylesheet" href="/docs/css/index.css">
   <link rel="stylesheet" href="/css/common.css">
   <script type="text/javascript" src="/js/index.js"></script>
@@ -23,6 +24,8 @@
         <section class="code_view">
           <p class="mui_text default">가나다라마바사</p>
           <p class="mui_text warning">가나다라마바사</p>
+          <p class="mui_text link"><a href="">대출신청 조회</a></p>
+          <p class="mui_text f18">입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?</p>
         </section>
         <div class="code_block">
           <pre><code class="language-pug">+text({
@@ -31,6 +34,14 @@
 +text({
   type:'warning',
   text:"가나다라마바사"
+})
++text({
+  type:'link',
+  text:"대출신청 조회"
+})
++text({
+  type:'f18',
+  text:"입력하신 정보로<em>정기예금 복리식(비대면)</em>상품에 가입하시겠어요?"
 })</code></pre>
         </div>
         <div class="view_code">

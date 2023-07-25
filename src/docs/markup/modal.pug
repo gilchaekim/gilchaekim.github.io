@@ -1,7 +1,6 @@
 extends ../layout/guideBase.pug
 
 block content
-  script(src="https://code.jquery.com/jquery-1.12.4.min.js") 
   div.main_content
     +guideTitle({
       text:"Modal"
@@ -237,12 +236,15 @@ block content
         |  GCui.modal.alert({
         |    title:"String",
         |    text:"String",
+        |    ok: "String"        // 확인 버튼 문구 (Defaut "확인")
         |  }).then(function(){console.log('Closed!')})
         | 
         | 
         |  GCui.modal.confirm({
         |    title:"String",
         |    text:"String",
+        |    ok: "String"        // 확인 버튼 문구 (Defaut "확인")
+        |    cancel: "String"    // 취소 버튼 문구 (Defaut "취소")
         |  }).then(function(){console.log('OK')}, function(){console.log('CANCEL')})
         | 
 
@@ -315,14 +317,6 @@ block content
 
 
     script. 
-
-      $("#modal").on('show', function(){
-        console.log('show');
-      })
-
-      $("#modal").on('hide', function(){
-        console.log('hide');
-      })
 
       document.addEventListener("DOMContentLoaded", (event) => {
         let elem = []

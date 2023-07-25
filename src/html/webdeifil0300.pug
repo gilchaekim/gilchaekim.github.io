@@ -1,0 +1,208 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"상품정보 입력",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"출금계좌",
+      lv:4,
+    })
+  +content_group(4)
+    +button_select_account({
+      isMoney:true
+    })
+  +content_group(1)
+    +form()
+      +form_body({title:"출금계좌 비밀번호"})
+        +input({
+          placeholder:"숫자 4자리",
+          type:"password"
+        })
+      +form_body({title:"가입기간"})
+        +input({
+          placeholder:"6~36",
+          subfix:"개월",
+        })
+      +form_body({title:"최초불입금액"})
+        .rangeslidr_wrap
+          .currdata
+            span#currData 6000만원
+          #rangeSlider
+          .rangedata
+            span 1만원
+            span 1억원
+        +content_group(2)
+            
+          .view_data
+            button.write_pop 직접입력
+            .guide_box.gcoverflow_box
+              .overflow_wrap
+                .list 
+                  p.title 적용이율
+                  p.text 255%
+                .list 
+                  p.title 예상총이자
+                  p.text 120,300원(세전)
+                .list 
+                  p.title 계약금액
+                  p.text 1,200,000원
+                .list 
+                  p.title 월부금
+                  p.text 120,300원(세전)
+                .list 
+                  p.title 총 적립 금액
+                  p.text 230원
+                .list 
+                  p.title 지급이자
+                  p.text 0원
+                .list 
+                  p.title 특별이자
+                  p.text 360원
+                .list 
+                  p.title 특별이율
+                  p.text 0%
+                .list 
+                  p.title 수입제세
+                  p.text 200원
+                .list 
+                  p.title 차감지급액
+                  p.text 2,111원
+              button.more(mui-toggle="target:.gcoverflow_box;cls:mui_active;")
+                span 상세정보 조회
+      +form_body({title:"납입방법"})
+        +form_value({
+          value:"자유적립식"
+        })
+      +form_body()
+        +radioCheck({
+          name:'chk409889',
+          label:'비과세종합저축'
+        })
+        .add_data
+          +form()
+            +form_body({title:"총불입한도"})
+              +input_money({btns:["+1만", "+100만", "+500만", "+1,000만"]})
+      +form_body({title:"만기해지방법"})
+        +radioCheck({
+          name:'btnType331',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'자동해지',
+              checked:true,
+            },
+            {
+              label:'직접해지'
+            },
+          ]
+        })
+      +form_body({title:"만기시 입금계좌"})
+        +button_select({
+          placeholder:"입금은행 선택",
+          label:"저축은행"
+        })
+        +input_button({
+          btnText:"예금주확인",
+          placeholder:"계좌번호입력",
+          type:"input"
+        })
+        +text({
+          type:'warning',
+          text:"예금주 본인 계좌만 가능합니다."
+        })
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk2322',
+              label:'동의',
+            })
+
+      +form_body()
+        +radioCheck({
+          name:'chk4098892',
+          label:'권유직원'
+        })
+        +input_button({
+          btnText:"직원찾기",
+          placeholder:"권유직원",
+          type:"input"
+        })
+
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"신규계좌 비밀번호는 출금계좌 비밀번호와 동일하게 설정됩니다.",
+          },
+          {
+            text:"비과세종합저축의 경우 자격요건 및 한도초과 여부에 따라 변경될 수 있습니다.<br>(서비스시간 02:00 ~ 23:50)",
+          },
+          {
+            text:"자동이체 등록시, 불입금액은 매월 입금계좌로 자동이체 됩니다.",
+          },
+          {
+            text:"불입금액계약금액은 1만원 이상 가능합니다.",
+          },
+          {
+            text:"기업은행 휴대폰번호계좌에 대해 이용가관CMS 신규 등록이 중단되었습니다.",
+          },
+        ]
+      })
+  
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })
+  script(src="/js/nouislider.min.js")
+  script. 
+    var el = GCui.util.$('#rangeSlider');
+    var data = GCui.util.$('#currData');
+    var range = [1, 10000];
+    noUiSlider.create(el, {
+      start: [range[0]],
+      connect: 'lower',
+      range: {
+        'min': range[0],
+        'max': range[1]
+      }
+    });
+    setSufix(range[0]);
+    el.noUiSlider.on('update', function (values, handle, unencoded, isTap, positions) {
+      setSufix(values[handle]);
+    });
+
+    function setSufix(n) {
+      var index = 0;
+      var sufix = ['만원', '억원'];
+      var rangeData = parseInt(n);
+      if (rangeData === range[1]) {
+        index = 1;
+        rangeData = 1;
+      }
+      data.innerHTML = rangeData + sufix[index];
+    }

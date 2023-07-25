@@ -1,0 +1,37 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webads"
+  - pageTitle = "추가인증서비스"
+
+block content
+  +content_group(0)
+    +title({
+      text:"추가인증서비스 신청선택",
+      lv:4,
+    })
+    +radioCheck({
+      name:'btnType',
+      type:"radio",
+      className:'block_type',
+      lists:[
+        {
+          label:'전화승인(ARS) 서비스'
+        }
+      ]
+    })
+    +text({
+      type:'warning',
+      text:"추가인증서비스는 이체업무 및 인증서업무 등의 서비스에서 사용됩니다."
+    })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default"
+    })
+    +button({
+      label:"신청하기",
+      size:"large",
+    })

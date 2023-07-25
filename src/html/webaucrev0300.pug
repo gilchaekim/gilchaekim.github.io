@@ -20,6 +20,11 @@ block content
           text:"000-00000-00000",
           lv:5,
         })
+    +form_body({title:"출금계좌 비밀번호"})
+      +input({
+        placeholder:"숫자 4자리",
+        type:"password"
+      })
     +form_body({title:"입금정보"})
       .form_val
         +title({

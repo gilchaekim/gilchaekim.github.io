@@ -1,0 +1,57 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:3
+    })
+  +content_group(0)
+    +title({
+      text:"전자금융 신청",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"2.이체한도 설정",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"1일 이체한도"})
+        +input_money({
+          placeholder:"숫자만 입력",
+          btns:[
+            "+1만",
+            "+10만",
+            "+100만",
+            "+1,000만",
+          ]
+        })
+      +form_body({title:"1회 이체한도"})
+        +input_money({
+          placeholder:"숫자만 입력",
+          btns:[
+            "+1만",
+            "+10만",
+            "+100만",
+            "+1,000만",
+          ]
+        })
+  +content_group(1)
+    +button({
+      label:"보안매체별 최대 이체한도",
+      size:"medium",
+      type:"white",
+    })
+    
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

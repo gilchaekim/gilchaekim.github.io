@@ -1,0 +1,75 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"고객정보입력",
+      lv:2,
+    })
+    +text({
+      text:"비대면 계좌개설을 위해 개인정보를 확인 및 입력해 주세요."
+    })
+  +content_group(3)
+    +title({
+      text:"기본정보",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"이름"})
+        +form_value({
+          value:"김저축"
+        })
+      +form_body({title:"휴대폰번호"})
+        +form_value({
+          value:"010-1234-5678"
+        })
+      +form_body({title:"이메일"})
+        +form_value({
+          value:"aaa11223344@naver.com"
+        })
+      +form_body({title:"주소"})
+        +input_button({
+          btnText:"주소찾기",
+          value:"[12345]서울 마포구 공덕동 168",
+          type:"input"
+        })
+        +input({
+          value:"11층",
+        })
+  +content_group(1)
+    +title({
+      text:"추가정보",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"직업"})
+        +button_select({
+          placeholder:"직업 선택",
+          label:"기타"
+        })
+        +input({
+          placeholder:"직접입력",
+        })
+      +form_body({title:"직종"})
+        +button_select({
+          placeholder:"직종 선택",
+          label:"직종"
+        })
+
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

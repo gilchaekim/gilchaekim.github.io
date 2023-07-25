@@ -89,7 +89,7 @@ function install({ modal }) {
             }</div>
             <div class="mui_modal_footer">
                 <button class="mui_button mui_modal_close" autofocus><span>${
-                    i18n.ok
+                    message.ok ? message.ok : i18n.ok
                 }</span></button>
             </div>
             ${!!options?.closeBtn ? "<button class=\"mui_modal_close\">닫기</button>" :""}
@@ -107,8 +107,8 @@ function install({ modal }) {
                     isString(message.text) ? message.text : html(message.text)
                 }</div>
                 <div class="mui_modal_footer confirm">
-                    <button class="mui_button mui_modal_close" type="button"><span>${i18n.cancel}</span></button>
-                    <button class="mui_button" autofocus><span>${i18n.ok}</span></button>
+                    <button class="mui_button mui_modal_close" type="button"><span>${ message.cancel ? message.cancel : i18n.cancel}</span></button>
+                    <button class="mui_button" autofocus><span>${message.ok ? message.ok : i18n.ok}</span></button>
                 </div>
                 ${!!options?.closeBtn ? "<button class=\"mui_modal_close\">닫기</button>" :""}
             </form>`,

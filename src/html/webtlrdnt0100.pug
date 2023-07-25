@@ -1,0 +1,70 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus"
+  - pageTitle = "이체한도관리"
+
+block content
+  +content_group(0)
+    +title({
+      text:"이체한도 조회 및 감액",
+      lv:2,
+    })
+    +content_group(2)
+      +title({
+        text:"현재 이체한도",
+        lv:4,
+      })
+      +result({
+        dataType:"line",
+        data:[
+          {
+            title:"1일",
+            text:"1,000,000원",
+          },
+          {
+            title:"1회",
+            text:"1,000,000원",
+          },
+        ]
+      })
+    +content_group(2)
+      +form()
+        +form_body({title:"감액 1일 이체한도", message:{type:"error"}})
+          +input_money({
+              btns:["+1만", "+10만", "+100만", "+1,000만"],
+              placeholder:"숫자만 입력",
+              message:{type:"error", text:"에러 메세지"}
+            })
+        +form_body({title:"감액 1회 이체한도"})
+          +input_money({
+              btns:["+1만", "+10만", "+100만", "+1,000만"],
+              placeholder:"숫자만 입력"
+            })
+      +collapse({
+        className:"guide_text",
+        isOpen:true,
+      })
+        +header()
+          p.title 알아두세요
+        +content()
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"[금융감독원 전자금융거래 보안대책]에 따라 이체한도증액은 영업점을 방문 또는 SB톡톡플러스에서 신청해주시기 바랍니다.",
+              },
+              {
+                text:"2013.12.27부터 [전자금융 보안등급별 이체한도 변경]에 따라 변경된 이체한도 내에서 등록하실 수 있습니다."
+              },
+              {
+                text:"인터넷뱅킹, SB스마트뱅킹, 텔레뱅킹 서비스도 함께 적용됩니다."
+              },
+            ]
+          })
+              
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

@@ -1,0 +1,49 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf flex_top_bot"
+  - pageTitle = "신용대출/사잇돌"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"김저축님의<br><em>대출신청이 완료</em>되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+    +title({
+      text:"신청정보",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"상품명",
+          text:"직장인 신용대출",
+        },
+        {
+          title:"예상한도",
+          text:"<em>1,000,000원</em>",
+        },
+        {
+          title:"예상금리",
+          text:"4.50%",
+        },
+      ]
+    })
+    +text({
+      type:'link',
+      text:"대출신청조회"
+    })
+  +text({
+    type:'warning',
+    text:"대출 진행을 원하실 경우 전자약정을 통해 대출을 완료하실 수 있습니다.",
+    className:"flex_bot"
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

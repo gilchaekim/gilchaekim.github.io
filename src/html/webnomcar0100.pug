@@ -1,0 +1,64 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webcus"
+  - pageTitle = "고객확인제도"
+
+block content
+  +result({
+    type:'result',
+    mainText:"고객확인제도(CDD/EDD)란?",
+    img:"/src/images/ico_example2.png",
+  })
+  .cdd_edd  
+    .grey_box 
+      .sec  
+        .txt1 고객확인<br>(CDD, Customer Due Diligence)
+        .txt2 고객님과의 계좌개설 등의 금융거래에서 고객확인을 위하여 고객명, 주민등록번호, 직업 등의 내용을 확인하도록 되어있습니다.<br>제공하신 정보는 고객확인을 위한 용도 외의 목적으로 사용되지 않으며, 금융실명법과 신용정보보호법 등에 따라 보호됩니다.
+      .sec  
+        .txt1 강화된 고객확인<br>(EDD, Enhanced Due Diligence)
+        .txt2 CDD에 추가하여 거래목적, 자금 원천 등을 추가 확인하게 됩니다. (근거:특정 금융거래정보의 보고 및 이용 등에 관한 법률)
+    hr
+    .more 
+      +content_group(1)
+        +title({
+          text:"준비사항",
+          lv:4,
+        })
+        +textLists({
+          type:'circle_num',
+          lists:[
+            {
+              text:"본인명의 휴대폰",
+            },
+            {
+              text:"신분증(주민등록증 또는 운전면허증)",
+            },
+            {
+              text:"본인명의 타행계좌",
+            },
+          ]
+        })
+      +content_group(1)
+        +title({
+          text:"인증절차",
+          lv:4,
+        })
+        p.dot 고객확인을 위해서는 본인인증이 필요하며 인증 절차는 아래와 같습니다.
+        .joi_steps 
+          ul 
+            li 
+              span.num 01
+              span.text 휴대폰 본인인증
+            li 
+              span.num 02
+              span.text 신분증 진위확인
+            li 
+              span.num 03
+              span.text 본인명의 타행계좌 인증
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

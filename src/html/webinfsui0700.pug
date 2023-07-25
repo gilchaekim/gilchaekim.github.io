@@ -1,0 +1,66 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "본인인증"
+
+block content
+  +stepNum({
+    total:5,
+    activeIndex:1
+  })
+  +content_group(0)
+    +title({
+      text:"본인인증",
+      lv:1,
+    })
+    .sub_txt
+      +textLists({
+        type:'dot',
+        lists:[
+          {
+            text:"대출가능여부 확인을 위해서는 본인확인 및 고객님의 신용정보조회 동의가 반드시 필요합니다.",
+          },
+          {
+            text:"고객님의 동의 없이 신용정보조회를 하지 않습니다.",
+          },
+        ]
+      })
+  +content_group(2)
+    +form()
+      +form_body({title:"성명"})
+        +form_value({
+          value:"김저축"
+        })
+      +form_body({title:"성명"})
+        +input({
+          placeholder:"이름 입력"
+        })
+      +form_body({title:"주민번호"})
+        +input_idnumber({
+          data:[
+            {
+              value:""
+            },
+            {
+              value:""
+            }
+          ]
+        })
+      +form_body({title:"연락처"})
+        +input({
+          placeholder:"연락처 입력"
+        })
+    
+    +content_group(1)
+      +button({
+        label:"실명인증",
+        size:"medium",
+        type:"white",
+      })
+    
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -1,0 +1,86 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "전자약정"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:5,
+      activeIndex:2
+    })
+  +content_group(0)
+    +title({
+      text:"약관동의",
+      lv:2,
+    })
+    .text_wrap
+      +text({
+        text:"선택하신 대출의 전자약정을 위한 동의가 필요합니다."
+      })
+  +content_group(2)
+    +agree_check({
+      text:"전체동의1"
+    })
+      +agree_check({
+        text:"[필수] 여신거래 기본약관",
+        isChecked:true
+      })
+      +agree_check({
+        text:"[필수] 대출서류 접수이용 및 동의",
+      })
+      +agree_check({
+        text:"[필수] 대출서류 접수 저장 및 보관에 관한 동의",
+      })
+      +agree_check({
+        text:"[필수] 고유식별정보 수집 및 이용 동의",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 조회 동의서 ",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집, 이용, 제공 동의서",
+      })
+      +agree_check({
+        text:"[필수] 개인정보 3자 제공 동의",
+      })
+  +content_group(0)
+    .inf_wrap
+      p.inf_tit [필수] 개인(신용)정보 조회 동의서
+      +radioCheck({
+        name:'btnType',
+        type:"radio",
+        className:'button_type',
+        lists:[
+          {
+            label:'요약',
+            checked:true
+          },
+          {
+            label:'상세'
+          }
+        ]
+      })
+  +content_group(1)
+    .inf_wrap
+      p.inf_tit [필수] 개인(신용)정보 수집·이용·제공 동의서
+      +radioCheck({
+        name:'btnType2',
+        type:"radio",
+        className:'button_type',
+        lists:[
+          {
+            label:'요약',
+            checked:true
+          },
+          {
+            label:'상세'
+          }
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -1,0 +1,39 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"김중앙님의<br><em>정기예금 단리식(비대면)</em><br>가입이 완료 되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+    +title({
+      text:"계좌정보",
+      lv:4,
+    })
+  +content_group(3)
+    +result({
+      dataType:"line", 
+      data:[
+        {
+          title:"계좌번호",
+          text:"403-61-24-2635185",
+        },
+      ]
+    })
+    +text({
+      type:'link',
+      text:"계좌상세정보"
+    })
+  
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

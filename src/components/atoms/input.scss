@@ -34,6 +34,7 @@
       color: #888;
       font-family: 'NanumBarunGothic', sans-serif;
       font-size: 16px;
+      text-align: left;
       
     }
   }
@@ -66,6 +67,8 @@
       text-align: right;
     }
     .subfix{
+      flex:none;
+      font-weight:700;
       line-height: 48px;
     }
   }
@@ -139,6 +142,7 @@
   .mui_select{
     position: static;
     width: 80px;
+    margin-top: 0 !important;
   }
   .mui_input{
     margin-left: 16px;

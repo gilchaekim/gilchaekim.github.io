@@ -1,0 +1,50 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus flex_top_bot"
+  - pageTitle = "거래중지계좌관리"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"거래중지계좌 해제신청이<br>완료되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"계좌번호",
+          text:"123-45-67890",
+        },
+        {
+          title:"개설일",
+          text:"2023.03.02",
+        },
+        {
+          title:"최종거래일",
+          text:"2023.03.03",
+        },
+        {
+          title:"편입일",
+          text:"2023.03.02",
+        },
+        {
+          title:"잔액",
+          text:"1,000,000원",
+        }
+      ]
+    })
+    
+  +text({
+    type:'warning',
+    text:"담당 저축은행에서 신청내역을 확인 후 중지해제 처리를 진행할 예정입니다.",
+    className:"flex_bot"
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

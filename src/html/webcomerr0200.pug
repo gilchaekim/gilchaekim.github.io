@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="error"
+  - pageTitle = "추가인증서비스"
+  - showHeader = false
+
+block content
+  +result({
+    type:'result',
+    mainText:"404 ERROR",
+    subText:"이 페이지를 표시할 수 없습니다.",
+    img:"/src/images/ico_example2.png",
+  })
+
+  +button_bottom_fixed()
+    +button({
+      label:"홈으로",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"뒤로가기",
+      size:"large",
+    })

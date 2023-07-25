@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "예적금담보대출신청조회"
+
+block content
+  +content_group(0)
+    +title({
+      text:"예적금담보대출 신청목록",
+      lv:2,
+    })
+    
+    +content_group(2)
+      +result({
+        type:'null',
+        mainText:"신청한 대출이 없습니다.",
+        img:"/src/images/ico_search_empty.svg",
+      })
+      +content_group(1)
+        +button({
+          label:"예적금담보대출 신청하기",
+          size:"medium",
+          type:"white",
+        })

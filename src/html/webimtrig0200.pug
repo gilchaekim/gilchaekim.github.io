@@ -50,6 +50,11 @@ block content
             type:"white-round-24",
             label:"이체한도",
           })
+        +form_body({title:"출금계좌 비밀번호"})
+          +input({
+            type:"password",
+            placeholder:"계좌비밀번호 입력",
+          })
         +form_body({title:"혼합식적금 입금 구분"})
           +button_select({
             placeholder:"대상조회"
@@ -59,14 +64,14 @@ block content
           //-   size:"medium",
           //-   type:"white",
           //- })
-          //- +radioCheck({
-          //-   type:"radio",
-          //-   name:'chk687565',
-          //-   lists:[
-          //-     {label:'약정부금액',checked:true},
-          //-     {label:'추가부금액',},
-          //-   ]
-          //- })
+          +radioCheck({
+            type:"radio",
+            name:'chk687565',
+            lists:[
+              {label:'약정부금액',checked:true},
+              {label:'추가부금액',},
+            ]
+          })
   +content_group(0)
     +collapse({
       isOpen:true,

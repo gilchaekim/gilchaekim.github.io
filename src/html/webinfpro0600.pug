@@ -1,0 +1,28 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf flex_top_bot"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"대출상품 대출신청에 대한<br>개인(신용)정보 동의서,<br>약관 동의 및 본인인증이<br>정상적으로 처리 되었습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+
+  .flex_bot
+    +text({
+      type:'warning',
+      text:"당일 17시 이후 대출신청이 완료된 고객님은 익일 9시 이후 대출심사가 이루어 집니다.",
+    })
+    +text({
+      type:'warning',
+      text:"대출심사에 따른 추가서류에 대한 요청이 있을 수 있으며, 서류심사 결과에 따라 대출신청이 취소될 수 있으니  이점 양해 바랍니다.",
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

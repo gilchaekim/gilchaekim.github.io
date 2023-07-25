@@ -1,0 +1,91 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "신용대출/사잇돌"
+
+block content
+  +stepNum({
+    total:5,
+    activeIndex:4
+  })
+  +content_group(1)
+    +title({
+      text:'신청정보 입력',
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:'3. 고객직장정보',
+      lv:4,
+    })
+  
+  +content_group(2)
+    .bank_product_details.long_type
+      +title({
+        text:"<em>직장인 신용대출</em>",
+        lv:1,
+      })
+      p.sub_txt 재직중인 직장인을 위한 신용대출
+      .detail
+        .list 
+          dl 
+            dt 금리
+            dd 연 1.3%
+        .img 
+          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
+    +card({
+      data: [
+          {
+            title:"이름",
+            text:"김저축",
+          },
+          {
+            title:"휴대폰번호",
+            text:"010-1234-5678",
+          },
+        ]
+    })
+    hr
+
+    +form()
+      +form_body({title:"직장명"})
+        +input({
+          placeholder:"직장명 입력"
+        })
+      +form_body({title:"직위"})
+        +input({
+          placeholder:"직위 입력"
+        })
+      +form_body({title:"담당업무"})
+        +input({
+          placeholder:"담당업무 입력"
+        })
+      +form_body({title:"직장 전화번호"})
+        +input({
+          placeholder:"직장전화번호 입력"
+        })
+      +form_body({title:"사업자증록번호"})
+        +input_business()
+      +form_body({title:"대표자명"})
+        +input({
+          placeholder:"대표자명 입력"
+        })
+      +form_body({title:"직장주소"})
+        +input_button({
+          btnText:"주소찾기",
+          placeholder:"주소 검색",
+        })
+        +input({
+          placeholder:"상세주소"
+        })
+      +form_body({title:"입사일자"})
+        +datepicker()
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+      type:"primary",
+      disabled:"disabled"
+    })

@@ -2,6 +2,9 @@
 @import "../../asset/scss/common/varialbles";
 
 .mui_text_lists{
+    & + .mui_text {
+        margin-top: 12px;
+    } 
     li{
         position: relative;
 
@@ -63,7 +66,8 @@
             }
         }
     }
-    &.circle_num{
+    &.circle_num,
+    &.num{
         
         & > ul > li{
             font-size: 14px;
@@ -93,6 +97,25 @@
                 }
             }
         }
-          
+    }
+    &.num {
+        & > ul > li {
+            padding-left:16px;
+            & ~ li{
+                margin-top: 8px;
+            } 
+            &::before {
+                left:0;
+                border:0;
+                border-radius:initial;
+            }
+        }
+        @for $u from 1 to 10{
+            & > ul > li:nth-child(#{$u}){
+                &::before{
+                    content: '#{$u}.';
+                }
+            }
+        }
     }
 }

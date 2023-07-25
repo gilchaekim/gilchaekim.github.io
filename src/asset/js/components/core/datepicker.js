@@ -1,25 +1,15 @@
+import Position from '../mixin/position';
+
 import {
   $, 
-  findAll, 
   isDate, 
+  getDaysInMonth,
   each, 
   mergeOptions, 
   addLeadingZero, 
-  isString, 
-  hasClass, 
-  toggleClass, 
+  isString,  
   dimensions, 
-  height, 
-  isVisible, 
-  width, 
-  toNodes, 
-  queryAll, 
-  trigger, 
-  isNumber, 
-  $$, 
   append, 
-  fragment, 
-  toNode, 
   addClass,
   removeClass,
   find, 
@@ -30,7 +20,7 @@ import {
 import {cssPrefix} from 'GC-data'
 
 export default {
-
+  mixins: [Position],
   props: {
     pickerButton:Boolean,
     value:String,
@@ -44,6 +34,7 @@ export default {
     testBtn: '>.testbtn',
     pickerButton:false,
     value:'',
+    offset: 20,
     initialValue:'',
     initialDate:null,
     viewDate:null,
@@ -80,13 +71,14 @@ export default {
     todayClassName:'mui_today',
     selectedClassName:'mui_selected',
     template: `<div class="mui_datepicker_layer">
+                <p class="title">날짜선택</p>
                 <div class="picker_header">
-                  <button type="button" class="prev_btn"><span class="text">이전 달 보기</span></button>
+                  <button type="button" class="prev_btn"><span class="text"><span class="hidden">이전 달 보기</span></button>
                   <span class="year_month">
                     <span class="current_year"></span>
                     <span class="current_month"></span>
                   </span>                  
-                  <button type="button" class="next_btn"><span class="text">다음 달 보기</span></button>
+                  <button type="button" class="next_btn"><span class="text"><span class="hidden">다음 달 보기</span></span></button>
                 </div>
                 <div class="picker_contents">
                   <table class="mui_calendar">
@@ -120,14 +112,12 @@ export default {
       return `${test}234234233444${value}`;
     },
     format({format}) {
-      return parseFormat(format);
+      return this.parseFormat(format);
     }
   },
   connected() {
     const {pickerButton, startDate, endDate, $el} = this;
     let {initialValue, date} = this;
-    // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
-    // this.format = parseFormat(this.format);
     
     initialValue = this.getValue();
 
@@ -209,7 +199,6 @@ export default {
 
       handler(e) {
         e.preventDefault();
-        console.log('이전')
         const year = this.viewDate.getFullYear()
         const month = this.viewDate.getMonth()-1
         const day = this.viewDate.getDate()
@@ -227,7 +216,6 @@ export default {
       },
       handler(e) {
         e.preventDefault();
-        console.log('다음')
         const year = this.viewDate.getFullYear()
         const month = this.viewDate.getMonth()+1
         const day = this.viewDate.getDate()
@@ -259,10 +247,10 @@ export default {
 
       handler(e) {
         const self = e.target
-        // const val = this.parseDate(this.parseDate(this.getValue()));
-        // this.viewDate = val
-        // this.date = val
-        // this.renderPickerDate();
+        const val = this.parseDate(this.parseDate(this.getValue()));
+        this.viewDate = val
+        this.date = val
+        this.renderPickerDate();
         console.log(self.value)
         
       }
@@ -296,9 +284,10 @@ export default {
       $month.innerHTML = montText;
       addClass(calendar, 'mui_active');
       this.renderDays()
-      css(calendar, 'top', `30%`)
+      // css(calendar, 'top', `30%`)
       // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
-      css(calendar, 'left', `${dimensions(this.$el).left}px`)
+      // css(calendar, 'left', `${dimensions(this.$el).left}px`)
+      this.positionAt(calendar, this.$el);
       
     },
     closePickerDate() {
@@ -807,6 +796,41 @@ export default {
       this.viewDate = val;
       this.date = val;
       this.setValue();
+    },
+    parseFormat(format) {
+      const source = String(format).toLowerCase();
+      const parts = source.match(/(y|m|d)+/g);
+    
+      if (!parts || parts.length === 0) {
+        throw new Error('Invalid date format.');
+      }
+    
+      format = {
+        source,
+        parts,
+      };
+    
+      each(parts, (part) => {
+        switch (part) {
+          case 'dd':
+          case 'd':
+            format.hasDay = true;
+            break;
+    
+          case 'mm':
+          case 'm':
+            format.hasMonth = true;
+            break;
+    
+          case 'yyyy':
+          case 'yy':
+            format.hasYear = true;
+            break;
+    
+          default:
+        }
+      });
+      return format;
     }
   },
   update: {
@@ -818,48 +842,3 @@ export default {
     events: ['scroll', 'resize'],
   }
 };
-
-
-function parseFormat(format) {
-  const source = String(format).toLowerCase();
-  const parts = source.match(/(y|m|d)+/g);
-
-  if (!parts || parts.length === 0) {
-    throw new Error('Invalid date format.');
-  }
-
-  format = {
-    source,
-    parts,
-  };
-
-  each(parts, (part) => {
-    switch (part) {
-      case 'dd':
-      case 'd':
-        format.hasDay = true;
-        break;
-
-      case 'mm':
-      case 'm':
-        format.hasMonth = true;
-        break;
-
-      case 'yyyy':
-      case 'yy':
-        format.hasYear = true;
-        break;
-
-      default:
-    }
-  });
-
-  return format;
-}
-
-function getDaysInMonth(year, month) {
-  return [31, (isLeapYear(year) ? 29 : 28), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-}
-function isLeapYear(year) {
-  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
-}

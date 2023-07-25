@@ -25,7 +25,9 @@ block content
           placeholder:"선택",
         })
       +form_body({title:"발급기준일"})
-        +datepicker()
+        +form_value({
+          value:"2023.04.04"
+        })
       +form_body({title:"발급목적(사유)", message:{type:"error", text:"발급목적은 2~10자 이내로 입력해주세요."}})
         +button_select({
           placeholder:"선택",

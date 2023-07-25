@@ -1,0 +1,128 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"금융거래 확인사항",
+    id:"fullLayer",
+    type:"full",
+  })
+    .webdep
+      p.guide_msg 금융사고 예방을 위해<br>아래 내용을 확인해주세요,
+      +content_group(2)
+        +form()
+          +form_body({title:"개인거래목적"})
+            +button_select({
+              placeholder:"개인거래목적 선택",
+            })
+          +form_body({title:"걸제구분"})
+            +radioCheck({
+              type:"radio",
+              name:'chk650105',
+              className:'mini_type',
+              lists:[
+                {label:'보험료납부',},
+                {label:'공과금납부',},
+                {label:'카드납부',},
+              ]
+            })
+          +form_body({title:"거래자금원천"})
+            +button_select({
+              placeholder:"거래자금원천 선택",
+            })
+      hr
+      +content_group(0)
+        +title({
+          text:"가입하시는 상품의 명의인, <em>실소유인이 본인</em>이십니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'본인 맞습니다.',
+              checked:true
+            },
+            {
+              label:'본인이 아닙니다.'
+            }
+          ]
+        })
+      +content_group(0)
+        +title({
+          text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType1',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+      +content_group(0)
+        +title({
+          text:"타인으로부터 <em>통장대여 요청</em>을 받은 사실이 있습니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType2',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+        +text({
+          type:'warning',
+          text:"통장/현금카드 등을 타인에게 양도하여 범죄에 이용되는 경우 미성년자 여부와 상관없이 민-형사상 책임을 질 수 있습니다."
+        })
+        
+      +content_group(0)
+        +title({
+          text:"타인으로부터 <em>신용등급상향, 대출 등의 목적으로 통장개설을 요청</em>을 받은 사실이 있습니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType2',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

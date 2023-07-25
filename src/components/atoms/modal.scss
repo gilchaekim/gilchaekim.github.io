@@ -26,28 +26,45 @@
                 font-weight: 700;
                 color:$font_color01;
                 padding: 18px 0 0 20px;
+                & + .mui_modal_content, form + .mui_modal_content {
+                    padding-top: 32px;
+                }
             }
             &_content{
-                padding: 32px 24px 40px;
+                padding: 40px 24px;
                 text-align: center;
+                .alert_tit {
+                    color:$basic_color02;
+                    strong {
+                        color:$basic_color01;
+                    }
+                }
+                .alert_txt {
+                    padding-top:16px;
+                    font-size:14px;
+                    color:$basic_color03;
+                }
             }
             &_footer{
+                padding: 0 12px 12px;
                 .mui_button{
                     background:$main_color01;
                     height: 40px;
                     line-height: 40px;
                     font-size: 16px;
+                    font-weight: 700;
                     color:$font_color06;
-                    border-radius: 0;
+                    border-radius: 10px;
                 }
                 &.confirm{
                     display: flex;
                     .mui_button{
                         margin: 0;
-                        width: 60%;
                         &.mui_modal_close{
-                            width: 40%;
                             background: #5c627c;
+                        }
+                        & ~ .mui_button {
+                            margin-left: 8px;
                         }
                     }
                 }
@@ -70,6 +87,7 @@
                 }
                 &_footer{
                     border-top: 1px solid $line_color03;
+                    padding: 0;
                     .mui_button{
                         background:transparent;
                         height: 48px;
@@ -146,9 +164,16 @@
             &_content{
                 max-height: 70vh;
                 overflow: auto;
-                padding: 16px 24px 0;
+                padding: 16px 24px 40px;
                 .mui_tabs {
                     margin: 0 -24px;
+                    &.overflow {
+                        margin: 0;
+                        .tab_pane {
+                            padding-left: 0;
+                            padding-right: 0;
+                        }
+                    }
                 }
                 .tab_pane {
                     padding: 16px 24px 0;
@@ -157,8 +182,13 @@
                     padding: 40px 0 16px;
                     margin: 0 -8px;
                 }
+                &:first-child {
+                    padding-top: 40px;
+                }
+                .mui_button_fixed:last-child{
+                    margin-bottom: -40px;
+                }
             }
-    
         }
     }
     &.mui_fullpop_wrap{
@@ -184,6 +214,16 @@
                 color:$font_color01;
                 font-size: 16px;
                 font-weight: 700;
+                .btn_down {
+                    position:absolute;
+                    top:16px;
+                    right:48px;
+                    width:24px;
+                    height:24px;
+                    font-size:0;
+                    text-indent:-9999px;
+                    background:url($url_common+"btn_down.svg") no-repeat center;
+                }
             }
         }
         .mui_modal_content{
@@ -245,4 +285,10 @@
             top: 0px;
         }
     }
+}
+.f18bold{
+    font-size: 18px;
+    font-weight: 700;
+    color:$font_color01;
+    text-align: center;
 }

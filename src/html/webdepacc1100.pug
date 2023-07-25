@@ -1,0 +1,50 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:3
+    })
+  +content_group(0)
+    +title({
+      text:"전자금융 신청",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"1.보안매체(OTP)등록",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"OTP벤더 코드"})
+        +button_select({
+          placeholder:"OTP제조회사 선택",
+        })
+
+      +form_body({title:"OTP일련번호"})
+        +input({
+          placeholder:"일련번호 입력", 
+        })
+        +text({
+          type:'warning',
+          text:"OTP 뒷면의 일련번호(S/N) 입력해 주세요.(~는 제외)"
+        })
+  +content_group(1)
+    +button({
+      label:"OTP벤더코드 및 일련번호 확인방법",
+      size:"medium",
+      type:"white",
+    })
+    
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

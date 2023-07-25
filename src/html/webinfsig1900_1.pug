@@ -1,0 +1,29 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf flex_top_bot"
+  - pageTitle = "햇살론"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"죄송합니다.<br><em>김중앙</em>님의 대출가능 한도가<br>조회되지 않습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"사유",
+          text:"오류사유노출",
+        },
+      ]
+    })
+    
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

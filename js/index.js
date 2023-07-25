@@ -667,6 +667,12 @@
   function isDate(value) {
     return typeOf(value) === 'date' && !isNaN(value.getTime());
   }
+  function isLeapYear$1(year) {
+    return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
+  }
+  function getDaysInMonth$1(year, month) {
+    return [31, isLeapYear$1(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  }
 
   /**
    * Add leading zeroes to the given value
@@ -3113,6 +3119,8 @@
     isNumeric: isNumeric,
     typeOf: typeOf,
     isDate: isDate,
+    isLeapYear: isLeapYear$1,
+    getDaysInMonth: getDaysInMonth$1,
     addLeadingZero: addLeadingZero,
     isEmpty: isEmpty$1,
     isUndefined: isUndefined,
@@ -3402,36 +3410,25 @@
     UICommon.prototype._callUpdate = function () {
       var _this2 = this;
       var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'update';
-      var type = e.type || e;
-      if (type === 'update' || type === 'resize') {
+      if (!this._connected) {
+        return;
+      }
+      if (e === 'update' || e === 'resize') {
         this._callWatches();
       }
-      var updates = this.$options.update;
-      var _this$_frames = this._frames;
-        _this$_frames.reads;
-        var writes = _this$_frames.writes;
-      if (!updates) return;
-      updates.forEach(function (_ref, i) {
-        var read = _ref.read,
-          write = _ref.write,
-          events = _ref.events;
-        if (type !== 'update' && !includes(events, type)) return;
-        if (read && !includes(fastdom.reads, read[i])) {
-          read[i] = fastdom.read(function () {
-            var result = _this2._connected && read.call(_this2, _this2._data, type);
-            if (result === false && write) {
-              fastdom.clear(writes[i]);
-            } else if (isPlainObject(result)) {
-              assign(_this2._data, result);
-            }
-          });
-        }
-        if (write && !includes(fastdom.writes, writes[i])) {
-          writes[i] = fastdom.write(function () {
-            return _this2._connected && write.call(_this2, _this2._data, type);
-          });
-        }
-      });
+      if (!this.$options.update) {
+        return;
+      }
+      if (!this._updates) {
+        this._updates = new Set();
+        fastdom.read(function () {
+          if (_this2._connected) {
+            runUpdates.call(_this2, _this2._updates);
+          }
+          delete _this2._updates;
+        });
+      }
+      this._updates.add(e.type || e);
     };
     UICommon.prototype._callWatches = function () {
       var _this3 = this;
@@ -3460,6 +3457,47 @@
         _frames._watch = null;
       });
     };
+    function runUpdates(types) {
+      var _this4 = this;
+      var _iterator = _createForOfIteratorHelper(this.$options.update),
+        _step;
+      try {
+        var _loop = function _loop() {
+          var _step$value = _step.value,
+            read = _step$value.read,
+            write = _step$value.write,
+            _step$value$events = _step$value.events,
+            events = _step$value$events === void 0 ? [] : _step$value$events;
+          if (!types.has('update') && !events.some(function (type) {
+            return types.has(type);
+          })) {
+            return "continue";
+          }
+          var result = void 0;
+          if (read) {
+            result = read.call(_this4, _this4._data, types);
+            if (result && isPlainObject(result)) {
+              assign(_this4._data, result);
+            }
+          }
+          if (write && result !== false) {
+            fastdom.write(function () {
+              if (_this4._connected) {
+                write.call(_this4, _this4._data, types);
+              }
+            });
+          }
+        };
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var _ret = _loop();
+          if (_ret === "continue") continue;
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
+    }
   }
   function getProps(opts, name) {
     var data$1 = {};
@@ -3546,12 +3584,12 @@
       self: self
     }));
   }
-  function normalizeData(_ref2, _ref3) {
-    var data = _ref2.data;
-      _ref2.el;
-    var args = _ref3.args,
-      _ref3$props = _ref3.props,
-      props = _ref3$props === void 0 ? {} : _ref3$props;
+  function normalizeData(_ref, _ref2) {
+    var data = _ref.data;
+      _ref.el;
+    var args = _ref2.args,
+      _ref2$props = _ref2.props,
+      props = _ref2$props === void 0 ? {} : _ref2$props;
     data = isArray(data) ? !isEmpty(args) ? data.slice(0, args.length).reduce(function (data, value, index) {
       if (isPlainObject(value)) {
         assign(data, value);
@@ -3619,8 +3657,8 @@
     }).concat($name);
     var observer = new MutationObserver(function (records) {
       var data = getProps($options, $name);
-      if (records.some(function (_ref4) {
-        var attributeName = _ref4.attributeName;
+      if (records.some(function (_ref3) {
+        var attributeName = _ref3.attributeName;
         var prop = attributeName.replace('data-', '');
         return (prop === $name ? attributes : [camelize(prop), camelize(attributeName)]).some(function (prop) {
           return !isUndefined(data[prop]) && data[prop] !== $props[prop];
@@ -3868,7 +3906,7 @@
       active: false,
       animation: [true],
       collapsible: true,
-      multiple: false,
+      multiple: true,
       openText: "열기",
       closeText: "닫기",
       clsOpen: 'mui_open',
@@ -4183,7 +4221,7 @@
       var initialValue = this.initialValue,
         date = this.date;
       this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>');
-      this.format = parseFormat$1(this.format);
+      this.format = parseFormat(this.format);
       // console.log(this.format)
 
       this.initialValue = this.getValue();
@@ -4550,7 +4588,7 @@
 
         // The length of the days of prev month
         // 이전달의 마지막 날 또는 이전달의 길이
-        length = getDaysInMonth$1(prevViewYear, prevViewMonth);
+        length = getDaysInMonth(prevViewYear, prevViewMonth);
 
         // The first day of current month
         // 이번달의 첫 날
@@ -4604,7 +4642,7 @@
 
         // The length of the days of current month
         // 이번달의 마지막 날
-        length = getDaysInMonth$1(viewYear, viewMonth);
+        length = getDaysInMonth(viewYear, viewMonth);
 
         // The visible length of next month (42 means 6 rows and 7 columns)
         // 켈린더 개수 42칸 유지 (이번달 게수에서 이전 달 개수를 뺀 값)
@@ -4772,7 +4810,7 @@
     }
   };
 
-  function parseFormat$1(format) {
+  function parseFormat(format) {
     var source = String(format).toLowerCase();
     var parts = source.match(/(y|m|d)+/g);
     if (!parts || parts.length === 0) {
@@ -4800,10 +4838,10 @@
     });
     return format;
   }
-  function getDaysInMonth$1(year, month) {
-    return [31, isLeapYear$1(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
+  function getDaysInMonth(year, month) {
+    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
   }
-  function isLeapYear$1(year) {
+  function isLeapYear(year) {
     return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
   }
 
@@ -5115,20 +5153,37 @@
     data: {
       media: false
     },
-    compute: {
-      mathMedia: function mathMedia() {
-        toMedia(this.media);
+    connected: function connected() {
+      var _this = this;
+      var media = toMedia(this.media, this.$el);
+      this.matchMedia = true;
+      if (media) {
+        this.mediaObj = window.matchMedia(media);
+        var handler = function handler() {
+          _this.matchMedia = _this.mediaObj.matches;
+          trigger(_this.$el, createEvent("mediachange", false, true, [_this.mediaObj]));
+        };
+        this.offMediaObj = on(this.mediaObj, "change", function () {
+          handler();
+          _this.$emit("resize");
+        });
+        handler();
       }
+    },
+    disconnected: function disconnected() {
+      var _this$offMediaObj;
+      (_this$offMediaObj = this.offMediaObj) === null || _this$offMediaObj === void 0 ? void 0 : _this$offMediaObj.call(this);
     }
   };
-  function toMedia(value) {
+  function toMedia(value, element) {
     if (isString(value)) {
-      var name = "breakepoint-".concat(value.substr(1));
-      value = toFloat(getCssVar(name));
-    } else if (isNaN(value)) {
-      return value;
+      if (startsWith(value, "@")) {
+        value = toFloat(css(element, "--uk-breakpoint-".concat(value.substr(1))));
+      } else if (isNaN(value)) {
+        return value;
+      }
     }
-    return value && !isNaN(value) ? "(min-width: ".concat(value, "px)") : false;
+    return value && isNumeric(value) ? "(min-width: ".concat(value, "px)") : "";
   }
 
   var sticky = {
@@ -5181,7 +5236,7 @@
       name: 'load hashchange popstate',
       el: window,
       handler: function handler() {
-        console.log('hahahaha');
+        // console.log('hahahaha');
       }
     }],
     update: [{
@@ -5191,11 +5246,11 @@
           _ref.margin;
         this.inactive = !this.matchMedia || isVisible(this.$el);
         // 비활성화 되었거나 미디어쿼리 범위에 벗어나면 실행 취소
-        if (this.inactive) return false;
+        // if (this.inactive) return false
+
         if (this.isActive && types.has('resize')) {
           this.hide();
           height = this.$el.offsetHeight;
-          console.log(this.$el);
         }
         height = this.isActive ? height : this.$el.offsetHeight;
         var referenceElement = this.isActive ? this.placeholder : this.$el;
@@ -5212,11 +5267,10 @@
       },
       write: function write(data) {
         var height = data.height,
-          margins = data.margins,
-          start = data.start;
+          margins = data.margins;
+          data.start;
         var $el = this.$el,
           placeholder = this.placeholder;
-        console.log(start);
         css(placeholder, assign({
           height: height
         }, margins));
@@ -5231,7 +5285,6 @@
         var _ref2$scroll = _ref2.scroll,
           scroll = _ref2$scroll === void 0 ? 0 : _ref2$scroll;
         this.scroll = window.pageYOffset;
-        console.log(this.$el);
         return {
           dir: scroll <= this.scroll ? 'down' : 'up',
           scroll: this.scroll,
@@ -5312,7 +5365,77 @@
     }
   }
 
+  var Position = {
+    props: {
+      pos: String,
+      offset: null,
+      flip: Boolean,
+      shift: Boolean,
+      inset: Boolean
+    },
+    data: {
+      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
+      offset: false,
+      flip: true,
+      shift: true,
+      inset: false
+    },
+    connected: function connected() {
+      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
+      var _this$pos = _slicedToArray(this.pos, 2);
+      this.dir = _this$pos[0];
+      this.align = _this$pos[1];
+      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
+    },
+    methods: {
+      positionAt: function positionAt$1(element, target, boundary) {
+        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
+        var placement = [this.flip && 'flip', this.shift && 'shift'];
+        var attach = {
+          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
+          target: [this.dir, this.align]
+        };
+        if (this.axis === 'y') {
+          for (var prop in attach) {
+            attach[prop].reverse();
+          }
+          offset.reverse();
+          placement.reverse();
+        }
+        var _scrollParents = scrollParents(element, /auto|scroll/),
+          _scrollParents2 = _slicedToArray(_scrollParents, 1),
+          scrollElement = _scrollParents2[0];
+        scrollElement.scrollTop;
+          scrollElement.scrollLeft;
+
+        // Ensure none positioned element does not generate scrollbars
+        var elDim = dimensions(element);
+        css(element, {
+          top: -elDim.height,
+          left: -elDim.width
+        });
+        return positionAt(element, target, {
+          attach: attach,
+          offset: offset,
+          boundary: boundary,
+          placement: placement,
+          viewportOffset: this.getViewportOffset(element)
+        });
+      },
+      getPositionOffset: function getPositionOffset(element) {
+        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
+      },
+      getShiftOffset: function getShiftOffset(element) {
+        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
+      },
+      getViewportOffset: function getViewportOffset(element) {
+        return toPx(css(element, '--mui-position-viewport-offset'));
+      }
+    }
+  };
+
   var datepicker = {
+    mixins: [Position],
     props: {
       pickerButton: Boolean,
       value: String
@@ -5325,6 +5448,7 @@
       testBtn: '>.testbtn',
       pickerButton: false,
       value: '',
+      offset: 20,
       initialValue: '',
       initialDate: null,
       viewDate: null,
@@ -5357,7 +5481,7 @@
       daysClassName: 'mui_days',
       todayClassName: 'mui_today',
       selectedClassName: 'mui_selected',
-      template: "<div class=\"mui_datepicker_layer\">\n                <div class=\"picker_header\">\n                  <button type=\"button\" class=\"prev_btn\"><span class=\"text\">\uC774\uC804 \uB2EC \uBCF4\uAE30</span></button>\n                  <span class=\"year_month\">\n                    <span class=\"current_year\"></span>\n                    <span class=\"current_month\"></span>\n                  </span>                  \n                  <button type=\"button\" class=\"next_btn\"><span class=\"text\">\uB2E4\uC74C \uB2EC \uBCF4\uAE30</span></button>\n                </div>\n                <div class=\"picker_contents\">\n                  <table class=\"mui_calendar\">\n                    <thead class=\"head\"></thead>\n                    <tbody class=\"body\"></tbody>\n                  </table>\n                </div>\n              </div>"
+      template: "<div class=\"mui_datepicker_layer\">\n                <p class=\"title\">\uB0A0\uC9DC\uC120\uD0DD</p>\n                <div class=\"picker_header\">\n                  <button type=\"button\" class=\"prev_btn\"><span class=\"text\"><span class=\"hidden\">\uC774\uC804 \uB2EC \uBCF4\uAE30</span></button>\n                  <span class=\"year_month\">\n                    <span class=\"current_year\"></span>\n                    <span class=\"current_month\"></span>\n                  </span>                  \n                  <button type=\"button\" class=\"next_btn\"><span class=\"text\"><span class=\"hidden\">\uB2E4\uC74C \uB2EC \uBCF4\uAE30</span></span></button>\n                </div>\n                <div class=\"picker_contents\">\n                  <table class=\"mui_calendar\">\n                    <thead class=\"head\"></thead>\n                    <tbody class=\"body\"></tbody>\n                  </table>\n                </div>\n              </div>"
     },
     created: function created() {
       this.calendar = append(document.body, this.template);
@@ -5390,7 +5514,7 @@
       },
       format: function format(_ref7) {
         var format = _ref7.format;
-        return parseFormat(format);
+        return this.parseFormat(format);
       }
     },
     connected: function connected() {
@@ -5400,9 +5524,6 @@
         this.$el;
       var initialValue = this.initialValue,
         date = this.date;
-      // this.pickerButton = !pickerButton || append($el, '<span class="mui_picker_btn"><button type="button">캘린더 열기</button></span>')
-      // this.format = parseFormat(this.format);
-
       initialValue = this.getValue();
       date = this.parseDate(date || initialValue);
       this.date = date;
@@ -5471,7 +5592,6 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        console.log('이전');
         var year = this.viewDate.getFullYear();
         var month = this.viewDate.getMonth() - 1;
         var day = this.viewDate.getDate();
@@ -5488,7 +5608,6 @@
       },
       handler: function handler(e) {
         e.preventDefault();
-        console.log('다음');
         var year = this.viewDate.getFullYear();
         var month = this.viewDate.getMonth() + 1;
         var day = this.viewDate.getDate();
@@ -5518,10 +5637,10 @@
       },
       handler: function handler(e) {
         var self = e.target;
-        // const val = this.parseDate(this.parseDate(this.getValue()));
-        // this.viewDate = val
-        // this.date = val
-        // this.renderPickerDate();
+        var val = this.parseDate(this.parseDate(this.getValue()));
+        this.viewDate = val;
+        this.date = val;
+        this.renderPickerDate();
         console.log(self.value);
       }
     }, {
@@ -5551,9 +5670,10 @@
         $month.innerHTML = montText;
         addClass(calendar, 'mui_active');
         this.renderDays();
-        css(calendar, 'top', "30%");
+        // css(calendar, 'top', `30%`)
         // css(calendar, 'top', `${dimensions(this.$el).top + dimensions(this.$el).height}px`)
-        css(calendar, 'left', "".concat(dimensions(this.$el).left, "px"));
+        // css(calendar, 'left', `${dimensions(this.$el).left}px`)
+        this.positionAt(calendar, this.$el);
       },
       closePickerDate: function closePickerDate() {
         var weeks = this.weeks,
@@ -5750,7 +5870,7 @@
         }
 
         // 이전달의 마지막 날 또는 이전달의 길이
-        length = getDaysInMonth(prevViewYear, prevViewMonth);
+        length = getDaysInMonth$1(prevViewYear, prevViewMonth);
 
         // 이번달의 첫 날
         var firstDay = new Date(viewYear, viewMonth, 1);
@@ -5801,7 +5921,7 @@
         }
 
         // 이번달의 마지막 날
-        length = getDaysInMonth(viewYear, viewMonth);
+        length = getDaysInMonth$1(viewYear, viewMonth);
 
         // 켈린더 개수 42칸 유지 (이번달 게수에서 이전 달 개수를 뺀 값) (42 means 6 rows and 7 columns)
         n = 42 - (prevItems.length + length);
@@ -5965,6 +6085,34 @@
         this.viewDate = val;
         this.date = val;
         this.setValue();
+      },
+      parseFormat: function parseFormat(format) {
+        var source = String(format).toLowerCase();
+        var parts = source.match(/(y|m|d)+/g);
+        if (!parts || parts.length === 0) {
+          throw new Error('Invalid date format.');
+        }
+        format = {
+          source: source,
+          parts: parts
+        };
+        each(parts, function (part) {
+          switch (part) {
+            case 'dd':
+            case 'd':
+              format.hasDay = true;
+              break;
+            case 'mm':
+            case 'm':
+              format.hasMonth = true;
+              break;
+            case 'yyyy':
+            case 'yy':
+              format.hasYear = true;
+              break;
+          }
+        });
+        return format;
       }
     },
     update: {
@@ -5975,40 +6123,6 @@
       events: ['scroll', 'resize']
     }
   };
-  function parseFormat(format) {
-    var source = String(format).toLowerCase();
-    var parts = source.match(/(y|m|d)+/g);
-    if (!parts || parts.length === 0) {
-      throw new Error('Invalid date format.');
-    }
-    format = {
-      source: source,
-      parts: parts
-    };
-    each(parts, function (part) {
-      switch (part) {
-        case 'dd':
-        case 'd':
-          format.hasDay = true;
-          break;
-        case 'mm':
-        case 'm':
-          format.hasMonth = true;
-          break;
-        case 'yyyy':
-        case 'yy':
-          format.hasYear = true;
-          break;
-      }
-    });
-    return format;
-  }
-  function getDaysInMonth(year, month) {
-    return [31, isLeapYear(year) ? 29 : 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31][month];
-  }
-  function isLeapYear(year) {
-    return year % 4 === 0 && year % 100 !== 0 || year % 400 === 0;
-  }
 
   var formatter = {
     props: {
@@ -6252,7 +6366,7 @@
       stack: false,
       role: 'dialog',
       returnFocusTarget: null,
-      layerd: false
+      layerd: true
     },
     computed: {
       panel: function panel(_ref, $el) {
@@ -6523,7 +6637,7 @@
     modal.alert = function (message, options) {
       return openDialog(function (_ref3) {
         var i18n = _ref3.i18n;
-        return "\n            ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n            <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n            <div class=\"mui_modal_footer\">\n                <button class=\"mui_button mui_modal_close\" autofocus><span>").concat(i18n.ok, "</span></button>\n            </div>\n            ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            ");
+        return "\n            ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n            <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n            <div class=\"mui_modal_footer\">\n                <button class=\"mui_button mui_modal_close\" autofocus><span>").concat(message.ok ? message.ok : i18n.ok, "</span></button>\n            </div>\n            ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            ");
       }, options, function (deferred) {
         return deferred.resolve();
       });
@@ -6531,7 +6645,7 @@
     modal.confirm = function (message, options) {
       return openDialog(function (_ref4) {
         var i18n = _ref4.i18n;
-        return "<form>\n                ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n                <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n                <div class=\"mui_modal_footer confirm\">\n                    <button class=\"mui_button mui_modal_close\" type=\"button\"><span>").concat(i18n.cancel, "</span></button>\n                    <button class=\"mui_button\" autofocus><span>").concat(i18n.ok, "</span></button>\n                </div>\n                ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            </form>");
+        return "<form>\n                ".concat(!!message.title ? "<div class=\"mui_modal_header\">".concat(isString(message.title) ? message.title : html(message.title), "</div>") : "", "\n                <div class=\"mui_modal_content\">").concat(isString(message.text) ? message.text : html(message.text), "</div>\n                <div class=\"mui_modal_footer confirm\">\n                    <button class=\"mui_button mui_modal_close\" type=\"button\"><span>").concat(message.cancel ? message.cancel : i18n.cancel, "</span></button>\n                    <button class=\"mui_button\" autofocus><span>").concat(message.ok ? message.ok : i18n.ok, "</span></button>\n                </div>\n                ").concat(!!(options !== null && options !== void 0 && options.closeBtn) ? "<button class=\"mui_modal_close\">닫기</button>" : "", "\n            </form>");
       }, options, function (deferred) {
         return deferred.reject();
       });
@@ -11805,75 +11919,6 @@
         removeClass(parent$1(this.$el), this.active);
       }
     }]
-  };
-
-  var Position = {
-    props: {
-      pos: String,
-      offset: null,
-      flip: Boolean,
-      shift: Boolean,
-      inset: Boolean
-    },
-    data: {
-      pos: "bottom-".concat(isRtl ? 'right' : 'left'),
-      offset: false,
-      flip: true,
-      shift: true,
-      inset: false
-    },
-    connected: function connected() {
-      this.pos = this.$props.pos.split('-').concat('center').slice(0, 2);
-      var _this$pos = _slicedToArray(this.pos, 2);
-      this.dir = _this$pos[0];
-      this.align = _this$pos[1];
-      this.axis = includes(['top', 'bottom'], this.dir) ? 'y' : 'x';
-    },
-    methods: {
-      positionAt: function positionAt$1(element, target, boundary) {
-        var offset = [this.getPositionOffset(element), this.getShiftOffset(element)];
-        var placement = [this.flip && 'flip', this.shift && 'shift'];
-        var attach = {
-          element: [this.inset ? this.dir : flipPosition(this.dir), this.align],
-          target: [this.dir, this.align]
-        };
-        if (this.axis === 'y') {
-          for (var prop in attach) {
-            attach[prop].reverse();
-          }
-          offset.reverse();
-          placement.reverse();
-        }
-        var _scrollParents = scrollParents(element, /auto|scroll/),
-          _scrollParents2 = _slicedToArray(_scrollParents, 1),
-          scrollElement = _scrollParents2[0];
-        scrollElement.scrollTop;
-          scrollElement.scrollLeft;
-
-        // Ensure none positioned element does not generate scrollbars
-        var elDim = dimensions(element);
-        css(element, {
-          top: -elDim.height,
-          left: -elDim.width
-        });
-        return positionAt(element, target, {
-          attach: attach,
-          offset: offset,
-          boundary: boundary,
-          placement: placement,
-          viewportOffset: this.getViewportOffset(element)
-        });
-      },
-      getPositionOffset: function getPositionOffset(element) {
-        return toPx(this.offset === false ? css(element, '--mui-position-offset') : this.offset, this.axis === 'x' ? 'width' : 'height', element) * (includes(['left', 'top'], this.dir) ? -1 : 1) * (this.inset ? -1 : 1);
-      },
-      getShiftOffset: function getShiftOffset(element) {
-        return this.align === 'center' ? 0 : toPx(css(element, '--mui-position-shift-offset'), this.axis === 'y' ? 'width' : 'height', element) * (includes(['left', 'top'], this.align) ? 1 : -1);
-      },
-      getViewportOffset: function getViewportOffset(element) {
-        return toPx(css(element, '--mui-position-viewport-offset'));
-      }
-    }
   };
 
   var _events;

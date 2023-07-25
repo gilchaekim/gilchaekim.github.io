@@ -4,7 +4,6 @@
 .mui_radio, .mui_checkbox{
   position: relative;
   display: inline-block;
-  margin-right: 24px;
   input{
     opacity: 0;
     width: 0;
@@ -22,6 +21,7 @@
     min-height: 24px;
     color:$font_color03;
     font-size: 16px;
+    display: inline-flex;
     &.inner_block{
       display: block;
     }
@@ -69,7 +69,14 @@
   }
 }
 
+.mui_radio_group, .mui_checkbox_group{
+  margin-left: -24px;
+  .mui_radio, .mui_checkbox{
+    margin-left: 24px;
+  }
+}
 .mui_radio_group{
+
   .mui_radio{
     display: inline-block;
   }
@@ -77,9 +84,6 @@
 .mui_checkbox_group{
   .mui_checkbox{
     display: inline-block;
-    & ~ .mui_checkbox{
-      margin-left: 20px;
-    }
   }
 }
 .button_type{
@@ -87,11 +91,12 @@
   position: relative;
   display: flex;
   background:$bg_color03;
+  margin-left: 0;
   .mui_radio, .mui_checkbox{
     flex: 1;
     position: relative;
     z-index: 1;
-    margin-right: 0;
+    margin-left: 0;
     &::after{
       content: '';
       display: block;
@@ -186,6 +191,75 @@
     }
   }
 }
+.block_type{
+  &.mui_radio_group, &.mui_checkbox_group {
+    margin-left: 0;
+  }
+  .mui_radio, .mui_checkbox {
+    display: block;
+    margin-left: 0;
+    & ~ .mui_radio, & ~ .mui_checkbox {
+      margin-top: 12px;
+      margin-left: 0;
+    }
+    input:checked + label {
+      border-color:$main_color01;
+      color:$font_color01;
+      font-weight: 700;
+      &::after {
+        top: 24px;
+        left: 20px;
+      }
+    }
+    label {
+      border-radius: 8px;
+      border: 1px solid $line_color02;
+      display: block;
+      padding: 20px 16px 20px 48px;
+      line-height: 24px;
+      font-size: 16px;
+      color:$font_color02;
+      &::before {
+        top: 20px;
+        left: 16px;
+      }
+    }
+  }
+  & ~ .mui_text {
+    margin-top: 12px;
+  }
+}
+.mini_type{
+  &.mui_radio_group, &.mui_checkbox_group {
+    margin-left: -20px;
+  }
+  .mui_radio, .mui_checkbox {
+    margin-left: 20px;
+    input:checked + label {
+      color:$font_color01;
+      &::after {
+        display: none;
+      }
+      &::before {
+        background: none;
+        @include icon_svg(check, "#df6311", 20px);
+        border: 0 none;
+      }
+    }
+    label {
+      font-size: 14px;
+      color:$font_color01;
+      line-height: 20px;
+      min-height: 20px;
+      padding-left: 28px;
+      display: inline-block;
+      &::before {
+        @include icon_svg(check, "#ccc", 20px);
+        border: 0 none;
+      }
+    }
+  }
+}
 .switch{
   display: inline-block;
   vertical-align: top;
@@ -194,6 +268,18 @@
     .label{
       height: 20px;
       line-height: 20px;
+    }
+    &.main_color{
+      .mui_checkbox{
+        input{
+          &:checked + label{
+            &::before{
+              background: $main_color01;
+            }
+          }
+        }
+      }
+      
     }
     .mui_checkbox{
       label{
@@ -343,5 +429,21 @@
         transition: left .2s;
       }
     }
+  }
+}
+.box_check{
+  background:$bg_color02;
+  border-radius: 20px;
+  padding: 20px;
+  position: relative;
+  p {
+    font-size: 15px;
+    color:$font_color01;
+    font-weight: 700;
+  }
+  .switch{
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 }

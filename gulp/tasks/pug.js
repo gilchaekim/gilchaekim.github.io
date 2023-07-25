@@ -10,6 +10,7 @@ import {
 import { render } from 'pug';
 
 const pugBuild = (path) => {
+  console.log(path);
   let sourceSrc = typeof path === 'string'?path:config.source.pug;
   let reload = true;
   return src(sourceSrc)
