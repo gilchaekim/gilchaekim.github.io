@@ -7,17 +7,18 @@ block prepend top
 block content
   +content_group(0)
     +stepNum({
-      total:4,
-      activeIndex:3
+      total:5,
+      activeIndex:4
     })
   +content_group(0)
     +title({
       text:"전자금융 신청",
       lv:2,
     })
+    p.sub_text PC나 스마트폰에서 인터넷뱅킹 사용을 위해 전자금융 가입을 진행합니다.
   +content_group(2)
     +title({
-      text:"2.이체한도 설정",
+      text:"이체한도 설정",
       lv:4,
     })
   +content_group(2)
@@ -30,7 +31,7 @@ block content
             "+10만",
             "+100만",
             "+1,000만",
-          ]
+          ],guideMoney:true
         })
       +form_body({title:"1회 이체한도"})
         +input_money({
@@ -40,7 +41,7 @@ block content
             "+10만",
             "+100만",
             "+1,000만",
-          ]
+          ],guideMoney:true
         })
   +content_group(1)
     +button({

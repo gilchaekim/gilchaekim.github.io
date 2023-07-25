@@ -21,7 +21,7 @@ mixin card(params={})
       if tag && tag.label
         div.tags
           span.tag(
-            class=`${tag.status}`
+            class=`${!!tag.status?tag.status:""}`
           )!=tag.label
       +result({
         data:data

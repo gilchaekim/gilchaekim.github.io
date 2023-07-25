@@ -37,20 +37,9 @@ block content
               p.text 
                 strong 본인 명의 금융인증서
       +content_group(3)
-        p.condition_title
-          | 아래의 조건에 하나라도 해당되면 
-          strong 비대면 계좌개설
-          | 이 불가능합니다.
-        +textLists({
-          type:'dot',
-          lists:[
-            {
-              text:"만 19세 이상 개인고객, 단 외국인은 불가",
-            },
-            {
-              text:"주민등록증 또는 운전면허증 지참",
-            },
-          ]
+        +text({
+          type:'warning',
+          text:"만 19세 이하 개인고객 및 외국인인 경우 대출신청이 불가능합니다."
         })
     +button_bottom_fixed()
       +button({

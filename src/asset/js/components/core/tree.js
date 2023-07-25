@@ -159,7 +159,7 @@ export default {
                 if (!isArray(data)) {
                     str+=`
                     <div class="tree_wrap ${activeItem.length && activeItem.find((arr)=>arr === id)?activeCls:""}">
-                        <button type="button" id="${id}" class="${treeNavCls}">${key}</button>
+                        <button tabindex="-1" type="button" id="${id}" class="${treeNavCls}">${key}</button>
                         <div class="tree_sub_wrap">${this.sortData(data, deps)}</div>
                     </div>
                     `;

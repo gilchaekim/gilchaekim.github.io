@@ -2,6 +2,7 @@
 $main_color01: var(--main_color01);
 $main_color02: var(--main_color02);
 $main_color03: var(--main_color03);
+$main_color04: var(--main_color04);
 
 
 $basic_color01: var(--basic_color01);
@@ -45,7 +46,8 @@ $colors: (
   base: (
     main_color01: #DF6311,
     main_color02: #477A71,
-    main_color03: rgba(223, 99, 17, .08),
+    main_color03: rgba(223, 99, 17, .06),
+    main_color04: rgba(71, 122, 113, .06),
     basic_color01:#111,
     basic_color02:#333,
     basic_color03:#666,
@@ -79,6 +81,7 @@ $colors: (
     main_color01: #DF6311,
     main_color02: #477A71,
     main_color03: rgba(223, 99, 17, .08),
+    main_color04: rgba(71, 122, 113, .06),
     basic_color01:#111,
     basic_color02:#333,
     basic_color03:#666,
@@ -112,6 +115,7 @@ $colors: (
     main_color01: #DF6311,
     main_color02: #477A71,
     main_color03: rgba(223, 99, 17, .08),
+    main_color04: rgba(71, 122, 113, .06),
     basic_color01:#111,
     basic_color02:#333,
     basic_color03:#666,

@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webirc"
+  - pageTitle = "금리인하요구권"
+
+block content
+  +form()
+    +form_body({title:"이름"})
+      +form_value({
+        value:"김저축"
+      })
+    +form_body({title:"주민등록번호"})
+      +input_idnumber()
+  +button_bottom_fixed()
+    +button({
+      label:"조회",
+      size:"large",
+    })

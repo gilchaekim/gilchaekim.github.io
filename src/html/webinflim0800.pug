@@ -1,0 +1,33 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  +content_group(2)
+    +title({
+      text:"직장 및 소득조회 확인 위해<br>금융인증서 인증 또는<br>소득정보 직접입력이 필요합니다.",
+      lv:2,
+    })
+  +content_group(2)
+    +radioCheck({
+      type:"radio",
+      name:'block_type',
+      className:'block_type',
+      lists:[
+        {
+          label:'금융인증서'
+        },
+        {
+          label:'직접입력하기',
+          checked:true
+        }
+      ]
+    })
+    
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -145,14 +145,14 @@ export default {
         viewMaxLength
       } = this;
       let value = $el.value;
-      
+
       if (isBackward && postDelimiterBackspace) {
         value = headStr(value, value.length - postDelimiterBackspace.length);
       }
 
       if (numericOnly) value = numberOnly(value);
 
-      
+
       $el.rawValue = getRawValue(value, delimiter, delimiters, maxlength);
 
       if ( !numeric && !uppercase && !lowercase && !dateForm && !!!blocks.length && !viewMaxLength ) return;

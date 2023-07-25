@@ -2,22 +2,22 @@
 @font-face {
   font-family: "NanumBarunGothic";
   font-weight: 400;
-  src: local("나눔바른고딕"), url(NanumBarunGothicSubset.woff2) format("woff2"), url(NanumBarunGothicSubset.woff) format("woff"), url(NanumBarunGothicSubset.ttf) format("truetype");
+  src: local("나눔바른고딕"), url("/fonts/NanumBarunGothicSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicSubset.woff") format("woff"), url("/fonts/NanumBarunGothicSubset.ttf") format("truetype");
 }
 @font-face {
   font-family: "NanumBarunGothic";
   font-weight: 700;
-  src: local("나눔바른고딕 Bold"), url(NanumBarunGothicBoldSubset.woff2) format("woff2"), url(NanumBarunGothicBoldSubset.woff) format("woff"), url(NanumBarunGothicBoldSubset.ttf) format("truetype");
+  src: local("나눔바른고딕 Bold"), url("/fonts/NanumBarunGothicBoldSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicBoldSubset.woff") format("woff"), url("/fonts/NanumBarunGothicBoldSubset.ttf") format("truetype");
 }
 @font-face {
   font-family: "NanumBarunGothic";
   font-weight: 300;
-  src: local("나눔바른고딕 Light"), url(NanumBarunGothicLightSubset.woff2) format("woff2"), url(NanumBarunGothicLightSubset.woff) format("woff"), url(NanumBarunGothicLightSubset.ttf) format("truetype");
+  src: local("나눔바른고딕 Light"), url("/fonts/NanumBarunGothicLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicLightSubset.ttf") format("truetype");
 }
 @font-face {
   font-family: "NanumBarunGothic";
   font-weight: 200;
-  src: local("나눔바른고딕 UltraLight"), url(NanumBarunGothicUltraLightSubset.woff2) format("woff2"), url(NanumBarunGothicUltraLightSubset.woff) format("woff"), url(NanumBarunGothicUltraLightSubset.ttf) format("truetype");
+  src: local("나눔바른고딕 UltraLight"), url("/fonts/NanumBarunGothicUltraLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicUltraLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicUltraLightSubset.ttf") format("truetype");
 }
 @font-face {
   font-family: "password";
@@ -81,6 +81,9 @@ strong {
 em {
   color: var(--main_color01);
 }
+em.type2 {
+  color: var(--font_color07);
+}
 
 img {
   width: 100%;
@@ -138,7 +141,8 @@ textarea {
 html {
   --main_color01: #DF6311;
   --main_color02: #477A71;
-  --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color03: rgba(223, 99, 17, 0.06);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;
@@ -173,6 +177,7 @@ html.bank1 {
   --main_color01: #DF6311;
   --main_color02: #477A71;
   --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;
@@ -207,6 +212,7 @@ html.bank2 {
   --main_color01: #DF6311;
   --main_color02: #477A71;
   --main_color03: rgba(223, 99, 17, 0.08);
+  --main_color04: rgba(71, 122, 113, 0.06);
   --font_color01: #111;
   --font_color02: #333;
   --font_color03: #666;
@@ -490,6 +496,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   position: relative;
   overflow: hidden;
 }
+.main .notice {
+  text-align: left;
+}
 .main #contants {
   position: relative;
   z-index: 2;
@@ -532,7 +541,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   transform: translate(0, -50%);
 }
 .main #contants .mui_contents_group {
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .main #contants .mui_contents_group ~ .mui_contents_group {
   margin-top: 40px;
@@ -554,7 +563,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
   width: 73px;
   height: 32px;
-  background: var(--main_color01);
+  background: var(--main_color02);
   border-radius: 16px 16px 16px 0;
   text-align: center;
   line-height: 32px;
@@ -568,7 +577,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .event .text {
   position: relative;
   top: -7px;
-  background: var(--main_color03);
+  background: var(--main_color04);
   height: 56px;
   padding: 0 20px;
   line-height: 56px;
@@ -655,6 +664,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   width: 72px;
   display: inline-block;
   vertical-align: top;
+  position: relative;
+  top: 8px;
 }
 .main .main_slider .swiper-scrollbar-drag {
   width: 30px;
@@ -668,7 +679,6 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: inline-block;
   vertical-align: top;
   position: relative;
-  top: -6px;
   margin-left: 8px;
 }
 .main .main_slider .ico {
@@ -723,7 +733,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .main_slider.type1 .lists a {
   height: 300px;
   border-radius: 60px;
-  padding: 40px 32px 0;
+  padding: 32px 32px 0;
 }
 .main .main_slider.type1 .title {
   color: var(--font_color06);
@@ -752,20 +762,17 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   color: var(--font_color06);
 }
 .main .main_slider.type2 .decs {
-  margin-top: 12px;
-}
-.main .main_slider.type3 {
-  margin-top: 32px;
+  margin-top: 8px;
 }
 .main .main_slider.type3 .slider {
   background: none;
   box-shadow: none;
 }
 .main .main_slider.type3 .ico {
-  width: 112px;
-  height: 112px;
+  width: 100px;
+  height: 100px;
   position: absolute;
-  top: 0;
+  top: 8px;
   right: 0;
 }
 .main .main_slider.type3 .lists {
@@ -776,9 +783,10 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   height: 112px;
   padding: 0 120px 32px 0;
   background: none;
+  line-height: 1.4;
 }
 .main .main_slider.type3 .decs {
-  margin-top: 16px;
+  margin-top: 12px;
   color: var(--font_color02);
 }
 .main .status .tab_pane {
@@ -853,6 +861,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   display: block;
   padding: 0;
 }
+.main .status.type3 .mui_tab_nav::after {
+  display: none;
+}
 .main .status.type3 .nav_list ~ .nav_list {
   margin-top: 12px;
 }
@@ -911,7 +922,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .status .text {
   color: var(--font_color03);
   font-size: 13px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 .main .status .divide {
   display: flex;
@@ -944,7 +955,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .status .box_type .box {
   flex: 1;
   border: 1px solid #efefef;
-  padding: 24px 0;
+  padding: 20px 0;
   text-align: center;
   border-radius: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -953,7 +964,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-left: 12px;
 }
 .main .status .box_type .percent {
-  margin-top: 32px;
+  margin-top: 24px;
 }
 .main .status .box_type .percent .txt2 {
   color: var(--main_color01);
@@ -997,7 +1008,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   padding: 24px 24px 20px;
 }
 .main .status .slider_type .divide {
-  margin-top: 24px;
+  margin-top: 20px;
   text-align: center;
 }
 .main .status .slider_type .divide .percent .txt2 {
@@ -1159,8 +1170,8 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   height: 40px;
   line-height: 40px;
   background: var(--bg_color02);
-  border-radius: 20px;
-  padding: 0 16px;
+  border-radius: 12px;
+  padding: 0 12px;
 }
 .main .mui_contents_group .notice .card a .text {
   display: block;
@@ -1176,7 +1187,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .main .mui_contents_group .notice .slider .lists {
   background: var(--bg_color02);
-  border-radius: 8px;
+  border-radius: 12px;
   padding: 20px;
 }
 .main .mui_contents_group .notice .slider span {
@@ -1342,7 +1353,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .mui_contents_group .customer_service .block a {
   flex: 1;
   border-radius: 20px;
-  padding: 24px;
+  padding: 20px;
   box-sizing: border-box;
   background: var(--bg_color02);
 }
@@ -1352,14 +1363,11 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .mui_contents_group .customer_service .block .ico {
   width: 40px;
   height: 40px;
-  border-radius: 20px;
-  background: var(--bg_color03);
   display: block;
-  padding: 4px;
 }
 .main .mui_contents_group .customer_service .block .tel {
   display: block;
-  margin-top: 16px;
+  margin-top: 12px;
 }
 .main .mui_contents_group .customer_service .block .text {
   display: block;

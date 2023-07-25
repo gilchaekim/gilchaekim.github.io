@@ -1,0 +1,101 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출상품"
+
+block content
+  .loan_wrap
+    .bank_products
+      +title({
+        text:"주택담보대출",
+        lv:1,
+      })
+      .sub_txt 주택담보제공 고객을<br>대상으로 한 가계자금대출
+      .detail
+        .list 
+          dl 
+            dt 최저 연
+            dd <em>4.05%</em>
+          dl 
+            dt 최대한도
+            dd <em>10억원</em>
+        .img
+          img(src="/src/images/ico_loan_main.png", alt="상품 이미지")
+    //- +button({
+    //-   label:"대출한도조회하기",
+    //-   className:"main_search",
+    //-   size:"large",
+    //-   type:"primary",
+    //- })
+    +content_group(1)
+      +tabsWrap({
+        active:0,
+        className:"custom_tab"
+      })
+        +tab("전체")
+          .status
+            +card({
+              isLinked:true,
+              title:"직장인 신용대출<br><span>재직중인 직장인을 위한 신용대출상품신용대출상품</span>",
+              data: [
+                  {
+                    title:"금리<em>5.05%~6.5%</em>",
+                    text:"최대한도<strong>5천만원</strong>",
+                  },
+                ]
+            })
+            +card({
+              isLinked:true,
+              title:"주택담보대출<br><span>주택담보제공 고객대상의 가계자금대출</span>",
+              data: [
+                  {
+                    title:"금리<em>4.05%~12.5%</em>",
+                    text:"최대한도<strong>10억원</strong>",
+                  },
+                ]
+            })
+        +tab("신용")
+          .status
+            +card({
+              isLinked:true,
+              title:"직장인 신용대출<br><span>재직중인 직장인을 위한 신용대출상품신용대출상품</span>",
+              data: [
+                  {
+                    title:"금리<em>5.05%~6.5%</em>",
+                    text:"최대한도<strong>5천만원</strong>",
+                  },
+                ]
+            })
+            +card({
+              isLinked:true,
+              title:"주택담보대출<br><span>주택담보제공 고객대상의 가계자금대출</span>",
+              data: [
+                  {
+                    title:"금리<em>4.05%~12.5%</em>",
+                    text:"최대한도<strong>10억원</strong>",
+                  },
+                ]
+            })
+        +tab("담보")
+          .status
+            +card({
+              isLinked:true,
+              title:"직장인 신용대출<br><span>재직중인 직장인을 위한 신용대출상품신용대출상품</span>",
+              data: [
+                  {
+                    title:"금리<em>5.05%~6.5%</em>",
+                    text:"최대한도<strong>5천만원</strong>",
+                  },
+                ]
+            })
+            +card({
+              isLinked:true,
+              title:"주택담보대출<br><span>주택담보제공 고객대상의 가계자금대출</span>",
+              data: [
+                  {
+                    title:"금리<em>4.05%~12.5%</em>",
+                    text:"최대한도<strong>10억원</strong>",
+                  },
+                ]
+            })

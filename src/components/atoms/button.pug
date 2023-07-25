@@ -179,32 +179,32 @@ mixin button_custom(params={})
   - const divide = '_'
   //- 공통 요소 End
   
-  - const { label, disabled, className, type, ...rest } = Object.assign({}, params)
-
+  - const { element = "button", label, disabled, className, type, ...rest } = Object.assign({}, params)
+  - const btnType = element === "button" ? element : null
 
   if type === 'download-32'
-    button(
+    #{element}(
       class=`${prefix}${divide}button_custom ${type}`
       class=className
-      type="button"
+      type=btnType
       disabled=disabled
     )
       span.inset!=label
   else if type === 'timeselect-24'
-    button(
+    #{element}(
       id=id
       class=`${prefix}${divide}button_custom ${type}`
       class=className
-      type="button"
+      type=btnType
       disabled=disabled
     )
       span.inset!=label
   else
-    button(
+    #{element}(
       id=id
       class=`${prefix}${divide}button_custom ${type}`
       class=className
-      type="button"
+      type=btnType
       disabled=disabled
     )
       span.inset!=label

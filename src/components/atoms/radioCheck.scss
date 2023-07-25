@@ -69,11 +69,17 @@
   }
 }
 
+// .mui_radio_group, .mui_checkbox_group{
+//   margin-left: -24px;
+//   .mui_radio, .mui_checkbox{
+//     margin-left: 24px;
+//   }
+// }
 .mui_radio_group, .mui_checkbox_group{
-  margin-left: -24px;
-  .mui_radio, .mui_checkbox{
-    margin-left: 24px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+	align-content: stretch;
+  gap: 16px;
 }
 .mui_radio_group{
 
@@ -92,6 +98,7 @@
   display: flex;
   background:$bg_color03;
   margin-left: 0;
+  gap: 0;
   .mui_radio, .mui_checkbox{
     flex: 1;
     position: relative;
@@ -192,9 +199,7 @@
   }
 }
 .block_type{
-  &.mui_radio_group, &.mui_checkbox_group {
-    margin-left: 0;
-  }
+  display: block;
   .mui_radio, .mui_checkbox {
     display: block;
     margin-left: 0;
@@ -229,12 +234,18 @@
     margin-top: 12px;
   }
 }
-.mini_type{
-  &.mui_radio_group, &.mui_checkbox_group {
-    margin-left: -20px;
-  }
+.block_type2{
+  display: block;
   .mui_radio, .mui_checkbox {
-    margin-left: 20px;
+    display: block;
+    &:not(:first-child) {
+      margin-top: 16px;
+    }
+  }
+
+}
+.mini_type{
+  .mui_radio, .mui_checkbox {
     input:checked + label {
       color:$font_color01;
       &::after {

@@ -232,70 +232,22 @@
       </header>
     </div><!-- / header --><!-- contents -->
     <div class="webinf" id="contants">
-      <undefined class="mui_stepnum">
+      <div class="mui_stepnum">
         <ul>
           <li class="step"><span>1</span></li>
-          <li class="step"><span>2</span></li>
-          <li class="step mui_active"><span>3</span></li>
+          <li class="step mui_active"><span>2</span></li>
+          <li class="step"><span>3</span></li>
           <li class="step"><span>4</span></li>
-          <li class="step"><span>5</span></li>
-          <li class="step"><span>6</span></li>
         </ul>
-      </undefined>
+      </div>
       <div class="mui_contents_group lv_1">
         <div class="mui_title">
           <p class="title lv2">신청정보 입력
           </p>
         </div>
+        <p class="sub_txt">대출신청을 위한 정보를 작성해주세요</p>
       </div>
       <div class="mui_contents_group lv_2">
-        <div class="mui_title">
-          <p class="title lv4">1. 대출신청정보
-          </p>
-        </div>
-      </div>
-      <div class="mui_contents_group lv_2">
-        <div class="bank_product_details long_type">
-          <div class="mui_title">
-            <p class="title lv1"><em>온라인 햇살론</em>
-            </p>
-          </div>
-          <p class="sub_txt">비대면으로 진행하는 정부지원 대출</p>
-          <div class="detail">
-            <div class="list">
-              <dl>
-                <dt>최저금리</dt>
-                <dd>4.50%</dd>
-              </dl>
-            </div>
-            <div class="img"> <img src="/src/images/img_prd.png" alt="햇살론 상품 이미지"></div>
-          </div>
-        </div>
-        <div class="mui_card no_tag">
-          <div class="inset">
-            <div class="mui_result default">
-              <dl>
-                <dt>이름
-                </dt>
-                <dd> 김저축
-                </dd>
-              </dl>
-              <dl>
-                <dt>휴대폰번호
-                </dt>
-                <dd> 010-1234-5678
-                </dd>
-              </dl>
-              <dl>
-                <dt>주소
-                </dt>
-                <dd> [04130]서울 마포구 공덕공<br>168 11층
-                </dd>
-              </dl>
-            </div>
-            <button class="mui_button_custom gray-32" type="button"><span class="inset">주소변경</span></button>
-          </div>
-        </div>
         <div class="mui_card no_tag">
           <div class="inset">
             <div class="mui_result default">
@@ -305,32 +257,48 @@
                 <dd> <em><strong>3,000만원</strong></em>
                 </dd>
               </dl>
+              <dl>
+                <dt>예상금리
+                </dt>
+                <dd> <em><strong>5.54%</strong></em>
+                </dd>
+              </dl>
             </div>
           </div>
         </div>
         <hr>
         <div class="mui_contents_group lv_0">
           <div class="mui_form">
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">자금용도</span></div>
+              <div class="mui_form_content">
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">자금용도 선택</span></span></button>
+                <span class="mui_input">
+                  <input type="text" placeholder="직접입력" mui-input="" />
+                </span>
+              </div>
+            </div>
             <div class="mui_form_list form_error">
               <div class="mui_form_head"><span class="form_title">대출신청금액</span></div>
               <div class="mui_form_content">
-                <span class="mui_input inner_subfix sublength_1">
-                  <input type="text" placeholder="숫자만 입력" mui-input="" /><span class="subfix"><span>원</span></span>
-                </span>
-                <div class="money_support"><strong>1,000만 원</strong></div>
-                <div class="mui_button_group btn_money"><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
-                    <button class="mui_button mui_medium mui_primary" type="button"><span>+1000만</span></button></span>
+                <div class="mui_inputmoney">
+                  <span class="mui_input inner_subfix sublength_1">
+                    <input type="text" placeholder="숫자만 입력" value="" mui-input="" /><span class="subfix"><span>원</span></span>
+                  </span>
+                  <p class="money_guide">
+                    100만<span>원</span></p>
+                  <div class="mui_button_group"><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+100만</span></button></span><span class="group">
+                      <button class="mui_button mui_medium mui_primary" type="button"><span>+1000만</span></button></span>
+                  </div>
                 </div>
                 <p class="msg_form msg_error">대출 최소신청금액은 10만원입니다.</p>
+                <p class="mui_text warning">대출신청금액은 최대 1억원입니다.
+                </p>
               </div>
             </div>
-          </div>
-          <p class="mui_text warning">대출신청금액은 최대 1억원입니다.
-          </p>
-          <div class="mui_form">
             <div class="mui_form_list">
               <div class="mui_form_head"><span class="form_title">대출신청기간</span></div>
               <div class="mui_form_content">
@@ -366,13 +334,31 @@
               </div>
             </div>
             <div class="mui_form_list">
-              <div class="mui_form_head"><span class="form_title">대출금 입금은행</span></div>
+              <div class="mui_form_head"><span class="form_title">대출금 입금계좌정보</span></div>
               <div class="mui_form_content">
                 <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
+                <div class="mui_inputbtn">
+                  <span class="mui_input">
+                    <input type="text" placeholder="계좌번호 입력" mui-input="" />
+                  </span>
+                  <div class="btn_sec">
+                    <button class="mui_button mui_medium mui_primary" type="button" disabled="disabled"><span>계좌확인</span></button>
+                  </div>
+                </div>
+                <p class="mui_text warning">기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다.
+                </p>
               </div>
             </div>
             <div class="mui_form_list">
-              <div class="mui_form_head"><span class="form_title">대출금 입금계좌번호</span></div>
+              <div class="mui_form_head"><span class="form_title">CMS은행</span></div>
+              <div class="mui_form_content">
+                <button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">은행 선택</span></span></button>
+                <p class="mui_text warning">본인명의의 계좌만 등록이 가능합니다.
+                </p>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_head"><span class="form_title">CMS계좌번호</span></div>
               <div class="mui_form_content">
                 <div class="mui_inputbtn">
                   <span class="mui_input">
@@ -382,11 +368,25 @@
                     <button class="mui_button mui_medium mui_primary" type="button"><span>계좌확인</span></button>
                   </div>
                 </div>
+                <p class="mui_text warning">본인명의의 계좌만 등록이 가능합니다.
+                </p>
+                <div class="mui_checkbox_group mini_type sub_etc">
+                  <span class="mui_checkbox">
+                    <input type="checkbox" id="mini_typeId6" />
+                    <label for="mini_typeId6">대출금 입금은행 계좌정보와 동일</label>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="mui_form_list">
+              <div class="mui_form_content">
+                <span class="mui_checkbox">
+                  <input type="checkbox" id="chk03Id7" name="chk03" />
+                  <label for="chk03Id7">대출거절사유 고지 신청</label>
+                </span>
               </div>
             </div>
           </div>
-          <p class="mui_text warning">기업은행 평생계좌번호(휴대폰번호로 구성된 계좌번호)는 입금계좌로 이용이 불가합니다.
-          </p>
         </div>
       </div>
       <div class="mui_button_fixed"><span class="inset">

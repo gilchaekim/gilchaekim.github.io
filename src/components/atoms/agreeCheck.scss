@@ -5,6 +5,22 @@
   & ~ .mui_agree_check{
     margin-top: 16px;
   }
+  &.auto_chk {
+    .chk_btn{
+      &::after {
+        display: none;
+      }
+    }
+  }
+  &:not(.chk_lists, .chk_lists_block) {
+    .chk_btn{
+      &.mui_active{
+        // & + .inset{
+        //   display: none;
+        // }
+      }
+    }
+  }
   .chk_btn{
     border: 1px solid $line_color02;
     border-radius: 8px;
@@ -45,10 +61,8 @@
         display: none;
       }
     }
+
     &.mui_active{
-      & + .inset{
-        display: none;
-      }
       .text{
         &::before{
           content: '';
@@ -117,6 +131,9 @@
   }
   .inset{
     padding: 24px 16px 0;
+    .inset{
+      padding-top: 16px;
+    }
     .mui_agree_check{
       & ~.mui_agree_check{
         margin-top: 16px;

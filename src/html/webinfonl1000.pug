@@ -1,0 +1,62 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "온라인서류 자동제출"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"김저축님의 온라인서류제출이<br>완료되었습니다.",
+      subText:"보내주신 서류 확인 검토 후<br>다시 연락 드리도록 하겠습니다.",
+      img:"/src/images/ico_example2.png",
+    })
+
+  +content_group(0)
+    +title({
+      text:"제출서류",
+      lv:4,
+    })
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"건강보험 자격득실확인서",
+          text:"<span class='font_color07'>제출완료</span>",
+        },
+        {
+          title:"주민등록등본",
+          text:"<span class='font_color07'>제출완료</span>",
+        },
+        {
+          title:"소득금액증명원",
+          text:"<span class='font_color07'>제출완료</span>",
+        },
+        {
+          title:"가족관계증명서",
+          text:"<em>제출실패</em>",
+        },
+      ]
+    })
+    +text({
+      type:'warning',
+      text:"제출실패인 경우 온라인서류 자동제출을 다시 이용해주세요."
+    })
+    +text({
+      type:'warning',
+      text:"제출실패가 계속되는 경우 온라인서류 직접제출을 이용해주세요."
+    })
+  
+  +content_group(1)
+    +button({
+      label:"온라인서류제출 조회",
+      size:"medium",
+      type:"white",
+    })
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

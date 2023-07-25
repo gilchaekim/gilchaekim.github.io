@@ -62,9 +62,16 @@
 		"description": "#477A71 - 은행별 포인트 컬러 02"
 	},
 	"var03": {
-		"prefix": "!main_color03 - DF6311 /8%",
+		"prefix": "!main_color03 - #DF6311 /6%",
 		"body": [
 			"\\$main_color03"
+		],
+		"description": "#DF6311 - 은행별 포인트 컬러 01/ opacity: 8%"
+	},
+	"var04_1": {
+		"prefix": "!main_color04 - #477A71 /6%",
+		"body": [
+			"\\$main_color04"
 		],
 		"description": "#DF6311 - 은행별 포인트 컬러 01/ opacity: 8%"
 	},
@@ -237,11 +244,11 @@
 		"description": "#F1F1F1 - 배경 그레이"
 	},
 	"var20": {
-		"prefix": "!bg_color02 - #F8F8F8",
+		"prefix": "!bg_color02 - #F7F8FA",
 		"body": [
 			"\\$bg_color02"
 		],
-		"description": "#F8F8F8 - 배경 그레이"
+		"description": "#F7F8FA - 배경 그레이"
 	},
 	"var21": {
 		"prefix": "!bg_color03 - #FFF",

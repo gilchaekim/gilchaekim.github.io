@@ -40,6 +40,7 @@
     height: 52px;
     font-weight: 700;
     font-size: 18px;
+    border-radius: 12px;
   }
   &_medium{
     height: 40px;
@@ -327,6 +328,10 @@
       color:$basic_color04;
       line-height: 22px;
       padding: 0 8px;
+    }
+    &:disabled {
+      color:$basic_color04;
+      border:1px solid $line_color02;
     }
   }
   &_tooltip{

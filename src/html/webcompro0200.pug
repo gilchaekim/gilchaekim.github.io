@@ -13,17 +13,17 @@ block content
     .acc_confirm.otp
       .code 
         span.mask 
-          span
+          input(type="password", maxlength="1")
         span.mask 
-          span
+          input(type="password", maxlength="1")
         span.mask 
-          span
+          input(type="password", maxlength="1")
         span.mask 
-          span
-        span.mask.dim
-          span
-        span.mask.dim
-          span
+          input(type="password", maxlength="1")
+        span.mask
+          input(type="password", maxlength="1", disabled="disabled")
+        span.mask
+          input(type="password", maxlength="1", disabled="disabled")
       +title({
         text:"OTP인증",
         lv:4,

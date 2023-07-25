@@ -233,14 +233,14 @@
     </div><!-- / header --><!-- contents -->
     <div class="webdep" id="contants">
       <div class="mui_contents_group lv_0">
-        <undefined class="mui_stepnum">
+        <div class="mui_stepnum">
           <ul>
             <li class="step"><span>1</span></li>
             <li class="step mui_active"><span>2</span></li>
             <li class="step"><span>3</span></li>
             <li class="step"><span>4</span></li>
           </ul>
-        </undefined>
+        </div>
       </div>
       <div class="mui_contents_group lv_0">
         <div class="mui_title">
@@ -275,21 +275,23 @@
               <div class="mui_radio_group button_type">
                 <span class="mui_radio">
                   <input type="radio" id="chk473472Id1" name="chk473472Id1" checked="checked" />
-                  <label for="chk473472Id1">개월수로 선택</label>
+                  <label for="chk473472Id1">개월수</label>
                 </span>
                 <span class="mui_radio">
                   <input type="radio" id="chk473472Id2" name="chk473472Id1" />
-                  <label for="chk473472Id2">만기일로 선택</label>
+                  <label for="chk473472Id2">만기일</label>
                 </span>
               </div>
               <span class="mui_input inner_subfix sublength_2">
-                <input type="text" placeholder="1~60" mui-input="" /><span class="subfix"><span>개월</span></span>
+                <input type="text" placeholder="개월수 입력" mui-input="" /><span class="subfix"><span>개월</span></span>
               </span>
               <div class="mui_datepicker">
                 <span class="mui_input">
                   <input type="text" placeholder="날짜선택" mui-input="" />
                 </span>
               </div>
+              <p class="mui_text warning">최소 N개월부터 N개월까지 입력 가능합니다.
+              </p>
             </div>
           </div>
           <div class="mui_form_list">
@@ -303,42 +305,18 @@
               <div class="mui_contents_group lv_2">
                 <div class="view_data">
                   <button class="write_pop">직접입력</button>
-                  <div class="guide_box gcoverflow_box">
-                    <div class="overflow_wrap">
-                      <div class="list">
-                        <p class="title">적용이율</p>
-                        <p class="text">4.30%</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">예상총이자</p>
-                        <p class="text">120,300원(세전)</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">월지급이자</p>
-                        <p class="text">233원</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">잔여일수 지급이자</p>
-                        <p class="text">0원</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">총 수입제세</p>
-                        <p class="text">360원</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">차감지급 월이자</p>
-                        <p class="text">200원</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">차감지급 잔여일수 이자</p>
-                        <p class="text">0원</p>
-                      </div>
-                      <div class="list">
-                        <p class="title">차감지급액</p>
-                        <p class="text">2,111원</p>
-                      </div>
+                  <div class="mui_contents_group lv_1">
+                    <button class="mui_button mui_medium mui_white" type="button"><span>선택한 설정으로 상품 조회하기</span></button>
+                  </div>
+                  <div class="guide_box">
+                    <div class="list">
+                      <p class="title">적용이율</p>
+                      <p class="text">4.30%</p>
                     </div>
-                    <button class="more" mui-toggle="target:.gcoverflow_box;cls:mui_active;"><span>상세정보 조회</span></button>
+                    <div class="list">
+                      <p class="title">예상총이자</p>
+                      <p class="text">120,300원(세전)</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -404,18 +382,17 @@
             </div>
           </div>
           <div class="mui_form_list">
+            <div class="mui_form_head"><span class="form_title">과세구분</span></div>
             <div class="mui_form_content">
-              <span class="mui_checkbox">
-                <input type="checkbox" id="chk409889Id5" name="chk409889" />
-                <label for="chk409889Id5">비과세종합저축</label>
-              </span>
+              <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">비과세<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">과세구분 선택</span></span></button>
+              <button class="guide_btn" type="button">비과세종합저축 한도조회</button>
             </div>
           </div>
           <div class="mui_form_list">
             <div class="mui_form_content">
               <span class="mui_checkbox">
-                <input type="checkbox" id="chk4098892Id6" name="chk4098892" />
-                <label for="chk4098892Id6">권유직원</label>
+                <input type="checkbox" id="chk4098892Id5" name="chk4098892" />
+                <label for="chk4098892Id5">권유직원</label>
               </span>
               <div class="mui_inputbtn">
                 <span class="mui_input">
@@ -433,8 +410,8 @@
                 <p class="text">만기 SMS 통지</p>
                 <div class="switch type2 main_color">
                   <span class="mui_checkbox">
-                    <input type="checkbox" id="chk23Id7" name="chk23" />
-                    <label for="chk23Id7">동의</label>
+                    <input type="checkbox" id="chk23Id6" name="chk23" />
+                    <label for="chk23Id6">동의</label>
                   </span>
                 </div>
               </div>

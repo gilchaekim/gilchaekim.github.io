@@ -1,0 +1,35 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  +content_group(2)
+    +title({
+      text:"대출한도 조회를 위해<br>직장/소득 정보를 입력해주세요.",
+      lv:2,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"연소득"})
+        +input({
+          placeholder:"숫자만 입력",
+          subfix:"만원",
+        })
+      +form_body({title:"주거 소유 형태"})
+        +radioCheck({
+          type:"radio",
+          name:'chk8817621',
+          className:'button_type',
+          lists:[
+            {label:'자가',checked:true},
+            {label:'전세',},
+            {label:'월세',},
+            {label:'기타',},
+          ]
+        })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

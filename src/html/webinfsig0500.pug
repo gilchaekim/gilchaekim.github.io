@@ -6,9 +6,11 @@ block prepend top
 
 block content
   +content_group(0)
+    <!-- 2023.07.05 em태그 삭제 -->
     +result({
       type:'result',
-      mainText:"김저축님의<br><em>대출신청이 완료</em>되었습니다.",
+      mainText:"김저축님의<br>대출신청이 완료되었습니다.",
+      subText:"심사결과는 우리금융저축은행 담당자가<br>연락 드릴 예정입니다.",
       img:"/src/images/ico_example2.png",
     })
   +content_group(0)
@@ -20,16 +22,16 @@ block content
       dataType:"line",
       data:[
         {
+          title:"은행명",
+          text:"우리금융저축은행",
+        },
+        {
           title:"상품명",
-          text:"직장인 신용대출",
+          text:"비타WON 신용대출",
         },
         {
-          title:"예상한도",
-          text:"<em>1,000,000원</em>",
-        },
-        {
-          title:"예상금리",
-          text:"4.50%",
+          title:"대출신청금액",
+          text:"<em>5,000,000원</em>",
         },
       ]
     })

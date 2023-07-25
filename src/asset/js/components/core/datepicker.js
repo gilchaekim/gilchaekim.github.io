@@ -8,7 +8,8 @@ import {
   mergeOptions, 
   addLeadingZero, 
   isString,  
-  dimensions, 
+  numberOnly, 
+  dateFormat,
   append, 
   addClass,
   removeClass,
@@ -49,6 +50,7 @@ export default {
     nextBtn:'.picker_header>.next_btn',
     $year:'.picker_header>.year_month>.current_year',
     $month:'.picker_header>.year_month>.current_month',
+    datePattern: ['yyyy', 'mm', 'dd'],
     format: 'yyyy.mm.dd',
     // The start view date
     startDate: null,
@@ -107,9 +109,6 @@ export default {
     },
     target({target}, $el) {
       return $(target, $el)
-    },
-    targetValue({test, value}) {
-      return `${test}234234233444${value}`;
     },
     format({format}) {
       return this.parseFormat(format);
@@ -299,9 +298,13 @@ export default {
       removeClass(calendar, 'mui_active');
     },
     getValue() {
+      console.log(dateFormat(this.target.value, this.datePattern));
+      // datePattern()
+      // dateFormat(this.target.value, this.datePattern)
       return this.target.value;
     },
     setValue() {
+      console.log('aa');
       this.target.value = this.formatDate(this.date);
     },
     createItem(data, type) {
@@ -705,6 +708,7 @@ export default {
       //     ? `${viewYear + yearSuffix} ${months[viewMonth]}`
       //     : `${months[viewMonth]} ${viewYear}${yearSuffix}`);
       // this.$days.html(prevItems.join('') + items.join('') + nextItems.join(''));
+      
     },
 
 
@@ -731,10 +735,10 @@ export default {
           formatted = formatted.replace(part, values[part]);
         });
       }
-  
       return formatted;
     },
     parseDate(date) {
+      console.log(date);
       const { format } = this;
       let parts = [];
   
@@ -835,7 +839,6 @@ export default {
   },
   update: {
     write() {
-      console.log('resize')
       if (this.isActivePicker) this.closePickerDate()
     },
 

@@ -1,0 +1,49 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"본인인증 선택",
+    id:"fullLayer",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"토스인증", active:true},
+        {name:"휴대폰 본인인증"},
+      ],
+      className:"custom_tab"
+    })
+      +content_group(4)
+        +title({
+          text:"토스앱에서 인증을 진행해 주세요",
+          lv:4,
+        })
+      +content_group(4)
+        +text({
+          text:"최초 이용시 안내에 따라 토스인증서 발급을 진행해 주세요."
+        })
+      +content_group(2)
+        +stepWrap()
+          +step()
+            .txt 토스앱에서 알림확인
+          +step()
+            .txt 토스인증 진행
+          +step()
+            .txt <em class="type2">인증완료</em> 후, 현재 화면의 인증완료 클릭
+       
+      +button_bottom_fixed()
+        +button({
+          label:"인증 재요청",
+          size:"large",
+          type:"default",
+        })
+        +button({
+          label:"인증완료",
+          size:"large",
+        })
+  script.
+    GCui.modal('#fullLayer').show()

@@ -1,0 +1,17 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - showHeader = false
+
+block content
+  .loading 
+    .inset
+      .img 
+        img(src="/src/images/loading.png", alt="")
+      .progress
+        p.text 25%
+
+      p.title
+        em 키움저축은행으로부터<br>금리와 한도를 받아오고 있어요.
+      p.text 대출금리와 한도 조회는 신용점수에<br>영향을 주지 않아요.

@@ -5,15 +5,14 @@ block prepend top
   - pageTitle = "금융계산기"
 
 block content
-  +tabsWrap({
-    active:2,
-    className:'custom_tab'
+  +tabsLink({
+    list:[		
+      {name:"예금이자"},
+      {name:"적금이자"},
+      {name:"대출이자", active:true},
+    ],
   })
-    +tab("예금이자")
-      div 11111
-    +tab("적금이자")
-      div 22222
-    +tab("대출이자")
+    +content_group(2)
       +form()
         +form_body({title:"대출금리"})
           +input({
@@ -54,7 +53,7 @@ block content
                 checked:true
               },
               {
-                label:'원리금 군등'
+                label:'원리금 균등'
               },
               {
                 label:'만기일시상환'
@@ -63,13 +62,107 @@ block content
           })
           +button_custom({
             type:"white-round-24",
-            label:"이체한도",
+            label:"상환방법 안내",
             className:"right_top"
           })
-          
       
-  +button({
-    label:"계산하기",
-    size:"medium",
-    type:"white",
-  })
+    +content_group(1)
+      +button({
+        label:"계산하기",
+        size:"medium",
+        type:"white",
+        className:"mui_button_custom",
+        disabled:true
+      })
+    hr
+    div.calc_result
+      +title({
+        text:"계산결과",
+        lv:4,
+      })
+      +content_group(3)
+        +card({
+          isLinked:false,
+          data: [
+              {
+                title:"상환일자",
+                text:"2024년 06월 29일",
+              },
+            ]
+        })
+      +content_group(1)
+        +accordion({
+          active:0,
+          className:'type2'
+        })
+          +acc_title('1회차')
+          +acc_content()
+            +result({
+              dataType:"default",
+              className:"greybox",
+              data:[
+                {
+                  title:"일수",
+                  text:"30일",
+                },
+                {
+                  title:"상환원금",
+                  text:"833,333원",
+                },
+                {
+                  title:"이자",
+                  text:"40,000원",
+                },
+                {
+                  title:"납입합계",
+                  text:"800,000원",
+                },
+                {
+                  title:"대출잔액",
+                  text:"9,164,369원",
+                },
+              ]
+            })
+          +acc_title('2회차')
+          +acc_content()
+            +result({
+              dataType:"default",
+              className:"greybox",
+              data:[
+                {
+                  title:"일수",
+                  text:"30일",
+                },
+                {
+                  title:"상환원금",
+                  text:"833,333원",
+                },
+                {
+                  title:"이자",
+                  text:"40,000원",
+                },
+                {
+                  title:"납입합계",
+                  text:"800,000원",
+                },
+                {
+                  title:"대출잔액",
+                  text:"9,164,369원",
+                },
+              ]
+            })
+      +collapse({
+        className:"guide_text",
+        isOpen:true,
+      })
+        +header()
+          p.title 알아두세요
+        +content()
+          +textLists({
+            type:'guide',
+            lists:[
+              {
+                text:"상품 특성에 따라 상환(이자)금액 및 일정 등은 달라질 수 있으므로 상기 결과는 참고용으로 확인 하시기 바랍니다.",
+              },
+            ]
+          })

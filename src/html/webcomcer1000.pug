@@ -19,13 +19,13 @@ block content
       .code 
         span.tt SB
         span.mask
-          span
+          input(type="password", maxlength="1")
         span.mask
-          span
-        span.mask.dim
-          span
-        span.mask.dim
-          span
+          input(type="password", maxlength="1")
+        span.mask
+          input(type="password", maxlength="1", disabled="disabled")
+        span.mask
+          input(type="password", maxlength="1", disabled="disabled")
       +collapse({
         className:"guide_text",
         isOpen:true,

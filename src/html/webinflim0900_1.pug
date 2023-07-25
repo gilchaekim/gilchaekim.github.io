@@ -1,0 +1,42 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출신청"
+
+block content
+  .inf_result
+    p.text_main 한도조회결과
+    +title({
+      text:"안타깝게도 대출한도가<br>조회되지 않아 대출 신청이<br>어렵습니다.",
+      lv:2,
+    })
+    .ico_block.type2
+
+    +card({
+      data: [
+          {
+            title:"사유",
+            text:"대출 신청이 어렵습니다.",
+          },
+        ]
+    })
+    +content_group(0)
+      .bg_ico 
+        +title({
+          text:"대출한도조회",
+          lv:3,
+        })
+        p.text 조회하신 상품이외 다른 상품으로<br>대출 가능하신지 한도를 조회 해보세요!
+    +content_group(0)
+      +button({
+        label:"대출한도조회",
+        size:"medium",
+        type:"white",
+      })
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

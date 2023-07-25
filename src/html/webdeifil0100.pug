@@ -46,43 +46,94 @@ block content
 
         +acc_title('금리안내')
         +acc_content()
-          .product_data   
-            p.title 계약기간
-            p.text 기본금리
-            p.title 6개월
-            p.text 연 0.2%
-            p.title 12개월
-            p.text 연 0.2%
-            p.title 24개월
-            p.text 연 0.2%
-            p.title 36개월
-            p.text 연 0%
+          +dataTable({
+            caption:"금리정보",
+            colgroup:[50,50],
+            headData:[
+              [
+                {text: "계약기간",},
+                {text: "기본금리"},
+              ],
+            ],
+            bodyData:[
+              [
+                {text: "6개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "12개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "24개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "36개월"},
+                {text: "연 0%"},
+              ],
+            ]
+          })
         +acc_title('중도해지이율')
         +acc_content()
-          .product_data   
-            p.title 계약기간
-            p.text 기본금리
-            p.title 6개월
-            p.text 연 0.2%
-            p.title 12개월
-            p.text 연 0.2%
-            p.title 24개월
-            p.text 연 0.2%
-            p.title 36개월
-            p.text 연 0%
+          +dataTable({
+            caption:"중도해지이율",
+            colgroup:[50,50],
+            headData:[
+              [
+                {text: "계약기간",},
+                {text: "기본금리"},
+              ],
+            ],
+            bodyData:[
+              [
+                {text: "6개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "12개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "24개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "36개월"},
+                {text: "연 0%"},
+              ],
+            ]
+          })
         +acc_title('만기 후 이율')
         +acc_content()
-          .product_data   
-            p.title 계약기간
-            p.text 기본금리
-            p.title 6개월
-            p.text 연 0.2%
-            p.title 12개월
-            p.text 연 0.2%
-            p.title 24개월
-            p.text 연 0.2%
-            p.title 36개월
-            p.text 연 0%
+          +dataTable({
+            caption:"만기 후 이율",
+            colgroup:[50,50],
+            headData:[
+              [
+                {text: "계약기간",},
+                {text: "기본금리"},
+              ],
+            ],
+            bodyData:[
+              [
+                {text: "6개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "12개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "24개월"},
+                {text: "연 0.2%"},
+              ],
+              [
+                {text: "36개월"},
+                {text: "연 0%"},
+              ],
+            ]
+          })
         +acc_title('약관 및 상품설명서')
         +acc_content()
           +button_wrap()

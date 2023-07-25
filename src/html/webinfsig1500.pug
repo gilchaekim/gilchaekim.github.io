@@ -1,91 +1,88 @@
 extends ../components/templates/base.pug
 
-block prepend top 
-  - mainClassName="webinf"
-  - pageTitle = "햇살론"
-
 block content
-  +stepNum({
-    total:6,
-    activeIndex:5
+  +button({
+    label:"금융거래 확인사항",
+    muiToggle:'target:#fullLayer;'
   })
-  +content_group(1)
-    +title({
-      text:'신청정보 입력',
-      lv:2,
-    })
-  +content_group(2)
-    +title({
-      text:'3. 고객직장정보',
-      lv:4,
-    })
   
-  +content_group(2)
-    .bank_product_details.long_type
-      +title({
-        text:"<em>온라인 햇살론</em>",
-        lv:1,
+  +modal({
+    title:"금융거래 확인사항",
+    id:"fullLayer",
+    type:"full",
+    className:"webinf"
+  })
+    +content_group(0)
+      .grey_box 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
+    +content_group(2)
+      +form()
+        +form_body({title:"개인거래목적"})
+          +button_select({
+            placeholder:"거래목적 선택"
+          })
+        +form_body({title:"걸제구분"})
+            +radioCheck({
+              type:"checkbox",
+              name:'chk01',
+              className:'mini_type',
+              lists:[
+                {label:'보험료납부',},
+                {label:'공과금납부',},
+                {label:'카드납부',},
+              ]
+            })
+        +form_body({title:"거래자금원천"})
+          +button_select({
+            placeholder:"거래자금원천 선택"
+          })
+      hr
+      
+      +content_group(0)
+        +title({
+          text:"가입하시는 상품의 명의인,<br><em>실소유인이 본인</em>이십니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'본인 맞습니다.',
+              checked:true
+            },
+            {
+              label:'본인이 아닙니다.'
+            }
+          ]
+        })
+      +content_group(0)
+        +title({
+          text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
+          lv:4,
+        })
+      +content_group(3)
+        +radioCheck({
+          name:'btnType1',
+          type:"radio",
+          className:'block_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니오',
+              checked:true
+            }
+          ]
+        })
+      
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+        type:"primary"
       })
-      p.sub_txt 비대면으로 진행하는 정부지원 대출
-      .detail
-        .list 
-          dl 
-            dt 최저금리
-            dd 4.50%
-        .img 
-          img(src="/src/images/img_prd.png", alt="보통예금 상품 이미지")
-    +card({
-      data: [
-          {
-            title:"이름",
-            text:"김저축",
-          },
-          {
-            title:"휴대폰번호",
-            text:"010-1234-5678",
-          },
-        ]
-    })
-    hr
-
-    +form()
-      +form_body({title:"직장명"})
-        +input({
-          placeholder:"직장명 입력"
-        })
-      +form_body({title:"직위"})
-        +input({
-          placeholder:"직위 입력"
-        })
-      +form_body({title:"담당업무"})
-        +input({
-          placeholder:"담당업무 입력"
-        })
-      +form_body({title:"직장 전화번호"})
-        +input({
-          placeholder:"직장전화번호 입력"
-        })
-      +form_body({title:"사업자증록번호"})
-        +input_business()
-      +form_body({title:"대표자명"})
-        +input({
-          placeholder:"대표자명 입력"
-        })
-      +form_body({title:"직장주소"})
-        +input_button({
-          btnText:"주소찾기",
-          placeholder:"주소 검색",
-        })
-        +input({
-          placeholder:"상세주소"
-        })
-      +form_body({title:"입사일자"})
-        +datepicker()
-
-  +button_bottom_fixed()
-    +button({
-      label:"다음",
-      size:"large",
-      type:"primary",
-      disabled:"disabled"
-    })
+  script.
+    GCui.modal('#fullLayer').show()

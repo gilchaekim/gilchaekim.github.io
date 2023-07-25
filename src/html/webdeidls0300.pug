@@ -42,19 +42,23 @@ block content
           className:'button_type',
           lists:[
             {
-              label:'개월수로 선택',
+              label:'개월수',
               checked:true
             },
             {
-              label:'만기일로 선택'
+              label:'만기일'
             }
           ]
         })
         +input({
-          placeholder:"1~60",
+          placeholder:"개월수 입력",
           subfix:"개월",
         })
         +datepicker()
+        +text({
+          type:'warning',
+          text:"최소 N개월부터 N개월까지 입력 가능합니다."
+        })
       +form_body({title:"가입금액"})
         .rangeslidr_wrap
           .currdata
@@ -67,34 +71,19 @@ block content
             
           .view_data
             button.write_pop 직접입력
-            .guide_box.gcoverflow_box
-              .overflow_wrap
-                .list 
-                  p.title 적용이율
-                  p.text 4.30%
-                .list 
-                  p.title 예상총이자
-                  p.text 120,300원(세전)
-                .list 
-                  p.title 월지급이자
-                  p.text 233원
-                .list 
-                  p.title 잔여일수 지급이자
-                  p.text 0원
-                .list 
-                  p.title 총 수입제세
-                  p.text 360원
-                .list 
-                  p.title 차감지급 월이자
-                  p.text 200원
-                .list 
-                  p.title 차감지급 잔여일수 이자
-                  p.text 0원
-                .list 
-                  p.title 차감지급액
-                  p.text 2,111원
-              button.more(mui-toggle="target:.gcoverflow_box;cls:mui_active;")
-                span 상세정보 조회
+            +content_group(1)
+              +button({
+                label:"선택한 설정으로 상품 조회하기",
+                size:"medium",
+                type:"white",
+              })
+            .guide_box
+              .list 
+                p.title 적용이율
+                p.text 4.30%
+              .list 
+                p.title 예상총이자
+                p.text 120,300원(세전)
 
 
       +form_body({title:"이자지급방법"})
@@ -152,12 +141,17 @@ block content
           type:'warning',
           text:"원금연장(이자당행이체) 시 이자는 출금계좌로 입금됩니다."
         })
-      +form_body()
-        +radioCheck({
-          name:'chk409889',
-          label:'비과세종합저축'
+      //- +form_body()
+      //-   +radioCheck({
+      //-     name:'chk409889',
+      //-     label:'비과세종합저축'
+      //-   })
+      +form_body({title:"과세구분"})
+        +button_select({
+          placeholder:"과세구분 선택",
+          label:"비과세"
         })
-
+        button(type="button").guide_btn 비과세종합저축 한도조회
       +form_body()
         +radioCheck({
           name:'chk4098892',

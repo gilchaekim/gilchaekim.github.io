@@ -1,0 +1,42 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"이어가기 안내호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    id:"modal_bottom",
+    type:"bottom",
+    isCloseBtn:false,
+    className:"webinf"
+  })
+    .notice 
+      .img 
+        img(src="/src/images/ico_suitability.png", alt="")
+      p.main_text <strong>최근에 대출신청을 진행하신<br>내역이 있으시군요!</strong>
+        em.item_name 더케이-햇살론
+        p.sub_txt <strong>대출 신청을 이어서<br>진행하시겠어요?<strong>
+    +content_group(3)
+      +text({
+        type:'warning',
+        text:"대출금액과 금리는 조회 시점에 따라 변동될 수 있습니다."
+      })
+      
+    +button_bottom_fixed()
+      +button({
+        label:"신청취소",
+        size:"large",
+        type:"default"
+      })
+      +button({
+        label:"이어가기",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#modal_bottom').show()

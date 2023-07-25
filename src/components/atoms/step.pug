@@ -11,7 +11,10 @@ mixin stepWrap(params={})
     - stepItems.push({name:item, body:block})
 
   block
-  ul.step
+  ul(
+    class=`${prefix}${divide}step`
+    class=className
+  )
     each item, index in stepItems
       li
         .num!='0' + (index+1)
@@ -23,7 +26,7 @@ mixin stepNum(params={})
   - const divide = '_'
   //- 공통 요소 End
 
-  - const { className, activeIndex, total, ...rest } = Object.assign({}, params)
+  - const { element="div", className, activeIndex, total, ...rest } = Object.assign({}, params)
   - let index = 1;
   #{element}(
     class=`${prefix}${divide}stepnum`

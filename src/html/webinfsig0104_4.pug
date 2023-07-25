@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"모달호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"",
+    id:"modal_bottom",
+    type:"bottom",
+    className:"webinf",
+    isCloseBtn:false
+  })
+    .notice 
+      .img 
+        img(src="/src/images/ico_suitability.png", alt="")
+      +content_group(3)
+        strong.tit 대출 적합성 확인
+      p.sub_text02 이전에 등록하신 대출 적합성<br>신청 결과가 있습니다.
+      +content_group(3)
+        strong.tit 이전 신청내역으로 대출 신청을<br>다시 신청하시겠어요?
+    +text({
+      type:'warning',
+      text:"대출계약을 위해서는 적합성 등록이 완료되어야 합니다."
+    })
+    
+    +button_bottom_fixed()
+      +button({
+        label:"취소",
+        size:"large",
+        type:"default"
+      })
+      +button({
+        label:"확인",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#modal_bottom').show()
