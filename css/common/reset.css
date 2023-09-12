@@ -58,6 +58,9 @@ em {
 em.type2 {
   color: var(--font_color07);
 }
+em.ff {
+  color: var(--font_color08);
+}
 
 img {
   width: 100%;

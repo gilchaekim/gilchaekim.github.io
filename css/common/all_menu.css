@@ -26,9 +26,28 @@
   align-items: center;
   padding: 12px 0 11px 0;
 }
+.allmenu_wrap .login_wrap .left_btns {
+  display: flex;
+  gap: 16px;
+}
+.allmenu_wrap .login_wrap .home {
+  position: relative;
+  padding-left: 22px;
+}
+.allmenu_wrap .login_wrap .home::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  background: url("/src/images/ico_home2.svg") no-repeat center/100%;
+  transform: translateY(-50%);
+}
 .allmenu_wrap .login_wrap .login {
   position: relative;
   padding-left: 22px;
+  padding-right: 0;
 }
 .allmenu_wrap .login_wrap .login::before {
   content: "";
@@ -67,7 +86,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0 30px;
   padding-top: 16px;
 }
 .allmenu_wrap .quick_wrap li:nth-child(1) a::before {
@@ -204,7 +222,7 @@
   position: relative;
   padding-top: 56px;
   padding-bottom: 16px;
-  font-size: 13px;
+  font-size: 14px;
 }
 .allmenu_wrap .tab_allmenu .nav_list button::before {
   content: "";
@@ -218,6 +236,9 @@
 }
 .allmenu_wrap .tab_allmenu .nav_list.mui_active {
   background: var(--bg_color03);
+}
+.allmenu_wrap .tab_allmenu .nav_list.mui_active button {
+  color: var(--main_color01);
 }
 .allmenu_wrap .tab_allmenu .nav_list.mui_active button::after {
   display: none;
@@ -235,6 +256,9 @@
 .allmenu_wrap .tab_allmenu .tab_contents .tab_list a {
   display: block;
   padding: 16px 24px;
+}
+.allmenu_wrap .tab_allmenu .mui_accordion .mui_acc_content {
+  padding-top: 0;
 }
 .allmenu_wrap .tab_allmenu .mui_accordion .mui_open {
   color: var(--main_color01);
@@ -254,6 +278,7 @@
   background-size: 100%;
   width: 20px;
   height: 20px;
+  right: 20px;
 }
 .allmenu_wrap .tab_allmenu .mui_accordion .acc_header {
   display: flex;
@@ -264,6 +289,7 @@
 .allmenu_wrap .tab_allmenu .flex_col {
   display: flex;
   flex-direction: column;
+  font-size: 13px;
 }
 .allmenu_wrap .tab_allmenu .flex_col a {
   display: inline-block;
