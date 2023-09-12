@@ -27,9 +27,28 @@
 		justify-content:space-between;
 		align-items:center;
 		padding:12px 0 11px 0;
+		.left_btns {
+			display: flex;
+			gap: 16px;
+		}
+		.home{
+			position:relative;
+			padding-left:22px;
+			&::before {
+				content:"";
+				position:absolute;
+				top:50%;
+				left:0;
+				width:20px;
+				height:20px;
+				background: url($url_common+"ico_home2.svg") no-repeat center / 100%;
+				transform:translateY(-50%);
+			}
+		}
 		.login {
 			position:relative;
 			padding-left:22px;
+			padding-right: 0;
 			&::before {
 				content:"";
 				position:absolute;
@@ -71,7 +90,7 @@
 		display:flex;
 		justify-content:space-between;
 		align-items:center;
-		gap:0 30px;
+		// gap:0 30px;
 		padding-top:16px;
 		li {
 			&:nth-child(1) {
@@ -226,7 +245,7 @@
 				position:relative;
 				padding-top:56px;
 				padding-bottom:16px;
-				font-size:13px;
+				font-size:14px;
 				&::before {
 					content:"";
 					position:absolute;
@@ -241,9 +260,13 @@
 			}
 			&.mui_active {
 				background:$bg_color03;
-				button::after {
-					display:none;
+				button {
+					color:$main_color01;
+					&::after {
+						display:none;
+					}
 				}
+				
 			}
 		}
 		.tab_contents {
@@ -261,6 +284,9 @@
 			}
 		}
 		.mui_accordion {
+			.mui_acc_content{
+				padding-top: 0;
+			}
 			.mui_open {
 				color:$main_color01;
 				.mui_acc_button {
@@ -271,6 +297,7 @@
 			.mui_acc_button {
 				font-size:0;
 				@include icon_svg(arrow-down, "#555", 20px);
+				right: 20px;
 			}
 			.acc_header {
 				display:flex;
@@ -282,6 +309,7 @@
 		.flex_col {
 			display:flex;
 			flex-direction:column;
+			font-size: 13px;
 			a {
 				display:inline-block;
 				padding:8px 24px 8px 32px;

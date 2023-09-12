@@ -40,7 +40,7 @@
     .mui_accordion{
       padding: 0 24px;
       .mui_acc_content{
-        padding-bottom: 16px;
+        padding:0 0 16px;
       }
       .acc_lists:last-child{
         .mui_acc_content{
@@ -57,6 +57,7 @@
       .acc_header{
         position: relative;
         height: 52px;
+        padding: 0;
         .acc_title{
           font-size: 18px;
           color: #111;
@@ -72,6 +73,7 @@
           right: 0;
           top: 50%;
           transform: translate(0, -50%);
+          margin-top: -4px;
         }
       }
     }
@@ -81,6 +83,9 @@
         margin-top: 40px;
       }
     }
+  }
+  .mui_accountbox .acc_name_wrap .acc_name {
+    font-weight: 700;
   }
 
   .toggle_wrap{
@@ -259,8 +264,12 @@
       background-size: 32px;
     }
     &.type1{
+      padding: 0;
+      border-radius: 0;
       .slider{
-        border-radius: 60px;
+        border-radius: 0;
+        background: transparent;
+        box-shadow: none;
       }
       .ico{
         width: 100px;
@@ -270,11 +279,15 @@
       .lists{
         text-align: center;
         border-radius:60px;
-       a{
-        height: 300px;
-        border-radius:60px;
-        padding: 32px 32px 0;
-       } 
+        background:$main_color01;
+        overflow: hidden;
+        width: calc( 100% - 60px );
+        a{
+          height: 300px;
+          border-radius:60px;
+          padding: 32px 32px 0;
+          
+        } 
       }
       .title{
         color:$font_color06;
@@ -454,6 +467,18 @@
       .link_sec{
         margin-top: 24px;
       }
+      .swiper-pagination-bullets {
+        .swiper-pagination-bullet {
+          width: 6px;
+          height: 6px;
+          margin: 0 2px;
+        }
+        .swiper-pagination-bullet-active{
+          width: 14px;
+        }
+      }
+
+
     }
     .link_sec{
       display: block;
@@ -531,7 +556,7 @@
       .percent{
         margin-top: 24px;
         .txt2{
-          color: $main_color01;
+          color: $main_color02;
         }
       }
 
@@ -573,7 +598,7 @@
       }
       .box{
         display: block;
-        padding: 24px 24px 20px;
+        padding: 24px 20px 20px;
       }
       .divide{
         margin-top: 20px;
@@ -721,9 +746,21 @@
           margin-top: 16px;
         }
         a{
+          display:flex;
+          gap:0 16px;
+          align-items:center;
           font-size: 16px;
           color: #555;
-          @include ellipsis()
+          justify-content: space-between;
+          span {
+            &:first-child {
+              @include ellipsis()
+            }
+            &+span {
+              font-size:13px;
+              color:#888;
+            }
+          }
         }
       }
       .card{

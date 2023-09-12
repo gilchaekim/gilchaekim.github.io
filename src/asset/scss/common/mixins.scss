@@ -502,6 +502,10 @@ $sqrt_2: 1.41421356237;
         $outer:'ccc';
         $inner:'fff';
     }
+    @if $color == yellow {
+        $outer:'FFCA3A';
+        $inner:'fff';
+    }
     $svgIcon: "%3Csvg xmlns='http://www.w3.org/2000/svg' width='"+$size+"' height='"+$size+"' viewBox='0 0 20 20'%3E%3Crect width='20' height='20' fill='none'/%3E%3Ccircle cx='9' cy='9' r='9' transform='translate(1 1)' fill='%23"+$outer+"'/%3E%3Cpath d='M11.111,13.861a1,1,0,0,1-1,1H9.889a1,1,0,0,1-1-1V9.334a1,1,0,0,1,1-1h.222a1,1,0,0,1,1,1Z' fill='%23"+$inner+"'/%3E%3Ccircle cx='1.111' cy='1.111' r='1.111' transform='translate(11.111 7.223) rotate(180)' fill='%23"+$inner+"'/%3E%3Crect width='20' height='20' fill='none'/%3E%3C/svg%3E";
 
     background-image: url("data:image/svg+xml,"+$svgIcon);
