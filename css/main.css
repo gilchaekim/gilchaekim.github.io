@@ -84,6 +84,9 @@ em {
 em.type2 {
   color: var(--font_color07);
 }
+em.ff {
+  color: var(--font_color08);
+}
 
 img {
   width: 100%;
@@ -508,7 +511,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   padding: 0 24px;
 }
 .main #contants .mui_accordion .mui_acc_content {
-  padding-bottom: 16px;
+  padding: 0 0 16px;
 }
 .main #contants .mui_accordion .acc_lists:last-child .mui_acc_content {
   padding-bottom: 0;
@@ -519,6 +522,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main #contants .mui_accordion .acc_header {
   position: relative;
   height: 52px;
+  padding: 0;
 }
 .main #contants .mui_accordion .acc_header .acc_title {
   font-size: 18px;
@@ -539,12 +543,16 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
+  margin-top: -4px;
 }
 .main #contants .mui_contents_group {
   margin-top: 24px;
 }
 .main #contants .mui_contents_group ~ .mui_contents_group {
   margin-top: 40px;
+}
+.main .mui_accountbox .acc_name_wrap .acc_name {
+  font-weight: 700;
 }
 .main .toggle_wrap {
   margin-top: 16px;
@@ -718,8 +726,14 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   background: url("/src/images/ico_arrow.png") no-repeat right 2px;
   background-size: 32px;
 }
+.main .main_slider.type1 {
+  padding: 0;
+  border-radius: 0;
+}
 .main .main_slider.type1 .slider {
-  border-radius: 60px;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 .main .main_slider.type1 .ico {
   width: 100px;
@@ -729,6 +743,9 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .main_slider.type1 .lists {
   text-align: center;
   border-radius: 60px;
+  background: var(--main_color01);
+  overflow: hidden;
+  width: calc(100% - 60px);
 }
 .main .main_slider.type1 .lists a {
   height: 300px;
@@ -889,6 +906,14 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 .main .status.type3 .link_sec {
   margin-top: 24px;
 }
+.main .status.type3 .swiper-pagination-bullets .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  margin: 0 2px;
+}
+.main .status.type3 .swiper-pagination-bullets .swiper-pagination-bullet-active {
+  width: 14px;
+}
 .main .status .link_sec {
   display: block;
   text-align: center;
@@ -967,7 +992,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-top: 24px;
 }
 .main .status .box_type .percent .txt2 {
-  color: var(--main_color01);
+  color: var(--main_color02);
 }
 .main .status .list_type {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -1005,7 +1030,7 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
 }
 .main .status .slider_type .box {
   display: block;
-  padding: 24px 24px 20px;
+  padding: 24px 20px 20px;
 }
 .main .status .slider_type .divide {
   margin-top: 20px;
@@ -1152,12 +1177,22 @@ swiper-container:not(.swiper-watch-progress) .swiper-lazy-preloader,
   margin-top: 16px;
 }
 .main .mui_contents_group .notice .list_type a {
+  display: flex;
+  gap: 0 16px;
+  align-items: center;
   font-size: 16px;
   color: #555;
+  justify-content: space-between;
+}
+.main .mui_contents_group .notice .list_type a span:first-child {
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+.main .mui_contents_group .notice .list_type a span + span {
+  font-size: 13px;
+  color: #888;
 }
 .main .mui_contents_group .notice .card li ~ li {
   margin-top: 8px;
