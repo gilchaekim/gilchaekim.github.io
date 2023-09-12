@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록변경"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +title({
@@ -14,23 +14,23 @@ block content
     data:[
       {
         title:"출금계좌",
-        text:"중앙저축은행<br>123-213125-41",
+        text:"중앙저축은행<br>01234567890123",
       },
       {
         title:"입금계좌",
-        text:"중앙저축은행<br>123-213125-41",
+        text:"중앙저축은행<br>12345678910112",
       },
       {
         title:"이체금액",
         text:"10,000원",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"이체기간",
+        text:"2023.03 ~ 2023.04",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"이체일",
+        text:"말일",
       },
     ]
   })
@@ -38,7 +38,7 @@ block content
     +button({
       label:"취소",
       size:"large",
-      type:"grey",
+      type:"default",
     })
     +button({
       label:"다음",

@@ -11,12 +11,38 @@ block content
       date:"2023.03.13~2023.03.19",
       isBtn:true
     })
+  +result({
+    type:'null',
+    mainText:"신청내역이 없습니다.",
+    img:"/src/images/ico_search_empty.svg",
+  })
   .req_list_result 
     .list 
       p.date 02.15
       .data 
         span.text 정기예금 신규신청
         span.tag.ing 신청중
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
+        span.tag.ing 신청
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
+        span.tag.ing 입금확인중
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
+        span.tag.ing 처리중
       .link 
         a(href="") 인터넷뱅킹 신규신청
     .list 
@@ -30,7 +56,28 @@ block content
       p.date 02.15
       .data 
         span.text 정기예금 신규신청
+        span.tag.complete 입금확인완료
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
         span.tag.error 신청 미완료
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
+        span.tag.error 오류중단
+      .link 
+        a(href="") 인터넷뱅킹 신규신청
+    .list 
+      p.date 02.15
+      .data 
+        span.text 정기예금 신규신청
+        span.tag.error 거절중단
       .link 
         a(href="") 인터넷뱅킹 신규신청
   

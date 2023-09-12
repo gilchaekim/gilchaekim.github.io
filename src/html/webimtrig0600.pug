@@ -1,51 +1,63 @@
 extends ../components/templates/base.pug
 
-block prepend top 
-  - mainClassName="webauc"
-  - pageTitle = "즉시이체"
+//- block prepend top 
+//-   - mainClassName="webauc"
+//-   - pageTitle = "즉시이체"
 
 block content
-  +content_group(2)
-    +title({
-      text:"이체결과 문자전송",
-      lv:4,
-    })
-    
-  +content_group(2)
-    +form()
-      +form_body({title:"보내는 분 휴대폰번호"})
-        +form_value({
-          value:"010-1234-****"
-        })
-      +form_body({title:"받는 분 휴대폰번호"})
-        +input({
-          value:"",
-          placeholder:"받는분 휴대폰번호 입력"
-        })
-        +text({
-          type:'warning',
-          text:"거래 완료 후 이체결과조회를 확인하여 주시기 바랍니다."
-        })
-  +content_group(1)
-    +title({
-      text:"전송메시지",
-      lv:4,
-      className:"sms_title"
-    })
-    .sms_msg_box 
-      | 김저축님이 홍길동님의
-      br
-      | 저축은행 123-45-67-890 계좌로
-      br
-      em 1,000원
-      | 을 입금하였습니다.
-  +button_bottom_fixed()
-    +button({
-      label:"취소",
-      size:"large",
-      type:"default",
-    })
-    +button({
-      label:"확인",
-      size:"large",
-    })
+  +button({
+    label:"이체결과 문자전송",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"이체결과 문자전송",
+    id:"fullLayer",
+    type:"full",
+    className:"webauc"
+  })
+    +content_group(2)
+      +title({
+        text:"이체결과 문자전송",
+        lv:4,
+      })
+      
+    +content_group(2)
+      +form()
+        +form_body({title:"보내는 분 휴대폰번호"})
+          +form_value({
+            value:"010-1234-****"
+          })
+        +form_body({title:"받는 분 휴대폰번호"})
+          +input({
+            value:"",
+            placeholder:"받는분 휴대폰번호 입력"
+          })
+          +text({
+            type:'warning',
+            text:"거래 완료 후 이체결과조회를 확인하여 주시기 바랍니다."
+          })
+    +content_group(1)
+      +title({
+        text:"전송메시지",
+        lv:4,
+        className:"sms_title"
+      })
+      .sms_msg_box 
+        | 김저축님이 홍길동님의
+        br
+        | 저축은행 123-45-67-890 계좌로
+        br
+        em 1,000원
+        | 을 입금하였습니다.
+    +button_bottom_fixed()
+      +button({
+        label:"취소",
+        size:"large",
+        type:"default",
+      })
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

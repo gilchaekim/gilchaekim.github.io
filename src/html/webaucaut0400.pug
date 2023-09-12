@@ -2,14 +2,17 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(CMS)"
+  - pageTitle = "자동이체(CMS) 등록"
 
 block content
   +title({
     text:"어디로 보낼까요?",
     lv:2,
   })
-  +button_select_account()
+  +button_select({
+    placeholder:"계좌 선택",
+  })
+  +button_select_account({isImg:true})
   +collapse({
     className:"guide_text",
     isOpen:true,

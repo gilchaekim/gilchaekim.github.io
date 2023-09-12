@@ -54,10 +54,17 @@ block content
       +agree_box({
         text:"약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트 약관 텍스트"
       })
-      +text({
-        type:'warning',
-        text:"상품가입 진행을 위해서 동의가 필요해요"
-      })
+      .agree_chk 
+        +radioCheck({
+          name:'chk239911',
+          label:'확인'
+        })
+      +content_group(2)
+        
+        +text({
+          type:'warning',
+          text:"상품가입 진행을 위해서 동의가 필요해요"
+        })
   +button_bottom_fixed()
     +button({
       label:"다음",

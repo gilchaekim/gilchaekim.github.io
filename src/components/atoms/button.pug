@@ -58,8 +58,7 @@ mixin button(params={})
     mui-toggle=muiToggle
     disabled=disabled
   )
-    span
-      | #{label}
+    span!=label
 
 mixin button_select(params={})
   //- 공통 요소 Start
@@ -93,20 +92,23 @@ mixin button_select_account(params={})
   - const divide = '_'
   //- 공통 요소 End
   
-  - const { element = "button", disabled, className, isMoney, ...rest } = Object.assign({}, params)
+  - const { element = "button", disabled, className, isMoney, isImg=false, ...rest } = Object.assign({}, params)
 
 
   #{element}(
     id=id
     class=`${prefix}${divide}button`
     class=`${prefix}${divide}select account`
+    class={"no_img":isImg}
     class=className
     type="button"
     disabled=disabled
   )
     span.inset
-      span.img 
-        img(src="/src/images/icon_bank.png", alt="은행 이미지")
+      if isImg
+      else
+        span.img 
+          img(src="/src/images/icon_bank.png", alt="은행 이미지")
       span.label 저축보통예금
       span.accnum 123-1212-1234-56
       if isMoney

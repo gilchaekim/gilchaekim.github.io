@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(당/타행)"
+  - pageTitle = "자동이체(당/타행) 등록"
 
 block content
   +title({
@@ -16,13 +16,14 @@ block content
       })
       +radioCheck({
         name:'chk073306',
+        className:"label13",
         label:"매월 말일이체"
       })
     +form_body({title:"이체시작일", tooltip:"이체가 시작되는 일자는 오늘 이후 영업일 기준 5일 이후부터 가능합니다."})
       +datepicker()
-    +form_body({title:"이체종료일"})
+    +form_body({title:"이체시작월"})
       +datepicker()
-    +form_body({title:"이체종료일", message:{type:"error", text:"자동이체 시작일과 종료일은 같을 수 없습니다."}})
+    +form_body({title:"이체종료월", message:{type:"error", text:"자동이체 시작일과 종료일은 같을 수 없습니다."}})
       +datepicker()
   +collapse({
     className:"guide_text",

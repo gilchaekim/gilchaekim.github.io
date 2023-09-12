@@ -2,14 +2,22 @@ extends ../components/templates/base.pug
 
 block content
   +button({
-    label:"간편비밀번호 호출",
-    muiToggle:'target:#fullLayer;'
+    label:"간편비밀번호 반팝업",
+    muiToggle:'target:#modal_bottom;'
   })
   +modal({
-    title:"간편비밀번호",
-    id:"fullLayer",
-    type:"full"
+    id:"modal_bottom",
+    type:"bottom",
+    className:"keypad"
   })
-    div 솔루션 호출 
+    p.title 간편 비밀번호를 입력헤 주세요 
+    .mask 
+      span.dot.mui_active
+      span.dot.mui_active
+      span.dot
+      span.dot
+      span.dot
+      span.dot
+    div(style="border:1px solid red;height:200px") 보안키패드 영역
   script.
-    GCui.modal('#fullLayer').show()
+    GCui.modal('#modal_bottom').show()

@@ -39,11 +39,16 @@
       box-sizing: border-box;
     }
   }
+  &.label13{
+    label {
+      font-size: 13px;
+    }
+  }
 }
 .mui_radio{
   input{
     &:checked + label{
-      color:$main_color01;
+      // color:$main_color01;
       &::before{
         border: 5px solid $main_color01;
       }
@@ -53,7 +58,7 @@
 .mui_checkbox{
   input{
     &:checked + label{
-      color:$main_color01;
+      // color:$main_color01;
       &::before{
         border: 0 none;
         background:$main_color01;
@@ -143,7 +148,7 @@
       width: 100%;
       text-align: center;
       display: block;
-      font-size: 14px;
+      font-size: 16px;
       color: #888;
       padding: 16px 0;
       position: relative;
@@ -196,6 +201,9 @@
         }
       }
     }
+    &::after{
+      display: none;
+    }
   }
 }
 .block_type{
@@ -246,6 +254,22 @@
 }
 .mini_type{
   .mui_radio, .mui_checkbox {
+    label {
+      font-size: 14px;
+      color:$font_color01;
+      line-height: 20px;
+      min-height: 20px;
+      padding-left: 28px;
+      display: inline-block;
+    }
+  }
+  .mui_checkbox {
+    label {
+      &::before {
+        @include icon_svg(check, "#ccc", 20px);
+        border: 0 none;
+      }
+    }
     input:checked + label {
       color:$font_color01;
       &::after {
@@ -257,16 +281,14 @@
         border: 0 none;
       }
     }
+  }
+  .mui_radio{
     label {
-      font-size: 14px;
-      color:$font_color01;
-      line-height: 20px;
-      min-height: 20px;
-      padding-left: 28px;
-      display: inline-block;
       &::before {
-        @include icon_svg(check, "#ccc", 20px);
-        border: 0 none;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        top: 2px;
       }
     }
   }

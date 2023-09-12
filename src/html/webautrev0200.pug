@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록조회상세"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +title({
@@ -38,13 +38,19 @@ block content
       },
     ]
   })
+  //- +content_group(2)
+  //-   +button({
+  //-     label:"확인",
+  //-     size:"medium",
+  //-     type:"white",
+  //-   })
   +button_bottom_fixed()
     +button({
-      label:"변경",
+      label:"해지",
       size:"large",
       type:"default",
     })
     +button({
-      label:"해지",
+      label:"변경",
       size:"large",
     })

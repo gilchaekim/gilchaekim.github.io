@@ -10,7 +10,7 @@ block content
     +result({
       type:'result',
       mainText:"김저축님께 <em>10,000,000원</em><br>이체가 완료되었습니다.",
-      img:"/src/images/ico_example2.png",
+      img:"/src/images/ico_finish.svg",
     })
   +content_group(0)
     .grey_box_result
@@ -43,18 +43,18 @@ block content
               text:"0원",
             },
             {
-              title:"받는분통장표시 ",
+              title:"받는 분에게 표시",
               text:"김저축(상상인저축은행)",
             },
             {
-              title:"내 통장표시",
+              title:"나에게 표시",
               text:"김저축",
             },
           ]
       })
         .bookmark_wrap
-          button(type="button").bookmark
-            span 자주쓰는계좌등록
+          button(type="button").bookmark.on
+            span 자주쓰는계좌해제
           button(type="button").sms
             span SMS 전송
       +result({
@@ -77,11 +77,11 @@ block content
               text:"0원",
             },
             {
-              title:"받는분통장표시 ",
+              title:"받는 분에게 표시",
               text:"김저축(상상인저축은행)",
             },
             {
-              title:"내 통장표시",
+              title:"나에게 표시",
               text:"김저축",
             },
           ]
@@ -91,6 +91,7 @@ block content
             span 자주쓰는계좌등록
           button(type="button").sms
             span SMS 전송
+            
   +button_bottom_fixed()
     +button({
       label:"결과조회",

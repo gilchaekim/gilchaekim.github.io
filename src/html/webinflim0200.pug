@@ -4,27 +4,41 @@ block prepend top
   - pageTitle = "대출한도조회"
 
 block content
-  +content_group(2)
+  +stepNum({
+    total:5,
+    activeIndex:1
+  })
+  +content_group(1)
     +title({
-      text:"대출한도 조회를 위해<br>아래 항목에 동의해 주세요.",
+      text:"약관동의",
       lv:2,
     })
+    +content_group(4)
+      +text({
+        text:"대출한도 조회를 위해 아래 항목에 동의해 주세요."
+      })
   +content_group(2)
+    +agree_check({
+      text:"[필수] 대출상품설명서",
+    })
     +agree_check({
       text:"전체 동의",
     })
       +agree_check({
-        text:"[필수] 개인(신용)정보 수집·이용·제공 동의서",
+        text:"[필수] 개인(신용)정보 조회 동의서",
       })
       +agree_check({
-        text:"[필수] 개인(신용)정보 수집·이용·제공 동의서(여신금융거래)",
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의",
       })
       +agree_check({
-        text:"[필수] 가계대출상품설명서",
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의(여신금융거래)",
       })
-      +agree_check({
-        text:"[필수] 개인(신용)정보 조회 동의서(서민금융진흥원용)",
-      })
+      //- +agree_check({
+      //-   text:"[필수] 가계대출상품설명서",
+      //- })
+      //- +agree_check({
+      //-   text:"[필수] 개인(신용)정보 조회 동의서(서민금융진흥원용)",
+      //- })
       +agree_check({
         text:"[필수] 개인(신용)정보 수집·이용·제공 동의(서민금융진흥원용)",
       })
@@ -33,6 +47,15 @@ block content
       })
       +agree_check({
         text:"[필수] CMS출금이체 동의",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 수집·이용·제공 동의서[공공마이데이터_여신]",
+      })
+      +agree_check({
+        text:"[필수] 개인(신용)정보 제3자 제공 동의서[공공마이데이터_여신]",
+      })
+      +agree_check({
+        text:"[필수] 본인 행정정보 3자 제공 요구서[공공마이데이터_여신]",
       })
 
   +button_bottom_fixed()

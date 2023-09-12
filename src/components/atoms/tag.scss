@@ -19,4 +19,10 @@
         color:#7d2f9d;
         background:#f7f2f9;
     }
+    &.type1 {
+        background:$font_color07 !important;
+    }
+    &.type2 {
+        background:$font_color08 !important;
+    }
 }

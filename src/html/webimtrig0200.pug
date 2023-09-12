@@ -13,7 +13,8 @@ block content
       className:"min_title"
     })
     +button_select_account({
-      isMoney:true
+      isMoney:true,
+      isImg:true,
     })
   +content_group(1)
     +content_group(3)
@@ -50,20 +51,20 @@ block content
             type:"white-round-24",
             label:"이체한도",
           })
-        +form_body({title:"출금계좌 비밀번호"})
-          +input({
-            type:"password",
-            placeholder:"계좌비밀번호 입력",
-          })
+        //- +form_body({title:"출금계좌 비밀번호"})
+        //-   +input({
+        //-     type:"password",
+        //-     placeholder:"계좌비밀번호 입력",
+        //-   })
         +form_body({title:"혼합식적금 입금 구분"})
-          +button_select({
-            placeholder:"대상조회"
-          })
-          //- +button({
-          //-   label:"대상조회",
-          //-   size:"medium",
-          //-   type:"white",
+          //- +button_select({
+          //-   placeholder:"대상조회"
           //- })
+          +button({
+            label:"대상조회",
+            size:"medium",
+            type:"white",
+          })
           +radioCheck({
             type:"radio",
             name:'chk687565',
@@ -82,12 +83,12 @@ block content
       +content()
         .acc_data2
           +form()
-            +form_body({title:"받는 계좌에 표시"})
+            +form_body({title:"받는 분에게 표시"})
               +input({
                 value:"김중앙(저축은행)",
                 maxlength:10,
               })
-            +form_body({title:"내 계좌에 표시 "})
+            +form_body({title:"나에게 표시"})
               +input({
                 placeholder:"10자 이내 입력",
                 maxlength:10,

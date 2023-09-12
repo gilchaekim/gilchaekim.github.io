@@ -10,9 +10,8 @@ block content
     id:"modal_bottom",
     type:"bottom"
   })
-    +content_group(1)
-      +select_list({
-        type:"accountlist_img"
-      })
+    +select_list({
+      type:"account"
+    })
   script.
     GCui.modal('#modal_bottom').show()

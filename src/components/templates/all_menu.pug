@@ -1,9 +1,11 @@
 .allmenu_wrap
   +content_group(1)
     .login_wrap
-      <!-- 로그아웃시 logout 클래스 추가 -->
-      .login 로그인
-      <!-- //로그아웃시 logout 클래스 추가 -->
+      .left_btns
+        .home 홈
+        <!-- 로그아웃시 logout 클래스 추가 -->
+        .login 로그인
+        <!-- //로그아웃시 logout 클래스 추가 -->
       +button_wrap()
         +button({
           label:"닫기",
@@ -59,21 +61,15 @@
           +acc_content()
             .flex_col
               a(href="#") 상품안내/신청
-              a(href="#") 온라인 서류제출
           +acc_title('신용대출/햇살론')
           +acc_content()
             .flex_col
-              a(href="#") 상품안내/신청
-              a(href="#") 신용정보조회동의
-              a(href="#") 신용정보조회동의
-          +acc_title('대출금액조회')
-          +acc_content()
-            .flex_col
-              a(href="#") 대출이자납입금액조회
-              a(href="#") 대출상환예정금액조회
+              a(href="#") 상품안내
         ul.tab_list
           li
-            a(href="#") 적정성등록
+            a(href="#") 온라인 서류제출
+          li
+            a(href="#") 신용조회동의/적정성등록
           li
             a(href="#") 대출신청조회
           li
@@ -82,7 +78,15 @@
             a(href="#") 금리인하요구권
           li
             a(href="#") 대출철회
-
+        +accordion({
+          multiple:true,
+          active:0
+        })
+          +acc_title('대출금액조회')
+          +acc_content()
+            .flex_col
+              a(href="#") 대출이자납입금액조회
+              a(href="#") 대출상환예정금액조회
       +tab("예적금")
         ul.tab_list
           li
@@ -106,6 +110,7 @@
               a(href="#") 자동이체(당/타행)
               a(href="#") 자동이체(CMS)
               a(href="#") 예약이체
+              a(href="#") 이체조회결과
           +acc_title('고객정보관리')
           +acc_content()
             .flex_col
@@ -113,6 +118,7 @@
               a(href="#") 고객확인제도
               a(href="#") 장기미접속해제
               a(href="#") 뱅킹비밀번호 변경
+              a(href="#") 최초뱅킹비밀번호 등록
               a(href="#") 제증명
           +acc_title('뱅킹관리')
           +acc_content()

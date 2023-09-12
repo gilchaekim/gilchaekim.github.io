@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(CMS)"
+  - pageTitle = "자동이체(CMS) 등록"
 
 block content
   +title({
@@ -10,7 +10,7 @@ block content
     lv:2,
   })
   +agree_check({
-    text:"모두 동의합니다",
+    text:"전체동의",
   })
     +agree_check({
       text:"[필수] 개인정보 수집 및 이용 동의",
@@ -24,6 +24,6 @@ block content
 
   +button_bottom_fixed()
     +button({
-      label:"확인",
+      label:"다음",
       size:"large",
     })

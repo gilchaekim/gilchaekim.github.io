@@ -85,7 +85,13 @@ block content
                 strong 중앙정기예금
                 span.acc_num 123-1212-1234-56
                   span.acc_aka 100,000원
-    
+    <!-- 발급신청 가능한 계좌가 없는 경우 -->
+    +result({
+      type:'null',
+      mainText:"조회된 계좌가 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+    <!-- //발급신청 가능한 계좌가 없는 경우 -->
     +collapse({
       className:"guide_text",
       isOpen:false,

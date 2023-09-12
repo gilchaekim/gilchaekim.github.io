@@ -2,14 +2,14 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록해지"
+  - pageTitle = "예약이체조회/해지"
 
 block content
   +content_group(0)
     +result({
       type:'result',
       mainText:"예약이체해지가<br>완료되었습니다.",
-      img:"/src/images/ico_example2.png",
+      img:"/src/images/ico_finish.svg",
     })
   +content_group(0)
   +result({
@@ -28,16 +28,16 @@ block content
         text:"<em>10,000원</em>",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"수수료",
+        text:"0원",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"출금계좌",
+        text:"123-123-1234",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"받는 분에게 표시",
+        text:"김중앙(중앙저축은행)",
       },
     ]
   })

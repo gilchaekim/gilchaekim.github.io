@@ -96,6 +96,11 @@
     .chk_btn{
       border: 0 none;
     }
+    &.inner_agree{
+      .mui_checkbox_group{
+        gap: 0;
+      }
+    }
     .inset{
       padding-top: 0;
       padding-left: 38px;
@@ -131,8 +136,34 @@
   }
   .inset{
     padding: 24px 16px 0;
+    .mui_accordion {
+      .mui_acc_button {
+        top: 0 !important;
+        margin-top: 2px;
+      }
+      .acc_lists {
+        border-bottom: 0 none;
+      }
+      .acc_header {
+        padding: 0;
+        .mui_agree_check {
+          margin-right: 24px;
+        }
+        .chk_btn {        
+          &::after {
+            display: none;
+          }   
+        }
+      }
+      .mui_acc_content {
+        padding: 12px 0 12px 28px;
+      }
+
+    }
+    
     .inset{
       padding-top: 16px;
+      padding-right: 0;
     }
     .mui_agree_check{
       & ~.mui_agree_check{
@@ -193,7 +224,9 @@
   .check_sec{
     text-align: right;
     margin-top: 12px;
-    
+    .mui_radio_group{
+      justify-content: right;
+    }
   }
   .agree_box{
     background:$bg_color02;

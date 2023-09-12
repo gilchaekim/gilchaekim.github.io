@@ -37,6 +37,7 @@
         @include icon_svg(arrow-left, "#111", 20px);
         transform: rotate(180deg);
         position: absolute;
+
         top: 24px;
         right: 24px;
       }
@@ -121,7 +122,7 @@
     
     
     & ~ .mui_card_list{
-      margin-top: 12px;
+      margin-top: 16px;
     }
     .img{
       display: block;
@@ -130,7 +131,6 @@
       position: absolute;
       left: 20px;
       top: 20px;
-      background:$line_color03;
     }
     .text{
       color:$font_color02;

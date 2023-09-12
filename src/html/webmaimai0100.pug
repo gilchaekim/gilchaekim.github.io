@@ -12,10 +12,18 @@ block content
         | 입니다.
         span.ico
     .main_slider.type1(
-      mui-slider="scrollbar:true;paging:true;loop:false;"
+      mui-slider="scrollbar:true;paging:true;loop:false;slidesPerView:auto;centeredSlides:true;spaceBetween:12;effectPrevShadow:false;effectNextShadow:false ;effectPrevTranslate:-120%, 0 ,-350;effectNextTranslate: 120%, 0, -350;effect:creative;"
     )
       .slider
         .swiper-wrapper
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 맞춤대출 한도조회
+                p.decs 신용평점에 영향없이 다양한 대출상품의 한도와 금리 조회가능!
+                .ico
+                  img(src="/src/images/ico_main11.svg" alt="")
+                span.link_txt 둘러보러가기
           .lists.swiper-slide
             a(href="")
               .box 
@@ -94,11 +102,17 @@ block content
       .cont
         ul.list_type
           li 
-            a(href="") 저축은행 중앙회 새소식입니다 이곳은 공지사항
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
           li 
-            a(href="") 저축은행 중앙회 새소식입니다 이곳은 공지사항
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
           li 
-            a(href="") 저축은행 중앙회 새소식입니다 이곳은 공지사항
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
 
   +content_group(1)
     a.banner.type01(href="")

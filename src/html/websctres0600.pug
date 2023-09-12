@@ -2,14 +2,14 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록해지"
+  - pageTitle = "예약이체등록"
 
 block content
   +content_group(0)
     +result({
       type:'result',
       mainText:"예약이체 신청이<br>완료되었습니다.",
-      img:"/src/images/ico_example2.png",
+      img:"/src/images/ico_finish.svg",
     })
   +content_group(0)
   +result({
@@ -32,26 +32,32 @@ block content
         text:"<em>10,000원</em>",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"출금계좌",
+        text:"중앙저축은행<br>123123123123",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"받는 분에게 표시",
+        text:"김중앙(중앙저축은행)",
       },
       {
-        title:"내용입력",
-        text:"내용입력",
+        title:"나에게 표시",
+        text:"김중앙",
       },
     ]
   })
     .bookmark_wrap
-      button(type="button").bookmark
+      button(type="button").bookmark.on
         span 자주쓰는계좌등록
   +text({
     type:'warning',
     text:"거래 완료 후 이체결과조회를 확인하여 주시기 바랍니다."
   })
+  +content_group(2)
+    .al_center
+      +button_custom({
+        type:"round-40",
+        label:"추가신청하기"
+      })
   +button_bottom_fixed()
     +button({
       label:"확인",

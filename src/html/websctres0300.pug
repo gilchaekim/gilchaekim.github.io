@@ -24,24 +24,24 @@ block content
           label:"최근ㆍ자주ㆍ내계좌"
         })
   +content_group(0)
-    +collapse({
-      isOpen:true
-    })
-      +header()
-        p.acc_title [선택] 추가정보
-      +content()
-        .acc_data
-          +form()
-            +form_body({title:"받는 계좌에 표시"})
-              +input({
-                value:"김중앙(저축은행)",
-                maxlength:10,
-              })
-            +form_body({title:"내 계좌에 표시 "})
-              +input({
-                placeholder:"10자 이내 입력",
-                maxlength:10,
-              })
+    //- +collapse({
+    //-   isOpen:true
+    //- })
+    //-   +header()
+    //-     p.acc_title [선택] 추가정보
+    //-   +content()
+    //-     .acc_data
+    +form()
+      +form_body({title:"받는 분에게 표시"})
+        +input({
+          value:"김중앙(저축은행)",
+          maxlength:10,
+        })
+      +form_body({title:"나에게 표시"})
+        +input({
+          placeholder:"10자 이내 입력",
+          maxlength:10,
+        })
               
   +collapse({
     className:"guide_text",

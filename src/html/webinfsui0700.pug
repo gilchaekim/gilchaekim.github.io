@@ -5,10 +5,6 @@ block prepend top
   - pageTitle = "본인인증"
 
 block content
-  +stepNum({
-    total:5,
-    activeIndex:1
-  })
   +content_group(0)
     +title({
       text:"본인인증",
@@ -51,13 +47,6 @@ block content
         +input({
           placeholder:"연락처 입력"
         })
-    
-    +content_group(1)
-      +button({
-        label:"실명인증",
-        size:"medium",
-        type:"white",
-      })
     
   +button_bottom_fixed()
     +button({

@@ -11,6 +11,14 @@
     align-items: center; 
     justify-content: center;
     outline: 0;
+    .ico {
+      display: inline-flex;
+      width: 20px;
+      vertical-align: middle;
+      &:last-child {
+        margin-left: 4px;
+      }
+    }
     &.select_type{
       display: block;
       border: 1px solid #aaa;
@@ -69,6 +77,10 @@
     background-color:$bg_color03;
     color:$main_color01;
     border: 1px solid $line_color02;
+    &:disabled {
+      border-color: $line_color02;
+      color:$basic_color04;
+    }
   }
   &_select{
     display: block;
@@ -78,6 +90,29 @@
     border-radius: 0;
     padding: 0;
     font-size: 16px;
+    &.check_type .label{
+      position: relative;
+      padding-left: 32px;
+      &::before{
+        content: '';
+        display: block;
+        width: 24px;
+        height: 24px;
+        background:$main_color01;
+        position: absolute;
+        border-radius: 12px;
+        top: -5px;
+        left: 0;
+        box-sizing: border-box;
+      }
+      &::after{
+        content: '';
+        position: absolute;
+        top: -1px;
+        left: 4px;
+        @include icon_svg(check, "#fff", 16px);
+      }
+    }
     &[disabled]{
       .inset::after{
         @include icon_svg(arrow-down, "#ccc", 20px);
@@ -86,6 +121,9 @@
     &+.mui_select {
       margin-left:0;
       margin-top:16px;
+    }
+    &+.warning {
+      margin-top:12px;
     }
     .inset{
       display: block;
@@ -147,8 +185,18 @@
       padding: 20px;
       height: auto;
       box-shadow: 0 4px 8px rgba(0,0,0,.04);
+      &.none_ci{
+        .inset{
+          padding-left: 0;
+        }
+      }
       &::before{
         display: none;
+      }
+      &.no_img {
+        .inset {
+          padding-left:0;
+        }
       }
       .inset{
         height: auto;
@@ -168,6 +216,9 @@
         position: absolute;
         top: 0;
         left: 0;
+        img{
+          width: 100%;
+        }
       }
       .label, .accnum{
         display: block;
@@ -177,16 +228,18 @@
       .label{
         font-size: 14px;
         color:$font_color01;
+        font-weight: 400;
       }
       .accnum, .money{
         font-size: 13px;
         color:$basic_color04;
+        margin-top: 4px;
       }
       .money{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-top: 8px;
+        margin-top: 16px;
         .num{
           font-size: 22px;
           font-weight: 700;
@@ -196,12 +249,14 @@
           }
         }
       }
-      
+      & + .mui_text.warning{
+        margin-top: 12px;
+      }
     }
   }
   &_more{
     border-radius: 0;
-    padding: 12px 0;
+    padding: 24px 0;
     span{
       display: inline-block;
       position: relative;
@@ -228,7 +283,7 @@
 			&::after{
 				content: '';
 				display: block;
-				@include icon_svg(arrow-left, "#ccc", 20px);
+				@include icon_svg(arrow-left, "#666", 20px);
 				transform: rotate(180deg);
 				position: absolute;
 				top: 50%;
@@ -243,12 +298,12 @@
 		}
 	}
   &_button_fixed{
-    height: 108px;
+    height: 84px;
     .inset{
       position: fixed;
       z-index: 2;
       background:$font_color06;
-      padding: 40px 16px 16px;
+      padding: 16px;
       bottom: 0;
       left: 0;
       right: 0;
@@ -386,18 +441,17 @@
       height: 32px;
       color:$font_color02;
       font-size: 14px;
+      padding: 0;
     }
   }
 }
 .mui_keypad{
-  position: fixed;
   background: $bg_color03;
   bottom: 94px;
   left: 0;
   right: 0;
   .mui_button_group{
     display: flex;
-    margin: 0 24px;
     .group{
       flex: 1;
       & ~ .group{
@@ -410,6 +464,8 @@
         color:$font_color02;
         background:$bg_color01;
         border-radius: 8px;
+        padding-left: 0;
+        padding-right: 0;
       }
     }
   }

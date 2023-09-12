@@ -8,13 +8,21 @@ block content
   +modal({
     id:"fullLayer",
     type:"full",
-    title:"(햇살론)대출상품설명서"
+    className:'pdf_viewer',
+    title:"(햇살론)대출상품설명서",
+    muiModal:"overlay:false;"
   })
-    div 솔루션 개발확인 필요
-    +button_bottom_fixed()
-      +button({
-        label:"전자약정 확인",
-        size:"large",
-      })
+    .paging 
+      span.curr 1
+      | / 
+      span.total 30
+    button.arrow.left
+      span.hidden 이전
+    button.arrow.right
+      span.hidden 다음
+    div.pdf_body(
+      style="height:50vh;"
+    )
+      | view
   script.
     GCui.modal('#fullLayer').show()

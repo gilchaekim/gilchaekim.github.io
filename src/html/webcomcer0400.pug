@@ -61,6 +61,12 @@ block content
           size:"medium",
           type:"white"
         })
+        +button({
+          label:"인증번호 전송",
+          disabled:true,
+          size:"medium",
+          type:"white"
+        })
       +form_body({title:""})
       +content_group(1)
         +form()
@@ -76,4 +82,4 @@ block content
           size:"large",
         })
   script.
-    GCui.modal('#fullLayer').show()
+    //- GCui.modal('#fullLayer').show()

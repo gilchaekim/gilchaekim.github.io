@@ -152,6 +152,14 @@ block content
       ]
     })
     .txt_etc 단위 : 천원
+  <!-- 조회 결과가 모두 없는경우 -->
+  +content_group(0)
+    +result({
+      type:'null',
+      mainText:"조회된 내역이 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+  <!-- //조회 결과가 모두 없는경우 -->
   +button_bottom_fixed()
     +button({
       label:"취소",

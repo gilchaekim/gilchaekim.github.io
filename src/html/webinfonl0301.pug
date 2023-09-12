@@ -12,8 +12,22 @@ block content
   })
     .webinf
       .btn_wrap 
-        button.ico_btn <strong>직접촬영</strong>휴대폰 카메라로<br>서류를 촬영하여 제출
-        button.ico_btn <strong>파일선택</strong>휴대폰에 저장된<br>파일을 선택하여 제출
+        span.ico_btn_wrap
+          label.ico_btn(for="camera1") <strong>직접촬영</strong>휴대폰 카메라로<br>서류를 촬영하여 제출
+          input(
+            type="file"
+            id="camera1"
+            accept="image/*"
+            capture="camera"
+          )
+        span.ico_btn_wrap
+          label.ico_btn(for="camera2") <strong>파일선택</strong>휴대폰에 저장된<br>파일을 선택하여 제출
+          input(
+            type="file"
+            id="camera2"
+            accept="image/*"
+            capture="camera"
+          )
 
 
   script.

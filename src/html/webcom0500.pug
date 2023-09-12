@@ -17,6 +17,15 @@ block content
           label:"PDF"
         })
       .pdf_content
+        .paging_wrap
+          .paging
+            span <span>1</span> / <span>30</span>
+          .btn_wrap
+            button.btn_prev 이전
+            button.btn_next 다음
+        <!-- 약관(교체영역) -->
+        div 약관내용약관내용약관내용약관내용약관내용
+        <!-- //약관(교체영역) -->
     +button_bottom_fixed()
       +button({
         label:"전체동의",

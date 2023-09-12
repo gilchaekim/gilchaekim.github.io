@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록변경"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +content_group(0)
@@ -21,11 +21,11 @@ block content
             text:"000-00000-00000",
             lv:5,
           })
-      +form_body({title:"출금계좌 비밀번호"})
-        +input({
-          placeholder:"숫자 4자리",
-          type:"password"
-        })
+      //- +form_body({title:"출금계좌 비밀번호"})
+      //-   +input({
+      //-     placeholder:"숫자 4자리",
+      //-     type:"password"
+      //-   })
       +form_body({title:"입금정보"})
         .form_val
           +title({
@@ -58,39 +58,31 @@ block content
         })
         +radioCheck({
           name:'chk184193',
+          className:"label13",
           label:"매월 말일이체"
         })
       +form_body({title:"이체시작일", tooltip:"이체시작일자는 2영업일부터 가능합니다."})
         +datepicker({
           placeholder:"날짜선택"
         })
-      +form_body({title:"이체종료일"})
+      +form_body({title:"이체시작월"})
         +datepicker({
           placeholder:"날짜선택",
           value:"2022.11.16"
         })
-      +form_body({title:"이체종료일", message:{type:"error", text:"자동이체 시작일과 종료일은 같을 수 없습니다."}})
+      +form_body({title:"이체종료월", message:{type:"error", text:"자동이체 시작일과 종료일은 같을 수 없습니다."}})
         +datepicker({
           placeholder:"날짜선택",
           value:"2022.11.16"
         })
-  +content_group(0)
-    +collapse({
-      isOpen:true
-    })
-      +header()
-        p.acc_title [선택] 추가정보
-      +content()
-        .acc_data
-          +form()
-            +form_body({title:"받는 계좌에 표시"})
-              +input({
-                value:"김중앙(저축은행)",
-              })
-            +form_body({title:"내 계좌에 표시 "})
-              +input({
-                placeholder:"10자 이내 입력"
-              })
+      //- +form_body({title:"받는 분에게 표시"})
+      //-   +input({
+      //-     value:"김중앙(저축은행)",
+      //-   })
+      //- +form_body({title:"나에게 표시"})
+      //-   +input({
+      //-     placeholder:"10자 이내 입력"
+      //-   })
   +button_bottom_fixed()
     +button({
       label:"다음",

@@ -10,21 +10,20 @@ block content
     id:"modal_bottom",
     type:"bottom"
   })
-    +content_group(1)
-      +tabsWrap({
-        active:0
-      })
-        +tab("은행")
-          +select_list({
-            type:"account_img"
-          })
-        +tab("증권사")
-          +select_list({
-            type:"account_img"
-          })
-        +tab("지방세입")
-          +select_list({
-            type:"account_img"
-          })
+    +tabsWrap({
+      active:0
+    })
+      +tab("은행")
+        +select_list({
+          type:"account_img"
+        })
+      +tab("증권사")
+        +select_list({
+          type:"account_img"
+        })
+      +tab("지방세입")
+        +select_list({
+          type:"account_img"
+        })
   script.
     GCui.modal('#modal_bottom').show()

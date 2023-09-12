@@ -15,7 +15,27 @@
     padding: 0 20px;
     &.system_pop {
         padding: 0 40px;
-
+        .mt8 {
+            margin-top: 8px;
+        }
+        .mt16 {
+            margin-top: 16px;
+        }
+        .mt24 {
+            margin-top: 24px;
+        }
+        .mt32 {
+            margin-top: 32px;
+        }
+        .color_111 {
+            color:$font_color01;
+        }
+        .font_size_18 {
+            font-size: 18px;
+        }
+        .font_bold {
+            font-weight: 700;
+        }
         .mui_modal{
             &_dialog{
                 width: 100%;
@@ -44,6 +64,7 @@
                     font-size:14px;
                     color:$basic_color03;
                 }
+
             }
             &_footer{
                 padding: 0 12px 12px;
@@ -188,6 +209,13 @@
                 .mui_button_fixed:last-child{
                     margin-bottom: -40px;
                 }
+                & > .mui_tabs,
+                & > .webinf,
+                & > .mui_selectlist {
+                    &:first-child {
+                        margin-top: -16px;
+                    }
+                }
             }
         }
     }
@@ -209,8 +237,10 @@
         .mui_modal_header{
             height: 56px;
             padding-left: 24px;
+            display: flex;
+            align-items: center;
+            padding-right: 56px;
             p{
-                line-height: 56px;
                 color:$font_color01;
                 font-size: 16px;
                 font-weight: 700;
@@ -235,6 +265,9 @@
                 .tab_pane{
                     padding: 24px 24px 0;
                 }
+            }
+            & > .agreefull_pop {
+                padding-top: 0;
             }
         }
     }

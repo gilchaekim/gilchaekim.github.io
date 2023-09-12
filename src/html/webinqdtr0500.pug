@@ -52,7 +52,14 @@ block content
         }
       ]
     })
-
+    +text({
+      type:'warning',
+      text:"심사중의 경우 새로고침 버튼을 통해 대출실행이 가능한지  확인해주세요."
+    })
+    +text({
+      type:'warning',
+      text:"심사가 완료되면 대출실행을 완료하실 수 있습니다."
+    })
   +button_bottom_fixed()
     +button({
       label:"취소",
@@ -60,6 +67,6 @@ block content
       type:"default"
     })
     +button({
-      label:"대출실행하기",
+      label:"새로고침<img class=\"ico\" src=\"/src/images/ico_refresh.png\" alt=\"\">",
       size:"large"
     })

@@ -22,6 +22,7 @@ mixin input(params={})
   - let titleText;
   - if(!title && !!placeholder) titleText = placeholder;
   - let subfixLength = !!subfix ? `sublength_${subfix.length}` : null
+  - let isWon = subfix === '원';
   
   #{element}(
     class=`${prefix}${divide}input`
@@ -29,6 +30,7 @@ mixin input(params={})
     class={"inner_subfix":!!subfix}
     class={"mui_disabled":!!disabled}
     class={"mui_readonly":!!readonly}
+    class={"subfix_won":isWon}
     class=subfixLength
     
   )
@@ -50,6 +52,10 @@ mixin input(params={})
         class="subfix"
       )
         span!=subfix
+        if !!isWon
+          span.delete_btn
+            button(type="button").delete_val
+              span.hidden 삭제
   if !!message
     p(
       class="msg_form"

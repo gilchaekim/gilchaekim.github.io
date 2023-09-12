@@ -4,11 +4,16 @@ block prepend top
   - pageTitle = "대출한도조회"
 
 block content
-  +content_group(2)
+  +stepNum({
+    total:5,
+    activeIndex:4
+  })
+  +content_group(1)
     +title({
-      text:"대출한도 조회를 위해<br>직장/소득 정보를 입력해주세요.",
+      text:"직장/소득정보 입력",
       lv:2,
     })
+    p.sub_title 대출한도 조회를 위해 직장/소득 정보를 입력해주세요.
   +content_group(2)
     +form()
       +form_body({title:"연소득"})

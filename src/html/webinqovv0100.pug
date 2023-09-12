@@ -9,7 +9,7 @@ block content
     .mui_accountbox.allmoney_card
       div.dp_flex
         p.tit 총자산
-        .switch
+        .switch.type2
           span.label 잔액
           +radioCheck({
             name:'chk',
@@ -43,7 +43,8 @@ block content
             }
           ],
           tags:[{
-            text:"거래중지"
+            text:"거래중지",
+            type:"type2"
           }]
         })
 
@@ -65,7 +66,8 @@ block content
             }
           ],
           tags:[{
-            text:"전용계좌"
+            text:"전용계좌",
+            type:"type1"
           }]
         })
         +accountbox({
@@ -79,7 +81,8 @@ block content
             }
           ],
           tags:[{
-            text:"전용계좌"
+            text:"전용계좌",
+            type:"type1"
           }]
         })
         +accountbox({
@@ -96,7 +99,8 @@ block content
             }
           ],
           tags:[{
-            text:"전용계좌"
+            text:"전용계좌",
+            type:"type1"
           }]
         })
 
@@ -121,6 +125,7 @@ block content
             }
           ],
           tags:[{
-            text:"전용계좌"
+            text:"전용계좌",
+            type:"type1"
           }]
         })

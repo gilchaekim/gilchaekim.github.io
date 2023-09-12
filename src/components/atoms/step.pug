@@ -34,9 +34,11 @@ mixin stepNum(params={})
   )
     ul
       while index <= total
-        - let isActive = activeIndex == index
+        - let isActive = activeIndex == index;
+        - let passStep = activeIndex > index
         li.step(
           class={"mui_active":isActive}
+          class={"pass_step":passStep}
         )
           span!=index++
 

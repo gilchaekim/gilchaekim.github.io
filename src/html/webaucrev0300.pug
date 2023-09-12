@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록변경"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +title({
@@ -20,11 +20,11 @@ block content
           text:"000-00000-00000",
           lv:5,
         })
-    +form_body({title:"출금계좌 비밀번호"})
-      +input({
-        placeholder:"숫자 4자리",
-        type:"password"
-      })
+    //- +form_body({title:"출금계좌 비밀번호"})
+    //-   +input({
+    //-     placeholder:"숫자 4자리",
+    //-     type:"password"
+    //-   })
     +form_body({title:"입금정보"})
       .form_val
         +title({
@@ -57,21 +57,22 @@ block content
       })
       +radioCheck({
         name:'chk184193',
+        className:"label13",
         label:"매월 말일이체"
       })
     +form_body({title:"이체시작일", tooltip:"이체시작일자는 2영업일부터 가능합니다."})
       +datepicker({
         placeholder:"날짜선택"
       })
-    +form_body({title:"이체종료일"})
+    +form_body({title:"이체시작월"})
       +datepicker({
         placeholder:"날짜선택",
-        value:"2022.11.16"
+        value:"YYYY.MM"
       })
-    +form_body({title:"이체종료일", message:{type:"error", text:"자동이체시작일은 기존이체 시작일(2022.11.16)이후부터 가능합니다."}})
+    +form_body({title:"이체종료월", message:{type:"error", text:"자동이체시작일은 기존이체 시작일(2022.11.16)이후부터 가능합니다."}})
       +datepicker({
         placeholder:"날짜선택",
-        value:"2022.11.16"
+        value:"YYYY.MM"
       })
   +button_bottom_fixed()
     +button({

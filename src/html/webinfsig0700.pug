@@ -13,7 +13,7 @@ block content
     className:"webinf"
   })
     +content_group(0)
-      .grey_box 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
+      .grey_box.ico 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
     +content_group(2)
       +form()
         +form_body({title:"개인거래목적"})
@@ -35,48 +35,38 @@ block content
           +button_select({
             placeholder:"거래자금원천 선택"
           })
-      hr
-      
-      +content_group(0)
-        +title({
-          text:"가입하시는 상품의 명의인,<br><em>실소유인이 본인</em>이십니까?",
-          lv:4,
-        })
-      +content_group(3)
-        +radioCheck({
-          name:'btnType',
-          type:"radio",
-          className:'block_type',
-          lists:[
-            {
-              label:'본인 맞습니다.',
-              checked:true
-            },
-            {
-              label:'본인이 아닙니다.'
-            }
-          ]
-        })
-      +content_group(0)
-        +title({
-          text:"자택주소가 현재 <em>거주하시는 장소</em>입니까?",
-          lv:4,
-        })
-      +content_group(3)
-        +radioCheck({
-          name:'btnType1',
-          type:"radio",
-          className:'block_type',
-          lists:[
-            {
-              label:'예'
-            },
-            {
-              label:'아니오',
-              checked:true
-            }
-          ]
-        })
+        +form_body({title:"가입하시는 상품의 명의인, 실소유인이 본인이십니까?"})
+
+          +radioCheck({
+            name:'btnType',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'본인 맞습니다.'
+              },
+              {
+                label:'본인이 아닙니다.',
+                checked:true
+              }
+            ]
+          })
+        +form_body({title:"자택주소가 현재 거주하시는 장소입니까?"})
+
+          +radioCheck({
+            name:'btnType1',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'예'
+              },
+              {
+                label:'아니오',
+                checked:true
+              }
+            ]
+          })
       
     +button_bottom_fixed()
       +button({

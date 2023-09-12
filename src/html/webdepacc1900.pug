@@ -1,0 +1,49 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"김저축님,<br>아래 가상계좌로 신청금액이<br>이체완료 되어야<br>계좌개설이 완료됩니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line", 
+      data:[
+        {
+          title:"신청금액",
+          text:"1,000,000원",
+        },
+        {
+          title:"가상계좌",
+          text:"이재형<br>313-61-13-0145645",
+        },
+        {
+          title:"입금기한",
+          text:"2023-05-31",
+        },
+      ]
+    })
+  +content_group(1)
+    +text({
+      type:'warning',
+      text:"입금한 내 휴일 이체 및 신규 계좌 가입 불가합니다."
+    })
+    +text({
+      type:'warning',
+      text:"입금시점 이율이 적용되오니, 신청 당일 미입금 시 이율이 변동될 수 있습니다."
+    })
+    +text({
+      type:'warning',
+      text:"입금기한 내에 신청금액이 입금되지 않을 경우 신청하신 계좌는 신청취소 됩니다."
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

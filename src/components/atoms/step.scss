@@ -16,6 +16,22 @@
             color: $font_color06;
           }
         }
+        &.pass_step span{
+          position: relative;
+          text-indent: -9999em;
+          color: transparent;
+          background:$basic_color05;
+          &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            @include icon_svg(check, "#fff", 14px);
+          }
+          
+        }
       }
       span {
         display: inline-flex;

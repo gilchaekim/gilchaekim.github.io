@@ -1,0 +1,24 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"토스인증서",
+    id:"fullLayer",
+    type:"full",
+    className:"webcom"
+  })
+    .certifi
+      +title({
+        text:"토스인증서",
+        lv:1,
+      })
+      p.txt 아이콘을 터치하시면<br>토스인증서가 실행됩니다.
+      .ico 
+        a(href="").type1
+          img(src="/src/images/ico_cer01.svg", alt="")
+  script.
+    GCui.modal('#fullLayer').show()

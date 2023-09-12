@@ -128,6 +128,9 @@
     }
     &.button_type{
       padding-top: 0 !important;
+      &:first-child {
+        margin-top: 12px;
+      }
     }
   }
 }
@@ -142,7 +145,7 @@
   font-size: 12px;
   margin-top: 12px;
   &.msg_error{
-    color:$main_color01;
+    color:$font_color08;
   }
 }
 .mui_form_head{

@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webinf"
-  - pageTitle = "온라인서류 직접제출"
+  - pageTitle = "온라인서류제출"
 
 block content
   +title({
@@ -15,7 +15,11 @@ block content
       text:"파일등록을 선택하여 직접촬영 및<br>휴대폰에 저장된 파일을 선택해주세요.",
       lv:4,
     })
-    .sub_title 첨부파일은 최대 10개까지 가능합니다.<br>JPG, PNG 파일만 첨부 가능합니다.
+    .sub_title 
+      | 첨부파일은 최대 5개까지 가능합니다.<br>
+      | png, jpg, jpeg, gif, tif, tiff 파일만 첨부 가능합니다.<br>
+      | 카메라 촬영을 위해 카메라 권한을 허용해주세요.
+
   
   +content_group(1)
     +button({
@@ -23,55 +27,29 @@ block content
       size:"medium",
       type:"white",
     })
-
-  +content_group(2)
-    .total_file
-      +title({
-        text:"서류등록",
-        lv:4,
-      })
-      strong 총 <em>0</em>건
-
+  hr
+  .total_file
+    +title({
+      text:"서류등록",
+      lv:4,
+    })
+    strong 총 <em>0</em>건
   +content_group(3)
     .file_list
       .file_wrap 
         .file_name 
-          strong 온라인서류제출 첨부파일.jpg
+          strong 온라인서류제출 첨부파일 첨부파일 첨부파일 첨부파일 첨부파일.jpg
           button.btn_del
-        .file_text
-          +form()
-            +form_body({title:"서류명"})
-              +input({
-                placeholder:"서류명 입력",
-              })
-          .img_wrap 
-            img(src="/src/images/ico_example2.png", alt="")
       
       .file_wrap 
         .file_name 
           strong 온라인서류제출 첨부파일.jpg
           button.btn_del
-        .file_text
-          +form()
-            +form_body({title:"서류명"})
-              +input({
-                placeholder:"서류명 입력",
-              })
-          .img_wrap 
-            img(src="/src/images/ico_example2.png", alt="")
 
       .file_wrap 
         .file_name 
           strong 온라인서류제출 첨부파일.jpg
           button.btn_del
-        .file_text
-          +form()
-            +form_body({title:"서류명"})
-              +input({
-                placeholder:"서류명 입력",
-              })
-          .img_wrap 
-            img(src="/src/images/ico_example2.png", alt="")
     
   +button_bottom_fixed()
     +button({

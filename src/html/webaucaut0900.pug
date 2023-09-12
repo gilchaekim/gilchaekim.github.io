@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(CMS)"
+  - pageTitle = "자동이체(CMS) 등록"
 
 block content
   +content_group(1)
@@ -10,14 +10,10 @@ block content
       text:"어느 계좌에서 보낼까요?",
       lv:2,
     })
-    +button_select_account()
-  +content_group(1)
-    +form()
-      +form_body({title:"계좌 비밀번호"})
-        +input({
-          placeholder:"숫자 4자리",
-          type:"password"
-        })
+    +button_select({
+      placeholder:"계좌 선택",
+    })
+    +button_select_account({isImg:true})
   +collapse({
     className:"guide_text",
     isOpen:true,

@@ -5,6 +5,9 @@
   & > .mui_tabs{
     margin-left: -24px;
     margin-right: -24px;
+    &:first-child{
+      margin-top: -24px;
+    }
   }  
 }
 .mui_tabs{
@@ -68,7 +71,7 @@
   .tab_contents{
     .tab_pane{
       display: none;
-      padding: 20px;
+      padding: 24px 20px 20px;
       &.mui_active{
         display: block;
       }

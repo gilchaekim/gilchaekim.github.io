@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체해지"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +content_group(2)
@@ -22,11 +22,11 @@ block content
             text:"000-00000-00000",
             lv:5,
           })
-      +form_body({title:"출금계좌 비밀번호"})
-        +input({
-          placeholder:"숫자 4자리",
-          type:"password"
-        })
+      //- +form_body({title:"출금계좌 비밀번호"})
+      //-   +input({
+      //-     placeholder:"숫자 4자리",
+      //-     type:"password"
+      //-   })
       +form_body({title:"입금은행"})
         .form_val
           +title({

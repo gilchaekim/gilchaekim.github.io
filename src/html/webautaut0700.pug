@@ -2,7 +2,7 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체(당/타행)"
+  - pageTitle = "자동이체(당/타행) 등록"
 
 block content
   +content_group(0)
@@ -10,7 +10,7 @@ block content
     +result({
       type:'result',
       mainText:"자동이체 신청이<br>완료되었습니다.",
-      img:"/src/images/ico_example2.png",
+      img:"/src/images/ico_finish.svg",
     })
   +content_group(0)
     +result({

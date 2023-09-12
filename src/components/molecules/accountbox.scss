@@ -29,10 +29,11 @@
       display: block;
       margin-top: 4px;
       font-size: 13px;
-      font-weight: 300;
+      opacity: .8;
       .acc_num{
+        display:inline-block;
         color: $font_color06;
-        border-bottom: 0 none;
+        border-bottom:1px solid $font_color06;
       }
   
       .acc_end{
@@ -93,9 +94,10 @@
       width: 62px;
       height: 20px;
       text-align: center;
-      line-height: 20px;
+      justify-content: center;
+      line-height: 18px;
       border-radius: 10px;
-      background:rgba($color: #111, $alpha: .3);
+      background:rgba($color: #000, $alpha: .3);
       color:$font_color06;
       font-size: 13px;
       vertical-align: top;
@@ -166,7 +168,6 @@
     .acc_end{
       position: relative;
       color: $font_color07;
-      font-weight: 300;
       padding-left: 9px;
       margin-left: 8px;
       &::after{

@@ -2,14 +2,14 @@ extends ../components/templates/base.pug
 
 block prepend top 
   - mainClassName="webauc"
-  - pageTitle = "자동이체등록해지"
+  - pageTitle = "등록조회/변경/해지"
 
 block content
   +content_group(0)
     +result({
       type:'result',
       mainText:"자동이체해지가<br>완료되었습니다.",
-      img:"/src/images/ico_example2.png",
+      img:"/src/images/ico_finish.svg",
     })
   +content_group(0)
     +result({
@@ -24,16 +24,16 @@ block content
           text:"중앙저축은행<br>000-000-0000000",
         },
         {
-          title:"내용입력",
-          text:"내용입력",
+          title:"이체금액",
+          text:"10,000원",
         },
         {
-          title:"내용입력",
-          text:"내용입력",
+          title:"이체기간",
+          text:"2023.03 ~ 2023.04",
         },
         {
-          title:"내용입력",
-          text:"내용입력",
+          title:"이체일",
+          text:"07일",
         },
       ]
     })

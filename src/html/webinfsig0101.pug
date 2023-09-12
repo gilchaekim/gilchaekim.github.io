@@ -1,16 +1,16 @@
 extends ../components/templates/base.pug
 
-block prepend top 
-  - mainClassName="webinf"
-  - pageTitle = "금융계산기"
-
 block content
-  +tabsLink({
-    list:[		
-      {name:"예금이자"},
-      {name:"적금이자"},
-      {name:"대출이자", active:true},
-    ],
+  +button({
+    label:"금융계산기호출",
+    muiToggle:'target:#fullLayer;'
+  })
+  
+  +modal({
+    title:"금융계산기",
+    id:"fullLayer",
+    type:"full",
+    className:"webinf"
   })
     +content_group(2)
       +form()

@@ -5,10 +5,6 @@ block prepend top
   - pageTitle = "적정성등록"
 
 block content
-  +stepNum({
-    total:5,
-    activeIndex:2
-  })
   +content_group(0)
     +title({
       text:"약관 동의",
@@ -22,58 +18,38 @@ block content
       +agree_check({
         text:"전체 동의"
       })
+        //- +agree_check({
+        //-   text:"[필수]  대출계약자 적합성-개인(신용정보수집 ·이용 ·제공 동의서(여신 금융거래)"
+        //- })
         +agree_check({
-          text:"[필수]  개인(신용)정보 수집·이용·제공 동의서 [여신(금융)거래]"
+          text:"[필수] 개인(신용)정보 조회 동의서"
         })
         +agree_check({
-          text:"[필수]  개인(신용)정보 수집·이용·제공 ·조회 동의서"
+          text:"[필수] 개인(신용)정보 수집·이용·제공 동의"
         })
         +agree_check({
-          text:"[필수] 개인(신용)정보 제3자 제공 동의서(비여신, 여신 공통)"
+          text:"[필수] 개인(신용)정보 수집·이용·제공 동의 (여신금융거래)"
+        })
+        //- +agree_check({
+        //-   text:"[필수] 가계대출상품설명서"
+        //- })
+        //- +agree_check({
+        //-   text:"[필수] 계약 체결·이행을 위한 상세 동의서 (개인금융성 신용보험용)"
+        //- })
+        +agree_check({
+          text:"[필수] 개인(신용)정보 조회 동의서(서민금융진흥원용)"
         })
         +agree_check({
-          text:"[필수] 개인(신용)정보 제3자 제공 동의서 [통신관련정보]"
+          text:"[필수] 개인(신용)정보 수집·이용·제공 동의(서민금융진흥원용)"
         })
         +agree_check({
-          text:"[필수] 계약 체결·이행을 위한 상세 동의서 (개인금융성 신용보험용)"
+          text:"[필수] 개약체결·이행을 위한 상세동의서 (개인금융성 신용보험용)"
         })
         +agree_check({
-          text:"[필수]  개인(신용)정보 수집·이용·제공 ·조회 동의서(신용보증 신청용)"
+          text:"[필수] CMS출금이체 동의"
         })
-        +agree_check({
-          text:"[필수]  개인(신용)정보 조회 동의서(서민금융진흥원)"
-        })
-        +agree_check({
-          text:"[선택] 개인(신용)정보 수집·이용 동의서(보증료 우대 서비스)"
-        })
-        +agree_check({
-          text:"[선택] 개인(신용)정보 수집·이용 동의서(상품서비스 안내 등)"
-        })
+        
       
-      +agree_check({
-        text:"[선택] 개인(신용)정보 수집·이용·제공 동의서 [상품서비스 안내 등]",
-        className:"chk_lists"
-      })
-        +radioCheck({
-          name:'checklist',
-          lists:[
-            {
-              label:'전체',
-            },
-            {
-              label:'SMS'
-            },
-            {
-              label:'전화'
-            },
-            {
-              label:'이메일'
-            },
-            {
-              label:'우편'
-            }
-          ]
-        })
       +content_group(1)
         +radioCheck({
           type:"radio",

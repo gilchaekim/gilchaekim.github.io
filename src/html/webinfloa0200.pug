@@ -19,31 +19,33 @@ block content
       +agree_check({
         text:"[필수] 개인(신용)정보 조회 동의서"
       })
-      +agree_check({
-        text:"[선택] 개인(신용)정보수집 · 이용 · 제공 동의서"
-      })
-        +radioCheck({
-          name:'mini_type',
-          type:"radio",
-          className:'mini_type',
-          lists:[
-            {
-              label:'SMS'
-            },
-            {
-              label:'전화'
-            },
-            {
-              label:'우편'
-            }
-          ]
-        })
     +agree_check({
-      text:"[필수]개인(신용)정보 수집ㆍ이용 동의서(상품서비스 안내 등)",
+      text:"[선택] 개인(신용)정보수집 · 이용 · 제공 동의서",
+      className:"chk_lists"
+    })
+      +radioCheck({
+        name:'mini_type',
+        className:'mini_type',
+        lists:[
+          {
+            label:'SMS'
+          },
+          {
+            label:'전화'
+          },
+          {
+            label:'우편'
+          }
+        ]
+      })
+    +agree_check({
+      text:"[필수]보이스 피싱 방지를 위한 본인 확인 연락처 선택",
       className:"chk_lists"
     })
       +radioCheck({
         name:'checklist',
+        className:'mini_type',
+        type:"radio",
         lists:[
           {
             label:'휴대폰'
@@ -56,7 +58,7 @@ block content
           }
         ]
       })
-    +content_group(2)
+    +content_group(4)
       +text({
         type:'warning',
         text:"상품가입 진행을 위해서 동의가 필요해요",

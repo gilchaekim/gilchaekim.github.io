@@ -16,9 +16,10 @@ block content
     +form()
       +form_body({title:"조회기간"})
         +datepicker({
+          placeholder:"기간 선택",
           quickBtn:true
         })
-      
+      +form_body({title:"최신순/과거순"})
         +radioCheck({
           name:'btnType',
           type:"radio",

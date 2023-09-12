@@ -22,7 +22,9 @@ block content
     })
   +content_group(4)
     +button_select_account({
-      isMoney:true
+      isMoney:true,
+      isImg:true,
+      
     })
   +content_group(1)
     +form()
@@ -36,28 +38,50 @@ block content
           placeholder:"개월수 입력",
           subfix:"개월",
         })
+        +content_group(2)
+          .rangeslidr_wrap
+            .currdata
+              span#currData 1개월
+            #rangeSlider
+            .rangedata
+              span N개월
+              span N개월
         +text({
           type:'warning',
           text:"최소 N개월부터 N개월까지 입력 가능합니다."
         })
-      +form_body({title:"불입금액"})
-        .rangeslidr_wrap
-          .currdata
-            span#currData 6000만원
-          #rangeSlider
-          .rangedata
-            span 1만원
-            span 1억원
         +content_group(2)
-            
           .view_data
             button.write_pop 직접입력
-            +content_group(1)
-              +button({
-                label:"선택한 설정으로 상품 조회하기",
-                size:"medium",
-                type:"white",
-              })
+      +form_body({title:"불입금액"})
+        +input({
+          placeholder:"숫자만 입력",
+          subfix:"원"
+        })
+        .money_support
+          strong 1,000만 원
+        +button_group({
+          className:"btn_money",
+          btns:[
+            '+1만',
+            '+10만',
+            '+100만',
+            '+1,000만',
+          ]
+        })
+      +form_body({title:"과세구분"})
+        +button_select({
+          placeholder:"과세구분 선택",
+          label:"비과세"
+        })
+        button(type="button").guide_btn 비과세종합저축 한도조회
+        +content_group(1)
+          .view_data
+            +button({
+              label:"예상금액 미리보기",
+              size:"medium",
+              type:"white",
+            })
             .guide_box
               .list 
                 p.title 적용이율
@@ -137,12 +161,14 @@ block content
       //-     name:'chk409889',
       //-     label:'비과세종합저축'
       //-   })
-      +form_body({title:"과세구분"})
-        +button_select({
-          placeholder:"과세구분 선택",
-          label:"비과세"
-        })
-        button(type="button").guide_btn 비과세종합저축 한도조회
+      +form_body()
+        .agree_switch
+          p.text 만기 SMS통지
+          .switch.type2.main_color
+            +radioCheck({
+              name:'chk2322',
+              label:'동의',
+            })
       +form_body()
         +radioCheck({
           name:'chk4098892',
@@ -153,14 +179,7 @@ block content
           placeholder:"권유직원",
           type:"input"
         })
-      +form_body()
-        .agree_switch
-          p.text 만기 SMS통지
-          .switch.type2.main_color
-            +radioCheck({
-              name:'chk2322',
-              label:'동의',
-            })
+
   +collapse({
     className:"guide_text",
     isOpen:true,
@@ -202,7 +221,7 @@ block content
   script. 
     var el = GCui.util.$('#rangeSlider');
     var data = GCui.util.$('#currData');
-    var range = [1, 10000];
+    var range = [1, 36];
     noUiSlider.create(el, {
       start: [range[0]],
       connect: 'lower',
@@ -217,12 +236,7 @@ block content
     });
 
     function setSufix(n) {
-      var index = 0;
-      var sufix = ['만원', '억원'];
+      var sufix = '개월';
       var rangeData = parseInt(n);
-      if (rangeData === range[1]) {
-        index = 1;
-        rangeData = 1;
-      }
-      data.innerHTML = rangeData + sufix[index];
+      data.innerHTML = rangeData + sufix;
     }
