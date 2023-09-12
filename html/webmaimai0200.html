@@ -15,8 +15,11 @@
   <div class="main" id="wrapper"><!-- 전체메뉴 -->
     <div class="allmenu_wrap">
       <div class="mui_contents_group lv_1">
-        <div class="login_wrap"><!-- 로그아웃시 logout 클래스 추가 -->
-          <div class="login">로그인</div><!-- //로그아웃시 logout 클래스 추가 -->
+        <div class="login_wrap">
+          <div class="left_btns">
+            <div class="home">홈</div><!-- 로그아웃시 logout 클래스 추가 -->
+            <div class="login">로그인</div><!-- //로그아웃시 logout 클래스 추가 -->
+          </div>
           <div class="mui_button_wrap">
             <button class="mui_button mui_small mui_default btn_close mui-icon" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span>닫기</span></button>
           </div>
@@ -62,7 +65,7 @@
                     </button>
                   </div>
                   <div class="mui_acc_content">
-                    <div class="flex_col"><a href="#">상품안내/신청</a><a href="#">온라인 서류제출</a></div>
+                    <div class="flex_col"><a href="#">상품안내/신청</a></div>
                   </div>
                 </div>
                 <div class="acc_lists">
@@ -71,12 +74,22 @@
                     </button>
                   </div>
                   <div class="mui_acc_content">
-                    <div class="flex_col"><a href="#">상품안내/신청</a><a href="#">신용정보조회동의</a><a href="#">신용정보조회동의</a></div>
+                    <div class="flex_col"><a href="#">상품안내</a></div>
                   </div>
                 </div>
-                <div class="acc_lists">
+              </div>
+              <ul class="tab_list">
+                <li><a href="#">온라인 서류제출</a></li>
+                <li><a href="#">신용조회동의/적정성등록</a></li>
+                <li><a href="#">대출신청조회</a></li>
+                <li><a href="#">전자약정</a></li>
+                <li><a href="#">금리인하요구권</a></li>
+                <li><a href="#">대출철회</a></li>
+              </ul>
+              <div class="mui_accordion" mui-accordion="multiple:true;">
+                <div class="acc_lists mui_open">
                   <div class="acc_header"><span class="acc_title">대출금액조회</span>
-                    <button class="mui_acc_button" type="button"> 열기
+                    <button class="mui_acc_button" type="button"> 닫기
                     </button>
                   </div>
                   <div class="mui_acc_content">
@@ -84,13 +97,6 @@
                   </div>
                 </div>
               </div>
-              <ul class="tab_list">
-                <li><a href="#">적정성등록</a></li>
-                <li><a href="#">대출신청조회</a></li>
-                <li><a href="#">전자약정</a></li>
-                <li><a href="#">금리인하요구권</a></li>
-                <li><a href="#">대출철회</a></li>
-              </ul>
             </div>
             <div class="tab_pane">
               <ul class="tab_list">
@@ -116,7 +122,7 @@
                     </button>
                   </div>
                   <div class="mui_acc_content">
-                    <div class="flex_col"><a href="#">즉시이체</a><a href="#">자동이체(당/타행)</a><a href="#">자동이체(CMS)</a><a href="#">예약이체</a></div>
+                    <div class="flex_col"><a href="#">즉시이체</a><a href="#">자동이체(당/타행)</a><a href="#">자동이체(CMS)</a><a href="#">예약이체</a><a href="#">이체조회결과</a></div>
                   </div>
                 </div>
                 <div class="acc_lists">
@@ -125,7 +131,7 @@
                     </button>
                   </div>
                   <div class="mui_acc_content">
-                    <div class="flex_col"><a href="#">고객정보조회 변경</a><a href="#">고객확인제도</a><a href="#">장기미접속해제</a><a href="#">뱅킹비밀번호 변경</a><a href="#">제증명</a></div>
+                    <div class="flex_col"><a href="#">고객정보조회 변경</a><a href="#">고객확인제도</a><a href="#">장기미접속해제</a><a href="#">뱅킹비밀번호 변경</a><a href="#">최초뱅킹비밀번호 등록</a><a href="#">제증명</a></div>
                   </div>
                 </div>
                 <div class="acc_lists">
@@ -233,16 +239,21 @@
     <div class="main_bg"><svg xmlns="http://www.w3.org/2000/svg" width="822" height="480" viewBox="0 0 822 480">
         <g transform="translate(222 -80)">
           <circle cx="240" cy="240" r="240" transform="translate(120 80)" fill="#f37320" opacity="0.06" />
-          <rect width="240" height="240" rx="60" transform="translate(342 212)" fill="#666" opacity="0.2" />
-          <rect width="240" height="240" rx="60" transform="translate(-222 212)" fill="#666" opacity="0.2" />
         </g>
       </svg></div>
     <div id="contants">
       <div class="mui_contents_group lv_1">
         <p class="welcome_msg"><span> <em class="name">김중앙</em>님, 안녕하세요!</span><span> <em class="bnk">한화저축은행</em>입니다.<span class="ico"></span></span></p>
-        <div class="main_slider type1" mui-slider="scrollbar:true;paging:true;loop:false;">
+        <div class="main_slider type1" mui-slider="scrollbar:true;paging:true;loop:false;slidesPerView:auto;centeredSlides:true;spaceBetween:12;effectPrevShadow:false;effectNextShadow:false ;effectPrevTranslate:-120%, 0 ,-350;effectNextTranslate: 120%, 0, -350;effect:creative;">
           <div class="slider">
             <div class="swiper-wrapper">
+              <div class="lists swiper-slide"><a href="">
+                  <div class="box">
+                    <p class="title">딱 맞는 맞춤대출 한도조회</p>
+                    <p class="decs">신용평점에 영향없이 다양한 대출상품의 한도와 금리 조회가능!</p>
+                    <div class="ico"><img src="/src/images/ico_main11.svg" alt=""></div><span class="link_txt">둘러보러가기</span>
+                  </div>
+                </a></div>
               <div class="lists swiper-slide"><a href="">
                   <div class="box">
                     <p class="title">예적금 담보대출</p>
@@ -329,7 +340,7 @@
                     </div>
                   </div>
                   <div class="toggle_wrap">
-                    <div class="switch"><span class="label">잔액 ON</span>
+                    <div class="switch type2"><span class="label">잔액</span>
                       <span class="mui_checkbox">
                         <input type="checkbox" id="chkId1" name="chk" />
                         <label for="chkId1">잔액표시</label>
@@ -384,7 +395,7 @@
                     </div>
                   </div>
                   <div class="toggle_wrap">
-                    <div class="switch"><span class="label">잔액 ON</span>
+                    <div class="switch type2"><span class="label">잔액</span>
                       <span class="mui_checkbox">
                         <input type="checkbox" id="chkId2" name="chk" />
                         <label for="chkId2">잔액표시</label>
@@ -439,7 +450,7 @@
                     </div>
                   </div>
                   <div class="toggle_wrap">
-                    <div class="switch"><span class="label">잔액 ON</span>
+                    <div class="switch type2"><span class="label">잔액</span>
                       <span class="mui_checkbox">
                         <input type="checkbox" id="chkId3" name="chk" />
                         <label for="chkId3">잔액표시</label>
@@ -462,9 +473,9 @@
           </div>
           <div class="cont">
             <ul class="list_type">
-              <li> <a href="">저축은행 중앙회 새소식입니다 이곳은 공지사항</a></li>
-              <li> <a href="">저축은행 중앙회 새소식입니다 이곳은 공지사항</a></li>
-              <li> <a href="">저축은행 중앙회 새소식입니다 이곳은 공지사항</a></li>
+              <li> <a href=""> <span>저축은행 중앙회 새소식입니다 이곳은 공지사항</span><span>2023.02.02</span></a></li>
+              <li> <a href=""> <span>저축은행 중앙회 새소식입니다 이곳은 공지사항</span><span>2023.02.02</span></a></li>
+              <li> <a href=""> <span>저축은행 중앙회 새소식입니다 이곳은 공지사항</span><span>2023.02.02</span></a></li>
             </ul>
           </div>
         </div>

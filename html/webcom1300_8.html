@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html id="pageRoot" lang="ko">
+
+<head>
+  <title>저축은행중앙회</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+  <script type="text/javascript" src="/js/lottie-player.js"></script>
+</head>
+
+<body>
+  <div id="wrapper"><!-- 전체메뉴 -->
+    <div class="allmenu_wrap">
+      <div class="mui_contents_group lv_1">
+        <div class="login_wrap">
+          <div class="left_btns">
+            <div class="home">홈</div><!-- 로그아웃시 logout 클래스 추가 -->
+            <div class="login">로그인</div><!-- //로그아웃시 logout 클래스 추가 -->
+          </div>
+          <div class="mui_button_wrap">
+            <button class="mui_button mui_small mui_default btn_close mui-icon" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span>닫기</span></button>
+          </div>
+        </div>
+        <p class="welcome_txt"><strong>SBI저축은행</strong>입니다.</p><!-- 로그인 후 -->
+        <p class="welcome_txt"><strong>김중앙</strong>님 안녕하세요.</p>
+        <p class="log_info">최근접속<span>2023.03.22 15:15:15</span></p><!-- //로그인 후 -->
+        <ul class="quick_wrap">
+          <li><a href="#"><span>고객센터</span></a></li>
+          <li><a href="#"><span>인증/보안</span></a></li>
+          <li><a href="#"><span>새소식</span></a></li>
+        </ul>
+        <div class="search_wrap">
+          <div class="input_tit"></div>
+          <input type="text" placeholder="검색어 입력">
+          <button class="btn_del"></button>
+        </div>
+        <div class="hash_tag"><a href="#">#대출</a><a href="#">#예금</a><a href="#">#전자약정</a><a href="#">#인증서</a></div><!-- 검색시 숨김 -->
+        <div class="mui_tabs tab_allmenu" mui-tab="">
+          <ul class="mui_tab_nav">
+            <li class="nav_list mui_active">
+              <button type="button">대출</button>
+            </li>
+            <li class="nav_list">
+              <button type="button">예적금</button>
+            </li>
+            <li class="nav_list">
+              <button type="button">뱅킹</button>
+            </li>
+            <li class="nav_list">
+              <button type="button">고객센터</button>
+            </li>
+            <li class="nav_list">
+              <button type="button">인증/보안</button>
+            </li>
+          </ul>
+          <div class="tab_contents">
+            <div class="tab_pane mui_active">
+              <div class="mui_accordion" mui-accordion="multiple:true;">
+                <div class="acc_lists mui_open">
+                  <div class="acc_header"><span class="acc_title">담보대출</span>
+                    <button class="mui_acc_button" type="button"> 닫기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">상품안내/신청</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">신용대출/햇살론</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">상품안내</a></div>
+                  </div>
+                </div>
+              </div>
+              <ul class="tab_list">
+                <li><a href="#">온라인 서류제출</a></li>
+                <li><a href="#">신용조회동의/적정성등록</a></li>
+                <li><a href="#">대출신청조회</a></li>
+                <li><a href="#">전자약정</a></li>
+                <li><a href="#">금리인하요구권</a></li>
+                <li><a href="#">대출철회</a></li>
+              </ul>
+              <div class="mui_accordion" mui-accordion="multiple:true;">
+                <div class="acc_lists mui_open">
+                  <div class="acc_header"><span class="acc_title">대출금액조회</span>
+                    <button class="mui_acc_button" type="button"> 닫기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">대출이자납입금액조회</a><a href="#">대출상환예정금액조회</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab_pane">
+              <ul class="tab_list">
+                <li><a href="#">상품안내/신청</a></li>
+                <li><a href="#">계좌개설신청내역조회</a></li>
+                <li><a href="#">만기자동재예치</a></li>
+              </ul>
+            </div>
+            <div class="tab_pane">
+              <div class="mui_accordion" mui-accordion="">
+                <div class="acc_lists mui_open">
+                  <div class="acc_header"><span class="acc_title">조회</span>
+                    <button class="mui_acc_button" type="button"> 닫기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">전체계좌조회</a><a href="#">거래내역조회</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">이체</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">즉시이체</a><a href="#">자동이체(당/타행)</a><a href="#">자동이체(CMS)</a><a href="#">예약이체</a><a href="#">이체조회결과</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">고객정보관리</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">고객정보조회 변경</a><a href="#">고객확인제도</a><a href="#">장기미접속해제</a><a href="#">뱅킹비밀번호 변경</a><a href="#">최초뱅킹비밀번호 등록</a><a href="#">제증명</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">뱅킹관리</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">자주쓰는계좌관리</a><a href="#">계좌번호찾기</a><a href="#">계좌비밀번호 변경</a><a href="#">계좌비밀번호 오류해제</a><a href="#">이체한도관리</a><a href="#">거래중지계좌관리</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tab_pane">
+              <ul class="tab_list">
+                <li><a href="#">새소식</a></li>
+                <li><a href="#">이벤트</a></li>
+                <li><a href="#">고객상담</a></li>
+                <li><a href="#">이용시간안내</a></li>
+                <li><a href="#">영업점안내</a></li>
+              </ul>
+            </div>
+            <div class="tab_pane">
+              <div class="mui_accordion" mui-accordion="">
+                <div class="acc_lists mui_open">
+                  <div class="acc_header"><span class="acc_title">간편비밀번호</span>
+                    <button class="mui_acc_button" type="button"> 닫기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">간편비밀번호 등록</a><a href="#">간편비밀번호 변경</a><a href="#">간편비밀번호 해지</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">금융인증서</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">타기관 금융인증서 등록</a><a href="#">타기관 금융인증서 해지</a><a href="#">인증서 관리</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">토스인증서</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">토스인증서 등록</a><a href="#">토스인증서 해지</a><a href="#">인증서 관리</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">보안매체</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">OTP보정</a><a href="#">타기관 OTP 등록</a></div>
+                  </div>
+                </div>
+                <div class="acc_lists">
+                  <div class="acc_header"><span class="acc_title">추가인증서비스</span>
+                    <button class="mui_acc_button" type="button"> 열기
+                    </button>
+                  </div>
+                  <div class="mui_acc_content">
+                    <div class="flex_col"><a href="#">서비스 가입</a><a href="#">서비스변경/해지</a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div><!-- //검색시 숨김 -->
+      </div><!-- 검색시 표시 -->
+      <div class="mui_contents_group lv_1">
+        <div class="search_result">
+          <div class="inner">
+            <p class="tit">검색결과<strong>7</strong>건</p>
+            <ul class="search_list">
+              <li><a href="#">대출 > 신용대출/햇살론 > 신용정보<strong>조회</strong>동의</a></li>
+              <li><a href="#">대출 > 신용대출/햇살론 > 신용정보<strong>조회</strong>동의</a></li>
+              <li><a href="#">대출 > 신용대출/햇살론 > 신용정보<strong>조회</strong>동의</a></li>
+            </ul><!-- 검색결과없는경우 -->
+            <div class="no_search">검색결과가 없습니다.</div>
+            <div class="mui_result_ico null">
+              <div class="icon_img"><img src="/src/images/ico_search_empty.svg" alt="" /></div>
+              <p class="main_txt">검색결과가 없습니다.</p>
+            </div><!-- //검색결과없는경우 -->
+          </div>
+        </div>
+      </div><!-- //검색시 표시 -->
+    </div><!--// 전체메뉴 -->
+    <!-- header -->
+    <div id="header">
+      <header class="header">
+        <div class="inner">
+          <div class="side_left">
+            <button class="btn_prev" type="button"><span class="hidden">뒤로가기</span></button>
+          </div>
+          <div class="title_center"><span class="title">페이지 제목</span></div>
+          <div class="side_right">
+            <button class="btn_home" type="button"><span class="hidden">홈으로 가기</span></button>
+            <button class="btn_allmenu" type="button" mui-toggle="target:#pageRoot;cls:open_allmenu;"><span class="hidden">전체메뉴</span></button>
+          </div>
+        </div>
+      </header>
+    </div><!-- / header --><!-- contents -->
+    <div id="contants">
+      <button class="mui_button mui_medium mui_primary" type="button" mui-toggle="target:#fullLayer;"><span>적합성/적정성 확인서</span></button><!-- layer -->
+      <div class="mui_fullpop_wrap" mui-modal="" id="fullLayer">
+        <div class="mui_modal_dialog mui_size_medium mui_auto_vertical mui_fullpop">
+          <div class="mui_modal_body">
+            <div class="mui_modal_header">
+              <p>적합성/적정성 확인서
+              </p>
+            </div>
+            <div class="mui_modal_content">
+              <div class="suitability_step">
+                <div class="step_nav">
+                  <ul>
+                    <li class="step"><span>1</span></li>
+                    <li class="step mui_active"><span>2</span></li>
+                    <li class="step"><span>3</span></li>
+                  </ul>
+                </div>
+                <div class="step_layer">
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">안녕하세요 <em>홍길동</em>님
+                      </p>
+                    </div>
+                    <p class="type1">대출계약자 적합성·적정성 확인을 위해 고객 정보를 입력해주세요.</p>
+                    <div class="box">
+                      <div class="img"> <img src="/src/images/img_com01.svg" alt=""></div>
+                      <div class="mui_title">
+                        <p class="title lv4">적합성/적정성 확인서란?
+                        </p>
+                      </div>
+                      <p class="type1">「금융소비자 보호에 대한 법률」 <em>제 17조(적합성원칙) 및 제 18조(적정성원칙)</em>에 따라 귀하의 연령, 재산상황, 대출계약의 목적 등을 파악하여 대출계약자에게 가장 적합한 대출계약 체결을 권유하기 위한 기초자료로 활용됩니다.</p>
+                    </div>
+                    <div class="mui_text_lists dot">
+                      <ul>
+                        <li>허위 또는 불성실한 답변을 하시는 경우 부적합한 대출계약을 권유하게 될 수 있으며, 이로 인해 발생하는 모든 손해는 계약자 본인에게 귀속되오니 유념하여 주시기 바랍니다.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">정보를 입력하세요.
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">이름</span></div>
+                        <div class="mui_form_content">
+                          <div class="mui_form_value"><span>홍길동</span></div>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">주민등록번호</span></div>
+                        <div class="mui_form_content">
+                          <div class="mui_idNumber mui_inputmultiple default">
+                            <span class="mui_input">
+                              <input type="text" title="주민번호 앞6자리 입력" placeholder="앞6자리" mui-input="" />
+                            </span><span class="divide">-</span>
+                            <span class="mui_input">
+                              <input type="password" title="주민번호 뒤7자리 입력" placeholder="뒤7자리" mui-input="" />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="mui_form_list">
+                        <div class="mui_form_head"><span class="form_title">휴대폰번호</span></div>
+                        <div class="mui_form_content">
+                          <div class="mui_phone">
+                            <button class="mui_button mui_select" type="button"><span class="inset"><span class="label">SKT<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">통신사</span></span></button>
+                            <span class="mui_input">
+                              <input type="tel" placeholder="휴대폰번호(숫자만)" mui-input="" />
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q1.<br>귀하의 연령은 어떻게 되십니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list form_error">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id1" name="chk076916Id1" />
+                              <label for="chk076916Id1">20대 이하</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id2" name="chk076916Id1" />
+                              <label for="chk076916Id2">30대</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id3" name="chk076916Id1" checked="checked" />
+                              <label for="chk076916Id3">40대</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id4" name="chk076916Id1" />
+                              <label for="chk076916Id4">50대</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id5" name="chk076916Id1" />
+                              <label for="chk076916Id5">50대 이상</label>
+                            </span>
+                          </div>
+                          <p class="msg_form msg_error">연령을 선택해 주세요.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q2.<br>귀하의 대출계약 체결의 목적은 무엇입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list form_error">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id6" name="chk0769161Id2" checked="checked" />
+                              <label for="chk0769161Id6">가계자금</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id7" name="chk0769161Id2" />
+                              <label for="chk0769161Id7">사업자금</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id8" name="chk0769161Id2" />
+                              <label for="chk0769161Id8">주택자금</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id9" name="chk0769161Id2" />
+                              <label for="chk0769161Id9">타 기관 대출금 상환</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id10" name="chk0769161Id2" />
+                              <label for="chk0769161Id10">의료비</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id11" name="chk0769161Id2" />
+                              <label for="chk0769161Id11">교육비</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769161Id12" name="chk0769161Id2" />
+                              <label for="chk0769161Id12">기타</label>
+                            </span>
+                          </div>
+                          <span class="mui_input">
+                            <input type="text" placeholder="기타 선택 시 입력해 주세요" mui-input="" />
+                          </span>
+                          <p class="msg_form msg_error">내용을 입력해 주세요</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q3.<br>귀하의 연간 소득은 어느 정도입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list form_error">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id13" name="chk076916Id3" checked="checked" />
+                              <label for="chk076916Id13">선택안함</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id14" name="chk076916Id3" />
+                              <label for="chk076916Id14">6백만원 이상 5천만원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id15" name="chk076916Id3" />
+                              <label for="chk076916Id15">5천만원 이상 1억원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id16" name="chk076916Id3" />
+                              <label for="chk076916Id16">1억원 이상</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk076916Id17" name="chk076916Id3" />
+                              <label for="chk076916Id17">해당없음</label>
+                            </span>
+                          </div>
+                          <span class="mui_input">
+                            <input type="text" placeholder="해당없음 선택 시 입력해 주세요" mui-input="" />
+                          </span>
+                          <p class="msg_form msg_error">소득을 선택해 주세요.</p>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="mui_text warning">법인 조합 등의 경우, 제무상황 확인 등을 위해 회사의 회계정보 제출이 필요합니다.
+                    </p>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q4.<br>귀하의 총 자산규모(순자산)는 어느 정도입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769162Id18" name="chk0769162Id4" />
+                              <label for="chk0769162Id18">1억원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769162Id19" name="chk0769162Id4" />
+                              <label for="chk0769162Id19">1억원 이상 5억원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769162Id20" name="chk0769162Id4" />
+                              <label for="chk0769162Id20">5억원 이상 10억원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769162Id21" name="chk0769162Id4" />
+                              <label for="chk0769162Id21">10억원 이상</label>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q5.<br>귀하의 부채는 어느 정도입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id22" name="chk0769163Id5" />
+                              <label for="chk0769163Id22">1천만원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id23" name="chk0769163Id5" />
+                              <label for="chk0769163Id23">1천만원 이상 1억원 미만</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id24" name="chk0769163Id5" />
+                              <label for="chk0769163Id24">1억원 이상</label>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q6.<br>귀하의 신용점수는 어떻게 되십니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id25" name="chk0769163Id6" />
+                              <label for="chk0769163Id25">600점 이하</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id26" name="chk0769163Id6" />
+                              <label for="chk0769163Id26">600점 초과</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769163Id27" name="chk0769163Id6" />
+                              <label for="chk0769163Id27">모름</label>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q7.<br>귀하의 체결할 대출금의 변제방법은 무엇입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769164Id28" name="chk0769164Id7" />
+                              <label for="chk0769164Id28">근로소득</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769164Id29" name="chk0769164Id7" />
+                              <label for="chk0769164Id29">사업소득</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769164Id30" name="chk0769164Id7" />
+                              <label for="chk0769164Id30">임대소득</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769164Id31" name="chk0769164Id7" />
+                              <label for="chk0769164Id31">연금소득</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769164Id32" name="chk0769164Id7" />
+                              <label for="chk0769164Id32">기타</label>
+                            </span>
+                          </div>
+                          <span class="mui_input">
+                            <input type="text" placeholder="기타 선택 시 입력해 주세요" mui-input="" />
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="mui_title">
+                      <p class="title lv2">Q8.<br>귀하의 연간소득 대비 고정 지출비용은 어느 정도입니까?
+                      </p>
+                    </div>
+                    <div class="mui_form">
+                      <div class="mui_form_list">
+                        <div class="mui_form_content">
+                          <div class="mui_radio_group">
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769165Id33" name="chk0769165Id8" />
+                              <label for="chk0769165Id33">연간소득을 초과하지 않음</label>
+                            </span>
+                            <span class="mui_radio">
+                              <input type="radio" id="chk0769165Id34" name="chk0769165Id8" />
+                              <label for="chk0769165Id34">연간소득을 초과</label>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                  <div class="step_cont" style="display:none;">
+                    <div class="box">
+                      <div class="img"> <img src="/src/images/img_com02.svg" alt=""></div>
+                      <p class="type2">본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.</p>
+                    </div>
+                    <div class="mui_text_lists dot">
+                      <ul>
+                        <li>본인이 귀행에 제공한 적합성·적정성 관련 정보는 본인의 재산상황, 용도 등의 정보를 정확히 알려드린 것입니다.
+                        </li>
+                        <li>본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="confirm">
+                      <p class="txt1">2021년 07월 01일</p>
+                      <p class="txt2">대출계약자 성명 : 홍길동</p>
+                    </div>
+                    <div class="mui_button_fixed"><span class="inset">
+                        <button class="mui_button mui_large mui_default" type="button"><span>이전</span></button>
+                        <button class="mui_button mui_large mui_primary" type="button"><span>다음</span></button></span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <button class="mui_modal_close">닫기</button>
+          </div>
+        </div>
+      </div><!-- / layer -->
+      <script>
+        GCui.modal('#fullLayer').show()
+      </script>
+    </div><!-- / contents -->
+  </div>
+</body>
+
+</html>
