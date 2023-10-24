@@ -2513,6 +2513,11 @@ table, th, td {
   border-bottom: 1px solid var(--line_color03);
 }
 
+.mui_modal_page,
+.mui_modal_page body {
+  overflow: hidden;
+}
+
 .mui_modal, [mui-modal] {
   display: none;
   position: fixed;
@@ -2723,6 +2728,7 @@ table, th, td {
   top: 0px;
   height: 100%;
   overflow: auto;
+  background: #f00;
 }
 .mui_modal.mui_fullpop_wrap .mui_modal_header, [mui-modal].mui_fullpop_wrap .mui_modal_header {
   height: 56px;

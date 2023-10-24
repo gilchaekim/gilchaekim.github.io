@@ -1,6 +1,11 @@
 @import "../../asset/scss/common/mixins";
 @import "../../asset/scss/common/varialbles";
 
+.mui_modal_page,
+.mui_modal_page body{
+    overflow: hidden;
+    // pointer-events: none;
+}
 .mui_modal, [mui-modal]{
     display: none;
     position: fixed;
@@ -231,6 +236,7 @@
                     top:0px;
                     height: 100%;
                     overflow: auto;
+                    background: #f00;
                 }
             }
         }
@@ -258,6 +264,7 @@
         }
         .mui_modal_content{
             padding: 24px;
+            
             .mui_tabs{
                 &:first-child{
                     margin: -24px -24px;
