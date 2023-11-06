@@ -13,6 +13,7 @@ const watch11 = () => {
     server: buildDir,
     notify: false,
     plugins: ['bs-eslint-message'],
+    port:8888,
     startPath:"/coding_list.html"
     // browser: ["google chrome", "firefox"]
   })
