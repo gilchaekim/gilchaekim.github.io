@@ -1,5 +1,13 @@
 pug js example
 
-https://github.com/pug-bootstrap/components
-https://github.com/mdl95r/my-library-components
-https://github.com/pug-bootstrap/PUG-Bootstrap
+  https://github.com/pug-bootstrap/components
+  https://github.com/mdl95r/my-library-components
+  https://github.com/pug-bootstrap/PUG-Bootstrap
+
+
+
+toast
+  https://github.com/apvarun/toastify-js/blob/master/src/toastify.js
+
+datepicker
+  https://github.com/henrik/datepicker
