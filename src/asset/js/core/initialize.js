@@ -179,6 +179,7 @@ export default function (UICommon) {
     }
     
     UICommon.prototype._callUpdate = function (e = 'update') {
+        // console.log(e);
         if (!this._connected) {
             return;
         }

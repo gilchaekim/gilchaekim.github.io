@@ -59,7 +59,7 @@ each(components, (component, name) => {
 GCui.use(function(GCui) {
     inBrowser && ready(() => {
         GCui.update();
-        // on(window, 'load resize', () => GCui.update(null, 'resize'))
+        on(window, 'load resize', () => GCui.update(null, 'resize'))
 
         let pending;
         on(window, 'scroll', e => {

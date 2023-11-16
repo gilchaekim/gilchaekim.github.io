@@ -50,7 +50,8 @@ export default function (UICommon) {
     }
 
     UICommon.prototype.$update = function (element = this.$el, e) {
-        UICommon.update(element, e);
+        console.log(e);
+        // UICommon.update(element, e);
     }
 
     UICommon.prototype.$getComponent = UICommon.getComponent;

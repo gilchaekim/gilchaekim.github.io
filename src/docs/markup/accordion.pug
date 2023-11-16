@@ -1,6 +1,7 @@
 extends ../layout/guideBase.pug
 
 block content
+  //- script(src="/orther/uikit.min.js") 
   div.main_content
     +guideTitle({
       text:"Accordion"
@@ -9,6 +10,12 @@ block content
       text:"Example",
       level:2
     })
+    //- .sdfsdfsdfsd(
+    //-   uk-sticky=""
+    //- ) sdfsadfsdaf
+    .sdfsdfsdfsd(
+      mui-sticky=""
+    ) sdfsadfsdaf
     +guideExample()(code)
       :code
         +accordion({
