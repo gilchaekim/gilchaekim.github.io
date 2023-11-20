@@ -1,0 +1,143 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webcus"
+  - pageTitle = "고객정보조회 변경"
+
+block content
+  +content_group(0)
+    +title({
+      text:"기본정보",
+      lv:4,
+    })
+    +content_group(2)
+      +card({
+        data: [
+            {
+              title:"이름",
+              text:"김저축",
+            },
+            {
+              title:"주민등록번호",
+              text:"750302-1******",
+            },
+          ]
+      })
+  +content_group(0)
+    +form()
+      +form_body({title:"생년월일"})
+        +radioCheck({
+          type:"radio",
+          name:'chk388679',
+          lists:[
+            {label:'양력',},
+            {label:'음력',},
+          ]
+        })
+        +input({
+          placeholder:"생년월일 6자리 입력",
+        })
+      +form_body({title:"휴대폰번호"})
+        .mixin_btn
+          +input_phone()
+          .mixin_sec
+            button(type="button").btn
+              span 변경
+        .confirm_sec
+          .mixin_btn
+            +input({
+              value:"234567"
+            })
+            .mixin_sec
+              .count_time 03:00
+              button(type="button").btn
+                span 시간연장
+          +button({
+            label:"인증번호 확인",
+            size:"medium",
+            type:"white",
+          })
+        +text({
+          type:'warning',
+          text:"본인명의의 휴대폰 번호만 변경 가능합니다."
+        })
+        .confirm_msg
+          p 본인인증이 완료되었습니다.
+      +form_body({title:"이메일주소"})
+        +input({
+          placeholder:"이메일주소 입력"
+        })
+    hr
+    +title({
+      text:"주소정보",
+      lv:4,
+    })
+    +content_group(2)
+      +form()
+        +form_body({title:"거주지주소"})
+          +input_button({
+            btnText:"주소찾기",
+            placeholder:"주소검색",
+            type:"input"
+          })
+          +input({
+            placeholder:"상세주소",
+          })
+        +form_body({title:"주민등록지주소"})
+          +input_button({
+            btnText:"주소찾기",
+            placeholder:"주소검색",
+            type:"input"
+          })
+          +input({
+            placeholder:"상세주소",
+          })
+          +radioCheck({
+            name:'chk748419',
+            label:'거주지주소와 동일'
+          })
+        +form_body({title:"자택 전화번호"})
+          +input({
+            placeholder:"자택 전화번호 입력",
+          })
+          +radioCheck({
+            name:'chk748419',
+            label:'없음'
+          })
+    hr
+    +title({
+      text:"추가정보",
+      lv:4,
+    })
+    +content_group(2)
+      +form()
+        +form_body({title:"연락구분"})
+          +button_select({
+            placeholder:"연락구분 선택",
+            label:"연락거부"
+          })
+        +form_body({title:"DM발송구분"})
+          +button_select({
+            placeholder:"DM발송구분 선택",
+            label:"발송 거부"
+          })
+        +form_body({title:"SMS수신여부"})
+          +button_select({
+            placeholder:"SMS수신여부 선택",
+            label:"수신안함"
+          })
+        +form_body({title:"카카오톡알림신청"})
+          +button_select({
+            placeholder:"카카오톡알림신청 선택",
+            label:"수신안함"
+          })
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"다음",
+      size:"large",
+    })

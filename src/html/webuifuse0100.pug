@@ -1,0 +1,53 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif"
+  - pageTitle = "고객상담"  
+
+
+
+block content
+  +content_group(2)
+    +title({
+      text:"서비스 이용 중<br>불편사항이 있으신가요?",
+      lv:2,
+    })
+  +content_group(2)
+    .callcenter
+      a(href="tel:1544-3637").list 
+        span.img 
+          img(src="/src/images/ico_call_on.png", alt="")
+        span.txts 
+          span.title SB톡톡+ 상담센터
+          span.tel 1544-3637
+      a(href="tel:1544-3637").list 
+        span.img 
+          img(src="/src/images/ico_call_on.png", alt="")
+        span.txts 
+          span.title SB톡톡+ 상담센터
+          span.tel 1544-3637
+      .list 
+        span.img 
+          img(src="/src/images/ico_call_off.png", alt="")
+        span.txts 
+          span.title 상상인 본점
+          span.tel 1544-3637
+      .list 
+        span.img 
+          img(src="/src/images/ico_call_off.png", alt="")
+        span.txts 
+          span.title 상상인 본점
+          span.tel 1544-3637
+  +content_group(2)
+    +textLists({
+      type:'guide',
+      lists:[
+        {
+          text:"서비스 이용 중 불편사항이 있으시면 저축은행 상담센터를 이용해 주세요.",
+        },
+        {
+          text:"당행 상품에 대한 안내 및 은행 관련 문의사항이 있으시면 IBK 저축은행 콜센터를 이용해 주세요.",
+        },
+      ]
+    })
+

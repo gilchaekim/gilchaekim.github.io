@@ -1,0 +1,12 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  
+
+  script.
+    GCui.modal.alert({
+      text:"<div class=\"error_pop\"><p class=\"main_text\">오류</p><p class=\"text\">알수 없는 오류가 발생하였습니다.</p><p class=\"code\">오류코드 : <span>12345</span></p></div>",
+    })

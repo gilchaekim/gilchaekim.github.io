@@ -1,0 +1,36 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="webiba"
+  - pageTitle = "계좌비밀번호 변경"
+
+block content
+  .card_box
+    .img
+      img(src="/src/images/ico_example2.png", alt="")
+    .bank_info
+      strong 교직원정기예금
+      span 000-11-22-33333
+  +content_group(1)
+    +form()
+      +form_body({title:"현재 계좌비밀번호"})
+        +input({
+          type:"password",
+          placeholder:"숫자 4자리"
+        })
+      +form_body({title:"변경 계좌비밀번호"})
+        +input({
+          type:"password",
+          placeholder:"숫자 4자리"
+        })
+      +form_body({title:"변경 계좌비밀번호 확인"})
+        +input({
+          type:"password",
+          placeholder:"숫자 4자리"
+        })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

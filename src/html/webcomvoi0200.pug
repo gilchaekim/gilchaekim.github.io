@@ -1,0 +1,27 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"보이스피싱 사고신고",
+    muiToggle:'target:#modal_bottom;'
+  })
+  +modal({
+    title:"보이스피싱 사고신고",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +content_group(1)
+      .voice
+        p.txt 
+          | 보이스피싱 피해예방을 위해, 해당 거래는<br>
+          | 중지되며 <strong class='main_color01'>보이스피싱 신고(경찰청 112) / 상담<br>(금융감독원 1332)</strong>
+          | 로 문의바랍니다.
+    
+      +button_bottom_fixed()
+        +button({
+          label:"확인",
+          size:"large",
+          type:"primary",
+        })
+  script.
+    GCui.modal('#modal_bottom').show()

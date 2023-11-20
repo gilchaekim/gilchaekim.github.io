@@ -1,0 +1,42 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "제증명 신청조회/취소"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"금융거래확인서<br>신청 취소 완료",
+      subText:"고객님께서 신청하신 금융거래확인서<br>신청 취소가 완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"신청증명서",
+          text:"금융거래확인서",
+        },
+        {
+          title:"발급기준일",
+          text:"2019.03.01",
+        },
+        {
+          title:"발급목적(사유)",
+          text:"금융기관제출용",
+        },
+        {
+          title:"발급취소일",
+          text:"2023.03.12",
+        },
+      ]
+    })
+        
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

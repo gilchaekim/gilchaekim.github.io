@@ -1,0 +1,150 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "전자약정"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:5,
+      activeIndex:1
+    })
+  +content_group(0)
+    +title({
+      text:"전자약정 목록",
+      lv:2,
+    })
+    .text_wrap
+      +text({
+        text:"약정을 진행할 대출 건을 선택해주세요."
+      })
+  +content_group(0)
+    .list_length
+      +title({
+        text:"대출정보 목록",
+        lv:4,
+      })
+      span.length 
+        | 총
+        em 12
+        |건
+    +card({
+      isSelecte:true,
+      className:"toggle_select card_list01",
+      data: [
+          {
+            title:"대출금액",
+            text:"1,000,000원",
+          },
+          {
+            title:"대출시작일",
+            text:"2023.05.04",
+          },
+          {
+            title:"대출만기일",
+            text:"대출시작일로부터 N개월",
+          },
+          {
+            title:"정상이율",
+            text:"13%",
+          },
+          {
+            title:"지연배상금여부",
+            text:"있음",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk250176',
+        label:'직장인 신용대출<span>약정일자 : 2023.05.15</span>'
+      })
+      button.more(type="button", mui-toggle="target:.card_list01;cls:mui_active")
+        span.hidden
+          | 더보기
+          span.open 열기
+          span.close 닫기
+    +card({
+      isSelecte:true,
+      className:"toggle_select card_list02 mui_active",
+      data: [
+          {
+            title:"대출금액",
+            text:"1,000,000원",
+          },
+          {
+            title:"대출시작일",
+            text:"2023.05.04",
+          },
+          {
+            title:"대출만기일",
+            text:"대출시작일로부터 N개월",
+          },
+          {
+            title:"정상이율",
+            text:"13%",
+          },
+          {
+            title:"지연배상금여부",
+            text:"있음",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk250176',
+        label:'직장인 신용대출<span>약정일자 : 2023.05.15</span>'
+      })
+      button.more(type="button", mui-toggle="target:.card_list02;cls:mui_active")
+        span.hidden
+          | 더보기
+          span.open 열기
+          span.close 닫기
+    +card({
+      isSelecte:true,
+      className:"toggle_select card_list03",
+      data: [
+          {
+            title:"대출금액",
+            text:"1,000,000원",
+          },
+          {
+            title:"대출시작일",
+            text:"2023.05.04",
+          },
+          {
+            title:"대출만기일",
+            text:"대출시작일로부터 N개월",
+          },
+          {
+            title:"정상이율",
+            text:"13%",
+          },
+          {
+            title:"지연배상금여부",
+            text:"있음",
+          },
+        ]
+    })
+      +radioCheck({
+        type:"radio",
+        name:'chk250176',
+        label:'직장인 신용대출<span>약정일자 : 2023.05.15</span>'
+      })
+      button.more(type="button", mui-toggle="target:.card_list03;cls:mui_active")
+        span.hidden
+          | 더보기
+          span.open 열기
+          span.close 닫기
+    +button_more()
+    +result({
+      type:'null',
+      mainText:"<strong>전자약정이 가능한<br>대출이 없습니다.</strong>",
+      img:"/src/images/ico_search_empty.svg",
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

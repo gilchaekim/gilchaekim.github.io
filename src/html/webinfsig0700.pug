@@ -1,0 +1,78 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"금융거래 확인사항",
+    muiToggle:'target:#fullLayer;'
+  })
+  
+  +modal({
+    title:"금융거래 확인사항",
+    id:"fullLayer",
+    type:"full",
+    className:"webinf"
+  })
+    +content_group(0)
+      .grey_box.ico 안전하고 투명한 금융거래를 위해 아래 내용을 확인해주세요
+    +content_group(2)
+      +form()
+        +form_body({title:"개인거래목적"})
+          +button_select({
+            placeholder:"거래목적 선택"
+          })
+        +form_body({title:"걸제구분"})
+            +radioCheck({
+              type:"checkbox",
+              name:'chk01',
+              className:'mini_type',
+              lists:[
+                {label:'보험료납부',},
+                {label:'공과금납부',},
+                {label:'카드납부',},
+              ]
+            })
+        +form_body({title:"거래자금원천"})
+          +button_select({
+            placeholder:"거래자금원천 선택"
+          })
+        +form_body({title:"가입하시는 상품의 명의인, 실소유인이 본인이십니까?"})
+
+          +radioCheck({
+            name:'btnType',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'본인 맞습니다.'
+              },
+              {
+                label:'본인이 아닙니다.',
+                checked:true
+              }
+            ]
+          })
+        +form_body({title:"자택주소가 현재 거주하시는 장소입니까?"})
+
+          +radioCheck({
+            name:'btnType1',
+            type:"radio",
+            className:'button_type',
+            lists:[
+              {
+                label:'예'
+              },
+              {
+                label:'아니오',
+                checked:true
+              }
+            ]
+          })
+      
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+        type:"primary"
+      })
+  script.
+    GCui.modal('#fullLayer').show()

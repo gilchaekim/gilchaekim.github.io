@@ -1,0 +1,61 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"주소검색 팝업",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"주소검색",
+    id:"fullLayer",
+    type:"full"
+  })
+    .home_wrap.apt
+      <!-- tag종류(아파트-apt / 빌라-villa / 상가-shop) -->
+      +tag({
+        text:"아파트", 
+        type:"apt"
+      })
+      +title({
+        text:"저축아파트",
+        lv:2,
+      })
+      
+    +content_group(2)
+      +form()
+        +form_body({title:"동 선택"})
+          +button_select({
+            placeholder:"동 선택",
+            label:""
+          })
+        +form_body({title:"호 선택"})
+          +button_select({
+            placeholder:"호 선택",
+            label:"",
+            disabled:true,
+          })
+    +content_group(1)
+      .addr_map_card
+        +title({
+          text:"주소",
+          lv:5,
+        })
+        div
+          dl 
+            dt 도로명
+            dd 서울특별시 가나다구 가나대로 20길 26
+          dl
+            dt 지번
+            dd 서울특별시 가나다구 가나동 43
+        dl.appraisal
+          dt 평가금액
+          dd <strong><em>500,000,000원</em></strong>
+
+    +result({
+      type:'null',
+      mainText:"동·호를 선택해주세요.",
+      img:"",
+    })
+
+  script.
+    GCui.modal('#fullLayer').show()

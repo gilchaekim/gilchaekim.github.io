@@ -1,0 +1,28 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"(햇살론)대출상품설명서",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"full",
+    className:'pdf_viewer',
+    title:"(햇살론)대출상품설명서",
+    muiModal:"overlay:false;"
+  })
+    .paging 
+      span.curr 1
+      | / 
+      span.total 30
+    button.arrow.left
+      span.hidden 이전
+    button.arrow.right
+      span.hidden 다음
+    div.pdf_body(
+      style="height:50vh;"
+    )
+      | view
+  script.
+    GCui.modal('#fullLayer').show()

@@ -1,0 +1,32 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"신분증 촬영",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"신분증 촬영",
+    id:"fullLayer",
+    type:"full"
+  })
+      .photo_capture
+        +content_group(1)
+          p.title 신분증을 준비해 주세요
+          p.sub_title 
+            | 본인 확인을 위해
+            br
+            em 주민등록증 
+            | 또는 
+            em 운전면허증을 
+            | 준비해 주세요.
+        +content_group(1)
+          .photo_img 
+            img(src="/src/images/img_idcard.png", alt="신분증 샘플 이미지")
+      +button_bottom_fixed()
+        +button({
+          label:"신분증 촬영",
+          size:"large",
+        })
+  script.
+    GCui.modal('#fullLayer').show()

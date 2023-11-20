@@ -1,0 +1,53 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"신청안내(주택담보대출)",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    isCloseBtn:false,
+    className:"webinf"
+  })
+    .signupguide_wrap
+      +content_group(2)
+        +title({
+          text:"<em>주택담보대출 신청</em>을 위해 아래 사항을 사전에 미리 준비해주세요.",
+          lv:4,
+        })
+      +content_group(2)
+        .signup_guide 
+          ul
+            li 
+              .img 
+                img(src="/src/images/ico_join_list01.png", alt="")
+              p.text 
+                strong 신분증 
+                | (주민등록증, 운전면허증)
+            li 
+              .img 
+                img(src="/src/images/ico_join_list04.png", alt="")
+              p.text 
+                strong 본인 명의 휴대폰
+      +content_group(3)
+        p.condition_title
+          | 아래의 조건에 하나라도 해당되면 
+          strong 대출신청이 불가능
+          | 합니다.
+        +textLists({
+          type:'dot',
+          lists:[
+            {
+              text:"만 19세 이상 개인고객, 단 외국인은 불가",
+            },
+          ]
+        })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

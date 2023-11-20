@@ -1,0 +1,82 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "상품가입"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:4,
+      activeIndex:3
+    })
+  +content_group(0)
+    +title({
+      text:"가입정보확인",
+      lv:2,
+    })
+  +content_group(2)
+    +title({
+      text:"입력정보 확인",
+      lv:4,
+    })
+  +content_group(3)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"가입기간",
+          text:"12개월($만기일자$)",
+        },
+        {
+          title:"과세구분",
+          text:"개인과세",
+        },
+        {
+          title:"이율",
+          text:"26%",
+        },
+        {
+          title:"불입금액",
+          text:"<em>100,000원</em>",
+        },
+        {
+          title:"출금계좌번호",
+          text:"상품명<br>12-34-5678910",
+        },
+        {
+          title:"자동이체여부",
+          text:"등록",
+        },
+        {
+          title:"자동이체일자",
+          text:"매월 24일",
+        },
+        {
+          title:"자동이체출금계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기해지방법",
+          text:"자동해지",
+        },
+        {
+          title:"만기시 입금계좌",
+          text:"중앙저축은행<br>123-45-67890",
+        },
+        {
+          title:"만기 SMS 통지",
+          text:"신청",
+        },
+        {
+          title:"권유자사번",
+          text:"없음",
+        },
+      ]
+    })
+  
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

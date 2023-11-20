@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"원천징수영수증 발급이<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"신청증명서",
+        text:"금융거래확인서",
+      },
+      {
+        title:"발급기준일",
+        text:"2023.04.04",
+      },
+    ]
+  })
+  +text({
+    type:'warning',
+    text:"고객님께서 신청하신 제증명이 이메일로 발송되었습니다."
+  })
+
+  .btn_wrap
+    button(type="button")
+      span 상세내용보기
+    button(type="button")
+      em PDF 다운로드
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })
+  

@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webirc"
+  - pageTitle = "금리인하요구권 조회/취소"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"금리인하요구 취소가<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

@@ -1,0 +1,30 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"계좌별칭수정 팝업호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"계좌별칭 수정",
+    id:"modal_bottom",
+    type:"bottom",
+    className:"webcus"
+  })
+    +form()
+      +form_body({title:"자주쓰는계좌 별칭"})
+        +input({
+          placeholder:"최대 10자 입력"
+        })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#modal_bottom').show()

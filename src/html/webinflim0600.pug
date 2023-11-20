@@ -1,0 +1,20 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - showHeader = false
+
+block content
+  .loading 
+    +title({
+      text:"고객님의 <em>직장/소득정보</em>를<br>조회하고 있어요.",
+      lv:2,
+    })
+    .inset
+      .img 
+        <lottie-player src="/src/images/ani_webinf02.json" speed="1" autoplay loop></lottie-player>
+      +content_group(0)
+        +text({
+          type:'warning',
+          text:"대출금리와 한도 조회는 신용점수에 영향을 주지 않아요."
+        })

@@ -1,0 +1,24 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "제증명진위확인"
+
+block content
+  +tabsLink({
+    list:[		
+      {name:"QR코드", active:true},
+      {name:"제증명발행번호"},
+    ],
+    className:"custom_tab"
+  })
+    +text({
+      text:"증명서 상단 혹은 하단(오른쪽) QR코드 촬영 시 진위확인 페이지로 이동합니다."
+    })
+    .qrcode 
+      img(src="/src/images/ico_qrcode.png", alt="")
+  +button_bottom_fixed()
+    +button({
+      label:"QR코드 촬영하기",
+      size:"large",
+    })

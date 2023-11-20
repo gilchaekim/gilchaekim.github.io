@@ -1,0 +1,74 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - showBg = true;
+  - mainClassName="login"
+  - pageTitle = "뱅킹비밀번호 재등록"
+
+block content
+  +form()
+    +form_body({title:"아이디"})
+      +input({placeholder:"사용자아이디", title:"사용자아이디"})
+      +text({
+        type:'link',
+        text:"아이디 찾기"
+      })
+    +form_body({title:"계좌번호"})
+      +input({placeholder:"숫자만 입력", title:"숫자만 입력"})
+      +text({
+        type:'link',
+        text:"계좌번호 찾기"
+      })
+    +form_body({title:"계좌비밀번호"})
+      +input({placeholder:"숫자만 입력", title:"숫자만 입력"})
+    +form_body({title:"등록구분"})
+      +radioCheck({
+        type:"radio",
+        name:'radiolist',
+        lists:[
+          {
+            label:'개인고개',
+          },
+          {
+            label:'법인(기업)고객'
+          }
+        ]
+      })
+      +input({placeholder:"생년월일 6자리", title:"생년월일 6자리"})
+    +form_body({title:"사업자번호"})
+      +input_business()
+    +form_body({title:"인증방법"})
+      +radioCheck({
+        type:"radio",
+        name:'radiolist',
+        lists:[
+          {
+            label:'금융인증서',
+          },
+          {
+            label:'ARS인증'
+          }
+        ]
+      })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요!
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {text:"사용자비밀번호 분실 시 새로운 비밀번호를 등록할 수 있습니다. (인터넷뱅킹 로그인 비밀번호 재등록)"},
+          {text:"출금계좌번호는 - 없이 숫자만 입력해 주시기 바랍니다."},
+          {text:"뱅킹 아이디와 비밀번호, 주민등록/사업자번호를 입력하신 후 확인해 주시기 바랍니다."},
+        ]
+      })
+    
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+      disabled:true,
+    })
+

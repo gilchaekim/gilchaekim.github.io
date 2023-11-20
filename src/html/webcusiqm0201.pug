@@ -1,0 +1,54 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"상품가입 전 확인사항",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"full",
+    title:"카카오톡 정보수신 동의서"
+  })
+    .signupguide_wrap
+      +content_group(2)
+        p.gray_box.ico 저축은행 금융거래 관련 [카카오톡 알림톡]에 의한 정보수신 동의서 입니다.
+      +content_group(2)
+        +title({
+          text:"[IBK저축은행] 귀중",
+          lv:4,
+        })
+        .sub_txt 
+          p 본인은 귀 저축은행과의 금융거래 과정에서 발생하는 주요사항(입출금) 알림 수신 시 문자메시지에 갈음하여 [카카오톡 알림톡]을 통해 정보를 제공받는 것에 동의합니다.
+          p 아울러, 귀 저축은행이 알림톡 서비스 제공을 위해 필요한 정보(휴대폰 번호, 메시지 내용 등)를 문자메시지 및 알림톡 발송대행업체 (슈어엠 주식회사), [카카오톡 알림톡] 서비스 회사(카카오주식회사)에 제공하는 것에 동의합니다.
+
+        +title({
+          text:"[고객 안내 사항]",
+          lv:4,
+        })
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"본 서비스는 문자(SMS) 수신 동의 고객에 한하여 적용됩니다.",
+            },
+            {
+              text:"알림톡 전송 실패 시 고객에게 문자메시지로 재전송됩니다.",
+            },
+            {
+              text:"알림톡 서비스를 통해 발송된 메시지 조회 과정에서 발생하는 카카오톡 데이터 사용료는 고객이 부담함을 알려드립니다.",
+            },
+          ]
+        })
+    +button_bottom_fixed()
+      +button({
+        label:"미동의",
+        size:"large",
+        type:"default",
+      })
+      +button({
+        label:"동의",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

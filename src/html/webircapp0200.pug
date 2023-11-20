@@ -1,0 +1,79 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webirc"
+  - pageTitle = "금리인하요구권 신청"
+
+block content
+  +title({
+    text:"대출계좌목록",
+    lv:2,
+  })
+  +content_group(2)
+    +card({
+      isLinked:true,
+      title:"계좌선택",
+      data: [
+          {
+            title:"대출상품",
+            text:"직장인 신용대출",
+          },
+          {
+            title:"계좌번호",
+            text:"123-12-12-123456",
+          },
+          {
+            title:"대출금리",
+            text:"3.16%",
+          },
+          {
+            title:"대출한도(잔액)",
+            text:"10,000,000원",
+          },
+          {
+            title:"대출일자",
+            text:"2024.02.04",
+          },
+          {
+            title:"만기일자",
+            text:"2024.01.04",
+          },
+        ]
+    })
+    +card({
+      isLinked:true,
+      title:"계좌선택",
+      data: [
+          {
+            title:"대출상품",
+            text:"직장인 신용대출",
+          },
+          {
+            title:"계좌번호",
+            text:"123-12-12-123456",
+          },
+          {
+            title:"대출금리",
+            text:"3.16%",
+          },
+          {
+            title:"대출한도(잔액)",
+            text:"10,000,000원",
+          },
+          {
+            title:"대출일자",
+            text:"2024.02.04",
+          },
+          {
+            title:"만기일자",
+            text:"2024.01.04",
+          },
+        ]
+    })
+    +button_more()
+
+    +result({
+      type:'null',
+      mainText:"<strong>신청가능한 계좌가<br>없습니다.</strong>",
+      img:"/src/images/ico_error.png",
+    })

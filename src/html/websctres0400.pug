@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체등록"
+
+block content
+  +title({
+    text:"언제 보낼까요?",
+    lv:2,
+  })
+  +form()
+    +form_body({title:"예약이체일", tooltip:"당일부터 3개월 이내만 등록이 가능합니다.",})
+      +datepicker()
+    +form_body({title:"예약이체일", tooltip:"당일부터 3개월 이내만 등록이 가능합니다.", message:{type:"error", text:"금일 예약이체 등록은 22시 40분까지 등록할 수 있습니다.<br>이체지정일이 토요일 및 공휴일입니다."}})
+      +datepicker()
+
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        
+        lists:[
+          {
+            text:"지정한 일자에 타은행으로 예약이체하는 서비스입니다.(공휴일제외)",
+          },
+          {
+            text:"예약이체는 해당 이체일에 5회 실행됩니다. ( 09:30, 13:30, 16:30, 21:00, 22:50 ), 전 후로 10분의 오차가 발생할 수 있습니다.",
+          },
+          {
+            text:"잔액부족등의 이유로 미처리시 재처리가 되지 않으니, 반드시 예약이체 일시전에 잔액을 확인하여 주시기 바랍니다.",
+          }
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

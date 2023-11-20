@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"금융인증서",
+    id:"fullLayer",
+    type:"full",
+    className:"webcom"
+  })
+    .certifi
+      .ico 
+        span.type2
+          img(src="/src/images/ico_cer02.svg", alt="")
+      p.txt 금융인증서를 이용하시려면<br>금융인증서 등록을 하셔야 합니다.
+      +content_group(1)
+        +button_custom({
+          type:"round-40",
+          label:"금융인증서 등록"
+        })
+  script.
+    GCui.modal('#fullLayer').show()

@@ -1,0 +1,30 @@
+extends ../components/templates/base.pug
+
+block prepend top
+  - pageTitle = "거래내역조회"
+  - mainClassName="webinq"
+block content
+  +button({
+    label:"바텀팝업 호출",
+    muiToggle:'target:#modal_bottom;'
+  })
+  +modal({
+    title:"조회설정",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +form()
+      +form_body({title:"조회기간"})
+        +datepicker({
+          quickBtn:true
+        })
+    
+    +button_wrap({
+      className:'btn_bottom_wrap'
+    })
+      +button({
+        label:"적용",
+        size:'large'
+      })
+  script.
+    GCui.modal('#modal_bottom').show()

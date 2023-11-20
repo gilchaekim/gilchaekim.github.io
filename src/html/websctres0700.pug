@@ -1,0 +1,16 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체"
+
+block content
+  .main_list 
+    +card_ico_list({
+      src:"/src/images/ico_aut_reservation.png",
+      text:"예약이체 등록"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_aut_fail.png",
+      text:"예약이체조회/해지"
+    })

@@ -1,0 +1,19 @@
+extends ../components/templates/base.pug
+
+
+
+
+block content
+  +button({
+    label:"버텀 트레이",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"로그인 방식 선택",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +select_list()
+  script.
+    GCui.modal('#modal_bottom').show()

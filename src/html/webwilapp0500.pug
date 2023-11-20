@@ -1,0 +1,15 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webwel"
+  - pageTitle = "대출철회"
+
+block content
+  +card_ico_list({
+    src:"/src/images/ico_loan_01.png",
+    text:"대출철회신청"
+  })
+  +card_ico_list({
+    src:"/src/images/ico_loan_02.png",
+    text:"대출철회 조회/취소"
+  })

@@ -1,0 +1,86 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +content_group(0)
+    +title({
+      text:'발급내역',
+      lv:4,
+    })
+    +content_group(3)
+      +result({
+        dataType:"line",
+        data:[
+          {
+            title:"발급기준일",
+            text:"2023.04.13",
+          },
+          {
+            title:"발급목적",
+            text:"개인보관용",
+          },
+          {
+            title:"이메일주소",
+            text:"kjc@gmail,com",
+          },
+        ]
+      })
+
+  +content_group(0)
+    +title({
+      text:'발급신청 계좌',
+      className:"mini_title",
+      lv:6,
+    })
+    .check_card
+      .all_check
+        +radioCheck({
+          name:'checklist',
+          label:'전체 선택'
+        })
+      .selectlist_account
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
+        +radioCheck({
+          name:'checklist',
+        })
+          .lists
+            strong 중앙정기예금
+            span.acc_num 123-1212-1234-56
+              span.acc_aka 100,000원
+            span.date 개설일 2020.04.02
+    <!-- 발급신청 가능한 계좌가 없는 경우 -->
+    +result({
+      type:'null',
+      mainText:"조회된 계좌가 없습니다.",
+      img:"/src/images/ico_search_empty.svg",
+    })
+    <!-- //발급신청 가능한 계좌가 없는 경우 -->
+  +button_bottom_fixed()
+    +button({
+      label:"취소",
+      size:"large",
+      type:"default",
+    })
+    +button({
+      label:"발급하기",
+      size:"large",
+    })
+    

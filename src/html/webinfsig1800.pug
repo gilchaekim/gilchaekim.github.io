@@ -1,0 +1,94 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "햇살론"
+
+block content
+  +content_group(1)
+    +title({
+      text:'신청 사전 체크리스트',
+      lv:2,
+    })
+    p.sub_txt 헷살론 신청 전 자격조건이 맞는지 확인합니다. 
+  
+  +content_group(2)
+    +form()
+      +form_body({title:"직업이 어떻게 되십니까?"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'자영업자'
+            },
+            {
+              label:'직장인',
+            }
+          ]
+        })
+      +form_body({title:"연봉이 4,500만원 이상입니까?"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니요',
+            }
+          ]
+        })
+      +form_body({title:"현재 직장에서 3개월 이상 근무중입니까?"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'예',
+            },
+            {
+              label:'아니요'
+            }
+          ]
+        })
+      +form_body({title:"햇살론을 사용중입니까?"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니요',
+            }
+          ]
+        })
+      +form_body({title:"취약계층여부"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'예'
+            },
+            {
+              label:'아니요',
+            }
+          ]
+        })
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+      type:"primary",
+      disabled:"disabled"
+    })

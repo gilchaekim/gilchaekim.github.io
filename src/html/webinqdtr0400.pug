@@ -1,0 +1,127 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "예적금담보대출신청조회"
+
+block content
+  +content_group(0)
+    +title({
+      text:"예적금담보대출 신청목록",
+      lv:2,
+    })
+    .text_wrap
+      +text({
+        text:"대출 실행할 대출 건을 선택해주세요."
+      })
+    +content_group(2)
+      .sort_wrap
+        p.tit 대출정보 목록
+        +data_sort({
+          total:"2",
+        })
+  +content_group(3)
+    .inf_card_type
+      +card({
+        isSelecte:true,
+        className:"toggle_select card_list01",
+        data: [
+            {
+              title:"대출방식",
+              text:"건별대출",
+            },
+            {
+              title:"대출금액",
+              text:"1,000,000원",
+            },
+            {
+              title:"만기일자",
+              text:"2024.05.05",
+            },
+            {
+              title:"대출이율",
+              text:"N%",
+            },
+          ]
+      })
+        +radioCheck({
+          type:"radio",
+          name:'chk250176',
+          label:'<span class="tit">예적금계좌번호</span>123-12-12-123456<span>요청일시 : 2023.05.15 17:05</span>'
+        })
+        button.more(type="button", mui-toggle="target:.card_list01;cls:mui_active")
+          span.hidden
+            | 더보기
+            span.open 열기
+            span.close 닫기
+      +card({
+        isSelecte:true,
+        className:"toggle_select card_list02 mui_active",
+        data: [
+            {
+              title:"대출방식",
+              text:"건별대출",
+            },
+            {
+              title:"대출금액",
+              text:"1,000,000원",
+            },
+            {
+              title:"만기일자",
+              text:"2024.05.05",
+            },
+            {
+              title:"대출이율",
+              text:"N%",
+            },
+          ]
+      })
+        +radioCheck({
+          type:"radio",
+          name:'chk250176',
+          label:'<span class="tit">예적금계좌번호</span>123-12-12-123456<span>요청일시 : 2023.05.15 17:05</span>'
+        })
+        button.more(type="button", mui-toggle="target:.card_list02;cls:mui_active")
+          span.hidden
+            | 더보기
+            span.open 열기
+            span.close 닫기
+      +card({
+        isSelecte:true,
+        className:"toggle_select card_list03",
+        data: [
+            {
+              title:"대출방식",
+              text:"건별대출",
+            },
+            {
+              title:"대출금액",
+              text:"1,000,000원",
+            },
+            {
+              title:"만기일자",
+              text:"2024.05.05",
+            },
+            {
+              title:"대출이율",
+              text:"N%",
+            },
+          ]
+      })
+        +radioCheck({
+          type:"radio",
+          name:'chk250176',
+          label:'<span class="tit">예적금계좌번호</span>123-12-12-123456<span>요청일시 : 2023.05.15 17:05</span>'
+        })
+        button.more(type="button", mui-toggle="target:.card_list03;cls:mui_active")
+          span.hidden
+            | 더보기
+            span.open 열기
+            span.close 닫기
+      +button_more()
+    
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

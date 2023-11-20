@@ -1,0 +1,37 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="flex_top_bot"
+  - pageTitle = "장기미접속해제"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"장기미접속해제 처리가<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"아이디",
+          text:"chan****",
+        },
+      ]
+    })
+  .flex_bot
+    +text({
+      type:'warning',
+      text:"정상적으로 로그인 후 조회/이체등의 서비스 이용이 가능합니다.",
+    })
+    +text({
+      type:'warning',
+      text:"최종거래일로부터 1년간 거래(로그인등 접속거래)가 없을 시 장기미접속 상태로 변경되오니 참고하여주시기 바랍니다.",
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

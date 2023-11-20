@@ -1,0 +1,105 @@
+extends ../components/templates/base.pug
+
+block prepend top
+  - pageTitle = "계좌정보"
+  - mainClassName="webinq"
+block content
+  .card_topwrap.topwrap
+    +accountbox({
+      accName:"비대면 파킹통장 보통예금",
+      accNum:"평생 010-1234-5678-12",
+      accVal:"17,558,000",
+      className:"main_card",
+      btns: [
+        {
+          label:"이체"
+        },
+        {
+          label:"거래내역조회"
+        }
+      ],
+      tags:[{
+        text:"거래중지", type:"test111222"
+      }]
+    })
+
+  +result({
+    data:[
+      {
+        title:"계좌상태",
+        text:"활동계좌",
+      },
+      {
+        title:"출금가능액",
+        text:"123,456,789원",
+      },
+      {
+        title:"신규일자",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"최종거래일",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"현재적용금리",
+        text:"1.0%",
+      },
+      {
+        title:"종통설정여부",
+        text:"N",
+      },
+      {
+        title:"종통한도",
+        text:"0원",
+      },
+      {
+        title:"종통만기일",
+        text:"YYYY.MM.DD",
+      },
+      {
+        title:"종통이율",
+        text:"0.0%",
+      },
+      {
+        title:"종통이자 (조회일기준)",
+        text:"0원",
+      },
+      {
+        title:"연체이율",
+        text:"0.0%",
+      }
+    ]
+  })
+
+  .inq_list
+    +textLists({
+      type:'dot',
+      lists:[
+        {
+          text:"계좌 해지 시에는 이자가 반영되어 잔액과 차이가 있을 수 있습니다.",
+        }
+      ]
+    })
+  
+    .btn_wrap
+      +button({
+        label:"통장사본",
+        size:'medium',
+        className:"btn_line"
+      })
+
+    hr
+    
+    +title({
+      text:'예금자 보호 안내',
+      lv:4,
+      className:"ddssd",
+    })
+    p.info_txt 예금자보호법에 따라 원금과 소정의 이자를 합하여 1인당 5천만원까지 예금자 보호
+
+    +button_bottom_fixed()
+      +button({
+        label:"계좌목록",
+        size:'large'
+      })

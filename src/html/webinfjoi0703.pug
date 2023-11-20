@@ -1,0 +1,201 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "전자약정"
+
+block content
+  +content_group(0)
+    +stepNum({
+      total:6,
+      activeIndex:4
+    })
+  +content_group(0)
+    +title({
+      text:"약정서 서명 동의",
+      lv:2,
+    })
+    .text_wrap
+      +text({
+        text:"전자약정서 진행을 위한 동의가 필요합니다."
+      })
+  +content_group(2)
+    +form()
+      +form_body({title:"동의서 안내방식 선택"})
+        +radioCheck({
+          name:'btnType',
+          type:"radio",
+          className:'button_type',
+          lists:[
+            {
+              label:'요약',
+              checked:true
+            },
+            {
+              label:'상세'
+            }
+          ]
+        })
+  +content_group(1)
+    +agree_check({
+      text:"전체동의"
+    })
+      +accordion({
+        active:'all',
+        multiple:true,
+      })
+        +acc_title()
+          +agree_check({
+            text:"[필수] CMS(입금 출금) 이체 신청서",
+          })
+        +acc_content()
+          +agree_check({
+            text:"개인(신용)정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인정보 제3자 동의여부",
+            className:"non_arrow"
+          })
+
+
+        +acc_title()
+          +agree_check({
+            text:"[필수] 개인(신용)정보 수집.이용.제공.조회 동의서",
+          })
+        +acc_content()
+          +agree_check({
+            text:"고유식별정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 조회 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 조회 동의여부",
+            className:"non_arrow"
+          })
+
+
+        +acc_title()
+          +agree_check({
+            text:"[필수] 개인(신용)정보 수집.이용.제공 동의서 [여신금융거래]",
+          })
+        +acc_content()
+          +agree_check({
+            text:"고유식별정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공 동의여부",
+            className:"non_arrow"
+          })
+
+
+        +acc_title()
+          +agree_check({
+            text:"[필수] 개인(신용)정보 제3자 제공 동의서",
+          })
+        +acc_content()
+          +agree_check({
+            text:"고유식별정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공 동의여부",
+            className:"non_arrow"
+          })
+
+
+        +acc_title()
+          +agree_check({
+            text:"[필수] 개인(신용)정보의 수집.이용.제공 동의서 (신용보증 신청용)[서민금융진흥원]",
+          })
+        +acc_content()
+          +agree_check({
+            text:"고유식별정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공 동의여부",
+            className:"non_arrow"
+          })
+
+
+        +acc_title()
+          +agree_check({
+            text:"[필수] 개인(신용)정보의 조회 동의서 (신용보증 신청용)[서민금융진흥원]",
+          })
+        +acc_content()
+          +agree_check({
+            text:"고유식별정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 수집·이용 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"고유식별정보 제공·조회 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"개인(신용)정보 제공·조회 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"행정·공공기관에 정보 제공 동의여부",
+            className:"non_arrow"
+          })
+          +agree_check({
+            text:"행정·공공기관에 주민등록번호, 외국인등록번호, 여권번호, 운전면허번호 정보 제공 동의여부",
+            className:"non_arrow"
+          })
+
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

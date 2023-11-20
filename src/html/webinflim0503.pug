@@ -1,0 +1,31 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"직장명 직접입력",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"직장명 직접입력",
+    id:"fullLayer",
+    type:"full",
+    className:"webinf"
+  })
+    +form()
+      +form_body({title:"직장명"})
+        +input({
+          placeholder:"직장명 입력",
+        })
+        +text({
+          type:'warning',
+          text:"직장인이 아닌 경우 입력하지 않으셔도 됩니다."
+        })
+      +form_body({title:"사업자번호"})
+        +input_business()
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

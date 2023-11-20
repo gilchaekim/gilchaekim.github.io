@@ -1,0 +1,57 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "제증명진위확인"
+
+block content
+  //- +tabsLink({
+  //-   list:[		
+  //-     {name:"QR코드"},
+  //-     {name:"제증명발행번호", active:true},
+  //-   ],
+  //-   className:"custom_tab"
+  //- })
+  +form()
+    +form_body({title:"증명서"})
+      +button_select({
+        placeholder:"선택해 주세요",
+        label:""
+      })
+    +form_body({title:"제증명발행번호"})
+      +input_proofapp()
+    +form_body({title:"고객구분"})
+      +radioCheck({
+        type:"radio",
+        name:'chk552469',
+        lists:[
+          {label:'개인고객', checked:true},
+          {label:'법인고객',},
+        ]
+      })
+      +input({
+        placeholder:"주민번호 앞 6자리"
+      })
+      +input_business()
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"2022년 10월 17일 이후 제증명서만 조회 가능합니다. 이전 정보에 대한 조회는 해당 은행에 요청하시기 바랍니다.",
+          },
+        ]
+      })
+        
+        
+  +button_bottom_fixed()
+    +button({
+      label:"검증하기",
+      size:"large",
+    })

@@ -1,0 +1,50 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"추가인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"추가인증 선택",
+    id:"fullLayer",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"ARS 인증"},
+        {name:"스마트앱 인증", active:true},
+      ],
+      className:"custom_tab"
+    })
+      .ars_mobile
+        .top
+          .img 
+            img(src="/src/images/ico_smart.png", alt="")
+          .text 스마트앱 인증
+        .smart_conf 
+          p!="스마트앱 인증을 SB톡톡 앱에서 진행합니다."
+          p!="스마트앱 인증 버튼을 누르시고, SB톡톡 <br> 앱을 확인해 주세요."
+          +button_custom({
+            type:"round-40",
+          label:"스마트앱 인증요청"
+          })
+        +content_group(1)
+          .step_list 
+            +title({
+              text:"스마트앱 추가인증절차",
+              lv:4,
+            })
+            ul 
+              li 1. “SB톡톡” 앱에서 서비스가 시작됩니다.
+              li 2. “SB톡톡” 앱이 설치되어 있으면 인증번호 요청 선택 후 PUSH알림으로 인증번호가 전송됩니다.
+              li 3. 설치되어 있는 “SB톡톡” 앱에 스마트앱 인증 서비스 가입 시 등록한 스마트앱 인증번호 를 입력하시면 인증이 완료됩니다. 
+              li 4. “SB톡톡” 앱에서 스마트앱인증이 완료되고 나면 스마트앱 인증완료 버튼을 클릭 하여 주시면 추가 인증 이 완료 됩니다.p(2)
+        +content_group(2)
+          +text({
+            type:'warning',
+            text:"앱 신규 등록 시 보안센터 > 추가인증서비스 >  서비스 가입(스마트폰 앱 인증) 또는 서비스조회/변경/해지에서 서비스를  등록하신 뒤 이용하시기 바랍니다."
+          })
+          
+  script.
+    GCui.modal('#fullLayer').show()

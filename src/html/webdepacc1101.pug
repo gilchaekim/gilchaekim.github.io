@@ -1,0 +1,20 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"OTP벤더코드 및 일련번호 확인방법",
+    id:"fullLayer",
+    type:"bottom",
+  })
+    +title({
+      text:"보유하고 계신 OTP의 뒷면에서<br><em>일련번호 및 벤더코드</em>를 확인하실 수 있습니다.",
+      lv:4,
+    })
+    .otp_code
+      img(src="/src/images/img_otpvender.png", alt="")
+  script.
+    GCui.modal('#fullLayer').show()

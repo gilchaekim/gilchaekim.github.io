@@ -1,0 +1,45 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체조회/해지"
+
+block content
+  +title({
+    text:"예약이체정보",
+    lv:4,
+  })
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"이체예정일",
+        text:"10일",
+      },
+      {
+        title:"입금계좌",
+        text:"김저축<br>000-000000-000000",
+      },
+      {
+        title:"이체금액",
+        text:"<em>2,000,000원</em>",
+      },
+      {
+        title:"수수료",
+        text:"10,000원",
+      },
+      {
+        title:"출금계좌",
+        text:"155-729-1552",
+      },
+      {
+        title:"받는 분에게 표시",
+        text:"김중앙(중앙저축은행)",
+      },
+    ]
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"해지",
+      size:"large",
+    })

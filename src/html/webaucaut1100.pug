@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS) 등록"
+
+block content
+  +title({
+    text:"어디로 보낼까요?",
+    lv:2,
+  })
+  +form()
+    +form_body()
+      +button_select({
+        placeholder:"저축은행",
+      })
+      +input({
+        placeholder:"계좌번호 입력",
+      })
+      +button_custom({
+        type:"timeselect-24",
+        label:"최근ㆍ자주"
+      })
+
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"고객님의 본인 소유 당/타행 출금계좌에서 자동이체(CMS)를 신청하는 서비스입니다.",
+          },
+          {
+            text:"은행별 평생계좌는 이용기관CMS [타은행->저축은행입금] 신규등록 할 수 없습니다.",
+          }
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -1,0 +1,43 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcer"
+  - pageTitle = "제증명 신청/발급"
+
+block content
+  +tabsLink({
+    list:[		
+      {name:"원천징수영수증"},
+      {name:"금융소득종합과세", active:true},
+    ],
+    className:"custom_tab"
+  })
+    +form()
+      +form_body({title:"조회년도"})
+        +button_select({
+          label:"2023"
+        })
+      +form_body({title:"이메일주소"})
+        +input({
+          placeholder:"이메일주소입력"
+        })
+    +collapse({
+      className:"guide_text",
+      isOpen:true,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {text:"본 서비스는 저축은행 거래고객을 대상으로 제공하고 있습니다.",},
+            {text:"발급수수료 : 면제",},
+          ]
+        })
+  +button_bottom_fixed()
+    +button({
+      label:"신청하기",
+      size:"large",
+    })
+  

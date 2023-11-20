@@ -1,0 +1,57 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "등록조회/변경/해지"
+
+block content
+  +content_group(2)
+    +title({
+      text:"자동이체 해지",
+      lv:4,
+    })
+  +content_group(2)
+    +form()
+      +form_body({title:"출금은행"})
+        .form_val
+          +title({
+            text:"IBK저축은행",
+            lv:5,
+          })
+          +title({
+            text:"000-00000-00000",
+            lv:5,
+          })
+      +form_body({title:"입금은행"})
+        .form_val
+          +title({
+            text:"저축은행중앙회",
+            lv:5,
+          })
+          +title({
+            text:"000-00000-00000",
+            lv:5,
+          })
+      //- +form_body({title:"계좌 비밀번호"})
+      //-   +input({
+      //-     placeholder:"숫자 4자리",
+      //-     type:"password"
+      //-   })
+      +form_body({title:"이체금액"})
+        +form_value({
+          value:"1,000원"
+        })
+      +form_body({title:"자동이체일자"})
+        +form_value({
+          value:"2023.02.02 ~ 2023.02.02"
+        })
+      +form_body({title:"자동이체주기"})
+        +form_value({
+          value:"매월 15일"
+        })
+      
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

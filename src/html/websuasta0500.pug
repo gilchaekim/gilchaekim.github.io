@@ -1,0 +1,15 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus "
+  - pageTitle = "거래중지계좌관리"
+
+block content
+  +card_ico_list({
+    src:"/src/images/ico_sua_01.png",
+    text:"거래중지해제신청"
+  })
+  +card_ico_list({
+    src:"/src/images/ico_sua_02.png",
+    text:"거래중지계좌 내역조회"
+  })

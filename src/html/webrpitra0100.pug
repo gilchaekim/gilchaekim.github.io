@@ -1,0 +1,45 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webrpi"
+  - pageTitle = "대출이자납입금액조회"
+
+block content
+  +form()
+    +form_body({title:"대출계좌번호"})
+      +button_select({
+        placeholder:"대출계좌 선택",
+        label:""
+      })
+    +form_body({title:"납입회차"})
+      +input({
+        placeholder:"납입할 회차 입력",
+        subfix:"",
+      })
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        lists:[
+          {
+            text:"대출계좌에 납입하실 원리금 조회정보 입니다."
+          },
+          {
+            text:"대출금의 원리금 계산은 입력하신 회차까지 입니다."
+          },
+          {
+            text:"실제 납입하실 회차를 입력해 주세요."
+          },
+        ]
+      })
+
+  +button_bottom_fixed()
+    +button({
+      label:"조회하기",
+      size:"large",
+    })

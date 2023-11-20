@@ -1,0 +1,159 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"이체한도조회",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"이체한도조회",
+    id:"fullLayer",
+    type:"full"
+  })
+    .webauc
+      +content_group(0)
+        +title({
+          text:"이체한도 및 이체잔여한도",
+          lv:4,
+        })
+        .table_list
+          +dataTable({
+            caption:"1회 이체한도 및 1회 이체잔여한도",
+            colgroup:[45,55],
+            bodyData:[
+              [
+                {
+                  text: "1회 이체한도",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "1회 이체잔여한도",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+            ]
+          })
+          +dataTable({
+            caption:"1일 이체한도 및 1일 이체잔여한도",
+            colgroup:[45,55],
+            bodyData:[
+              [
+                {
+                  text: "1일 이체한도",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "1일 이체잔여한도",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+            ]
+          })
+          +dataTable({
+            caption:"종합통장한도 현재잔액 총타점 조회필타점 지급가능금액",
+            colgroup:[45,55],
+            bodyData:[
+              [
+                {
+                  text: "종합통장한도",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "현재잔액",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "총타점",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "조회필타점",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+              [
+                {
+                  text: "지급가능금액",
+                  isTitle:true
+                },
+                {
+                  text: "100,000원"
+                }
+              ],
+            ]
+          })
+      +content_group(0)
+        +title({
+          text:"입금지정서비스 가입여부 : 가입",
+          lv:4,
+        })
+        .table_list
+          +dataTable({
+            caption:"미지정입금계좌",
+            colgroup:[33,33,34],
+            bodyData:[
+              [
+                {
+                  text: "미지정입금계좌",
+                  isTitle:true,
+                  rowspan:"2"
+                },
+                {
+                  text: "1일 한도금액",
+                },
+                {
+                  text: "10,000원",
+                },
+              ],
+              [
+                {
+                  text: "1일 잔여이체한도금액",
+                },
+                {
+                  text: "10,000원",
+                },
+              ],
+            ]
+          })
+        
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

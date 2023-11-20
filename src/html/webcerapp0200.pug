@@ -1,0 +1,52 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "재증명"
+
+block content
+  .main_list 
+    +card_ico_list({
+      src:"/src/images/ico_cer_list01.svg",
+      text:"금융거래확인서"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_cer_list02.svg",
+      text:"부채잔액증명서"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_cer_list03.svg",
+      text:"예금잔액증명서(한글)"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_cer_list04.svg",
+      text:"예금잔액증명서(영문)"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_cer_list05.svg",
+      text:"원천징수영수증"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_cer_list06.svg",
+      text:"신청내역조회/취소"
+    })
+    //- +card_ico_list({
+    //-   src:"/src/images/ico_cer_list07.svg",
+    //-   text:"제증명진위확인"
+    //- })
+
+    +collapse({
+      className:"guide_text",
+      isOpen:true,
+    })
+      +header()
+        p.title 알아두세요
+      +content()
+        +textLists({
+          type:'guide',
+          lists:[
+            {
+              text:"상기 발급대상 이외의 증명서를 신청하는 경우에는 해당 영업점에 문의하시거나 방문을 통해 신청하여 주시기 바랍니다.",
+            },
+          ]
+        })

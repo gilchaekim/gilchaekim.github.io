@@ -1,0 +1,22 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif"
+  - pageTitle = "새소식"
+
+mixin news()
+  div.news_list
+    a(href="") 
+      div
+        p.title 금융결제원 전산 작업으로 한 신분증 진위확인 서비스 일시중단 안내
+        p.date 2023-04-14 ~ 2023-04-14
+
+block content
+  .uif_total 
+    span!="총 <em>56</em>건"
+  .news 
+    +news()
+    +news()
+    +news()
+    +news()
+    +button_more()

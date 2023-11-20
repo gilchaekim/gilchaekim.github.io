@@ -1,0 +1,135 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif"
+  - pageTitle = "이용시간안내"  
+
+
+
+block content
+  +content_group(1)
+    +title({
+      text:"예적금",
+      lv:4,
+    })
+    +dataTable({
+      caption:"조회, 가입 목록",
+      colgroup:[45,55],
+      bodyData:[
+        [
+          {
+            text: "조회",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:50"
+          }
+        ],
+        [
+          {
+            text: "가입",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:45"
+          }
+        ],
+      ]
+    })
+  +content_group(1)
+    +title({
+      text:"대출",
+      lv:4,
+    })
+    +dataTable({
+      caption:"조회, 신청, 실행 목록",
+      colgroup:[45,55],
+      bodyData:[
+        [
+          {
+            text: "조회",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:50"
+          }
+        ],
+        [
+          {
+            text: "신청",
+            isTitle:true
+          },
+          {
+            text: "매일 09:00 ~ 18:00<br>(공휴일 제외)"
+          }
+        ],
+        [
+          {
+            text: "실행",
+            isTitle:true
+          },
+          {
+            text: "매일 09:00 ~ 23:50<br>(공휴일 제외)"
+          }
+        ],
+      ]
+    })
+  +content_group(1)
+    +title({
+      text:"이체",
+      lv:4,
+    })
+    +dataTable({
+      caption:"조회, 이체 목록",
+      colgroup:[45,55],
+      bodyData:[
+        [
+          {
+            text: "조회",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:50"
+          }
+        ],
+        [
+          {
+            text: "이체",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:45"
+          }
+        ]
+      ]
+    })
+  +content_group(1)
+    +title({
+      text:"고객정보변경",
+      lv:4,
+    })
+    +dataTable({
+      caption:"고객정보변경 목록",
+      colgroup:[45,55],
+      bodyData:[
+        [
+          {
+            text: "고객정보변경",
+            isTitle:true
+          },
+          {
+            text: "매일 00:10 ~ 23:50"
+          }
+        ]
+      ]
+    })
+  +content_group(2)
+    +textLists({
+      type:'guide',
+      lists:[
+        {
+          text:"인증서 발급/재발급/갱신 및 타기관 인증서 등록 등의 업무는 각종 조회가 가능한 시간에만 가능합니다.",
+        },
+      ]
+    })
+

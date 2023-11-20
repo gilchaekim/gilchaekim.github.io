@@ -1,0 +1,54 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"상환방법안내호출",
+    muiToggle:'target:#fullLayer;'
+  })
+  
+  +modal({
+    title:"상환방법안내",
+    id:"fullLayer",
+    type:"full",
+    className:"webinf"
+  })
+    +content_group(1)
+      +title({
+        text:'만기 일시상환',
+        lv:2,
+      })
+      +text({
+        text:"대출만기까지 매월 대출 원금에 대한 이자만 납부하고 원금은 만기일에 전액 지불하는 방식입니다.",
+        className:"sub_title"
+      })
+      +content_group(2)
+        img(src="/src/images/graph1.png", alt="상환그래프")
+      hr
+
+    +content_group(1)
+      +title({
+        text:'원금 균등 분할 상환',
+        lv:2,
+      })
+      +text({
+        text:"대출기한에 매월 일정한 원금을 납부하고, 매달 원금 잔액에 따라 책정되는 이자와 함께 납부하는 방식입니다.",
+        className:"sub_title"
+      })
+      +content_group(2)
+        img(src="/src/images/graph2.png", alt="상환그래프")
+      hr
+
+    +content_group(1)
+      +title({
+        text:'원리금 균등 분할 상환',
+        lv:2,
+      })
+      +text({
+        text:"대출만기까지 매월 대출 원금에 대한 이자만 납부하고 원금은 만기일에 전액 지불하는 방식입니다.",
+        className:"sub_title"
+      })
+      +content_group(2)
+        img(src="/src/images/graph3.png", alt="상환그래프")
+  
+  script.
+    GCui.modal('#fullLayer').show()

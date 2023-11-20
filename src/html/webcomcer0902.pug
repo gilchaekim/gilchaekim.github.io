@@ -1,0 +1,24 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"토스인증",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"토스인증",
+    id:"fullLayer",
+    type:"full"
+  })
+    +result({
+      type:'result',
+      mainText:"토스인증이<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

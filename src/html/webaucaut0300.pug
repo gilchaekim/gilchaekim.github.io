@@ -1,0 +1,37 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS) 등록"
+
+block content
+  +title({
+    text:"얼마를 보낼까요?",
+    lv:2,
+  })
+  +form()
+    +form_body()
+      +input({
+        value:"10,000,000",
+        subfix:"원",
+      })
+      .money_support
+        span 1,000만 원
+      +text({
+        type:'warning',
+        text:"정기예금 및 대출계좌의 실제 이체금액은 다를 수 있습니다."
+      })
+  +button_keypad()
+    +button_group({
+      btns:[
+        '+1만',
+        '+5만',
+        '+10만',
+        '+100만',
+      ]
+    })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

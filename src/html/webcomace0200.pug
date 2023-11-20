@@ -1,0 +1,44 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"추가인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"추가인증 선택",
+    id:"fullLayer",
+    type:"full"
+  })
+    +tabsLink({
+      list:[		
+        {name:"ARS 인증", active:true},
+        {name:"스마트앱 인증"},
+      ],
+      className:"custom_tab"
+    })
+      .ars_mobile
+        p.main_title 
+          | 전화안내에 따라
+          br
+          | ARS인증을 진행해주세요.
+        .ars_number
+          span 2
+          span 7
+        
+        ul.guide_inline
+          li!="1. 수신되는 ARS전화에서 위 인증번호를 입력해주세요"
+          li!="2. ARS 통화종료 후 해당 화면의 <em>'확인'</em> 버튼을 누르셔야 인증이 완료됩니다."
+        +text({
+          type:'warning',
+          text:"단, 통신사 부가서비스나 수신거절 처리된 경우 전화수신이 안 될 수 있습니다."
+        })
+
+        
+      +button_bottom_fixed()
+        +button({
+          label:"확인",
+          size:"large",
+        })
+  script.
+    GCui.modal('#fullLayer').show()

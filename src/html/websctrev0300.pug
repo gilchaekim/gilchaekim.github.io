@@ -1,0 +1,53 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체조회/해지"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"예약이체해지가<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+  +result({
+    dataType:"line",
+    data:[
+      {
+        title:"이체예정일",
+        text:"2022.02.02",
+      },
+      {
+        title:"입금계좌",
+        text:"중앙저축은행<br>000-000-0000000",
+      },
+      {
+        title:"이체금액",
+        text:"<em>10,000원</em>",
+      },
+      {
+        title:"수수료",
+        text:"0원",
+      },
+      {
+        title:"출금계좌",
+        text:"123-123-1234",
+      },
+      {
+        title:"받는 분에게 표시",
+        text:"김중앙(중앙저축은행)",
+      },
+    ]
+  })
+  +text({
+    type:'warning',
+    text:"처리완료 후 이체결과조회를 확인하여 주시기 바랍니다."
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })
+  

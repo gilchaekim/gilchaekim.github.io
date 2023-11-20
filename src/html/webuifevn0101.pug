@@ -1,0 +1,22 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webuif"
+  - pageTitle = "새소식"
+
+
+block content
+  .news_title
+    span.tag.ing 진행중인 이벤트
+    span.tag.disabled 종료된 이벤트
+    p.title 오픈뱅킹 정기적금 프로모션
+    p.date 2023-04-14 ~ 2023-04-14
+  .news_cont 
+    img(src="/src/images/img_bn02.jpg", alt="")
+    br
+    p 내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용내용
+  +button_bottom_fixed()
+    +button({
+      label:"목록",
+      size:"large",
+    })

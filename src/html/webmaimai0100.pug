@@ -1,0 +1,196 @@
+extends ../components/templates/base_main.pug
+
+block prepend top 
+  - showBg = true;
+
+block content
+  +content_group(1)
+    p.welcome_msg
+      span 안녕하세요.
+      span 
+        em.bnk 한화저축은행
+        | 입니다.
+        span.ico
+    .main_slider.type1(
+      mui-slider="scrollbar:true;paging:true;loop:false;slidesPerView:auto;centeredSlides:true;spaceBetween:12;effectPrevShadow:false;effectNextShadow:false ;effectPrevTranslate:-120%, 0 ,-350;effectNextTranslate: 120%, 0, -350;effect:creative;"
+    )
+      .slider
+        .swiper-wrapper
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 맞춤대출 한도조회
+                p.decs 신용평점에 영향없이 다양한 대출상품의 한도와 금리 조회가능!
+                .ico
+                  img(src="/src/images/ico_main11.svg" alt="")
+                span.link_txt 둘러보러가기
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+                span.link_txt 둘러보러가기
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+                span.link_txt 둘러보러가기
+          .lists.swiper-slide
+            a(href="")
+              .box 
+                p.title 예적금 담보대출
+                p.decs 가입한 예적금을 담보로 중도해지 불이익없이 대출신청이 가능해요.
+                .ico
+                  img(src="/src/images/ico_main08.svg" alt="")
+                span.link_txt 둘러보러가기
+  +content_group(1)
+    .status.type1
+      +tabsWrap()
+        +tab("대출")
+          .box_type
+            a(href="").box
+              p.title 직작인 신용대출
+              //- p.text 직장인이라면 누구나 쉽고 빠르게 이용가능한 대출 서비스
+              p.percent 
+                span.txt1 연
+                span.txt2 1.05%
+                
+              //- p.money
+              //-   span.txt1 최대
+              //-   span.txt2 2천만원
+            a(href="").box
+              p.title 직작인 신용대출
+              p.percent 
+                span.txt1 연
+                span.txt2 1.05%
+          span.link_sec
+            a.link 다른 대출 상품이 궁금하시다면?
+                
+
+
+        +tab("예적금")
+          .box_type
+            a(href="").box
+              p.title 직작인 신용대출
+              p.percent 
+                span.txt1 연
+                span.txt2 2.05%
+            a(href="").box
+              p.title 직작인 신용대출
+              p.percent 
+                span.txt1 연
+                span.txt2 2.05%
+          span.link_sec
+            a.link 다른 예적금 상품이 궁금하시다면?
+
+  +content_group(1)
+    a.banner.type02(href="")
+      span
+        img(src="/src/images/img_bn01.jpg" alt="")
+
+  +content_group(1)
+    .notice
+      +title({
+        text:"새소식",
+        lv:2,
+      })
+      .cont
+        ul.list_type
+          li 
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
+          li 
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
+          li 
+            a(href="") 
+              span 저축은행 중앙회 새소식입니다 이곳은 공지사항
+              span 2023.02.02
+
+  +content_group(1)
+    a.banner.type01(href="")
+      span
+        img(src="/src/images/img_bn02.jpg" alt="")
+
+  //- 빠른 서비스
+  +content_group(1)
+    .quick_service
+      +title({
+        text:"빠른 서비스",
+        lv:2,
+      })
+      .cont
+        .scroll_wrap
+          ul.scroll
+            li 
+              a(href="") 
+                .ico 
+                  img(
+                    src="/src/images/ico_main01.svg"
+                  )
+                .text 신용정보조회동의
+            li 
+              a(href="") 
+                .ico 
+                  img(
+                    src="/src/images/ico_main02.svg"
+                  )
+                .text 금리인하요구권
+
+            li 
+              a(href="") 
+                .ico 
+                  img(
+                    src="/src/images/ico_main03.svg"
+                  )
+                .text 전자약정
+            li 
+              a(href="") 
+                .ico 
+                  img(
+                    src="/src/images/ico_main04.svg"
+                  )
+                .text 대출 이어하기
+
+        
+            
+  //- 고객센터
+  +content_group(1)
+    .customer_service
+      +title({
+        text:"ㅇㅇ저축은행 고객센터",
+        lv:2,
+      })
+      .cont 
+        .list
+          a(href="")
+            span.ico 
+              img(src="/src/images/ico_main05.svg")
+            span.tel
+              span.text 대표전화
+              span.number 02.1234.5678
+          a(href="")
+            span.ico 
+              img(src="/src/images/ico_main06.svg")
+            span.tel
+              span.text 대출상담
+              span.number 02.1234.5678
+  .quick_btn 
+    .quick 
+      a(
+        href="#header"
+        mui-scroll="showOffset:100;"
+        class="type1"
+      )
+        span.txt TOP
+    .app 
+      button(type="button")
+          img(src="/src/images/logo_sb.svg", alt="스마트뱅킹 앱 다운로드")
+

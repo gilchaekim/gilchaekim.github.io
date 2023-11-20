@@ -1,0 +1,50 @@
+extends ../components/templates/base.pug
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "대출한도조회"
+
+block content
+  +stepNum({
+    total:5,
+    activeIndex:2
+  })
+  +content_group(1)
+    +title({
+      text:"직업선택",
+      lv:2,
+    })
+    p.sub_title 대출한도 조회를 위해 직장/소득 정보를 입력해주세요.
+    
+  +content_group(2)
+    +text({
+      text:"소득구분을 위해 직업을 선택해주세요."
+    })
+  +content_group(3)
+    +radioCheck({
+      name:'chk767679',
+      type:"radio",
+      className:'block_type2',
+      lists:[
+        {
+          label:'직장인'
+        },
+        {
+          label:'공무원'
+        },
+        {
+          label:'개인사업자 / 프리랜서'
+        },
+        {
+          label:'연금수령자'
+        },
+        {
+          label:'기타(주부, 학생 등)'
+        },
+      ]
+    })
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

@@ -1,0 +1,31 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "만기자동재예치"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"만기자동재예치<br>해제가 완료되었습니다.",
+      subText:"선택하신 계좌의 만기자동재예치가<br>정상적으로 해제되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line", 
+      data:[
+        {
+          title:"계좌번호",
+          text:"403-61-24-2635185",
+        },
+      ]
+    })
+  
+
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

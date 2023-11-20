@@ -1,0 +1,23 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"간편비밀번호 반팝업",
+    muiToggle:'target:#modal_bottom;'
+  })
+  +modal({
+    id:"modal_bottom",
+    type:"bottom",
+    className:"keypad"
+  })
+    p.title 간편 비밀번호를 입력헤 주세요 
+    .mask 
+      span.dot.mui_active
+      span.dot.mui_active
+      span.dot
+      span.dot
+      span.dot
+      span.dot
+    div(style="border:1px solid red;height:200px") 보안키패드 영역
+  script.
+    GCui.modal('#modal_bottom').show()

@@ -1,0 +1,47 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+    title:"제공한 정보 확인",
+    isCloseBtn:false
+  })
+    .webinf
+      .info_wrap
+        +textLists({
+          type:'circle_num',
+          lists:[
+            {
+              text:"본인이 귀행에 제공한 적합성 ·적정성 관련 정보는 본인의 재산 상황, 용도 등의 정보를 정확히 알려드린것입니다.",
+            },
+            {
+              text:"본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성 ·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다.",
+            },
+            {
+              text:"상기 목적을 위해 본인의 개인(신용) 정보를 수집, 이용, 제공하는 것에 동의합니다.",
+            },
+          ]
+        })
+        +content_group(1)
+          +radioCheck({
+            type:"checkbox",
+            name:'chk299866',
+            label:'',
+            lists:[
+              {label:'본인은 상기와 같이 제공한 정보의 내용이 정확한 것임을 확인합니다.'}
+            ]
+          })
+      
+      +button_bottom_fixed()
+        +button({
+          label:"확인",
+          size:"large",
+        })
+        
+  script.
+    GCui.modal('#fullLayer').show()

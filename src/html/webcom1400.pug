@@ -1,0 +1,31 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"적합성/적정성 안내",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({ 
+    title:"적합성/적정성 안내",
+    id:"fullLayer",
+    type:"full"
+  })
+    .suitability
+      .img 
+        img(src="/src/images/ico_suitability.png", alt="")
+
+      +title({
+        text:"대출 계약자 적합성/적정성 확인서",
+        lv:4,
+      })
+      p.txt1!="본 확인서는 「금융소비자보호에 대한 법률」 <em>제 17조(적합성원칙) 및 제 18조(적정성원칙)</em>에 따라 귀하의 연령, 재산상황, 대출계약의 목적 등을 파악하여 대출계약자에게 가장 적합한 대출계약 체결을 권유하기 위한 기초자료로 활용됩니다."
+      p.txt2!="허위 또는 불성실한 답변을 하시는 경우 부적합한 대출계약을 권유하게 될 수 있으며, 이로 인해 발생하는 모든 손해는 계약자 본인에게 귀속되오니 유념하여 주시기 바랍니다."
+    
+    +button_bottom_fixed()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+
+  script.
+    GCui.modal('#fullLayer').show()

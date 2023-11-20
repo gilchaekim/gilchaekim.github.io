@@ -1,0 +1,63 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"클릭!",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    id:"fullLayer",
+    type:"bottom",
+  })
+    .webdep
+      .recom 
+        +content_group(1)
+          +title({
+            text:"이제 <em>예적금 상품을 자유롭게 가입</em>하실 수 있어요.",
+            lv:4,
+          })
+        +content_group(1)
+          +title({
+            text:"추천상품",
+            lv:5,
+          })
+          .recom_lists 
+            a(href="").list 
+              p.title 정기적금
+              //- p.text 계약기간 동안 매월 일정 금액을 납입하는 목돈 마련
+              .data 
+                span.data1 
+                  | 금리
+                  em 연 4%
+                span.data2
+                  | 가입기간
+                  strong 36개월
+            a(href="").list 
+              p.title 정기예금(복리)
+              //- p.text 계약기간 동안 매월 일정 금액을 납입하는 목돈 마련 상품계약기간 동안 매월 일정 금액을 납입하는 목돈
+              .data 
+                span.data1 
+                  | 금리
+                  em 연 4%
+                span.data2
+                  | 가입기간
+                  strong 36개월
+                  
+            a(href="").list 
+              p.title 정기예금(단리)
+              //- p.text 계약기간 동안 매월 일정 금액을 납입하는 목돈 마련 상품계약기간 동안 매월 일정 금액을 납입하는 목돈
+              .data 
+                span.data1 
+                  | 금리
+                  em 연 4%
+                span.data2
+                  | 가입기간
+                  strong 36개월
+                
+    +button_bottom_fixed()
+      +button({
+        label:"예적금 상품 더보기",
+        size:"large",
+      })
+  script.
+    GCui.modal('#fullLayer').show()

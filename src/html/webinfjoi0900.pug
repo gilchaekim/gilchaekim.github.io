@@ -1,0 +1,25 @@
+extends ../components/templates/base.pug
+
+
+block prepend top 
+
+block content
+  +button({
+    label:"버텀 트레이",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    id:"modal_bottom",
+    className:"webinf sign_write",
+    title:"전자서명",
+    type:"bottom",
+    isCloseBtn:false,
+  })
+    .sign_write
+      .write_sec
+      .btn_sec
+        button(type="button").refresh 초기화
+        button(type="button").confirm 확인
+  script.
+    GCui.modal('#modal_bottom').show()

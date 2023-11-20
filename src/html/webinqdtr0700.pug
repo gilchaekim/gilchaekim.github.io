@@ -1,0 +1,15 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinq"
+  - pageTitle = "대출신청조회"
+
+block content
+  +card_ico_list({
+    src:"/src/images/img_inq01.svg",
+    text:"대출신청조회"
+  })
+  +card_ico_list({
+    src:"/src/images/img_inq02.svg",
+    text:"예적금담보대출 신청조회"
+  })

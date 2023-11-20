@@ -1,0 +1,62 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webcus flex_top_bot"
+  - pageTitle = "거래중지계좌관리"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"거래중지계좌 해제신청이<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"계좌번호",
+          text:"123-45-67890",
+        },
+        {
+          title:"개설일",
+          text:"2023.03.02",
+        },
+        {
+          title:"최종거래일",
+          text:"2023.03.03",
+        },
+        {
+          title:"편입일",
+          text:"2023.03.02",
+        },
+        {
+          title:"잔액",
+          text:"1,000,000원",
+        },
+        {
+          title:"관리지점",
+          text:"영업점",
+        },
+        {
+          title:"이메일",
+          text:"sb@naver.com",
+        },
+        {
+          title:"연락처",
+          text:"010-1234-5678",
+        }
+      ]
+    })
+    
+  +text({
+    type:'warning',
+    text:"입력하신 이메일 주소로 금융거래목적확인서가 발송되었습니다. 메일을 받지 못하였을 경우 인터넷뱅킹을 통해 금융거래 목적확인서를 출력하여 주시기 바랍니다.",
+    className:"flex_bot"
+  })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

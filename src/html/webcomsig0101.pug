@@ -1,0 +1,45 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"본인인증 선택",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"인증서 선택",
+    id:"fullLayer",
+    type:"full",
+    className:"webcom"
+  })
+    +tabsWrap({
+      active:1,
+      className:"certifi"
+    })
+      +tab("토스인증서")
+        +title({
+          text:"토스인증서",
+          lv:1,
+        })
+        .certifi
+          .ico 
+            span.type2
+              img(src="/src/images/ico_cer01.svg", alt="")
+          p.txt 토스인증서를 이용하시려면<br>토스인증서 등록을 하셔야합니다.
+          +content_group(1)
+            +button_custom({
+              type:"round-40",
+              label:"토스인증서 등록"
+            })
+      +tab("금융인증서")
+        .certifi
+          .ico 
+            span.type2
+              img(src="/src/images/ico_cer02.svg", alt="")
+          p.txt 금융인증서를 이용하시려면<br>금융인증서 등록을 하셔야합니다.
+          +content_group(1)
+            +button_custom({
+              type:"round-40",
+              label:"금융인증서 등록"
+            })
+  script.
+    GCui.modal('#fullLayer').show()

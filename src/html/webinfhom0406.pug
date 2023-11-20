@@ -1,0 +1,26 @@
+extends ../components/templates/base.pug
+
+
+
+
+block content
+  +button({
+    label:"임대보증금",
+    muiToggle:'target:#modal_bottom;'
+  })
+
+  +modal({
+    title:"임대보증금",
+    id:"modal_bottom",
+    type:"bottom"
+  })
+    +form()
+      +form_body({title:"임대보증금"})
+        +input_money({btns:["1만", "10만", "100만", "1,000만"],guideMoney:true})
+    +button_wrap()
+      +button({
+        label:"확인",
+        size:"large",
+      })
+  script.
+    GCui.modal('#modal_bottom').show()

@@ -1,0 +1,39 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webinf"
+  - pageTitle = "적정성등록"
+
+block content
+  +title({
+    text:"대출계약자 확인",
+    lv:2,
+  })
+  +content_group(2)
+    .grey_box_img
+      .img_wrap
+        img(src="/src/images/img_inf_01.png", alt="")
+      p 본인은 상기와 같이 제공한 정보의 내용이<br>정확한 것임을 확인합니다.
+  
+  .contractor_wrap
+    +textLists({
+      type:'dot',
+      lists:[
+        {
+          text:"본인이 귀행에 제공한 적합성·적정성 관련 정보는 본인의 재산상황, 용도 등의 정보를 정확히 알려드린 것입니다."
+        },
+        {
+          text:"본인이 제공한 정보가 정확하지 않거나, 정보에 변경사항이 발생한 경우에는 적합성·적정성 판단이 달라질 수 있으며, 이 경우 대출계약 체결이 어려울 수 있음을 설명받았습니다."
+        },
+      ]
+    })
+    .contractor
+      strong 2021년 07월 01일
+      p 대출계약자 성명 : 홍길동
+
+
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

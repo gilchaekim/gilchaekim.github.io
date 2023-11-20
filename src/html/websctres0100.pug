@@ -1,0 +1,48 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "예약이체등록"
+
+block content
+  +title({
+    text:"어느 계좌에서 보낼까요?",
+    lv:2,
+  })
+  +button_select({
+    placeholder:"계좌선택",
+    label:"123-1212-1234-56"
+  })
+  +button_select_account({
+    isMoney:true,
+    isImg:true,
+    
+  })
+
+  +collapse({
+    className:"guide_text",
+    isOpen:true,
+  })
+    +header()
+      p.title 알아두세요
+    +content()
+      +textLists({
+        type:'guide',
+        
+        lists:[
+          {
+            text:"지정한 일자에 타은행으로 예약이체하는 서비스입니다.(공휴일제외)",
+          },
+          {
+            text:"잔액부족등의 이유로 미처리시 재처리가 되지 않으니, 반드시 예약이체 일시전에 잔액을 확인하여 주시기 바랍니다.",
+          },
+          {
+            text:"예약이체는 단건 처리만 가능합니다.",
+          }
+        ]
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"다음",
+      size:"large",
+    })

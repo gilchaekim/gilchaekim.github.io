@@ -1,0 +1,39 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="weboce"
+  - pageTitle = "간편비밀번호 등록"
+
+block content
+  +content_group(0)
+    +result({
+      type:'result',
+      mainText:"등록완료",
+      subText:"간편비밀번호 등록이<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"이름",
+          text:"김중앙",
+        },
+        {
+          title:"발급일자",
+          text:"2023.01.02",
+        },
+        {
+          title:"만료일자",
+          text:"2024.01.02",
+        },
+      ]
+    })
+        
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

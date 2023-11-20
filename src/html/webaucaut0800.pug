@@ -1,0 +1,55 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webauc"
+  - pageTitle = "자동이체(CMS) 등록"
+
+block content
+  +content_group(0)
+    
+    +result({
+      type:'result',
+      mainText:"자동이체 신청이<br>완료되었습니다.",
+      img:"/src/images/ico_finish.svg",
+    })
+  +content_group(0)
+    +result({
+      dataType:"line",
+      data:[
+        {
+          title:"출금계좌",
+          text:"중앙저축은행<br>01234567890123",
+        },
+        {
+          title:"입금계좌",
+          text:"중앙저축은행<br>12345678910112",
+        },
+        {
+          title:"이체금액",
+          text:"10,000원",
+        },
+        {
+          title:"이체기간",
+          text:"2023.03 ~ 2023.04",
+        },
+        {
+          title:"이체일",
+          text:"07일",
+        },
+      ]
+    })
+    +text({
+      type:'warning',
+      text:"처리완료 후 결과조회 및 등록조회에서 확인이 가능합니다."
+    })
+  +content_group(1)
+    .al_center
+      +button_custom({
+        type:"round-40",
+        label:"추가신청하기"
+      })
+  +button_bottom_fixed()
+    +button({
+      label:"확인",
+      size:"large",
+    })

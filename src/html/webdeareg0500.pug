@@ -1,0 +1,17 @@
+extends ../components/templates/base.pug
+
+block prepend top 
+  - mainClassName="webdep"
+  - pageTitle = "만기자동재예치"
+
+block content
+  .main_list 
+    +card_ico_list({
+      src:"/src/images/ico_dep_list01.png",
+      text:"만기자동재예치 등록"
+    })
+    +card_ico_list({
+      src:"/src/images/ico_dep_list02.png",
+      text:"만기자동재예치 해제"
+    })
+    

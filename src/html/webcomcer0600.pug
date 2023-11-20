@@ -1,0 +1,30 @@
+extends ../components/templates/base.pug
+
+block content
+  +button({
+    label:"타행본인계좌인증",
+    muiToggle:'target:#fullLayer;'
+  })
+  +modal({
+    title:"타행본인계좌인증",
+    id:"fullLayer",
+    type:"full"
+  })
+    .acc_confirm
+      .title 본인확인을 위해 입력하시는 본인계좌로 은행에서 1원을 입금할 예정입니다.
+      +form()
+        +form_body()
+          +button_select({
+            placeholder:"은행선택",
+          })
+          +input({
+            placeholder:"계좌번호 입력"
+          })
+      
+      +button_bottom_fixed()
+        +button({
+          label:"다음",
+          size:"large",
+        })
+  script.
+    GCui.modal('#fullLayer').show()
