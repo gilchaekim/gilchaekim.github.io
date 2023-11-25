@@ -2931,9 +2931,18 @@
      */
     UICommon.update = function (element, e) {
       element = element ? toNode(element) : document.body;
-      parents(element).reverse().forEach(function (element) {
-        return update(element[DATA], e);
-      });
+      var _iterator = _createForOfIteratorHelper(parents(element).reverse()),
+        _step;
+      try {
+        for (_iterator.s(); !(_step = _iterator.n()).done;) {
+          var parentEl = _step.value;
+          update(parentEl[DATA], e);
+        }
+      } catch (err) {
+        _iterator.e(err);
+      } finally {
+        _iterator.f();
+      }
       apply(element, function (element) {
         return update(element[DATA], e);
       });
@@ -3089,6 +3098,7 @@
     UICommon.prototype._callUpdate = function () {
       var _this2 = this;
       var e = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'update';
+      // console.log(e);
       if (!this._connected) {
         return;
       }
@@ -3394,10 +3404,12 @@
       this._callUpdate(e);
     };
     UICommon.prototype.$update = function () {
-      var element = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$el;
+      arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.$el;
       var e = arguments.length > 1 ? arguments[1] : undefined;
-      UICommon.update(element, e);
+      console.log(e);
+      // UICommon.update(element, e);
     };
+
     UICommon.prototype.$getComponent = UICommon.getComponent;
     var names = {};
     Object.defineProperties(UICommon.prototype, {
