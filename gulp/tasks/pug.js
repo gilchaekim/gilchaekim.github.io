@@ -20,10 +20,15 @@ const pugBuild = (path) => {
       filename: 'index.pug',
       filters:{
         code:(text) => {
-          return render(`include index.pug\n\nsection.code_view\n  ${text.trim().split('\n').join('\n  ')}\n\ndiv.code_block\n    pre\n      code.language-pug\n        | ${text.trim().split('\n').join('\n        | ')}`, {
+          return render(`include index.pug\n\nsection.code_view\n  ${text.trim().split('\n').join('\n  ')}\n\ndiv.code_block\n  .code_html\n    p.title html\n    pre\n      code.language-html\n  .code_pug\n    p.title pug\n    pre\n      code.language-scss\n        | ${text.trim().split('\n').join('\n        | ')}`, {
             filename: 'index.pug'
           });
         }
+        // code:(text) => {
+        //   return render(`include index.pug\n\nsection.code_view\n  ${text.trim().split('\n').join('\n  ')}\n\ndiv.code_block\n  .pug_code\n    pre\n      code\n        | ${text.trim().split('\n').join('\n  ')} |\n  .html_code\n    ${text.trim().split('\n').join('\n  ')}`, {
+        //     filename: 'index.pug'
+        //   });
+        // }
       }
     })
   )

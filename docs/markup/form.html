@@ -144,7 +144,13 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+form()
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+form()
   +form_body({title:"이름", message:{type:"error", text:"경고 메세지"}})
     +form_value({
       value:"방수현"
@@ -278,6 +284,7 @@
     +input_proofapp()
   +form_body({title:"사업자번호"})
     +input_business()</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>

@@ -26,7 +26,13 @@
           <div class="mui_button_wrap"><button class="mui_button mui_medium mui_primary" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_grey" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_default" type="button"><span>버튼</span></button><button class="mui_button mui_medium mui_white" type="button"><span>버튼</span></button></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_wrap()
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_wrap()
   +button({
     label:"버튼",
     size:'large'
@@ -66,6 +72,7 @@
     size:'medium',
     type:"white"
   })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -77,7 +84,13 @@
       <div class="guide_card_box">
         <section class="code_view"><button class="mui_button_custom round-40" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom darkgray-28" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom gray-32" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom download-32" type="button"><span class="inset">버튼</span></button><button class="mui_button_custom timeselect-24" type="button"><span class="inset">버튼ㆍ버튼</span></button><button class="mui_button_custom white-round-24" type="button"><span class="inset">버버튼</span></button></section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_custom({
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_custom({
   type:"round-40",
   label:"버튼"
 })
@@ -101,6 +114,7 @@
   type:"white-round-24",
   label:"버버튼"
 })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -114,9 +128,16 @@
           <p> </p>튤튤팁! 튤튤팁! 튤튤팁! 튤튤팁!<div class="mui_tooltip_wrap" mui-tooltip="text: 텍스트를 입력  해주세요;"><button class="mui_tooltip" type="button"><span class="hidden">자세히 보기</span></button></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">p 
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">p 
 | 튤튤팁! 튤튤팁! 튤튤팁! 튤튤팁!
 +button_tooltip(' 텍스트를 입력  해주세요')</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -135,7 +156,13 @@
           </div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_keypad()
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_keypad()
   +button_group({
     btns:[
       '+1만',
@@ -144,6 +171,7 @@
       '+100만',
     ]
   })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -155,7 +183,13 @@
       <div class="guide_card_box">
         <section class="code_view"><button class="mui_button mui_select" type="button"><span class="inset"><span class="placeholder" aria-hidden="true">placeholder</span></span></button><button class="mui_button mui_select" type="button"><span class="inset"><span class="label">label<span class="hidden">선택 됨</span></span><span class="placeholder" aria-hidden="true">placeholder</span></span></button><button class="mui_button mui_select account" type="button"><span class="inset"><span class="img"> <img src="/src/images/icon_bank.png" alt="은행 이미지" /></span><span class="label">저축보통예금</span><span class="accnum">123-1212-1234-56</span><span class="hidden">선택 됨</span></span></button><button class="mui_button mui_select account" type="button"><span class="inset"><span class="img"> <img src="/src/images/icon_bank.png" alt="은행 이미지" /></span><span class="label">저축보통예금</span><span class="accnum">123-1212-1234-56</span><span class="money"> <span class="text">출금가능</span><span class="num"> 10,000,000<span>원</span></span></span><span class="hidden">선택 됨</span></span></button></section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_select({
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_select({
   placeholder:"placeholder"
 })
 +button_select({
@@ -166,6 +200,7 @@
 +button_select_account({
   isMoney:true
 })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -177,7 +212,14 @@
       <div class="guide_card_box">
         <section class="code_view"><button class="mui_button mui_more" type="button"><span>더보기</span></button></section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_more()</code></pre>
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_more()</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -191,12 +233,19 @@
           <div class="mui_button_fixed"><span class="inset"><button class="mui_button mui_large mui_primary" type="button"><span>버튼 하단 고정</span></button></span></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_bottom_fixed()
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_bottom_fixed()
   +button({
     label:"버튼 하단 고정",
     size:"large",
     type:"primary",
   })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -210,7 +259,13 @@
           <div class="mui_link_text"><a href=""><span>버튼1</span></a><a href=""><span>버튼2</span></a><a href=""><span>버튼3</span></a><a href=""><span>버튼4</span></a></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">+button_link({
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">+button_link({
   list: [
     '버튼1',
     '버튼2',
@@ -218,6 +273,7 @@
     '버튼4',
   ]
 })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -231,7 +287,13 @@
           <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>최근</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>자주</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>내계좌</span></button></span></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">// 최근, 자주, 내계좌 선택 버튼
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">// 최근, 자주, 내계좌 선택 버튼
 +button_group({
   btns:[
     '최근',
@@ -239,6 +301,7 @@
     '내계좌',
   ]
 })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
@@ -249,7 +312,13 @@
           <div class="mui_button_group"><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+1만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+5만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>+10만</span></button></span><span class="group"><button class="mui_button mui_medium mui_primary" type="button"><span>전액</span></button></span></div>
         </section>
         <div class="code_block">
-          <pre><code class="language-pug">// 금액 입력 버튼 그룹
+          <div class="code_html">
+            <p class="title">html</p>
+            <pre><code class="language-html"></code></pre>
+          </div>
+          <div class="code_pug">
+            <p class="title">pug</p>
+            <pre><code class="language-scss">// 금액 입력 버튼 그룹
 +button_group({
   btns:[
     '+1만',
@@ -258,6 +327,7 @@
     '전액',
   ]
 })</code></pre>
+          </div>
         </div>
         <div class="view_code">
           <button>code view Toggle</button>
