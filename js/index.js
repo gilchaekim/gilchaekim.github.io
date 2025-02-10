@@ -3237,7 +3237,7 @@
   var cssPrefix = "".concat(prefixStr, "_");
 
   function globalApi (UICommon) {
-    var DATA = UICommon.data;
+    UICommon.data;
     /**
      * 전달된 함수를 1회 실행
      * @param {function} plugin 전달된 함수를 1회 실행
@@ -3274,22 +3274,14 @@
      * @param {event} e 이벤트
      */
     UICommon.update = function (element, e) {
-      element = element ? toNode(element) : document.body;
-      var _iterator = _createForOfIteratorHelper(parents(element).reverse()),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var parentEl = _step.value;
-          update$1(parentEl[DATA], e);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-      apply(element, function (element) {
-        return update$1(element[DATA], e);
-      });
+      // console.dir(element);
+      // element = element ? toNode(element) : document.body;
+
+      // for (const parentEl of parents(element).reverse()) {
+      //     update(parentEl[DATA], e);
+      // }
+
+      // apply(element, (element) => update(element[DATA], e));
     };
     Object.defineProperty(UICommon, 'container', {
       get: function get() {
@@ -3299,16 +3291,6 @@
         container = $(element);
       }
     });
-  }
-  function update$1(data, e) {
-    if (!data) {
-      return;
-    }
-    for (var name in data) {
-      if (data[name]._connected) {
-        data[name]._callUpdate(e);
-      }
-    }
   }
 
   function initializeApi (UICommon) {
@@ -11557,6 +11539,7 @@
         };
       }
       if (scrollbar) {
+        this.scrollbarEl = cls;
         addClass(append(this.$el, scrollbarTemplate), cls);
         swiperData.scrollbar = {
           el: ".".concat(cls)
@@ -11582,6 +11565,8 @@
       var data = Object.assign({}, $props, swiperData);
       this.Swiper = new Swiper(slider, data);
       if (this.paging) {
+        console.log('page');
+        this.paginationEl = 'swiper_page_nav';
         this.paging = append($el, pagingTemplate);
         setCurrentIndex();
         $$1('.total', this.paging).innerHTML = format(this.Swiper.slides.length);
@@ -11590,6 +11575,15 @@
         this.controller = append($el, controllerTemplate);
       }
       swiperEvents(this);
+    },
+    disconnected: function disconnected() {
+      console.log(this.paginationEl);
+      if (this.scrollbarEl) {
+        remove$1($$1(".".concat(this.scrollbarEl)));
+      }
+      if (this.paginationEl) {
+        remove$1($$1(".".concat(this.paginationEl)));
+      }
     },
     computed: {
       slider: function slider(_ref, $el) {

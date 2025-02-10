@@ -20,6 +20,7 @@ import {
     hasClass,
     removeClass,
     randomStr,
+    remove,
 } from '../../util/index';
 import {cssPrefix} from 'GC-data'
 let swiperData = {}
@@ -68,6 +69,7 @@ export default {
             };
         }
         if(scrollbar){
+            this.scrollbarEl = cls;
             addClass(
                 append(this.$el, scrollbarTemplate), 
                 cls
@@ -77,6 +79,7 @@ export default {
             };
         }
         if(pagination){
+
             addClass(
                 append(this.$el, paginationTemplate), 
                 cls
@@ -86,12 +89,15 @@ export default {
                 type:paginationType
             }
         }
+        
     },
     connected () {
         const { $el, pagingTemplate, $props, format, slider, setCurrentIndex, controller, controllerTemplate } = this;
         const data = Object.assign({}, $props, swiperData);
         this.Swiper = new Swiper(slider, data);
         if( this.paging ){
+            console.log('page');
+            this.paginationEl = 'swiper_page_nav';
             this.paging = append($el, pagingTemplate);
             setCurrentIndex();
             $('.total', this.paging).innerHTML = format(this.Swiper.slides.length)
@@ -100,6 +106,18 @@ export default {
             this.controller = append($el, controllerTemplate);
         }
         swiperEvents(this);
+    },
+    disconnected () {
+        
+            console.log(this.paginationEl);
+            if (this.scrollbarEl) {
+                remove($(`.${this.scrollbarEl}`))
+            }
+            if (this.paginationEl) {
+                remove($(`.${this.paginationEl}`))
+            }
+
+
     },
     computed: {
         slider({slider}, $el) {

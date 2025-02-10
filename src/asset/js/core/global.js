@@ -45,13 +45,14 @@ export default function (UICommon) {
      * @param {event} e 이벤트
      */
     UICommon.update = (element, e)=> {
-        element = element ? toNode(element) : document.body;
+        // console.dir(element);
+        // element = element ? toNode(element) : document.body;
 
-        for (const parentEl of parents(element).reverse()) {
-            update(parentEl[DATA], e);
-        }
+        // for (const parentEl of parents(element).reverse()) {
+        //     update(parentEl[DATA], e);
+        // }
 
-        apply(element, (element) => update(element[DATA], e));
+        // apply(element, (element) => update(element[DATA], e));
     }
     Object.defineProperty(UICommon, 'container', {
     

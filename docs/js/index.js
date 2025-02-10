@@ -2893,7 +2893,7 @@
   });
 
   function globalApi (UICommon) {
-    var DATA = UICommon.data;
+    UICommon.data;
     /**
      * 전달된 함수를 1회 실행
      * @param {function} plugin 전달된 함수를 1회 실행
@@ -2930,22 +2930,14 @@
      * @param {event} e 이벤트
      */
     UICommon.update = function (element, e) {
-      element = element ? toNode(element) : document.body;
-      var _iterator = _createForOfIteratorHelper(parents(element).reverse()),
-        _step;
-      try {
-        for (_iterator.s(); !(_step = _iterator.n()).done;) {
-          var parentEl = _step.value;
-          update(parentEl[DATA], e);
-        }
-      } catch (err) {
-        _iterator.e(err);
-      } finally {
-        _iterator.f();
-      }
-      apply(element, function (element) {
-        return update(element[DATA], e);
-      });
+      // console.dir(element);
+      // element = element ? toNode(element) : document.body;
+
+      // for (const parentEl of parents(element).reverse()) {
+      //     update(parentEl[DATA], e);
+      // }
+
+      // apply(element, (element) => update(element[DATA], e));
     };
     Object.defineProperty(UICommon, 'container', {
       get: function get() {
@@ -2955,16 +2947,6 @@
         container = $(element);
       }
     });
-  }
-  function update(data, e) {
-    if (!data) {
-      return;
-    }
-    for (var name in data) {
-      if (data[name]._connected) {
-        data[name]._callUpdate(e);
-      }
-    }
   }
 
   function initializeApi (UICommon) {
