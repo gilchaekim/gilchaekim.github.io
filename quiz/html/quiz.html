@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html id="pageRoot" lang="ko" class="quiz_shots type1">
+
+<head>
+  <title>시흥시 스마트 시청</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="inner">
+            <header id="header">
+                <h1>🧔이걸 모른다고? 시사 상식퀴즈⏳</h1>
+            </header>
+            <section id="contents">
+                <div class="quiz_slider" id="quizSlider">
+                    <div class="slider">
+                        <div class="swiper-wrapper">
+
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="answer">
+                    <p class=" qu_answer">정답은 2번 헤트트릭입니다.</p>
+                </div> -->
+            </section>
+        </div>
+    </div>
+
+    <script>
+        const {$} = GCui.util;
+        // 
+        // GCui.slider('.quiz_slider', {
+        //     effect: "creative",
+        //     creativeEffect: {
+        //         prev: {
+        //             shadow: true,
+        //             translate: ["-220%", 0, -1500],
+        //             rotate: [0, 0, -40]
+        //         },
+        //         next: {
+        //             translate: ["220%", 0, -1500],
+        //             rotate: [0, 0, 40]
+        //         },
+        //     }
+        // })
+        GCui.quiz('#quizSlider');
+        document.documentElement.addEventListener('click', function(){
+            
+        })
+        
+    </script>
+</body>
+</html>

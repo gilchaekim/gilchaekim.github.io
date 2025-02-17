@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html id="pageRoot" lang="ko">
+
+<head>
+  <title>시흥시 스마트 시청</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/common.css">
+  <script type="text/javascript" src="/js/index.js"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="inner">
+            <header id="header">
+                <h1>○○상식이 있는데 이걸 모른다고?</h1>
+            </header>
+            <section id="contents">
+                <div class="step_wrap">
+                    <div class="qu_lists" id="qu_lists">
+                        
+                    </div>
+                    <div class="countdown">
+                        <span class="text" id="text"></span>
+                    </div>
+                </div>
+            </section>
+            <footer id="footer">
+                <p>정답을 톡톡 두 번 눌러주세요!</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+
+        window.audioLog = [];  // 음성 재생 로그 저장
+        window.recordStartTime = null;  // 녹화 시작 시간
+
+        const urlParams = new URL(location.href).searchParams;
+
+        const name = urlParams.get('json');
+        let quJSON
+        console.log(name);
+        fetch(`/src/python/${name}`)
+        .then(res => res.json())
+        .then(function (res) {
+            quJSON = res;
+            const Quiz = new QuizPlay();
+            Quiz.init();
+        })        
+        const {
+            $, 
+            $$,
+            addClass, 
+            removeClass, 
+            on, 
+            Transition, 
+            css,
+            removeAttr,
+            append,
+        } = GCui.util;
+        const COUNTDOWN = 3;
+        let stepCount = 0
+        
+        class QuizPlay {
+            constructor() {
+                this.index = 0;
+                this.wrap = $('#qu_lists');
+            }
+            init() {
+                this.makeExam(quJSON);
+                this.steps = $$('.step', this.wrap);
+                this.start();
+                
+            }
+            async start() {
+                window.quizFinished = false;
+                window.recordStartTime = Date.now();  // 녹화 시작 시간 저장
+                for (let i = 0; i < this.steps.length; i++) {
+                    await this.play(this.steps[i], i);
+                    console.log(`사이클 ${i+1} 끝`);
+                }
+                console.log('재생 끝');
+                console.log(window.audioLog);
+                window.quizFinished = true;
+                // fetch("http://localhost:5000/quiz-finished", { method: "POST" })  // Python 서버에 알림
+                // .then(response => console.log("Quiz finished signal sent"))
+                // .catch(error => console.error("Error:", error));
+            }
+            async play(step, index){
+                const that = this;
+                const defaultpath = '/src/python/'
+                const qAudio = defaultpath+quJSON[index].question.audio;
+                const qu1Audio = defaultpath+quJSON[index].qu1.audio;
+                const qu2Audio = defaultpath+quJSON[index].qu2.audio;
+                const qu3Audio = defaultpath+quJSON[index].qu3.audio;
+                const aAudio = defaultpath+quJSON[index].anwer.audio;
+                return new Promise(async (resolve) => {
+
+
+                    addClass(this.steps[that.index], 'active');
+
+                    await that.delay(2000);
+                    console.log();
+                    console.log("🕒 문제 읽어주기");
+                    await that.playAudio(qAudio);
+                    await that.playAudio(qu1Audio);
+                    await that.playAudio(qu2Audio);
+                    await that.playAudio(qu3Audio);
+
+                    // 2초 대기
+                    await that.delay(2000);
+
+                    console.log("🕒 카운트다운");
+                    await that.countdown(COUNTDOWN);
+
+                    await that.delay(2000); 
+                    
+                    // 정답 보기
+                    // await that.playAudio(aAudio);
+                    await that.viewAnswer(step, aAudio)
+                    
+                    //2초 대기
+                    await that.delay(2000);
+
+                    removeClass(this.steps[that.index], 'active');
+                    that.index++
+                    // 사이클 끝끝
+                    resolve();
+                });
+            }
+            delay(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            playAudio(src, duration = null) {
+                return new Promise(resolve => {
+                    let audio = new Audio(src);
+                    audio.addEventListener("loadedmetadata", () => {
+                        if (duration) {
+                            audio.currentTime = audio.duration - duration;    
+                        }
+                        
+                    });
+
+                    // if (duration) {
+                    //     audio.currentTime = audio.duration - 3;
+                    // }
+                    console.log(duration);
+                    // audio.muted = true;
+                    // audio.volume = 0.2;
+                    let startTime = Date.now(); // 절대 시간 기준
+                    let relativeStartTime = window.recordStartTime ? (startTime - window.recordStartTime) : 0; // 
+                    // 녹화 기준 상대 시간
+                    let logEntry = {
+                        src: src,
+                        start: relativeStartTime,  // 녹화 시작 기준 상대 시간 (밀리초)
+                        end: null,
+                        duration: null
+                    };
+                    window.audioLog.push(logEntry);
+                    audio.play();
+                    // audio.muted = false;
+                    audio.onended = () =>{
+                        let endTime = Date.now();
+                        logEntry.end = window.recordStartTime ? (endTime - window.recordStartTime) : 0;
+                        logEntry.duration = logEntry.end - logEntry.start;
+
+                        console.log(`🎵 ${src} | 녹화 기준 시작: ${logEntry.start}ms, 종료: ${logEntry.end}ms, 지속시간: ${logEntry.duration}ms`);
+                        resolve();
+                    }
+                });
+            }
+
+            async viewAnswer(step, src) {
+                const answer = $('.answer', step);
+                const activeCls = 'active';
+                await this.playAudio("/audio/end.mp3");
+                addClass(answer, activeCls);
+                await this.playAudio(src);
+                setTimeout(() => {
+                    removeClass(answer, activeCls);
+                }, 1000);
+
+            }
+
+            makeExam(exem) {
+                const list = exem;
+                let str = ''
+                for (let i = 0; i < list.length; i++) {
+                    const qu = list[i];
+                    str +=`<div class="step">
+                        <div class="title qu_tite">${qu.question.text}</div>
+                        <div class="qu_list">
+                            <ul>
+                                <li>
+                                    <span class="num">1</span>
+                                    <span class="text qu_01">${qu.qu1.text}</span>
+                                </li>
+                                <li>
+                                    <span class="num">2</span>
+                                    <span class="text qu_02">${qu.qu2.text}</span>
+                                </li>
+                                <li>
+                                    <span class="num">3</span>
+                                    <span class="text qu_03">${qu.qu3.text}</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="answer">
+                            <p class=" qu_answer">${qu.anwer.text}</p>
+                        </div>
+                    </div>`;
+                }
+                append(this.wrap, str)
+            }
+
+
+            countdown(num) {
+                return new Promise((resolve, reject) => {
+                    const countEl = $('#text');
+                    let timer = null;
+                    const activeCls = 'active';
+                    const clock_src = "/audio/clock1-1.mp3";
+                    // const audio = new Audio(clock_src);
+                    this.playAudio(clock_src);
+                    let text = num;
+                    countEl.innerHTML = text;
+                    // addClass(countEl, activeCls)
+                    // audio.play();
+                    count()
+                    timer = setInterval(count, 1000);
+                    function count(){
+                        // delay(100)
+                        if (text <= 0) {
+                            
+                            clearInterval(timer);
+                            resolve();
+                        }
+                        countEl.innerHTML = text;
+                        Transition.start(css(countEl, {opacity:'0', transform:'scale(2)' }), {
+                            opacity:1,
+                            transform:'scale(1)'
+                        }, 200).then(()=>{
+                            if (text < 0) {
+                                setTimeout(() => {
+                                    countEl.innerHTML = '';
+                                    removeAttr(countEl, 'style');
+                                }, 800);
+                            }
+                        })
+                        --text;
+                        
+                    }
+                })
+            }
+
+        }
+        
+        on(document.documentElement, 'click', play)
+
+        async function play(){
+            
+            return new Promise(async (resolve, reject) => {
+                
+                
+            })
+            
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+[
+  {
+    "question": {
+      "text": "기후 변화에 대응하기 위한 국제 협약으로, 2015년 채택된 협정은 무엇인가요?",
+      "audio": "audio/qu1.mp3"
+    },
+    "qu1": {
+      "text": "교토의정서",
+      "audio": "audio/quv1_1.mp3"
+    },
+    "qu2": {
+      "text": "파리협정",
+      "audio": "audio/quv1_2.mp3"
+    },
+    "qu3": {
+      "text": "바젤협약",
+      "audio": "audio/quv1_3.mp3"
+    },
+    "anwer": {
+      "text": "정답은 2번 바젤협약입니다.",
+      "audio": "audio/ans1.mp3"
+    }
+  },
+  {
+    "question": {
+      "text": "트럼프 미국 대통령이 이것의 조달 및 사용 강제를 금지하는 내용의 행정명령에 서명했다고 합니다. 이것은 무엇일까요?",
+      "audio": "audio/qu2.mp3"
+    },
+    "qu1": {
+      "text": "종이빨대",
+      "audio": "audio/quv2_1.mp3"
+    },
+    "qu2": {
+      "text": "종이봉투",
+      "audio": "audio/quv2_2.mp3"
+    },
+    "qu3": {
+      "text": "일회용컵",
+      "audio": "audio/quv2_3.mp3"
+    },
+    "anwer": {
+      "text": "정답은 1번 종이빨대입니다.",
+      "audio": "audio/ans2.mp3"
+    }
+  },
+  {
+    "question": {
+      "text": "실제 이윤 창출 없이 나중에 들어온 투자자의 돈으로 기존 투자자에게 수익금을 나누어 주는 다단계 금융사기를 무엇이라고 하나요?",
+      "audio": "audio/qu3.mp3"
+    },
+    "qu1": {
+      "text": "로맨스스캠",
+      "audio": "audio/quv3_1.mp3"
+    },
+    "qu2": {
+      "text": "보이스피싱",
+      "audio": "audio/quv3_2.mp3"
+    },
+    "qu3": {
+      "text": "폰지사기",
+      "audio": "audio/quv3_3.mp3"
+    },
+    "anwer": {
+      "text": "정답은 3번 폰지사기입니다.",
+      "audio": "audio/ans3.mp3"
+    }
+  }
+]

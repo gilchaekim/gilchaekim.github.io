@@ -1,0 +1,50 @@
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 400;
+  src: local("나눔바른고딕"), url("/fonts/NanumBarunGothicSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicSubset.woff") format("woff"), url("/fonts/NanumBarunGothicSubset.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 700;
+  src: local("나눔바른고딕 Bold"), url("/fonts/NanumBarunGothicBoldSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicBoldSubset.woff") format("woff"), url("/fonts/NanumBarunGothicBoldSubset.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 300;
+  src: local("나눔바른고딕 Light"), url("/fonts/NanumBarunGothicLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicLightSubset.ttf") format("truetype");
+}
+@font-face {
+  font-family: "NanumBarunGothic";
+  font-weight: 200;
+  src: local("나눔바른고딕 UltraLight"), url("/fonts/NanumBarunGothicUltraLightSubset.woff2") format("woff2"), url("/fonts/NanumBarunGothicUltraLightSubset.woff") format("woff"), url("/fonts/NanumBarunGothicUltraLightSubset.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: '나눔고딕';
+  font-style: normal;
+  font-weight: normal;
+  src: url("/fonts/test/NanumGothic-Regular.eot");
+  src: url("/fonts/test/NanumGothic-Regular.eot?#iefix") format('embedded-opentype'),
+       url("/fonts/test/NanumGothic-Regular.woff2") format('woff2'),
+       url("/fonts/test/NanumGothic-Regular.woff") format('woff'),
+       url("/fonts/test/NanumGothic-Regular.ttf") format('truetype');
+}
+@font-face {
+  font-family: '나눔고딕';
+  font-style: normal;
+  font-weight: bold;
+  src: url("/fonts/test/NanumGothic-Bold.eot");
+  src: url("/fonts/test/NanumGothic-Bold.eot?#iefix") format('embedded-opentype'),
+       url("/fonts/test/NanumGothic-Bold.woff2") format('woff2'),
+       url("/fonts/test/NanumGothic-Bold.woff") format('woff'),
+       url("/fonts/test/NanumGothic-Bold.ttf") format('truetype');
+}
+
+
+
+body, input, select, textarea, button, .ui-btn {
+  font-family: "나눔고딕" !important;
+}
+body * {
+  font-family: "나눔고딕" !important;
+}

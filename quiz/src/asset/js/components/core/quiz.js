@@ -1,0 +1,183 @@
+import Class from '../mixin/class';
+import {default as Togglable, toggleHeight} from '../mixin/togglable';
+import {
+    $, 
+    $$, 
+    attr, 
+    index,
+    append,
+    countdown,
+    showAnswer,
+} from '../../util';
+
+export default {
+
+
+    props: {
+        
+    },
+
+    data: {
+        wrapper:'.swiper-wrapper'
+    },
+
+    computed: {
+        wrapper({wrapper}, $el) {
+            return $(wrapper, $el)
+        },
+    },
+    created(){
+        const that = this;
+        window.quizFinished = false;
+        fetch(`/src/python/${this.getJson()}`)
+        .then(res => res.json())
+        .then(function (res) {
+            that.steps = res;
+            that.steps.push({
+                endMsg:'풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
+            })
+            that.makeHTML(res);
+            that.slider = GCui.slider(that.$el, {
+                effect: "creative",
+                creativeEffect: {
+                    prev: {
+                        shadow: true,
+                        translate: ["-220%", 0, -1500],
+                        rotate: [0, 0, -40]
+                    },
+                    next: {
+                        translate: ["220%", 0, -1500],
+                        rotate: [0, 0, 40]
+                    },
+                }
+            });
+            setTimeout(()=>{
+                that.start();
+            }, 1000)
+            
+
+        })
+    },
+    connected(){
+
+    },
+
+    events: [
+
+        {
+
+            name: 'click',
+
+            el() {
+                return document.documentElement;
+            },
+
+            handler(e) {
+                e.preventDefault();
+                // GCui.util.countdown('#contents', 3)
+            }
+
+        }
+
+    ],
+
+    methods: {
+        async start() {
+            for (let i = 0; i < this.steps.length; i++) {
+                await this.play(this.steps[i], i);
+                console.log(`사이클 ${i+1} 끝`);
+            }
+            window.quizFinished = true;
+        },
+        async play(step, index){
+            const defaultpath = '/src/python/'
+            console.log(index);
+            return new Promise(async (resolve) => {
+                if (!!step.endMsg) {
+                    await this.playAudio('/audio/end_msg2.wav');
+                    this.slider.Swiper.slideNext();
+                }else{
+                    const qAudio = `${defaultpath}${step.question.audio}`;
+                    const qu1Audio = `${defaultpath}${step.qu1.audio}`;
+                    const qu2Audio = `${defaultpath}${step.qu2.audio}`;
+                    const qu3Audio = `${defaultpath}${step.qu3.audio}`;
+                    const aAudio = `${defaultpath}${step.anwer.audio}`;
+                    await this.playAudio(qAudio);
+                    await this.playAudio(qu1Audio);
+                    await this.playAudio(qu2Audio);
+                    await this.playAudio(qu3Audio);
+                    await countdown('#contents', 3)
+                    await this.delay(500);
+                    await showAnswer('#contents', step.anwer.text, aAudio)
+                    await this.delay(500);
+                    this.slider.Swiper.slideNext();
+                    if (this.steps.length -1 !== index) {
+                        await this.delay(1000);    
+                    }
+                }
+
+
+                // 사이클 끝
+                resolve();
+            });
+        },
+        playAudio(src) {
+            return new Promise(resolve => {
+                let audio = new Audio(src);
+                audio.play();
+                audio.onended = () =>{
+                    resolve();
+                }
+            });
+        },
+        makeHTML(json){
+            const {wrapper} = this;
+            console.log(wrapper);
+            const list = json;
+            let str = ''
+            for (let i = 0; i < list.length; i++) {
+                const qu = list[i];
+                if (!!qu.endMsg) {
+                    str+=`<div class="lists swiper-slide">
+                        <div class="end_msg">
+                            <p>${qu.endMsg}</p>
+                        </div>
+                    </div>`
+                }else{
+                    str +=`<div class="lists swiper-slide">
+                        <div class="quiz_type1">
+                            <p class="title">${i+1}번, ${qu.question.text}</p>
+                            <ul class="obj">
+                                <li>
+                                    <span class="num">1.</span>
+                                    <p class="text">${qu.qu1.text}</p>
+                                </li>
+                                <li>
+                                    <span class="num">2.</span>
+                                    <p class="text">${qu.qu2.text}</p>
+                                </li>
+                                <li>
+                                    <span class="num">3.</span>
+                                    <p class="text">${qu.qu3.text}</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>`;
+                }
+
+            }
+
+            append(wrapper, str)
+        },
+        getJson() {
+            const urlParams = new URL(location.href).searchParams;
+            console.log(urlParams);
+            return urlParams.get('json');
+        },
+        delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+    }
+
+};
