@@ -23,34 +23,15 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="answer">
-                    <p class=" qu_answer">정답은 2번 헤트트릭입니다.</p>
-                </div> -->
             </section>
         </div>
     </div>
 
     <script>
         const {$} = GCui.util;
-        // 
-        // GCui.slider('.quiz_slider', {
-        //     effect: "creative",
-        //     creativeEffect: {
-        //         prev: {
-        //             shadow: true,
-        //             translate: ["-220%", 0, -1500],
-        //             rotate: [0, 0, -40]
-        //         },
-        //         next: {
-        //             translate: ["220%", 0, -1500],
-        //             rotate: [0, 0, 40]
-        //         },
-        //     }
-        // })
-        GCui.quiz('#quizSlider');
-        document.documentElement.addEventListener('click', function(){
-            
-        })
+        GCui.quiz('#quizSlider', {
+            subject:true,
+        });
         
     </script>
 </body>

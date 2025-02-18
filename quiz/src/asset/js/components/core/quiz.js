@@ -14,11 +14,12 @@ export default {
 
 
     props: {
-        
+        subject:Boolean
     },
 
     data: {
-        wrapper:'.swiper-wrapper'
+        wrapper:'.swiper-wrapper',
+        subject:false,
     },
 
     computed: {
@@ -36,7 +37,12 @@ export default {
             that.steps.push({
                 endMsg:'풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
             })
-            that.makeHTML(res);
+            if (that.subject) {
+                that.makeHTMLSubject(res);    
+            }else{
+                that.makeHTML(res);
+            }
+            
             that.slider = GCui.slider(that.$el, {
                 effect: "creative",
                 creativeEffect: {
@@ -90,6 +96,7 @@ export default {
             window.quizFinished = true;
         },
         async play(step, index){
+            const {subject} = this;
             const defaultpath = '/src/python/'
             console.log(index);
             return new Promise(async (resolve) => {
@@ -97,22 +104,39 @@ export default {
                     await this.playAudio('/audio/end_msg2.wav');
                     this.slider.Swiper.slideNext();
                 }else{
-                    const qAudio = `${defaultpath}${step.question.audio}`;
-                    const qu1Audio = `${defaultpath}${step.qu1.audio}`;
-                    const qu2Audio = `${defaultpath}${step.qu2.audio}`;
-                    const qu3Audio = `${defaultpath}${step.qu3.audio}`;
-                    const aAudio = `${defaultpath}${step.anwer.audio}`;
-                    await this.playAudio(qAudio);
-                    await this.playAudio(qu1Audio);
-                    await this.playAudio(qu2Audio);
-                    await this.playAudio(qu3Audio);
-                    await countdown('#contents', 3)
-                    await this.delay(500);
-                    await showAnswer('#contents', step.anwer.text, aAudio)
-                    await this.delay(500);
-                    this.slider.Swiper.slideNext();
-                    if (this.steps.length -1 !== index) {
-                        await this.delay(1000);    
+
+                    if (subject) {
+                        // 주관식식
+                        const qAudio = `${defaultpath}${step.question.audio}`;
+                        const aAudio = `${defaultpath}${step.anwer.audio}`;
+                        await this.playAudio(qAudio);
+                        await countdown('#contents', 3)
+                        await this.delay(500);
+                        await showAnswer('#contents', step.anwer.text, aAudio)
+                        await this.delay(500);
+                        this.slider.Swiper.slideNext();
+                        if (this.steps.length -1 !== index) {
+                            await this.delay(1000);    
+                        }
+                    }else{
+                        // 객관식   
+                        const qAudio = `${defaultpath}${step.question.audio}`;
+                        const qu1Audio = `${defaultpath}${step.qu1.audio}`;
+                        const qu2Audio = `${defaultpath}${step.qu2.audio}`;
+                        const qu3Audio = `${defaultpath}${step.qu3.audio}`;
+                        const aAudio = `${defaultpath}${step.anwer.audio}`;
+                        await this.playAudio(qAudio);
+                        await this.playAudio(qu1Audio);
+                        await this.playAudio(qu2Audio);
+                        await this.playAudio(qu3Audio);
+                        await countdown('#contents', 3)
+                        await this.delay(500);
+                        await showAnswer('#contents', step.anwer.text, aAudio)
+                        await this.delay(500);
+                        this.slider.Swiper.slideNext();
+                        if (this.steps.length -1 !== index) {
+                            await this.delay(1000);    
+                        }
                     }
                 }
 
@@ -161,6 +185,37 @@ export default {
                                     <p class="text">${qu.qu3.text}</p>
                                 </li>
                             </ul>
+                        </div>
+                    </div>`;
+                }
+
+            }
+
+            append(wrapper, str)
+        },
+        makeHTMLSubject(json){
+            const {wrapper} = this;
+            console.log(wrapper);
+            const list = json;
+            let str = ''
+            for (let i = 0; i < list.length; i++) {
+                const qu = list[i];
+                if (!!qu.endMsg) {
+                    str+=`<div class="lists swiper-slide">
+                        <div class="end_msg">
+                            <p>${qu.endMsg}</p>
+                        </div>
+                    </div>`
+                }else{
+                    const hint = qu.hint.text.split('');
+                    str +=`<div class="lists swiper-slide">
+                        <div class="quiz_type1">
+                            <p class="title">${i+1}번, ${qu.question.text}</p>
+                            <div class="subject">`
+                            for (let j = 0; j < hint.length; j++) {
+                                str +=`<span>${hint[j]}</span>`
+                            }
+                    str +=` </div>
                         </div>
                     </div>`;
                 }
