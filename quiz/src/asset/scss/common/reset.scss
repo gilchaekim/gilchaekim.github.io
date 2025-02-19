@@ -31,14 +31,18 @@ a:hover, a:focus, a:active, a:link {
 }
 
 /* 폰트 초기화 */
-//가을생각체
-// 검은고딕
 // 잘난체
+// 배민주아체
+// 몬소리체
+// 가을생각체
+// 닉스곤폰트
+
 body, input, textarea, select, button, table 
 {
-  font-family: '잘난체', sans-serif;
-  font-weight: 900;
+  font-family: '닉스곤폰트', sans-serif;
+  font-weight: 400;
   line-height: 1.5;
+  // letter-spacing: 6px;
 }
 
 // keypad 충돌 방지

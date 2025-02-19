@@ -33,8 +33,7 @@ export async function countdown(selector, count) {
 }
 
 
-export async function showAnswer(selector, text, audioSrc) {
-    const timer = 1000;
+export async function showAnswer(selector, text, audioSrc, delay = 0) {
     const effectAnswer = '/audio/sound_answer.mp3'
     const template = `<div class="answer">
         <p class=" qu_answer">${text}</p>
@@ -48,9 +47,16 @@ export async function showAnswer(selector, text, audioSrc) {
             answerAudio.play();
         }
         answerAudio.onended = () =>{
-            resolve();
-            remove(countElement);
+            setTimeout(()=>{  
+                resolve();
+                remove(countElement);
+            }, delay)
         }
 
     })
+}
+
+
+export function delay(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }

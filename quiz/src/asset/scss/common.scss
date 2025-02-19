@@ -54,20 +54,95 @@ body {
 		color: #000;
 	}
 }
-
+.intro{
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	font-size: 4rem;
+	font-family: '배민주아체';
+	z-index: 2;
+	background:#fcf1e2 url('/img/flowers2.png') no-repeat center top;
+	padding-top: 6rem;
+	text-shadow: #DF6311 .1rem 0 .4rem;
+	.main_title {
+		font-size: 8rem;
+	}
+	.total {
+		margin-top: 4rem;
+	}
+	.msg {
+		position: absolute;
+		bottom: 2rem;
+		left: 0;
+		right: 0;
+		span:nth-child(1) {
+			color: #DF6311;
+		}
+		span:nth-child(2) {
+			color: #477A71;
+		}
+		span:nth-child(3) {
+			color: #3282fa;
+		}
+	}
+}
+.swiper_page_nav {
+	position: absolute;
+	bottom: 2rem;
+	right: 2rem;
+	font-family: "배민주아체";
+	font-size: 2rem;
+	.current{
+		&:after {
+			content:'/';
+		}
+	}
+}
 
 .quiz_wide {
 	&.type1 {
 		color: #000;
+	}
+	#wrapper {
+		padding-top: 0;
+		.inner {
+			background: #477A71;
+		}
 	}
 	#contents {
 		top: 1rem;
 		left: 1rem;
 		right: 1rem;
 		bottom: 1rem;
+		border-color: #477A71;
 		// border: 0 none;
 		background: none;
+		background:#fcf1e2 url('/img/flowers2.png') no-repeat center top;
+		.cont {
+			bottom: 1rem;
+		}
+		.answer {
+			font-size: 4rem;
+			font-weight: 700;
+			position: absolute;
+			bottom: 10rem;
+			left: 0;
+			right: 0;
+			text-align: center;
+			word-break: keep-all;
+			p {
+				display: inline-flex;
+				padding: 1rem;
+				background: rgba($color: #333, $alpha: 1);
+				border-radius: 2rem;
+				color: #fff;
+			}
+		}
 	}
+
 }
 
 
@@ -85,6 +160,13 @@ body {
 	}
 }
 
+/* 폰트 초기화 */
+// 잘난체
+// 배민주아체
+// 몬소리체
+// 가을생각체
+// 닉스곤폰트
+
 #header {
 	width: 100%;
 	position: relative;
@@ -100,8 +182,8 @@ body {
 	}
 	h1 {
 		text-align: center;
-		font-size: 3.4rem;
-		// font-family: 'NotoSerifKR-600';
+		font-size: 4rem;
+		font-family: '닉스곤폰트';
 		line-height: 1.2;
 		word-break: keep-all;
 		height: 11.2rem;
@@ -128,7 +210,7 @@ body {
 	flex-direction: column;
 	.quiz_type1 {
 		.title {
-			font-size: 3rem;
+			font-size: 3.6rem;
 			min-height: 15rem;
 			word-break: keep-all;
 			font-weight: 900;
@@ -211,6 +293,7 @@ body {
 		margin-top: 3rem;
 		justify-content: center;
 		align-items: center;
+		font-family: "배민주아체";
 		gap: 1rem;
 		span {
 			justify-content: center;
@@ -285,6 +368,7 @@ body {
 	border-radius: 50%;
 	overflow: hidden;
 	bottom: 14rem;
+
 	
 	&::after {
 		content: '';
@@ -334,7 +418,7 @@ body {
 		top: 0;
 		left: 0;
 		font-size: 6rem;
-		line-height: 24rem;
+		line-height: 25rem;
 
 	//   animation: count 10s infinite steps(10, start);
 	}

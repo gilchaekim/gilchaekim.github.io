@@ -79,6 +79,32 @@ $url_font : '/fonts/';
 }
 
 
+@font-face {
+	font-family: '잘난체';
+	src: url($url_font+'잘난체TTF.ttf');
+}
+
+@font-face {
+	font-family: '배민주아체';
+	src: url($url_font+'배민주아체_ttf.ttf');
+}
+
+@font-face {
+	font-family: '몬소리체';
+	src: url($url_font+'몬소리체.ttf');
+}
+@font-face {
+	font-family: '가을생각체';
+	src: url($url_font+'HS가을생각체2.0.ttf');
+}
+
+@font-face {
+	font-family: '닉스곤폰트';
+	src: url($url_font+'닉스곤폰트.ttf');
+}
+
+
+
 
 @font-face {
       font-family: 'password';

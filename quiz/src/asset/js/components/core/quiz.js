@@ -1,70 +1,82 @@
 import Class from '../mixin/class';
-import {default as Togglable, toggleHeight} from '../mixin/togglable';
+import { default as Togglable, toggleHeight } from '../mixin/togglable';
 import {
-    $, 
-    $$, 
-    attr, 
+    $,
+    $$,
+    attr,
     index,
     append,
     countdown,
     showAnswer,
+    Transition
 } from '../../util';
 
 export default {
 
 
     props: {
-        subject:Boolean
+        subject: Boolean,
+        isIntro: Boolean,
+        answerDelay: Number,
+        paging:Boolean,
     },
 
     data: {
-        wrapper:'.swiper-wrapper',
-        subject:false,
+        wrapper: '.swiper-wrapper',
+        subject: false,
+        isIntro: false,
+        intro:'.intro',
+        answerDelay:0,
+        paging:false,
     },
 
     computed: {
-        wrapper({wrapper}, $el) {
+        wrapper({ wrapper }, $el) {
             return $(wrapper, $el)
         },
+        inrto({ intro }) {
+            return $(intro)
+        },
     },
-    created(){
+    created() {
         const that = this;
         window.quizFinished = false;
         fetch(`/src/python/${this.getJson()}`)
-        .then(res => res.json())
-        .then(function (res) {
-            that.steps = res;
-            that.steps.push({
-                endMsg:'풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
-            })
-            if (that.subject) {
-                that.makeHTMLSubject(res);    
-            }else{
-                that.makeHTML(res);
-            }
-            
-            that.slider = GCui.slider(that.$el, {
-                effect: "creative",
-                creativeEffect: {
-                    prev: {
-                        shadow: true,
-                        translate: ["-220%", 0, -1500],
-                        rotate: [0, 0, -40]
-                    },
-                    next: {
-                        translate: ["220%", 0, -1500],
-                        rotate: [0, 0, 40]
-                    },
+            .then(res => res.json())
+            .then(function(res) {
+                that.steps = res;
+                that.steps.push({
+                    endMsg: '풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
+                })
+                if (that.subject) {
+                    that.makeHTMLSubject(res);
+                } else {
+                    that.makeHTML(res);
                 }
-            });
-            setTimeout(()=>{
-                that.start();
-            }, 1000)
-            
 
-        })
+                that.slider = GCui.slider(that.$el, {
+                    effect: "creative",
+                    paging:that.paging,
+                    creativeEffect: {
+                        prev: {
+                            shadow: true,
+                            translate: ["-220%", 0, -1500],
+                            rotate: [0, 0, -40]
+                        },
+                        next: {
+                            translate: ["220%", 0, -1500],
+                            rotate: [0, 0, 40]
+                        },
+                    }
+                });
+                setTimeout(() => {
+                    that.start();
+                }, 1000)
+
+
+            })
     },
-    connected(){
+    connected() {
 
     },
 
@@ -89,36 +101,40 @@ export default {
 
     methods: {
         async start() {
+            console.log(this.isIntro);
+            if (this.isIntro) {
+                await this.intro();
+            }
             for (let i = 0; i < this.steps.length; i++) {
                 await this.play(this.steps[i], i);
-                console.log(`사이클 ${i+1} 끝`);
+                console.log(`사이클 ${i + 1} 끝`);
             }
             window.quizFinished = true;
         },
-        async play(step, index){
-            const {subject} = this;
+        async play(step, index) {
+            const { subject, answerDelay } = this;
             const defaultpath = '/src/python/'
             console.log(index);
             return new Promise(async (resolve) => {
                 if (!!step.endMsg) {
                     await this.playAudio('/audio/end_msg2.wav');
                     this.slider.Swiper.slideNext();
-                }else{
+                } else {
 
                     if (subject) {
-                        // 주관식식
+                        // 주관식
                         const qAudio = `${defaultpath}${step.question.audio}`;
                         const aAudio = `${defaultpath}${step.anwer.audio}`;
                         await this.playAudio(qAudio);
                         await countdown('#contents', 3)
                         await this.delay(500);
-                        await showAnswer('#contents', step.anwer.text, aAudio)
+                        await showAnswer('#contents', step.anwer.text, aAudio, answerDelay)
                         await this.delay(500);
                         this.slider.Swiper.slideNext();
-                        if (this.steps.length -1 !== index) {
-                            await this.delay(1000);    
+                        if (this.steps.length - 1 !== index) {
+                            await this.delay(1000);
                         }
-                    }else{
+                    } else {
                         // 객관식   
                         const qAudio = `${defaultpath}${step.question.audio}`;
                         const qu1Audio = `${defaultpath}${step.qu1.audio}`;
@@ -134,8 +150,8 @@ export default {
                         await showAnswer('#contents', step.anwer.text, aAudio)
                         await this.delay(500);
                         this.slider.Swiper.slideNext();
-                        if (this.steps.length -1 !== index) {
-                            await this.delay(1000);    
+                        if (this.steps.length - 1 !== index) {
+                            await this.delay(1000);
                         }
                     }
                 }
@@ -145,32 +161,52 @@ export default {
                 resolve();
             });
         },
-        playAudio(src) {
+        playAudio(src, duration = null) {
             return new Promise(resolve => {
                 let audio = new Audio(src);
+                
                 audio.play();
-                audio.onended = () =>{
-                    resolve();
+                if (!!duration) {
+                    let mutedTimer = duration / 5;
+                    const timer = duration - mutedTimer;
+                    setTimeout(()=>{
+                        let interval = setInterval(()=>{
+                            if (audio.volume < 0.2) {
+                                clearInterval(interval);
+                            }
+                            console.log(audio.volume);
+                            audio.volume = audio.volume - .1;
+                        }, 100)
+                    }, timer)
+                    setTimeout(()=>{
+                        audio.pause();
+                        resolve();
+                    }, duration)
+                }else{
+                    audio.onended = () => {
+                        resolve();
+                    }
                 }
+
             });
         },
-        makeHTML(json){
-            const {wrapper} = this;
+        makeHTML(json) {
+            const { wrapper } = this;
             console.log(wrapper);
             const list = json;
             let str = ''
             for (let i = 0; i < list.length; i++) {
                 const qu = list[i];
                 if (!!qu.endMsg) {
-                    str+=`<div class="lists swiper-slide">
+                    str += `<div class="lists swiper-slide">
                         <div class="end_msg">
                             <p>${qu.endMsg}</p>
                         </div>
                     </div>`
-                }else{
-                    str +=`<div class="lists swiper-slide">
+                } else {
+                    str += `<div class="lists swiper-slide">
                         <div class="quiz_type1">
-                            <p class="title">${i+1}번, ${qu.question.text}</p>
+                            <p class="title">${i + 1}번, ${qu.question.text}</p>
                             <ul class="obj">
                                 <li>
                                     <span class="num">1.</span>
@@ -193,29 +229,29 @@ export default {
 
             append(wrapper, str)
         },
-        makeHTMLSubject(json){
-            const {wrapper} = this;
+        makeHTMLSubject(json) {
+            const { wrapper } = this;
             console.log(wrapper);
             const list = json;
             let str = ''
             for (let i = 0; i < list.length; i++) {
                 const qu = list[i];
                 if (!!qu.endMsg) {
-                    str+=`<div class="lists swiper-slide">
+                    str += `<div class="lists swiper-slide">
                         <div class="end_msg">
                             <p>${qu.endMsg}</p>
                         </div>
                     </div>`
-                }else{
+                } else {
                     const hint = qu.hint.text.split('');
-                    str +=`<div class="lists swiper-slide">
+                    str += `<div class="lists swiper-slide">
                         <div class="quiz_type1">
-                            <p class="title">${i+1}번, ${qu.question.text}</p>
+                            <p class="title">${i + 1}번, ${qu.question.text}</p>
                             <div class="subject">`
-                            for (let j = 0; j < hint.length; j++) {
-                                str +=`<span>${hint[j]}</span>`
-                            }
-                    str +=` </div>
+                    for (let j = 0; j < hint.length; j++) {
+                        str += `<span>${hint[j]}</span>`
+                    }
+                    str += ` </div>
                         </div>
                     </div>`;
                 }
@@ -231,6 +267,20 @@ export default {
         },
         delay(ms) {
             return new Promise(resolve => setTimeout(resolve, ms));
+        },
+        async intro() {
+            await await this.playAudio('/audio/bgm1.mp3', 4000);
+            return new Promise((resolve, reject) => {
+                Transition.start(this.inrto, {
+                    opacity:0,
+                    left: '-100%'
+                }, 500).then(()=>{
+                    // this.hide();
+                    resolve();
+                })
+
+                
+            })
         }
 
     }

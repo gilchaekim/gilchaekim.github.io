@@ -2,27 +2,32 @@
 <html id="pageRoot" lang="ko" class="quiz_wide type1">
 
 <head>
-  <title>시흥시 스마트 시청</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="/css/common.css">
-  <script type="text/javascript" src="/js/index.js"></script>
+    <title>시흥시 스마트 시청</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/common.css">
+    <script type="text/javascript" src="/js/index.js"></script>
 </head>
 
 <body>
     <div id="wrapper">
         <div class="inner">
             <section id="contents">
+                <div class="intro">
+                    <p class="main_title">이걸 모른다고? 상식퀴즈</p>
+                    <p class="sub_title"> - 철학 편 - </p>
+                    <p class="total">총 <em class="len">30</em>문제를 준비 했습니다.</p>
+                    <p class="msg">
+                        <span>구독</span>
+                        <span>좋아요</span>
+                        <span>알림</span>
+                        <span>설정</span>
+                        부탁드려요 ~
+                    </p>
+                </div>
                 <div class="quiz_slider" id="quizSlider">
                     <div class="slider">
-                        <div class="swiper-wrapper">
-                            <div class="lists swiper-slide">
-                                <div class="intro">
-                                    <p class="main_title">이걸 모른다고? 상식퀴즈</p>
-                                    <p class="sub_title"> - 철학 편 - </p>
-                                </div>
-                            </div>
-                        </div>
+                        <div class="swiper-wrapper"></div>
                     </div>
                 </div>
             </section>
@@ -30,8 +35,14 @@
     </div>
 
     <script>
-        GCui.quiz('#quizSlider');
-        
+        GCui.quiz('#quizSlider', {
+            isIntro: true,
+            subject:true,
+            paging:true,
+            answerDelay: 1000,
+        });
+
     </script>
 </body>
+
 </html>
