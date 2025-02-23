@@ -182,7 +182,7 @@ body {
 	}
 	h1 {
 		text-align: center;
-		font-size: 4rem;
+		font-size: 6rem;
 		font-family: '닉스곤폰트';
 		line-height: 1.2;
 		word-break: keep-all;
@@ -210,14 +210,14 @@ body {
 	flex-direction: column;
 	.quiz_type1 {
 		.title {
-			font-size: 3.6rem;
+			font-size: 4rem;
 			min-height: 15rem;
 			word-break: keep-all;
 			font-weight: 900;
 		}
 		.obj {
 			margin-top: 4rem;
-			font-size: 2.8rem;
+			font-size: 3.4rem;
 			font-weight: 700;
 			li {
 				padding-left: 3rem;
@@ -293,17 +293,33 @@ body {
 		margin-top: 3rem;
 		justify-content: center;
 		align-items: center;
-		font-family: "배민주아체";
+		
 		gap: 1rem;
+		font-size: 4rem;
 		span {
-			justify-content: center;
-			align-items: center;
-			display: inline-flex;
-			border: .3rem solid #2c5c4b;
-			border-radius: .1rem;
-			font-size: 5rem;
-			width: 7rem;
-			height: 7rem;
+			&.box {
+				font-family: "배민주아체";
+				justify-content: center;
+				align-items: center;
+				display: inline-flex;
+				border: .3rem solid #2c5c4b;
+				border-radius: .1rem;
+				font-size: 5rem;
+				height: 7rem;
+				padding: 0 1rem;
+			}
+			&.letter-box{
+				font-family: "배민주아체";
+				justify-content: center;
+				align-items: center;
+				display: inline-flex;
+				border: .3rem solid #2c5c4b;
+				border-radius: .1rem;
+				font-size: 5rem;
+				width: 7rem;
+				height: 7rem;
+			}
+
 		}
 	}
 	.countdown {

@@ -19,6 +19,7 @@ export default {
         isIntro: Boolean,
         answerDelay: Number,
         paging:Boolean,
+        endMsg:Boolean,
     },
 
     data: {
@@ -28,6 +29,7 @@ export default {
         intro:'.intro',
         answerDelay:0,
         paging:false,
+        endMsg:true,
     },
 
     computed: {
@@ -45,9 +47,12 @@ export default {
             .then(res => res.json())
             .then(function(res) {
                 that.steps = res;
-                that.steps.push({
-                    endMsg: '풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
-                })
+                if (that.endMsg) {
+                    that.steps.push({
+                        endMsg: '풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
+                    })                    
+                }
+
                 if (that.subject) {
                     that.makeHTMLSubject(res);
                 } else {
@@ -130,7 +135,16 @@ export default {
                         await this.delay(500);
                         await showAnswer('#contents', step.anwer.text, aAudio, answerDelay)
                         await this.delay(500);
-                        this.slider.Swiper.slideNext();
+                        if (this.isIntro) {
+                            if (this.steps.length - 1 === index) {
+                                await this.delay(1000);
+                            }else{
+                                this.slider.Swiper.slideNext();
+                            }
+                            
+                        }else{
+                            this.slider.Swiper.slideNext();
+                        }
                         if (this.steps.length - 1 !== index) {
                             await this.delay(1000);
                         }
@@ -142,14 +156,24 @@ export default {
                         const qu3Audio = `${defaultpath}${step.qu3.audio}`;
                         const aAudio = `${defaultpath}${step.anwer.audio}`;
                         await this.playAudio(qAudio);
-                        await this.playAudio(qu1Audio);
-                        await this.playAudio(qu2Audio);
-                        await this.playAudio(qu3Audio);
-                        await countdown('#contents', 3)
+                        // await this.playAudio(qu1Audio);
+                        // await this.playAudio(qu2Audio);
+                        // await this.playAudio(qu3Audio);
+                        await countdown('#contents', 2)
                         await this.delay(500);
                         await showAnswer('#contents', step.anwer.text, aAudio)
                         await this.delay(500);
-                        this.slider.Swiper.slideNext();
+                        if (this.isIntro) {
+                            console.log(index);
+                            if (this.steps.length - 1 === index) {
+                                await this.delay(1000);
+                            }else{
+                                this.slider.Swiper.slideNext();
+                            }
+                            
+                        }else{
+                            this.slider.Swiper.slideNext();
+                        }
                         if (this.steps.length - 1 !== index) {
                             await this.delay(1000);
                         }
@@ -243,15 +267,12 @@ export default {
                         </div>
                     </div>`
                 } else {
-                    const hint = qu.hint.text.split('');
                     str += `<div class="lists swiper-slide">
                         <div class="quiz_type1">
                             <p class="title">${i + 1}번, ${qu.question.text}</p>
-                            <div class="subject">`
-                    for (let j = 0; j < hint.length; j++) {
-                        str += `<span>${hint[j]}</span>`
-                    }
-                    str += ` </div>
+                            <div class="subject">
+                                ${this.getSubjectLetter(qu.hint.text)}
+                            </div>
                         </div>
                     </div>`;
                 }
@@ -259,6 +280,46 @@ export default {
             }
 
             append(wrapper, str)
+        },
+        getSubjectLetter(str) {
+            const hint = str;
+            const dvd = hint.split('|');
+            let html = '';
+            for (let i = 0; i < dvd.length; i++) {
+                const str = dvd[i];
+                if (str.indexOf('/') !== -1) {
+                    const str2 = str.split('/');
+                    for (let j = 0; j < str2.length; j++) {
+                        const str = str2[j];
+                        html+=mkgroup(str, 'box');    
+                    }
+                }else{
+                    html+=mkgroup(str);
+                }
+            }
+
+            function mkgroup(str, cls = null) {
+                let html = '';
+                if (str.indexOf('[') !== -1 && str.indexOf('/') === -1) {
+                    html+=`<span class="${!!cls ? cls : 'hint-text'}">${str.replaceAll('[', '').replaceAll(']', '')}</span>\n`
+                }else{
+                    const letters = str.split('')
+                    for (let i = 0; i < letters.length; i++) {
+                        html+=`<span class="letter-box">${letters[i]}</span>\n`
+                    }
+                }
+                return html;
+            }
+
+            return html;
+            
+            
+            // if (hint) {
+                
+            // }
+            // for (let j = 0; j < hint.length; j++) {
+            //     str += `<span>${hint[j]}</span>`
+            // }
         },
         getJson() {
             const urlParams = new URL(location.href).searchParams;
@@ -269,7 +330,7 @@ export default {
             return new Promise(resolve => setTimeout(resolve, ms));
         },
         async intro() {
-            await await this.playAudio('/audio/bgm1.mp3', 4000);
+            await await this.playAudio('/audio/bgm1.mp3', 5000);
             return new Promise((resolve, reject) => {
                 Transition.start(this.inrto, {
                     opacity:0,
