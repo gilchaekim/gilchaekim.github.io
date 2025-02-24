@@ -30,6 +30,7 @@ export default {
         answerDelay:0,
         paging:false,
         endMsg:true,
+        bgm:false,
     },
 
     computed: {
@@ -59,30 +60,18 @@ export default {
                     that.makeHTML(res);
                 }
 
-                that.slider = GCui.slider(that.$el, {
-                    effect: "creative",
-                    paging:that.paging,
-                    creativeEffect: {
-                        prev: {
-                            shadow: true,
-                            translate: ["-220%", 0, -1500],
-                            rotate: [0, 0, -40]
-                        },
-                        next: {
-                            translate: ["220%", 0, -1500],
-                            rotate: [0, 0, 40]
-                        },
-                    }
-                });
+                that.slider = GCui.slider(that.$el);
                 setTimeout(() => {
                     that.start();
-                }, 1000)
+                }, 2000)
 
 
             })
     },
     connected() {
-
+        if (this.bgm) {
+            this.playAudio('/audio/bgm-shot2.mp3', null, .2, .8);
+        }
     },
 
     events: [
@@ -159,9 +148,10 @@ export default {
                         // await this.playAudio(qu1Audio);
                         // await this.playAudio(qu2Audio);
                         // await this.playAudio(qu3Audio);
-                        await countdown('#contents', 2)
+                        await countdown('#contents', 3)
                         await this.delay(500);
-                        await showAnswer('#contents', step.anwer.text, aAudio)
+                        await showAnswer('#contents', step.anwer.text, aAudio);
+                        
                         await this.delay(500);
                         if (this.isIntro) {
                             console.log(index);
@@ -172,10 +162,14 @@ export default {
                             }
                             
                         }else{
-                            this.slider.Swiper.slideNext();
+                            if (this.steps.length - 1 === index) {
+                                await this.delay(1000);
+                            }else{
+                                this.slider.Swiper.slideNext();
+                            }
                         }
                         if (this.steps.length - 1 !== index) {
-                            await this.delay(1000);
+                            await this.delay(1500);
                         }
                     }
                 }
@@ -185,11 +179,14 @@ export default {
                 resolve();
             });
         },
-        playAudio(src, duration = null) {
+        playAudio(src, duration = null, volume = 1, playbackRate=1) {
             return new Promise(resolve => {
                 let audio = new Audio(src);
                 
                 audio.play();
+                audio.volume = volume;
+                audio.playbackRate = playbackRate;
+                
                 if (!!duration) {
                     let mutedTimer = duration / 5;
                     const timer = duration - mutedTimer;

@@ -44,14 +44,78 @@ body {
 		padding: 2rem;
 	}
 }
-
-
+@keyframes dreamyBg {
+	0% { background-color: #E6E6FA; }
+	50% { background-color: #9370DB; }
+	100% { background-color: #E6E6FA; }
+  }
+  @keyframes dreamyGradient {
+    0% { background: linear-gradient(to right, #E6E6FA, #B0E0E6); }
+    50% { background: linear-gradient(to right, #D8BFD8, #FFC0CB); }
+    100% { background: linear-gradient(to right, #E6E6FA, #B0E0E6); }
+}
 .swiper-slide {
 	background-color: rgba(252,241,226, .8);
 }
 .quiz_shots {
 	&.type1 {
 		color: #000;
+	}
+	&.type2 {
+		color: #fff;
+		body {
+			// D8BFD8
+			// C8A2C8
+			// 7851A9
+			// background: radial-gradient(circle, #FFB6C1, #D8BFD8, #C8A2C8);
+			// background: linear-gradient(135deg, #5D3FD3, #1E90FF, #00CED1);
+			// background: linear-gradient(to bottom, #E6E6FA, #B0E0E6);
+			// background: linear-gradient(to bottom, #D8BFD8, #FFC0CB);
+			// background: radial-gradient(circle, #ADD8E6, #FFB6C1, #FFD1DC);
+			background: radial-gradient(circle, #E6E6FA, #A7C7E7, #A7C7E7);
+
+			// background: linear-gradient(135deg, #A7C7E7, #E0BBE4, #C084FC);
+			// animation: dreamyGradient 6s infinite alternate;
+
+
+			// background: radial-gradient(circle, #E6E6FA, #B0E0E6, #AEEEEE);
+			font-family: 'KoPubBatang Bold';
+			// font-weight: 900;
+		}
+		color: #000;
+		#header{
+			h1{
+				background: none;
+				font-family: 'KoPubBatang Bold';
+				font-weight: 900;
+				color: #000;
+				
+			}
+			&::after {
+				display: none;
+			}
+		}
+		#wrapper {
+			display: flex;
+			.inner {
+				background: none;
+				z-index: 2;
+			}
+		} 
+		#contents {
+			border: 0 none;
+			display: flex;
+			top: 14rem;
+			background: rgba(255,255,255,.3);
+			.quiz_type1 {
+				.obj {
+					font-size: 3.6rem;
+				}
+			} 
+		}
+		.swiper-slide {
+			background:none;
+		}
 	}
 }
 .intro{
@@ -151,12 +215,22 @@ body {
 #wrapper {
 	min-height: 100vh;
 	width: 100%;
-	display: flex;
+
 	padding-top: 6rem;
+	position: relative;
 	.inner {
 		width: 100%;
 		position: relative;
 		background:#fcf1e2 url('/img/flowers.png') no-repeat center top;
+	}
+	canvas.bg{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		height: 100%;
 	}
 }
 
@@ -220,16 +294,31 @@ body {
 			font-size: 3.4rem;
 			font-weight: 700;
 			li {
-				padding-left: 3rem;
+				padding: .5rem 0 .5rem 4rem;
 				position: relative;
-				min-height: 8rem;
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					bottom: 0;
+					left: 0;
+					height: .4rem;
+					background: #000;
+					width: 0;
+					transition: all .4s;
+				}
+				&.answer-box {
+					&::after {
+						width: 100%;
+					}
+				}
 				span.num {
 					position: absolute;
-					top: 0;
+					top: .3rem;
 					left: 0;
 				}
 				&:not(:first-of-type) {
-					margin-top: 2rem;
+					margin-top: 4rem;
 				}
 			}
 		}
@@ -395,7 +484,7 @@ body {
 		left: 1.15rem;
 		// border: .2rem solid #000;
 		border-radius: 50%;
-		background: #fcf1e2;
+		// background: #fcf1e2;
 		// background-image:
 		// 	linear-gradient(transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px)),
 		// 	linear-gradient(90deg, transparent calc(50% - 1px), #aaa calc(50% - 1px), #aaa calc(50% + 1px), transparent calc(50% + 1px));
@@ -434,7 +523,7 @@ body {
 		top: 0;
 		left: 0;
 		font-size: 6rem;
-		line-height: 25rem;
+		line-height: 24rem;
 
 	//   animation: count 10s infinite steps(10, start);
 	}

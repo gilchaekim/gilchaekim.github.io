@@ -19,5 +19,11 @@ export {default as Parallax} from './core/parallax';
 export {default as Quiz} from './core/quiz';
 
 
+
+
+
+export {default as Bubble} from './canvas/bubble';
+
+
 // 마크업진행표
 export {default as Worklists} from './custom/worklists';

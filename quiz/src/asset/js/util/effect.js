@@ -1,4 +1,5 @@
-import {$, append, remove} from './dom';
+import { addClass } from './class';
+import {$, $$, append, remove} from './dom';
 
 
 
@@ -38,8 +39,23 @@ export async function showAnswer(selector, text, audioSrc, delay = 0) {
     const template = `<div class="answer">
         <p class=" qu_answer">${text}</p>
     </div>`
+    
     return new Promise((resolve, reject) => {
-        const countElement = append(selector, template);
+        // const countElement = append(selector, template);
+        const sliderWrap = $('#quizSlider').uiComponents.slider.Swiper;
+        const activeIndex = sliderWrap.activeIndex;
+        const slides = $$('.lists.swiper-slide');
+        const objList = $$('.obj li', slides[activeIndex]);
+        console.log(objList);
+        if (!!objList) {
+            objList.forEach((el)=>{
+                const textAnswer = $('.text', el).innerHTML;
+                if (text.indexOf(textAnswer) !== -1) {
+                    addClass(el, 'answer-box');
+                }
+            })
+        }
+
         const audio = new Audio(effectAnswer);
         const answerAudio = new Audio(audioSrc);
         audio.play();
@@ -49,7 +65,7 @@ export async function showAnswer(selector, text, audioSrc, delay = 0) {
         answerAudio.onended = () =>{
             setTimeout(()=>{  
                 resolve();
-                remove(countElement);
+                // remove(countElement);
             }, delay)
         }
 

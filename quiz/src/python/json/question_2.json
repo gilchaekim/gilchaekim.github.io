@@ -1,0 +1,59 @@
+[
+  {
+    "question": {
+      "text": "세계에서 가장 높은 산은 무엇인가요?",
+      "audio": "audio/qu4.mp3"
+    },
+    "qu1": {
+      "text": "에베레스트"
+    },
+    "qu2": {
+      "text": "킬리만자로"
+    },
+    "qu3": {
+      "text": "안나푸르나"
+    },
+    "anwer": {
+      "text": "정답은 에베레스트입니다.",
+      "audio": "audio/ans4.mp3"
+    }
+  },
+  {
+    "question": {
+      "text": "지구의 자전축 기울기는 약 몇 도인가요?",
+      "audio": "audio/qu5.mp3"
+    },
+    "qu1": {
+      "text": "15도"
+    },
+    "qu2": {
+      "text": "23.5도"
+    },
+    "qu3": {
+      "text": "30도"
+    },
+    "anwer": {
+      "text": "정답은 23.5도입니다.",
+      "audio": "audio/ans5.mp3"
+    }
+  },
+  {
+    "question": {
+      "text": "국제 뉴스에서 'OPEC'은 무엇을 의미하나요?",
+      "audio": "audio/qu6.mp3"
+    },
+    "qu1": {
+      "text": "석유수출국 기구"
+    },
+    "qu2": {
+      "text": "석유수입국 기구"
+    },
+    "qu3": {
+      "text": "경제 협력 기구"
+    },
+    "anwer": {
+      "text": "정답은 석유수출국 기구입니다.",
+      "audio": "audio/ans6.mp3"
+    }
+  }
+]
