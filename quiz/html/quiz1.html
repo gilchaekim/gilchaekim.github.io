@@ -13,7 +13,7 @@
     <div id="wrapper">
         <div class="inner">
             <header id="header">
-                <h1>🥰상식 테스트⏳</h1>
+                <h1>Quiz On 상식</h1>
             </header>
             <section id="contents">
                 <div class="quiz_slider" id="quizSlider">
@@ -46,7 +46,13 @@
         //         },
         //     }
         // })
-        GCui.quiz('#quizSlider');
+        GCui.quiz('#quizSlider',{
+            endMsg:true,
+            bgm:true,
+            quPlay:false,
+            answerView:false
+        });
+        GCui.bubble('#wrapper');
         document.documentElement.addEventListener('click', function(){
             
         })

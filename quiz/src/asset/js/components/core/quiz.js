@@ -17,6 +17,8 @@ export default {
     props: {
         subject: Boolean,
         isIntro: Boolean,
+        quPlay:Boolean,
+        answerView:Boolean,
         answerDelay: Number,
         paging:Boolean,
         endMsg:Boolean,
@@ -26,6 +28,8 @@ export default {
         wrapper: '.swiper-wrapper',
         subject: false,
         isIntro: false,
+        quPlay:true,
+        answerView:true,
         intro:'.intro',
         answerDelay:0,
         paging:false,
@@ -43,15 +47,33 @@ export default {
     },
     created() {
         const that = this;
+        const endArr = [
+            {
+                endMsg:'첫 번째 문제의 정답은 무엇일까요?',
+                audio : '/audio/end_quiz1.mp3'
+            },
+            {
+                endMsg:'두 번째 문제의 정답은 무엇일까요?',
+                audio : '/audio/end_quiz2.mp3'
+            },
+            {
+                endMsg:'세 번째 문제의 정답은 무엇일까요?',
+                audio : '/audio/end_quiz3.mp3'
+            }
+        ];
+        this.endIdx = randomNumber(0, 2);
+        function randomNumber(min, max){
+            const rand = Math.floor(Math.random()*(max-min+1)) + min;
+            return rand;
+        }
+
         window.quizFinished = false;
         fetch(`/src/python/${this.getJson()}`)
             .then(res => res.json())
             .then(function(res) {
                 that.steps = res;
                 if (that.endMsg) {
-                    that.steps.push({
-                        endMsg: '풀어보고 싶은 상식퀴즈 분야가 있다면 댓글로 남겨주세요!'
-                    })                    
+                    that.steps.push(endArr[that.endIdx])
                 }
 
                 if (that.subject) {
@@ -95,7 +117,6 @@ export default {
 
     methods: {
         async start() {
-            console.log(this.isIntro);
             if (this.isIntro) {
                 await this.intro();
             }
@@ -108,11 +129,11 @@ export default {
         async play(step, index) {
             const { subject, answerDelay } = this;
             const defaultpath = '/src/python/'
-            console.log(index);
             return new Promise(async (resolve) => {
                 if (!!step.endMsg) {
-                    await this.playAudio('/audio/end_msg2.wav');
-                    this.slider.Swiper.slideNext();
+                    await this.playAudio(step.audio);
+                    await this.delay(1000);
+                    // this.slider.Swiper.slideNext();
                 } else {
 
                     if (subject) {
@@ -140,17 +161,20 @@ export default {
                     } else {
                         // 객관식   
                         const qAudio = `${defaultpath}${step.question.audio}`;
-                        const qu1Audio = `${defaultpath}${step.qu1.audio}`;
-                        const qu2Audio = `${defaultpath}${step.qu2.audio}`;
-                        const qu3Audio = `${defaultpath}${step.qu3.audio}`;
                         const aAudio = `${defaultpath}${step.anwer.audio}`;
                         await this.playAudio(qAudio);
-                        // await this.playAudio(qu1Audio);
-                        // await this.playAudio(qu2Audio);
-                        // await this.playAudio(qu3Audio);
+                        if (this.quPlay) {
+                            const qu1Audio = `${defaultpath}${step.qu1.audio}`;
+                            const qu2Audio = `${defaultpath}${step.qu2.audio}`;
+                            const qu3Audio = `${defaultpath}${step.qu3.audio}`;
+                            await this.playAudio(qu1Audio);
+                            await this.playAudio(qu2Audio);
+                            await this.playAudio(qu3Audio);                            
+                        }
+
                         await countdown('#contents', 3)
                         await this.delay(500);
-                        await showAnswer('#contents', step.anwer.text, aAudio);
+                        await showAnswer('#contents', step.anwer.text, aAudio, 0, this.answerView);
                         
                         await this.delay(500);
                         if (this.isIntro) {
@@ -212,8 +236,7 @@ export default {
             });
         },
         makeHTML(json) {
-            const { wrapper } = this;
-            console.log(wrapper);
+            const { wrapper, endIdx } = this;
             const list = json;
             let str = ''
             for (let i = 0; i < list.length; i++) {
@@ -222,6 +245,7 @@ export default {
                     str += `<div class="lists swiper-slide">
                         <div class="end_msg">
                             <p>${qu.endMsg}</p>
+                            <p class="qu">문제) ${list[endIdx].question.text}</p>
                         </div>
                     </div>`
                 } else {

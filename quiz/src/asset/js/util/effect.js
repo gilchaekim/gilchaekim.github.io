@@ -34,14 +34,19 @@ export async function countdown(selector, count) {
 }
 
 
-export async function showAnswer(selector, text, audioSrc, delay = 0) {
+export async function showAnswer(selector, text, audioSrc, delay = 0, isAnswerView = true) {
     const effectAnswer = '/audio/sound_answer.mp3'
     const template = `<div class="answer">
         <p class=" qu_answer">${text}</p>
     </div>`
     
     return new Promise((resolve, reject) => {
-        // const countElement = append(selector, template);
+        let countElement
+        if (isAnswerView) {
+            console.log('들어옴?');
+            countElement = append(selector, template);    
+        }
+        
         const sliderWrap = $('#quizSlider').uiComponents.slider.Swiper;
         const activeIndex = sliderWrap.activeIndex;
         const slides = $$('.lists.swiper-slide');
@@ -65,7 +70,7 @@ export async function showAnswer(selector, text, audioSrc, delay = 0) {
         answerAudio.onended = () =>{
             setTimeout(()=>{  
                 resolve();
-                // remove(countElement);
+                !!countElement && remove(countElement);
             }, delay)
         }
 

@@ -60,6 +60,13 @@ body {
 .quiz_shots {
 	&.type1 {
 		color: #000;
+		.cont {		  
+		  .number {
+				.timer_num {
+					line-height: 25rem;
+				}
+			}
+		}
 	}
 	&.type2 {
 		color: #fff;
@@ -83,6 +90,15 @@ body {
 			// font-weight: 900;
 		}
 		color: #000;
+		.end_msg {
+			font-family: 'KoPubBatang Bold';
+			font-weight: 900;
+			.qu {
+				text-align: left;
+				margin-top: 4rem;
+				font-size: 3.2rem;
+			}
+		}
 		#header{
 			h1{
 				background: none;
@@ -109,9 +125,33 @@ body {
 			background: rgba(255,255,255,.3);
 			.quiz_type1 {
 				.obj {
-					font-size: 3.6rem;
+					font-size: 3.4rem;
+					li {
+						&::after {
+							content: '';
+							display: block;
+							position: absolute;
+							bottom: 0;
+							left: 0;
+							height: .4rem;
+							background: #000;
+							width: 0;
+							transition: all .4s;
+						}
+						&.answer-box {
+							&::after {
+								width: 100%;
+							}
+						}
+						span.num {
+							position: absolute;
+							top: .3rem;
+							left: 0;
+						}
+					}
 				}
 			} 
+
 		}
 		.swiper-slide {
 			background:none;
@@ -215,7 +255,7 @@ body {
 #wrapper {
 	min-height: 100vh;
 	width: 100%;
-
+	display: flex;
 	padding-top: 6rem;
 	position: relative;
 	.inner {
@@ -296,22 +336,23 @@ body {
 			li {
 				padding: .5rem 0 .5rem 4rem;
 				position: relative;
-				&::after {
-					content: '';
-					display: block;
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					height: .4rem;
-					background: #000;
-					width: 0;
-					transition: all .4s;
-				}
-				&.answer-box {
-					&::after {
-						width: 100%;
-					}
-				}
+				word-break: keep-all;
+				// &::after {
+				// 	content: '';
+				// 	display: block;
+				// 	position: absolute;
+				// 	bottom: 0;
+				// 	left: 0;
+				// 	height: .4rem;
+				// 	background: #000;
+				// 	width: 0;
+				// 	transition: all .4s;
+				// }
+				// &.answer-box {
+				// 	&::after {
+				// 		width: 100%;
+				// 	}
+				// }
 				span.num {
 					position: absolute;
 					top: .3rem;
@@ -365,7 +406,8 @@ body {
 		font-size: 4rem;
 		font-weight: 700;
 		position: absolute;
-		bottom: 10rem;
+		z-index: 99;
+		bottom: 4rem;
 		left: 0;
 		right: 0;
 		text-align: center;
